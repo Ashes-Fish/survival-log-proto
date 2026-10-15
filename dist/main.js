@@ -398,10 +398,7 @@ var config_default = {
   sleepHoursOptions: [4, 8],
   waitMinutesOptions: [30, 120],
   priceBands: [
-    { fromMinute: 0, mult: 1 },
-    { fromMinute: 240, mult: 1.3 },
-    { fromMinute: 420, mult: 1.8 },
-    { fromMinute: 540, mult: 2.6 }
+    { fromMinute: 0, mult: 1 }
   ],
   awayPenalty: { lossFraction: 0.5, healthLoss: 25 },
   fuelItem: "fuel",
