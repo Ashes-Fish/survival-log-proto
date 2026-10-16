@@ -2,7 +2,9 @@
 var BACKPACK = "backpack";
 var TRUNK = "trunk";
 var HOME = "home";
-var RESERVED_CONTAINERS = [BACKPACK, TRUNK, HOME];
+var HAND = "hand";
+var RESERVED_CONTAINERS = [BACKPACK, TRUNK, HOME, HAND];
+var ROTATIONS = [0, 90, 180, 270];
 var STAT_IDS = ["satiety", "health", "energy", "mood"];
 var ACTIVITIES = ["idle", "work", "sleep", "travel"];
 
@@ -88,6 +90,21 @@ var Checker = class {
     for (const s of STAT_IDS) this.num(m[s], `${path}.${s}`);
     for (const k of Object.keys(m)) if (!STAT_IDS.includes(k)) this.err(`${path}.${k}`, `\u672A\u77E5\u72B6\u6001 "${k}"`);
   }
+  /** 格子尺寸 { w, h },都是正整数,不超过 30。 */
+  grid(v, path) {
+    const g = this.obj(v, path);
+    if (!g) return;
+    this.num(g.w, `${path}.w`, { int: true, min: 1, max: 30 });
+    this.num(g.h, `${path}.h`, { int: true, min: 1, max: 30 });
+  }
+  /** 形状:非空的字符串数组,每行一样长,只含 X 和 .,至少一个 X。 */
+  shape(v, path) {
+    const rows = this.arr(v, path);
+    if (!rows) return;
+    if (rows.length === 0 || !rows.every((r) => typeof r === "string" && /^[X.]+$/.test(r))) return this.err(path, "\u6BCF\u884C\u5E94\u4E3A\u53EA\u542B X \u548C . \u7684\u975E\u7A7A\u5B57\u7B26\u4E32");
+    if (new Set(rows.map((r) => r.length)).size !== 1) this.err(path, "\u6BCF\u884C\u5E94\u4E00\u6837\u957F");
+    if (!rows.some((r) => r.includes("X"))) this.err(path, "\u81F3\u5C11\u8981\u6709\u4E00\u4E2A X");
+  }
   range(v, path, opt = {}) {
     const a = this.arr(v, path);
     if (!a) return;
@@ -121,9 +138,9 @@ function validateGameData(raw) {
     statMax = n("statMax", { gt: 0 }) ?? 100;
     n("sleepDecayMult", { min: 0 });
     n("buyMinutes", { int: true, min: 0 });
-    n("backpackCapacity", { int: true, gt: 0 });
-    n("moveMinutes", { int: true, min: 0 });
-    n("unloadMinutes", { int: true, min: 0 });
+    c.grid(cfg.backpackGrid, `${cfgPath}.backpackGrid`);
+    c.grid(cfg.homeGrid, `${cfgPath}.homeGrid`);
+    n("stackAgeFraction", { min: 0, max: 1 });
     n("plantMinutes", { int: true, min: 0 });
     n("harvestMinutes", { int: true, min: 0 });
     n("gridOutageDay", { int: true, min: 1 });
@@ -191,7 +208,12 @@ function validateGameData(raw) {
     const cat = c.str(o.category, `${p}.category`);
     if (cat && !ITEM_CATEGORIES.includes(cat)) c.err(`${p}.category`, `\u672A\u77E5\u7C7B\u522B "${cat}"`);
     c.opt(o.shelfLifeMinutes, (v) => c.num(v, `${p}.shelfLifeMinutes`, { int: true, gt: 0 }));
-    c.opt(o.size, (v) => c.num(v, `${p}.size`, { min: 0 }));
+    if (o.size !== void 0) c.err(`${p}.size`, "\u5DF2\u5E9F\u5F03:\u6539\u7528 shape(\u5F62\u72B6)\u548C stack(\u53E0\u653E\u4E0A\u9650)");
+    c.opt(o.shape, (v) => c.shape(v, `${p}.shape`));
+    c.opt(o.stack, (v) => c.num(v, `${p}.stack`, { int: true, min: 1 }));
+    c.opt(o.glyph, (v) => {
+      if (typeof v !== "string" || v.length < 1 || v.length > 2) c.err(`${p}.glyph`, "\u5E94\u4E3A 1~2 \u4E2A\u5B57");
+    });
     c.opt(o.use, (v) => {
       const u = c.obj(v, `${p}.use`);
       if (!u) return;
@@ -259,7 +281,8 @@ function validateGameData(raw) {
         const sp = `${lp}.storage`;
         const so = c.obj(v, sp);
         if (!so) return;
-        c.num(so.capacity, `${sp}.capacity`, { gt: 0 });
+        if (so.capacity !== void 0) c.err(`${sp}.capacity`, "\u5DF2\u5E9F\u5F03:\u6539\u7528 grid");
+        c.grid(so.grid, `${sp}.grid`);
         c.opt(so.spoilMult, (x) => c.num(x, `${sp}.spoilMult`, { gt: 0, max: 1 }));
         c.opt(so.needsPower, (x) => c.bool(x, `${sp}.needsPower`));
         c.opt(so.breachLossMult, (x) => c.num(x, `${sp}.breachLossMult`, { min: 0, max: 1 }));
@@ -405,15 +428,29 @@ function validateGameData(raw) {
     c.opt(e.startMoney, (v) => c.num(v, `${p}.effect.startMoney`, { int: true, min: 0 }));
     c.opt(e.startItems, (v) => c.qtyMap(v, `${p}.effect.startItems`, items));
     c.opt(e.startStats, (v) => c.partialStats(v, `${p}.effect.startStats`));
-    c.opt(e.backpackBonus, (v) => c.num(v, `${p}.effect.backpackBonus`, { int: true, min: 0 }));
+    c.opt(e.backpackRows, (v) => c.num(v, `${p}.effect.backpackRows`, { int: true, min: 0 }));
   });
   c.table(root.vehicles, "$.vehicles", (o, _id, p) => {
     c.str(o.name, `${p}.name`);
     if (typeof o.description !== "string") c.err(`${p}.description`, "\u5E94\u4E3A\u5B57\u7B26\u4E32");
     c.num(o.price, `${p}.price`, { int: true, min: 1 });
-    c.num(o.trunkCapacity, `${p}.trunkCapacity`, { int: true, gt: 0 });
+    c.grid(o.trunkGrid, `${p}.trunkGrid`);
     c.num(o.travelMult, `${p}.travelMult`, { gt: 0, max: 1 });
   });
+  if (isObj(root.config) && isObj(root.config.backpackGrid)) {
+    const bg = root.config.backpackGrid;
+    const spoiled = typeof root.config.spoiledItem === "string" ? items[root.config.spoiledItem] : void 0;
+    for (const [id, it] of Object.entries(items)) {
+      if (!isObj(it)) continue;
+      const rows = Array.isArray(it.shape) && it.shape.every((r) => typeof r === "string") ? it.shape : ["X"];
+      const h2 = rows.length;
+      const wd = Math.max(...rows.map((r) => r.length));
+      if (isNum(bg.w) && isNum(bg.h) && !(wd <= bg.w && h2 <= bg.h || h2 <= bg.w && wd <= bg.h)) c.err(`$.items.${id}.shape`, "\u7A7A\u80CC\u5305\u91CC\u4E5F\u653E\u4E0D\u4E0B");
+      if (spoiled && it.shelfLifeMinutes !== void 0 && isNum(it.stack) && isNum(spoiled.stack ?? 1) && it.stack > (spoiled.stack ?? 1))
+        c.err(`$.items.${id}.stack`, `\u4F1A\u8150\u8D25,\u53E0\u653E\u4E0A\u9650 ${it.stack} \u4E0D\u80FD\u5927\u4E8E\u8150\u8D25\u7269\u7684 ${spoiled.stack ?? 1}`);
+    }
+    if (spoiled && Array.isArray(spoiled.shape) && !(spoiled.shape.length === 1 && spoiled.shape[0] === "X")) c.err(`$.items.${String(root.config.spoiledItem)}.shape`, "\u8150\u8D25\u7269\u5FC5\u987B\u662F 1\xD71");
+  }
   void crops;
   if (c.errors.length) throw new Error(`\u6E38\u620F\u6570\u636E\u6821\u9A8C\u5931\u8D25(${c.errors.length} \u5904):
 ${c.errors.join("\n")}`);
@@ -433,9 +470,9 @@ var config_default = {
   sleepDecayMult: 0.4,
   homeLocation: "home",
   buyMinutes: 5,
-  backpackCapacity: 30,
-  moveMinutes: 5,
-  unloadMinutes: 10,
+  backpackGrid: { w: 6, h: 4 },
+  homeGrid: { w: 12, h: 10 },
+  stackAgeFraction: 0.05,
   plantMinutes: 15,
   harvestMinutes: 10,
   buyQuantities: [1, 3, 5],
@@ -457,27 +494,27 @@ var config_default = {
 
 // src/data/content/items.json
 var items_default = {
-  instant_noodle: { id: "instant_noodle", name: "\u65B9\u4FBF\u9762", category: "food", shelfLifeMinutes: 43200, use: { minutes: 10, stats: { satiety: 22, mood: 1 } } },
-  canned_food: { id: "canned_food", name: "\u7F50\u5934", category: "food", shelfLifeMinutes: 43200, use: { minutes: 10, stats: { satiety: 30 } } },
-  bread: { id: "bread", name: "\u9762\u5305", category: "food", shelfLifeMinutes: 2880, use: { minutes: 5, stats: { satiety: 20, mood: 2 } } },
-  rice: { id: "rice", name: "\u5927\u7C73", category: "material", shelfLifeMinutes: 6e4, size: 4 },
-  meat: { id: "meat", name: "\u9C9C\u8089", category: "material", shelfLifeMinutes: 1440, size: 2 },
-  vegetable: { id: "vegetable", name: "\u852C\u83DC", category: "food", shelfLifeMinutes: 1800, use: { minutes: 5, stats: { satiety: 10, health: 1 } } },
-  potato: { id: "potato", name: "\u571F\u8C46", category: "food", shelfLifeMinutes: 6e3, use: { minutes: 10, stats: { satiety: 16 } } },
-  cooked_meal: { id: "cooked_meal", name: "\u70ED\u996D\u83DC", category: "food", shelfLifeMinutes: 720, use: { minutes: 15, stats: { satiety: 40, mood: 9, health: 2 } } },
-  water_bottle: { id: "water_bottle", name: "\u74F6\u88C5\u6C34", category: "drink", use: { minutes: 1, stats: { satiety: 3, mood: 0.5 } } },
-  medicine: { id: "medicine", name: "\u6297\u751F\u7D20", category: "medicine", use: { minutes: 2, stats: { health: 12 }, removeEffects: ["infection"] } },
-  bandage: { id: "bandage", name: "\u7EF7\u5E26", category: "medicine", use: { minutes: 3, stats: { health: 8 } } },
-  snack: { id: "snack", name: "\u96F6\u98DF", category: "food", shelfLifeMinutes: 2e4, use: { minutes: 2, stats: { satiety: 6, mood: 8 } } },
-  wood: { id: "wood", name: "\u6728\u677F", category: "material", size: 3 },
-  metal: { id: "metal", name: "\u91D1\u5C5E\u4EF6", category: "material", size: 2 },
-  scrap: { id: "scrap", name: "\u5E9F\u6599", category: "material" },
-  fuel: { id: "fuel", name: "\u71C3\u6599", category: "fuel", size: 3 },
-  seed_potato: { id: "seed_potato", name: "\u571F\u8C46\u79CD", category: "seed", size: 0 },
-  seed_veg: { id: "seed_veg", name: "\u83DC\u79CD", category: "seed", size: 0 },
-  seed_corn: { id: "seed_corn", name: "\u7389\u7C73\u79CD", category: "seed", size: 0 },
-  corn: { id: "corn", name: "\u7389\u7C73", category: "food", shelfLifeMinutes: 5e3, use: { minutes: 8, stats: { satiety: 18 } } },
-  rotten: { id: "rotten", name: "\u8150\u8D25\u7269", category: "junk", use: { minutes: 5, stats: { satiety: 8, health: -6 }, applyEffects: ["infection"] } }
+  instant_noodle: { id: "instant_noodle", name: "\u65B9\u4FBF\u9762", category: "food", shelfLifeMinutes: 43200, use: { minutes: 10, stats: { satiety: 22, mood: 1 } }, stack: 5, glyph: "\u9762" },
+  canned_food: { id: "canned_food", name: "\u7F50\u5934", category: "food", shelfLifeMinutes: 43200, use: { minutes: 10, stats: { satiety: 30 } }, stack: 4, glyph: "\u7F50" },
+  bread: { id: "bread", name: "\u9762\u5305", category: "food", shelfLifeMinutes: 2880, use: { minutes: 5, stats: { satiety: 20, mood: 2 } }, stack: 3, glyph: "\u5305" },
+  rice: { id: "rice", name: "\u5927\u7C73", category: "material", shelfLifeMinutes: 6e4, shape: ["XX", "XX"], glyph: "\u7C73" },
+  meat: { id: "meat", name: "\u9C9C\u8089", category: "material", shelfLifeMinutes: 1440, shape: ["XX"], glyph: "\u8089" },
+  vegetable: { id: "vegetable", name: "\u852C\u83DC", category: "food", shelfLifeMinutes: 1800, use: { minutes: 5, stats: { satiety: 10, health: 1 } }, stack: 4, glyph: "\u852C" },
+  potato: { id: "potato", name: "\u571F\u8C46", category: "food", shelfLifeMinutes: 6e3, use: { minutes: 10, stats: { satiety: 16 } }, stack: 6, glyph: "\u8C46" },
+  cooked_meal: { id: "cooked_meal", name: "\u70ED\u996D\u83DC", category: "food", shelfLifeMinutes: 720, use: { minutes: 15, stats: { satiety: 40, mood: 9, health: 2 } }, stack: 3, glyph: "\u996D" },
+  water_bottle: { id: "water_bottle", name: "\u74F6\u88C5\u6C34", category: "drink", use: { minutes: 1, stats: { satiety: 3, mood: 0.5 } }, shape: ["X", "X"], stack: 3, glyph: "\u6C34" },
+  medicine: { id: "medicine", name: "\u6297\u751F\u7D20", category: "medicine", use: { minutes: 2, stats: { health: 12 }, removeEffects: ["infection"] }, stack: 5, glyph: "\u836F" },
+  bandage: { id: "bandage", name: "\u7EF7\u5E26", category: "medicine", use: { minutes: 3, stats: { health: 8 } }, stack: 5, glyph: "\u7EF7" },
+  snack: { id: "snack", name: "\u96F6\u98DF", category: "food", shelfLifeMinutes: 2e4, use: { minutes: 2, stats: { satiety: 6, mood: 8 } }, stack: 5, glyph: "\u96F6" },
+  wood: { id: "wood", name: "\u6728\u677F", category: "material", shape: ["XXX"], stack: 2, glyph: "\u6728" },
+  metal: { id: "metal", name: "\u91D1\u5C5E\u4EF6", category: "material", shape: ["XX", "X."], stack: 2, glyph: "\u94C1" },
+  scrap: { id: "scrap", name: "\u5E9F\u6599", category: "material", stack: 5, glyph: "\u5E9F" },
+  fuel: { id: "fuel", name: "\u71C3\u6599", category: "fuel", shape: ["X", "X"], stack: 2, glyph: "\u6CB9" },
+  seed_potato: { id: "seed_potato", name: "\u571F\u8C46\u79CD", category: "seed", stack: 10, glyph: "\u85AF" },
+  seed_veg: { id: "seed_veg", name: "\u83DC\u79CD", category: "seed", stack: 10, glyph: "\u83DC" },
+  seed_corn: { id: "seed_corn", name: "\u7389\u7C73\u79CD", category: "seed", stack: 10, glyph: "\u7C9F" },
+  corn: { id: "corn", name: "\u7389\u7C73", category: "food", shelfLifeMinutes: 5e3, use: { minutes: 8, stats: { satiety: 18 } }, stack: 4, glyph: "\u7389" },
+  rotten: { id: "rotten", name: "\u8150\u8D25\u7269", category: "junk", use: { minutes: 5, stats: { satiety: 8, health: -6 }, applyEffects: ["infection"] }, stack: 6, glyph: "\u8150" }
 };
 
 // src/data/content/effects.json
@@ -515,13 +552,13 @@ var facilities_default = {
     { cost: { metal: 8, scrap: 8 }, buildMinutes: 120, defense: 9, needsPower: true }
   ] },
   fridge: { id: "fridge", name: "\u51B0\u7BB1", description: "\u653E\u5728\u91CC\u9762\u7684\u98DF\u7269\u8150\u8D25\u5927\u5E45\u51CF\u7F13\u3002\u9700\u8981\u901A\u7535\u3002", levels: [
-    { cost: { metal: 4, scrap: 3 }, buildMinutes: 60, storage: { capacity: 20, spoilMult: 0.3, needsPower: true, accepts: ["food", "drink", "material"] } }
+    { cost: { metal: 4, scrap: 3 }, buildMinutes: 60, storage: { grid: { w: 4, h: 4 }, spoilMult: 0.3, needsPower: true, accepts: ["food", "drink", "material"] } }
   ] },
   shelf: { id: "shelf", name: "\u50A8\u7269\u67B6", description: "\u7269\u8D44\u6446\u4E0A\u67B6\u5B50,\u5C38\u6F6E\u7834\u95E8\u65F6\u635F\u5931\u5C11\u5F97\u591A\u3002", levels: [
-    { cost: { wood: 1, scrap: 3 }, buildMinutes: 40, storage: { capacity: 40, breachLossMult: 0.3 } }
+    { cost: { wood: 1, scrap: 3 }, buildMinutes: 40, storage: { grid: { w: 6, h: 5 }, breachLossMult: 0.3 } }
   ] },
   stash: { id: "stash", name: "\u6697\u683C", description: "\u85CF\u5728\u5899\u91CC\u7684\u5C0F\u7A7A\u95F4,\u5C38\u6F6E\u627E\u4E0D\u5230\u3002\u653E\u4EC0\u4E48\u7531\u4F60\u51B3\u5B9A\u3002", levels: [
-    { cost: { wood: 2, metal: 1 }, buildMinutes: 60, storage: { capacity: 8, breachLossMult: 0, autoFill: false } }
+    { cost: { wood: 2, metal: 1 }, buildMinutes: 60, storage: { grid: { w: 3, h: 2 }, breachLossMult: 0, autoFill: false } }
   ] },
   planter: { id: "planter", name: "\u79CD\u690D\u7BB1", description: "\u9633\u53F0\u4E0A\u7684\u79CD\u690D\u4F4D\u3002", levels: [
     { cost: { wood: 3 }, buildMinutes: 45, cropSlots: 2 },
@@ -687,13 +724,13 @@ var perks_default = {
   pantry: { id: "pantry", name: "\u50A8\u7269\u67DC", description: "\u5F00\u5C40\u643A\u5E26 3 \u7F50\u7F50\u5934\u548C 3 \u74F6\u6C34\u3002", cost: 40, effect: { startItems: { canned_food: 3, water_bottle: 3 } } },
   calm: { id: "calm", name: "\u5FC3\u7406\u51C6\u5907", description: "\u9884\u77E5\u707E\u96BE,\u5FC3\u6001 +15\u3002", cost: 40, effect: { startStats: { mood: 15 } } },
   toolkit: { id: "toolkit", name: "\u5DE5\u5177\u7BB1", description: "\u5F00\u5C40\u5E26 4 \u5757\u6728\u677F\u548C 2 \u4E2A\u91D1\u5C5E\u4EF6\u3002", cost: 60, effect: { startItems: { wood: 4, metal: 2 } } },
-  hiking_pack: { id: "hiking_pack", name: "\u767B\u5C71\u5305", description: "\u4E0A\u4E00\u8F6E\u5403\u591F\u4E86\u6765\u56DE\u8DD1\u7684\u82E6:\u80CC\u5305\u5BB9\u91CF +15\u3002", cost: 50, effect: { backpackBonus: 15 } },
+  hiking_pack: { id: "hiking_pack", name: "\u767B\u5C71\u5305", description: "\u4E0A\u4E00\u8F6E\u5403\u591F\u4E86\u6765\u56DE\u8DD1\u7684\u82E6:\u80CC\u5305\u591A 2 \u884C\u683C\u5B50\u3002", cost: 50, effect: { backpackRows: 2 } },
   loop_veteran: { id: "loop_veteran", name: "\u8001\u8F6E\u56DE\u8005", description: "\u5F00\u5C40\u591A 600 \u5143\u3002", cost: 100, effect: { startMoney: 600 } }
 };
 
 // src/data/content/vehicles.json
 var vehicles_default = {
-  van: { id: "van", name: "\u4E8C\u624B\u9762\u5305\u8F66", description: "\u5F00\u5F97\u52A8\u5C31\u884C\u3002\u540E\u5907\u7BB1\u80FD\u591A\u88C5\u4E0D\u5C11,\u8DD1\u4E00\u8D9F\u4E5F\u5FEB\u3002", price: 300, trunkCapacity: 40, travelMult: 0.6 }
+  van: { id: "van", name: "\u4E8C\u624B\u9762\u5305\u8F66", description: "\u5F00\u5F97\u52A8\u5C31\u884C\u3002\u540E\u5907\u7BB1\u80FD\u591A\u88C5\u4E0D\u5C11,\u8DD1\u4E00\u8D9F\u4E5F\u5FEB\u3002", price: 300, trunkGrid: { w: 8, h: 5 }, travelMult: 0.6 }
 };
 
 // src/data/index.ts
@@ -738,6 +775,10 @@ var DEFAULT_TAG = {
   vehicle_bought: "good",
   moved: "info",
   unloaded: "info",
+  to_hand: "warn",
+  stowed: "info",
+  arranged: "info",
+  hand_left: "warn",
   disaster_begins: "danger",
   away_penalty: "danger",
   day_start: "info",
@@ -786,6 +827,63 @@ function pickWeighted(ctx, items, weight) {
   return items[items.length - 1];
 }
 
+// src/core/grid.ts
+var cellsCache = /* @__PURE__ */ new Map();
+function shapeCells(shape, rot) {
+  const key = `${shape.join("/")}@${rot}`;
+  let cells = cellsCache.get(key);
+  if (!cells) {
+    let pts = [];
+    shape.forEach((row, y) => [...row].forEach((ch, x) => ch === "X" && pts.push([x, y])));
+    for (let r = 0; r < rot; r += 90) {
+      const h2 = Math.max(...pts.map(([, y]) => y)) + 1;
+      pts = pts.map(([x, y]) => [h2 - 1 - y, x]);
+    }
+    const minX = Math.min(...pts.map(([x]) => x));
+    const minY = Math.min(...pts.map(([, y]) => y));
+    cells = pts.map(([x, y]) => [x - minX, y - minY]).sort((a, b) => a[1] - b[1] || a[0] - b[0]);
+    cellsCache.set(key, cells);
+  }
+  return cells;
+}
+function distinctRotations(shape) {
+  const seen = /* @__PURE__ */ new Set();
+  return ROTATIONS.filter((rot) => {
+    const sig = shapeCells(shape, rot).join(";");
+    if (seen.has(sig)) return false;
+    seen.add(sig);
+    return true;
+  });
+}
+function emptyOccupancy(size) {
+  return new Int32Array(size.w * size.h);
+}
+function mark(occ, size, cells, x, y, id) {
+  for (const [cx, cy] of cells) occ[(y + cy) * size.w + (x + cx)] = id;
+}
+function inBounds(size, cells, x, y) {
+  return cells.every(([cx, cy]) => x + cx >= 0 && y + cy >= 0 && x + cx < size.w && y + cy < size.h);
+}
+function blockersAt(occ, size, cells, x, y) {
+  const ids = [];
+  for (const [cx, cy] of cells) {
+    const id = occ[(y + cy) * size.w + (x + cx)];
+    if (id !== 0 && !ids.includes(id)) ids.push(id);
+  }
+  return ids;
+}
+function firstFit(occ, size, shape, rots) {
+  for (const rot of rots) {
+    const cells = shapeCells(shape, rot);
+    for (let y = 0; y < size.h; y++) {
+      for (let x = 0; x < size.w; x++) {
+        if (inBounds(size, cells, x, y) && blockersAt(occ, size, cells, x, y).length === 0) return { x, y, rot };
+      }
+    }
+  }
+  return null;
+}
+
 // src/core/inventory.ts
 var inWhere = (s, where) => !where || where.includes(s.where);
 function countItem(run, item, where) {
@@ -793,21 +891,33 @@ function countItem(run, item, where) {
   for (const s of run.inventory) if (s.item === item && inWhere(s, where)) n += s.qty;
   return n;
 }
-function addItem(run, item, qty, age, where) {
-  if (!Number.isInteger(qty) || qty <= 0) throw new Error(`addItem: bad qty ${qty}`);
-  const same = run.inventory.find((s) => s.item === item && s.age === age && s.where === where);
-  if (same) same.qty += qty;
-  else run.inventory.push({ item, qty, age, where });
-}
 function hasItems(run, req, where) {
   for (const [item, qty] of Object.entries(req)) if (countItem(run, item, where) < qty) return false;
   return true;
+}
+function newPiece(run, p) {
+  if (!Number.isInteger(p.qty) || p.qty <= 0) throw new Error(`newPiece: bad qty ${p.qty}`);
+  const s = { id: run.nextPieceId++, ...p };
+  run.inventory.push(s);
+  return s;
+}
+function applyPlan(run, item, age, plan) {
+  for (const op of plan.ops) {
+    if (op.kind === "merge") {
+      const s = run.inventory.find((x) => x.id === op.id);
+      if (!s) throw new Error(`applyPlan: no piece ${op.id}`);
+      s.qty += op.qty;
+      s.age = Math.max(s.age, age);
+    } else {
+      newPiece(run, { item, qty: op.qty, age, where: op.where, x: op.x, y: op.y, rot: op.rot });
+    }
+  }
 }
 function takeItem(run, item, qty, where) {
   if (!Number.isInteger(qty) || qty <= 0) throw new Error(`takeItem: bad qty ${qty}`);
   if (countItem(run, item, where) < qty) return null;
   const rank = (s) => where ? where.indexOf(s.where) : 0;
-  const stacks = run.inventory.map((s, i) => ({ s, i })).filter(({ s }) => s.item === item && inWhere(s, where)).sort((a, b) => b.s.age - a.s.age || rank(a.s) - rank(b.s) || a.i - b.i).map(({ s }) => s);
+  const stacks = run.inventory.filter((s) => s.item === item && inWhere(s, where)).sort((a, b) => b.age - a.age || rank(a) - rank(b) || a.id - b.id);
   const taken = [];
   let left = qty;
   for (const s of stacks) {
@@ -828,10 +938,20 @@ function removeItems(run, req, where) {
   for (const [item, qty] of Object.entries(req)) if (qty > 0) removeItem(run, item, qty, where);
   return true;
 }
+function takeFromPiece(run, id, qty) {
+  const s = run.inventory.find((x) => x.id === id);
+  if (!s || !Number.isInteger(qty) || qty <= 0 || qty > s.qty) return null;
+  s.qty -= qty;
+  if (s.qty === 0) run.inventory = run.inventory.filter((x) => x !== s);
+  return { ...s, qty };
+}
 function inventoryTotals(run, where) {
   const out = {};
   for (const s of run.inventory) if (inWhere(s, where)) out[s.item] = (out[s.item] ?? 0) + s.qty;
   return out;
+}
+function addTotals(into, item, qty) {
+  if (qty > 0) into[item] = (into[item] ?? 0) + qty;
 }
 
 // src/core/world.ts
@@ -920,8 +1040,11 @@ function cropSlotCount(w) {
   for (const b of builtLevels(w)) n += b.def.cropSlots ?? 0;
   return n;
 }
-function itemSize(data2, item) {
-  return data2.items[item]?.size ?? 1;
+function itemShape(data2, item) {
+  return data2.items[item]?.shape ?? ["X"];
+}
+function itemStack(data2, item) {
+  return data2.items[item]?.stack ?? 1;
 }
 var storageIdsCache = /* @__PURE__ */ new WeakMap();
 function storageFacilityIds(data2) {
@@ -933,18 +1056,18 @@ function storageFacilityIds(data2) {
   return ids;
 }
 function isContainerId(data2, where) {
-  if (where === BACKPACK || where === TRUNK || where === HOME) return true;
+  if (where === BACKPACK || where === TRUNK || where === HOME || where === HAND) return true;
   return typeof where === "string" && storageFacilityIds(data2).includes(where);
 }
 function isHomeSide(where) {
-  return where !== BACKPACK && where !== TRUNK;
+  return where !== BACKPACK && where !== TRUNK && where !== HAND;
 }
 function storageOf(w, where) {
   if (!isHomeSide(where) || where === HOME) return null;
   return levelDef(w.data, where, facilityLevel(w.run, where))?.storage ?? null;
 }
 function containerExists(w, where) {
-  if (where === BACKPACK || where === HOME) return true;
+  if (where === BACKPACK || where === HOME || where === HAND) return true;
   if (where === TRUNK) return w.run.vehicle !== null && w.run.phase === "stockpile";
   return storageOf(w, where) !== null;
 }
@@ -956,33 +1079,37 @@ function containerError(w, where) {
   return null;
 }
 function accessibleContainers(w) {
-  return [BACKPACK, TRUNK, HOME, ...storageFacilityIds(w.data)].filter((c) => containerError(w, c) === null);
+  return [HAND, BACKPACK, TRUNK, HOME, ...storageFacilityIds(w.data)].filter((c) => containerError(w, c) === null);
 }
 function homeContainers(w) {
   return [HOME, ...storageFacilityIds(w.data)].filter((c) => containerExists(w, c));
 }
-function backpackCapacity(w) {
-  let cap = w.data.config.backpackCapacity;
-  for (const id of w.meta.perks) cap += w.data.perks[id]?.effect.backpackBonus ?? 0;
-  return cap;
-}
-function containerCapacity(w, where) {
-  if (where === HOME) return Infinity;
-  if (where === BACKPACK) return backpackCapacity(w);
-  if (where === TRUNK) return w.run.vehicle ? w.data.vehicles[w.run.vehicle]?.trunkCapacity ?? 0 : 0;
-  return storageOf(w, where)?.capacity ?? 0;
+function gridOf(w, where) {
+  if (where === HAND || !containerExists(w, where)) return null;
+  if (where === BACKPACK) {
+    let rows = 0;
+    for (const id of w.meta.perks) rows += w.data.perks[id]?.effect.backpackRows ?? 0;
+    const g = w.data.config.backpackGrid;
+    return { w: g.w, h: g.h + rows };
+  }
+  if (where === TRUNK) return w.data.vehicles[w.run.vehicle]?.trunkGrid ?? null;
+  if (where === HOME) return w.data.config.homeGrid;
+  return storageOf(w, where)?.grid ?? null;
 }
 function containerUsed(w, where) {
   let n = 0;
-  for (const s of w.run.inventory) if (s.where === where) n += s.qty * itemSize(w.data, s.item);
+  for (const s of w.run.inventory) if (s.where === where) n += where === HAND ? 1 : shapeCells(itemShape(w.data, s.item), s.rot).length;
   return n;
 }
-function containerFree(w, where) {
-  return Math.max(0, containerCapacity(w, where) - containerUsed(w, where));
-}
-function fitCount(w, where, item) {
-  const size = itemSize(w.data, item);
-  return size === 0 ? Infinity : Math.floor(containerFree(w, where) / size + 1e-9);
+function occupancyOf(w, where, exclude = 0) {
+  const size = gridOf(w, where);
+  if (!size) return null;
+  const occ = emptyOccupancy(size);
+  for (const s of w.run.inventory) {
+    if (s.where !== where || s.id === exclude) continue;
+    mark(occ, size, shapeCells(itemShape(w.data, s.item), s.rot), s.x, s.y, s.id);
+  }
+  return occ;
 }
 function containerAccepts(w, where, item) {
   const accepts = storageOf(w, where)?.accepts;
@@ -998,20 +1125,59 @@ function containerSpoilMult(w, where) {
 function containerBreachMult(w, where) {
   return storageOf(w, where)?.breachLossMult ?? 1;
 }
-function packInto(w, item, qty, order) {
-  const alloc = [];
+function canStackOnto(data2, item, age, s) {
+  if (s.item !== item) return false;
+  const shelf = data2.items[item]?.shelfLifeMinutes;
+  if (shelf === void 0) return true;
+  return Math.abs(s.age - age) <= shelf * data2.config.stackAgeFraction + 1e-9;
+}
+function planPlacement(w, item, qty, age, order) {
+  const { data: data2 } = w;
+  const stack = itemStack(data2, item);
+  const shape = itemShape(data2, item);
+  const rots = distinctRotations(shape);
+  const ops = [];
+  const placed = {};
   let left = qty;
+  const add = (where, n) => placed[where] = (placed[where] ?? 0) + n;
   for (const where of order) {
     if (left === 0) break;
-    const n = Math.min(left, fitCount(w, where, item));
-    if (n > 0) {
-      alloc.push({ where, qty: n });
+    if (!containerAccepts(w, where, item)) continue;
+    for (const s of w.run.inventory) {
+      if (left === 0) break;
+      if (s.where !== where || !canStackOnto(data2, item, age, s)) continue;
+      const n = Math.min(left, stack - s.qty);
+      if (n > 0) {
+        ops.push({ kind: "merge", id: s.id, qty: n });
+        add(where, n);
+        left -= n;
+      }
+    }
+    if (where === HAND) {
+      while (left > 0) {
+        const n = Math.min(left, stack);
+        ops.push({ kind: "new", where, x: 0, y: 0, rot: 0, qty: n });
+        add(where, n);
+        left -= n;
+      }
+      break;
+    }
+    const size = gridOf(w, where);
+    const occ = occupancyOf(w, where);
+    if (!size || !occ) continue;
+    while (left > 0) {
+      const spot = firstFit(occ, size, shape, rots);
+      if (!spot) break;
+      const n = Math.min(left, stack);
+      mark(occ, size, shapeCells(shape, spot.rot), spot.x, spot.y, -1);
+      ops.push({ kind: "new", where, ...spot, qty: n });
+      add(where, n);
       left -= n;
     }
   }
-  return { alloc, left };
+  return { ops, placed, left };
 }
-function placeFor(w, item, qty) {
+function homeOrder(w, item, withHand) {
   const perishable = w.data.items[item]?.shelfLifeMinutes !== void 0;
   const auto = storageFacilityIds(w.data).filter((id) => {
     const st = storageOf(w, id);
@@ -1020,9 +1186,42 @@ function placeFor(w, item, qty) {
   const byMult = (mult) => auto.filter((id) => mult(id) < 1).sort((a, b) => mult(a) - mult(b) || (a < b ? -1 : 1));
   const cold = perishable ? byMult((id) => containerSpoilMult(w, id)) : [];
   const safe = byMult((id) => containerBreachMult(w, id)).filter((id) => !cold.includes(id));
-  const { alloc, left } = packInto(w, item, qty, [...cold, ...safe]);
-  if (left > 0) alloc.push({ where: HOME, qty: left });
-  return alloc;
+  return [...cold, ...safe, HOME, ...withHand ? [HAND] : []];
+}
+function arrangeLayout(w, where) {
+  const { data: data2 } = w;
+  const size = gridOf(w, where);
+  if (!size) return null;
+  const pieces = w.run.inventory.filter((s) => s.where === where).map((s) => ({ ...s }));
+  pieces.sort((a, b) => a.id - b.id);
+  const kept = [];
+  const removed = [];
+  for (const p of pieces) {
+    let rest = p.qty;
+    for (const k of kept) {
+      if (rest === 0) break;
+      if (!canStackOnto(data2, p.item, p.age, k)) continue;
+      const n = Math.min(rest, itemStack(data2, p.item) - k.qty);
+      if (n > 0) {
+        k.qty += n;
+        k.age = Math.max(k.age, p.age);
+        rest -= n;
+      }
+    }
+    if (rest > 0) kept.push({ ...p, qty: rest });
+    else removed.push(p.id);
+  }
+  const cellCount = (s) => shapeCells(itemShape(data2, s.item), 0).length;
+  kept.sort((a, b) => cellCount(b) - cellCount(a) || (a.item < b.item ? -1 : a.item > b.item ? 1 : 0) || a.age - b.age || a.id - b.id);
+  const occ = emptyOccupancy(size);
+  for (const s of kept) {
+    const shape = itemShape(data2, s.item);
+    const spot = firstFit(occ, size, shape, distinctRotations(shape));
+    if (!spot) return null;
+    mark(occ, size, shapeCells(shape, spot.rot), spot.x, spot.y, s.id);
+    Object.assign(s, spot);
+  }
+  return { layout: kept, removed };
 }
 function thresholdEffects(data2, stats) {
   const out = [];
@@ -1087,6 +1286,42 @@ function isEnded(run) {
   return run.phase === "dead" || run.phase === "victory";
 }
 
+// src/sim/hand.ts
+function leaveWithHand(ctx) {
+  const { run, data: data2 } = ctx;
+  const pieces = run.inventory.filter((s) => s.where === HAND).sort((a, b) => a.id - b.id);
+  if (!pieces.length) return;
+  run.inventory = run.inventory.filter((s) => s.where !== HAND);
+  const placed = {};
+  const lost = {};
+  const atHome = run.location === data2.config.homeLocation;
+  for (const s of pieces) {
+    let left = s.qty;
+    if (atHome) {
+      const plan = planPlacement(ctx, s.item, s.qty, s.age, homeOrder(ctx, s.item, false));
+      applyPlan(run, s.item, s.age, plan);
+      addTotals(placed, s.item, s.qty - plan.left);
+      left = plan.left;
+    }
+    addTotals(lost, s.item, left);
+  }
+  emit(ctx, { code: "hand_left", location: run.location, placed, lost });
+}
+function unloadTrunk(ctx) {
+  const { run } = ctx;
+  const stacks = run.inventory.filter((s) => s.where === TRUNK).sort((a, b) => a.id - b.id);
+  if (!stacks.length) return;
+  const items = inventoryTotals(run, [TRUNK]);
+  const toHand = {};
+  run.inventory = run.inventory.filter((s) => s.where !== TRUNK);
+  for (const s of stacks) {
+    const plan = planPlacement(ctx, s.item, s.qty, s.age, homeOrder(ctx, s.item, true));
+    applyPlan(run, s.item, s.age, plan);
+    addTotals(toHand, s.item, plan.placed[HAND] ?? 0);
+  }
+  emit(ctx, { code: "unloaded", items, auto: true, toHand });
+}
+
 // src/core/crops.ts
 function syncCropSlots(ctx) {
   const n = cropSlotCount(ctx);
@@ -1146,23 +1381,14 @@ function stepBlock(ctx, dt, activity) {
     if (!mults.has(where)) mults.set(where, containerSpoilMult(ctx, where));
     return mults.get(where);
   };
-  const keep = [];
-  const spoiled = [];
   for (const s of run.inventory) {
     const shelf = data2.items[s.item]?.shelfLifeMinutes;
-    if (shelf === void 0) {
-      keep.push(s);
-      continue;
-    }
+    if (shelf === void 0) continue;
     s.age += dt * multOf(s.where);
-    (s.age >= shelf ? spoiled : keep).push(s);
-  }
-  if (spoiled.length) {
-    run.inventory = keep;
-    for (const s of spoiled) {
-      addItem(run, cfg.spoiledItem, s.qty, 0, s.where);
-      emit(ctx, { code: "spoiled", item: s.item, qty: s.qty });
-    }
+    if (s.age < shelf) continue;
+    const [fx, fy] = shapeCells(itemShape(data2, s.item), s.rot)[0];
+    emit(ctx, { code: "spoiled", item: s.item, qty: s.qty });
+    Object.assign(s, { item: cfg.spoiledItem, age: 0, rot: 0, x: s.x + fx, y: s.y + fy });
   }
   if (run.effects.length) {
     const still = [];
@@ -1224,18 +1450,13 @@ function transition(ctx) {
   run.phase = "base";
   emit(ctx, { code: "disaster_begins" });
   if (run.location !== cfg.homeLocation) {
+    leaveWithHand(ctx);
     const lostItems = loseFraction(ctx, (where) => where === BACKPACK || where === TRUNK ? cfg.awayPenalty.lossFraction : 0);
     run.stats.health = Math.max(0, run.stats.health - cfg.awayPenalty.healthLoss);
     run.location = cfg.homeLocation;
     emit(ctx, { code: "away_penalty", lostItems, healthLoss: cfg.awayPenalty.healthLoss });
   }
-  const trunk = run.inventory.filter((s) => s.where === TRUNK);
-  if (trunk.length) {
-    const items = inventoryTotals(run, [TRUNK]);
-    for (const s of trunk) s.where = HOME;
-    run.inventory = mergeStacks(run.inventory);
-    emit(ctx, { code: "unloaded", items, auto: true });
-  }
+  unloadTrunk(ctx);
   syncCropSlots(ctx);
   const p = powerState(ctx);
   if (p !== run.power) {
@@ -1244,22 +1465,25 @@ function transition(ctx) {
   }
   if (run.stats.health <= 0) checkEnd(ctx, "away_from_home");
 }
-function mergeStacks(stacks) {
-  const out = [];
-  for (const s of stacks) {
-    const same = out.find((o) => o.item === s.item && o.age === s.age && o.where === s.where);
-    if (same) same.qty += s.qty;
-    else out.push(s);
-  }
-  return out;
-}
 function loseFraction(ctx, fractionOf) {
   const lost = {};
+  const byItem = /* @__PURE__ */ new Map();
   for (const s of ctx.run.inventory) {
-    const loss = Math.floor(s.qty * fractionOf(s.where) + EPS);
-    if (loss > 0) {
-      s.qty -= loss;
-      lost[s.item] = (lost[s.item] ?? 0) + loss;
+    const f = fractionOf(s.where);
+    if (f <= 0) continue;
+    if (!byItem.has(s.item)) byItem.set(s.item, []);
+    byItem.get(s.item).push({ s, f });
+  }
+  for (const [item, list2] of byItem) {
+    let loss = Math.floor(list2.reduce((sum, x) => sum + x.s.qty * x.f, 0) + EPS);
+    if (loss <= 0) continue;
+    lost[item] = loss;
+    list2.sort((a, b) => b.f - a.f || a.s.id - b.s.id);
+    for (const { s } of list2) {
+      const take = Math.min(s.qty, loss);
+      s.qty -= take;
+      loss -= take;
+      if (loss === 0) break;
     }
   }
   ctx.run.inventory = ctx.run.inventory.filter((s) => s.qty > 0);
@@ -1326,6 +1550,21 @@ function isPositiveInt(n) {
 function ended(ctx) {
   return isEnded(ctx.run);
 }
+function carryOrder(ctx) {
+  return accessibleContainers(ctx).filter((c) => c === BACKPACK || c === TRUNK);
+}
+function stowNew(ctx, item, qty, age, toHand) {
+  const atHome = ctx.run.location === ctx.data.config.homeLocation;
+  const order = atHome ? homeOrder(ctx, item, true) : [...carryOrder(ctx), HAND];
+  const plan = planPlacement(ctx, item, qty, age, order);
+  applyPlan(ctx.run, item, age, plan);
+  const n = plan.placed[HAND] ?? 0;
+  addTotals(toHand, item, n);
+  return n;
+}
+function emitToHand(ctx, toHand) {
+  if (Object.keys(toHand).length) emit(ctx, { code: "to_hand", items: toHand });
+}
 
 // src/sim/actions/market.ts
 function travel(ctx, a) {
@@ -1337,21 +1576,13 @@ function travel(ctx, a) {
   if (base === null) return "no_route";
   const minutes = actionMinutes(ctx, base);
   if (!fitsStockpile(ctx, minutes)) return "not_enough_time";
+  leaveWithHand(ctx);
   run.location = a.to;
   advance(ctx, minutes, "travel");
   if (ended(ctx)) return null;
   emit(ctx, { code: "arrived", location: a.to });
   if (a.to === data2.config.homeLocation) unloadTrunk(ctx);
   return null;
-}
-function unloadTrunk(ctx) {
-  const { run } = ctx;
-  const stacks = run.inventory.filter((s) => s.where === TRUNK);
-  if (!stacks.length) return;
-  const items = inventoryTotals(run, [TRUNK]);
-  run.inventory = run.inventory.filter((s) => s.where !== TRUNK);
-  for (const s of stacks) for (const p of placeFor(ctx, s.item, s.qty)) addItem(run, s.item, p.qty, s.age, p.where);
-  emit(ctx, { code: "unloaded", items, auto: true });
 }
 function buy(ctx, a) {
   const { run, data: data2 } = ctx;
@@ -1363,18 +1594,17 @@ function buy(ctx, a) {
   if (a.qty > stockLeft(ctx, run.location, a.item)) return "not_in_stock";
   const cost = unitPrice(ctx, stock) * a.qty;
   if (run.money < cost) return "not_enough_money";
-  const carry = accessibleContainers(ctx).filter((c) => c === BACKPACK || c === TRUNK);
-  const { alloc, left } = packInto(ctx, a.item, a.qty, carry);
-  if (left > 0) return "no_space";
   const minutes = actionMinutes(ctx, data2.config.buyMinutes);
   if (!fitsStockpile(ctx, minutes)) return "not_enough_time";
   run.money -= cost;
   const key = stockKey(run.location, a.item);
   run.stockSold[key] = (run.stockSold[key] ?? 0) + a.qty;
-  for (const p of alloc) addItem(run, a.item, p.qty, 0, p.where);
+  const toHand = {};
+  stowNew(ctx, a.item, a.qty, 0, toHand);
   advance(ctx, minutes, "idle");
   if (ended(ctx)) return null;
   emit(ctx, { code: "bought", item: a.item, qty: a.qty, cost });
+  emitToHand(ctx, toHand);
   return null;
 }
 function buyVehicle(ctx, a) {
@@ -1453,57 +1683,126 @@ function sleep(ctx, a) {
 }
 
 // src/sim/actions/storage.ts
-function move(ctx, a) {
+function place(ctx, a) {
   const { run, data: data2 } = ctx;
-  if (typeof a.item !== "string" || !isPositiveInt(a.qty) || typeof a.from !== "string" || typeof a.to !== "string") return "invalid_argument";
-  if (a.from === a.to) return "invalid_argument";
-  if (!data2.items[a.item]) return "unknown_id";
-  const bad = containerError(ctx, a.from) ?? containerError(ctx, a.to);
+  if (!Number.isInteger(a.piece)) return "invalid_argument";
+  const src = run.inventory.find((s) => s.id === a.piece);
+  if (!src) return "unknown_id";
+  const qty = a.qty ?? src.qty;
+  if (!isPositiveInt(qty) || qty > src.qty) return "invalid_argument";
+  if (a.to !== HAND && (!Number.isInteger(a.x) || !Number.isInteger(a.y) || !ROTATIONS.includes(a.rot))) return "invalid_argument";
+  const bad = containerError(ctx, src.where) ?? containerError(ctx, a.to);
   if (bad) return bad;
-  if (countItem(run, a.item, [a.from]) < a.qty) return "missing_items";
-  if (!containerAccepts(ctx, a.to, a.item)) return "not_accepted";
-  if (fitCount(ctx, a.to, a.item) < a.qty) return "no_space";
-  const minutes = actionMinutes(ctx, data2.config.moveMinutes);
-  if (!fitsStockpile(ctx, minutes)) return "not_enough_time";
-  for (const s of takeItem(run, a.item, a.qty, [a.from])) addItem(run, a.item, s.qty, s.age, a.to);
-  advance(ctx, minutes, "work");
-  if (ended(ctx)) return null;
-  emit(ctx, { code: "moved", item: a.item, qty: a.qty, from: a.from, to: a.to });
+  if (!containerAccepts(ctx, a.to, src.item)) return "not_accepted";
+  const whole = qty === src.qty;
+  const from = src.where;
+  if (a.to === HAND) {
+    if (from === HAND) return "invalid_argument";
+    if (whole) Object.assign(src, { where: HAND, x: 0, y: 0, rot: 0 });
+    else {
+      src.qty -= qty;
+      newPiece(run, { item: src.item, qty, age: src.age, where: HAND, x: 0, y: 0, rot: 0 });
+    }
+    emit(ctx, { code: "moved", item: src.item, qty, from, to: HAND });
+    return null;
+  }
+  const size = gridOf(ctx, a.to);
+  const cells = shapeCells(itemShape(data2, src.item), a.rot);
+  if (!inBounds(size, cells, a.x, a.y)) return "out_of_bounds";
+  const occ = occupancyOf(ctx, a.to, whole ? src.id : 0);
+  const blockers = blockersAt(occ, size, cells, a.x, a.y);
+  if (blockers.length === 0) {
+    if (whole) Object.assign(src, { where: a.to, x: a.x, y: a.y, rot: a.rot });
+    else {
+      src.qty -= qty;
+      newPiece(run, { item: src.item, qty, age: src.age, where: a.to, x: a.x, y: a.y, rot: a.rot });
+    }
+  } else {
+    const target = blockers.length === 1 ? run.inventory.find((s) => s.id === blockers[0]) : void 0;
+    if (!target || target.id === src.id || !canStackOnto(data2, src.item, src.age, target)) return "blocked";
+    if (target.qty + qty > itemStack(data2, src.item)) return "no_space";
+    takeFromPiece(run, src.id, qty);
+    target.qty += qty;
+    target.age = Math.max(target.age, src.age);
+  }
+  if (from !== a.to) emit(ctx, { code: "moved", item: src.item, qty, from, to: a.to });
+  return null;
+}
+function discard(ctx, a) {
+  const { run } = ctx;
+  if (!Number.isInteger(a.piece)) return "invalid_argument";
+  const src = run.inventory.find((s) => s.id === a.piece);
+  if (!src) return "unknown_id";
+  const qty = a.qty ?? src.qty;
+  if (!isPositiveInt(qty) || qty > src.qty) return "invalid_argument";
+  const bad = containerError(ctx, src.where);
+  if (bad) return bad;
+  takeFromPiece(run, src.id, qty);
+  emit(ctx, { code: "discarded", item: src.item, qty });
   return null;
 }
 function unloadAll(ctx, _a) {
   const { run, data: data2 } = ctx;
   if (run.location !== data2.config.homeLocation) return "not_at_home";
   const carried = (where) => where === BACKPACK || where === TRUNK;
-  const stacks = run.inventory.filter((s) => carried(s.where));
-  if (!stacks.length) return "missing_items";
-  const minutes = actionMinutes(ctx, data2.config.unloadMinutes);
-  if (!fitsStockpile(ctx, minutes)) return "not_enough_time";
-  const items = inventoryTotals(run, [BACKPACK, TRUNK]);
+  const pieces = run.inventory.filter((s) => carried(s.where)).sort((x, y) => x.id - y.id);
+  if (!pieces.length) return "missing_items";
+  const items = {};
+  const toHand = {};
   run.inventory = run.inventory.filter((s) => !carried(s.where));
-  for (const s of stacks) for (const p of placeFor(ctx, s.item, s.qty)) addItem(run, s.item, p.qty, s.age, p.where);
-  advance(ctx, minutes, "work");
-  if (ended(ctx)) return null;
-  emit(ctx, { code: "unloaded", items, auto: false });
+  for (const s of pieces) {
+    const plan = planPlacement(ctx, s.item, s.qty, s.age, homeOrder(ctx, s.item, true));
+    applyPlan(run, s.item, s.age, plan);
+    addTotals(items, s.item, s.qty);
+    addTotals(toHand, s.item, plan.placed[HAND] ?? 0);
+  }
+  emit(ctx, { code: "unloaded", items, auto: false, toHand });
   return null;
 }
-function discard(ctx, a) {
+function stowHand(ctx, _a) {
   const { run, data: data2 } = ctx;
-  if (typeof a.item !== "string" || !isPositiveInt(a.qty)) return "invalid_argument";
-  if (!data2.items[a.item]) return "unknown_id";
-  if (a.from !== void 0) {
-    const bad = containerError(ctx, a.from);
-    if (bad) return bad;
+  const pieces = run.inventory.filter((s) => s.where === HAND).sort((x, y) => x.id - y.id);
+  if (!pieces.length) return "missing_items";
+  const atHome = run.location === data2.config.homeLocation;
+  const items = {};
+  for (const s of pieces) {
+    const order = atHome ? homeOrder(ctx, s.item, false) : carryOrder(ctx);
+    run.inventory = run.inventory.filter((x) => x !== s);
+    const plan = planPlacement(ctx, s.item, s.qty, s.age, order);
+    applyPlan(run, s.item, s.age, plan);
+    addTotals(items, s.item, s.qty - plan.left);
+    if (plan.left > 0) run.inventory.push({ ...s, qty: plan.left });
   }
-  const where = a.from !== void 0 ? [a.from] : accessibleContainers(ctx);
-  if (!takeItem(run, a.item, a.qty, where)) return "missing_items";
-  emit(ctx, { code: "discarded", item: a.item, qty: a.qty });
+  if (!Object.keys(items).length) return "no_space";
+  emit(ctx, { code: "stowed", items });
+  return null;
+}
+function discardHand(ctx, _a) {
+  const { run } = ctx;
+  const pieces = run.inventory.filter((s) => s.where === HAND);
+  if (!pieces.length) return "missing_items";
+  run.inventory = run.inventory.filter((s) => s.where !== HAND);
+  const items = {};
+  for (const s of pieces) addTotals(items, s.item, s.qty);
+  for (const [item, qty] of Object.entries(items)) emit(ctx, { code: "discarded", item, qty });
+  return null;
+}
+function autoArrange(ctx, a) {
+  const { run } = ctx;
+  if (a.where === HAND) return "invalid_argument";
+  const bad = containerError(ctx, a.where);
+  if (bad) return bad;
+  if (!run.inventory.some((s) => s.where === a.where)) return "missing_items";
+  const result = arrangeLayout(ctx, a.where);
+  if (!result) return "no_space";
+  run.inventory = [...run.inventory.filter((s) => s.where !== a.where), ...result.layout];
+  emit(ctx, { code: "arranged", where: a.where });
   return null;
 }
 
 // src/sim/actions/home.ts
-function storeAtHome(ctx, item, qty) {
-  for (const p of placeFor(ctx, item, qty)) addItem(ctx.run, item, p.qty, 0, p.where);
+function storeAtHome(ctx, item, qty, toHand) {
+  stowNew(ctx, item, qty, 0, toHand);
 }
 function cook(ctx, a) {
   const { run, data: data2 } = ctx;
@@ -1517,8 +1816,10 @@ function cook(ctx, a) {
   removeItems(run, r.inputs, where);
   advance(ctx, minutes, "work");
   if (ended(ctx)) return null;
-  for (const [item, qty] of Object.entries(r.outputs)) if (qty > 0) storeAtHome(ctx, item, qty);
+  const toHand = {};
+  for (const [item, qty] of Object.entries(r.outputs)) if (qty > 0) storeAtHome(ctx, item, qty, toHand);
   emit(ctx, { code: "cooked", recipe: r.id });
+  emitToHand(ctx, toHand);
   return null;
 }
 function plant(ctx, a) {
@@ -1552,13 +1853,15 @@ function harvest(ctx, a) {
   if (ended(ctx)) return null;
   run.crops[a.slot] = null;
   const yields = {};
+  const toHand = {};
   for (const [item, qty] of Object.entries(c.yield)) {
     if (qty > 0) {
-      storeAtHome(ctx, item, qty);
+      storeAtHome(ctx, item, qty, toHand);
       yields[item] = qty;
     }
   }
   emit(ctx, { code: "harvested", crop: c.id, yields });
+  emitToHand(ctx, toHand);
   return null;
 }
 function build(ctx, a) {
@@ -1591,6 +1894,7 @@ function scavenge(ctx, a) {
   if (currentWeather(ctx)?.blocksScavenge) return "weather_blocked";
   const chance = scavengeDangerChance(ctx, area);
   const minutes = actionMinutes(ctx, area.minutes);
+  leaveWithHand(ctx);
   advance(ctx, minutes, "travel");
   if (ended(ctx)) return null;
   if (rand(ctx) < chance) {
@@ -1608,12 +1912,10 @@ function scavenge(ctx, a) {
   const loot = {};
   const left = {};
   for (const d of draws) {
-    const n = Math.min(d.qty, fitCount(ctx, BACKPACK, d.item));
-    if (n > 0) {
-      addItem(run, d.item, n, 0, BACKPACK);
-      loot[d.item] = (loot[d.item] ?? 0) + n;
-    }
-    if (d.qty > n) left[d.item] = (left[d.item] ?? 0) + d.qty - n;
+    const plan = planPlacement(ctx, d.item, d.qty, 0, [BACKPACK]);
+    applyPlan(run, d.item, 0, plan);
+    addTotals(loot, d.item, d.qty - plan.left);
+    addTotals(left, d.item, plan.left);
   }
   emit(ctx, { code: "scavenged", area: area.id, loot });
   if (Object.keys(left).length) emit(ctx, { code: "loot_left_behind", area: area.id, items: left });
@@ -1650,6 +1952,7 @@ function startRun(data2, meta, character, seed) {
     effects: [],
     thresholds: [],
     inventory: [],
+    nextPieceId: 1,
     vehicle: null,
     facilities: {},
     crops: [],
@@ -1660,13 +1963,15 @@ function startRun(data2, meta, character, seed) {
     seen: { weatherDays: [], hordeIndices: [] },
     ending: null
   };
-  for (const [item, qty] of Object.entries(ch.startItems)) if (qty > 0) addItem(run, item, qty, 0, HOME);
+  const w = { data: data2, meta, run };
+  const give = (item, qty) => qty > 0 && applyPlan(run, item, 0, planPlacement(w, item, qty, 0, homeOrder(w, item, true)));
+  for (const [item, qty] of Object.entries(ch.startItems)) give(item, qty);
   for (const id of meta.perks) {
     const p = data2.perks[id];
     if (!p) continue;
     money += p.effect.startMoney ?? 0;
     for (const stat of STAT_IDS) stats[stat] += p.effect.startStats?.[stat] ?? 0;
-    for (const [item, qty] of Object.entries(p.effect.startItems ?? {})) if (qty > 0) addItem(run, item, qty, 0, HOME);
+    for (const [item, qty] of Object.entries(p.effect.startItems ?? {})) give(item, qty);
   }
   for (const stat of STAT_IDS) stats[stat] = Math.min(cfg.statMax, Math.max(0, stats[stat]));
   run.money = money;
@@ -1720,9 +2025,10 @@ function rebirth(ctx, a) {
 }
 
 // src/sim/actions/index.ts
+var STORAGE_ACTIONS = ["place", "discard", "unloadAll", "stowHand", "discardHand", "autoArrange"];
 var PHASE_ACTIONS = {
-  stockpile: ["travel", "buy", "buyVehicle", "startDisaster", "use", "discard", "move", "unloadAll", "wait"],
-  base: ["use", "discard", "move", "unloadAll", "wait", "sleep", "cook", "plant", "harvest", "build", "scavenge"],
+  stockpile: ["travel", "buy", "buyVehicle", "startDisaster", "use", ...STORAGE_ACTIONS, "wait"],
+  base: ["use", ...STORAGE_ACTIONS, "wait", "sleep", "cook", "plant", "harvest", "build", "scavenge"],
   dead: ["buyPerk", "rebirth"],
   victory: ["buyPerk", "rebirth"]
 };
@@ -1737,10 +2043,16 @@ function applyAction(ctx, action) {
       return buyVehicle(ctx, action);
     case "startDisaster":
       return startDisaster(ctx, action);
-    case "move":
-      return move(ctx, action);
+    case "place":
+      return place(ctx, action);
     case "unloadAll":
       return unloadAll(ctx, action);
+    case "stowHand":
+      return stowHand(ctx, action);
+    case "discardHand":
+      return discardHand(ctx, action);
+    case "autoArrange":
+      return autoArrange(ctx, action);
     case "use":
       return use(ctx, action);
     case "discard":
@@ -1799,18 +2111,18 @@ function candidateActions(data2, session2) {
   if (run.phase === "stockpile" || run.phase === "base") {
     for (const item of usableItems) out.push({ type: "use", item });
     if (where.includes(HOME)) out.push({ type: "unloadAll" });
+    if (run.inventory.some((s) => s.where === HAND)) out.push({ type: "stowHand" }, { type: "discardHand" });
+    for (const c of where) if (c !== HAND && run.inventory.some((s) => s.where === c)) out.push({ type: "autoArrange", where: c });
     for (const from of where) {
-      const items = [...new Set(run.inventory.filter((s) => s.where === from).map((s) => s.item))].sort();
-      for (const item of items) {
-        const have = countItem(run, item, [from]);
-        out.push({ type: "discard", item, qty: 1, from });
-        if (have > 1) out.push({ type: "discard", item, qty: have, from });
-        if (!isHomeSide(from)) continue;
+      const firstOfItem = /* @__PURE__ */ new Map();
+      for (const s of run.inventory) if (s.where === from && !firstOfItem.has(s.item)) firstOfItem.set(s.item, s);
+      for (const item of [...firstOfItem.keys()].sort()) {
+        const s = firstOfItem.get(item);
+        out.push({ type: "discard", piece: s.id });
         for (const to of where) {
-          if (to === from || !isHomeSide(to) || from !== HOME && to !== HOME) continue;
-          if (!containerAccepts(w, to, item)) continue;
-          const fit = fitCount(w, to, item);
-          out.push({ type: "move", item, qty: fit >= 1 ? Math.min(have, fit) : have, from, to });
+          if (to === from) continue;
+          const a = quickPlace(w, s, to);
+          if (a) out.push(a);
         }
       }
     }
@@ -1830,6 +2142,19 @@ function candidateActions(data2, session2) {
   }
   return out;
 }
+function quickPlace(w, s, to) {
+  if (to === HAND) return { type: "place", piece: s.id, to, x: 0, y: 0, rot: 0 };
+  if (!containerAccepts(w, to, s.item)) return null;
+  const stack = itemStack(w.data, s.item);
+  const onto = w.run.inventory.find((t) => t.where === to && t.id !== s.id && canStackOnto(w.data, s.item, s.age, t) && t.qty + s.qty <= stack);
+  if (onto) return { type: "place", piece: s.id, to, x: onto.x, y: onto.y, rot: onto.rot };
+  const size = gridOf(w, to);
+  const occ = occupancyOf(w, to, s.id);
+  if (!size || !occ) return null;
+  const shape = itemShape(w.data, s.item);
+  const spot = firstFit(occ, size, shape, distinctRotations(shape));
+  return spot ? { type: "place", piece: s.id, to, ...spot } : null;
+}
 function checkAction(data2, session2, action) {
   const r = step(data2, session2, action);
   return r.ok ? { action, enabled: true } : { action, enabled: false, reason: r.error };
@@ -1839,7 +2164,7 @@ function legalActions(data2, session2) {
 }
 
 // src/sim/save.ts
-var SAVE_VERSION = 2;
+var SAVE_VERSION = 3;
 var asObj = (v) => v && typeof v === "object" && !Array.isArray(v) ? v : null;
 function v1ToV2(s) {
   const run = asObj(s.run);
@@ -1850,17 +2175,33 @@ function v1ToV2(s) {
   run.vehicle = null;
   return s;
 }
-var MIGRATIONS = { 1: v1ToV2 };
+function v2ToV3(s, data2) {
+  const run = asObj(s.run);
+  const meta = asObj(s.meta);
+  if (!run || !meta || !Array.isArray(run.inventory)) return s;
+  const old = run.inventory;
+  run.inventory = [];
+  run.nextPieceId = 1;
+  const w = { data: data2, meta, run };
+  for (const st of old) {
+    if (!st || typeof st.item !== "string" || !(st.qty > 0)) continue;
+    const homeSide = st.where !== BACKPACK && st.where !== "trunk";
+    const order = homeSide ? [st.where, ...homeOrder(w, st.item, false).filter((c) => c !== st.where)] : [st.where];
+    applyPlan(run, st.item, st.age, planPlacement(w, st.item, st.qty, st.age, [...order, HAND]));
+  }
+  return s;
+}
+var MIGRATIONS = { 1: v1ToV2, 2: v2ToV3 };
 function serializeSession(session2) {
   return JSON.stringify({ v: SAVE_VERSION, session: session2 });
 }
-function migrateSession(session2, from, to = SAVE_VERSION, migrations = MIGRATIONS) {
+function migrateSession(data2, session2, from, to = SAVE_VERSION, migrations = MIGRATIONS) {
   let s = session2;
   for (let v = from; v < to; v++) {
     const m = migrations[v];
     if (!m) return null;
     try {
-      s = m(structuredClone(s));
+      s = m(structuredClone(s), data2);
     } catch {
       return null;
     }
@@ -1868,7 +2209,7 @@ function migrateSession(session2, from, to = SAVE_VERSION, migrations = MIGRATIO
   }
   return s;
 }
-function deserializeSession(text) {
+function deserializeSession(data2, text) {
   let parsed;
   try {
     parsed = JSON.parse(text);
@@ -1880,14 +2221,14 @@ function deserializeSession(text) {
   const v = obj.v;
   if (typeof v !== "number" || !Number.isInteger(v) || v < 1 || v > SAVE_VERSION) return null;
   if (!obj.session || typeof obj.session !== "object" || Array.isArray(obj.session)) return null;
-  const migrated = migrateSession(obj.session, v);
+  const migrated = migrateSession(data2, obj.session, v);
   return migrated && looksLikeSession(migrated) ? migrated : null;
 }
 function looksLikeSession(s) {
   const meta = s.meta;
   const run = s.run;
   if (!meta || typeof meta !== "object" || !run || typeof run !== "object") return false;
-  return typeof meta.worldSeed === "number" && typeof meta.loops === "number" && typeof meta.points === "number" && Array.isArray(meta.perks) && Array.isArray(meta.history) && typeof run.rng === "number" && typeof run.minute === "number" && typeof run.phase === "string" && typeof run.location === "string" && typeof run.money === "number" && !!run.stats && Array.isArray(run.inventory) && run.inventory.every((st) => typeof asObj(st)?.where === "string") && "vehicle" in run && Array.isArray(run.effects) && Array.isArray(run.crops);
+  return typeof meta.worldSeed === "number" && typeof meta.loops === "number" && typeof meta.points === "number" && Array.isArray(meta.perks) && Array.isArray(meta.history) && typeof run.rng === "number" && typeof run.minute === "number" && typeof run.phase === "string" && typeof run.location === "string" && typeof run.money === "number" && !!run.stats && Array.isArray(run.inventory) && run.inventory.every((st) => typeof asObj(st)?.where === "string" && typeof asObj(st)?.id === "number" && typeof asObj(st)?.x === "number") && typeof run.nextPieceId === "number" && "vehicle" in run && Array.isArray(run.effects) && Array.isArray(run.crops);
 }
 
 // src/web/messages.ts
@@ -1920,7 +2261,7 @@ var weatherName = (d, id) => d.weather[id]?.name ?? id;
 var perkName = (d, id) => d.perks[id]?.name ?? id;
 var characterName = (d, id) => d.characters[id]?.name ?? id;
 var vehicleName = (d, id) => d.vehicles[id]?.name ?? id;
-var CONTAINER_LABEL = { [BACKPACK]: "\u80CC\u5305", [TRUNK]: "\u540E\u5907\u7BB1", [HOME]: "\u5BB6\u4E2D\u5730\u9762" };
+var CONTAINER_LABEL = { [BACKPACK]: "\u80CC\u5305", [TRUNK]: "\u540E\u5907\u7BB1", [HOME]: "\u5BB6\u4E2D\u5730\u9762", [HAND]: "\u624B\u8FB9" };
 var containerName = (d, id) => CONTAINER_LABEL[id] ?? facilityName(d, id);
 function fmtItems(d, m, empty = "\u65E0") {
   const parts = Object.entries(m).filter(([, q]) => q > 0).map(([id, q]) => `${itemName(d, id)}\xD7${q}`);
@@ -1951,8 +2292,22 @@ function eventText(d, e) {
       return `\u4E70\u4E0B\u4E86${vehicleName(d, e.vehicle)},\u82B1\u4E86 \xA5${e.cost}\u3002\u4E4B\u540E\u8DD1\u4E00\u8D9F\u66F4\u5FEB,\u8FD8\u80FD\u591A\u88C5\u4E00\u540E\u5907\u7BB1\u3002`;
     case "moved":
       return `\u628A ${itemName(d, e.item)}\xD7${e.qty} \u4ECE${containerName(d, e.from)}\u642C\u5230\u4E86${containerName(d, e.to)}\u3002`;
-    case "unloaded":
-      return e.auto ? `\u540E\u5907\u7BB1\u91CC\u7684\u4E1C\u897F\u642C\u8FDB\u4E86\u5BB6:${fmtItems(d, e.items)}\u3002` : `\u628A\u968F\u8EAB\u7684\u4E1C\u897F\u653E\u8FDB\u4E86\u5BB6\u91CC:${fmtItems(d, e.items)}\u3002`;
+    case "unloaded": {
+      const head = e.auto ? `\u540E\u5907\u7BB1\u91CC\u7684\u4E1C\u897F\u642C\u8FDB\u4E86\u5BB6:${fmtItems(d, e.items)}\u3002` : `\u628A\u968F\u8EAB\u7684\u4E1C\u897F\u653E\u8FDB\u4E86\u5BB6\u91CC:${fmtItems(d, e.items)}\u3002`;
+      return Object.keys(e.toHand).length ? `${head}\u5BB6\u91CC\u653E\u4E0D\u4E0B\u7684\u5148\u6401\u5728\u624B\u8FB9:${fmtItems(d, e.toHand)}\u3002` : head;
+    }
+    case "to_hand":
+      return `\u653E\u4E0D\u4E0B\u4E86,\u5148\u62FF\u5728\u624B\u8FB9:${fmtItems(d, e.items)}\u3002\u79BB\u5F00\u8FD9\u91CC\u4E4B\u524D\u8BB0\u5F97\u6536\u597D\u3002`;
+    case "stowed":
+      return `\u628A\u624B\u8FB9\u7684\u4E1C\u897F\u6536\u4E86\u8D77\u6765:${fmtItems(d, e.items)}\u3002`;
+    case "arranged":
+      return `\u628A${containerName(d, e.where)}\u6574\u7406\u4E86\u4E00\u904D\u3002`;
+    case "hand_left": {
+      const parts = [];
+      if (Object.keys(e.placed).length) parts.push(`\u624B\u8FB9\u7684 ${fmtItems(d, e.placed)} \u968F\u624B\u653E\u8FDB\u4E86\u5BB6\u91CC`);
+      if (Object.keys(e.lost).length) parts.push(`${fmtItems(d, e.lost)} \u6CA1\u5730\u65B9\u653E,\u7559\u5728\u4E86${locationName(d, e.location)}`);
+      return `\u79BB\u5F00${locationName(d, e.location)}:${parts.join(";")}\u3002`;
+    }
     case "disaster_begins":
       return "\u707E\u96BE\u964D\u4E34\u4E86\u3002\u57CE\u5E02\u7684\u79E9\u5E8F\u5728\u4E00\u591C\u4E4B\u95F4\u5D29\u584C,\u7A97\u5916\u4F20\u6765\u7B2C\u4E00\u58F0\u5C16\u53EB\u3002";
     case "away_penalty":
@@ -2024,11 +2379,17 @@ function actionLabel(d, a) {
     case "use":
       return `\u4F7F\u7528 ${itemName(d, a.item)}`;
     case "discard":
-      return `\u4E22\u5F03 ${itemName(d, a.item)} \xD7${a.qty}${a.from ? `(${containerName(d, a.from)})` : ""}`;
-    case "move":
-      return `${itemName(d, a.item)} \xD7${a.qty}:${containerName(d, a.from)} \u2192 ${containerName(d, a.to)}`;
+      return a.qty ? `\u4E22\u6389 ${a.qty} \u4E2A` : "\u4E22\u6389\u8FD9\u4E00\u5806";
+    case "place":
+      return a.to === HAND ? "\u62FF\u5230\u624B\u8FB9" : `\u653E\u5230${containerName(d, a.to)}`;
     case "unloadAll":
       return "\u628A\u968F\u8EAB\u7684\u4E1C\u897F\u653E\u8FDB\u5BB6\u91CC";
+    case "stowHand":
+      return "\u628A\u624B\u8FB9\u7684\u4E1C\u897F\u6536\u8D77\u6765";
+    case "discardHand":
+      return "\u6254\u6389\u624B\u8FB9\u7684\u4E1C\u897F";
+    case "autoArrange":
+      return `\u6574\u7406${containerName(d, a.where)}`;
     case "wait":
       return `\u7B49\u5F85 ${fmtDuration(a.minutes)}`;
     case "sleep":
@@ -2050,11 +2411,6 @@ function actionLabel(d, a) {
     default:
       return unreachable(a);
   }
-}
-function rowActionLabel(d, a) {
-  if (a.type === "discard") return a.qty === 1 ? "\u4E22 1" : `\u5168\u4E22(${a.qty})`;
-  if (a.type === "move") return `\u2192 ${containerName(d, a.to)}${a.qty > 1 ? ` \xD7${a.qty}` : ""}`;
-  return actionLabel(d, a);
 }
 var ERROR_TEXT = {
   wrong_phase: "\u73B0\u5728\u4E0D\u80FD\u8FD9\u4E48\u505A",
@@ -2081,7 +2437,9 @@ var ERROR_TEXT = {
   no_space: "\u88C5\u4E0D\u4E0B\u4E86",
   container_unavailable: "\u8FD9\u4E2A\u50A8\u7269\u5904\u8FD8\u4E0D\u80FD\u7528",
   not_accepted: "\u8FD9\u91CC\u4E0D\u6536\u8FD9\u7C7B\u4E1C\u897F",
-  already_done: "\u5DF2\u7ECF\u505A\u8FC7\u4E86"
+  already_done: "\u5DF2\u7ECF\u505A\u8FC7\u4E86",
+  out_of_bounds: "\u8D85\u51FA\u683C\u5B50\u4E86",
+  blocked: "\u8FD9\u91CC\u88AB\u522B\u7684\u4E1C\u897F\u5360\u7740"
 };
 var errorText = (code) => ERROR_TEXT[code];
 
@@ -2093,7 +2451,7 @@ var GROUP_ORDER = [
   { title: "\u4F11\u606F", types: ["sleep", "wait"] },
   { title: "\u636E\u70B9", types: ["cook", "plant", "harvest", "build"] },
   { title: "\u5916\u51FA\u63A2\u7D22", types: ["scavenge"] },
-  { title: "\u6574\u7406", types: ["unloadAll"] },
+  { title: "\u6574\u7406", types: ["unloadAll", "stowHand", "discardHand"] },
   { title: "\u6C38\u4E45\u5F3A\u5316", types: ["buyPerk"] },
   { title: "\u91CD\u751F", types: ["rebirth"] }
 ];
@@ -2122,17 +2480,33 @@ function buildView(data2, s) {
     why: o.enabled || !o.reason ? void 0 : errorText(o.reason),
     action: o.action
   });
-  const rowActions = (where, item) => options.filter((o) => (o.action.type === "discard" || o.action.type === "move") && o.action.item === item && o.action.from === where).map((o, i) => toButton(o, `${where}:${item}:${i}`, rowActionLabel(data2, o.action)));
+  const pieceActions = (id, item) => [
+    ...options.filter((o) => o.action.type === "use" && o.action.item === item).map((o, i) => toButton(o, `p${id}:use:${i}`)),
+    ...options.filter((o) => (o.action.type === "discard" || o.action.type === "place") && o.action.piece === id).map((o, i) => toButton(o, `p${id}:${i}`))
+  ];
   const accessible = accessibleContainers(w);
-  const carried = [BACKPACK, TRUNK].filter((c) => containerExists(w, c));
+  const carried = [HAND, BACKPACK, TRUNK].filter((c) => containerExists(w, c) && (c !== HAND || run.inventory.some((p) => p.where === HAND)));
   const containers = [...carried, ...homeContainers(w)].map((where) => {
-    const totals = inventoryTotals(run, [where]);
-    const items = Object.keys(totals).sort().map((id) => {
-      const shelf = data2.items[id]?.shelfLifeMinutes;
-      const spoilingSoon = shelf !== void 0 && run.inventory.some((st2) => st2.item === id && st2.where === where && shelf - st2.age <= shelf * SPOIL_SOON_FRACTION && shelf - st2.age <= 1440);
-      return { id, name: itemName(data2, id), qty: totals[id], spoilingSoon, actions: rowActions(where, id) };
+    const pieces = run.inventory.filter((p) => p.where === where).sort((a, b) => a.y - b.y || a.x - b.x || a.id - b.id).map((p) => {
+      const def = data2.items[p.item];
+      const shelf = def?.shelfLifeMinutes;
+      const shape = itemShape(data2, p.item);
+      return {
+        id: p.id,
+        item: p.item,
+        name: itemName(data2, p.item),
+        glyph: def?.glyph ?? itemName(data2, p.item).slice(0, 1),
+        qty: p.qty,
+        stack: itemStack(data2, p.item),
+        x: p.x,
+        y: p.y,
+        rot: p.rot,
+        shape,
+        cells: shapeCells(shape, p.rot),
+        spoilingSoon: shelf !== void 0 && shelf - p.age <= shelf * SPOIL_SOON_FRACTION && shelf - p.age <= 1440,
+        actions: pieceActions(p.id, p.item)
+      };
     });
-    const cap = containerCapacity(w, where);
     const st = storageOf(w, where);
     const notes = [];
     if (st?.spoilMult !== void 0) {
@@ -2140,14 +2514,19 @@ function buildView(data2, s) {
       notes.push(m < 1 ? `\u51B7\u85CF\u4E2D,\u8150\u8D25 \xD7${m}` : "\u65AD\u7535,\u4FDD\u9C9C\u5931\u6548");
     }
     if (st?.breachLossMult !== void 0) notes.push(st.breachLossMult === 0 ? "\u5C38\u6F6E\u627E\u4E0D\u5230" : `\u5C38\u6F6E\u635F\u5931 \xD7${st.breachLossMult}`);
+    if (st?.autoFill === false) notes.push("\u4E0D\u4F1A\u81EA\u52A8\u653E\u4E1C\u897F\u8FDB\u6765");
+    if (where === HAND) notes.push("\u79BB\u5F00\u8FD9\u91CC\u65F6,\u653E\u4E0D\u8FDB\u5BB6\u91CC\u7684\u4F1A\u7559\u4E0B");
+    const arrangeOpt = options.find((o) => o.action.type === "autoArrange" && o.action.where === where);
+    const grid = gridOf(w, where);
     return {
       id: where,
       name: containerName(data2, where),
-      items,
+      grid: grid ? { w: grid.w, h: grid.h } : null,
+      pieces,
       used: containerUsed(w, where),
-      capacity: Number.isFinite(cap) ? cap : null,
       accessible: accessible.includes(where),
-      notes
+      notes,
+      arrange: arrangeOpt ? toButton(arrangeOpt, `arrange:${where}`, "\u6574\u7406") : null
     };
   });
   const effects = activeEffectIds(w).map((id) => effectName(data2, id));
@@ -2251,7 +2630,7 @@ function save() {
 }
 function load() {
   const text = localStorage.getItem(SAVE_KEY);
-  session = text ? deserializeSession(text) : null;
+  session = text ? deserializeSession(data, text) : null;
   try {
     const raw = JSON.parse(localStorage.getItem(LOG_KEY) ?? "[]");
     log = Array.isArray(raw) ? raw.filter((l) => l && typeof l.text === "string" && typeof l.tag === "string") : [];
@@ -2265,6 +2644,7 @@ function act(action) {
   const r = step(data, session, action);
   if (!r.ok) return;
   session = r.session;
+  if (held && !session.run.inventory.some((p) => p.id === held.piece)) held = null;
   log.push(...logLines(data, r.events));
   if (log.length > LOG_LIMIT) log = log.slice(-LOG_LIMIT);
   save();
@@ -2297,7 +2677,7 @@ function importSave() {
   input.addEventListener("change", async () => {
     const file = input.files?.[0];
     if (!file) return;
-    const s = deserializeSession(await file.text());
+    const s = deserializeSession(data, await file.text());
     if (!s) return alert("\u5B58\u6863\u65E0\u6548\u6216\u7248\u672C\u4E0D\u7B26\u3002");
     session = s;
     log = [{ text: "\u5DF2\u5BFC\u5165\u5B58\u6863\u3002", tag: "info" }];
@@ -2336,28 +2716,177 @@ function actionButton(b, cls = "") {
   if (b.enabled) btn.addEventListener("click", () => act(b.action));
   return btn;
 }
-function renderContainer(c) {
-  const cap = c.capacity === null ? `\u5DF2\u653E ${c.used}` : `${c.used}/${c.capacity}`;
-  const title = h("h3", {}, `${c.name} \xB7 ${cap}${c.accessible ? "" : "(\u4E0D\u5728\u8EAB\u8FB9)"}`, c.notes.length ? ` \xB7 ${c.notes.join(" \xB7 ")}` : null);
-  const full = c.capacity !== null && c.used >= c.capacity;
-  let gauge = null;
-  if (c.capacity !== null) {
-    const fill = h("div", { class: "fill" });
-    fill.style.width = `${Math.min(100, c.used / c.capacity * 100)}%`;
-    gauge = h("div", { class: `bar${full ? " full" : ""}` }, fill);
+var held = null;
+var hover = null;
+var CELL = 30;
+function heldPiece(v) {
+  if (!held) return null;
+  for (const c of v.containers) for (const p of c.pieces) if (p.id === held.piece) return p;
+  return null;
+}
+function placeAction(p, to, x, y, rot, one) {
+  return { type: "place", piece: p.id, qty: one ? 1 : void 0, to, x, y, rot };
+}
+function rotateHeld() {
+  if (!held) return;
+  held.rot = (held.rot + 90) % 360;
+  render();
+}
+function renderGrid(v, c) {
+  const g = c.grid;
+  const board = h("div", { class: "board" });
+  board.style.gridTemplateColumns = `repeat(${g.w}, ${CELL}px)`;
+  board.style.gridTemplateRows = `repeat(${g.h}, ${CELL}px)`;
+  const hp = heldPiece(v);
+  let preview = null;
+  if (hp && held && hover && hover.where === c.id && session) {
+    const cells = shapeCellsOf(hp, held.rot);
+    const check = checkAction(data, session, placeAction(hp, c.id, hover.x, hover.y, held.rot, held.one));
+    preview = { cells: new Set(cells.map(([cx, cy]) => `${hover.x + cx},${hover.y + cy}`)), ok: check.enabled, why: check.reason ? errorText(check.reason) : "" };
   }
-  const rows = c.items.map(
-    (i) => h(
-      "div",
-      { class: "inv-row" },
-      h("span", { class: i.spoilingSoon ? "warn" : "" }, `${i.name} \xD7${i.qty}${i.spoilingSoon ? "(\u5FEB\u574F\u4E86)" : ""}`),
-      h("span", { class: "row-actions" }, ...i.actions.map((b) => actionButton(b, "small")))
-    )
+  for (let y = 0; y < g.h; y++) {
+    for (let x = 0; x < g.w; x++) {
+      const key = `${x},${y}`;
+      const cls = ["cell"];
+      if (preview?.cells.has(key)) cls.push(preview.ok ? "ok" : "bad");
+      const cell = h("div", { class: cls.join(" "), title: preview?.cells.has(key) && !preview.ok ? preview.why : "" });
+      cell.style.gridColumn = String(x + 1);
+      cell.style.gridRow = String(y + 1);
+      cell.addEventListener("mouseenter", () => {
+        if (!held || hover && hover.where === c.id && hover.x === x && hover.y === y) return;
+        hover = { where: c.id, x, y };
+        render();
+      });
+      cell.addEventListener("click", () => {
+        if (!held || !hp || !session || !c.accessible) return;
+        const a = placeAction(hp, c.id, x, y, held.rot, held.one);
+        if (!checkAction(data, session, a).enabled) return;
+        held = null;
+        act(a);
+      });
+      board.append(cell);
+    }
+  }
+  const owner = /* @__PURE__ */ new Map();
+  for (const p of c.pieces) for (const [cx, cy] of p.cells) owner.set(`${p.x + cx},${p.y + cy}`, p.id);
+  for (const p of c.pieces) {
+    const isHeld = held?.piece === p.id;
+    const edge = isHeld ? "var(--accent)" : p.spoilingSoon ? "var(--warn)" : "rgba(0, 0, 0, .65)";
+    for (const [cx, cy] of p.cells) {
+      const first = cx === p.cells[0][0] && cy === p.cells[0][1];
+      const gx = p.x + cx;
+      const gy = p.y + cy;
+      const el = h(
+        "div",
+        { class: `piece${isHeld ? " held" : ""}`, title: `${p.name} \xD7${p.qty}${p.stack > 1 ? ` / ${p.stack}` : ""}${p.spoilingSoon ? "(\u5FEB\u574F\u4E86)" : ""}` },
+        first ? p.glyph : "",
+        first && p.qty > 1 ? h("span", { class: "qty" }, String(p.qty)) : null
+      );
+      el.style.gridColumn = String(gx + 1);
+      el.style.gridRow = String(gy + 1);
+      el.style.setProperty("--hue", String(hueOf(p.item)));
+      const other = (dx, dy) => owner.get(`${gx + dx},${gy + dy}`) !== p.id;
+      el.style.boxShadow = [
+        other(0, -1) && `inset 0 2px 0 ${edge}`,
+        other(0, 1) && `inset 0 -2px 0 ${edge}`,
+        other(-1, 0) && `inset 2px 0 0 ${edge}`,
+        other(1, 0) && `inset -2px 0 0 ${edge}`
+      ].filter(Boolean).join(", ");
+      el.addEventListener("mouseenter", () => {
+        if (!held || hover && hover.where === c.id && hover.x === p.x + cx && hover.y === p.y + cy) return;
+        hover = { where: c.id, x: p.x + cx, y: p.y + cy };
+        render();
+      });
+      el.addEventListener("click", (e) => {
+        if (!c.accessible) return;
+        if (held && held.piece !== p.id && hp && session) {
+          const a = placeAction(hp, c.id, p.x + cx, p.y + cy, held.rot, held.one);
+          if (checkAction(data, session, a).enabled) {
+            held = null;
+            act(a);
+            return;
+          }
+        }
+        held = held?.piece === p.id ? null : { piece: p.id, rot: p.rot, one: e.shiftKey && p.qty > 1 };
+        hover = null;
+        render();
+      });
+      board.append(el);
+    }
+  }
+  board.addEventListener("mouseleave", () => {
+    if (hover?.where === c.id) {
+      hover = null;
+      render();
+    }
+  });
+  return board;
+}
+function shapeCellsOf(p, rot) {
+  return shapeCells(p.shape, rot);
+}
+function hueOf(item) {
+  let x = 0;
+  for (const ch of item) x = (x * 31 + ch.charCodeAt(0)) % 360;
+  return x;
+}
+function renderHand(v, c) {
+  const hp = heldPiece(v);
+  const list2 = h("div", { class: "hand" });
+  for (const p of c.pieces) {
+    const chip = h("button", { type: "button", class: `chip${held?.piece === p.id ? " held" : ""}` }, `${p.glyph} ${p.name} \xD7${p.qty}`);
+    chip.style.setProperty("--hue", String(hueOf(p.item)));
+    chip.addEventListener("click", (e) => {
+      held = held?.piece === p.id ? null : { piece: p.id, rot: p.rot, one: e.shiftKey && p.qty > 1 };
+      render();
+    });
+    list2.append(chip);
+  }
+  if (hp && held && session && hp.id !== void 0 && !c.pieces.some((p) => p.id === hp.id)) {
+    const a = placeAction(hp, HAND, 0, 0, 0, held.one);
+    const target = h("button", { type: "button", class: "chip drop" }, "\u653E\u5230\u624B\u8FB9");
+    target.addEventListener("click", () => {
+      held = null;
+      act(a);
+    });
+    list2.append(target);
+  }
+  return list2;
+}
+function renderContainer(v, c) {
+  const size = c.grid ? `${c.used}/${c.grid.w * c.grid.h} \u683C` : `${c.pieces.length} \u5806`;
+  const title = h(
+    "h3",
+    {},
+    `${c.name} \xB7 ${size}${c.accessible ? "" : "(\u4E0D\u5728\u8EAB\u8FB9)"}`,
+    c.notes.length ? ` \xB7 ${c.notes.join(" \xB7 ")}` : null,
+    c.arrange && c.accessible ? actionButton(c.arrange, "small") : null
   );
-  return h("div", { class: `container${c.accessible ? "" : " away"}` }, title, gauge, rows.length ? h("div", {}, ...rows) : h("p", { class: "muted" }, "\u7A7A"));
+  const body = c.grid ? renderGrid(v, c) : renderHand(v, c);
+  return h("div", { class: `container${c.accessible ? "" : " away"}${c.grid ? "" : " hand-box"}` }, title, body);
+}
+function renderHeldBar(v) {
+  const p = heldPiece(v);
+  if (!p || !held) return null;
+  const rot = h("button", { type: "button", class: "small" }, "\u65CB\u8F6C (R)");
+  rot.addEventListener("click", rotateHeld);
+  const cancel = h("button", { type: "button", class: "small" }, "\u653E\u4E0B (Esc)");
+  cancel.addEventListener("click", () => {
+    held = null;
+    render();
+  });
+  return h(
+    "div",
+    { class: "held-bar" },
+    h("strong", {}, `\u62FF\u7740:${p.name} \xD7${held.one ? 1 : p.qty}`),
+    p.stack > 1 && p.qty > 1 && !held.one ? h("span", { class: "muted" }, "(Shift + \u70B9\u51FB\u53EA\u62FF 1 \u4EF6)") : null,
+    rot,
+    cancel,
+    ...p.actions.map((b) => actionButton(b, "small"))
+  );
 }
 function renderInventory(v) {
-  return section("\u7269\u54C1", ...v.containers.map(renderContainer));
+  return section("\u7269\u54C1", renderHeldBar(v), h("p", { class: "muted hint" }, "\u70B9\u7269\u54C1\u62FF\u8D77,\u70B9\u683C\u5B50\u653E\u4E0B;R \u65CB\u8F6C\u3002"), ...v.containers.map((c) => renderContainer(v, c)));
 }
 function renderBase(v) {
   if (v.phase === "stockpile") return null;
@@ -2441,5 +2970,13 @@ function main() {
   }
   load();
   render();
+  document.addEventListener("keydown", (e) => {
+    if (e.target?.tagName === "INPUT") return;
+    if (e.key === "r" || e.key === "R") rotateHeld();
+    if (e.key === "Escape" && held) {
+      held = null;
+      render();
+    }
+  });
 }
 main();
