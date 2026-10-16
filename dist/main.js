@@ -1,8 +1,13 @@
 // src/core/types.ts
+var BACKPACK = "backpack";
+var TRUNK = "trunk";
+var HOME = "home";
+var RESERVED_CONTAINERS = [BACKPACK, TRUNK, HOME];
 var STAT_IDS = ["satiety", "health", "energy", "mood"];
 var ACTIVITIES = ["idle", "work", "sleep", "travel"];
 
 // src/data/validate.ts
+var ITEM_CATEGORIES = ["food", "drink", "medicine", "material", "fuel", "seed", "junk"];
 var isObj = (v) => typeof v === "object" && v !== null && !Array.isArray(v);
 var isNum = (v) => typeof v === "number" && Number.isFinite(v);
 var Checker = class {
@@ -102,8 +107,7 @@ function validateGameData(raw) {
   const facilities = idsOf(root.facilities);
   const locations = idsOf(root.locations);
   const crops = idsOf(root.crops);
-  const areas = idsOf(root.areas);
-  void areas;
+  const vehicles = idsOf(root.vehicles);
   const cfgPath = "$.config";
   const cfg = c.obj(root.config, cfgPath);
   let statMax = 100;
@@ -117,6 +121,9 @@ function validateGameData(raw) {
     statMax = n("statMax", { gt: 0 }) ?? 100;
     n("sleepDecayMult", { min: 0 });
     n("buyMinutes", { int: true, min: 0 });
+    n("backpackCapacity", { int: true, gt: 0 });
+    n("moveMinutes", { int: true, min: 0 });
+    n("unloadMinutes", { int: true, min: 0 });
     n("plantMinutes", { int: true, min: 0 });
     n("harvestMinutes", { int: true, min: 0 });
     n("gridOutageDay", { int: true, min: 1 });
@@ -182,8 +189,9 @@ function validateGameData(raw) {
   c.table(root.items, "$.items", (o, _id, p) => {
     c.str(o.name, `${p}.name`);
     const cat = c.str(o.category, `${p}.category`);
-    if (cat && !["food", "drink", "medicine", "material", "fuel", "seed", "junk"].includes(cat)) c.err(`${p}.category`, `\u672A\u77E5\u7C7B\u522B "${cat}"`);
+    if (cat && !ITEM_CATEGORIES.includes(cat)) c.err(`${p}.category`, `\u672A\u77E5\u7C7B\u522B "${cat}"`);
     c.opt(o.shelfLifeMinutes, (v) => c.num(v, `${p}.shelfLifeMinutes`, { int: true, gt: 0 }));
+    c.opt(o.size, (v) => c.num(v, `${p}.size`, { min: 0 }));
     c.opt(o.use, (v) => {
       const u = c.obj(v, `${p}.use`);
       if (!u) return;
@@ -232,7 +240,8 @@ function validateGameData(raw) {
     c.opt(o.blackout, (v) => c.bool(v, `${p}.blackout`));
   });
   if (!Object.values(weather).some((w) => isObj(w) && isNum(w.minDay) && w.minDay <= 1)) c.err("$.weather", "\u81F3\u5C11\u8981\u6709\u4E00\u79CD minDay <= 1 \u7684\u5929\u6C14");
-  c.table(root.facilities, "$.facilities", (o, _id, p) => {
+  c.table(root.facilities, "$.facilities", (o, id, p) => {
+    if (RESERVED_CONTAINERS.includes(id)) c.err(p, `"${id}" \u662F\u5185\u7F6E\u5BB9\u5668\u7684\u540D\u5B57,\u8BBE\u65BD\u4E0D\u80FD\u7528`);
     c.str(o.name, `${p}.name`);
     if (typeof o.description !== "string") c.err(`${p}.description`, "\u5E94\u4E3A\u5B57\u7B26\u4E32");
     const lv = c.arr(o.levels, `${p}.levels`);
@@ -245,7 +254,24 @@ function validateGameData(raw) {
       c.num(lo.buildMinutes, `${lp}.buildMinutes`, { int: true, min: 0 });
       c.opt(lo.defense, (v) => c.num(v, `${lp}.defense`, { min: 0 }));
       c.opt(lo.cropSlots, (v) => c.num(v, `${lp}.cropSlots`, { int: true, min: 0 }));
-      c.opt(lo.spoilMult, (v) => c.num(v, `${lp}.spoilMult`, { gt: 0 }));
+      if (lo.spoilMult !== void 0) c.err(`${lp}.spoilMult`, "\u5DF2\u5E9F\u5F03:\u4FDD\u9C9C\u6539\u4E3A storage.spoilMult,\u53EA\u4F5C\u7528\u4E8E\u653E\u5728\u91CC\u9762\u7684\u7269\u54C1");
+      c.opt(lo.storage, (v) => {
+        const sp = `${lp}.storage`;
+        const so = c.obj(v, sp);
+        if (!so) return;
+        c.num(so.capacity, `${sp}.capacity`, { gt: 0 });
+        c.opt(so.spoilMult, (x) => c.num(x, `${sp}.spoilMult`, { gt: 0, max: 1 }));
+        c.opt(so.needsPower, (x) => c.bool(x, `${sp}.needsPower`));
+        c.opt(so.breachLossMult, (x) => c.num(x, `${sp}.breachLossMult`, { min: 0, max: 1 }));
+        c.opt(so.autoFill, (x) => c.bool(x, `${sp}.autoFill`));
+        c.opt(so.accepts, (x) => {
+          const a = c.arr(x, `${sp}.accepts`);
+          if (a && a.length === 0) c.err(`${sp}.accepts`, "\u4E0D\u80FD\u4E3A\u7A7A\u6570\u7EC4(\u8981\u63A5\u53D7\u5168\u90E8\u7C7B\u522B\u5C31\u7701\u7565\u8FD9\u4E2A\u5B57\u6BB5)");
+          a?.forEach((cat, k) => {
+            if (typeof cat !== "string" || !ITEM_CATEGORIES.includes(cat)) c.err(`${sp}.accepts[${k}]`, `\u672A\u77E5\u7C7B\u522B ${JSON.stringify(cat)}`);
+          });
+        });
+      });
       c.opt(lo.needsPower, (v) => c.bool(v, `${lp}.needsPower`));
       c.opt(lo.providesPower, (v) => c.bool(v, `${lp}.providesPower`));
       c.opt(lo.fuelPerHour, (v) => c.num(v, `${lp}.fuelPerHour`, { min: 0 }));
@@ -295,6 +321,13 @@ function validateGameData(raw) {
         c.num(so.price, `${sp}.price`, { int: true, min: 1 });
         c.num(so.qty, `${sp}.qty`, { int: true, min: 1 });
       });
+    });
+    c.opt(o.vehicles, (v) => {
+      const a = c.arr(v, `${p}.vehicles`);
+      a?.forEach((vid, i) => {
+        if (typeof vid !== "string" || !(vid in vehicles)) c.err(`${p}.vehicles[${i}]`, `\u8F66\u8F86 "${String(vid)}" \u4E0D\u5B58\u5728`);
+      });
+      if (a && new Set(a).size !== a.length) c.err(`${p}.vehicles`, "\u6709\u91CD\u590D\u7684\u8F66\u8F86");
     });
   });
   if (home && home in locations) {
@@ -372,6 +405,14 @@ function validateGameData(raw) {
     c.opt(e.startMoney, (v) => c.num(v, `${p}.effect.startMoney`, { int: true, min: 0 }));
     c.opt(e.startItems, (v) => c.qtyMap(v, `${p}.effect.startItems`, items));
     c.opt(e.startStats, (v) => c.partialStats(v, `${p}.effect.startStats`));
+    c.opt(e.backpackBonus, (v) => c.num(v, `${p}.effect.backpackBonus`, { int: true, min: 0 }));
+  });
+  c.table(root.vehicles, "$.vehicles", (o, _id, p) => {
+    c.str(o.name, `${p}.name`);
+    if (typeof o.description !== "string") c.err(`${p}.description`, "\u5E94\u4E3A\u5B57\u7B26\u4E32");
+    c.num(o.price, `${p}.price`, { int: true, min: 1 });
+    c.num(o.trunkCapacity, `${p}.trunkCapacity`, { int: true, gt: 0 });
+    c.num(o.travelMult, `${p}.travelMult`, { gt: 0, max: 1 });
   });
   void crops;
   if (c.errors.length) throw new Error(`\u6E38\u620F\u6570\u636E\u6821\u9A8C\u5931\u8D25(${c.errors.length} \u5904):
@@ -392,6 +433,9 @@ var config_default = {
   sleepDecayMult: 0.4,
   homeLocation: "home",
   buyMinutes: 5,
+  backpackCapacity: 30,
+  moveMinutes: 5,
+  unloadMinutes: 10,
   plantMinutes: 15,
   harvestMinutes: 10,
   buyQuantities: [1, 3, 5],
@@ -416,8 +460,8 @@ var items_default = {
   instant_noodle: { id: "instant_noodle", name: "\u65B9\u4FBF\u9762", category: "food", shelfLifeMinutes: 43200, use: { minutes: 10, stats: { satiety: 22, mood: 1 } } },
   canned_food: { id: "canned_food", name: "\u7F50\u5934", category: "food", shelfLifeMinutes: 43200, use: { minutes: 10, stats: { satiety: 30 } } },
   bread: { id: "bread", name: "\u9762\u5305", category: "food", shelfLifeMinutes: 2880, use: { minutes: 5, stats: { satiety: 20, mood: 2 } } },
-  rice: { id: "rice", name: "\u5927\u7C73", category: "material", shelfLifeMinutes: 6e4 },
-  meat: { id: "meat", name: "\u9C9C\u8089", category: "material", shelfLifeMinutes: 1440 },
+  rice: { id: "rice", name: "\u5927\u7C73", category: "material", shelfLifeMinutes: 6e4, size: 4 },
+  meat: { id: "meat", name: "\u9C9C\u8089", category: "material", shelfLifeMinutes: 1440, size: 2 },
   vegetable: { id: "vegetable", name: "\u852C\u83DC", category: "food", shelfLifeMinutes: 1800, use: { minutes: 5, stats: { satiety: 10, health: 1 } } },
   potato: { id: "potato", name: "\u571F\u8C46", category: "food", shelfLifeMinutes: 6e3, use: { minutes: 10, stats: { satiety: 16 } } },
   cooked_meal: { id: "cooked_meal", name: "\u70ED\u996D\u83DC", category: "food", shelfLifeMinutes: 720, use: { minutes: 15, stats: { satiety: 40, mood: 9, health: 2 } } },
@@ -425,13 +469,13 @@ var items_default = {
   medicine: { id: "medicine", name: "\u6297\u751F\u7D20", category: "medicine", use: { minutes: 2, stats: { health: 12 }, removeEffects: ["infection"] } },
   bandage: { id: "bandage", name: "\u7EF7\u5E26", category: "medicine", use: { minutes: 3, stats: { health: 8 } } },
   snack: { id: "snack", name: "\u96F6\u98DF", category: "food", shelfLifeMinutes: 2e4, use: { minutes: 2, stats: { satiety: 6, mood: 8 } } },
-  wood: { id: "wood", name: "\u6728\u677F", category: "material" },
-  metal: { id: "metal", name: "\u91D1\u5C5E\u4EF6", category: "material" },
+  wood: { id: "wood", name: "\u6728\u677F", category: "material", size: 3 },
+  metal: { id: "metal", name: "\u91D1\u5C5E\u4EF6", category: "material", size: 2 },
   scrap: { id: "scrap", name: "\u5E9F\u6599", category: "material" },
-  fuel: { id: "fuel", name: "\u71C3\u6599", category: "fuel" },
-  seed_potato: { id: "seed_potato", name: "\u571F\u8C46\u79CD", category: "seed" },
-  seed_veg: { id: "seed_veg", name: "\u83DC\u79CD", category: "seed" },
-  seed_corn: { id: "seed_corn", name: "\u7389\u7C73\u79CD", category: "seed" },
+  fuel: { id: "fuel", name: "\u71C3\u6599", category: "fuel", size: 3 },
+  seed_potato: { id: "seed_potato", name: "\u571F\u8C46\u79CD", category: "seed", size: 0 },
+  seed_veg: { id: "seed_veg", name: "\u83DC\u79CD", category: "seed", size: 0 },
+  seed_corn: { id: "seed_corn", name: "\u7389\u7C73\u79CD", category: "seed", size: 0 },
   corn: { id: "corn", name: "\u7389\u7C73", category: "food", shelfLifeMinutes: 5e3, use: { minutes: 8, stats: { satiety: 18 } } },
   rotten: { id: "rotten", name: "\u8150\u8D25\u7269", category: "junk", use: { minutes: 5, stats: { satiety: 8, health: -6 }, applyEffects: ["infection"] } }
 };
@@ -470,8 +514,14 @@ var facilities_default = {
     { cost: { metal: 5, scrap: 5 }, buildMinutes: 90, defense: 4, needsPower: true },
     { cost: { metal: 8, scrap: 8 }, buildMinutes: 120, defense: 9, needsPower: true }
   ] },
-  fridge: { id: "fridge", name: "\u51B0\u7BB1", description: "\u51B7\u85CF\u98DF\u7269,\u8150\u8D25\u5927\u5E45\u51CF\u7F13\u3002\u9700\u8981\u901A\u7535\u3002", levels: [
-    { cost: { metal: 4, scrap: 3 }, buildMinutes: 60, spoilMult: 0.3, needsPower: true }
+  fridge: { id: "fridge", name: "\u51B0\u7BB1", description: "\u653E\u5728\u91CC\u9762\u7684\u98DF\u7269\u8150\u8D25\u5927\u5E45\u51CF\u7F13\u3002\u9700\u8981\u901A\u7535\u3002", levels: [
+    { cost: { metal: 4, scrap: 3 }, buildMinutes: 60, storage: { capacity: 20, spoilMult: 0.3, needsPower: true, accepts: ["food", "drink", "material"] } }
+  ] },
+  shelf: { id: "shelf", name: "\u50A8\u7269\u67B6", description: "\u7269\u8D44\u6446\u4E0A\u67B6\u5B50,\u5C38\u6F6E\u7834\u95E8\u65F6\u635F\u5931\u5C11\u5F97\u591A\u3002", levels: [
+    { cost: { wood: 1, scrap: 3 }, buildMinutes: 40, storage: { capacity: 40, breachLossMult: 0.3 } }
+  ] },
+  stash: { id: "stash", name: "\u6697\u683C", description: "\u85CF\u5728\u5899\u91CC\u7684\u5C0F\u7A7A\u95F4,\u5C38\u6F6E\u627E\u4E0D\u5230\u3002\u653E\u4EC0\u4E48\u7531\u4F60\u51B3\u5B9A\u3002", levels: [
+    { cost: { wood: 2, metal: 1 }, buildMinutes: 60, storage: { capacity: 8, breachLossMult: 0, autoFill: false } }
   ] },
   planter: { id: "planter", name: "\u79CD\u690D\u7BB1", description: "\u9633\u53F0\u4E0A\u7684\u79CD\u690D\u4F4D\u3002", levels: [
     { cost: { wood: 3 }, buildMinutes: 45, cropSlots: 2 },
@@ -502,8 +552,9 @@ var crops_default = {
 
 // src/data/content/locations.json
 var locations_default = {
-  home: { id: "home", name: "\u5BB6", travelMinutes: { supermarket: 20, hardware: 30, market: 25 } },
-  supermarket: { id: "supermarket", name: "\u8D85\u5E02", travelMinutes: { home: 20, hardware: 15, market: 12 }, stock: [
+  home: { id: "home", name: "\u5BB6", travelMinutes: { supermarket: 20, hardware: 30, market: 25, car_lot: 25 } },
+  car_lot: { id: "car_lot", name: "\u4E8C\u624B\u8F66\u573A", travelMinutes: { home: 25, supermarket: 20, hardware: 15, market: 25 }, vehicles: ["van"] },
+  supermarket: { id: "supermarket", name: "\u8D85\u5E02", travelMinutes: { home: 20, hardware: 15, market: 12, car_lot: 20 }, stock: [
     { item: "instant_noodle", price: 6, qty: 20 },
     { item: "canned_food", price: 12, qty: 14 },
     { item: "bread", price: 5, qty: 10 },
@@ -512,14 +563,14 @@ var locations_default = {
     { item: "rice", price: 20, qty: 8 },
     { item: "bandage", price: 10, qty: 6 }
   ] },
-  hardware: { id: "hardware", name: "\u5DE5\u5177\u5E97", travelMinutes: { home: 30, supermarket: 15, market: 20 }, stock: [
+  hardware: { id: "hardware", name: "\u5DE5\u5177\u5E97", travelMinutes: { home: 30, supermarket: 15, market: 20, car_lot: 15 }, stock: [
     { item: "wood", price: 15, qty: 14 },
     { item: "metal", price: 25, qty: 12 },
     { item: "scrap", price: 8, qty: 14 },
     { item: "fuel", price: 30, qty: 8 },
     { item: "medicine", price: 40, qty: 3 }
   ] },
-  market: { id: "market", name: "\u519C\u8D38\u5E02\u573A", travelMinutes: { home: 25, supermarket: 12, hardware: 20 }, stock: [
+  market: { id: "market", name: "\u519C\u8D38\u5E02\u573A", travelMinutes: { home: 25, supermarket: 12, hardware: 20, car_lot: 25 }, stock: [
     { item: "meat", price: 25, qty: 6 },
     { item: "vegetable", price: 5, qty: 14 },
     { item: "potato", price: 4, qty: 20 },
@@ -636,14 +687,20 @@ var perks_default = {
   pantry: { id: "pantry", name: "\u50A8\u7269\u67DC", description: "\u5F00\u5C40\u643A\u5E26 3 \u7F50\u7F50\u5934\u548C 3 \u74F6\u6C34\u3002", cost: 40, effect: { startItems: { canned_food: 3, water_bottle: 3 } } },
   calm: { id: "calm", name: "\u5FC3\u7406\u51C6\u5907", description: "\u9884\u77E5\u707E\u96BE,\u5FC3\u6001 +15\u3002", cost: 40, effect: { startStats: { mood: 15 } } },
   toolkit: { id: "toolkit", name: "\u5DE5\u5177\u7BB1", description: "\u5F00\u5C40\u5E26 4 \u5757\u6728\u677F\u548C 2 \u4E2A\u91D1\u5C5E\u4EF6\u3002", cost: 60, effect: { startItems: { wood: 4, metal: 2 } } },
+  hiking_pack: { id: "hiking_pack", name: "\u767B\u5C71\u5305", description: "\u4E0A\u4E00\u8F6E\u5403\u591F\u4E86\u6765\u56DE\u8DD1\u7684\u82E6:\u80CC\u5305\u5BB9\u91CF +15\u3002", cost: 50, effect: { backpackBonus: 15 } },
   loop_veteran: { id: "loop_veteran", name: "\u8001\u8F6E\u56DE\u8005", description: "\u5F00\u5C40\u591A 600 \u5143\u3002", cost: 100, effect: { startMoney: 600 } }
+};
+
+// src/data/content/vehicles.json
+var vehicles_default = {
+  van: { id: "van", name: "\u4E8C\u624B\u9762\u5305\u8F66", description: "\u5F00\u5F97\u52A8\u5C31\u884C\u3002\u540E\u5907\u7BB1\u80FD\u591A\u88C5\u4E0D\u5C11,\u8DD1\u4E00\u8D9F\u4E5F\u5FEB\u3002", price: 300, trunkCapacity: 40, travelMult: 0.6 }
 };
 
 // src/data/index.ts
 var cached = null;
 function loadGameData() {
   if (!cached) {
-    cached = validateGameData({ config: config_default, items: items_default, effects: effects_default, weather: weather_default, facilities: facilities_default, recipes: recipes_default, crops: crops_default, locations: locations_default, areas: areas_default, hordes: hordes_default, characters: characters_default, perks: perks_default });
+    cached = validateGameData({ config: config_default, items: items_default, effects: effects_default, weather: weather_default, facilities: facilities_default, recipes: recipes_default, crops: crops_default, locations: locations_default, areas: areas_default, hordes: hordes_default, characters: characters_default, perks: perks_default, vehicles: vehicles_default });
   }
   return cached;
 }
@@ -678,6 +735,9 @@ function makeCtx(data2, session2) {
 var DEFAULT_TAG = {
   arrived: "info",
   bought: "info",
+  vehicle_bought: "good",
+  moved: "info",
+  unloaded: "info",
   disaster_begins: "danger",
   away_penalty: "danger",
   day_start: "info",
@@ -695,6 +755,7 @@ var DEFAULT_TAG = {
   effect_ended: "info",
   power_changed: "warn",
   scavenged: "good",
+  loot_left_behind: "warn",
   scavenge_injury: "danger",
   horde_arrives: "warn",
   horde_repelled: "good",
@@ -726,43 +787,50 @@ function pickWeighted(ctx, items, weight) {
 }
 
 // src/core/inventory.ts
-function countItem(run, item) {
+var inWhere = (s, where) => !where || where.includes(s.where);
+function countItem(run, item, where) {
   let n = 0;
-  for (const s of run.inventory) if (s.item === item) n += s.qty;
+  for (const s of run.inventory) if (s.item === item && inWhere(s, where)) n += s.qty;
   return n;
 }
-function addItem(run, item, qty, age = 0) {
+function addItem(run, item, qty, age, where) {
   if (!Number.isInteger(qty) || qty <= 0) throw new Error(`addItem: bad qty ${qty}`);
-  const same = run.inventory.find((s) => s.item === item && s.age === age);
+  const same = run.inventory.find((s) => s.item === item && s.age === age && s.where === where);
   if (same) same.qty += qty;
-  else run.inventory.push({ item, qty, age });
+  else run.inventory.push({ item, qty, age, where });
 }
-function hasItems(run, req) {
-  for (const [item, qty] of Object.entries(req)) if (countItem(run, item) < qty) return false;
+function hasItems(run, req, where) {
+  for (const [item, qty] of Object.entries(req)) if (countItem(run, item, where) < qty) return false;
   return true;
 }
-function removeItem(run, item, qty) {
-  if (!Number.isInteger(qty) || qty <= 0) throw new Error(`removeItem: bad qty ${qty}`);
-  if (countItem(run, item) < qty) return false;
-  const stacks = run.inventory.filter((s) => s.item === item).sort((a, b) => b.age - a.age);
+function takeItem(run, item, qty, where) {
+  if (!Number.isInteger(qty) || qty <= 0) throw new Error(`takeItem: bad qty ${qty}`);
+  if (countItem(run, item, where) < qty) return null;
+  const rank = (s) => where ? where.indexOf(s.where) : 0;
+  const stacks = run.inventory.map((s, i) => ({ s, i })).filter(({ s }) => s.item === item && inWhere(s, where)).sort((a, b) => b.s.age - a.s.age || rank(a.s) - rank(b.s) || a.i - b.i).map(({ s }) => s);
+  const taken = [];
   let left = qty;
   for (const s of stacks) {
     const take = Math.min(s.qty, left);
     s.qty -= take;
     left -= take;
+    taken.push({ ...s, qty: take });
     if (left === 0) break;
   }
   run.inventory = run.inventory.filter((s) => s.qty > 0);
+  return taken;
+}
+function removeItem(run, item, qty, where) {
+  return takeItem(run, item, qty, where) !== null;
+}
+function removeItems(run, req, where) {
+  if (!hasItems(run, req, where)) return false;
+  for (const [item, qty] of Object.entries(req)) if (qty > 0) removeItem(run, item, qty, where);
   return true;
 }
-function removeItems(run, req) {
-  if (!hasItems(run, req)) return false;
-  for (const [item, qty] of Object.entries(req)) if (qty > 0) removeItem(run, item, qty);
-  return true;
-}
-function inventoryTotals(run) {
+function inventoryTotals(run, where) {
   const out = {};
-  for (const s of run.inventory) out[s.item] = (out[s.item] ?? 0) + s.qty;
+  for (const s of run.inventory) if (inWhere(s, where)) out[s.item] = (out[s.item] ?? 0) + s.qty;
   return out;
 }
 
@@ -832,7 +900,7 @@ function gridAvailable(w) {
 }
 function generatorRunnable(w) {
   if (!builtLevels(w).some((b) => b.def.providesPower)) return false;
-  return w.run.fuelLeft > 0 || countItem(w.run, w.data.config.fuelItem) > 0;
+  return w.run.fuelLeft > 0 || countItem(w.run, w.data.config.fuelItem, accessibleContainers(w)) > 0;
 }
 function powerState(w) {
   if (gridAvailable(w)) return "grid";
@@ -847,20 +915,114 @@ function totalDefense(w) {
   }
   return sum;
 }
-function spoilMultiplier(w) {
-  const powered = powerState(w) !== "off";
-  let m = 1;
-  for (const b of builtLevels(w)) {
-    if (b.def.spoilMult === void 0) continue;
-    if (b.def.needsPower && !powered) continue;
-    m = Math.min(m, b.def.spoilMult);
-  }
-  return m;
-}
 function cropSlotCount(w) {
   let n = 0;
   for (const b of builtLevels(w)) n += b.def.cropSlots ?? 0;
   return n;
+}
+function itemSize(data2, item) {
+  return data2.items[item]?.size ?? 1;
+}
+var storageIdsCache = /* @__PURE__ */ new WeakMap();
+function storageFacilityIds(data2) {
+  let ids = storageIdsCache.get(data2);
+  if (!ids) {
+    ids = Object.keys(data2.facilities).filter((id) => data2.facilities[id].levels.some((l) => l.storage)).sort();
+    storageIdsCache.set(data2, ids);
+  }
+  return ids;
+}
+function isContainerId(data2, where) {
+  if (where === BACKPACK || where === TRUNK || where === HOME) return true;
+  return typeof where === "string" && storageFacilityIds(data2).includes(where);
+}
+function isHomeSide(where) {
+  return where !== BACKPACK && where !== TRUNK;
+}
+function storageOf(w, where) {
+  if (!isHomeSide(where) || where === HOME) return null;
+  return levelDef(w.data, where, facilityLevel(w.run, where))?.storage ?? null;
+}
+function containerExists(w, where) {
+  if (where === BACKPACK || where === HOME) return true;
+  if (where === TRUNK) return w.run.vehicle !== null && w.run.phase === "stockpile";
+  return storageOf(w, where) !== null;
+}
+function containerError(w, where) {
+  if (typeof where !== "string") return "invalid_argument";
+  if (!isContainerId(w.data, where)) return "unknown_id";
+  if (!containerExists(w, where)) return "container_unavailable";
+  if (isHomeSide(where) && w.run.location !== w.data.config.homeLocation) return "not_at_home";
+  return null;
+}
+function accessibleContainers(w) {
+  return [BACKPACK, TRUNK, HOME, ...storageFacilityIds(w.data)].filter((c) => containerError(w, c) === null);
+}
+function homeContainers(w) {
+  return [HOME, ...storageFacilityIds(w.data)].filter((c) => containerExists(w, c));
+}
+function backpackCapacity(w) {
+  let cap = w.data.config.backpackCapacity;
+  for (const id of w.meta.perks) cap += w.data.perks[id]?.effect.backpackBonus ?? 0;
+  return cap;
+}
+function containerCapacity(w, where) {
+  if (where === HOME) return Infinity;
+  if (where === BACKPACK) return backpackCapacity(w);
+  if (where === TRUNK) return w.run.vehicle ? w.data.vehicles[w.run.vehicle]?.trunkCapacity ?? 0 : 0;
+  return storageOf(w, where)?.capacity ?? 0;
+}
+function containerUsed(w, where) {
+  let n = 0;
+  for (const s of w.run.inventory) if (s.where === where) n += s.qty * itemSize(w.data, s.item);
+  return n;
+}
+function containerFree(w, where) {
+  return Math.max(0, containerCapacity(w, where) - containerUsed(w, where));
+}
+function fitCount(w, where, item) {
+  const size = itemSize(w.data, item);
+  return size === 0 ? Infinity : Math.floor(containerFree(w, where) / size + 1e-9);
+}
+function containerAccepts(w, where, item) {
+  const accepts = storageOf(w, where)?.accepts;
+  const cat = w.data.items[item]?.category;
+  return !accepts || cat !== void 0 && accepts.includes(cat);
+}
+function containerSpoilMult(w, where) {
+  const st = storageOf(w, where);
+  if (!st || st.spoilMult === void 0) return 1;
+  if (st.needsPower && powerState(w) === "off") return 1;
+  return st.spoilMult;
+}
+function containerBreachMult(w, where) {
+  return storageOf(w, where)?.breachLossMult ?? 1;
+}
+function packInto(w, item, qty, order) {
+  const alloc = [];
+  let left = qty;
+  for (const where of order) {
+    if (left === 0) break;
+    const n = Math.min(left, fitCount(w, where, item));
+    if (n > 0) {
+      alloc.push({ where, qty: n });
+      left -= n;
+    }
+  }
+  return { alloc, left };
+}
+function placeFor(w, item, qty) {
+  const perishable = w.data.items[item]?.shelfLifeMinutes !== void 0;
+  const auto = storageFacilityIds(w.data).filter((id) => {
+    const st = storageOf(w, id);
+    return st !== null && st.autoFill !== false && containerAccepts(w, id, item);
+  });
+  const byMult = (mult) => auto.filter((id) => mult(id) < 1).sort((a, b) => mult(a) - mult(b) || (a < b ? -1 : 1));
+  const cold = perishable ? byMult((id) => containerSpoilMult(w, id)) : [];
+  const safe = byMult((id) => containerBreachMult(w, id)).filter((id) => !cold.includes(id));
+  const { alloc, left } = packInto(w, item, qty, [...cold, ...safe]);
+  if (left > 0) alloc.push({ where: HOME, qty: left });
+  return alloc;
 }
 function thresholdEffects(data2, stats) {
   const out = [];
@@ -906,6 +1068,16 @@ function stockLeft(w, location, item) {
 function unitPrice(w, stock) {
   const mult = priceBandMult(w.data, w.run.minute) * (charMods(w).priceMult ?? 1);
   return Math.ceil(stock.price * mult - 1e-9);
+}
+function vehiclePrice(w, v) {
+  const mult = priceBandMult(w.data, w.run.minute) * (charMods(w).priceMult ?? 1);
+  return Math.ceil(v.price * mult - 1e-9);
+}
+function travelBaseMinutes(w, from, to) {
+  const base = w.data.locations[from]?.travelMinutes[to];
+  if (base === void 0) return null;
+  const mult = w.run.vehicle ? w.data.vehicles[w.run.vehicle]?.travelMult ?? 1 : 1;
+  return Math.max(1, Math.ceil(base * mult - 1e-9));
 }
 function scavengeDangerChance(w, area) {
   const night = isNight(w.data, w.run.minute) ? w.data.config.nightDangerMult : 1;
@@ -969,7 +1141,11 @@ function stepBlock(ctx, dt, activity) {
     }
     run.stats[stat] = clamp(run.stats[stat] + rate * dt, 0, cfg.statMax);
   }
-  const mult = spoilMultiplier(ctx);
+  const mults = /* @__PURE__ */ new Map();
+  const multOf = (where) => {
+    if (!mults.has(where)) mults.set(where, containerSpoilMult(ctx, where));
+    return mults.get(where);
+  };
   const keep = [];
   const spoiled = [];
   for (const s of run.inventory) {
@@ -978,13 +1154,13 @@ function stepBlock(ctx, dt, activity) {
       keep.push(s);
       continue;
     }
-    s.age += dt * mult;
+    s.age += dt * multOf(s.where);
     (s.age >= shelf ? spoiled : keep).push(s);
   }
   if (spoiled.length) {
     run.inventory = keep;
     for (const s of spoiled) {
-      addItem(run, cfg.spoiledItem, s.qty, 0);
+      addItem(run, cfg.spoiledItem, s.qty, 0, s.where);
       emit(ctx, { code: "spoiled", item: s.item, qty: s.qty });
     }
   }
@@ -1029,8 +1205,9 @@ function updatePower(ctx, dt) {
     let perHour = 0;
     for (const b of builtLevels(ctx)) if (b.def.providesPower) perHour += b.def.fuelPerHour ?? 0;
     run.fuelLeft -= perHour * dt / 60;
-    while (run.fuelLeft <= EPS && countItem(run, data2.config.fuelItem) > 0) {
-      removeItem(run, data2.config.fuelItem, 1);
+    const where = accessibleContainers(ctx);
+    while (run.fuelLeft <= EPS && countItem(run, data2.config.fuelItem, where) > 0) {
+      removeItem(run, data2.config.fuelItem, 1, where);
       run.fuelLeft += 1;
     }
     if (run.fuelLeft <= EPS) run.fuelLeft = 0;
@@ -1047,10 +1224,17 @@ function transition(ctx) {
   run.phase = "base";
   emit(ctx, { code: "disaster_begins" });
   if (run.location !== cfg.homeLocation) {
-    const lostItems = loseFraction(ctx, cfg.awayPenalty.lossFraction);
+    const lostItems = loseFraction(ctx, (where) => where === BACKPACK || where === TRUNK ? cfg.awayPenalty.lossFraction : 0);
     run.stats.health = Math.max(0, run.stats.health - cfg.awayPenalty.healthLoss);
     run.location = cfg.homeLocation;
     emit(ctx, { code: "away_penalty", lostItems, healthLoss: cfg.awayPenalty.healthLoss });
+  }
+  const trunk = run.inventory.filter((s) => s.where === TRUNK);
+  if (trunk.length) {
+    const items = inventoryTotals(run, [TRUNK]);
+    for (const s of trunk) s.where = HOME;
+    run.inventory = mergeStacks(run.inventory);
+    emit(ctx, { code: "unloaded", items, auto: true });
   }
   syncCropSlots(ctx);
   const p = powerState(ctx);
@@ -1060,10 +1244,19 @@ function transition(ctx) {
   }
   if (run.stats.health <= 0) checkEnd(ctx, "away_from_home");
 }
-function loseFraction(ctx, fraction) {
+function mergeStacks(stacks) {
+  const out = [];
+  for (const s of stacks) {
+    const same = out.find((o) => o.item === s.item && o.age === s.age && o.where === s.where);
+    if (same) same.qty += s.qty;
+    else out.push(s);
+  }
+  return out;
+}
+function loseFraction(ctx, fractionOf) {
   const lost = {};
   for (const s of ctx.run.inventory) {
-    const loss = Math.floor(s.qty * fraction + EPS);
+    const loss = Math.floor(s.qty * fractionOf(s.where) + EPS);
     if (loss > 0) {
       s.qty -= loss;
       lost[s.item] = (lost[s.item] ?? 0) + loss;
@@ -1085,7 +1278,7 @@ function resolveHorde(ctx, index) {
   }
   const damage = Math.ceil((h2.strength - defense) * data2.config.breach.damagePerPoint - EPS);
   run.stats.health = Math.max(0, run.stats.health - damage);
-  const lostItems = loseFraction(ctx, data2.config.breach.lossFraction);
+  const lostItems = loseFraction(ctx, (where) => data2.config.breach.lossFraction * containerBreachMult(ctx, where));
   emit(ctx, { code: "horde_breach", day: h2.day, damage, lostItems });
   if (run.stats.health <= 0) checkEnd(ctx, "horde");
 }
@@ -1140,15 +1333,25 @@ function travel(ctx, a) {
   if (typeof a.to !== "string") return "invalid_argument";
   if (!data2.locations[a.to]) return "unknown_id";
   if (a.to === run.location) return "already_here";
-  const base = data2.locations[run.location]?.travelMinutes[a.to];
-  if (base === void 0) return "no_route";
+  const base = travelBaseMinutes(ctx, run.location, a.to);
+  if (base === null) return "no_route";
   const minutes = actionMinutes(ctx, base);
   if (!fitsStockpile(ctx, minutes)) return "not_enough_time";
   run.location = a.to;
   advance(ctx, minutes, "travel");
   if (ended(ctx)) return null;
   emit(ctx, { code: "arrived", location: a.to });
+  if (a.to === data2.config.homeLocation) unloadTrunk(ctx);
   return null;
+}
+function unloadTrunk(ctx) {
+  const { run } = ctx;
+  const stacks = run.inventory.filter((s) => s.where === TRUNK);
+  if (!stacks.length) return;
+  const items = inventoryTotals(run, [TRUNK]);
+  run.inventory = run.inventory.filter((s) => s.where !== TRUNK);
+  for (const s of stacks) for (const p of placeFor(ctx, s.item, s.qty)) addItem(run, s.item, p.qty, s.age, p.where);
+  emit(ctx, { code: "unloaded", items, auto: true });
 }
 function buy(ctx, a) {
   const { run, data: data2 } = ctx;
@@ -1160,15 +1363,36 @@ function buy(ctx, a) {
   if (a.qty > stockLeft(ctx, run.location, a.item)) return "not_in_stock";
   const cost = unitPrice(ctx, stock) * a.qty;
   if (run.money < cost) return "not_enough_money";
+  const carry = accessibleContainers(ctx).filter((c) => c === BACKPACK || c === TRUNK);
+  const { alloc, left } = packInto(ctx, a.item, a.qty, carry);
+  if (left > 0) return "no_space";
   const minutes = actionMinutes(ctx, data2.config.buyMinutes);
   if (!fitsStockpile(ctx, minutes)) return "not_enough_time";
   run.money -= cost;
   const key = stockKey(run.location, a.item);
   run.stockSold[key] = (run.stockSold[key] ?? 0) + a.qty;
-  addItem(run, a.item, a.qty, 0);
+  for (const p of alloc) addItem(run, a.item, p.qty, 0, p.where);
   advance(ctx, minutes, "idle");
   if (ended(ctx)) return null;
   emit(ctx, { code: "bought", item: a.item, qty: a.qty, cost });
+  return null;
+}
+function buyVehicle(ctx, a) {
+  const { run, data: data2 } = ctx;
+  if (typeof a.vehicle !== "string") return "invalid_argument";
+  const v = data2.vehicles[a.vehicle];
+  if (!v) return "unknown_id";
+  if (!(data2.locations[run.location]?.vehicles ?? []).includes(v.id)) return "not_in_stock";
+  if (run.vehicle !== null) return "already_done";
+  const cost = vehiclePrice(ctx, v);
+  if (run.money < cost) return "not_enough_money";
+  const minutes = actionMinutes(ctx, data2.config.buyMinutes);
+  if (!fitsStockpile(ctx, minutes)) return "not_enough_time";
+  run.money -= cost;
+  run.vehicle = v.id;
+  advance(ctx, minutes, "idle");
+  if (ended(ctx)) return null;
+  emit(ctx, { code: "vehicle_bought", vehicle: v.id, cost });
   return null;
 }
 function startDisaster(ctx, _a) {
@@ -1183,11 +1407,12 @@ function use(ctx, a) {
   const def = data2.items[a.item];
   if (!def) return "unknown_id";
   if (!def.use) return "not_usable";
-  if (countItem(run, a.item) < 1) return "missing_items";
+  const where = accessibleContainers(ctx);
+  if (countItem(run, a.item, where) < 1) return "missing_items";
   const u = def.use;
   const minutes = actionMinutes(ctx, u.minutes);
   if (!fitsStockpile(ctx, minutes)) return "not_enough_time";
-  removeItem(run, a.item, 1);
+  removeItem(run, a.item, 1, where);
   for (const stat of STAT_IDS) {
     const d = u.stats?.[stat];
     if (d) run.stats[stat] = Math.min(data2.config.statMax, Math.max(0, run.stats[stat] + d));
@@ -1211,15 +1436,6 @@ function use(ctx, a) {
   emit(ctx, { code: "used", item: a.item });
   return null;
 }
-function discard(ctx, a) {
-  const { run, data: data2 } = ctx;
-  if (typeof a.item !== "string" || !isPositiveInt(a.qty)) return "invalid_argument";
-  if (!data2.items[a.item]) return "unknown_id";
-  if (countItem(run, a.item) < a.qty) return "missing_items";
-  removeItem(run, a.item, a.qty);
-  emit(ctx, { code: "discarded", item: a.item, qty: a.qty });
-  return null;
-}
 function wait(ctx, a) {
   if (!isPositiveInt(a.minutes) || a.minutes > 1440) return "invalid_argument";
   if (!fitsStockpile(ctx, a.minutes)) return "not_enough_time";
@@ -1236,19 +1452,72 @@ function sleep(ctx, a) {
   return null;
 }
 
+// src/sim/actions/storage.ts
+function move(ctx, a) {
+  const { run, data: data2 } = ctx;
+  if (typeof a.item !== "string" || !isPositiveInt(a.qty) || typeof a.from !== "string" || typeof a.to !== "string") return "invalid_argument";
+  if (a.from === a.to) return "invalid_argument";
+  if (!data2.items[a.item]) return "unknown_id";
+  const bad = containerError(ctx, a.from) ?? containerError(ctx, a.to);
+  if (bad) return bad;
+  if (countItem(run, a.item, [a.from]) < a.qty) return "missing_items";
+  if (!containerAccepts(ctx, a.to, a.item)) return "not_accepted";
+  if (fitCount(ctx, a.to, a.item) < a.qty) return "no_space";
+  const minutes = actionMinutes(ctx, data2.config.moveMinutes);
+  if (!fitsStockpile(ctx, minutes)) return "not_enough_time";
+  for (const s of takeItem(run, a.item, a.qty, [a.from])) addItem(run, a.item, s.qty, s.age, a.to);
+  advance(ctx, minutes, "work");
+  if (ended(ctx)) return null;
+  emit(ctx, { code: "moved", item: a.item, qty: a.qty, from: a.from, to: a.to });
+  return null;
+}
+function unloadAll(ctx, _a) {
+  const { run, data: data2 } = ctx;
+  if (run.location !== data2.config.homeLocation) return "not_at_home";
+  const carried = (where) => where === BACKPACK || where === TRUNK;
+  const stacks = run.inventory.filter((s) => carried(s.where));
+  if (!stacks.length) return "missing_items";
+  const minutes = actionMinutes(ctx, data2.config.unloadMinutes);
+  if (!fitsStockpile(ctx, minutes)) return "not_enough_time";
+  const items = inventoryTotals(run, [BACKPACK, TRUNK]);
+  run.inventory = run.inventory.filter((s) => !carried(s.where));
+  for (const s of stacks) for (const p of placeFor(ctx, s.item, s.qty)) addItem(run, s.item, p.qty, s.age, p.where);
+  advance(ctx, minutes, "work");
+  if (ended(ctx)) return null;
+  emit(ctx, { code: "unloaded", items, auto: false });
+  return null;
+}
+function discard(ctx, a) {
+  const { run, data: data2 } = ctx;
+  if (typeof a.item !== "string" || !isPositiveInt(a.qty)) return "invalid_argument";
+  if (!data2.items[a.item]) return "unknown_id";
+  if (a.from !== void 0) {
+    const bad = containerError(ctx, a.from);
+    if (bad) return bad;
+  }
+  const where = a.from !== void 0 ? [a.from] : accessibleContainers(ctx);
+  if (!takeItem(run, a.item, a.qty, where)) return "missing_items";
+  emit(ctx, { code: "discarded", item: a.item, qty: a.qty });
+  return null;
+}
+
 // src/sim/actions/home.ts
+function storeAtHome(ctx, item, qty) {
+  for (const p of placeFor(ctx, item, qty)) addItem(ctx.run, item, p.qty, 0, p.where);
+}
 function cook(ctx, a) {
   const { run, data: data2 } = ctx;
   if (typeof a.recipe !== "string") return "invalid_argument";
   const r = data2.recipes[a.recipe];
   if (!r) return "unknown_id";
   if (r.requiresFacility && facilityLevel(run, r.requiresFacility) < 1) return "missing_facility";
-  if (!hasItems(run, r.inputs)) return "missing_items";
+  const where = accessibleContainers(ctx);
+  if (!hasItems(run, r.inputs, where)) return "missing_items";
   const minutes = actionMinutes(ctx, r.minutes);
-  removeItems(run, r.inputs);
+  removeItems(run, r.inputs, where);
   advance(ctx, minutes, "work");
   if (ended(ctx)) return null;
-  for (const [item, qty] of Object.entries(r.outputs)) if (qty > 0) addItem(run, item, qty, 0);
+  for (const [item, qty] of Object.entries(r.outputs)) if (qty > 0) storeAtHome(ctx, item, qty);
   emit(ctx, { code: "cooked", recipe: r.id });
   return null;
 }
@@ -1257,10 +1526,11 @@ function plant(ctx, a) {
   if (typeof a.crop !== "string") return "invalid_argument";
   const c = data2.crops[a.crop];
   if (!c) return "unknown_id";
-  if (countItem(run, c.seedItem) < 1) return "missing_items";
+  const where = accessibleContainers(ctx);
+  if (countItem(run, c.seedItem, where) < 1) return "missing_items";
   if (run.crops.indexOf(null) === -1) return "no_free_slot";
   const minutes = actionMinutes(ctx, data2.config.plantMinutes);
-  removeItem(run, c.seedItem, 1);
+  removeItem(run, c.seedItem, 1, where);
   advance(ctx, minutes, "work");
   if (ended(ctx)) return null;
   const slot = run.crops.indexOf(null);
@@ -1284,7 +1554,7 @@ function harvest(ctx, a) {
   const yields = {};
   for (const [item, qty] of Object.entries(c.yield)) {
     if (qty > 0) {
-      addItem(run, item, qty, 0);
+      storeAtHome(ctx, item, qty);
       yields[item] = qty;
     }
   }
@@ -1299,9 +1569,10 @@ function build(ctx, a) {
   const next = facilityLevel(run, a.facility) + 1;
   if (next > f.levels.length) return "max_level";
   const lv = f.levels[next - 1];
-  if (!hasItems(run, lv.cost)) return "missing_items";
+  const where = accessibleContainers(ctx);
+  if (!hasItems(run, lv.cost, where)) return "missing_items";
   const minutes = actionMinutes(ctx, lv.buildMinutes);
-  removeItems(run, lv.cost);
+  removeItems(run, lv.cost, where);
   advance(ctx, minutes, "work");
   if (ended(ctx)) return null;
   run.facilities[a.facility] = next;
@@ -1328,15 +1599,24 @@ function scavenge(ctx, a) {
     emit(ctx, { code: "scavenge_injury", area: area.id, damage });
     if (checkEnd(ctx, "injury")) return null;
   }
-  const loot = {};
+  const draws = [];
   const rolls = randInt(ctx, area.rolls[0], area.rolls[1]);
   for (let i = 0; i < rolls; i++) {
     const entry = pickWeighted(ctx, area.loot, (l) => l.weight);
-    const qty = randInt(ctx, entry.qty[0], entry.qty[1]);
-    loot[entry.item] = (loot[entry.item] ?? 0) + qty;
+    draws.push({ item: entry.item, qty: randInt(ctx, entry.qty[0], entry.qty[1]) });
   }
-  for (const [item, qty] of Object.entries(loot)) if (qty > 0) addItem(run, item, qty, 0);
+  const loot = {};
+  const left = {};
+  for (const d of draws) {
+    const n = Math.min(d.qty, fitCount(ctx, BACKPACK, d.item));
+    if (n > 0) {
+      addItem(run, d.item, n, 0, BACKPACK);
+      loot[d.item] = (loot[d.item] ?? 0) + n;
+    }
+    if (d.qty > n) left[d.item] = (left[d.item] ?? 0) + d.qty - n;
+  }
   emit(ctx, { code: "scavenged", area: area.id, loot });
+  if (Object.keys(left).length) emit(ctx, { code: "loot_left_behind", area: area.id, items: left });
   return null;
 }
 
@@ -1370,6 +1650,7 @@ function startRun(data2, meta, character, seed) {
     effects: [],
     thresholds: [],
     inventory: [],
+    vehicle: null,
     facilities: {},
     crops: [],
     stockSold: {},
@@ -1379,13 +1660,13 @@ function startRun(data2, meta, character, seed) {
     seen: { weatherDays: [], hordeIndices: [] },
     ending: null
   };
-  for (const [item, qty] of Object.entries(ch.startItems)) if (qty > 0) addItem(run, item, qty, 0);
+  for (const [item, qty] of Object.entries(ch.startItems)) if (qty > 0) addItem(run, item, qty, 0, HOME);
   for (const id of meta.perks) {
     const p = data2.perks[id];
     if (!p) continue;
     money += p.effect.startMoney ?? 0;
     for (const stat of STAT_IDS) stats[stat] += p.effect.startStats?.[stat] ?? 0;
-    for (const [item, qty] of Object.entries(p.effect.startItems ?? {})) if (qty > 0) addItem(run, item, qty, 0);
+    for (const [item, qty] of Object.entries(p.effect.startItems ?? {})) if (qty > 0) addItem(run, item, qty, 0, HOME);
   }
   for (const stat of STAT_IDS) stats[stat] = Math.min(cfg.statMax, Math.max(0, stats[stat]));
   run.money = money;
@@ -1440,8 +1721,8 @@ function rebirth(ctx, a) {
 
 // src/sim/actions/index.ts
 var PHASE_ACTIONS = {
-  stockpile: ["travel", "buy", "startDisaster", "use", "discard", "wait"],
-  base: ["use", "discard", "wait", "sleep", "cook", "plant", "harvest", "build", "scavenge"],
+  stockpile: ["travel", "buy", "buyVehicle", "startDisaster", "use", "discard", "move", "unloadAll", "wait"],
+  base: ["use", "discard", "move", "unloadAll", "wait", "sleep", "cook", "plant", "harvest", "build", "scavenge"],
   dead: ["buyPerk", "rebirth"],
   victory: ["buyPerk", "rebirth"]
 };
@@ -1452,8 +1733,14 @@ function applyAction(ctx, action) {
       return travel(ctx, action);
     case "buy":
       return buy(ctx, action);
+    case "buyVehicle":
+      return buyVehicle(ctx, action);
     case "startDisaster":
       return startDisaster(ctx, action);
+    case "move":
+      return move(ctx, action);
+    case "unloadAll":
+      return unloadAll(ctx, action);
     case "use":
       return use(ctx, action);
     case "discard":
@@ -1497,22 +1784,35 @@ var byId = (xs) => xs.sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
 function candidateActions(data2, session2) {
   const { run } = session2;
   const cfg = data2.config;
+  const w = { data: data2, meta: session2.meta, run };
   const out = [];
-  const usableItems = [...new Set(run.inventory.map((s) => s.item))].filter((id) => data2.items[id]?.use).sort();
+  const where = accessibleContainers(w);
+  const usableItems = [...new Set(run.inventory.filter((s) => where.includes(s.where)).map((s) => s.item))].filter((id) => data2.items[id]?.use).sort();
   if (run.phase === "stockpile") {
     const loc = data2.locations[run.location];
     for (const to of Object.keys(loc?.travelMinutes ?? {}).sort()) out.push({ type: "travel", to });
+    for (const vehicle of [...loc?.vehicles ?? []].sort()) out.push({ type: "buyVehicle", vehicle });
     for (const s of loc?.stock ?? [])
       for (const qty of cfg.buyQuantities) out.push({ type: "buy", item: s.item, qty });
     out.push({ type: "startDisaster" });
   }
   if (run.phase === "stockpile" || run.phase === "base") {
     for (const item of usableItems) out.push({ type: "use", item });
-    const owned = /* @__PURE__ */ new Map();
-    for (const s of run.inventory) owned.set(s.item, (owned.get(s.item) ?? 0) + s.qty);
-    for (const item of [...owned.keys()].sort()) {
-      out.push({ type: "discard", item, qty: 1 });
-      if (owned.get(item) > 1) out.push({ type: "discard", item, qty: owned.get(item) });
+    if (where.includes(HOME)) out.push({ type: "unloadAll" });
+    for (const from of where) {
+      const items = [...new Set(run.inventory.filter((s) => s.where === from).map((s) => s.item))].sort();
+      for (const item of items) {
+        const have = countItem(run, item, [from]);
+        out.push({ type: "discard", item, qty: 1, from });
+        if (have > 1) out.push({ type: "discard", item, qty: have, from });
+        if (!isHomeSide(from)) continue;
+        for (const to of where) {
+          if (to === from || !isHomeSide(to) || from !== HOME && to !== HOME) continue;
+          if (!containerAccepts(w, to, item)) continue;
+          const fit = fitCount(w, to, item);
+          out.push({ type: "move", item, qty: fit >= 1 ? Math.min(have, fit) : have, from, to });
+        }
+      }
     }
     for (const minutes of cfg.waitMinutesOptions) out.push({ type: "wait", minutes });
   }
@@ -1530,17 +1830,43 @@ function candidateActions(data2, session2) {
   }
   return out;
 }
+function checkAction(data2, session2, action) {
+  const r = step(data2, session2, action);
+  return r.ok ? { action, enabled: true } : { action, enabled: false, reason: r.error };
+}
 function legalActions(data2, session2) {
-  return candidateActions(data2, session2).map((action) => {
-    const r = step(data2, session2, action);
-    return r.ok ? { action, enabled: true } : { action, enabled: false, reason: r.error };
-  });
+  return candidateActions(data2, session2).map((action) => checkAction(data2, session2, action));
 }
 
 // src/sim/save.ts
-var SAVE_VERSION = 1;
+var SAVE_VERSION = 2;
+var asObj = (v) => v && typeof v === "object" && !Array.isArray(v) ? v : null;
+function v1ToV2(s) {
+  const run = asObj(s.run);
+  if (!run) return s;
+  const home = run.location === "home" || run.phase !== "stockpile";
+  const where = home ? HOME : BACKPACK;
+  if (Array.isArray(run.inventory)) run.inventory = run.inventory.map((st) => ({ ...asObj(st) ?? {}, where }));
+  run.vehicle = null;
+  return s;
+}
+var MIGRATIONS = { 1: v1ToV2 };
 function serializeSession(session2) {
   return JSON.stringify({ v: SAVE_VERSION, session: session2 });
+}
+function migrateSession(session2, from, to = SAVE_VERSION, migrations = MIGRATIONS) {
+  let s = session2;
+  for (let v = from; v < to; v++) {
+    const m = migrations[v];
+    if (!m) return null;
+    try {
+      s = m(structuredClone(s));
+    } catch {
+      return null;
+    }
+    if (!s || typeof s !== "object") return null;
+  }
+  return s;
 }
 function deserializeSession(text) {
   let parsed;
@@ -1551,12 +1877,17 @@ function deserializeSession(text) {
   }
   if (!parsed || typeof parsed !== "object") return null;
   const obj = parsed;
-  if (obj.v !== SAVE_VERSION || !obj.session || typeof obj.session !== "object") return null;
-  const s = obj.session;
-  const { meta, run } = s;
-  if (!meta || !run) return null;
-  const ok = typeof meta.worldSeed === "number" && typeof meta.loops === "number" && typeof meta.points === "number" && Array.isArray(meta.perks) && Array.isArray(meta.history) && typeof run.rng === "number" && typeof run.minute === "number" && typeof run.phase === "string" && typeof run.location === "string" && typeof run.money === "number" && !!run.stats && Array.isArray(run.inventory) && Array.isArray(run.effects) && Array.isArray(run.crops);
-  return ok ? obj.session : null;
+  const v = obj.v;
+  if (typeof v !== "number" || !Number.isInteger(v) || v < 1 || v > SAVE_VERSION) return null;
+  if (!obj.session || typeof obj.session !== "object" || Array.isArray(obj.session)) return null;
+  const migrated = migrateSession(obj.session, v);
+  return migrated && looksLikeSession(migrated) ? migrated : null;
+}
+function looksLikeSession(s) {
+  const meta = s.meta;
+  const run = s.run;
+  if (!meta || typeof meta !== "object" || !run || typeof run !== "object") return false;
+  return typeof meta.worldSeed === "number" && typeof meta.loops === "number" && typeof meta.points === "number" && Array.isArray(meta.perks) && Array.isArray(meta.history) && typeof run.rng === "number" && typeof run.minute === "number" && typeof run.phase === "string" && typeof run.location === "string" && typeof run.money === "number" && !!run.stats && Array.isArray(run.inventory) && run.inventory.every((st) => typeof asObj(st)?.where === "string") && "vehicle" in run && Array.isArray(run.effects) && Array.isArray(run.crops);
 }
 
 // src/web/messages.ts
@@ -1588,6 +1919,9 @@ var effectName = (d, id) => d.effects[id]?.name ?? id;
 var weatherName = (d, id) => d.weather[id]?.name ?? id;
 var perkName = (d, id) => d.perks[id]?.name ?? id;
 var characterName = (d, id) => d.characters[id]?.name ?? id;
+var vehicleName = (d, id) => d.vehicles[id]?.name ?? id;
+var CONTAINER_LABEL = { [BACKPACK]: "\u80CC\u5305", [TRUNK]: "\u540E\u5907\u7BB1", [HOME]: "\u5BB6\u4E2D\u5730\u9762" };
+var containerName = (d, id) => CONTAINER_LABEL[id] ?? facilityName(d, id);
 function fmtItems(d, m, empty = "\u65E0") {
   const parts = Object.entries(m).filter(([, q]) => q > 0).map(([id, q]) => `${itemName(d, id)}\xD7${q}`);
   return parts.length ? parts.join("\u3001") : empty;
@@ -1613,6 +1947,12 @@ function eventText(d, e) {
       return `\u5230\u8FBE\u4E86${locationName(d, e.location)}\u3002`;
     case "bought":
       return `\u4E70\u5165 ${itemName(d, e.item)}\xD7${e.qty},\u82B1\u4E86 \xA5${e.cost}\u3002`;
+    case "vehicle_bought":
+      return `\u4E70\u4E0B\u4E86${vehicleName(d, e.vehicle)},\u82B1\u4E86 \xA5${e.cost}\u3002\u4E4B\u540E\u8DD1\u4E00\u8D9F\u66F4\u5FEB,\u8FD8\u80FD\u591A\u88C5\u4E00\u540E\u5907\u7BB1\u3002`;
+    case "moved":
+      return `\u628A ${itemName(d, e.item)}\xD7${e.qty} \u4ECE${containerName(d, e.from)}\u642C\u5230\u4E86${containerName(d, e.to)}\u3002`;
+    case "unloaded":
+      return e.auto ? `\u540E\u5907\u7BB1\u91CC\u7684\u4E1C\u897F\u642C\u8FDB\u4E86\u5BB6:${fmtItems(d, e.items)}\u3002` : `\u628A\u968F\u8EAB\u7684\u4E1C\u897F\u653E\u8FDB\u4E86\u5BB6\u91CC:${fmtItems(d, e.items)}\u3002`;
     case "disaster_begins":
       return "\u707E\u96BE\u964D\u4E34\u4E86\u3002\u57CE\u5E02\u7684\u79E9\u5E8F\u5728\u4E00\u591C\u4E4B\u95F4\u5D29\u584C,\u7A97\u5916\u4F20\u6765\u7B2C\u4E00\u58F0\u5C16\u53EB\u3002";
     case "away_penalty":
@@ -1647,6 +1987,8 @@ function eventText(d, e) {
       return `\u4F9B\u7535\u53D8\u5316:${POWER_LABEL[e.power]}\u3002`;
     case "scavenged":
       return `\u5728${areaName(d, e.area)}\u641C\u522E\u5230:${fmtItems(d, e.loot, "\u4E00\u65E0\u6240\u83B7")}\u3002`;
+    case "loot_left_behind":
+      return `\u80CC\u5305\u88C5\u4E0D\u4E0B\u4E86,\u53EA\u597D\u628A ${fmtItems(d, e.items)} \u7559\u5728${areaName(d, e.area)}\u3002`;
     case "scavenge_injury":
       return `\u5728${areaName(d, e.area)}\u906D\u9047\u4E86\u5371\u9669,\u5065\u5EB7 -${e.damage}\u3002`;
     case "horde_arrives":
@@ -1675,12 +2017,18 @@ function actionLabel(d, a) {
       return `\u524D\u5F80${locationName(d, a.to)}`;
     case "buy":
       return `\u4E70 ${itemName(d, a.item)} \xD7${a.qty}`;
+    case "buyVehicle":
+      return `\u4E70\u4E0B${vehicleName(d, a.vehicle)}`;
     case "startDisaster":
       return "\u56DE\u5BB6\u7B49\u5F85\u707E\u96BE";
     case "use":
       return `\u4F7F\u7528 ${itemName(d, a.item)}`;
     case "discard":
-      return `\u4E22\u5F03 ${itemName(d, a.item)} \xD7${a.qty}`;
+      return `\u4E22\u5F03 ${itemName(d, a.item)} \xD7${a.qty}${a.from ? `(${containerName(d, a.from)})` : ""}`;
+    case "move":
+      return `${itemName(d, a.item)} \xD7${a.qty}:${containerName(d, a.from)} \u2192 ${containerName(d, a.to)}`;
+    case "unloadAll":
+      return "\u628A\u968F\u8EAB\u7684\u4E1C\u897F\u653E\u8FDB\u5BB6\u91CC";
     case "wait":
       return `\u7B49\u5F85 ${fmtDuration(a.minutes)}`;
     case "sleep":
@@ -1703,6 +2051,11 @@ function actionLabel(d, a) {
       return unreachable(a);
   }
 }
+function rowActionLabel(d, a) {
+  if (a.type === "discard") return a.qty === 1 ? "\u4E22 1" : `\u5168\u4E22(${a.qty})`;
+  if (a.type === "move") return `\u2192 ${containerName(d, a.to)}${a.qty > 1 ? ` \xD7${a.qty}` : ""}`;
+  return actionLabel(d, a);
+}
 var ERROR_TEXT = {
   wrong_phase: "\u73B0\u5728\u4E0D\u80FD\u8FD9\u4E48\u505A",
   invalid_argument: "\u53C2\u6570\u4E0D\u5408\u6CD5",
@@ -1724,19 +2077,23 @@ var ERROR_TEXT = {
   weather_blocked: "\u4ECA\u5929\u7684\u5929\u6C14\u65E0\u6CD5\u5916\u51FA",
   area_locked: "\u8FD9\u4E2A\u533A\u57DF\u8FD8\u6CA1\u6709\u89E3\u9501",
   not_enough_points: "\u79EF\u5206\u4E0D\u591F",
-  perk_owned: "\u5DF2\u7ECF\u62E5\u6709"
+  perk_owned: "\u5DF2\u7ECF\u62E5\u6709",
+  no_space: "\u88C5\u4E0D\u4E0B\u4E86",
+  container_unavailable: "\u8FD9\u4E2A\u50A8\u7269\u5904\u8FD8\u4E0D\u80FD\u7528",
+  not_accepted: "\u8FD9\u91CC\u4E0D\u6536\u8FD9\u7C7B\u4E1C\u897F",
+  already_done: "\u5DF2\u7ECF\u505A\u8FC7\u4E86"
 };
 var errorText = (code) => ERROR_TEXT[code];
 
 // src/web/view.ts
 var GROUP_ORDER = [
   { title: "\u79FB\u52A8", types: ["travel", "startDisaster"] },
-  { title: "\u8D2D\u4E70", types: ["buy"] },
+  { title: "\u8D2D\u4E70", types: ["buyVehicle", "buy"] },
   { title: "\u4F7F\u7528\u7269\u54C1", types: ["use"] },
   { title: "\u4F11\u606F", types: ["sleep", "wait"] },
   { title: "\u636E\u70B9", types: ["cook", "plant", "harvest", "build"] },
   { title: "\u5916\u51FA\u63A2\u7D22", types: ["scavenge"] },
-  { title: "\u6574\u7406", types: ["discard"] },
+  { title: "\u6574\u7406", types: ["unloadAll"] },
   { title: "\u6C38\u4E45\u5F3A\u5316", types: ["buyPerk"] },
   { title: "\u91CD\u751F", types: ["rebirth"] }
 ];
@@ -1757,11 +2114,41 @@ function buildView(data2, s) {
     low: run.stats[id] < cfg.statMax * 0.2
   }));
   const w = worldOf(data2, s);
-  const totals = inventoryTotals(run);
-  const inventory = Object.keys(totals).sort().map((id) => {
-    const shelf = data2.items[id]?.shelfLifeMinutes;
-    const spoilingSoon = shelf !== void 0 && run.inventory.some((st) => st.item === id && shelf - st.age <= shelf * SPOIL_SOON_FRACTION && shelf - st.age <= 1440);
-    return { id, name: itemName(data2, id), qty: totals[id], spoilingSoon };
+  const options = legalActions(data2, s);
+  const toButton = (o, key, label = actionLabel(data2, o.action)) => ({
+    key,
+    label,
+    enabled: o.enabled,
+    why: o.enabled || !o.reason ? void 0 : errorText(o.reason),
+    action: o.action
+  });
+  const rowActions = (where, item) => options.filter((o) => (o.action.type === "discard" || o.action.type === "move") && o.action.item === item && o.action.from === where).map((o, i) => toButton(o, `${where}:${item}:${i}`, rowActionLabel(data2, o.action)));
+  const accessible = accessibleContainers(w);
+  const carried = [BACKPACK, TRUNK].filter((c) => containerExists(w, c));
+  const containers = [...carried, ...homeContainers(w)].map((where) => {
+    const totals = inventoryTotals(run, [where]);
+    const items = Object.keys(totals).sort().map((id) => {
+      const shelf = data2.items[id]?.shelfLifeMinutes;
+      const spoilingSoon = shelf !== void 0 && run.inventory.some((st2) => st2.item === id && st2.where === where && shelf - st2.age <= shelf * SPOIL_SOON_FRACTION && shelf - st2.age <= 1440);
+      return { id, name: itemName(data2, id), qty: totals[id], spoilingSoon, actions: rowActions(where, id) };
+    });
+    const cap = containerCapacity(w, where);
+    const st = storageOf(w, where);
+    const notes = [];
+    if (st?.spoilMult !== void 0) {
+      const m = containerSpoilMult(w, where);
+      notes.push(m < 1 ? `\u51B7\u85CF\u4E2D,\u8150\u8D25 \xD7${m}` : "\u65AD\u7535,\u4FDD\u9C9C\u5931\u6548");
+    }
+    if (st?.breachLossMult !== void 0) notes.push(st.breachLossMult === 0 ? "\u5C38\u6F6E\u627E\u4E0D\u5230" : `\u5C38\u6F6E\u635F\u5931 \xD7${st.breachLossMult}`);
+    return {
+      id: where,
+      name: containerName(data2, where),
+      items,
+      used: containerUsed(w, where),
+      capacity: Number.isFinite(cap) ? cap : null,
+      accessible: accessible.includes(where),
+      notes
+    };
   });
   const effects = activeEffectIds(w).map((id) => effectName(data2, id));
   const weather = currentWeather(w);
@@ -1790,16 +2177,9 @@ function buildView(data2, s) {
     return { slot: i, text: left <= 0 ? `${cropName(data2, slot.crop)}(\u53EF\u6536\u83B7)` : `${cropName(data2, slot.crop)}(\u8FD8\u9700 ${fmtDuration(left)})` };
   });
   const facilities = Object.keys(data2.facilities).sort().map((id) => ({ id, name: facilityName(data2, id), level: run.facilities[id] ?? 0, maxLevel: data2.facilities[id].levels.length }));
-  const options = legalActions(data2, s);
   const groups = [];
   for (const g of GROUP_ORDER) {
-    const buttons = options.filter((o) => g.types.includes(o.action.type)).map((o, i) => ({
-      key: `${g.title}:${i}`,
-      label: actionLabel(data2, o.action),
-      enabled: o.enabled,
-      why: o.enabled || !o.reason ? void 0 : errorText(o.reason),
-      action: o.action
-    }));
+    const buttons = options.filter((o) => g.types.includes(o.action.type)).map((o, i) => toButton(o, `${g.title}:${i}`));
     if (buttons.length) groups.push({ title: g.title, buttons });
   }
   const e = run.ending;
@@ -1814,13 +2194,13 @@ function buildView(data2, s) {
     timeText: timeLabel(data2, run.minute),
     where: locationName(data2, run.location),
     money: run.money,
+    vehicle: run.vehicle ? vehicleName(data2, run.vehicle) : null,
     stats,
-    inventory,
+    containers,
     effects,
     weatherToday: weather ? weatherName(data2, weather.id) : null,
     power: inBase ? POWER_LABEL[powerState(w)] : null,
     defense: inBase ? totalDefense(w) : 0,
-    spoilNote: spoilMultiplier(w) < 1 ? `\u51B7\u85CF\u4E2D,\u8150\u8D25\u901F\u5EA6 \xD7${spoilMultiplier(w)}` : null,
     facilities,
     crops,
     forecast,
@@ -1944,15 +2324,40 @@ function renderStatus(v) {
     { class: "head" },
     h("strong", {}, `\u7B2C ${v.loop} \u8F6E \xB7 ${v.character}`),
     ` \xB7 ${v.timeText} \xB7 ${v.where} \xB7 \xA5${v.money}`,
+    v.vehicle && v.phase === "stockpile" ? ` \xB7 ${v.vehicle}` : null,
     v.weatherToday ? ` \xB7 ${v.weatherToday}` : null,
     v.power ? ` \xB7 ${v.power}` : null,
     v.phase === "base" ? ` \xB7 \u9632\u5FA1 ${v.defense}` : null
   );
   return section("\u72B6\u6001", head, ...v.stats.map((s) => bar(s.label, s.value, s.max, s.pct, s.low)), v.effects.length ? h("p", { class: "effects" }, `\u72B6\u6001\u6548\u679C:${v.effects.join("\u3001")}`) : null);
 }
+function actionButton(b, cls = "") {
+  const btn = h("button", { type: "button", class: cls, disabled: !b.enabled, title: b.why ?? "" }, b.label);
+  if (b.enabled) btn.addEventListener("click", () => act(b.action));
+  return btn;
+}
+function renderContainer(c) {
+  const cap = c.capacity === null ? `\u5DF2\u653E ${c.used}` : `${c.used}/${c.capacity}`;
+  const title = h("h3", {}, `${c.name} \xB7 ${cap}${c.accessible ? "" : "(\u4E0D\u5728\u8EAB\u8FB9)"}`, c.notes.length ? ` \xB7 ${c.notes.join(" \xB7 ")}` : null);
+  const full = c.capacity !== null && c.used >= c.capacity;
+  let gauge = null;
+  if (c.capacity !== null) {
+    const fill = h("div", { class: "fill" });
+    fill.style.width = `${Math.min(100, c.used / c.capacity * 100)}%`;
+    gauge = h("div", { class: `bar${full ? " full" : ""}` }, fill);
+  }
+  const rows = c.items.map(
+    (i) => h(
+      "div",
+      { class: "inv-row" },
+      h("span", { class: i.spoilingSoon ? "warn" : "" }, `${i.name} \xD7${i.qty}${i.spoilingSoon ? "(\u5FEB\u574F\u4E86)" : ""}`),
+      h("span", { class: "row-actions" }, ...i.actions.map((b) => actionButton(b, "small")))
+    )
+  );
+  return h("div", { class: `container${c.accessible ? "" : " away"}` }, title, gauge, rows.length ? h("div", {}, ...rows) : h("p", { class: "muted" }, "\u7A7A"));
+}
 function renderInventory(v) {
-  const items = v.inventory.map((i) => `${i.name} \xD7${i.qty}${i.spoilingSoon ? "(\u5FEB\u574F\u4E86)" : ""}`);
-  return section("\u80CC\u5305", list(items, "\u7A7A\u7A7A\u5982\u4E5F"), v.spoilNote ? h("p", { class: "muted" }, v.spoilNote) : null);
+  return section("\u7269\u54C1", ...v.containers.map(renderContainer));
 }
 function renderBase(v) {
   if (v.phase === "stockpile") return null;
@@ -1969,11 +2374,7 @@ function renderActions(v) {
   const wrap = h("div", { class: "actions" });
   for (const g of v.groups) {
     const row = h("div", { class: "group" }, h("h3", {}, g.title));
-    for (const b of g.buttons) {
-      const btn = h("button", { type: "button", disabled: !b.enabled, title: b.why ?? "" }, b.label);
-      if (b.enabled) btn.addEventListener("click", () => act(b.action));
-      row.append(btn);
-    }
+    for (const b of g.buttons) row.append(actionButton(b));
     wrap.append(row);
   }
   return section("\u884C\u52A8", wrap);

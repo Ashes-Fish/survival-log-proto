@@ -50,3 +50,12 @@ button:disabled { color: var(--muted); opacity: .45; cursor: not-allowed; }
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
 .card { border: 1px solid var(--line); border-radius: 6px; padding: 10px; }
 .error { color: var(--danger); white-space: pre-wrap; }
+.container { margin-bottom: 10px; }
+.container.away { opacity: .6; }
+.container .bar { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; margin-bottom: 4px; }
+.container .fill { height: 100%; background: var(--accent); }
+.container .bar.full .fill { background: var(--warn); }
+.inv-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 1px 0; }
+.inv-row .warn { color: var(--warn); }
+.row-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; }
+button.small { padding: 0 6px; font-size: 12px; margin: 1px 0 1px 4px; }
