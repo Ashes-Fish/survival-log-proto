@@ -1,0 +1,12 @@
+newmtl WarehouseManager_21_0
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Cupboard_001_S1_T1_M02_D.png
+newmtl WarehouseManager_21_1
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Cupboard_001_S1_T1_M02_D.png

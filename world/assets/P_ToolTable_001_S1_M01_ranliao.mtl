@@ -1,0 +1,168 @@
+newmtl P_ToolTable_001_S1_M01_ranliao_0
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Clothes_001_S1_T1_M01_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_1
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Clothes_001_S1_T1_M01_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_2
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_ToolTable_001_S1_T1_M01_DA.png
+newmtl P_ToolTable_001_S1_M01_ranliao_3
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Clothes_003_S1_T1_M01_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_4
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Tool_013_S1_T1_M01_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_5
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Carpet_008_S1_T1_M03_DA.png
+newmtl P_ToolTable_001_S1_M01_ranliao_6
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl P_ToolTable_001_S1_M01_ranliao_7
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M03_DA.png
+newmtl P_ToolTable_001_S1_M01_ranliao_8
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl P_ToolTable_001_S1_M01_ranliao_9
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M02_DA.png
+newmtl P_ToolTable_001_S1_M01_ranliao_10
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl P_ToolTable_001_S1_M01_ranliao_11
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl P_ToolTable_001_S1_M01_ranliao_12
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00248_P01_T01A_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_13
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00257_P01_T01A_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_14
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00257_P01_T01A_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_15
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WoodenBucket_001_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_16
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WoodenSpoon_001_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_17
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WoodenSpoon_001_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_18
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Shovel_001_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_19
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MetalPot_001_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_20
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_DyeWater_001_Purple_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_21
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_DyeWater_001_Ochre_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_22
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_DyeWater_001_Oat_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_23
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_DyeWater_001_Magenta_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_24
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_DyeWater_001_Green_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_25
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_DyeWater_001_Cream_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_26
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_DyeWater_001_Blue_D.png
+newmtl P_ToolTable_001_S1_M01_ranliao_27
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_DyeWater_001_Pink_D.png

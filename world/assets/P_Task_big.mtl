@@ -1,0 +1,72 @@
+newmtl P_Task_big_0
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Appliance_00208_P01_T01A_D.png
+newmtl P_Task_big_1
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoofEquipment_006_S1_T1_M01_D.png
+newmtl P_Task_big_2
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoofEquipment_006_S1_T1_M01_D.png
+newmtl P_Task_big_3
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoofDeco_00401_P01_T01A_D.png
+newmtl P_Task_big_4
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoofDeco_00401_P01_T01A_D.png
+newmtl P_Task_big_5
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_AmmoBox_001_S1_T1_M01_DA.png
+newmtl P_Task_big_6
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Appliance_00234_P01_T01A_D.png
+newmtl P_Task_big_7
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00136_02_P01_T01A_D.png
+newmtl P_Task_big_8
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00136_02_P01_T01A_D.png
+newmtl P_Task_big_9
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00136_02_P01_T01A_D.png
+newmtl P_Task_big_10
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00136_02_P01_T01A_D.png
+newmtl P_Task_big_11
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00136_01_P01_T01A_D.png

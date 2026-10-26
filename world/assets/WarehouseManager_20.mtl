@@ -1,0 +1,12 @@
+newmtl WarehouseManager_20_0
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Construction_005_S1_T1_M01_D.png
+newmtl WarehouseManager_20_1
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Construction_006_S1_T1_M01_D.png

@@ -1,0 +1,6 @@
+newmtl P_Table_034_S1_M03_0
+Kd 0.750 0.750 0.750
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Table_034_S1_T1_M03_D.png

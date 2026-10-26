@@ -1,0 +1,18 @@
+newmtl P_Truck_001_S1_M01b_0
+Kd 0.800 0.800 0.800
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Truck_001_S1_T2_M01_D.png
+newmtl P_Truck_001_S1_M01b_1
+Kd 0.800 0.800 0.800
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Truck_001_S1_T2_M01_D.png
+newmtl P_Truck_001_S1_M01b_2
+Kd 0.800 0.800 0.800
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Truck_001_S1_T1_M01_D.png
