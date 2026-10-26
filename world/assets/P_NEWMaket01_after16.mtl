@@ -1,0 +1,30 @@
+newmtl P_NEWMaket01_after16_0
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_003_S1_T1_M03_D.png
+newmtl P_NEWMaket01_after16_1
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_003_S1_T1_M01_D.png
+newmtl P_NEWMaket01_after16_2
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_005_S1_T1_M01_D.png
+newmtl P_NEWMaket01_after16_3
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_005_S1_T1_M01_D.png
+newmtl P_NEWMaket01_after16_4
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WaterBucket_001_S1_T1_M01_DA.png
