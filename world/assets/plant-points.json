@@ -1,0 +1,544 @@
+{
+ "P_FlowerPot_006_S1_M04": [
+  {
+   "group": "PlantPos_Small1X1_a",
+   "name": "Small_a01",
+   "x": -0.0,
+   "y": 0.4357,
+   "z": 0.0
+  }
+ ],
+ "P_FlowerPot_006_S1_M02": [],
+ "P_FlowerPot_006_S1_M03": [
+  {
+   "group": "PlantPos_Small1X1_a",
+   "name": "Small_a01",
+   "x": -0.0,
+   "y": 0.44,
+   "z": 0.0
+  }
+ ],
+ "P_FlowerPot_002_S1_M04": [],
+ "P_FlowerPot_011_S1_M02": [
+  {
+   "group": "PlantPos_Middle2X1_a",
+   "name": "Middle_a01",
+   "x": 0.5,
+   "y": 0.265,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Middle2X1_a",
+   "name": "Middle_a02",
+   "x": -0.5,
+   "y": 0.265,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Middle2X1_b",
+   "name": "Middle_b01",
+   "x": -0.0,
+   "y": 0.265,
+   "z": 0.0
+  }
+ ],
+ "P_FlowerPot_010_S1_M02": [
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a01",
+   "x": 0.5,
+   "y": 0.295,
+   "z": 0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a02",
+   "x": -0.5,
+   "y": 0.295,
+   "z": 0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a03",
+   "x": 0.5,
+   "y": 0.295,
+   "z": -0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a04",
+   "x": -0.5,
+   "y": 0.295,
+   "z": -0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_b",
+   "name": "Big_b01",
+   "x": 0.5,
+   "y": 0.295,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Big2X2_b",
+   "name": "Big_b02",
+   "x": -0.5,
+   "y": 0.295,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Big2X2_c",
+   "name": "Big_c01",
+   "x": -0.0,
+   "y": 0.295,
+   "z": 0.0
+  }
+ ],
+ "P_Baowen01": [
+  {
+   "group": "PlantPos_Small1X1_a",
+   "name": "Small_a01",
+   "x": -0.0,
+   "y": 0.25,
+   "z": 0.0
+  }
+ ],
+ "P_Baowen02": [
+  {
+   "group": "PlantPos_Middle2X1_a",
+   "name": "Middle_a01",
+   "x": 0.5,
+   "y": 0.25,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Middle2X1_a",
+   "name": "Middle_a02",
+   "x": -0.5,
+   "y": 0.25,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Middle2X1_b",
+   "name": "Middle_b01",
+   "x": -0.0,
+   "y": 0.25,
+   "z": 0.0
+  }
+ ],
+ "P_Baowen03": [
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a01",
+   "x": 0.5,
+   "y": 0.25,
+   "z": 0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a02",
+   "x": -0.5,
+   "y": 0.25,
+   "z": 0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a03",
+   "x": 0.5,
+   "y": 0.25,
+   "z": -0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a04",
+   "x": -0.5,
+   "y": 0.25,
+   "z": -0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_b",
+   "name": "Big_b01",
+   "x": 0.5,
+   "y": 0.25,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Big2X2_b",
+   "name": "Big_b02",
+   "x": -0.5,
+   "y": 0.25,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Big2X2_c",
+   "name": "Big_c01",
+   "x": -0.0,
+   "y": 0.25,
+   "z": 0.0
+  }
+ ],
+ "P_FlowerPot_011_S1_M01deng": [
+  {
+   "group": "PlantPos_Small1X1_a",
+   "name": "Small_a01",
+   "x": -0.0,
+   "y": 0.265,
+   "z": 0.0
+  }
+ ],
+ "P_FlowerPot_011_S1_M02_deng": [
+  {
+   "group": "PlantPos_Middle2X1_a",
+   "name": "Middle_a01",
+   "x": 0.5,
+   "y": 0.265,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Middle2X1_a",
+   "name": "Middle_a02",
+   "x": -0.5,
+   "y": 0.265,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Middle2X1_b",
+   "name": "Middle_b01",
+   "x": -0.0,
+   "y": 0.265,
+   "z": 0.0
+  }
+ ],
+ "P_FlowerPot_011_S1_M03deng": [
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a01",
+   "x": 0.5,
+   "y": 0.265,
+   "z": 0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a02",
+   "x": -0.5,
+   "y": 0.265,
+   "z": 0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a03",
+   "x": 0.5,
+   "y": 0.265,
+   "z": -0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a04",
+   "x": -0.5,
+   "y": 0.265,
+   "z": -0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_b",
+   "name": "Big_b01",
+   "x": 0.5,
+   "y": 0.265,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Big2X2_b",
+   "name": "Big_b02",
+   "x": -0.5,
+   "y": 0.265,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Big2X2_c",
+   "name": "Big_c01",
+   "x": -0.0,
+   "y": 0.265,
+   "z": 0.0
+  }
+ ],
+ "P_WaterTank_02": [
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a01",
+   "x": 0.5,
+   "y": 0.75,
+   "z": 0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a02",
+   "x": -0.5,
+   "y": 0.75,
+   "z": 0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a03",
+   "x": 0.5,
+   "y": 0.75,
+   "z": -0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a04",
+   "x": -0.5,
+   "y": 0.75,
+   "z": -0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_b",
+   "name": "Big_b01",
+   "x": 0.5,
+   "y": 0.75,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Big2X2_b",
+   "name": "Big_b02",
+   "x": -0.5,
+   "y": 0.75,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Big2X2_c",
+   "name": "Big_c01",
+   "x": -0.0,
+   "y": 0.75,
+   "z": 0.0
+  }
+ ],
+ "P_FlowerPot_006_S1_zhong": [
+  {
+   "group": "PlantPos_Middle2X1_a",
+   "name": "Middle_a01",
+   "x": 0.5,
+   "y": 0.44,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Middle2X1_a",
+   "name": "Middle_a02",
+   "x": -0.5,
+   "y": 0.44,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Middle2X1_b",
+   "name": "Middle_b01",
+   "x": -0.0,
+   "y": 0.44,
+   "z": 0.0
+  }
+ ],
+ "P_FlowerPot_006_S1_M02_Big": [
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a01",
+   "x": 0.5,
+   "y": 0.442,
+   "z": 0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a02",
+   "x": -0.5,
+   "y": 0.442,
+   "z": 0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a03",
+   "x": 0.5,
+   "y": 0.442,
+   "z": -0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a04",
+   "x": -0.5,
+   "y": 0.442,
+   "z": -0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_b",
+   "name": "Big_b01",
+   "x": 0.5,
+   "y": 0.442,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Big2X2_b",
+   "name": "Big_b02",
+   "x": -0.5,
+   "y": 0.442,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Big2X2_c",
+   "name": "Big_c01",
+   "x": -0.0,
+   "y": 0.442,
+   "z": 0.0
+  }
+ ],
+ "P_FlowerPot_007_S1_M01": [
+  {
+   "group": "PlantPos_Small1X1_a",
+   "name": "Small_a01",
+   "x": -0.0,
+   "y": 0.3142,
+   "z": 0.0
+  }
+ ],
+ "P_FlowerPot_010_S1_M01": [
+  {
+   "group": "PlantPos_Middle2X1_a",
+   "name": "Middle_a01",
+   "x": 0.5,
+   "y": 0.296,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Middle2X1_a",
+   "name": "Middle_a02",
+   "x": -0.5,
+   "y": 0.296,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Middle2X1_b",
+   "name": "Middle_b01",
+   "x": -0.0,
+   "y": 0.296,
+   "z": 0.0
+  }
+ ],
+ "P_FlowerPot_010_fangcao": [
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a01",
+   "x": 0.5,
+   "y": 0.296,
+   "z": 0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a02",
+   "x": -0.5,
+   "y": 0.296,
+   "z": 0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a03",
+   "x": 0.5,
+   "y": 0.296,
+   "z": -0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a04",
+   "x": -0.5,
+   "y": 0.296,
+   "z": -0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_b",
+   "name": "Big_b01",
+   "x": 0.5,
+   "y": 0.296,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Big2X2_b",
+   "name": "Big_b02",
+   "x": -0.5,
+   "y": 0.296,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Big2X2_c",
+   "name": "Big_c01",
+   "x": -0.0,
+   "y": 0.296,
+   "z": 0.0
+  }
+ ],
+ "P_Decoration_00192": [
+  {
+   "group": "PlantPos_Middle2X1_a",
+   "name": "Middle_a01",
+   "x": 0.5,
+   "y": 0.395,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Middle2X1_a",
+   "name": "Middle_a02",
+   "x": -0.5,
+   "y": 0.395,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Middle2X1_b",
+   "name": "Middle_b01",
+   "x": -0.0,
+   "y": 0.395,
+   "z": 0.0
+  }
+ ],
+ "P_WaterTank_001_S2_M01_water": [
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a01",
+   "x": 0.5,
+   "y": 1.062,
+   "z": 0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a02",
+   "x": -0.5,
+   "y": 1.062,
+   "z": 0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a03",
+   "x": 0.5,
+   "y": 1.062,
+   "z": -0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_a",
+   "name": "Big_a04",
+   "x": -0.5,
+   "y": 1.062,
+   "z": -0.5
+  },
+  {
+   "group": "PlantPos_Big2X2_b",
+   "name": "Big_b01",
+   "x": 0.5,
+   "y": 1.062,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Big2X2_b",
+   "name": "Big_b02",
+   "x": -0.5,
+   "y": 1.062,
+   "z": 0.0
+  },
+  {
+   "group": "PlantPos_Big2X2_c",
+   "name": "Big_c01",
+   "x": -0.0,
+   "y": 1.062,
+   "z": 0.0
+  }
+ ]
+}
