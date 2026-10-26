@@ -1,13 +1,36 @@
 <!doctype html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>生存日志 · 2D</title>
-    <script type="module" crossorigin src="./assets/index-e5ZD-NqN.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-7KWl9Vlt.css">
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
-</html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>生存日志 · 网页重建 · 技术原型</title>
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#141815;color:#e8e4d6;font:15px/1.7 "Microsoft YaHei","PingFang SC",sans-serif}
+  .card{max-width:640px;margin:32px;padding:34px 40px;background:#1f2520;border:1px solid rgba(233,215,122,.5);border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+  .badge{display:inline-block;padding:4px 14px;border-radius:6px;background:#ffd76a;color:#1b1b1b;font-weight:800;letter-spacing:3px;font-size:16px}
+  h1{margin:14px 0 6px;font-size:28px;color:#fff}
+  .sub{color:#a9ad9f;margin:0 0 20px}
+  ul{padding-left:20px;margin:10px 0 22px} li{margin:4px 0}
+  b{color:#ffd76a}
+  a.go{display:inline-block;padding:12px 40px;border-radius:8px;background:#ffd76a;color:#1b1b1b;font-weight:800;font-size:17px;text-decoration:none}
+  a.go:hover{background:#ffe48f}
+  .alt{margin-left:16px;color:#c6ad71}
+  .foot{margin-top:22px;font-size:12px;color:#7d8277}
+</style></head><body><div class="card">
+  <span class="badge">技术原型</span>
+  <h1>生存日志 · 网页重建</h1>
+  <p class="sub">内部评测用的技术原型，不是完整游戏，也不是正式版本。</p>
+  <p>当前可以体验：</p>
+  <ul>
+    <li>灾后的家（3D 场景），右键移动 / 交互，家具功能条、背包、制作、烹饪</li>
+    <li>计划模式（移动 / 拆除家具）、视角切换、存档</li>
+    <li><b>种植</b>：开局背包里有「启程种植礼盒」，打开后在家中花盆播种、施肥、除虫、收获</li>
+    <li>地图出行：社区检修小屋、残破超市、特价超市等少量已导出的场景</li>
+  </ul>
+  <p>说明：</p>
+  <ul>
+    <li>游戏规则大部分由原版程序静态分析推导，<b>未逐项与原版运行结果核对</b></li>
+    <li>开局赠送的种植礼盒、进入时的操作提示窗，是网页版为演示加的，原版没有</li>
+    <li>随机事件、灾前章节、大部分探索地点尚未实现</li>
+    <li>建议使用电脑上的 Chrome / Edge；首次加载约 200 MB，需要一些时间</li>
+  </ul>
+  <a class="go" href="game/index.html?new=1&scene=1">开始新游戏</a><a class="alt" href="game/index.html">继续上次进度</a>
+  <p class="foot">技术原型 · 构建于 2026-10-26 · 共 4983 个文件，807 MB</p>
+</div></body></html>
