@@ -1,0 +1,96 @@
+newmtl P_Bldg_00134_0
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00125_03_P01_T01A_D.png
+newmtl P_Bldg_00134_1
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00125_03_P01_T01A_D.png
+newmtl P_Bldg_00134_2
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00125_03_P01_T01A_D.png
+newmtl P_Bldg_00134_3
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00125_03_P01_T01A_D.png
+newmtl P_Bldg_00134_4
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00125_03_P01_T01A_D.png
+newmtl P_Bldg_00134_5
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00125_03_P01_T01A_D.png
+newmtl P_Bldg_00134_6
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00125_02_P01_T01A_D.png
+newmtl P_Bldg_00134_7
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00125_02_P01_T01A_D.png
+newmtl P_Bldg_00134_8
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00125_02_P01_T01A_D.png
+newmtl P_Bldg_00134_9
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00125_01_P02_T01A_D.png
+newmtl P_Bldg_00134_10
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bldg_00125_01_P01_T01A_D.png
+newmtl P_Bldg_00134_11
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Decoration_00261_01_T01A_D.png
+newmtl P_Bldg_00134_12
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Decoration_00261_01_T01A_D.png
+newmtl P_Bldg_00134_13
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Decoration_00261_01_T01A_D.png
+newmtl P_Bldg_00134_14
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Decoration_00261_01_T01A_D.png
+newmtl P_Bldg_00134_15
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Container_00185_P01_T01A_D.png

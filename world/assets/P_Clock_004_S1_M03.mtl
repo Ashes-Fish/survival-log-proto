@@ -1,0 +1,18 @@
+newmtl P_Clock_004_S1_M03_0
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Clock_004_S1_T1_M03_DA.png
+newmtl P_Clock_004_S1_M03_1
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Clock_004_S1_T1_M03_DA.png
+newmtl P_Clock_004_S1_M03_2
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Clock_004_S1_T1_M03_DA.png
