@@ -1,0 +1,192 @@
+newmtl P_Roselingxiao02_0
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Roselingxiao02_1
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Roselingxiao02_2
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Roselingxiao02_3
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Fence_008_S1_T1_M01_DA.png
+newmtl P_Roselingxiao02_4
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_5
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_6
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_7
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_8
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_9
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_10
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_11
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_12
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_13
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_14
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_15
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_16
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_17
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_18
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_19
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_20
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_21
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_22
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_23
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_24
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_25
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_26
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_27
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_28
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_29
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_30
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png
+newmtl P_Roselingxiao02_31
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_BlueFlower_002_S1_T1_M02_DA.png

@@ -1,0 +1,936 @@
+newmtl P_Rosemuxiang03_0
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_1
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_2
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_3
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_4
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_5
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_6
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_7
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_8
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_9
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_10
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_11
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_12
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_13
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_14
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_15
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_16
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_17
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_18
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_19
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_20
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_21
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_22
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_23
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_24
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_25
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_26
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_27
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_28
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_29
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_30
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_31
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_32
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_33
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_34
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_35
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_36
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_37
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_38
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_39
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_40
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_41
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_42
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Rosemuxiang03_43
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Rosemuxiang03_44
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Rosemuxiang03_45
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Rosemuxiang03_46
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Rosemuxiang03_47
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Rosemuxiang03_48
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Rosemuxiang03_49
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Fence_008_S1_T1_M01_DA.png
+newmtl P_Rosemuxiang03_50
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_51
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_52
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_53
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_54
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_55
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_56
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_57
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_58
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_59
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_60
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_61
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_62
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_63
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_64
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_65
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_66
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_67
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_68
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_69
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_70
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_71
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_72
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_73
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_74
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_75
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_76
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_77
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_78
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_79
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_80
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_81
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_82
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_83
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_84
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_85
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_86
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_87
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_88
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_89
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_90
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_91
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_92
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_93
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_94
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_95
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_96
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_97
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_98
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_99
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_100
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_101
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_102
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_103
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_104
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_105
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_106
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_107
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_108
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_109
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_110
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_111
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_112
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_113
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_114
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_115
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_116
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_117
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_118
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_119
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_120
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_121
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_122
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_123
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_124
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_125
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_126
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_127
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_128
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_129
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_130
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_131
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_132
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_133
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_134
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_135
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_136
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_137
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_138
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_139
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_140
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_141
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_142
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_143
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_144
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_145
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_146
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_147
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_148
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_149
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_150
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_151
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_152
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_153
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_154
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
+newmtl P_Rosemuxiang03_155
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_RoseFlowers_001_S1_T1_M06_DA.png
