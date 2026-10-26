@@ -1,0 +1,405 @@
+[
+  {
+    "Day": 1,
+    "LogPriority": 200,
+    "Text": "Date_Text_1",
+    "Text_Local": "灾难还是爆发了，和梦里一模一样。",
+    "RandomText": [
+      "Day1T1",
+      "Day1T2",
+      "Day1T3",
+      "Day1T4",
+      "Day1T5"
+    ]
+  },
+  {
+    "Day": 2,
+    "LogPriority": 200,
+    "Text": "Date_Text_2",
+    "Text_Local": "偶尔传来的嘶吼和惨叫，说明外面绝不平静。",
+    "RandomText": [
+      "Day1T1",
+      "Day1T2",
+      "Day1T3",
+      "Day1T4",
+      "Day1T5"
+    ]
+  },
+  {
+    "Day": 3,
+    "LogPriority": 190,
+    "Text": "Date_Text_3",
+    "Text_Local": "第三天，街上几乎都是丧尸在游荡。",
+    "RandomText": [
+      "Day3T1",
+      "Day3T2",
+      "Day3T3",
+      "Day3T4",
+      "Day3T5"
+    ]
+  },
+  {
+    "Day": 4,
+    "LogPriority": 190,
+    "Text": "Date_Text_4",
+    "Text_Local": "开始想念能送上门的热披萨。",
+    "RandomText": [
+      "Day3T1",
+      "Day3T2",
+      "Day3T3",
+      "Day3T4",
+      "Day3T5"
+    ]
+  },
+  {
+    "Day": 5,
+    "LogPriority": 190,
+    "Text": "Date_Text_5",
+    "Text_Local": "第五天。还在数罐头，一天数两遍。",
+    "RandomText": [
+      "Day3T1",
+      "Day3T2",
+      "Day3T3",
+      "Day3T4",
+      "Day3T5"
+    ]
+  },
+  {
+    "Day": 6,
+    "LogPriority": 190,
+    "Text": "Date_Text_6",
+    "Text_Local": "虽然灾变开始没几天，但感觉过了很久。",
+    "RandomText": [
+      "Day3T1",
+      "Day3T2",
+      "Day3T3",
+      "Day3T4",
+      "Day3T5"
+    ]
+  },
+  {
+    "Day": 7,
+    "LogPriority": 190,
+    "Text": "Date_Text_7",
+    "Text_Local": "一周了，救援频道只有沙沙声。",
+    "RandomText": [
+      "Day7T1",
+      "Day7T2",
+      "Day7T3",
+      "Day7T4",
+      "Day7T5"
+    ]
+  },
+  {
+    "Day": 8,
+    "LogPriority": 180,
+    "Text": "Date_Text_8",
+    "Text_Local": "路上几乎看不到幸存者的踪迹。",
+    "RandomText": [
+      "Day7T1",
+      "Day7T2",
+      "Day7T3",
+      "Day7T4",
+      "Day7T5"
+    ]
+  },
+  {
+    "Day": 9,
+    "LogPriority": 180,
+    "Text": "Date_Text_9",
+    "Text_Local": "不知道之前常去的快餐店，现在怎么样了。",
+    "RandomText": [
+      "Day7T1",
+      "Day7T2",
+      "Day7T3",
+      "Day7T4",
+      "Day7T5"
+    ]
+  },
+  {
+    "Day": 10,
+    "LogPriority": 170,
+    "Text": "Date_Text_10",
+    "Text_Local": "第十天，第一次为过期面包心疼。",
+    "RandomText": [
+      "Day10T1",
+      "Day10T2",
+      "Day10T3",
+      "Day10T4",
+      "Day10T5"
+    ]
+  },
+  {
+    "Day": 20,
+    "LogPriority": 160,
+    "Text": "Date_Text_20",
+    "Text_Local": "二十天，罐头墙矮了一截。",
+    "RandomText": [
+      "Day20T1",
+      "Day20T2",
+      "Day20T3",
+      "Day20T4",
+      "Day20T5"
+    ]
+  },
+  {
+    "Day": 30,
+    "LogPriority": 150,
+    "Text": "Date_Text_30",
+    "Text_Local": "满月夜，在防盗门后给自己唱生日歌。",
+    "RandomText": [
+      "Day30T1",
+      "Day30T2",
+      "Day30T3",
+      "Day30T4",
+      "Day30T5"
+    ]
+  },
+  {
+    "Day": 40,
+    "LogPriority": 140,
+    "Text": "Date_Text_40",
+    "Text_Local": "第四十天，开始和盆栽说话。",
+    "RandomText": [
+      "Day40T1",
+      "Day40T2",
+      "Day40T3",
+      "Day40T4",
+      "Day40T5"
+    ]
+  },
+  {
+    "Day": 50,
+    "LogPriority": 130,
+    "Text": "Date_Text_50",
+    "Text_Local": "第五十天，学会了珍惜阳光。",
+    "RandomText": [
+      "Day50T1",
+      "Day50T2",
+      "Day50T3",
+      "Day50T4",
+      "Day50T5"
+    ]
+  },
+  {
+    "Day": 60,
+    "LogPriority": 120,
+    "Text": "Date_Text_60",
+    "Text_Local": "两个月，身体还记得汉堡的味道。",
+    "RandomText": [
+      "Day60T1",
+      "Day60T2",
+      "Day60T3",
+      "Day60T4",
+      "Day60T5"
+    ]
+  },
+  {
+    "Day": 70,
+    "LogPriority": 110,
+    "Text": "Date_Text_70",
+    "Text_Local": "七十天，分不清白昼黑夜。",
+    "RandomText": [
+      "Day70T1",
+      "Day70T2",
+      "Day70T3",
+      "Day70T4",
+      "Day70T5"
+    ]
+  },
+  {
+    "Day": 80,
+    "LogPriority": 100,
+    "Text": "Date_Text_80",
+    "Text_Local": "第八十天，对镜子练习微笑。",
+    "RandomText": [
+      "Day80T1",
+      "Day80T2",
+      "Day80T3",
+      "Day80T4",
+      "Day80T5"
+    ]
+  },
+  {
+    "Day": 90,
+    "LogPriority": 90,
+    "Text": "Date_Text_90",
+    "Text_Local": "三个月，救援仍是个传说。",
+    "RandomText": [
+      "Day90T1",
+      "Day90T2",
+      "Day90T3",
+      "Day90T4",
+      "Day90T5"
+    ]
+  },
+  {
+    "Day": 100,
+    "LogPriority": 80,
+    "Text": "Date_Text_100",
+    "Text_Local": "第一百天，我还活着。",
+    "RandomText": [
+      "Day100T1",
+      "Day100T2",
+      "Day100T3",
+      "Day100T4",
+      "Day100T5"
+    ]
+  },
+  {
+    "Day": 12,
+    "LogPriority": 170,
+    "Text": "Date_Text_12",
+    "Text_Local": "门外安静了两天。趁现在，把窗边的缝再补一遍。",
+    "RandomText": [
+      "Day10T1",
+      "Day10T2",
+      "Day10T3",
+      "Day10T4",
+      "Day10T5"
+    ]
+  },
+  {
+    "Day": 19,
+    "LogPriority": 165,
+    "Text": "Date_Text_19",
+    "Text_Local": "把清单重抄了一遍。上一版是慌着写的，字都挤在一起。",
+    "RandomText": [
+      "Day10T1",
+      "Day10T2",
+      "Day10T3",
+      "Day10T4",
+      "Day10T5"
+    ]
+  },
+  {
+    "Day": 27,
+    "LogPriority": 155,
+    "Text": "Date_Text_27",
+    "Text_Local": "日子有了固定的次序：起床、清点、修补、睡觉。这不算坏事。",
+    "RandomText": [
+      "Day20T1",
+      "Day20T2",
+      "Day20T3",
+      "Day20T4",
+      "Day20T5"
+    ]
+  },
+  {
+    "Day": 38,
+    "LogPriority": 145,
+    "Text": "Date_Text_38",
+    "Text_Local": "太阳三天没露面了，板子一点电都不出。",
+    "RandomText": [
+      "Day30T1",
+      "Day30T2",
+      "Day30T3",
+      "Day30T4",
+      "Day30T5"
+    ]
+  },
+  {
+    "Day": 42,
+    "LogPriority": 138,
+    "Text": "Date_Text_42",
+    "Text_Local": "又数了一遍存货。数字比上个月小，但比我以为的大。",
+    "RandomText": [
+      "Day40T1",
+      "Day40T2",
+      "Day40T3",
+      "Day40T4",
+      "Day40T5"
+    ]
+  },
+  {
+    "Day": 48,
+    "LogPriority": 133,
+    "Text": "Date_Text_48",
+    "Text_Local": "夜里的动静比往常密。今天早点把门顶上。",
+    "RandomText": [
+      "Day40T1",
+      "Day40T2",
+      "Day40T3",
+      "Day40T4",
+      "Day40T5"
+    ]
+  },
+  {
+    "Day": 57,
+    "LogPriority": 125,
+    "Text": "Date_Text_57",
+    "Text_Local": "风向变了。夜里得多添一层。",
+    "RandomText": [
+      "Day50T1",
+      "Day50T2",
+      "Day50T3",
+      "Day50T4",
+      "Day50T5"
+    ]
+  },
+  {
+    "Day": 64,
+    "LogPriority": 115,
+    "Text": "Date_Text_64",
+    "Text_Local": "还没完。但今天它们没有再撞门。",
+    "RandomText": [
+      "Day60T1",
+      "Day60T2",
+      "Day60T3",
+      "Day60T4",
+      "Day60T5"
+    ]
+  },
+  {
+    "Day": 72,
+    "LogPriority": 108,
+    "Text": "Date_Text_72",
+    "Text_Local": "远处的声音这几天一直没停过。有什么正在往这边聚。",
+    "RandomText": [
+      "Day70T1",
+      "Day70T2",
+      "Day70T3",
+      "Day70T4",
+      "Day70T5"
+    ]
+  },
+  {
+    "Day": 88,
+    "LogPriority": 92,
+    "Text": "Date_Text_88",
+    "Text_Local": "很久没有大动静了。安静得让人不习惯。",
+    "RandomText": [
+      "Day80T1",
+      "Day80T2",
+      "Day80T3",
+      "Day80T4",
+      "Day80T5"
+    ]
+  },
+  {
+    "Day": 93,
+    "LogPriority": 85,
+    "Text": "Date_Text_93",
+    "Text_Local": "清单上还剩三样没划掉。都是当初觉得不重要的。",
+    "RandomText": [
+      "Day90T1",
+      "Day90T2",
+      "Day90T3",
+      "Day90T4",
+      "Day90T5"
+    ]
+  },
+  {
+    "Day": 97,
+    "LogPriority": 82,
+    "Text": "Date_Text_97",
+    "Text_Local": "再过几天就满一百天。我居然会去数这个。",
+    "RandomText": [
+      "Day90T1",
+      "Day90T2",
+      "Day90T3",
+      "Day90T4",
+      "Day90T5"
+    ]
+  }
+]

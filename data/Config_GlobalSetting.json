@@ -1,0 +1,6560 @@
+[
+  {
+    "ID": "Overdue1",
+    "Params1": 0,
+    "Params2": 1.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Overdue2",
+    "Params1": 0,
+    "Params2": 2.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Overdue3",
+    "Params1": 0,
+    "Params2": 3.0,
+    "Params3": ""
+  },
+  {
+    "ID": "OverdueDebuffRate1",
+    "Params1": 0,
+    "Params2": 0.20000000298023224,
+    "Params3": ""
+  },
+  {
+    "ID": "OverdueDebuffRate2",
+    "Params1": 0,
+    "Params2": 0.4000000059604645,
+    "Params3": ""
+  },
+  {
+    "ID": "OverdueDebuffRate3",
+    "Params1": 0,
+    "Params2": 0.800000011920929,
+    "Params3": ""
+  },
+  {
+    "ID": "OverdueDebuffRate4",
+    "Params1": 0,
+    "Params2": 1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NearExpiry_Ratio",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": ""
+  },
+  {
+    "ID": "NearExpiry_MaxDays",
+    "Params1": 0,
+    "Params2": 3.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RawFoodDebuffRate",
+    "Params1": 0,
+    "Params2": 0.15000000596046448,
+    "Params3": ""
+  },
+  {
+    "ID": "RawFoodDebuffHealthFactor",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "BagOverweight",
+    "Params1": 0,
+    "Params2": 0.800000011920929,
+    "Params3": ""
+  },
+  {
+    "ID": "DefaultMoney",
+    "Params1": 1000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ActionInterval",
+    "Params1": 300,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AIEatProbability",
+    "Params1": 100,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AIRestProbability",
+    "Params1": 100,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AIGameProbability",
+    "Params1": 100,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CountDownTime",
+    "Params1": 36000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "DaySurvivePonit",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "DaySurvivePonitNew",
+    "Params1": 0,
+    "Params2": 0.20000000298023224,
+    "Params3": ""
+  },
+  {
+    "ID": "DaySurvivePonitBase",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "MoraleToPoint",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "MoraleBase",
+    "Params1": 50,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AIThinkTime",
+    "Params1": 3600,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "DisasterStartTime",
+    "Params1": 9,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TiredOfFood1",
+    "Params1": 0,
+    "Params2": -2.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TiredOfFood2",
+    "Params1": 0,
+    "Params2": -0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "TiredOfFoodTime",
+    "Params1": 86400,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TiredOfFoodTimeAdd",
+    "Params1": 43200,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TiredOfFoodTimeMax",
+    "Params1": 172800,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TiredOfFoodTimeReduce",
+    "Params1": 21600,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ScreenDrag",
+    "Params1": 0,
+    "Params2": 0.014999999664723873,
+    "Params3": ""
+  },
+  {
+    "ID": "WishPoint",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "WishSurvivalPoint",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "WishTime",
+    "Params1": 57600,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "WishBuff",
+    "Params1": 1009,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "WishDebuff",
+    "Params1": 1010,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "WishGenerate",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "WishChance",
+    "Params1": 0,
+    "Params2": 0.699999988079071,
+    "Params3": ""
+  },
+  {
+    "ID": "WishSpecificItemCount",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodSubCategoryPower1",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodSubCategoryPower2",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodSubCategoryPower3",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodSubCategoryPower4",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodSubCategoryPower5",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodSubCategoryPower6",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodSubCategoryPower7",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodSubCategoryPower8",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodSubCategoryPower9",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodSubCategoryPower10",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodSubCategoryPower11",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ThinkIdleTime",
+    "Params1": 3600,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ThinkCD",
+    "Params1": 3600,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ThinkLast",
+    "Params1": 2400,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ThinkInterval",
+    "Params1": 600,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ThinkIdleTimeOpen",
+    "Params1": 120,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ThinkCDOpen",
+    "Params1": 130,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ThinkLastOpen",
+    "Params1": 90,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ThinkIntervalOpen",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ActionNameTime",
+    "Params1": 600,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Crisis",
+    "Params1": 400,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CrisisLogWarning",
+    "Params1": 48,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "SurvivalToBelief",
+    "Params1": 0,
+    "Params2": 0.20000000298023224,
+    "Params3": ""
+  },
+  {
+    "ID": "FurnitureShowHP",
+    "Params1": 0,
+    "Params2": 0.800000011920929,
+    "Params3": ""
+  },
+  {
+    "ID": "RefreshSurvivalCost",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RecordRewardBelief",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "PowerOutageTag",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "PowerOutage"
+  },
+  {
+    "ID": "ProductionLvRate",
+    "Params1": 0,
+    "Params2": 0.20000000298023224,
+    "Params3": ""
+  },
+  {
+    "ID": "ProductionCost",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ProductionTime",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StoryShowDistance",
+    "Params1": 0,
+    "Params2": 3.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RecoverySpeedMin",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "CostSpeedMin",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "AttributeMin",
+    "Params1": 50,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "GuideRandomTalk",
+    "Params1": 3600,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RealTimeThinkLast",
+    "Params1": 6,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ThinkOpenStaleWindow",
+    "Params1": 3600,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "GuideThinkLast",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Chapter2Next",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "UiMain",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "event:/BGM/SurvivalLog_Login"
+  },
+  {
+    "ID": "MainUI_Achievement_0",
+    "Params1": 1001,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "MainUI_Achievement_1",
+    "Params1": 1008,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "MainUI_Achievement_2",
+    "Params1": 2112,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Score_SurvivalDays",
+    "Params1": 0,
+    "Params2": 10.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Score_PurchasedTypes",
+    "Params1": 0,
+    "Params2": 1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Score_PurchasedSatiety",
+    "Params1": 0,
+    "Params2": 0.05000000074505806,
+    "Params3": ""
+  },
+  {
+    "ID": "Score_RemainingValue",
+    "Params1": 0,
+    "Params2": 0.019999999552965164,
+    "Params3": ""
+  },
+  {
+    "ID": "Score_RemainingSatiety",
+    "Params1": 0,
+    "Params2": 0.10000000149011612,
+    "Params3": ""
+  },
+  {
+    "ID": "Score_AttributeCap",
+    "Params1": 0,
+    "Params2": 0.20000000298023224,
+    "Params3": ""
+  },
+  {
+    "ID": "Score_SurvivalPoints",
+    "Params1": 0,
+    "Params2": 0.4000000059604645,
+    "Params3": ""
+  },
+  {
+    "ID": "Score_DoorDurability",
+    "Params1": 0,
+    "Params2": 0.20000000298023224,
+    "Params3": ""
+  },
+  {
+    "ID": "Lvl_SS",
+    "Params1": 600,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Lvl_S",
+    "Params1": 500,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Lvl_A",
+    "Params1": 400,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Lvl_B",
+    "Params1": 300,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Lvl_C",
+    "Params1": 200,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "LiveStreamRange",
+    "Params1": 0,
+    "Params2": 30.0,
+    "Params3": ""
+  },
+  {
+    "ID": "LiveStreamRangeZ",
+    "Params1": 0,
+    "Params2": 5.0,
+    "Params3": ""
+  },
+  {
+    "ID": "PickupRange",
+    "Params1": 0,
+    "Params2": 2.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ItemDropSound",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "event:/Model/Human/jiesuo"
+  },
+  {
+    "ID": "ItemPickSound",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "event:/Model/Human/chouzhijing"
+  },
+  {
+    "ID": "SlotIcon1",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/icon_line_app_135.png"
+  },
+  {
+    "ID": "SlotIcon2",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/icon_line_app_136.png"
+  },
+  {
+    "ID": "SlotIcon3",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/icon_line_app_137.png"
+  },
+  {
+    "ID": "SlotIcon4",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/UI_Icon_Suitcase2.png"
+  },
+  {
+    "ID": "SlotIcon5",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/icon_line_sport_62.png"
+  },
+  {
+    "ID": "SlotIcon6",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/dakaifangmen.png"
+  },
+  {
+    "ID": "SlotIcon7",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/chakanchuangwai.png"
+  },
+  {
+    "ID": "SlotIcon8",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/shuijiao.png"
+  },
+  {
+    "ID": "SlotIcon9",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/zhenglizazhi.png"
+  },
+  {
+    "ID": "ShopPageIcon1",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/zhengliwupin.png"
+  },
+  {
+    "ID": "ShopPageIcon2",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/shuijiao.png"
+  },
+  {
+    "ID": "ShopPageIcon3",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/icon_line_architecture_9.png"
+  },
+  {
+    "ID": "ShopPageIcon4",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/icon_line_device_39.png"
+  },
+  {
+    "ID": "ShopPageIcon5",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/icon_line_food_36.png"
+  },
+  {
+    "ID": "ShopPageIcon6",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/jiaoshui.png"
+  },
+  {
+    "ID": "ShopPageIcon7",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/quchuwuzi.png"
+  },
+  {
+    "ID": "HomePackageMax",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "crafting_exp_reduction_params_01",
+    "Params1": 0,
+    "Params2": 0.800000011920929,
+    "Params3": ""
+  },
+  {
+    "ID": "crafting_exp_reduction_params_02",
+    "Params1": 0,
+    "Params2": 0.6000000238418579,
+    "Params3": ""
+  },
+  {
+    "ID": "crafting_exp_reduction_params_03",
+    "Params1": 0,
+    "Params2": 0.4000000059604645,
+    "Params3": ""
+  },
+  {
+    "ID": "crafting_exp_reduction_params_04",
+    "Params1": 0,
+    "Params2": 0.20000000298023224,
+    "Params3": ""
+  },
+  {
+    "ID": "InteractionDistance_01",
+    "Params1": 0,
+    "Params2": 2.0,
+    "Params3": ""
+  },
+  {
+    "ID": "InteractionDistance_02",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "ProficiencyInheritanceRatio",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "MatureCardIcon",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/icon/icon_line_nature_18.png"
+  },
+  {
+    "ID": "Plant_Harvest_Morale",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Plant_Harvest_Perfect_Morale",
+    "Params1": 2,
+    "Params2": 2.0,
+    "Params3": ""
+  },
+  {
+    "ID": "PlantActionCost",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Cook_Complete_Morale",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Cook_Complete_Perfect_Morale",
+    "Params1": 2,
+    "Params2": 2.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Music_TrackFinish_Morale",
+    "Params1": 10,
+    "Params2": 10.0,
+    "Params3": ""
+  },
+  {
+    "ID": "DisasterImminentHour",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RiotGrabDebuffChance",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "DisasterNodeCrowdedIcon",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/Disaster/Crowded.png"
+  },
+  {
+    "ID": "DisasterNodeRiotIcon",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/Disaster/Riot.png"
+  },
+  {
+    "ID": "DisasterNodeClosedIcon",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/Disaster/Closed.png"
+  },
+  {
+    "ID": "Neighbor_BasketMaxItems",
+    "Params1": 999,
+    "Params2": 0.0,
+    "Params3": "邻居篮子件数上限"
+  },
+  {
+    "ID": "Neighbor_ReturnDelayHourMin",
+    "Params1": 16,
+    "Params2": 0.0,
+    "Params3": "邻居回赠延迟小时下限"
+  },
+  {
+    "ID": "Neighbor_ReturnDelayHourMax",
+    "Params1": 18,
+    "Params2": 0.0,
+    "Params3": "邻居回赠延迟小时上限"
+  },
+  {
+    "ID": "Neighbor_BasketFurnitureId",
+    "Params1": 80011,
+    "Params2": 0.0,
+    "Params3": "邻居阳台递物篮子家具ID"
+  },
+  {
+    "ID": "Companion_BasketFurnitureId",
+    "Params1": 9298,
+    "Params2": 0.0,
+    "Params3": "妹子阳台递物篮子家具ID"
+  },
+  {
+    "ID": "SMS_AudioOn",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "SMS_ArrivalFmod",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "SMS_PreviewMaxChars",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "SMS_UnreadCap",
+    "Params1": 99,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "DisasterImminentEventId",
+    "Params1": 21001,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_GirlNpcConfigId",
+    "Params1": 11,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_RescueProgressMax",
+    "Params1": 500,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_HitProgress",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_EventProgress",
+    "Params1": 40,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_AffinitySend",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_AffinityReturn",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_AffinityMilestone",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_AffinityPreDisaster",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_AffinityEvent",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_AffinityThresholdEnding",
+    "Params1": 50,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_GirlEndingAffinity",
+    "Params1": 250,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_Milestones",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "100;250;500"
+  },
+  {
+    "ID": "Neighbor_MilestoneSMS",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "101;102;103"
+  },
+  {
+    "ID": "Neighbor_GiftCountDivisor",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": "【已废弃 2026-08-13】件数改由送出整件价值推导(见Neighbor_GiftValuePerReturn)。本键不再被读取。"
+  },
+  {
+    "ID": "Neighbor_GiftCountMax",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_GiftValuePerReturn",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": "邻居回赠件数价值除数:送出总整件价值除以此值向上取整即回赠件数(至少1件、上限见GiftCountMax)"
+  },
+  {
+    "ID": "Neighbor_GiftValueCapTier3",
+    "Params1": 80,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_GiftValueCapTier2",
+    "Params1": 35,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_GiftValueCapTier1",
+    "Params1": 24,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_DeathDayBase",
+    "Params1": 21,
+    "Params2": 0.0,
+    "Params3": "邻居死亡日基准(灾后天数 进度0时此日死亡)"
+  },
+  {
+    "ID": "Neighbor_DeathProgressPerDay",
+    "Params1": 50,
+    "Params2": 0.0,
+    "Params3": "每多少救助进度延后1天死亡日"
+  },
+  {
+    "ID": "Neighbor_DeathEvent",
+    "Params1": 30019,
+    "Params2": 0.0,
+    "Params3": "妹子死亡触发的事件ID(0=暂不触发 内容层待补)"
+  },
+  {
+    "ID": "Neighbor_DeathCloseEventIds",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "30050;30051;30080;30083;30088;30089"
+  },
+  {
+    "ID": "NormalNpc_FixedConfigIds",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "14;16;20;24;25;26;29;30"
+  },
+  {
+    "ID": "NormalNpc_VitalityInitMin",
+    "Params1": 80,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_VitalityInitMax",
+    "Params1": 100,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_MoraleInitMin",
+    "Params1": 50,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_MoraleInitMax",
+    "Params1": 70,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_MaterialInitMin",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_MaterialInitMax",
+    "Params1": 60,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_AffinityInit",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_VitalityMax",
+    "Params1": 100,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_VitalityRegenPerDay",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_VitalityDropOnNoMaterial",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_MoraleDecayPerDay",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_MaterialDecayPerDay",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_MaterialMax",
+    "Params1": 100,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_AffinityMax",
+    "Params1": 100,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_AffinityPerReply",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_ProactiveBaseProb",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": "妹子主动送礼基础概率"
+  },
+  {
+    "ID": "Neighbor_ProactiveProbKPer10",
+    "Params1": 0,
+    "Params2": 0.10000000149011612,
+    "Params3": "每10点好感度对主动送概率的加成系数"
+  },
+  {
+    "ID": "Neighbor_ProactiveHourMin",
+    "Params1": 9,
+    "Params2": 0.0,
+    "Params3": "主动送礼时段起始小时"
+  },
+  {
+    "ID": "Neighbor_ProactiveHourMax",
+    "Params1": 18,
+    "Params2": 0.0,
+    "Params3": "主动送礼时段结束小时"
+  },
+  {
+    "ID": "Neighbor_ProactiveGiftCountMax",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": "主动送礼单次最大件数"
+  },
+  {
+    "ID": "Neighbor_ProactiveTier1Affinity",
+    "Params1": 50,
+    "Params2": 0.0,
+    "Params3": "主动送解锁成熟植物池的好感度阈值"
+  },
+  {
+    "ID": "Neighbor_ProactiveTier2Affinity",
+    "Params1": 100,
+    "Params2": 0.0,
+    "Params3": "主动送解锁料理池的好感度阈值"
+  },
+  {
+    "ID": "Neighbor_ProactiveTier3Affinity",
+    "Params1": 170,
+    "Params2": 0.0,
+    "Params3": "主动送解锁妹子专属道具池的好感度阈值"
+  },
+  {
+    "ID": "Neighbor_AffinityMax",
+    "Params1": 300,
+    "Params2": 0.0,
+    "Params3": "妹子好感度上限"
+  },
+  {
+    "ID": "RiotRushSuccessEventId",
+    "Params1": 21002,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RiotRushTrampledEventId",
+    "Params1": 21003,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_ProactiveTier3Items",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "24111"
+  },
+  {
+    "ID": "Neighbor_OverflowNoteItem",
+    "Params1": 24116,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_OverflowNoteItem",
+    "Params1": 24123,
+    "Params2": 0.0,
+    "Params3": "陪伴线篮子溢出时附赠的纸条道具(镜像 Neighbor_OverflowNoteItem=24116，挂 Story202003 打工仔口吻)"
+  },
+  {
+    "ID": "Neighbor_FallbackFlowerItem",
+    "Params1": 24115,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_ProactiveTier2Items",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "24113"
+  },
+  {
+    "ID": "Neighbor_ProactiveTier1Items",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "24112"
+  },
+  {
+    "ID": "StrangerTradeDroneRoundtripSec",
+    "Params1": 3600,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerTradeDroneTripsPerDay",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerTradeDroneForagingPerDay",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerTradeDemandBoostMax",
+    "Params1": 0,
+    "Params2": -1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerTradeUnlockDay",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerTradeRequestDayRate",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerTradeRequestCD",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerTradePreAllyDailyMax",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerSupportGraceDays",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerSupportDailyConsume",
+    "Params1": 24,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerSupportReserveMaxDays",
+    "Params1": 14,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerTradeCharityMoraleBase",
+    "Params1": 0,
+    "Params2": 2.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerTradeBoostLv1",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerTradeBoostLv2",
+    "Params1": 0,
+    "Params2": 0.6000000238418579,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerTradeBoostLv3",
+    "Params1": 0,
+    "Params2": 0.8999999761581421,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerTradeDealLineDiscount",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerTradeDealLineMaxDiscount",
+    "Params1": 0,
+    "Params2": 60.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerTradeBarScale",
+    "Params1": 0,
+    "Params2": 120.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_HeartKnotBuffId",
+    "Params1": 24112,
+    "Params2": 0.0,
+    "Params3": "心结debuff的buffId"
+  },
+  {
+    "ID": "Neighbor_HeartKnotLayerPerAffinity",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": "心结buff层数=死亡时好感度×此系数"
+  },
+  {
+    "ID": "Neighbor_HeartKnotToBelief",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": "心结转信念点系数 floor(好感度×此值)"
+  },
+  {
+    "ID": "CrowdMeltdownChance",
+    "Params1": 0,
+    "Params2": 0.4000000059604645,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_MonologueCooldownDays",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_MonologueDailyPickMin",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_MonologueDailyPickMax",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_JoySMS",
+    "Params1": 104,
+    "Params2": 0.0,
+    "Params3": "104;241;242;243;244;245;246;247"
+  },
+  {
+    "ID": "Neighbor_SendSmsDelayMs",
+    "Params1": 1000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_SendSMS",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "115;116;117;118;119;154;155;156"
+  },
+  {
+    "ID": "Neighbor_JoyGiftThreshold",
+    "Params1": 90,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_CrisisTriggerSMS",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "105;106;107;108"
+  },
+  {
+    "ID": "Neighbor_CrisisCategory",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "6;1;13;9"
+  },
+  {
+    "ID": "Neighbor_CrisisResolveSMS",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "109;110;111;112"
+  },
+  {
+    "ID": "Neighbor_CrisisExpiredSMS",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "121;122;123;124"
+  },
+  {
+    "ID": "Neighbor_CrisisResolveAffinityBonus",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_CrisisResolveProgress",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_CrisisProb",
+    "Params1": 0,
+    "Params2": 0.25,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_CrisisCooldownDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_CrisisRepairProgressMin",
+    "Params1": 250,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_CrisisWindowDays",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CodexRevealRatio",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_AffinityRescueComplete",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_GirlPostNpcConfigId",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_CrisisStartDelayDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_ProactiveSMS",
+    "Params1": 125,
+    "Params2": 0.0,
+    "Params3": "145;146;147;148;149;150;320019;320020;320021;320022"
+  },
+  {
+    "ID": "Neighbor_ReturnSMS",
+    "Params1": 126,
+    "Params2": 0.0,
+    "Params3": "126;151;152;153"
+  },
+  {
+    "ID": "DroneDispatchYield",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "DroneSurpriseProb",
+    "Params1": 0,
+    "Params2": 0.25,
+    "Params3": ""
+  },
+  {
+    "ID": "DroneEncounterBaseProb",
+    "Params1": 0,
+    "Params2": 0.20000000298023224,
+    "Params3": ""
+  },
+  {
+    "ID": "DroneEncounterMaxPerDispatch",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingQuality_ExactMatchBonus",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingQuality_FreshBonus",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingQuality_RottenPenalty",
+    "Params1": -20,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingQuality_SeasoningBonus",
+    "Params1": 18,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingSatiety_SplitThreshold",
+    "Params1": 0,
+    "Params2": 40.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingHotPot_SatietyCoeff",
+    "Params1": 0,
+    "Params2": 2.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingHotPot_MoralePerServe",
+    "Params1": 0,
+    "Params2": 10.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingHotPot_ServeSatietyCap",
+    "Params1": 0,
+    "Params2": 40.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingHotPot_VarietyStep",
+    "Params1": 0,
+    "Params2": 0.10000000149011612,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingHotPot_VarietyMaxKinds",
+    "Params1": 0,
+    "Params2": 9.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingHotPot_MoraleFullServeRatio",
+    "Params1": 0,
+    "Params2": 1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingHotPot_IllustPath",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "../../Res/Furniture/UI_HotPot_Illust.jpg"
+  },
+  {
+    "ID": "CookingTier_Price_Fish_High",
+    "Params1": 0,
+    "Params2": 150.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingTier_Price_Fish_Mid_Low",
+    "Params1": 0,
+    "Params2": 50.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingTier_Price_Fruit_High",
+    "Params1": 0,
+    "Params2": 60.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingTier_Price_Fruit_Mid_Low",
+    "Params1": 0,
+    "Params2": 10.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingTier_Price_Meat_High",
+    "Params1": 0,
+    "Params2": 125.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingTier_Price_Meat_Mid_Low",
+    "Params1": 0,
+    "Params2": 10.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingTier_Price_Veg_High",
+    "Params1": 0,
+    "Params2": 30.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingTier_Price_Veg_Mid_Low",
+    "Params1": 0,
+    "Params2": 16.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingVD_QualityCoeff_Fail",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingVD_QualityCoeff_Good",
+    "Params1": 0,
+    "Params2": 1.2000000476837158,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingVD_QualityCoeff_Normal",
+    "Params1": 0,
+    "Params2": 0.8999999761581421,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingVD_QualityCoeff_Perfect",
+    "Params1": 0,
+    "Params2": 1.5,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingVD_TierCoeff_High",
+    "Params1": 0,
+    "Params2": 1.7000000476837158,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingVD_TierCoeff_Low",
+    "Params1": 0,
+    "Params2": 1.100000023841858,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingVD_TierCoeff_Mid",
+    "Params1": 0,
+    "Params2": 1.399999976158142,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_QueueAdvanceRate",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_DailySenderMax",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_DailyNodeMax",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_SendHourMin",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_SendHourMax",
+    "Params1": 22,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "NormalNpc_NodeMinGapHour",
+    "Params1": 4,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_FoodSMS_Tier1",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "125;127;128"
+  },
+  {
+    "ID": "Neighbor_FoodSMS_Tier2",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "129;130;131"
+  },
+  {
+    "ID": "Neighbor_FoodSMS_Tier3",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "132;133;134"
+  },
+  {
+    "ID": "Neighbor_GiftSMS_Flower",
+    "Params1": 135,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_GiftSMS_Crane",
+    "Params1": 136,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_GiftSMS_Amulet",
+    "Params1": 137,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RoomTemp_Max",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RoomTemp_OutdoorRoomIds",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "4"
+  },
+  {
+    "ID": "RoomTemp_MildColdThreshold",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RoomTemp_WarmThreshold",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RoomTemp_ComfortThreshold",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RoomTemp_FloorRoomMap",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "1:1;101:2"
+  },
+  {
+    "ID": "RoomTemp_AcConfigIds",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "21007"
+  },
+  {
+    "ID": "RoomTemp_MultiRoomFloors",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "102:3:4:-26.5:12"
+  },
+  {
+    "ID": "Neighbor_ProactiveProbMax",
+    "Params1": 0,
+    "Params2": 0.6000000238418579,
+    "Params3": "妹子主动送礼概率上限(好感加成后夹顶)"
+  },
+  {
+    "ID": "Neighbor_PlantSMS",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "138;139;140"
+  },
+  {
+    "ID": "Neighbor_ProactivePoolWeights",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "50;35;15"
+  },
+  {
+    "ID": "CookingVD_BaseSatietyPerIngredient",
+    "Params1": 0,
+    "Params2": 2.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_AffinityDisplayTiers",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "50;100;150;200;250"
+  },
+  {
+    "ID": "Neighbor_BasketForbidItems",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "24111;24129;48501;53640;9048;9048"
+  },
+  {
+    "ID": "Neighbor_DislikeRemainDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_DislikeAffinityPenalty",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_DislikeSMS",
+    "Params1": 141,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthNotebookRatio",
+    "Params1": 0,
+    "Params2": 0.6000000238418579,
+    "Params3": ""
+  },
+  {
+    "ID": "CountDownTimeRebirth",
+    "Params1": 43200,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "DisasterRiotGrabBlackId",
+    "Params1": 20,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "PlayTestEventID",
+    "Params1": 30015,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "PlayTestEventID_End",
+    "Params1": 30016,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "PlayTestMaxDay",
+    "Params1": 20,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "PlayTestRebrith",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "PlayTestType",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingTier_Price_Mushroom_High",
+    "Params1": 0,
+    "Params2": 15.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingTier_Price_Mushroom_Mid_Low",
+    "Params1": 0,
+    "Params2": 6.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingTier_Price_Custard_High",
+    "Params1": 0,
+    "Params2": 20.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingTier_Price_Custard_Mid_Low",
+    "Params1": 0,
+    "Params2": 10.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerHelp_CharityAffinity",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerHelp_TradeAffinity",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrangerHelp_HelpedThreshold",
+    "Params1": 60,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RatInfest_PreyIds",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "30000;30003;30007;30008"
+  },
+  {
+    "ID": "RatVisit_BaseChance",
+    "Params1": 0,
+    "Params2": 0.05000000074505806,
+    "Params3": ""
+  },
+  {
+    "ID": "RatVisit_StepChance",
+    "Params1": 0,
+    "Params2": 0.05000000074505806,
+    "Params3": ""
+  },
+  {
+    "ID": "RatVisit_MaxChance",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": ""
+  },
+  {
+    "ID": "RatVisit_FoodStep",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RatVisit_EscapeSeconds",
+    "Params1": 0,
+    "Params2": 4.0,
+    "Params3": ""
+  },
+  {
+    "ID": "SceneRat_CrisisMaxActive",
+    "Params1": 6,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "SceneRat_CrisisSpawnTickHours",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "SceneRat_CrisisSpawnChance",
+    "Params1": 0,
+    "Params2": 1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "SceneRat_CrisisSpawnPerTick",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "SceneRat_CrisisCatchCdHours",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "SceneRat_CrisisNaturalDespawnCdHours",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RatVisit_CrisisMarkAll",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RatInfest_EbbHours",
+    "Params1": 6,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthBookWeight_Lv0Lv1",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthBookWeight_Lv1Lv2",
+    "Params1": 0,
+    "Params2": 1.2000000476837158,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthBookWeight_Lv2Lv3",
+    "Params1": 0,
+    "Params2": 1.100000023841858,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthBookWeight_Lv3Lv4",
+    "Params1": 0,
+    "Params2": 1.0499999523162842,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthBookWeight_Lv4Lv5",
+    "Params1": 0,
+    "Params2": 1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "WishGuaranteeDays",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_Phase2StartDay",
+    "Params1": 35,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_ManPostNpcConfigId",
+    "Params1": 2002,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_AffinityMax",
+    "Params1": 300,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_AffinitySend",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_AffinityReturn",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_AffinityMilestone",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_AffinityPreDisaster",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_AffinityEvent",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_AffinityRescueComplete",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_AffinityThresholdEnding",
+    "Params1": 50,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_AffinityMilestoneTiers",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "50;150;250"
+  },
+  {
+    "ID": "Companion_AffinityDisplayTiers",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "50;100;150;200;250"
+  },
+  {
+    "ID": "Companion_DeathDayBase",
+    "Params1": 21,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_DeathProgressPerDay",
+    "Params1": 50,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_DeathEvent",
+    "Params1": 51336,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_DeathCloseEventIds",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "51311;51337;51339;51355;51356;51357"
+  },
+  {
+    "ID": "Companion_Phase2StartDay",
+    "Params1": 35,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_WallBreakStartDay",
+    "Params1": 75,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_WallBreakEvent",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_HeartKnotBuffId",
+    "Params1": 24115,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_HeartKnotLayerPerAffinity",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_HeartKnotToBelief",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_DislikeAffinityPenalty",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_DislikeRemainDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_DislikeSMS",
+    "Params1": 240111,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_SendSmsDelayMs",
+    "Params1": 1000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_JoyGiftThreshold",
+    "Params1": 90,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_JoySMS",
+    "Params1": 240110,
+    "Params2": 0.0,
+    "Params3": "240110;240323;240324;240325;240326;240327;240328;240329"
+  },
+  {
+    "ID": "Companion_SendSMS",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "240101;240102;240103;240104;240105;240126;240127;240128"
+  },
+  {
+    "ID": "Companion_ReturnSMS",
+    "Params1": 240112,
+    "Params2": 0.0,
+    "Params3": "240112;240123;240124;240125"
+  },
+  {
+    "ID": "FoodPollution_DecayScale",
+    "Params1": 0,
+    "Params2": 3.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_ItemDecayScale",
+    "Params1": 0,
+    "Params2": 5.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_AffinityMilestoneTiers",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "50;150;250"
+  },
+  {
+    "ID": "Plant_FlowerIds",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "32;33;34;35;36"
+  },
+  {
+    "ID": "Plant_OrnamentalFlowerIds",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "40;41;42"
+  },
+  {
+    "ID": "WH_Rescue_TargetCount",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "WH_Rescue_SatietyThreshold",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "仓管员救助线捐赠饱腹门槛。0=无门槛(2026-08-13起现行值。送出任意物资即成立。材料/药品/日用品同样受理)。大于0则恢复门槛。UI与Logic两侧同源分流"
+  },
+  {
+    "ID": "RiotGrabCount_Success",
+    "Params1": 4,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RiotGrabCount_Trampled",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RiotHighValueThreshold",
+    "Params1": 35,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RiotTrampleStaminaCost",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RiotTrampleVitalityCost",
+    "Params1": 15,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RiotTrampleMoraleCost",
+    "Params1": 15,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RiotRushCostTime",
+    "Params1": 1800,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingMultiPot_UnlockLevel",
+    "Params1": 0,
+    "Params2": 3.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Vase_MoraleCap",
+    "Params1": 0,
+    "Params2": 1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Vase_MoraleUnit",
+    "Params1": 0,
+    "Params2": 0.05000000074505806,
+    "Params3": ""
+  },
+  {
+    "ID": "Vase_WitheredModel",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00331"
+  },
+  {
+    "ID": "Companion_EndingAffinity",
+    "Params1": 250,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_CompanionSmsProb",
+    "Params1": 0,
+    "Params2": 0.20000000298023224,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_CompanionSmsHourMin",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_CompanionSmsHourMax",
+    "Params1": 22,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_CompanionSmsTier1",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "169;170;171;172;320001;320002;320003;320004;320005;320006"
+  },
+  {
+    "ID": "Neighbor_CompanionSmsTier2",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "173;174;175;176;320007;320008;320009;320010;320011;320012"
+  },
+  {
+    "ID": "Neighbor_CompanionSmsTier3",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "177;178;179;180;320013;320014;320015;320016;320017;320018"
+  },
+  {
+    "ID": "Neighbor_InitialSurviveDays",
+    "Params1": 7,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_WeakRemainDays",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": "已废（六档改版后判据换 Neighbor_WeakTierMax）"
+  },
+  {
+    "ID": "Neighbor_WeakReturnDelayHour",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_DyingReturnDelayHour",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": "濒死期篮子回赠固定延迟小时（优先于虚弱档8h）"
+  },
+  {
+    "ID": "Neighbor_WeakGiftValueFactor",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_WeakGiftCountMax",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_WeakReturnSMS",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "208;209;210"
+  },
+  {
+    "ID": "Neighbor_StreakDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_StreakAffinity",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_StreakSMS",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "205;206;207"
+  },
+  {
+    "ID": "Neighbor_StruggleEvent",
+    "Params1": 30080,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_StruggleMaxCount",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": "临死挣扎最大触发次数(本局累计跨两阶段;用尽后到达死亡日直接死亡)"
+  },
+  {
+    "ID": "Neighbor_StruggleEvents",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "30080;30088;30089"
+  },
+  {
+    "ID": "Neighbor_StruggleWindowHours",
+    "Params1": 24,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_StruggleExtendDays",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_StruggleDeathDelayHours",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_StruggleSatietyMin",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": "濒死救回门槛：篮内整件饱腹≥此值回垂危"
+  },
+  {
+    "ID": "Neighbor_StruggleSatietyHigh",
+    "Params1": 100,
+    "Params2": 0.0,
+    "Params3": "濒死救回高档：篮内整件饱腹≥此值回危急"
+  },
+  {
+    "ID": "Neighbor_StruggleRescueTierLow",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": "濒死救回低档目标生存档（1垂危）"
+  },
+  {
+    "ID": "Neighbor_StruggleRescueTierHigh",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": "濒死救回高档目标生存档（2危急）"
+  },
+  {
+    "ID": "TowerWaveRewardSetId",
+    "Params1": 70007,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerWaveLootGroupId",
+    "Params1": 8035,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerWaveLootCount",
+    "Params1": 4,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_ProactiveSMS",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "240113;240114;240115;240116;240117;240118;320519;320520;320521;320522"
+  },
+  {
+    "ID": "Companion_ProactiveHourMin",
+    "Params1": 9,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_ProactiveHourMax",
+    "Params1": 18,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_ProactiveTier1Affinity",
+    "Params1": 50,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_ProactiveTier2Affinity",
+    "Params1": 100,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_ProactiveTier3Affinity",
+    "Params1": 170,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_ProactiveBaseProb",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_ProactiveProbKPer10",
+    "Params1": 0,
+    "Params2": 0.10000000149011612,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_ProactiveProbMax",
+    "Params1": 0,
+    "Params2": 0.6000000238418579,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_ProactiveGiftCountMax",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_ProactiveTier1Items",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "20101;20101;20101;20104;20104;20104;20102;20102;20102;20103;20103;20103;20106;20106;20106;20004;20004;20004;20002;20002;20002;20003;20003;20003"
+  },
+  {
+    "ID": "Companion_ProactiveTier2Items",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "20101;20101;20101;20101;20101;20101;20101;20101;20101;20101;20101;20101;20104;20104;20104;20104;20104;20104;20104;20104;20104;20104;20104;20104;20102;20102;20102;20102;20102;20102;20102;20102;20102;20102;20102;20102;20103;20103;20103;20103;20103;20103;20103;20103;20103;20103;20103;20103;20106;20106;20106;20106;20106;20106;20106;20106;20106;20106;20106;20106;20004;20004;20004;20004;20004;20004;20004;20004;20004;20004;20004;20004;20002;20002;20002;20002;20002;20002;20002;20002;20002;20002;20002;20002;20003;20003;20003;20003;20003;20003;20003;20003;20003;20003;20003;20003;20210;20210;20210;20210;20210;20210;20360;20360;20360;20360;20360;20360;20360;20360;20360;20312;20312;20312;20312;20312;20312;20312;20312;20312;20310;20310;20310;20310;20310;20310;8001;8001;8001;8001;8001;8001;8001;8001;8001;8001;8001;8001;8001;8001;8001;8001;8001;8001;8001;8001;8001;8001;8001;8001"
+  },
+  {
+    "ID": "Companion_ProactiveTier3Items",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "20101;20101;20101;20104;20104;20104;20102;20102;20102;20103;20103;20103;20106;20106;20106;20004;20004;20004;20002;20002;20002;20003;20003;20003;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20360;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20312;20310;20310;20310;20310;20310;20310;20310;20310;20310;20310;20310;20310;20310;20310;20310;20310;20310;20310;8001;20311;20311;20311;20311;20311;20311;20311;20311;20311;20311;20311;20311;20311;20311;20311;20376;20376;20376;20376;20376;20376;20376;20376;20376;20376;20376;20376;20376;20376;20376;20377;20377;20377;20377;20377;20377;20377;20377;20377;20377;20361;20361;20361;20361;20361;20361;20361;20361;20361;20361;20372;20372;20372;20372;20372;20373;20373;20373;20373;20373;20374;20374;20374;20374;20374;20362;20362;20362;20362;20362;20378;20378;20378;20378;20378"
+  },
+  {
+    "ID": "Companion_CompanionSmsProb",
+    "Params1": 0,
+    "Params2": 0.20000000298023224,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_CompanionSmsHourMin",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_CompanionSmsHourMax",
+    "Params1": 22,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_CompanionSmsTier1",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "240311;240312;240313;240314;320501;320502;320503;320504;320505;320506"
+  },
+  {
+    "ID": "Companion_CompanionSmsTier2",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "240315;240316;240317;240318;320507;320508;320509;320510;320511;320512"
+  },
+  {
+    "ID": "Companion_CompanionSmsTier3",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "240319;240320;240321;240322;320513;320514;320515;320516;320517;320518"
+  },
+  {
+    "ID": "Endless_FaithGrant",
+    "Params1": 500,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Endless_TierIntervalDay",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Endless_WaveMaxHours",
+    "Params1": 18,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Endless_WeatherChangeHour",
+    "Params1": 12,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Endless_WeatherChangeJitter",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_CommitWindowCloseDay",
+    "Params1": 74,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_StrangerAliveMin",
+    "Params1": 6,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_StrangerCheckDay",
+    "Params1": 71,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_ShelterDurabilityMin",
+    "Params1": 600,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_ShelterSawMin",
+    "Params1": 4,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_ShelterGridMin",
+    "Params1": 4,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_ShelterSpikeMin",
+    "Params1": 4,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_ShelterWindowDurabilityMin",
+    "Params1": 1500,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_ShelterDoorDurabilityMin",
+    "Params1": 2000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_ShelterPowerStartDay",
+    "Params1": 60,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_ShelterPowerEndDay",
+    "Params1": 69,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_GreenhousePotMin",
+    "Params1": 24,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_GreenhouseCommitLight",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_GreenhouseCommitHeat",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_GreenhouseCheckDay",
+    "Params1": 71,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_SupplySatietyMin",
+    "Params1": 1200,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_SupplyItemCountMin",
+    "Params1": 180,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_SupplyStorageMin",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_SupplyCheckDay",
+    "Params1": 71,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingTier_Price_Seasoning_High",
+    "Params1": 0,
+    "Params2": 35.0,
+    "Params3": ""
+  },
+  {
+    "ID": "CookingTier_Price_Seasoning_Mid_Low",
+    "Params1": 0,
+    "Params2": 20.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ExploreInsight_Maps",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "1004;1005;1002"
+  },
+  {
+    "ID": "PreDisasterLoot_ThemeWeightMult",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "PreDisasterLoot_Groups",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "7015;7016;7017;7018;7019;7020;7021;7022;7023;7024;7025;7026;7027;7028;7029"
+  },
+  {
+    "ID": "ExploreInsight_Cards_1004",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "31601;31602;31603;31604;31605"
+  },
+  {
+    "ID": "ExploreInsight_Cards_1005",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "31621;31622"
+  },
+  {
+    "ID": "ExploreInsight_Cards_1002",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "31631;31632"
+  },
+  {
+    "ID": "ExploreInsight_Ramp_1004",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "17;3;1"
+  },
+  {
+    "ID": "ExploreInsight_Ramp_1005",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "27;5;1"
+  },
+  {
+    "ID": "ExploreInsight_Ramp_1002",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "37;5;1"
+  },
+  {
+    "ID": "ExploreInsight_LvGate_1005",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "5"
+  },
+  {
+    "ID": "ExploreInsight_LvGate_1002",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "5"
+  },
+  {
+    "ID": "Brew_SatietyBounds",
+    "Params1": 15,
+    "Params2": 35.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Brew_BurnPerSatiety",
+    "Params1": 150,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Brew_MinSatiety",
+    "Params1": 25,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Brew_SatietyPerBottle",
+    "Params1": 25,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Brew_MaxBottle",
+    "Params1": 9,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Brew_TierMoodDensityP1",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Brew_TierMoodDensityP2",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Brew_HourBase",
+    "Params1": 24,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Brew_HourPerSatiety",
+    "Params1": 0,
+    "Params2": 0.47999998927116394,
+    "Params3": ""
+  },
+  {
+    "ID": "Brew_HourMax",
+    "Params1": 168,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "MolotovThrowRange",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "PurchaseMoneySafeRate",
+    "Params1": 0,
+    "Params2": 0.4000000059604645,
+    "Params3": ""
+  },
+  {
+    "ID": "PurchaseMoneyDangerRate",
+    "Params1": 0,
+    "Params2": 0.20000000298023224,
+    "Params3": ""
+  },
+  {
+    "ID": "PurchaseTimeSafeThreshold",
+    "Params1": 14400,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "PurchaseTimeDangerThreshold",
+    "Params1": 7200,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerRingCost3",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerRingCost4",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerRingCost5",
+    "Params1": 15,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerRingCost6",
+    "Params1": 20,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerRingCost7",
+    "Params1": 25,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerRingCost8",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "DefenseExpPerKill",
+    "Params1": 25,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthMaxChances",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthPrice1Day",
+    "Params1": 15,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthPrice5Day",
+    "Params1": 60,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthPriceIncRate",
+    "Params1": 0,
+    "Params2": 1.600000023841858,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthHpMaxPenalty",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthEnableDayRollback",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthEnable5DayRollback",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthSnapshotSlots",
+    "Params1": 6,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthEnable5DayMinDay",
+    "Params1": 20,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RebirthEnableRoundRestart",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_MissValueRate",
+    "Params1": 0,
+    "Params2": 0.05999999865889549,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_TierDropHours",
+    "Params1": 48,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_TierUpBigPoints",
+    "Params1": 80,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_TierUpMinPoints",
+    "Params1": 40,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_TierInitial",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_Phase2TierFloor",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_WeakTierMax",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_DislikeTierMin",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_Phase2StartEvent",
+    "Params1": 30095,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_Phase2CompleteEvent",
+    "Params1": 30096,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_WishRevealSMS",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "211;212;213;214;215;216;217;218;219;220;221;222;223;224;225"
+  },
+  {
+    "ID": "Neighbor_WishRevealSMS2",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "226;227;228;229;230;231;232;233;234;235;236;237;238;239;240"
+  },
+  {
+    "ID": "Neighbor_GiftFoodTierMin",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": "回赠食物所需最低生存档(低于此档只回心意小物)"
+  },
+  {
+    "ID": "Neighbor_SeedGiftTierMin",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": "回赠种子所需最低生存档(低于此档只回心意小物;达到Neighbor_GiftFoodTierMin则走正常回赠)"
+  },
+  {
+    "ID": "Companion_GiftFoodRemainDaysMin",
+    "Params1": 7,
+    "Params2": 0.0,
+    "Params3": "陪伴线回赠食物所需最低剩余坚持天数(低于此值只回心意小物)"
+  },
+  {
+    "ID": "Neighbor_HungryGiftCountMax",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": "挨饿期回赠件数上限(两线共用)"
+  },
+  {
+    "ID": "Neighbor_HungryGiftItems",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "24124;24125;24126"
+  },
+  {
+    "ID": "Neighbor_SeedGiftItems",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "15007;15008;15009;15010;15011;15012;15013;15014;15015;15016;15017;15018;15019;15020;15021;15022;15023;15024;15025;15026;15027;15028;15029;15030;15031;15032;15033;15039"
+  },
+  {
+    "ID": "Neighbor_CraftGiftItems",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "24124;24125;24126"
+  },
+  {
+    "ID": "Companion_HungryGiftItems",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "24127;24128;24129"
+  },
+  {
+    "ID": "Companion_ReturnItemsTier1",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "20004;20004;20004;20004;20004;20004;20004;20004;20004;20004;20004;20004;20004;20004;20005;20005;20005;20005;20005;20005;20005;20005;20005;20005;20005;20005;20005;20005;20001;20001;20001;20001;20001;20001;20001;20001;20001;20002;20002;20002;20002;20002;20002;20002;20002;20002;20003;20003;20003;20003;20003;20003;20003;20003;20003;24127;24127;24127;24127;24127;24127;24127;24127;24127;24127;24128;24128;24128;24128;24128;24128;24128;24128;24128;24128;24129;24129;24129;24129;24129;24129;24129;24129;24129;24129;20101;20101;20101;20102;20102;20102;20103;20103;20103;20104;20104;20104;20106;20106;20106"
+  },
+  {
+    "ID": "Companion_ReturnItemsTier2",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "20004;20004;20004;20005;20005;20005;20001;20002;20003;20104;20104;20104;20104;20104;20104;20104;20104;20104;20104;20104;20104;20104;20104;20104;20104;20104;20104;20106;20106;20106;20106;20106;20106;20106;20106;20106;20106;20106;20106;20106;20106;20106;20106;20106;20106;20101;20101;20101;20101;20101;20101;20101;20101;20101;20102;20102;20102;20102;20102;20102;20102;20102;20102;20103;20103;20103;20103;20103;20103;20103;20103;20103;20360;20360;20360;20360;20360;20360;20360;20360;20360;20312;20312;20312;20312;20312;20312;20312;20312;20312;25001;25001;25001;25001;25001;25001;25001;25001;25001;25001;25001;25001;25001;25001;25001;25001;25003;25003;25003;25003;25003;25003;25003;25003;25003;25003;25003;25003;25003;25003;25003;25003"
+  },
+  {
+    "ID": "Companion_ReturnItemsTier3",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20210;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20320;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;20340;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25002;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25004;25005;25005;25005;25005;25005;25005;25005;25005;20372;20372;20372;20372;20372;20372;20372;20372;20372;20373;20373;20373;20373;20373;20373;20373;20373;20373;20378;20378;20378;20378;20378;20378;20378;20378;20378;20376;20376;20376;20376;20376;20376;20376;20376;20310;20310;20310;20310;20310;20310;20310;20310;20361;20361;20361;20361;20377;20377;20377;20377;20001;20001;20001;20001;20001;20001;20001;20001;20001;20001;20002;20002;20002;20002;20002;20002;20002;20002;20002;20002;20003;20003;20003;20003;20003;20003;20003;20003;20003;20003;24127;24127;24127;24127;24127;24127;24127;24127;24128;24128;24128;24128;24128;24128;24128;24128;24129;24129;24129;24129;24129;24129;24129;24129;20101;20101;20101;20101;20101;20101;20101;20101;20102;20102;20102;20102;20102;20102;20102;20102;20103;20103;20103;20103;20103;20103;20103;20103;20104;20104;20104;20104;20104;20104;20104;20104;20104;20104;20106;20106;20106;20106;20106;20106;20106;20106;20106;20106;20360;20360;20360;20360;20312;20312;20312;20312;25001;25003"
+  },
+  {
+    "ID": "Companion_MissValueRate",
+    "Params1": 0,
+    "Params2": 0.05999999865889549,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_Phase2StartEvent",
+    "Params1": 51347,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Endless_StoryStartTier",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ZombieSpawnScatterRadius",
+    "Params1": 0,
+    "Params2": 3.0,
+    "Params3": ""
+  },
+  {
+    "ID": "ZombieAdvanceScatterRadius",
+    "Params1": 0,
+    "Params2": 1.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Dance_ConditionSetId",
+    "Params1": 217,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Dance_ActionIds",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "9077;9078;9079;9080"
+  },
+  {
+    "ID": "Dance_ActionIdFemale",
+    "Params1": 9079,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Dance_Score",
+    "Params1": 0,
+    "Params2": 60.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Dance_CdHours",
+    "Params1": 6,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Dance_DailyMax",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Dance_CrisisWindowMinutes",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Dance_WishFreshHours",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_TierDropHours",
+    "Params1": 48,
+    "Params2": 0.0,
+    "Params3": "陪伴线生存档降档间隔小时(距锚点每满降1档)"
+  },
+  {
+    "ID": "Companion_TierUpBigPoints",
+    "Params1": 80,
+    "Params2": 0.0,
+    "Params3": "陪伴线送物升2档所需单次救助点"
+  },
+  {
+    "ID": "Companion_TierUpMinPoints",
+    "Params1": 40,
+    "Params2": 0.0,
+    "Params3": "陪伴线送物升1档所需单次救助点(不足只续命不升档)"
+  },
+  {
+    "ID": "Companion_TierInitial",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": "陪伴线一阶段激活初始生存档(3困窘)"
+  },
+  {
+    "ID": "Companion_Phase2TierFloor",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": "陪伴线二阶段生存档下限(5平淡 这一阶段不会死)"
+  },
+  {
+    "ID": "Companion_WeakTierMax",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": "陪伴线虚弱期档位上界(档≤此值=虚弱)"
+  },
+  {
+    "ID": "Companion_DislikeTierMin",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": "陪伴线嫌弃难吃食物的最低档位(不愁吃才挑食)"
+  },
+  {
+    "ID": "Companion_GiftFoodTierMin",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": "陪伴线回赠食物所需最低生存档(缓过来了才有余力做吃的)"
+  },
+  {
+    "ID": "Companion_WeakReturnDelayHour",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": "陪伴线虚弱期篮子回赠固定延迟小时"
+  },
+  {
+    "ID": "Companion_DyingReturnDelayHour",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": "陪伴线濒死期篮子回赠固定延迟小时(优先于虚弱档8h)"
+  },
+  {
+    "ID": "Companion_WeakGiftCountMax",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": "陪伴线虚弱期回赠件数上限"
+  },
+  {
+    "ID": "Companion_WeakGiftValueFactor",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": "陪伴线虚弱期回赠价值预算系数(读Params2)"
+  },
+  {
+    "ID": "Companion_StruggleWindowHours",
+    "Params1": 24,
+    "Params2": 0.0,
+    "Params3": "陪伴线挣扎窗口小时(弹窗待选/濒死各一段)"
+  },
+  {
+    "ID": "Companion_StruggleDeathDelayHours",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": "陪伴线选不救助后延迟死亡小时"
+  },
+  {
+    "ID": "Companion_StruggleMaxCount",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": "陪伴线临死挣扎最大触发次数(本局累计跨两阶段;用尽后再跌直接死亡)"
+  },
+  {
+    "ID": "Companion_StruggleSatietyMin",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": "陪伴线濒死救回门槛:篮内整件饱腹≥此值回垂危"
+  },
+  {
+    "ID": "Companion_StruggleSatietyHigh",
+    "Params1": 100,
+    "Params2": 0.0,
+    "Params3": "陪伴线濒死救回高档:篮内整件饱腹≥此值回危急"
+  },
+  {
+    "ID": "Companion_StruggleRescueTierLow",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": "陪伴线濒死救回低档目标生存档(1垂危)"
+  },
+  {
+    "ID": "Companion_StruggleRescueTierHigh",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": "陪伴线濒死救回高档目标生存档(2危急)"
+  },
+  {
+    "ID": "Companion_StreakDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": "陪伴线连续送物达标天数(达标发感谢短信+好感后清零循环)"
+  },
+  {
+    "ID": "Companion_StreakAffinity",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": "陪伴线连送达标好感加成"
+  },
+  {
+    "ID": "Companion_StruggleEvents",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "51355;51356;51357"
+  },
+  {
+    "ID": "Companion_WishRevealSMS",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "240267;240268;240269;240270;240271;240272;240273;240274;240275;240276;240277;240278;240279;240280;240281"
+  },
+  {
+    "ID": "Companion_WishRevealSMS2",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "240282;240283;240284;240285;240286;240287;240288;240289;240290;240291;240292;240293;240294;240295;240296"
+  },
+  {
+    "ID": "Companion_StreakSMS",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "240297;240298;240299"
+  },
+  {
+    "ID": "Companion_WeakReturnSMS",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "240302;240303;240304"
+  },
+  {
+    "ID": "FoodPollution_SevRatIgnored",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_SevNoPower",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_SevColdWave",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_SevSeedBonus",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_SevSpreadCut",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_SevInfectBonus",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_SpreadIntervalHours",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_SpreadIntervalMin",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_SeedCountDay1",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_ExtraSeedDays",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_ShrinkIntervalHours",
+    "Params1": 12,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_SpreadItemsMax",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_SprayRadius",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_SprayItemCost",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_SlowdownTier1",
+    "Params1": 40,
+    "Params2": 12.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_SlowdownTier2",
+    "Params1": 60,
+    "Params2": 18.0,
+    "Params3": ""
+  },
+  {
+    "ID": "FoodPollution_SlowdownTier3",
+    "Params1": 80,
+    "Params2": 24.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Endless_WeatherMix_101_102",
+    "Params1": 103,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Plant_RareSeedDiscover",
+    "Params1": 15040,
+    "Params2": 0.10000000149011612,
+    "Params3": "2"
+  },
+  {
+    "ID": "Plant_RareSeedDiscover_DefenseLv",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Plant_FlowerSeedDiscover",
+    "Params1": 0,
+    "Params2": 0.10000000149011612,
+    "Params3": "2"
+  },
+  {
+    "ID": "Trap_PreySeedDiscover",
+    "Params1": 0,
+    "Params2": 0.10000000149011612,
+    "Params3": ""
+  },
+  {
+    "ID": "Plant_ExtraSeedExcludeIds",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "32;33;34;35;36;38;39;40;41;42"
+  },
+  {
+    "ID": "Veteran_Rescue_SatietyThreshold",
+    "Params1": 50,
+    "Params2": 0.0,
+    "Params3": "退伍军人线捐赠饱腹门槛（对应仓管线 WH_Rescue_SatietyThreshold；UI 与 Logic 两侧同源 缺配回落 50）"
+  },
+  {
+    "ID": "GH_FlowerHarvestGoal",
+    "Params1": 24,
+    "Params2": 0.0,
+    "Params3": "温室线51212 累计收获花目标件数"
+  },
+  {
+    "ID": "GH_VegFruitHarvestGoal",
+    "Params1": 36,
+    "Params2": 0.0,
+    "Params3": "温室线51212 累计收获蔬菜水果目标件数"
+  },
+  {
+    "ID": "ExploreBg_DelaySeconds",
+    "Params1": 20,
+    "Params2": 0.0,
+    "Params3": "探索副本 BGM 延迟起播秒数（真实秒 走 unscaled）。进副本后先留一段纯环境音立氛围 到点才起 BGM。配 0 或负数 = 不延迟立即起播"
+  },
+  {
+    "ID": "ExploreBg_FadeSeconds",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": "探索副本 BGM 淡入时长秒数（真实秒 走 unscaled）。用 EventInstance 自身音量做 0→目标音量斜坡 不动 bus:/Music 玩家设置。配 0 或负数 = 不淡入直接到目标音量"
+  },
+  {
+    "ID": "ExploreBg_Volume",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": "探索副本 BGM 目标音量 0~1（EventInstance 实例音量 与玩家 BGM 滑条相乘 互不覆盖）。素材 SurvivalLog_AfterDisaster 比家里的 _B 响 8.2 dB 故压低。配 0 或负数 = 回落 1.0 全音量"
+  },
+  {
+    "ID": "TowerWaveLootCatBase",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerWaveLootCatPerKill",
+    "Params1": 20,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerWaveLootCatMax",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerWaveLootQtyPerKill",
+    "Params1": 60,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerWaveLootQtyMax",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerWaveLootEndlessScale",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Neighbor_CookBookItems",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "3013"
+  },
+  {
+    "ID": "Neighbor_BookItems",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "3001;3002;3003;3004;3005;3006;3010;3022;3023;3024;3025;3026;2505;2506"
+  },
+  {
+    "ID": "Neighbor_DailyNecessityItems",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "11009;11010;11011;11012;11013"
+  },
+  {
+    "ID": "Neighbor_TreatItems",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "2132;2133;2134;2135;2138;2139;2140;2141;2143;9032;2130;2131;2136;2142;2137;2156;2157;2158;2159"
+  },
+  {
+    "ID": "Neighbor_HungryGiftPools",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "Neighbor_HungryGiftItems;Neighbor_CookBookItems;Neighbor_BookItems;Neighbor_DailyNecessityItems;Neighbor_TreatItems"
+  },
+  {
+    "ID": "Neighbor_HungryGiftWeights",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "36;25;15;16;8"
+  },
+  {
+    "ID": "Neighbor_SeedGiftPools",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "Neighbor_SeedGiftItems;Neighbor_CookBookItems;Neighbor_CraftGiftItems;Neighbor_TreatItems"
+  },
+  {
+    "ID": "Neighbor_SeedGiftWeights",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "45;25;10;20"
+  },
+  {
+    "ID": "Neighbor_NormalGiftPools",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "Neighbor_CraftGiftItems;Neighbor_CookBookItems;Neighbor_BookItems;Neighbor_SeedGiftItems"
+  },
+  {
+    "ID": "Neighbor_NormalGiftWeights",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "40;20;20;20"
+  },
+  {
+    "ID": "Companion_CraftBookItems",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "3011"
+  },
+  {
+    "ID": "Companion_ToolTrapItems",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "20320;20340;25001;25002;25003;25004"
+  },
+  {
+    "ID": "Companion_HungryGiftPools",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "Companion_HungryGiftItems;Companion_CraftBookItems;Neighbor_BookItems;Neighbor_DailyNecessityItems;Companion_ToolTrapItems"
+  },
+  {
+    "ID": "Companion_HungryGiftWeights",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "36;10;22;24;8"
+  },
+  {
+    "ID": "Companion_NormalGiftPools",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "Companion_CraftBookItems;Neighbor_BookItems;Neighbor_DailyNecessityItems;Companion_ToolTrapItems"
+  },
+  {
+    "ID": "Companion_NormalGiftWeights",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "8;12;12;8"
+  },
+  {
+    "ID": "Companion_NormalSupplyWeight",
+    "Params1": 60,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_CraftMapTier1Recipes",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "404;405;406"
+  },
+  {
+    "ID": "Companion_CraftMapTier2Recipes",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_CraftMapTier3Recipes",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Companion_CraftMapTriggerItems",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "15504;15505;15506"
+  },
+  {
+    "ID": "Companion_CraftMapWeight",
+    "Params1": 60,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "shredder_hour_per_depth",
+    "Params1": 4,
+    "Params2": 0.0,
+    "Params3": "粉碎每层拆解深度的耗时(游戏小时) 深度1=4h 深度2=8h 深度3=12h"
+  },
+  {
+    "ID": "TensionDoorRatio",
+    "Params1": 40,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TensionDoorExitRatio",
+    "Params1": 55,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Compress_ValueRate",
+    "Params1": 0,
+    "Params2": 0.6000000238418579,
+    "Params3": ""
+  },
+  {
+    "ID": "Compress_FreshTierP1",
+    "Params1": 0,
+    "Params2": 0.6000000238418579,
+    "Params3": ""
+  },
+  {
+    "ID": "Compress_FreshTierP2",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": ""
+  },
+  {
+    "ID": "Compress_CrumbSatiety",
+    "Params1": 0,
+    "Params2": 10.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Compress_MoodWeightNeg",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Compress_MoodFloorPerUse",
+    "Params1": 0,
+    "Params2": -6.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Compress_MoodCapPerUse",
+    "Params1": 0,
+    "Params2": 6.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Compress_EffectCapRate",
+    "Params1": 0,
+    "Params2": 1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Compress_SeasonMaxRate",
+    "Params1": 0,
+    "Params2": 0.15000000596046448,
+    "Params3": ""
+  },
+  {
+    "ID": "Compress_SeasonOverSlope",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Compress_MinutesFloor",
+    "Params1": 0,
+    "Params2": 240.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Compress_MinutesPerCell",
+    "Params1": 0,
+    "Params2": 60.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Compress_MinutesMax",
+    "Params1": 0,
+    "Params2": 2160.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Compress_FlavorJitterRate",
+    "Params1": 0,
+    "Params2": 0.15000000596046448,
+    "Params3": ""
+  },
+  {
+    "ID": "Compress_BlockWeight",
+    "Params1": 0,
+    "Params2": 500.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieLootGroupId",
+    "Params1": 8057,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieEnabled",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieDensityCurve",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "15:0.025;40:0.05;50:0.08;60:0.10;80:0.15;9999:0.20"
+  },
+  {
+    "ID": "StrayZombieTickIntervalHours",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieMaxPerDay",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieCooldownHours",
+    "Params1": 4,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieMinDay",
+    "Params1": 7,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieCountMin",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieCountMax",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieMaxAlive",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieTypeId",
+    "Params1": 9003,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieLingerSeconds",
+    "Params1": 0,
+    "Params2": 30.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieDoorGateRatio",
+    "Params1": 0,
+    "Params2": 0.4000000059604645,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieDoorFloorRatio",
+    "Params1": 0,
+    "Params2": 0.25,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieExpRatio",
+    "Params1": 0,
+    "Params2": 0.4000000059604645,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerZombieDodgeVsDevice",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "9008:36004:0.7;9109:36004:1.0;9110:36004:1.0"
+  },
+  {
+    "ID": "StrayZombieTypePool",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "15:9101|9103;40:9101|9103|9107|9106|9102;60:9103|9107|9106|9102|9101;80:9103|9102|9104|9106|9107;9999:9102|9104|9105|9103|9106"
+  },
+  {
+    "ID": "StrayZombieSpawnGapSeconds",
+    "Params1": 0,
+    "Params2": 4.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieCountCurve",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "50:1-3;9999:2-3"
+  },
+  {
+    "ID": "StrayZombieHpMulCurve",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "50:1.0;70:1.3;9999:1.6"
+  },
+  {
+    "ID": "Awaken_Enable",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Awaken_SpeedScale",
+    "Params1": 0,
+    "Params2": 1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Awaken_SfxMinor",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "event:/TimeLine/heimu_xinglai"
+  },
+  {
+    "ID": "Awaken_SfxRestart",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Awaken_SfxMajor",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "event:/TimeLine/heimu_xinglai"
+  },
+  {
+    "ID": "Awaken_PopupDelay",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": ""
+  },
+  {
+    "ID": "Awaken_FilterWindow",
+    "Params1": 0,
+    "Params2": 6.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Endless_LegacyMaxTier",
+    "Params1": 20,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "EndingLastPage_Enable",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": "0=关 1=开 前端v-if见EndingShow/DossierUI/EndingChoice"
+  },
+  {
+    "ID": "EndingPhoto_Enable",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": "定格照 从属EndingLastPage_Enable CL B用"
+  },
+  {
+    "ID": "Capacity_StockHorizonDays",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": "囤粮摊入养活人数的天数"
+  },
+  {
+    "ID": "Capacity_WaveWindowSec",
+    "Params1": 240,
+    "Params2": 0.0,
+    "Params3": "一波交战窗口 真实秒"
+  },
+  {
+    "ID": "Capacity_RepairPerKit",
+    "Params1": 500,
+    "Params2": 0.0,
+    "Params3": "修补包每个恢复耐久 Effect121/122"
+  },
+  {
+    "ID": "Capacity_RepairPerHandFix",
+    "Params1": 100,
+    "Params2": 0.0,
+    "Params3": "手修每次恢复耐久 Effect30/44 不耗材"
+  },
+  {
+    "ID": "Capacity_CookMul_Lv0",
+    "Params1": 0,
+    "Params2": 1.2400000095367432,
+    "Params3": "烹饪系数曲线 改动同步capacity_model"
+  },
+  {
+    "ID": "Capacity_CookMul_Lv1",
+    "Params1": 0,
+    "Params2": 1.3200000524520874,
+    "Params3": ""
+  },
+  {
+    "ID": "Capacity_CookMul_Lv2",
+    "Params1": 0,
+    "Params2": 1.7999999523162842,
+    "Params3": ""
+  },
+  {
+    "ID": "Capacity_CookMul_Lv3",
+    "Params1": 0,
+    "Params2": 1.9299999475479126,
+    "Params3": ""
+  },
+  {
+    "ID": "Capacity_CookMul_Lv4",
+    "Params1": 0,
+    "Params2": 2.440000057220459,
+    "Params3": ""
+  },
+  {
+    "ID": "Capacity_CookMul_Lv5",
+    "Params1": 0,
+    "Params2": 2.549999952316284,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_BrokenConsumeMul",
+    "Params1": 0,
+    "Params2": 1.25,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_ColdConsumeMul",
+    "Params1": 0,
+    "Params2": 1.149999976158142,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_ColdSickMul",
+    "Params1": 0,
+    "Params2": 2.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_DailyCatchupMax",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_DefaultHighMaterial",
+    "Params1": 210,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_DefaultMaterialDailyUse",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_DefaultSeedRegainRate",
+    "Params1": 0,
+    "Params2": 0.4000000059604645,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_DefaultSickProb",
+    "Params1": 0,
+    "Params2": 0.009999999776482582,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FuelBurnPerHour",
+    "Params1": 300,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FuelDailyUse",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FuelWinterMul",
+    "Params1": 0,
+    "Params2": 1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_GiftCd",
+    "Params1": 7,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_GiftExclusiveDays",
+    "Params1": 28,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_GiftProb",
+    "Params1": 0,
+    "Params2": 0.25,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_GiftRareProb",
+    "Params1": 0,
+    "Params2": 0.07999999821186066,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_HighFuel",
+    "Params1": 32,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_HighMaterialDays",
+    "Params1": 7,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_HighMedicine",
+    "Params1": 60,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_HighSatietyDays",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_HighSeedPerPlot",
+    "Params1": 48,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_LowFuel",
+    "Params1": 16,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_LowMaterialDays",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_LowSatietyDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_LowSeedPerPlot",
+    "Params1": 18,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MedicineCureCost",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_SeedConvertDivisor",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_SeedYieldPerPlot",
+    "Params1": 18,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_SickConsumeMul",
+    "Params1": 0,
+    "Params2": 1.399999976158142,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_SickDays",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_SupplyTripsPerDay",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_GiftBatchCd",
+    "Params1": 7,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_GiftBatchDivisor",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_GiftBatchMax",
+    "Params1": 4,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_DefaultSowPerPlot",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_DefaultSatietyScavenge",
+    "Params1": 6,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_PlotGoodDays",
+    "Params1": 22,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_PlotBonusMax",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_DefaultMishapProb",
+    "Params1": 0,
+    "Params2": 0.03500000014901161,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MatMulHigh",
+    "Params1": 0,
+    "Params2": 1.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MatMulNormal",
+    "Params1": 0,
+    "Params2": 1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MatMulLow",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MatMulZero",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_PlotMishapPenalty",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_RatSatietyCapDays",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FireSatietyDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_TheftMatDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_TheftSatietyDays",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FacilityMatDays",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FacilityFixHigh",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FacilityFixNormal",
+    "Params1": 4,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FacilityFixLow",
+    "Params1": 7,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FacilityFixZero",
+    "Params1": 12,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_PestDays",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_InjuryDays",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_InjuryCuredDays",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MishapW_Rat",
+    "Params1": 18,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MishapW_Fire",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MishapW_Theft",
+    "Params1": 16,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MishapW_Facility",
+    "Params1": 16,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MishapW_Pest",
+    "Params1": 14,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MishapW_Injury",
+    "Params1": 12,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MishapFavorMul",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FuelWinterMul1",
+    "Params1": 0,
+    "Params2": 1.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FuelWinterMul2",
+    "Params1": 0,
+    "Params2": 2.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FuelWinterMul3",
+    "Params1": 0,
+    "Params2": 3.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_DampProb",
+    "Params1": 0,
+    "Params2": 0.25,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_DampSatietyDays",
+    "Params1": 0,
+    "Params2": 2.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_DampSeedPlots",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_RatLootRate",
+    "Params1": 0,
+    "Params2": 0.20000000298023224,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_RatSeedCapPlots",
+    "Params1": 0,
+    "Params2": 1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FireFuelLossRate",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_TheftSeedPlots",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_TheftMulHigh",
+    "Params1": 0,
+    "Params2": 0.4000000059604645,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_TheftMulNormal",
+    "Params1": 0,
+    "Params2": 0.699999988079071,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_TheftMulLow",
+    "Params1": 0,
+    "Params2": 1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_TheftMulZero",
+    "Params1": 0,
+    "Params2": 1.2000000476837158,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FacilityDailySatiety",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_InjuryConsumeMul",
+    "Params1": 0,
+    "Params2": 1.2999999523162842,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MishapInjuryPlotMul",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_DampCrisisIds",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "110,108,130,128,150,148"
+  },
+  {
+    "ID": "Stranger_TradeRequestCd",
+    "Params1": 18,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_BegRequestCd",
+    "Params1": 20,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_TradeQuotaDays",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_BegQuotaDays",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_RequestCdPerUrgency",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_RequestCdMin",
+    "Params1": 6,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RobotPlayerConfigId",
+    "Params1": 2003,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RobotPlantPlayerConfigId",
+    "Params1": 2004,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RobotBatteryTrips",
+    "Params1": 6,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RobotTripCost",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RobotChargeTripsPerHour",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RobotHistoryMax",
+    "Params1": 50,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RobotHistorySaveMax",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RobotModuleExpandSlots",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "EndingPhotoCam_1_1",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "-23.36;14.00;-0.52;40;330"
+  },
+  {
+    "ID": "EndingPhotoCam_1_101",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "-32.72;-29.64;3.05;40;330"
+  },
+  {
+    "ID": "EndingPhotoCam_1_102",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "-21.54;19.12;-0.29;40;330"
+  },
+  {
+    "ID": "EndingPhotoCam_2_1",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "3.51;13.95;-0.15;40;330"
+  },
+  {
+    "ID": "EndingPhotoCam_2_101",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "-1.30;-31.02;4.59;40;330"
+  },
+  {
+    "ID": "EndingPhotoCam_2_102",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "4.23;19.00;0.12;40;330"
+  },
+  {
+    "ID": "EndingPhotoCam_3_102",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "12.90;15.19;-26.98;40;330"
+  },
+  {
+    "ID": "Rescue_CommSustainHours",
+    "Params1": 336,
+    "Params2": 0.0,
+    "Params3": "救援线V2 维持通电达标所需累计小时数(14天)。断电只暂停不清零。代码兜底336"
+  },
+  {
+    "ID": "Rescue_ContactMsgCount",
+    "Params1": 14,
+    "Params2": 0.0,
+    "Params3": "救援线V2 维持期对接消息总条数。代码兜底14"
+  },
+  {
+    "ID": "Rescue_ContactMsgIntervalDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": "救援线V2 对接消息最小间隔天数。每天一条构成骚扰。代码兜底3"
+  },
+  {
+    "ID": "Capacity_IdlePotPlantId",
+    "Params1": 24,
+    "Params2": 0.0,
+    "Params3": "空盆基准作物 西红柿"
+  },
+  {
+    "ID": "Greenhouse_SamplePlantIds",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "11;14;15;16;22;29;30;38"
+  },
+  {
+    "ID": "Greenhouse_SampleProductMin",
+    "Params1": 100,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Greenhouse_SampleSeedMin",
+    "Params1": 20,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Greenhouse_SampleKindMin",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Endless_NewWaveRule_Enable",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": "0=关(新开档走旧波次旧怪物 T20封顶) 1=开 见GameKey_Endless"
+  },
+  {
+    "ID": "Endless_DroneTrade_Enable",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": "0=关(与CL15193屏蔽态一致) 1=开 开之前先定沦陷节奏(见Endless_Usage功能开关段)"
+  },
+  {
+    "ID": "Endless_DroneTrade_ShelfExclude",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "911:2400"
+  },
+  {
+    "ID": "Endless_AidRetreatMin",
+    "Params1": 20,
+    "Params2": 0.0,
+    "Params3": "主动求援撤退保底只数 与场上存活乘Endless_AidRetreatRatio取大 场上不足这个数就全撤"
+  },
+  {
+    "ID": "Endless_AidRetreatRatio",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": ""
+  },
+  {
+    "ID": "Endless_AidCallCooldownDays",
+    "Params1": 12,
+    "Params2": 0.0,
+    "Params3": "主动求援后该营地的冷却天数 冷却内不再接你的电话 交易地图写剩余天数"
+  },
+  {
+    "ID": "Endless_CampDailyPointCap",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": "营地每日回馈生存点上限 帮过且当天24点还在的营地各加1 危机状态停发"
+  },
+  {
+    "ID": "Endless_CampEvacPoint",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": "协助撤离成功的一次性生存点 走撤离遗产奖励发 不受每日封顶影响"
+  },
+  {
+    "ID": "Stranger_MaterialUseIntervalDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Greenhouse_DailyFertPlants",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "39:4.0"
+  },
+  {
+    "ID": "Greenhouse_RegrowPlants",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "39:345600"
+  },
+  {
+    "ID": "Stranger_GiftExclusiveStreak",
+    "Params1": 7,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_RequestMinGapDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_IdleTradeGapDays",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_IdleTradeDayRate",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MedQuotaDays",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_ShelfCommonSlots",
+    "Params1": 6,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_ShelfCommonMaxTV",
+    "Params1": 40,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_ShelfCommonExclude",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "20107,20105,2137,2156,2157,2158,2159,9004,9005,9006,9007,9008,9044,2550,11003"
+  },
+  {
+    "ID": "Stranger_GiftExclusiveSatietyStreak",
+    "Params1": 14,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_GiftMaxTV",
+    "Params1": 20,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_GiftCommonSlots",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_GiftTierScore",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "1,2,3,4,5,6"
+  },
+  {
+    "ID": "Stranger_GiftTierCount",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "0,1,2,3,4,5,6"
+  },
+  {
+    "ID": "Stranger_GiftSpecialScore",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "3"
+  },
+  {
+    "ID": "Stranger_GiftSpecialByNpc",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "30:11043,14:11029,29:11032,16:11037,20:12277,24:11034,25:11030,26:11038,2100:11040,2101:11031,2102:2157,2103:11033,2104:2156,2105:11041,2106:11035,2107:11039,2108:2137,2109:2159,2110:11036,2111:2158"
+  },
+  {
+    "ID": "Stranger_GiftBudgetBase",
+    "Params1": 60,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_Rescue_FoodHours",
+    "Params1": 48,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_Rescue_SickHours",
+    "Params1": 24,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_Rescue_CdDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_Rescue_HungerLine",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_Rescue_FoodDays",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "2;4"
+  },
+  {
+    "ID": "Stranger_Rescue_MedCount",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "1;2"
+  },
+  {
+    "ID": "Stranger_Rescue_CureMap",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "1101:2407;1102:2408|2413;1103:2405;1104:2406|2405;1105:2412;1110:2406;1111:2400|2401|2413;1112:2405;1113:2401;1125:2405;1126:2407"
+  },
+  {
+    "ID": "Stranger_WaveAid_DelayHours",
+    "Params1": 6,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_WaveAid_Items",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "20005:1;20001:1;20004:1;2102:1"
+  },
+  {
+    "ID": "Stranger_KeepsakeStreakDays",
+    "Params1": 28,
+    "Params2": 0.0,
+    "Params3": "专属纪念品第二条获取路: 连续维持三维(饱腹/种子/材料)全在富裕线之上的达标天数。与一次大单(Stranger_GiftSpecialScore)是或的关系,共用一人一件名单"
+  },
+  {
+    "ID": "Stranger_KeepsakeStreakMiss",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": "上一条的容错额度: 整段连续里最多几天不达标而不清零(整段累计,非连续断N天)。28+3=31 正好落回与一次送满物资等价的天数,改一个要重算另一个"
+  },
+  {
+    "ID": "Stranger_MatUseBatch",
+    "Params1": 18,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MatFoodReturn",
+    "Params1": 45,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_ConvStopDays",
+    "Params1": 4,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_RefillDays",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_TargetDays",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MatLowBatch",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MatRefillBatch",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_MatHighBatch",
+    "Params1": 6,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_DefaultRetPerPlot",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FoodToSeed",
+    "Params1": 0,
+    "Params2": 0.25,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FoodToMat",
+    "Params1": 0,
+    "Params2": 0.800000011920929,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_EffHealthy",
+    "Params1": 0,
+    "Params2": 1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_EffSaturated",
+    "Params1": 0,
+    "Params2": 0.7200000286102295,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_EffBreak1",
+    "Params1": 0,
+    "Params2": 0.8500000238418579,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_EffBreak2",
+    "Params1": 0,
+    "Params2": 0.25,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_EffBreak3",
+    "Params1": 0,
+    "Params2": 0.18000000715255737,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_BudgetHealthy",
+    "Params1": 0,
+    "Params2": 1.2999999523162842,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_BudgetBreak1",
+    "Params1": 0,
+    "Params2": 1.2999999523162842,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_BudgetBreak2",
+    "Params1": 0,
+    "Params2": 0.20000000298023224,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_TierDrop",
+    "Params1": 0,
+    "Params2": 1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_PressScav",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_PressCons",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_PressMishap",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_FireDropMul",
+    "Params1": 0,
+    "Params2": 1.600000023841858,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_PressFullDay",
+    "Params1": 100,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Stranger_InjuryEffMul",
+    "Params1": 0,
+    "Params2": 0.699999988079071,
+    "Params3": ""
+  },
+  {
+    "ID": "AidPlatform_MaxOpenRequests",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AidPlatform_ReleaseGapDays",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AidPlatform_RefillIntervalHours",
+    "Params1": 192,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AidPlatform_DemandItemCount",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AidPlatform_DemandBulkValue",
+    "Params1": 400,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Line_SupplySatietyMinV2",
+    "Params1": 1200,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RescueCamp_TargetSatiety",
+    "Params1": 1000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RescueCamp_RivalLagMinPct",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RescueCamp_RivalLagMaxPct",
+    "Params1": 15,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RescueCamp_StallDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RescueCamp_RivalPressPctPerDay",
+    "Params1": 4,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RescueCamp_TauntMaxTimes",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "RescueCamp_TauntGapDays",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "SupplyHub_DroneNeed",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_SupplyTvPhase1",
+    "Params1": 4000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_SupplyTvRatio2",
+    "Params1": 0,
+    "Params2": 1.7999999523162842,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_SupplyTvRatio3",
+    "Params1": 0,
+    "Params2": 3.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_ConsumeMul",
+    "Params1": 0,
+    "Params2": 1.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_BuildBaseHours",
+    "Params1": 120,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_BuildBasePeople",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_TrustBuildStep",
+    "Params1": 60,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_TrustBuildMul",
+    "Params1": 0,
+    "Params2": 0.8999999761581421,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_TrustBuildFloor",
+    "Params1": 0,
+    "Params2": 0.699999988079071,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_ContribIntervalDays",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_ContribCapT1",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_ContribCapT2",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_ContribCapT3",
+    "Params1": 0,
+    "Params2": 0.699999988079071,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_BlockItemsP1",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "14044;14044"
+  },
+  {
+    "ID": "Camp_BlockItemsP2",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "26001;26001;26002"
+  },
+  {
+    "ID": "Camp_BlockItemsP3",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "14064;14051"
+  },
+  {
+    "ID": "Camp_BlockBurnP1",
+    "Params1": 48000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_BlockBurnP2",
+    "Params1": 96000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_BlockBurnP3",
+    "Params1": 144000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_VoteDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_VoteCampLatestDay",
+    "Params1": 70,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_VoteHubLatestDay",
+    "Params1": 78,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_VoteHubPassCount",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_VoteCampPassCount",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_VoteHighTrust",
+    "Params1": 120,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_VoteDailyStancePosts",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Hub_DroneNeed",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Hub_SatietyNeed",
+    "Params1": 4000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Hub_RunSeconds",
+    "Params1": 3600,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Greenhouse_BuildPhaseCost",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "60;80;8;24"
+  },
+  {
+    "ID": "Greenhouse_BuildPhaseMax",
+    "Params1": 4,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Greenhouse_BuildPhase1Items",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "20362:3;20361:2;20360:3;20214:2;20376:6"
+  },
+  {
+    "ID": "Greenhouse_BuildPhase2Items",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "20374:3;20312:6;20372:2;20371:3;14014:1"
+  },
+  {
+    "ID": "Greenhouse_BuildPhase3Items",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "20363|20364|20365|20366|20367|20368|20369|20370:8"
+  },
+  {
+    "ID": "Greenhouse_BuildPhase4Items",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "2541|2542|2543|2544|2545|2547|2548|2549:24"
+  },
+  {
+    "ID": "TowerZombieAttackDevice",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "9109:36004:1;9110:36004:1"
+  },
+  {
+    "ID": "TowerDeviceDisableThreshold",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "36004:0.5"
+  },
+  {
+    "ID": "TowerDeviceRepairCostRatio",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "36001:0.5;36002:0.65;36003:0.65;36004:0.8"
+  },
+  {
+    "ID": "RobotRepairPlayerConfigId",
+    "Params1": 2005,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Furniture_AllowedRooms",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "66198:4;9315:4|8"
+  },
+  {
+    "ID": "Dye_PointsPerBucket",
+    "Params1": 36,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Dye_HoursPerBucket",
+    "Params1": 72,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Dye_HarvestUnlockItems",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "2545;2548;2547;2549;2541"
+  },
+  {
+    "ID": "Dye_StartSeeds",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": "15036;15035;15037"
+  },
+  {
+    "ID": "Dye_StartSeedPlayers",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "2"
+  },
+  {
+    "ID": "Dye_BookActiveTrade",
+    "Params1": 3045,
+    "Params2": 0.0,
+    "Params3": "918"
+  },
+  {
+    "ID": "Dye_BookExplore",
+    "Params1": 3047,
+    "Params2": 0.0,
+    "Params3": "1002;67054"
+  },
+  {
+    "ID": "Dye_BookAidPlatform",
+    "Params1": 3048,
+    "Params2": 0.0,
+    "Params3": "3"
+  },
+  {
+    "ID": "Trust_Max",
+    "Params1": 180,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Trust_HungerLoss",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Trust_IgnoreGraceDays",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Trust_IgnoreLoss",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Trust_IgnoreCapPerLetter",
+    "Params1": 20,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Trust_DailyLossCap",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Trust_TierTrusted",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Trust_TierAbsolute",
+    "Params1": 120,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Commission_GlobalCd",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Commission_PersonalCd",
+    "Params1": 12,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Commission_TrustDone",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_TargetFoodP1",
+    "Params1": 800,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_TargetFoodP2",
+    "Params1": 1600,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_TargetFoodP3",
+    "Params1": 3200,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_TargetMatP1",
+    "Params1": 1000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_TargetMatP2",
+    "Params1": 2000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_TargetMatP3",
+    "Params1": 3000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_TargetBurnP1",
+    "Params1": 90000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_TargetBurnP2",
+    "Params1": 150000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_TargetBurnP3",
+    "Params1": 240000,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Camp_EffTrustCoef",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "0.5;1.0;1.3"
+  },
+  {
+    "ID": "Camp_EffSatietyCoef",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "0.5;1.0;1.2"
+  },
+  {
+    "ID": "Camp_ProposeRetryDays",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Leader_StartDay",
+    "Params1": 86,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Leader_FedNeed",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Leader_VoteNeed",
+    "Params1": 8,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Compost_TierSatiety",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "15;40"
+  },
+  {
+    "ID": "Compost_TierProducts",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "15501;15502;15503"
+  },
+  {
+    "ID": "Endless_AidRetreatDelaySec",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Endless_AidRetreatBatch",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Endless_AidRetreatBatchGapSec",
+    "Params1": 0,
+    "Params2": 1.5,
+    "Params3": ""
+  },
+  {
+    "ID": "Endless_AidSpawnHoldSec",
+    "Params1": 12,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Endless_ShelfRestockStable",
+    "Params1": 3,
+    "Params2": 5.0,
+    "Params3": "稳定态营地每天陆续补货件数 min=Params1 max=Params2 补到该状态上限为止"
+  },
+  {
+    "ID": "Endless_ShelfRestockStrained",
+    "Params1": 0,
+    "Params2": 2.0,
+    "Params3": "窘迫态每天补货件数 口径同Stable 抽到0即当天不进货"
+  },
+  {
+    "ID": "Endless_ShelfCapStrained",
+    "Params1": 0,
+    "Params2": 0.5,
+    "Params3": "窘迫态货架每种件数上限系数 乘Shop.ItemCountList 向上取整至少1"
+  },
+  {
+    "ID": "Endless_TradeTakeMedicineRate",
+    "Params1": 0,
+    "Params2": 2.0,
+    "Params3": "营地货架药品Category2带回计价倍率 只抬成交线 不影响玩家给出侧估值"
+  },
+  {
+    "ID": "Commission_DistinctKinds_17",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Commission_DistinctKinds_18",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Commission_DistinctKinds_19",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AidChannel_Interval",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AidChannel_DistinctKinds_1",
+    "Params1": 4,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AidChannel_DistinctKinds_3",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AidChannel_DistinctKinds_4",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AidChannel_DistinctKinds_5",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AidChannel_DistinctKinds_6",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AidChannel_DistinctKinds_7",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AidChannel_DistinctKinds_8",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AidChannel_DistinctKinds_12",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Commission_DistinctKinds_24",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Commission_Demand_30",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "fuel:0:9000"
+  },
+  {
+    "ID": "Commission_Demand_31",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Commission_Demand_32",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "sat:100:500;cat:1000:8"
+  },
+  {
+    "ID": "AidChannel_Demand_13",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:103:2:dish"
+  },
+  {
+    "ID": "AidChannel_Demand_14",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:1000:5"
+  },
+  {
+    "ID": "AidChannel_Demand_17",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "fuel:0:12000"
+  },
+  {
+    "ID": "AidChannel_DistinctKinds_18",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AidChannel_Demand_20",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "sat:102:800:dish"
+  },
+  {
+    "ID": "AidChannel_Demand_22",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:102:3:dish;cat:101:3;cat:105:3:dish"
+  },
+  {
+    "ID": "Commission_DailyChance",
+    "Params1": 0,
+    "Params2": 0.699999988079071,
+    "Params3": ""
+  },
+  {
+    "ID": "AidChannel_DailyChance",
+    "Params1": 0,
+    "Params2": 0.699999988079071,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerDeviceRepairPartItemId",
+    "Params1": 20302,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "TowerDeviceRepairHpPerUnit",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "36001:200;36002:50;36003:40;36004:34"
+  },
+  {
+    "ID": "TowerDeviceWreckDamage",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "36002:0.25:4:0.6"
+  },
+  {
+    "ID": "AidPlatform_DailyChance",
+    "Params1": 0,
+    "Params2": 0.699999988079071,
+    "Params3": ""
+  },
+  {
+    "ID": "Endless_ExploreFreeTrips",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": "无尽每天免费出门探索次数 超出后每趟消耗生存点 递增见Endless_ExploreTripCostStep"
+  },
+  {
+    "ID": "Endless_ExploreTripCostStep",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": "无尽出门代价 超出免费次数后的第k趟消耗k乘本值生存点 即5 10 15"
+  },
+  {
+    "ID": "Shelf_CheapRestock",
+    "Params1": 80,
+    "Params2": 15.0,
+    "Params3": "主动交易点每天额外补货价值额度=Params1 只补整件价值<=Params2且配表上限>=2的物品 窘迫减半 危机撤离失联不补 原有按件补货不受影响"
+  },
+  {
+    "ID": "Commission_Demand_17",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:102:10:dish"
+  },
+  {
+    "ID": "AidChannel_Demand_7",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:1500:4"
+  },
+  {
+    "ID": "AidChannel_Demand_18",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:107:6"
+  },
+  {
+    "ID": "Commission_Demand_18",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "pick:30001/30002/30004/30005/30006/30009/30010/30011/30012/30013/30014/30015/30016/30021/30025/30026/30027/30028:4"
+  },
+  {
+    "ID": "Explore_DailyOnceMaps",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "1003"
+  },
+  {
+    "ID": "TowerWavePrioritySpawn",
+    "Params1": 15,
+    "Params2": 1.0,
+    "Params3": "9109;9110"
+  },
+  {
+    "ID": "StrayZombieLeaderPool",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "60:9109;9999:9109|9110"
+  },
+  {
+    "ID": "StrayZombieLeaderChanceCurve",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "15:0;9999:0.3"
+  },
+  {
+    "ID": "StrayZombieLeaderReleaseDistance",
+    "Params1": 0,
+    "Params2": 3.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieLeaderReleaseTimeout",
+    "Params1": 0,
+    "Params2": 120.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieLingerFromDoorAll",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "StrayZombieMaxLifeSeconds",
+    "Params1": 0,
+    "Params2": 180.0,
+    "Params3": ""
+  },
+  {
+    "ID": "AidChannel_Demand_8",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:1200:2"
+  },
+  {
+    "ID": "Commission_Demand_41",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:109:2"
+  },
+  {
+    "ID": "Commission_Demand_42",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:110:2"
+  },
+  {
+    "ID": "AidChannel_Demand_26",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "vd:3:25:2"
+  },
+  {
+    "ID": "AidChannel_Demand_33",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "sat:106:100"
+  },
+  {
+    "ID": "AidChannel_Demand_35",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "pick:26008/26009/26010:2"
+  },
+  {
+    "ID": "Commission_ReleaseTag_36",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": "Supermarket_Open"
+  },
+  {
+    "ID": "Commission_ReleaseTag_40",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": "Hospital_Open"
+  },
+  {
+    "ID": "Commission_ReleaseTag_44",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": "School_Open"
+  },
+  {
+    "ID": "AidChannel_ReleaseTag_30",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": "Hospital_Open"
+  },
+  {
+    "ID": "QuestItemDrop_Table",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "1:TAG_QUESTITEM_9090:1004:912:9090;1:TAG_QUESTITEM_9091:1005:66159:9091;1:TAG_QUESTITEM_9092:1002:67155:9092;2:TAG_QUESTITEM_9093:1005:66139:9093"
+  },
+  {
+    "ID": "Commission_EarlySimple",
+    "Params1": 38,
+    "Params2": 0.0,
+    "Params3": "18;33;34;35;36;37;38;39;41;43"
+  },
+  {
+    "ID": "AidChannel_EarlySimple",
+    "Params1": 38,
+    "Params2": 0.0,
+    "Params3": "2;8;14;25;27;28;32;36"
+  },
+  {
+    "ID": "CommissionDye_FirstDay",
+    "Params1": 46,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Commission_Pace",
+    "Params1": 2,
+    "Params2": 0.25,
+    "Params3": "39:4;59:3;0:2"
+  },
+  {
+    "ID": "AidChannel_Pace",
+    "Params1": 2,
+    "Params2": 0.25,
+    "Params3": "39:4;59:3;0:2"
+  },
+  {
+    "ID": "Commission_FirstDay",
+    "Params1": 28,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_Enable",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_Season_Enable",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_Alert_Enable",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_FinalVigil_Enable",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_CampOrder_Enable",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_Tier",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_WavePeriodDays",
+    "Params1": 5,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_WaveForecastDays",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_SeasonDays",
+    "Params1": 30,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_SeasonEventPoolId",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_PeakWaveDays",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "3/3/4/5"
+  },
+  {
+    "ID": "Casual_WaveTemplates",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "5000,5001,5002,5003;5010,5011,5012,5013;5020,5021,5022,5023;5030,5031,5032,5033"
+  },
+  {
+    "ID": "Casual_AlertLootCounts",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "0/1/1/2"
+  },
+  {
+    "ID": "Casual_AlertLootBonus",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "0/0.25/0.5/1"
+  },
+  {
+    "ID": "Casual_NightRaidHour",
+    "Params1": 20,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_OrderPerPoint",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "1/2"
+  },
+  {
+    "ID": "Casual_OrderMaxOpenPerPoint",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_OrderKeepXun",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_OrderRelationGain",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_CampRelationTiers",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "20/50/90"
+  },
+  {
+    "ID": "Casual_RareShelfKinds",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "1/2/3"
+  },
+  {
+    "ID": "Casual_AlertLootGroupIds",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "0/9150/9151/9152"
+  },
+  {
+    "ID": "Casual_HomeMilestones",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "1:1:4:71101;2:1:6:71102;3:1:8:71103;4:1:10:71104;5:1:14:71105;6:2:3:71106;7:2:5:71107;8:2:7:71108;9:2:9:71109;10:2:12:71110"
+  },
+  {
+    "ID": "Casual_OrderPoolCount",
+    "Params1": 16,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_Order_1",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:100:6:dish"
+  },
+  {
+    "ID": "Casual_Order_2",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:102:4:dish"
+  },
+  {
+    "ID": "Casual_Order_3",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "kinds:100:5:dish"
+  },
+  {
+    "ID": "Casual_Order_4",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "sat:100:600"
+  },
+  {
+    "ID": "Casual_Order_5",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:1000:6"
+  },
+  {
+    "ID": "Casual_Order_6",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "fuel:0:12000"
+  },
+  {
+    "ID": "Casual_Order_7",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:200:3"
+  },
+  {
+    "ID": "Casual_Order_8",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "item:20300:2;item:20301:2"
+  },
+  {
+    "ID": "Casual_Order_9",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "item:20362:2"
+  },
+  {
+    "ID": "Casual_Order_10",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:110:2"
+  },
+  {
+    "ID": "Casual_Order_11",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:111:8"
+  },
+  {
+    "ID": "Casual_Order_12",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "vd:3:25:3"
+  },
+  {
+    "ID": "Casual_Order_13",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cat:106:3"
+  },
+  {
+    "ID": "Casual_Order_14",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "item:20371:1;item:20372:2"
+  },
+  {
+    "ID": "Casual_Order_15",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "kinds:102:4:dish;sat:100:800"
+  },
+  {
+    "ID": "Casual_Order_16",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "item:15506:4"
+  },
+  {
+    "ID": "Casual_OrderReward_1",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": "15026:2;15030:2"
+  },
+  {
+    "ID": "Casual_OrderReward_2",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": "2158:2"
+  },
+  {
+    "ID": "Casual_OrderReward_3",
+    "Params1": 15,
+    "Params2": 0.0,
+    "Params3": "20365:1"
+  },
+  {
+    "ID": "Casual_OrderReward_4",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": "20903:1;20911:1"
+  },
+  {
+    "ID": "Casual_OrderReward_5",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": "2306:1;2213:1"
+  },
+  {
+    "ID": "Casual_OrderReward_6",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": "20300:2"
+  },
+  {
+    "ID": "Casual_OrderReward_7",
+    "Params1": 15,
+    "Params2": 0.0,
+    "Params3": "11016:1"
+  },
+  {
+    "ID": "Casual_OrderReward_8",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": "20210:2"
+  },
+  {
+    "ID": "Casual_OrderReward_9",
+    "Params1": 15,
+    "Params2": 0.0,
+    "Params3": "20366:1"
+  },
+  {
+    "ID": "Casual_OrderReward_10",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": "2306:2"
+  },
+  {
+    "ID": "Casual_OrderReward_11",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": "15013:2;15014:2"
+  },
+  {
+    "ID": "Casual_OrderReward_12",
+    "Params1": 10,
+    "Params2": 0.0,
+    "Params3": "15020:2"
+  },
+  {
+    "ID": "Casual_OrderReward_13",
+    "Params1": 15,
+    "Params2": 0.0,
+    "Params3": "20369:1"
+  },
+  {
+    "ID": "Casual_OrderReward_14",
+    "Params1": 25,
+    "Params2": 0.0,
+    "Params3": "27016:1"
+  },
+  {
+    "ID": "Casual_OrderReward_15",
+    "Params1": 25,
+    "Params2": 0.0,
+    "Params3": "27003:1"
+  },
+  {
+    "ID": "Casual_OrderReward_16",
+    "Params1": 25,
+    "Params2": 0.0,
+    "Params3": "27005:1"
+  },
+  {
+    "ID": "Casual_OrderGate_14",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": "1101/1106/1109"
+  },
+  {
+    "ID": "Casual_OrderGate_15",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_OrderGate_16",
+    "Params1": 2,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_IntroBlackId",
+    "Params1": 23,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "Casual_IntroBlackIdByEnding",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "5:24;6:25;11:25;12:25;7:26;8:26;13:26"
+  },
+  {
+    "ID": "Casual_OrderBigIds",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "14/15/16"
+  },
+  {
+    "ID": "Casual_OrderBigPerXun",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "WishPool_Enable",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "WishPool_DoRatio",
+    "Params1": 0,
+    "Params2": 0.30000001192092896,
+    "Params3": ""
+  },
+  {
+    "ID": "WishPool_RewardBuff",
+    "Params1": 1017,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "PlanShownCooldownTimes",
+    "Params1": 3,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "SiegeElastic_Enable",
+    "Params1": 1,
+    "Params2": 0.0,
+    "Params3": ""
+  },
+  {
+    "ID": "SiegeElastic_Curve",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "cmin:0.7;r_low:0.3;r_high:0.9"
+  },
+  {
+    "ID": "SiegeElastic_Weights",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "dev:0.3;door:0.3;supply:0.3;last:0.1"
+  },
+  {
+    "ID": "SiegeElastic_Device",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "delta:300;min_pts:10;from_day:14"
+  },
+  {
+    "ID": "SiegeElastic_DevPts",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "36001:1;36002:3;36003:4;36004:6"
+  },
+  {
+    "ID": "SiegeElastic_Door",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "alpha:1;min:1100;max:2200"
+  },
+  {
+    "ID": "SiegeElastic_Supply",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "beta:0.2;unit_hp:270;from_day:16;min_defense_lv:2"
+  },
+  {
+    "ID": "SiegeElastic_SupplyItems",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "26005:1;26006:0.556;26007:2;20107:1"
+  },
+  {
+    "ID": "SiegeElastic_Last",
+    "Params1": 0,
+    "Params2": 0.0,
+    "Params3": "good:0.1;bad:0.6;from_day:15"
+  }
+]

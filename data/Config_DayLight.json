@@ -1,0 +1,30 @@
+[
+  {
+    "ID": 4,
+    "Name": "DayLight_Name_4",
+    "Name_Local": "清晨",
+    "Start": 5,
+    "End": 10
+  },
+  {
+    "ID": 1,
+    "Name": "DayLight_Name_1",
+    "Name_Local": "日间",
+    "Start": 10,
+    "End": 15
+  },
+  {
+    "ID": 2,
+    "Name": "DayLight_Name_2",
+    "Name_Local": "傍晚",
+    "Start": 15,
+    "End": 20
+  },
+  {
+    "ID": 3,
+    "Name": "DayLight_Name_3",
+    "Name_Local": "夜间",
+    "Start": 20,
+    "End": 5
+  }
+]

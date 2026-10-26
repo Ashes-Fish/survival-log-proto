@@ -1,0 +1,37 @@
+[
+  {
+    "ID": 1,
+    "AreaID": 1,
+    "WeatherID": 0,
+    "LightMul": 0.5,
+    "TempAdd": 1
+  },
+  {
+    "ID": 2,
+    "AreaID": 2,
+    "WeatherID": 0,
+    "LightMul": 1.0,
+    "TempAdd": 1
+  },
+  {
+    "ID": 3,
+    "AreaID": 3,
+    "WeatherID": 0,
+    "LightMul": 1.0,
+    "TempAdd": 0
+  },
+  {
+    "ID": 4,
+    "AreaID": 4,
+    "WeatherID": 0,
+    "LightMul": 0.5,
+    "TempAdd": -2
+  },
+  {
+    "ID": 5,
+    "AreaID": 5,
+    "WeatherID": 0,
+    "LightMul": 0.0,
+    "TempAdd": 2
+  }
+]

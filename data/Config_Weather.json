@@ -1,0 +1,283 @@
+[
+  {
+    "ID": 1,
+    "Name": "Weather_Name_1",
+    "Name_Local": "晴天",
+    "LightValue": 2,
+    "ColdValue": 0,
+    "Weight": 60,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_1.png",
+    "Anim": [],
+    "GameLightName": "GameLight",
+    "WindValue": 0.10000000149011612
+  },
+  {
+    "ID": 2,
+    "Name": "Weather_Name_2",
+    "Name_Local": "阴天",
+    "LightValue": 1,
+    "ColdValue": 0,
+    "Weight": 10,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_4.png",
+    "Anim": [],
+    "GameLightName": "GameLight_CloudyDay",
+    "WindValue": 0.10000000149011612
+  },
+  {
+    "ID": 3,
+    "Name": "Weather_Name_3",
+    "Name_Local": "雨天",
+    "LightValue": 1,
+    "ColdValue": 0,
+    "Weight": 10,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_9.png",
+    "Anim": [
+      "Scene_AfterTheDisaster03_ThunderRain",
+      "Scene_AfterTheDisaster03_ThunderRain",
+      "Scene_WarehouseAfter03_ThunderRain",
+      ""
+    ],
+    "GameLightName": "GameLight_CloudyDay",
+    "WindValue": 0.20000000298023224
+  },
+  {
+    "ID": 4,
+    "Name": "Weather_Name_4",
+    "Name_Local": "轻度寒潮",
+    "LightValue": 1,
+    "ColdValue": 1,
+    "Weight": 10,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_24.png",
+    "Anim": [
+      "Scene_AfterTheDisaster03_Snow_qingdu",
+      "Scene_AfterTheDisaster03_Snow_qingdu",
+      "Scene_WarehouseAfter03_Snow_Mild",
+      ""
+    ],
+    "GameLightName": "GameLight_SnowDay",
+    "WindValue": 0.30000001192092896
+  },
+  {
+    "ID": 5,
+    "Name": "Weather_Name_5",
+    "Name_Local": "中度寒潮",
+    "LightValue": 1,
+    "ColdValue": 2,
+    "Weight": 5,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_25.png",
+    "Anim": [
+      "Scene_AfterTheDisaster03_Snow_zhongdu",
+      "Scene_AfterTheDisaster03_Snow_zhongdu",
+      "Scene_WarehouseAfter03_Snow_middle",
+      ""
+    ],
+    "GameLightName": "GameLight_SnowDay",
+    "WindValue": 0.4000000059604645
+  },
+  {
+    "ID": 6,
+    "Name": "Weather_Name_6",
+    "Name_Local": "重度寒潮",
+    "LightValue": 1,
+    "ColdValue": 3,
+    "Weight": 5,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_23.png",
+    "Anim": [
+      "Scene_AfterTheDisaster03_Snow",
+      "Scene_AfterTheDisaster03_Snow",
+      "Scene_WarehouseAfter03_Snow",
+      ""
+    ],
+    "GameLightName": "GameLight_SnowDay",
+    "WindValue": 0.6000000238418579
+  },
+  {
+    "ID": 7,
+    "Name": "Weather_Name_7",
+    "Name_Local": "霜晴",
+    "LightValue": 2,
+    "ColdValue": 1,
+    "Weight": 0,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_1.png",
+    "Anim": [],
+    "GameLightName": "GameLight",
+    "WindValue": 0.0
+  },
+  {
+    "ID": 8,
+    "Name": "Weather_Name_8",
+    "Name_Local": "寒晴",
+    "LightValue": 2,
+    "ColdValue": 2,
+    "Weight": 0,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_1.png",
+    "Anim": [],
+    "GameLightName": "GameLight",
+    "WindValue": 0.0
+  },
+  {
+    "ID": 9,
+    "Name": "Weather_Name_9",
+    "Name_Local": "凛晴",
+    "LightValue": 2,
+    "ColdValue": 3,
+    "Weight": 0,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_1.png",
+    "Anim": [],
+    "GameLightName": "GameLight",
+    "WindValue": 0.0
+  },
+  {
+    "ID": 10,
+    "Name": "Weather_Name_10",
+    "Name_Local": "暴雨",
+    "LightValue": 0,
+    "ColdValue": 0,
+    "Weight": 0,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_9.png",
+    "Anim": [
+      "Scene_AfterTheDisaster03_ThunderRain",
+      "Scene_AfterTheDisaster03_ThunderRain",
+      "Scene_WarehouseAfter03_ThunderRain",
+      ""
+    ],
+    "GameLightName": "GameLight_CloudyDay",
+    "WindValue": 0.0
+  },
+  {
+    "ID": 11,
+    "Name": "Weather_Name_11",
+    "Name_Local": "持续阴雨",
+    "LightValue": 0,
+    "ColdValue": 0,
+    "Weight": 0,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_9.png",
+    "Anim": [
+      "Scene_AfterTheDisaster03_ThunderRain",
+      "Scene_AfterTheDisaster03_ThunderRain",
+      "Scene_WarehouseAfter03_ThunderRain",
+      ""
+    ],
+    "GameLightName": "GameLight_CloudyDay",
+    "WindValue": 0.20000000298023224
+  },
+  {
+    "ID": 12,
+    "Name": "Weather_Name_12",
+    "Name_Local": "大雾霾天",
+    "LightValue": 1,
+    "ColdValue": 0,
+    "Weight": 10,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_4.png",
+    "Anim": [
+      "Scene_AfterTheDisaster03_Smog",
+      "Scene_AfterTheDisaster03Girl_Smog",
+      "Scene_AfterTheDisaster03Warehouse_Smog",
+      ""
+    ],
+    "GameLightName": "GameLight_SmogDay",
+    "WindValue": 0.10000000149011612
+  },
+  {
+    "ID": 13,
+    "Name": "Weather_Name_13",
+    "Name_Local": "暴雨",
+    "LightValue": 0,
+    "ColdValue": 0,
+    "Weight": 0,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_9.png",
+    "Anim": [
+      "Scene_AfterTheDisaster03_ThunderRain",
+      "Scene_AfterTheDisaster03_ThunderRain",
+      "Scene_WarehouseAfter03_ThunderRain",
+      ""
+    ],
+    "GameLightName": "GameLight_CloudyDay",
+    "WindValue": 0.0
+  },
+  {
+    "ID": 14,
+    "Name": "Weather_Name_14",
+    "Name_Local": "持续阴雨",
+    "LightValue": 0,
+    "ColdValue": 0,
+    "Weight": 0,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_9.png",
+    "Anim": [
+      "Scene_AfterTheDisaster03_ThunderRain",
+      "Scene_AfterTheDisaster03_ThunderRain",
+      "Scene_WarehouseAfter03_ThunderRain",
+      ""
+    ],
+    "GameLightName": "GameLight_CloudyDay",
+    "WindValue": 0.20000000298023224
+  },
+  {
+    "ID": 15,
+    "Name": "Weather_Name_15",
+    "Name_Local": "轻度寒雨",
+    "LightValue": 0,
+    "ColdValue": 1,
+    "Weight": 0,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_24.png",
+    "Anim": [
+      "Scene_AfterTheDisaster03_Snow_qingdu",
+      "Scene_AfterTheDisaster03_Snow_qingdu",
+      "Scene_WarehouseAfter03_Snow_Mild",
+      ""
+    ],
+    "GameLightName": "GameLight_CloudyDay",
+    "WindValue": 0.30000001192092896
+  },
+  {
+    "ID": 16,
+    "Name": "Weather_Name_16",
+    "Name_Local": "中度寒雨",
+    "LightValue": 0,
+    "ColdValue": 2,
+    "Weight": 0,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_25.png",
+    "Anim": [
+      "Scene_AfterTheDisaster03_Snow_zhongdu",
+      "Scene_AfterTheDisaster03_Snow_zhongdu",
+      "Scene_WarehouseAfter03_Snow_middle",
+      ""
+    ],
+    "GameLightName": "GameLight_CloudyDay",
+    "WindValue": 0.4000000059604645
+  },
+  {
+    "ID": 17,
+    "Name": "Weather_Name_17",
+    "Name_Local": "重度寒雨",
+    "LightValue": 0,
+    "ColdValue": 3,
+    "Weight": 0,
+    "BroadcastId": 0,
+    "Web_Icon": "../../Res/icon/icon_line_weather_23.png",
+    "Anim": [
+      "Scene_AfterTheDisaster03_Snow",
+      "Scene_AfterTheDisaster03_Snow",
+      "Scene_WarehouseAfter03_Snow",
+      ""
+    ],
+    "GameLightName": "GameLight_CloudyDay",
+    "WindValue": 0.6000000238418579
+  }
+]

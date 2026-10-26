@@ -1,0 +1,72 @@
+[
+  {
+    "ID": 301,
+    "TriggerEventId": 30015,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomThink": [
+      "PostEvent_30015_1",
+      "PostEvent_30015_2"
+    ]
+  },
+  {
+    "ID": 302,
+    "TriggerEventId": 30076,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomThink": [
+      "PostEvent_30076_1",
+      "PostEvent_30076_2"
+    ]
+  },
+  {
+    "ID": 304,
+    "TriggerEventId": 40531,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomThink": [
+      "PostEvent_40531_1",
+      "PostEvent_40531_2"
+    ]
+  },
+  {
+    "ID": 305,
+    "TriggerEventId": 40532,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomThink": [
+      "PostEvent_40532_1",
+      "PostEvent_40532_2"
+    ]
+  },
+  {
+    "ID": 306,
+    "TriggerEventId": 40533,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomThink": [
+      "PostEvent_40533_1",
+      "PostEvent_40533_2"
+    ]
+  },
+  {
+    "ID": 307,
+    "TriggerEventId": 10505,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PostEvent_10505_1",
+      "PostEvent_10505_2"
+    ]
+  },
+  {
+    "ID": 308,
+    "TriggerEventId": 10506,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PostEvent_10506_1",
+      "PostEvent_10506_2"
+    ]
+  }
+]

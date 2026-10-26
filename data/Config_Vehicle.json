@@ -1,0 +1,29 @@
+[
+  {
+    "ID": 1,
+    "Name": "Vehicle_Name_1",
+    "Name_Local": "自行车",
+    "ResName": "vehicle_grade1.webp",
+    "TimeCoeff": 0.8500000238418579,
+    "Price": 150,
+    "TrunkBagId": 1021
+  },
+  {
+    "ID": 2,
+    "Name": "Vehicle_Name_2",
+    "Name_Local": "小汽车",
+    "ResName": "vehicle_grade2.webp",
+    "TimeCoeff": 0.550000011920929,
+    "Price": 500,
+    "TrunkBagId": 1022
+  },
+  {
+    "ID": 3,
+    "Name": "Vehicle_Name_3",
+    "Name_Local": "SUV",
+    "ResName": "vehicle_grade3.webp",
+    "TimeCoeff": 0.550000011920929,
+    "Price": 900,
+    "TrunkBagId": 1023
+  }
+]

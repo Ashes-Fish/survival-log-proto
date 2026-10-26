@@ -1,0 +1,146 @@
+[
+  {
+    "ID": 1,
+    "TrackName": "MusicTrack_TrackName_1",
+    "TrackName_Local": "灾前的日子",
+    "FmodPath": "event:/BGM/01_predisaster_jazz",
+    "Order": 1,
+    "ConditionSetId": 0,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 2,
+    "TrackName": "MusicTrack_TrackName_2",
+    "TrackName_Local": "废墟之上",
+    "FmodPath": "event:/BGM/02_ruins_symphony",
+    "Order": 2,
+    "ConditionSetId": 6046,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 3,
+    "TrackName": "MusicTrack_TrackName_3",
+    "TrackName_Local": "长夜",
+    "FmodPath": "event:/BGM/03_long_night",
+    "Order": 3,
+    "ConditionSetId": 6047,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 4,
+    "TrackName": "MusicTrack_TrackName_4",
+    "TrackName_Local": "归途",
+    "FmodPath": "event:/BGM/04_homeward_symphony",
+    "Order": 4,
+    "ConditionSetId": 6048,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 5,
+    "TrackName": "MusicTrack_TrackName_5",
+    "TrackName_Local": "荒芜倾城",
+    "FmodPath": "event:/TimeLine/01_title_huangwuqingcheng",
+    "Order": 5,
+    "ConditionSetId": 6049,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 6,
+    "TrackName": "MusicTrack_TrackName_6",
+    "TrackName_Local": "屋檐下的日常",
+    "FmodPath": "event:/TimeLine/02_home_day_wuyanxiaderichang",
+    "Order": 6,
+    "ConditionSetId": 6050,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 7,
+    "TrackName": "MusicTrack_TrackName_7",
+    "TrackName_Local": "一盏灯",
+    "FmodPath": "event:/TimeLine/03_home_night_yizhandeng",
+    "Order": 7,
+    "ConditionSetId": 6051,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 8,
+    "TrackName": "MusicTrack_TrackName_8",
+    "TrackName_Local": "废墟深处",
+    "FmodPath": "event:/TimeLine/04_explore_feixushengchu",
+    "Order": 8,
+    "ConditionSetId": 6052,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 9,
+    "TrackName": "MusicTrack_TrackName_9",
+    "TrackName_Local": "逼近",
+    "FmodPath": "event:/TimeLine/05_crisis_bijin",
+    "Order": 9,
+    "ConditionSetId": 6053,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 10,
+    "TrackName": "MusicTrack_TrackName_10",
+    "TrackName_Local": "100天以后",
+    "FmodPath": "event:/TimeLine/06_ending_100tianyihou",
+    "Order": 10,
+    "ConditionSetId": 6054,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 11,
+    "TrackName": "MusicTrack_TrackName_11",
+    "TrackName_Local": "打烊",
+    "FmodPath": "event:/BGM/11023_daying",
+    "Order": 11,
+    "ConditionSetId": 6068,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 12,
+    "TrackName": "MusicTrack_TrackName_12",
+    "TrackName_Local": "地下二层",
+    "FmodPath": "event:/BGM/11024_dixiaerceng",
+    "Order": 12,
+    "ConditionSetId": 6069,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 13,
+    "TrackName": "MusicTrack_TrackName_13",
+    "TrackName_Local": "空楼",
+    "FmodPath": "event:/BGM/11025_konglou",
+    "Order": 13,
+    "ConditionSetId": 6070,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 14,
+    "TrackName": "MusicTrack_TrackName_14",
+    "TrackName_Local": "高架之下",
+    "FmodPath": "event:/BGM/11026_gaojiazhixia",
+    "Order": 14,
+    "ConditionSetId": 6071,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 15,
+    "TrackName": "MusicTrack_TrackName_15",
+    "TrackName_Local": "城东",
+    "FmodPath": "event:/BGM/11027_chengdong",
+    "Order": 15,
+    "ConditionSetId": 6072,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 16,
+    "TrackName": "MusicTrack_TrackName_16",
+    "TrackName_Local": "晚班车",
+    "FmodPath": "event:/BGM/11028_wanbanche",
+    "Order": 16,
+    "ConditionSetId": 6073,
+    "DemoTwoMode": 1
+  }
+]

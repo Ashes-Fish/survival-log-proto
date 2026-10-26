@@ -1,0 +1,32 @@
+[
+  {
+    "ID": 1,
+    "DialogType": "Default",
+    "FmodPath": "event:/UI/UI_Game_DefaultClick"
+  },
+  {
+    "ID": 2,
+    "DialogType": "Checkout",
+    "FmodPath": "event:/UI/pay02"
+  },
+  {
+    "ID": 3,
+    "DialogType": "Ready",
+    "FmodPath": "event:/Model/Human/wanmeizhunbei"
+  },
+  {
+    "ID": 4,
+    "DialogType": "PerilStay",
+    "FmodPath": "event:/UI/pay02"
+  },
+  {
+    "ID": 5,
+    "DialogType": "PerilLeave",
+    "FmodPath": "event:/UI/UI_Game_DefaultClick"
+  },
+  {
+    "ID": 6,
+    "DialogType": "EndlessCommit",
+    "FmodPath": "event:/TimeLine/heimu_xinglai"
+  }
+]

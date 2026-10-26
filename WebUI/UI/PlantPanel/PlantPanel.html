@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantPanel</title>
+    <link rel="stylesheet" href="../../tailwind-static.css">
+    <script src="../../vue.runtime.global.prod.js"></script>
+<script>
+/* === [precompiled v1] === */
+(function(){var __wgArmed__=false;var __wgGaveUp__=false;var __wgReload__=function(missing){if(__wgArmed__||__wgGaveUp__)return;var m=/(?:^|;)wgr=(\d+)/.exec(window.name||"");var n=m?parseInt(m[1],10):0;if(n>=2){__wgGaveUp__=true;console.error("[WebUIGuard] "+missing+" still missing after "+n+" reloads, giving up: "+location.pathname);return;}__wgArmed__=true;window.name=(window.name||"").replace(/(?:^|;)wgr=\d+/,"")+";wgr="+(n+1);console.warn("[WebUIGuard] "+missing+" missing, reloading page ("+(n+1)+"/2): "+location.pathname);setTimeout(function(){location.reload();},300);};window.addEventListener("error",function(e){var msg=(e&&e.message)||"";var isCore=msg.indexOf("createWebUICore is not defined")>=0;if(!isCore&&msg.indexOf("Vue is not defined")<0)return;__wgReload__(isCore?"webui-core.js":"vue.runtime.global.prod.js");if(!__wgGaveUp__)e.preventDefault();});if(typeof Vue==="undefined"){__wgReload__("vue.runtime.global.prod.js");return;}document.addEventListener("DOMContentLoaded",function(){if(document.querySelector("script[src*=webui-core]")&&typeof window.createWebUICore==="undefined"){__wgReload__("webui-core.js");return;}if(!__wgArmed__&&window.name)window.name=window.name.replace(/(?:^|;)wgr=\d+/,"");});var __renderFactory__=function(Vue){const { createElementVNode: _createElementVNode, openBlock: _openBlock, createElementBlock: _createElementBlock, toDisplayString: _toDisplayString, createTextVNode: _createTextVNode, createCommentVNode: _createCommentVNode, renderList: _renderList, Fragment: _Fragment, normalizeClass: _normalizeClass, withModifiers: _withModifiers, createStaticVNode: _createStaticVNode } = Vue
+
+const _hoisted_1 = { class: "min-h-screen w-full flex items-center justify-center p-4 md:p-8 font-sans" }
+const _hoisted_2 = {
+  key: 0,
+  class: "plant-system"
+}
+const _hoisted_3 = { class: "flex items-center justify-between border-b border-[var(--border-color)] pb-3 shrink-0 bg-transparent" }
+const _hoisted_4 = { class: "flex items-center gap-3" }
+const _hoisted_5 = { class: "text-lg font-black text-[var(--text-main)] tracking-wider" }
+const _hoisted_6 = { class: "flex gap-5 flex-1 min-h-0" }
+const _hoisted_7 = { class: "panel" }
+const _hoisted_8 = { class: "panel-title" }
+const _hoisted_9 = {
+  key: 0,
+  class: "slot-box clickable active flex-row items-center justify-between p-3.5"
+}
+const _hoisted_10 = { class: "flex items-center gap-4" }
+const _hoisted_11 = { class: "flex items-center justify-center shrink-0 w-14 h-14" }
+const _hoisted_12 = ["src"]
+const _hoisted_13 = { class: "flex flex-col" }
+const _hoisted_14 = { class: "text-[15px] font-bold text-white flex items-center gap-2" }
+const _hoisted_15 = {
+  key: 0,
+  class: "text-[11px] font-bold font-mono bg-[rgba(0,0,0,0.4)] px-1.5 py-0.5 rounded text-[var(--life-green)] border border-[rgba(255,255,255,0.1)]"
+}
+const _hoisted_16 = {
+  key: 1,
+  class: "text-[11px] font-bold font-mono bg-[rgba(224,85,85,0.15)] px-1.5 py-0.5 rounded text-[var(--danger-red)] border border-[rgba(224,85,85,0.3)]"
+}
+const _hoisted_17 = { class: "text-xs text-[var(--text-dark)] mt-1" }
+const _hoisted_18 = {
+  key: 1,
+  class: "slot-box clickable dashed"
+}
+const _hoisted_19 = { class: "flex items-center gap-3 w-full pl-2" }
+const _hoisted_20 = { class: "flex-1 text-sm font-bold text-[var(--text-dark)] group-hover:text-[var(--text-main)] transition-colors" }
+const _hoisted_21 = ["onClick"]
+const _hoisted_22 = { class: "flex items-center justify-center shrink-0 w-12 h-12 relative" }
+const _hoisted_23 = ["src"]
+const _hoisted_24 = {
+  key: 1,
+  class: "absolute top-0 right-0 w-4 h-4 pointer-events-none drop-shadow-[0_0_2px_rgba(0,0,0,0.9)]",
+  viewBox: "0 0 24 24",
+  xmlns: "http://www.w3.org/2000/svg"
+}
+const _hoisted_25 = { class: "flex flex-col flex-1" }
+const _hoisted_26 = { class: "flex items-center justify-between" }
+const _hoisted_27 = { class: "text-[13px] font-bold text-white" }
+const _hoisted_28 = { class: "flex items-center justify-end gap-3 mt-1.5 opacity-90" }
+const _hoisted_29 = { class: "text-[10px] font-mono" }
+const _hoisted_30 = { class: "text-[10px] font-mono" }
+const _hoisted_31 = {
+  key: 0,
+  class: "flex items-center justify-center py-4 text-[var(--text-dark)] text-xs font-bold"
+}
+const _hoisted_32 = { class: "env-pair" }
+const _hoisted_33 = { class: "env-col" }
+const _hoisted_34 = { class: "env-head" }
+const _hoisted_35 = { class: "env-reads" }
+const _hoisted_36 = {
+  key: 0,
+  class: "env-read"
+}
+const _hoisted_37 = { class: "env-read" }
+const _hoisted_38 = { class: "env-col" }
+const _hoisted_39 = { class: "env-head" }
+const _hoisted_40 = { class: "env-reads" }
+const _hoisted_41 = {
+  key: 0,
+  class: "env-read"
+}
+const _hoisted_42 = { class: "env-read" }
+const _hoisted_43 = { class: "infl-bar" }
+const _hoisted_44 = ["innerHTML"]
+const _hoisted_45 = { class: "infl-tip" }
+const _hoisted_46 = { class: "infl-tip-title" }
+const _hoisted_47 = {
+  key: 0,
+  class: "infl-tip-row"
+}
+const _hoisted_48 = {
+  key: 1,
+  class: "infl-tip-row"
+}
+const _hoisted_49 = { class: "slot-box mt-auto bg-[rgba(0,0,0,0.2)] !p-5" }
+const _hoisted_50 = { class: "flex items-center gap-4" }
+const _hoisted_51 = { class: "flex items-center justify-center shrink-0 w-16 h-16" }
+const _hoisted_52 = ["src"]
+const _hoisted_53 = {
+  key: 1,
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": "2",
+  class: "w-12 h-12 text-[var(--life-green)] opacity-80"
+}
+const _hoisted_54 = { class: "flex flex-col flex-1 min-w-0" }
+const _hoisted_55 = { class: "text-lg font-black text-white leading-tight" }
+const _hoisted_56 = { class: "flex items-center justify-between mt-1.5" }
+const _hoisted_57 = { class: "text-xs font-bold text-[var(--text-dark)]" }
+const _hoisted_58 = { class: "text-xs font-bold text-[var(--life-green)] bg-black/50 px-2 py-1 rounded border border-[rgba(255,255,255,0.05)] shadow-inner shrink-0" }
+const _hoisted_59 = {
+  key: 0,
+  class: "text-xs text-[var(--text-dark)] leading-relaxed mt-3 opacity-80"
+}
+const _hoisted_60 = { class: "panel" }
+const _hoisted_61 = { class: "panel-title" }
+const _hoisted_62 = {
+  key: 0,
+  class: "slot-box active flex-1 mb-4 border-[rgba(52,211,153,0.3)] shadow-[inset_0_0_30px_rgba(16,185,129,0.08)]"
+}
+const _hoisted_63 = { class: "flex flex-col gap-4" }
+const _hoisted_64 = { class: "flex items-center gap-4 bg-[rgba(0,0,0,0.4)] p-4 rounded-xl border border-[rgba(255,255,255,0.05)] shadow-inner" }
+const _hoisted_65 = { class: "flex items-center justify-center shrink-0 w-16 h-16" }
+const _hoisted_66 = ["src"]
+const _hoisted_67 = { class: "text-lg font-black text-white" }
+const _hoisted_68 = { class: "text-[13px] text-[var(--text-dark)] leading-loose text-justify border-l-2 border-[var(--life-green-dark)] pl-3" }
+const _hoisted_69 = {
+  key: 0,
+  class: "text-[11px] font-bold text-[var(--life-green)] leading-loose bg-[rgba(16,185,129,0.1)] px-2.5 py-1.5 rounded-md border border-[rgba(16,185,129,0.2)] mt-1 whitespace-pre-wrap"
+}
+const _hoisted_70 = {
+  key: 1,
+  class: "slot-box dashed flex-1 mb-4 flex items-center justify-center"
+}
+const _hoisted_71 = { class: "text-xs font-bold text-[var(--text-dark)]" }
+const _hoisted_72 = { class: "flex flex-col gap-3 shrink-0" }
+const _hoisted_73 = {
+  key: 0,
+  class: "slot-box dashed fert-locked flex-row items-center p-3 min-h-[58px]"
+}
+const _hoisted_74 = { class: "flex items-center gap-2 pl-1" }
+const _hoisted_75 = { class: "text-xs font-bold text-[var(--text-dark)]" }
+const _hoisted_76 = { class: "flex items-center gap-3" }
+const _hoisted_77 = { class: "flex items-center justify-center shrink-0 w-11 h-11" }
+const _hoisted_78 = ["src"]
+const _hoisted_79 = { class: "flex flex-col" }
+const _hoisted_80 = {
+  key: 0,
+  class: "text-[11px] font-black fert-partial-text flex items-center gap-1.5"
+}
+const _hoisted_81 = {
+  key: 1,
+  class: "text-[11px] font-black text-[var(--life-green)] flex items-center gap-1.5"
+}
+const _hoisted_82 = {
+  key: 0,
+  class: "fert-full-rate"
+}
+const _hoisted_83 = {
+  key: 1,
+  class: "slot-box clickable dashed flex-row items-center justify-between p-3 min-h-[58px]"
+}
+const _hoisted_84 = { class: "flex items-center gap-2 pl-1" }
+const _hoisted_85 = { class: "text-xs font-bold text-[var(--text-dark)] group-hover:text-white transition-colors" }
+const _hoisted_86 = { class: "text-xs font-bold ml-2" }
+const _hoisted_87 = ["onClick"]
+const _hoisted_88 = { class: "flex items-center justify-center shrink-0 w-12 h-12 relative" }
+const _hoisted_89 = ["src"]
+const _hoisted_90 = {
+  key: 1,
+  class: "absolute top-0 right-0 w-4 h-4 pointer-events-none drop-shadow-[0_0_2px_rgba(0,0,0,0.9)]",
+  viewBox: "0 0 24 24",
+  xmlns: "http://www.w3.org/2000/svg"
+}
+const _hoisted_91 = { class: "flex flex-col flex-1" }
+const _hoisted_92 = { class: "flex justify-between items-center" }
+const _hoisted_93 = { class: "text-[13px] font-bold text-white" }
+const _hoisted_94 = { class: "flex justify-between items-center mt-0.5" }
+const _hoisted_95 = {
+  key: 0,
+  class: "text-[10px] font-mono text-amber-400/80"
+}
+const _hoisted_96 = { key: 1 }
+const _hoisted_97 = {
+  key: 0,
+  class: "fert-full-rate"
+}
+const _hoisted_98 = { class: "status-box !py-3" }
+const _hoisted_99 = { class: "flex items-center gap-2" }
+const _hoisted_100 = { class: "text-[13px] font-bold" }
+const _hoisted_101 = { class: "mt-2 flex flex-col gap-2" }
+const _hoisted_102 = {
+  key: 0,
+  class: "flex items-center justify-center gap-2 text-[var(--danger-red)] text-sm font-bold bg-[rgba(224,85,85,0.1)] py-2.5 rounded-lg border border-[rgba(224,85,85,0.2)] shadow-sm"
+}
+const _hoisted_103 = ["disabled"]
+const _hoisted_104 = {
+  key: 0,
+  class: "plant-btn-hotkey"
+}
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createElementBlock("div", _hoisted_1, [
+    _createElementVNode("div", {
+      class: "absolute inset-0 bg-black/50",
+      onClick: _cache[0] || (_cache[0] = (...args) => (_ctx.closeUI && _ctx.closeUI(...args)))
+    }),
+    (_ctx.state.facility)
+      ? (_openBlock(), _createElementBlock("div", _hoisted_2, [
+          _createElementVNode("div", _hoisted_3, [
+            _createElementVNode("div", _hoisted_4, [
+              _cache[6] || (_cache[6] = _createElementVNode("svg", {
+                xmlns: "http://www.w3.org/2000/svg",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2.5",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round",
+                class: "w-5 h-5 text-[var(--life-green)] drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]"
+              }, [
+                _createElementVNode("path", { d: "M11 20A7 7 0 0 1 14 6a7 7 0 0 1 7 7 7 7 0 0 1-7 7z" }),
+                _createElementVNode("path", { d: "M14 6L6 14" }),
+                _createElementVNode("path", { d: "M6 18A4 4 0 0 1 2 14c0-2.2 1.8-4 4-4" })
+              ], -1 /* CACHED */)),
+              _createElementVNode("h1", _hoisted_5, _toDisplayString(_ctx.state.localText.titleText), 1 /* TEXT */)
+            ]),
+            _createElementVNode("button", {
+              onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.closeUI && _ctx.closeUI(...args))),
+              class: "text-[var(--text-dark)] hover:text-[var(--life-green)] bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,0,0,0.5)] transition-all p-1.5 rounded border border-transparent hover:border-[var(--border-color)] shadow-sm"
+            }, [...(_cache[7] || (_cache[7] = [
+              _createElementVNode("svg", {
+                xmlns: "http://www.w3.org/2000/svg",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2.5",
+                class: "w-4 h-4"
+              }, [
+                _createElementVNode("line", {
+                  x1: "18",
+                  y1: "6",
+                  x2: "6",
+                  y2: "18"
+                }),
+                _createElementVNode("line", {
+                  x1: "6",
+                  y1: "6",
+                  x2: "18",
+                  y2: "18"
+                })
+              ], -1 /* CACHED */)
+            ]))])
+          ]),
+          _createElementVNode("div", _hoisted_6, [
+            _createElementVNode("div", _hoisted_7, [
+              _createElementVNode("div", _hoisted_8, [
+                _cache[8] || (_cache[8] = _createElementVNode("svg", {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 24 24",
+                  fill: "none",
+                  stroke: "currentColor",
+                  "stroke-width": "2.5",
+                  class: "w-4 h-4 mr-2"
+                }, [
+                  _createElementVNode("path", { d: "M2 22v-5l5-5 5 5-5 5z" }),
+                  _createElementVNode("path", { d: "M9.5 14.5 16 8" }),
+                  _createElementVNode("path", { d: "m17 2 5 5-.5.5a3.53 3.53 0 0 1-5 0s0 0 0 0a3.53 3.53 0 0 1 0-5s0 0 0 0z" })
+                ], -1 /* CACHED */)),
+                _createTextVNode(" " + _toDisplayString(_ctx.state.localText.envLabel), 1 /* TEXT */)
+              ]),
+              _createElementVNode("div", {
+                onClick: _cache[2] || (_cache[2] = _withModifiers($event => (_ctx.seedDropdownOpen = !_ctx.seedDropdownOpen), ["stop"])),
+                ref: "seedRef",
+                class: "relative group mt-1"
+              }, [
+                (_ctx.selectedSeed)
+                  ? (_openBlock(), _createElementBlock("div", _hoisted_9, [
+                      _createElementVNode("div", _hoisted_10, [
+                        _createElementVNode("div", _hoisted_11, [
+                          (_ctx.selectedSeed.icon)
+                            ? (_openBlock(), _createElementBlock("img", {
+                                key: 0,
+                                src: _ctx.selectedSeed.icon,
+                                class: "w-full h-full object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform"
+                              }, null, 8 /* PROPS */, _hoisted_12))
+                            : _createCommentVNode("v-if", true)
+                        ]),
+                        _createElementVNode("div", _hoisted_13, [
+                          _createElementVNode("span", _hoisted_14, [
+                            _createTextVNode(_toDisplayString(_ctx.selectedSeed.name) + " ", 1 /* TEXT */),
+                            (_ctx.selectedSeed.ownedCount >= _ctx.requiredSeedCount)
+                              ? (_openBlock(), _createElementBlock("span", _hoisted_15, " x" + _toDisplayString(_ctx.requiredSeedCount), 1 /* TEXT */))
+                              : (_openBlock(), _createElementBlock("span", _hoisted_16, " x" + _toDisplayString(_ctx.selectedSeed.ownedCount), 1 /* TEXT */))
+                          ]),
+                          _createElementVNode("span", _hoisted_17, _toDisplayString(_ctx.state.localText.seedInfoLabel), 1 /* TEXT */)
+                        ])
+                      ]),
+                      _cache[9] || (_cache[9] = _createElementVNode("svg", {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2.5",
+                        class: "w-4 h-4 text-[var(--life-green)] opacity-80"
+                      }, [
+                        _createElementVNode("polyline", { points: "6 9 12 15 18 9" })
+                      ], -1 /* CACHED */))
+                    ]))
+                  : (_openBlock(), _createElementBlock("div", _hoisted_18, [
+                      _createElementVNode("div", _hoisted_19, [
+                        _cache[10] || (_cache[10] = _createElementVNode("div", { class: "flex items-center justify-center shrink-0 w-12 h-12 group-hover:scale-110 transition-transform" }, [
+                          _createElementVNode("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            "stroke-width": "2.5",
+                            stroke: "currentColor",
+                            class: "w-8 h-8 text-[var(--text-dark)] group-hover:text-[var(--life-green)] drop-shadow-md"
+                          }, [
+                            _createElementVNode("path", {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M12 4.5v15m7.5-7.5h-15"
+                            })
+                          ])
+                        ], -1 /* CACHED */)),
+                        _createElementVNode("span", _hoisted_20, _toDisplayString(_ctx.state.localText.selectSeedLabel), 1 /* TEXT */),
+                        _cache[11] || (_cache[11] = _createElementVNode("svg", {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2.5",
+                          class: "w-4 h-4 text-[var(--text-dark)] group-hover:text-[var(--life-green)] transition-colors"
+                        }, [
+                          _createElementVNode("polyline", { points: "6 9 12 15 18 9" })
+                        ], -1 /* CACHED */))
+                      ])
+                    ])),
+                _createElementVNode("div", {
+                  class: _normalizeClass(['dropdown-menu top-full mt-2 origin-top', _ctx.seedDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'])
+                }, [
+                  (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.sortedSeeds, (seed) => {
+                    return (_openBlock(), _createElementBlock("div", {
+                      key: seed.index,
+                      onClick: _withModifiers($event => (_ctx.selectSeed(seed.index)), ["stop"]),
+                      class: _normalizeClass(['dropdown-item', _ctx.isSeedFullyAvailable(seed) ? 'bg-[rgba(16,185,129,0.1)] border-[rgba(16,185,129,0.2)] hover:bg-[rgba(16,185,129,0.2)] hover:border-[var(--life-green-dark)]' : 'bg-[rgba(224,85,85,0.05)] border-[rgba(224,85,85,0.15)] opacity-70 hover:opacity-100 hover:bg-[rgba(224,85,85,0.1)] hover:border-[var(--danger-red)]'])
+                    }, [
+                      _createElementVNode("div", _hoisted_22, [
+                        (seed.icon)
+                          ? (_openBlock(), _createElementBlock("img", {
+                              key: 0,
+                              src: seed.icon,
+                              class: "w-10 h-10 object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform"
+                            }, null, 8 /* PROPS */, _hoisted_23))
+                          : _createCommentVNode("v-if", true),
+                        (seed.hasStory)
+                          ? (_openBlock(), _createElementBlock("svg", _hoisted_24, [...(_cache[12] || (_cache[12] = [
+                              _createElementVNode("circle", {
+                                cx: "10",
+                                cy: "10",
+                                r: "6",
+                                fill: "none",
+                                stroke: "#FFE066",
+                                "stroke-width": "2.5"
+                              }, null, -1 /* CACHED */),
+                              _createElementVNode("line", {
+                                x1: "14.5",
+                                y1: "14.5",
+                                x2: "20",
+                                y2: "20",
+                                stroke: "#FFE066",
+                                "stroke-width": "3",
+                                "stroke-linecap": "round"
+                              }, null, -1 /* CACHED */)
+                            ]))]))
+                          : _createCommentVNode("v-if", true)
+                      ]),
+                      _createElementVNode("div", _hoisted_25, [
+                        _createElementVNode("div", _hoisted_26, [
+                          _createElementVNode("span", _hoisted_27, _toDisplayString(seed.name), 1 /* TEXT */),
+                          _createElementVNode("span", {
+                            class: _normalizeClass(['text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-black/50 border border-[rgba(255,255,255,0.1)]', seed.ownedCount >= _ctx.seedRequiredCount(seed) ? 'text-[var(--life-green)]' : 'text-[var(--danger-red)]'])
+                          }, _toDisplayString(_ctx.state.localText.needFillLabel) + ": " + _toDisplayString(seed.ownedCount) + "/" + _toDisplayString(_ctx.seedRequiredCount(seed)), 3 /* TEXT, CLASS */)
+                        ]),
+                        _createElementVNode("div", _hoisted_28, [
+                          _createElementVNode("div", {
+                            class: _normalizeClass(["flex items-center gap-1", _ctx.checkSeedEnv(seed).lightOk ? 'text-[var(--life-green)]' : 'text-[var(--danger-red)]'])
+                          }, [
+                            _cache[13] || (_cache[13] = _createStaticVNode("<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" class=\"w-3 h-3\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle><path d=\"M12 2v2\"></path><path d=\"M12 20v2\"></path><path d=\"m4.93 4.93 1.41 1.41\"></path><path d=\"m17.66 17.66 1.41 1.41\"></path><path d=\"M2 12h2\"></path><path d=\"M20 12h2\"></path><path d=\"m6.34 17.66-1.41 1.41\"></path><path d=\"m19.07 4.93-1.41 1.41\"></path></svg>", 1)),
+                            _createElementVNode("span", _hoisted_29, _toDisplayString(seed.lightNeed), 1 /* TEXT */)
+                          ], 2 /* CLASS */),
+                          _createElementVNode("div", {
+                            class: _normalizeClass(["flex items-center gap-1", _ctx.checkSeedEnv(seed).tempOk ? 'text-[var(--life-green)]' : 'text-[var(--danger-red)]'])
+                          }, [
+                            _cache[14] || (_cache[14] = _createElementVNode("svg", {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                              class: "w-3 h-3"
+                            }, [
+                              _createElementVNode("path", { d: "M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" })
+                            ], -1 /* CACHED */)),
+                            _createElementVNode("span", _hoisted_30, _toDisplayString(seed.coldResistance), 1 /* TEXT */)
+                          ], 2 /* CLASS */)
+                        ])
+                      ])
+                    ], 10 /* CLASS, PROPS */, _hoisted_21))
+                  }), 128 /* KEYED_FRAGMENT */)),
+                  (_ctx.sortedSeeds.length === 0)
+                    ? (_openBlock(), _createElementBlock("div", _hoisted_31, _toDisplayString(_ctx.state.localText.emptySeedText), 1 /* TEXT */))
+                    : _createCommentVNode("v-if", true)
+                ], 2 /* CLASS */)
+              ], 512 /* NEED_PATCH */),
+              _createElementVNode("div", _hoisted_32, [
+                _createElementVNode("div", _hoisted_33, [
+                  _createElementVNode("div", _hoisted_34, [
+                    _cache[15] || (_cache[15] = _createStaticVNode("<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" class=\"text-amber-500\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle><path d=\"M12 2v2\"></path><path d=\"M12 20v2\"></path><path d=\"m4.93 4.93 1.41 1.41\"></path><path d=\"m17.66 17.66 1.41 1.41\"></path><path d=\"M2 12h2\"></path><path d=\"M20 12h2\"></path><path d=\"m6.34 17.66-1.41 1.41\"></path><path d=\"m19.07 4.93-1.41 1.41\"></path></svg>", 1)),
+                    _createElementVNode("span", null, _toDisplayString(_ctx.state.localText.lightStatusLabel), 1 /* TEXT */)
+                  ]),
+                  _createElementVNode("div", {
+                    class: _normalizeClass(['env-concl', _ctx.selectedSeed ? (_ctx.state.selection.isLightOk ? 'is-ok' : 'is-bad') : 'is-idle'])
+                  }, _toDisplayString(_ctx.state.selection.lightStatusText || '—'), 3 /* TEXT, CLASS */),
+                  _createElementVNode("div", _hoisted_35, [
+                    (_ctx.selectedSeed)
+                      ? (_openBlock(), _createElementBlock("span", _hoisted_36, [
+                          _createTextVNode(_toDisplayString(_ctx.state.localText.needFillLabel), 1 /* TEXT */),
+                          _createElementVNode("b", null, _toDisplayString(_ctx.selectedSeed.lightNeed), 1 /* TEXT */)
+                        ]))
+                      : _createCommentVNode("v-if", true),
+                    _createElementVNode("span", _hoisted_37, [
+                      _createTextVNode(_toDisplayString(_ctx.state.localText.currentLabel), 1 /* TEXT */),
+                      _createElementVNode("b", {
+                        class: _normalizeClass(_ctx.selectedSeed && !_ctx.state.selection.isLightOk ? 'is-bad' : '')
+                      }, _toDisplayString(_ctx.state.facility.actualLight.toFixed(1)), 3 /* TEXT, CLASS */)
+                    ])
+                  ])
+                ]),
+                _createElementVNode("div", _hoisted_38, [
+                  _createElementVNode("div", _hoisted_39, [
+                    _cache[16] || (_cache[16] = _createElementVNode("svg", {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-width": "2.5",
+                      class: "text-blue-400"
+                    }, [
+                      _createElementVNode("path", { d: "M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" })
+                    ], -1 /* CACHED */)),
+                    _createElementVNode("span", null, _toDisplayString(_ctx.state.localText.tempStatusLabel), 1 /* TEXT */)
+                  ]),
+                  _createElementVNode("div", {
+                    class: _normalizeClass(['env-concl', _ctx.selectedSeed ? (_ctx.state.selection.isTempOk ? 'is-ok' : 'is-bad') : 'is-idle'])
+                  }, _toDisplayString(_ctx.state.selection.tempStatusText || '—'), 3 /* TEXT, CLASS */),
+                  _createElementVNode("div", _hoisted_40, [
+                    (_ctx.selectedSeed)
+                      ? (_openBlock(), _createElementBlock("span", _hoisted_41, [
+                          _createTextVNode(_toDisplayString(_ctx.state.localText.needFillLabel), 1 /* TEXT */),
+                          _createElementVNode("b", null, _toDisplayString(_ctx.selectedSeed.coldResistance), 1 /* TEXT */)
+                        ]))
+                      : _createCommentVNode("v-if", true),
+                    _createElementVNode("span", _hoisted_42, [
+                      _createTextVNode(_toDisplayString(_ctx.state.localText.currentLabel), 1 /* TEXT */),
+                      _createElementVNode("b", {
+                        class: _normalizeClass(_ctx.selectedSeed && !_ctx.state.selection.isTempOk ? 'is-bad' : '')
+                      }, _toDisplayString(_ctx.state.facility.coldStress), 3 /* TEXT, CLASS */)
+                    ])
+                  ])
+                ])
+              ]),
+              _createElementVNode("div", _hoisted_43, [
+                (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.envSources, (src) => {
+                  return (_openBlock(), _createElementBlock("span", {
+                    key: src.key,
+                    class: _normalizeClass(['infl-tag', src.cls])
+                  }, [
+                    (_openBlock(), _createElementBlock("svg", {
+                      class: "tag-ico",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-width": "1.95",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      innerHTML: src.ico
+                    }, null, 8 /* PROPS */, _hoisted_44)),
+                    _createTextVNode(" " + _toDisplayString(src.name) + " ", 1 /* TEXT */),
+                    _createElementVNode("span", _hoisted_45, [
+                      _createElementVNode("span", _hoisted_46, _toDisplayString(src.name), 1 /* TEXT */),
+                      (src.light !== null)
+                        ? (_openBlock(), _createElementBlock("span", _hoisted_47, [
+                            _cache[17] || (_cache[17] = _createStaticVNode("<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" class=\"text-amber-500\"><circle cx=\"12\" cy=\"12\" r=\"4\"></circle><path d=\"M12 2v2\"></path><path d=\"M12 20v2\"></path><path d=\"m4.93 4.93 1.41 1.41\"></path><path d=\"m17.66 17.66 1.41 1.41\"></path><path d=\"M2 12h2\"></path><path d=\"M20 12h2\"></path><path d=\"m6.34 17.66-1.41 1.41\"></path><path d=\"m19.07 4.93-1.41 1.41\"></path></svg>", 1)),
+                            _createElementVNode("b", {
+                              class: _normalizeClass(_ctx.deltaCls(src.light, src.base))
+                            }, _toDisplayString(_ctx.fmtDelta(src.light, src.base)), 3 /* TEXT, CLASS */)
+                          ]))
+                        : _createCommentVNode("v-if", true),
+                      (src.temp !== null)
+                        ? (_openBlock(), _createElementBlock("span", _hoisted_48, [
+                            _cache[18] || (_cache[18] = _createElementVNode("svg", {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2.5",
+                              class: "text-blue-400"
+                            }, [
+                              _createElementVNode("path", { d: "M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" })
+                            ], -1 /* CACHED */)),
+                            _createElementVNode("b", {
+                              class: _normalizeClass(_ctx.deltaCls(-src.temp, src.base))
+                            }, _toDisplayString(_ctx.fmtDelta(src.temp, src.base)), 3 /* TEXT, CLASS */)
+                          ]))
+                        : _createCommentVNode("v-if", true)
+                    ])
+                  ], 2 /* CLASS */))
+                }), 128 /* KEYED_FRAGMENT */))
+              ]),
+              _createElementVNode("div", _hoisted_49, [
+                _createElementVNode("div", _hoisted_50, [
+                  _createElementVNode("div", _hoisted_51, [
+                    (_ctx.state.facility.facilityIcon)
+                      ? (_openBlock(), _createElementBlock("img", {
+                          key: 0,
+                          src: _ctx.state.facility.facilityIcon,
+                          class: "w-full h-full object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)]"
+                        }, null, 8 /* PROPS */, _hoisted_52))
+                      : (_openBlock(), _createElementBlock("svg", _hoisted_53, [...(_cache[19] || (_cache[19] = [
+                          _createElementVNode("path", { d: "M4 10h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10Z" }, null, -1 /* CACHED */),
+                          _createElementVNode("path", { d: "M8 6h8V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2Z" }, null, -1 /* CACHED */),
+                          _createElementVNode("line", {
+                            x1: "12",
+                            y1: "10",
+                            x2: "12",
+                            y2: "22"
+                          }, null, -1 /* CACHED */)
+                        ]))]))
+                  ]),
+                  _createElementVNode("div", _hoisted_54, [
+                    _createElementVNode("span", _hoisted_55, _toDisplayString(_ctx.state.facility.facilityName), 1 /* TEXT */),
+                    _createElementVNode("div", _hoisted_56, [
+                      _createElementVNode("span", _hoisted_57, _toDisplayString(_ctx.state.localText.containerLabel), 1 /* TEXT */),
+                      _createElementVNode("span", _hoisted_58, _toDisplayString(_ctx.state.localText.capacityLabel) + ": " + _toDisplayString(_ctx.state.facility.capacity), 1 /* TEXT */)
+                    ])
+                  ])
+                ]),
+                (_ctx.state.facility.facilityDesc)
+                  ? (_openBlock(), _createElementBlock("span", _hoisted_59, _toDisplayString(_ctx.state.facility.facilityDesc), 1 /* TEXT */))
+                  : _createCommentVNode("v-if", true)
+              ])
+            ]),
+            _createElementVNode("div", _hoisted_60, [
+              _createElementVNode("div", _hoisted_61, [
+                _cache[20] || (_cache[20] = _createElementVNode("svg", {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 24 24",
+                  fill: "none",
+                  stroke: "currentColor",
+                  "stroke-width": "2.5",
+                  class: "w-4 h-4 mr-2"
+                }, [
+                  _createElementVNode("path", { d: "M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z" }),
+                  _createElementVNode("path", { d: "M10 2c1 .5 2 2 2 5" })
+                ], -1 /* CACHED */)),
+                _createTextVNode(" " + _toDisplayString(_ctx.state.localText.harvestLabel), 1 /* TEXT */)
+              ]),
+              (_ctx.selectedSeed)
+                ? (_openBlock(), _createElementBlock("div", _hoisted_62, [
+                    _createElementVNode("div", _hoisted_63, [
+                      _createElementVNode("div", _hoisted_64, [
+                        _createElementVNode("div", _hoisted_65, [
+                          (_ctx.selectedSeed.plantIcon || _ctx.selectedSeed.icon)
+                            ? (_openBlock(), _createElementBlock("img", {
+                                key: 0,
+                                src: _ctx.selectedSeed.plantIcon || _ctx.selectedSeed.icon,
+                                class: "w-full h-full object-contain drop-shadow-[0_6px_12px_rgba(0,0,0,0.6)]"
+                              }, null, 8 /* PROPS */, _hoisted_66))
+                            : _createCommentVNode("v-if", true)
+                        ]),
+                        _createElementVNode("span", _hoisted_67, _toDisplayString(_ctx.selectedSeed.plantName), 1 /* TEXT */)
+                      ]),
+                      _createElementVNode("p", _hoisted_68, _toDisplayString(_ctx.selectedSeed.plantDesc), 1 /* TEXT */),
+                      (_ctx.selectedSeed.gainDesc)
+                        ? (_openBlock(), _createElementBlock("div", _hoisted_69, _toDisplayString(_ctx.selectedSeed.gainDesc), 1 /* TEXT */))
+                        : _createCommentVNode("v-if", true)
+                    ])
+                  ]))
+                : (_openBlock(), _createElementBlock("div", _hoisted_70, [
+                    _createElementVNode("span", _hoisted_71, _toDisplayString(_ctx.state.localText.selectSeedLabel), 1 /* TEXT */)
+                  ])),
+              _createElementVNode("div", _hoisted_72, [
+                (_ctx.selectedSeed && _ctx.selectedSeed.noBaseFert)
+                  ? (_openBlock(), _createElementBlock("div", _hoisted_73, [
+                      _createElementVNode("div", _hoisted_74, [
+                        _cache[21] || (_cache[21] = _createElementVNode("div", { class: "icon-wrapper w-6 h-6 rounded-full" }, [
+                          _createElementVNode("svg", {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            "stroke-width": "2.5",
+                            stroke: "currentColor",
+                            class: "w-3.5 h-3.5 text-[var(--text-dark)]"
+                          }, [
+                            _createElementVNode("rect", {
+                              x: "5",
+                              y: "11",
+                              width: "14",
+                              height: "10",
+                              rx: "2"
+                            }),
+                            _createElementVNode("path", {
+                              "stroke-linecap": "round",
+                              d: "M8 11V7a4 4 0 0 1 8 0v4"
+                            })
+                          ])
+                        ], -1 /* CACHED */)),
+                        _createElementVNode("span", _hoisted_75, _toDisplayString(_ctx.state.localText.noBaseFertText), 1 /* TEXT */)
+                      ])
+                    ]))
+                  : (_openBlock(), _createElementBlock("div", {
+                      key: 1,
+                      onClick: _cache[4] || (_cache[4] = _withModifiers($event => (_ctx.fertDropdownOpen = !_ctx.fertDropdownOpen), ["stop"])),
+                      ref: "fertRef",
+                      class: "relative group"
+                    }, [
+                      (_ctx.selectedFert)
+                        ? (_openBlock(), _createElementBlock("div", {
+                            key: 0,
+                            class: _normalizeClass(['slot-box clickable flex-row items-center justify-between p-3', _ctx.isFertPartial(_ctx.selectedFert) ? 'fert-partial' : '']),
+                            style: {"background":"linear-gradient(90deg, rgba(16, 185, 129, 0.15), rgba(15, 22, 18, 0.85))","border-color":"var(--life-green-dark)"}
+                          }, [
+                            _createElementVNode("div", _hoisted_76, [
+                              _createElementVNode("div", _hoisted_77, [
+                                (_ctx.selectedFert.icon)
+                                  ? (_openBlock(), _createElementBlock("img", {
+                                      key: 0,
+                                      src: _ctx.selectedFert.icon,
+                                      class: "w-10 h-10 object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]"
+                                    }, null, 8 /* PROPS */, _hoisted_78))
+                                  : _createCommentVNode("v-if", true)
+                              ]),
+                              _createElementVNode("div", _hoisted_79, [
+                                (_ctx.isFertPartial(_ctx.selectedFert))
+                                  ? (_openBlock(), _createElementBlock("span", _hoisted_80, _toDisplayString(_ctx.selectedFert.name) + " " + _toDisplayString(_ctx.state.localText.fertShortText || '肥料数量不足') + " " + _toDisplayString(_ctx.selectedFert.ownedCount) + "/" + _toDisplayString(_ctx.fertNeedCount()), 1 /* TEXT */))
+                                  : (_openBlock(), _createElementBlock("span", _hoisted_81, [
+                                      _createTextVNode(_toDisplayString(_ctx.selectedFert.name) + " " + _toDisplayString(_ctx.state.localText.activeLabel || '生效中') + " ", 1 /* TEXT */),
+                                      _cache[22] || (_cache[22] = _createElementVNode("svg", {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        viewBox: "0 0 24 24",
+                                        fill: "none",
+                                        stroke: "currentColor",
+                                        "stroke-width": "2.5",
+                                        class: "w-3 h-3"
+                                      }, [
+                                        _createElementVNode("path", { d: "m5 12 7-7 7 7" }),
+                                        _createElementVNode("path", { d: "M12 19V5" })
+                                      ], -1 /* CACHED */))
+                                    ])),
+                                _createElementVNode("span", {
+                                  class: _normalizeClass(['text-[10px] font-bold text-[var(--life-green)] opacity-80 mt-0.5', _ctx.isFertPartial(_ctx.selectedFert) ? 'fert-partial-text' : ''])
+                                }, [
+                                  _createTextVNode(_toDisplayString(_ctx.state.localText.speedUpLabel || '生长速度提升') + " +" + _toDisplayString(_ctx.fmtRatePct(_ctx.fertEffRate(_ctx.selectedFert))) + "%", 1 /* TEXT */),
+                                  (_ctx.isFertPartial(_ctx.selectedFert))
+                                    ? (_openBlock(), _createElementBlock("span", _hoisted_82, "+" + _toDisplayString(_ctx.fmtRatePct(_ctx.selectedFert.speedRate)) + "%", 1 /* TEXT */))
+                                    : _createCommentVNode("v-if", true)
+                                ], 2 /* CLASS */)
+                              ])
+                            ]),
+                            _cache[23] || (_cache[23] = _createElementVNode("svg", {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2.5",
+                              class: "w-4 h-4 text-[var(--life-green)] group-hover:text-[var(--life-green-light)] transition-colors"
+                            }, [
+                              _createElementVNode("polyline", { points: "6 9 12 15 18 9" })
+                            ], -1 /* CACHED */))
+                          ], 2 /* CLASS */))
+                        : (_openBlock(), _createElementBlock("div", _hoisted_83, [
+                            _createElementVNode("div", _hoisted_84, [
+                              _cache[24] || (_cache[24] = _createElementVNode("div", { class: "icon-wrapper w-6 h-6 rounded-full group-hover:border-[var(--life-green-dark)] group-hover:scale-105 transition-transform" }, [
+                                _createElementVNode("svg", {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  fill: "none",
+                                  viewBox: "0 0 24 24",
+                                  "stroke-width": "2.5",
+                                  stroke: "currentColor",
+                                  class: "w-3.5 h-3.5 text-[var(--text-dark)] group-hover:text-[var(--life-green)]"
+                                }, [
+                                  _createElementVNode("path", {
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round",
+                                    d: "M12 4.5v15m7.5-7.5h-15"
+                                  })
+                                ])
+                              ], -1 /* CACHED */)),
+                              _createElementVNode("span", _hoisted_85, _toDisplayString(_ctx.state.localText.emptyFertText), 1 /* TEXT */)
+                            ]),
+                            _cache[25] || (_cache[25] = _createElementVNode("svg", {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              "stroke-width": "2.5",
+                              class: "w-4 h-4 mr-1 text-[var(--text-dark)] group-hover:text-[var(--life-green)] transition-colors"
+                            }, [
+                              _createElementVNode("polyline", { points: "6 9 12 15 18 9" })
+                            ], -1 /* CACHED */))
+                          ])),
+                      _createElementVNode("div", {
+                        class: _normalizeClass(['dropdown-menu bottom-full mb-2 origin-bottom', _ctx.fertDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'])
+                      }, [
+                        _createElementVNode("div", {
+                          onClick: _cache[3] || (_cache[3] = _withModifiers($event => (_ctx.selectFert(-1)), ["stop"])),
+                          class: "dropdown-item hover:bg-[rgba(224,85,85,0.1)] hover:border-[rgba(224,85,85,0.3)] text-[var(--text-dark)]"
+                        }, [
+                          _createElementVNode("span", _hoisted_86, _toDisplayString(_ctx.state.localText.emptyFertText), 1 /* TEXT */)
+                        ]),
+                        (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.state.ferts, (fert) => {
+                          return (_openBlock(), _createElementBlock("div", {
+                            key: fert.index,
+                            onClick: _withModifiers($event => (_ctx.selectFert(fert.index)), ["stop"]),
+                            class: "dropdown-item hover:bg-[rgba(16,185,129,0.1)] hover:border-[rgba(16,185,129,0.3)]"
+                          }, [
+                            _createElementVNode("div", _hoisted_88, [
+                              (fert.icon)
+                                ? (_openBlock(), _createElementBlock("img", {
+                                    key: 0,
+                                    src: fert.icon,
+                                    class: "w-10 h-10 object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]"
+                                  }, null, 8 /* PROPS */, _hoisted_89))
+                                : _createCommentVNode("v-if", true),
+                              (fert.hasStory)
+                                ? (_openBlock(), _createElementBlock("svg", _hoisted_90, [...(_cache[26] || (_cache[26] = [
+                                    _createElementVNode("circle", {
+                                      cx: "10",
+                                      cy: "10",
+                                      r: "6",
+                                      fill: "none",
+                                      stroke: "#FFE066",
+                                      "stroke-width": "2.5"
+                                    }, null, -1 /* CACHED */),
+                                    _createElementVNode("line", {
+                                      x1: "14.5",
+                                      y1: "14.5",
+                                      x2: "20",
+                                      y2: "20",
+                                      stroke: "#FFE066",
+                                      "stroke-width": "3",
+                                      "stroke-linecap": "round"
+                                    }, null, -1 /* CACHED */)
+                                  ]))]))
+                                : _createCommentVNode("v-if", true)
+                            ]),
+                            _createElementVNode("div", _hoisted_91, [
+                              _createElementVNode("div", _hoisted_92, [
+                                _createElementVNode("span", _hoisted_93, _toDisplayString(fert.name), 1 /* TEXT */),
+                                _createElementVNode("span", {
+                                  class: _normalizeClass(['fert-count', _ctx.isFertPartial(fert) ? 'partial' : 'full'])
+                                }, _toDisplayString(fert.ownedCount) + "/" + _toDisplayString(_ctx.fertNeedCount()), 3 /* TEXT, CLASS */)
+                              ]),
+                              _createElementVNode("div", _hoisted_94, [
+                                (_ctx.selectedSeed && _ctx.baseGrowthSeconds > 0)
+                                  ? (_openBlock(), _createElementBlock("span", _hoisted_95, _toDisplayString(_ctx.formatGrowthTime(_ctx.baseGrowthSeconds)) + " → " + _toDisplayString(_ctx.formatTimeWithRate(_ctx.baseGrowthSeconds, _ctx.fertEffRate(fert))), 1 /* TEXT */))
+                                  : (_openBlock(), _createElementBlock("span", _hoisted_96)),
+                                _createElementVNode("span", {
+                                  class: _normalizeClass(['text-[10px] font-bold text-[var(--life-green)]', _ctx.isFertPartial(fert) ? 'fert-partial-text' : ''])
+                                }, [
+                                  _createTextVNode("+" + _toDisplayString(_ctx.fmtRatePct(_ctx.fertEffRate(fert))) + "%", 1 /* TEXT */),
+                                  (_ctx.isFertPartial(fert))
+                                    ? (_openBlock(), _createElementBlock("span", _hoisted_97, "+" + _toDisplayString(_ctx.fmtRatePct(fert.speedRate)) + "%", 1 /* TEXT */))
+                                    : _createCommentVNode("v-if", true)
+                                ], 2 /* CLASS */)
+                              ])
+                            ])
+                          ], 8 /* PROPS */, _hoisted_87))
+                        }), 128 /* KEYED_FRAGMENT */))
+                      ], 2 /* CLASS */)
+                    ], 512 /* NEED_PATCH */)),
+                _createElementVNode("div", _hoisted_98, [
+                  _createElementVNode("div", _hoisted_99, [
+                    _cache[27] || (_cache[27] = _createElementVNode("svg", {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-width": "2.5",
+                      class: "w-4 h-4 text-[var(--text-dark)]"
+                    }, [
+                      _createElementVNode("circle", {
+                        cx: "12",
+                        cy: "12",
+                        r: "10"
+                      }),
+                      _createElementVNode("polyline", { points: "12 6 12 12 16 14" })
+                    ], -1 /* CACHED */)),
+                    _createElementVNode("span", _hoisted_100, _toDisplayString(_ctx.state.localText.growthTimeLabel), 1 /* TEXT */)
+                  ]),
+                  _createElementVNode("span", {
+                    class: _normalizeClass(['font-mono font-black text-2xl tracking-wide', _ctx.selectedFert ? (_ctx.isFertPartial(_ctx.selectedFert) ? 'fert-partial-text' : 'text-[var(--life-green)] text-glow') : 'text-white'])
+                  }, _toDisplayString(_ctx.formatGrowthTime(_ctx.state.selection.expectedGrowthSeconds)), 3 /* TEXT, CLASS */)
+                ]),
+                _createElementVNode("div", _hoisted_101, [
+                  (_ctx.state.selection.warningText)
+                    ? (_openBlock(), _createElementBlock("div", _hoisted_102, [
+                        _cache[28] || (_cache[28] = _createElementVNode("svg", {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2.5",
+                          class: "w-4 h-4"
+                        }, [
+                          _createElementVNode("path", { d: "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" }),
+                          _createElementVNode("line", {
+                            x1: "12",
+                            y1: "9",
+                            x2: "12",
+                            y2: "13"
+                          }),
+                          _createElementVNode("line", {
+                            x1: "12",
+                            y1: "17",
+                            x2: "12.01",
+                            y2: "17"
+                          })
+                        ], -1 /* CACHED */)),
+                        _createElementVNode("span", null, _toDisplayString(_ctx.state.selection.warningText), 1 /* TEXT */)
+                      ]))
+                    : _createCommentVNode("v-if", true),
+                  _createElementVNode("button", {
+                    onClick: _cache[5] || (_cache[5] = (...args) => (_ctx.startPlant && _ctx.startPlant(...args))),
+                    disabled: !_ctx.state.selection.canStartPlant,
+                    class: _normalizeClass(["plant-btn", { 'has-hotkey': _ctx.state.localText.startBtnKey }])
+                  }, [
+                    _createTextVNode(_toDisplayString(_ctx.state.localText.startBtnText) + " ", 1 /* TEXT */),
+                    (_ctx.state.localText.startBtnKey)
+                      ? (_openBlock(), _createElementBlock("span", _hoisted_104, _toDisplayString(_ctx.state.localText.startBtnKey), 1 /* TEXT */))
+                      : _createCommentVNode("v-if", true)
+                  ], 10 /* CLASS, PROPS */, _hoisted_103)
+                ])
+              ])
+            ])
+          ])
+        ]))
+      : _createCommentVNode("v-if", true)
+  ]))
+}};var __renderCache__=null;var __origCreateApp__=Vue.createApp;Vue.createApp=function(opts){if(!__renderCache__)__renderCache__=__renderFactory__(Vue);if(opts&&typeof opts==="object"&&!opts.render&&!opts.template){opts=Object.assign({},opts,{render:__renderCache__});}var app=__origCreateApp__.call(this,opts);if(!app.config.errorHandler){app.config.errorHandler=function(err){var msg=(err&&err.message)||String(err||"");if(msg.indexOf("createWebUICore is not defined")>=0){__wgReload__("webui-core.js");if(__wgGaveUp__)console.error(err);return;}console.error(err);};}return app;};})();
+/* === [/precompiled v1] === */
+</script>
+    <script src="../../webui-core.js"></script>
+    <style>
+        :root {
+            --bg-dark: rgba(24, 32, 28, 0.85);
+            --panel-bg: rgba(36, 45, 40, 0.95);
+            --life-green: #34d399;
+            --life-green-dark: #10b981;
+            --life-green-glow: #059669;
+            --danger-red: #e05555;
+            
+            --text-main: #fcfcfc;
+            --text-dark: #a0b5ab;
+            --border-light: rgba(255, 255, 255, 0.18);
+            --border-color: rgba(255, 255, 255, 0.12);
+            
+            --grid-bg: rgba(15, 22, 18, 0.85);
+            --slot-border: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(52, 211, 153, 0.3); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(52, 211, 153, 0.5); }
+        
+        body {
+            background-color: transparent;
+            color: var(--text-main);
+            font-family: 'Segoe UI', "Microsoft YaHei", sans-serif;
+            margin: 0; padding: 20px;
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; user-select: none; overflow: hidden;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+        }
+
+        body::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(10, 15, 12, 0.45);
+            z-index: -1; pointer-events: none;
+        }
+
+        .plant-system {
+            display: flex; flex-direction: column; gap: 16px;
+            position: relative; z-index: 10;
+            background-image: 
+                radial-gradient(circle at center bottom, rgba(16, 185, 129, 0.25) 0%, transparent 65%),
+                linear-gradient(135deg, rgba(45, 58, 50, 0.96) 0%, rgba(24, 32, 28, 0.98) 100%);
+            padding: 18px; border-radius: 12px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.15);
+            width: 860px; height: 720px; flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .plant-system::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 20px 20px; pointer-events: none; z-index: 0;
+        }
+
+        .plant-system > * { position: relative; z-index: 10; }
+
+        .panel {
+            background: linear-gradient(180deg, rgba(50, 60, 53, 0.85) 0%, rgba(30, 38, 33, 0.95) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; padding: 16px;
+            display: flex; flex-direction: column; flex: 1;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.4), 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .panel-title {
+            font-size: 16px; font-weight: bold; color: var(--life-green);
+            margin-bottom: 14px; text-transform: uppercase; letter-spacing: 1px;
+            display: flex; align-items: center; width: 100%; flex-shrink: 0;
+            text-shadow: 0 0 10px rgba(52, 211, 153, 0.4);
+        }
+        .panel-title::before {
+            content: ''; display: inline-block; width: 4px; height: 16px; 
+            background-color: var(--life-green); margin-right: 8px; border-radius: 2px;
+            box-shadow: 0 0 8px rgba(52, 211, 153, 0.8);
+        }
+
+        .slot-box {
+            background-color: var(--grid-bg); border: 1px solid var(--border-color);
+            border-radius: 8px; padding: 12px; display: flex; flex-direction: column;
+            box-shadow: inset 0 3px 12px rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.05);
+            transition: all 0.2s ease;
+        }
+        .slot-box.clickable { cursor: pointer; }
+        .slot-box.clickable:hover {
+            border-color: var(--life-green); box-shadow: inset 0 0 15px rgba(16, 185, 129, 0.25);
+        }
+        
+        .slot-box.dashed {
+            background-color: rgba(15, 22, 18, 0.5); border: 1px dashed rgba(255,255,255,0.15);
+            justify-content: center; align-items: center; min-height: 80px;
+        }
+        .slot-box.dashed:hover { border-color: var(--life-green-dark); background-color: rgba(15, 22, 18, 0.8); }
+        .slot-box.dashed.fert-locked, .slot-box.dashed.fert-locked:hover { cursor: default; justify-content: flex-start; border-color: rgba(255,255,255,0.15); background-color: rgba(15, 22, 18, 0.5); }
+
+        .slot-box.active {
+            border-color: var(--life-green-dark);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(15, 22, 18, 0.85));
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2); color: #fff;
+        }
+
+        .icon-wrapper {
+            width: 44px; height: 44px; background-color: rgba(10, 15, 12, 0.8);
+            border: 1px solid var(--slot-border); border-radius: 6px;
+            display: flex; justify-content: center; align-items: center; flex-shrink: 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .status-box {
+            background-color: var(--grid-bg); border: 1px solid var(--border-color);
+            border-radius: 6px; padding: 10px 12px; display: flex; justify-content: space-between; align-items: center;
+            font-size: 13px; font-weight: bold; color: var(--text-dark);
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.6);
+        }
+
+        .plant-btn {
+            background: var(--life-green-dark); color: #fff; border: none; padding: 15px; 
+            border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; 
+            transition: all 0.2s; text-transform: uppercase; letter-spacing: 2px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); text-shadow: none; width: 100%;
+        }
+        .plant-btn:hover:not(:disabled) {
+            background: var(--life-green); box-shadow: 0 6px 20px rgba(52, 211, 153, 0.6); transform: translateY(-2px);
+        }
+        .plant-btn:disabled {
+            background: rgba(45, 55, 50, 0.8); color: rgba(255,255,255,0.3);
+            cursor: not-allowed; box-shadow: none;
+        }
+        /* 直达键键帽：样式对齐 SelectMenu 的 .menu-btn-hotkey，左右对称留白保证按钮文字仍居中 */
+        .plant-btn.has-hotkey { position: relative; padding-left: 52px; padding-right: 52px; }
+        .plant-btn-hotkey {
+            position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+            font-family: Consolas, monospace; font-size: 12px; font-weight: bold; line-height: 1;
+            letter-spacing: 0; text-transform: none;
+            padding: 3px 6px; min-width: 20px; max-width: 40px;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center;
+            color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.35); border-radius: 3px;
+            pointer-events: none;
+        }
+        .plant-btn:disabled .plant-btn-hotkey {
+            color: rgba(255,255,255,0.3); background: transparent; border-color: rgba(255,255,255,0.12);
+        }
+
+        .dropdown-menu {
+            position: absolute; left: 0; right: 0;
+            background: rgba(25, 32, 28, 0.98);
+            border: 1px solid var(--border-color); border-radius: 8px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.9); z-index: 1000;
+            max-height: 240px; overflow-y: auto; padding: 8px;
+            transition: all 0.2s;
+        }
+        .dropdown-item {
+            padding: 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; 
+            display: flex; align-items: center; gap: 12px; border: 1px solid transparent;
+        }
+
+        .text-glow { text-shadow: 0 0 10px rgba(52, 211, 153, 0.6); }
+        .text-glow-red { text-shadow: 0 0 10px rgba(224, 85, 85, 0.6); }
+
+        .env-pair { display: flex; gap: 16px; margin-top: 20px; position: relative; z-index: 10; }
+        .env-col  { flex: 1; display: flex; flex-direction: column; min-width: 0;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px; padding: 11px 12px; }
+        .env-head { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; }
+        .env-head svg  { width: 24px; height: 24px; flex-shrink: 0; }
+
+        .tag-ico { width: 14px; height: 14px; flex-shrink: 0; margin-right: 5px; opacity: 0.95; }
+        .env-head span { font-size: 12px; font-weight: bold; color: var(--text-dark); }
+        .env-concl { font-size: 14px; font-weight: 900; line-height: 1.2; white-space: nowrap; }
+        .env-concl.is-ok   { color: var(--life-green); text-shadow: 0 0 10px rgba(52, 211, 153, 0.6); }
+        .env-concl.is-bad  { color: var(--danger-red);  text-shadow: 0 0 10px rgba(224, 85, 85, 0.6); }
+        .env-concl.is-idle { color: rgba(160, 181, 171, 0.55); }
+        .env-reads { display: flex; gap: 16px; margin-top: 9px; flex-wrap: wrap; }
+        .env-read  { font-size: 11.5px; font-weight: 700; color: rgba(160, 181, 171, 0.8); text-shadow: none; }
+        .env-read b { font-family: monospace; font-size: 13px; font-weight: 800; color: #e8efec; margin-left: 5px; }
+        .env-read b.is-bad { color: var(--danger-red); }
+
+        .infl-bar { display: flex; align-items: center; gap: 7px; flex-wrap: wrap;
+            margin-top: 14px; position: relative; z-index: 20; }
+        .infl-tag { position: relative; display: inline-flex; align-items: center; cursor: default;
+            font-size: 11.5px; font-weight: 700; padding: 4px 9px; border-radius: 5px; text-shadow: none;
+            background: rgba(255,255,255,0.045); border: 1px solid rgba(255,255,255,0.13); color: #c8d5cf; }
+        .infl-tag.is-neg { background: rgba(232,163,90,0.1);  border-color: rgba(232,163,90,0.3);  color: #e8b184; }
+        .infl-tag.is-pos { background: rgba(16,185,129,0.1);  border-color: rgba(16,185,129,0.3);  color: var(--life-green); }
+        .infl-tag.is-off { background: rgba(224,85,85,0.12);  border-color: rgba(224,85,85,0.4);   color: var(--danger-red); }
+        .infl-tag:hover  { border-color: rgba(255,255,255,0.45); }
+
+        .infl-tip { position: absolute; left: 50%; transform: translateX(-50%); top: calc(100% + 8px);
+            min-width: 132px; padding: 9px 11px; background: rgba(20, 26, 22, 0.985);
+            border: 1px solid var(--border-color); border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.9); z-index: 60;
+            opacity: 0; visibility: hidden; text-shadow: none;
+            display: flex; flex-direction: column; gap: 5px; }
+        .infl-tag:hover .infl-tip { opacity: 1; visibility: visible; }
+        .infl-tip-title { font-size: 11.5px; font-weight: 800; color: var(--life-green);
+            letter-spacing: 0.5px; margin-bottom: 2px; white-space: nowrap; }
+        .infl-tip-row { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+        .infl-tip-row svg { width: 13px; height: 13px; flex-shrink: 0; }
+        .infl-tip-row b { font-family: monospace; font-size: 12.5px; font-weight: 800; margin-left: auto; }
+        .infl-tip-row b.d-plus  { color: var(--life-green); }
+        .infl-tip-row b.d-minus { color: #e8a35a; }
+        .infl-tip-row b.d-zero  { color: rgba(160, 181, 171, 0.5); }
+        .infl-tip-row b.d-base  { color: #e8efec; }
+
+        /* 底肥不满一盆：按份数折算，黄色提示 */
+        .slot-box.fert-partial { background: linear-gradient(90deg, rgba(251, 191, 36, 0.12), rgba(15, 22, 18, 0.85)) !important; border-color: rgba(251, 191, 36, 0.6) !important; }
+        .fert-partial-text { color: #fbbf24 !important; }
+        .fert-count { font-size: 10px; font-family: monospace; font-weight: 700; padding: 1px 5px; border-radius: 4px; background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .fert-count.full { color: var(--life-green); }
+        .fert-count.partial { color: #fbbf24; }
+        .fert-full-rate { text-decoration: line-through; opacity: 0.55; margin-left: 4px; }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="min-h-screen w-full flex items-center justify-center p-4 md:p-8 font-sans">
+        <div class="absolute inset-0 bg-black/50" @click="closeUI"></div>
+
+        <div v-if="state.facility" class="plant-system">
+            
+            <div class="flex items-center justify-between border-b border-[var(--border-color)] pb-3 shrink-0 bg-transparent">
+                <div class="flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[var(--life-green)] drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]">
+                        <path d="M11 20A7 7 0 0 1 14 6a7 7 0 0 1 7 7 7 7 0 0 1-7 7z"/><path d="M14 6L6 14"/><path d="M6 18A4 4 0 0 1 2 14c0-2.2 1.8-4 4-4"/>
+                    </svg>
+                    <h1 class="text-lg font-black text-[var(--text-main)] tracking-wider">{{ state.localText.titleText }}</h1>
+                </div>
+                <button @click="closeUI" class="text-[var(--text-dark)] hover:text-[var(--life-green)] bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,0,0,0.5)] transition-all p-1.5 rounded border border-transparent hover:border-[var(--border-color)] shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+
+            <div class="flex gap-5 flex-1 min-h-0">
+                <div class="panel">
+                    <div class="panel-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4 mr-2"><path d="M2 22v-5l5-5 5 5-5 5z"/><path d="M9.5 14.5 16 8"/><path d="m17 2 5 5-.5.5a3.53 3.53 0 0 1-5 0s0 0 0 0a3.53 3.53 0 0 1 0-5s0 0 0 0z"/></svg>
+                        {{ state.localText.envLabel }}
+                    </div>
+
+                    <div @click.stop="seedDropdownOpen = !seedDropdownOpen" ref="seedRef" class="relative group mt-1">
+                        
+                        <div v-if="selectedSeed" class="slot-box clickable active flex-row items-center justify-between p-3.5">
+                             <div class="flex items-center gap-4">
+                                 <div class="flex items-center justify-center shrink-0 w-14 h-14">
+                                     <img v-if="selectedSeed.icon" :src="selectedSeed.icon" class="w-full h-full object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform" />
+                                 </div>
+                                 <div class="flex flex-col">
+                                     <span class="text-[15px] font-bold text-white flex items-center gap-2">
+                                         {{ selectedSeed.name }}
+                                         <span v-if="selectedSeed.ownedCount >= requiredSeedCount" class="text-[11px] font-bold font-mono bg-[rgba(0,0,0,0.4)] px-1.5 py-0.5 rounded text-[var(--life-green)] border border-[rgba(255,255,255,0.1)]">
+                                             x{{ requiredSeedCount }}
+                                         </span>
+                                         <span v-else class="text-[11px] font-bold font-mono bg-[rgba(224,85,85,0.15)] px-1.5 py-0.5 rounded text-[var(--danger-red)] border border-[rgba(224,85,85,0.3)]">
+                                             x{{ selectedSeed.ownedCount }}
+                                         </span>
+                                     </span>
+                                     <span class="text-xs text-[var(--text-dark)] mt-1">{{ state.localText.seedInfoLabel }}</span>
+                                 </div>
+                             </div>
+                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4 text-[var(--life-green)] opacity-80"><polyline points="6 9 12 15 18 9"/></svg>
+                        </div>
+                        
+                        <div v-else class="slot-box clickable dashed">
+                            <div class="flex items-center gap-3 w-full pl-2">
+                                <div class="flex items-center justify-center shrink-0 w-12 h-12 group-hover:scale-110 transition-transform">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-8 h-8 text-[var(--text-dark)] group-hover:text-[var(--life-green)] drop-shadow-md"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                                </div>
+                                <span class="flex-1 text-sm font-bold text-[var(--text-dark)] group-hover:text-[var(--text-main)] transition-colors">{{ state.localText.selectSeedLabel }}</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4 text-[var(--text-dark)] group-hover:text-[var(--life-green)] transition-colors"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </div>
+
+                        <div :class="['dropdown-menu top-full mt-2 origin-top', seedDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible']">
+                            <div v-for="seed in sortedSeeds" :key="seed.index" @click.stop="selectSeed(seed.index)"
+                                 :class="['dropdown-item', isSeedFullyAvailable(seed) ? 'bg-[rgba(16,185,129,0.1)] border-[rgba(16,185,129,0.2)] hover:bg-[rgba(16,185,129,0.2)] hover:border-[var(--life-green-dark)]' : 'bg-[rgba(224,85,85,0.05)] border-[rgba(224,85,85,0.15)] opacity-70 hover:opacity-100 hover:bg-[rgba(224,85,85,0.1)] hover:border-[var(--danger-red)]']">
+                                <div class="flex items-center justify-center shrink-0 w-12 h-12 relative">
+                                    <img v-if="seed.icon" :src="seed.icon" class="w-10 h-10 object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform" />
+                                    <svg v-if="seed.hasStory" class="absolute top-0 right-0 w-4 h-4 pointer-events-none drop-shadow-[0_0_2px_rgba(0,0,0,0.9)]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="10" cy="10" r="6" fill="none" stroke="#FFE066" stroke-width="2.5"/>
+                                        <line x1="14.5" y1="14.5" x2="20" y2="20" stroke="#FFE066" stroke-width="3" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-[13px] font-bold text-white">{{ seed.name }}</span>
+                                        <span :class="['text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-black/50 border border-[rgba(255,255,255,0.1)]', seed.ownedCount >= seedRequiredCount(seed) ? 'text-[var(--life-green)]' : 'text-[var(--danger-red)]']">
+                                            {{ state.localText.needFillLabel }}: {{ seed.ownedCount }}/{{ seedRequiredCount(seed) }}
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center justify-end gap-3 mt-1.5 opacity-90">
+                                        <div class="flex items-center gap-1" :class="checkSeedEnv(seed).lightOk ? 'text-[var(--life-green)]' : 'text-[var(--danger-red)]'">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3 h-3"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                                            <span class="text-[10px] font-mono">{{ seed.lightNeed }}</span>
+                                        </div>
+                                        <div class="flex items-center gap-1" :class="checkSeedEnv(seed).tempOk ? 'text-[var(--life-green)]' : 'text-[var(--danger-red)]'">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3 h-3"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+                                            <span class="text-[10px] font-mono">{{ seed.coldResistance }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div v-if="sortedSeeds.length === 0" class="flex items-center justify-center py-4 text-[var(--text-dark)] text-xs font-bold">
+                                {{ state.localText.emptySeedText }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="env-pair">
+                        <div class="env-col">
+                            <div class="env-head">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-amber-500"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                                <span>{{ state.localText.lightStatusLabel }}</span>
+                            </div>
+                            <div :class="['env-concl', selectedSeed ? (state.selection.isLightOk ? 'is-ok' : 'is-bad') : 'is-idle']">
+                                {{ state.selection.lightStatusText || '—' }}
+                            </div>
+                            <div class="env-reads">
+                                <span v-if="selectedSeed" class="env-read">{{ state.localText.needFillLabel }}<b>{{ selectedSeed.lightNeed }}</b></span>
+                                <span class="env-read">{{ state.localText.currentLabel }}<b :class="selectedSeed && !state.selection.isLightOk ? 'is-bad' : ''">{{ state.facility.actualLight.toFixed(1) }}</b></span>
+                            </div>
+                        </div>
+
+                        <div class="env-col">
+                            <div class="env-head">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-blue-400"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+                                <span>{{ state.localText.tempStatusLabel }}</span>
+                            </div>
+                            <div :class="['env-concl', selectedSeed ? (state.selection.isTempOk ? 'is-ok' : 'is-bad') : 'is-idle']">
+                                {{ state.selection.tempStatusText || '—' }}
+                            </div>
+                            <div class="env-reads">
+                                <span v-if="selectedSeed" class="env-read">{{ state.localText.needFillLabel }}<b>{{ selectedSeed.coldResistance }}</b></span>
+                                <span class="env-read">{{ state.localText.currentLabel }}<b :class="selectedSeed && !state.selection.isTempOk ? 'is-bad' : ''">{{ state.facility.coldStress }}</b></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="infl-bar">
+                        <span v-for="src in envSources" :key="src.key" :class="['infl-tag', src.cls]">
+                            <svg class="tag-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round" v-html="src.ico"></svg>
+                            {{ src.name }}
+                            <span class="infl-tip">
+                                <span class="infl-tip-title">{{ src.name }}</span>
+                                <span v-if="src.light !== null" class="infl-tip-row">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-amber-500"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                                    <b :class="deltaCls(src.light, src.base)">{{ fmtDelta(src.light, src.base) }}</b>
+                                </span>
+                                <span v-if="src.temp !== null" class="infl-tip-row">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-blue-400"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+                                    <b :class="deltaCls(-src.temp, src.base)">{{ fmtDelta(src.temp, src.base) }}</b>
+                                </span>
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="slot-box mt-auto bg-[rgba(0,0,0,0.2)] !p-5">
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center justify-center shrink-0 w-16 h-16">
+                                <img v-if="state.facility.facilityIcon" :src="state.facility.facilityIcon" class="w-full h-full object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)]" />
+                                <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-12 h-12 text-[var(--life-green)] opacity-80"><path d="M4 10h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10Z"/><path d="M8 6h8V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2Z"/><line x1="12" y1="10" x2="12" y2="22"/></svg>
+                            </div>
+                            <div class="flex flex-col flex-1 min-w-0">
+                                <span class="text-lg font-black text-white leading-tight">{{ state.facility.facilityName }}</span>
+                                <div class="flex items-center justify-between mt-1.5">
+                                    <span class="text-xs font-bold text-[var(--text-dark)]">{{ state.localText.containerLabel }}</span>
+                                    <span class="text-xs font-bold text-[var(--life-green)] bg-black/50 px-2 py-1 rounded border border-[rgba(255,255,255,0.05)] shadow-inner shrink-0">
+                                        {{ state.localText.capacityLabel }}: {{ state.facility.capacity }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <span v-if="state.facility.facilityDesc" class="text-xs text-[var(--text-dark)] leading-relaxed mt-3 opacity-80">{{ state.facility.facilityDesc }}</span>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4 mr-2"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
+                        {{ state.localText.harvestLabel }}
+                    </div>
+
+                    <div v-if="selectedSeed" class="slot-box active flex-1 mb-4 border-[rgba(52,211,153,0.3)] shadow-[inset_0_0_30px_rgba(16,185,129,0.08)]">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center gap-4 bg-[rgba(0,0,0,0.4)] p-4 rounded-xl border border-[rgba(255,255,255,0.05)] shadow-inner">
+                                <div class="flex items-center justify-center shrink-0 w-16 h-16">
+                                    <img v-if="selectedSeed.plantIcon || selectedSeed.icon" :src="selectedSeed.plantIcon || selectedSeed.icon" class="w-full h-full object-contain drop-shadow-[0_6px_12px_rgba(0,0,0,0.6)]" />
+                                </div>
+                                <span class="text-lg font-black text-white">{{ selectedSeed.plantName }}</span>
+                            </div>
+                            <p class="text-[13px] text-[var(--text-dark)] leading-loose text-justify border-l-2 border-[var(--life-green-dark)] pl-3">
+                                {{ selectedSeed.plantDesc }}
+                            </p>
+                            <div v-if="selectedSeed.gainDesc" class="text-[11px] font-bold text-[var(--life-green)] leading-loose bg-[rgba(16,185,129,0.1)] px-2.5 py-1.5 rounded-md border border-[rgba(16,185,129,0.2)] mt-1 whitespace-pre-wrap">
+                                {{ selectedSeed.gainDesc }}
+                            </div>
+                        </div>
+                    </div>
+                    <div v-else class="slot-box dashed flex-1 mb-4 flex items-center justify-center">
+                        <span class="text-xs font-bold text-[var(--text-dark)]">{{ state.localText.selectSeedLabel }}</span>
+                    </div>
+
+                    <div class="flex flex-col gap-3 shrink-0">
+                        <div v-if="selectedSeed && selectedSeed.noBaseFert" class="slot-box dashed fert-locked flex-row items-center p-3 min-h-[58px]">
+                            <div class="flex items-center gap-2 pl-1">
+                                <div class="icon-wrapper w-6 h-6 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5 text-[var(--text-dark)]"><rect x="5" y="11" width="14" height="10" rx="2"/><path stroke-linecap="round" d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                                </div>
+                                <span class="text-xs font-bold text-[var(--text-dark)]">{{ state.localText.noBaseFertText }}</span>
+                            </div>
+                        </div>
+                        <div v-else @click.stop="fertDropdownOpen = !fertDropdownOpen" ref="fertRef" class="relative group">
+                            <div v-if="selectedFert" :class="['slot-box clickable flex-row items-center justify-between p-3', isFertPartial(selectedFert) ? 'fert-partial' : '']" style="background: linear-gradient(90deg, rgba(16, 185, 129, 0.15), rgba(15, 22, 18, 0.85)); border-color: var(--life-green-dark);">
+                                <div class="flex items-center gap-3">
+                                    <div class="flex items-center justify-center shrink-0 w-11 h-11">
+                                        <img v-if="selectedFert.icon" :src="selectedFert.icon" class="w-10 h-10 object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]" />
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span v-if="isFertPartial(selectedFert)" class="text-[11px] font-black fert-partial-text flex items-center gap-1.5">
+                                            {{ selectedFert.name }} {{ state.localText.fertShortText || '肥料数量不足' }} {{ selectedFert.ownedCount }}/{{ fertNeedCount() }}
+                                        </span>
+                                        <span v-else class="text-[11px] font-black text-[var(--life-green)] flex items-center gap-1.5">
+                                            {{ selectedFert.name }} {{ state.localText.activeLabel || '生效中' }}
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-3 h-3"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+                                        </span>
+                                        <span :class="['text-[10px] font-bold text-[var(--life-green)] opacity-80 mt-0.5', isFertPartial(selectedFert) ? 'fert-partial-text' : '']">
+                                            {{ state.localText.speedUpLabel || '生长速度提升' }} +{{ fmtRatePct(fertEffRate(selectedFert)) }}%<span v-if="isFertPartial(selectedFert)" class="fert-full-rate">+{{ fmtRatePct(selectedFert.speedRate) }}%</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4 text-[var(--life-green)] group-hover:text-[var(--life-green-light)] transition-colors"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                            
+                            <div v-else class="slot-box clickable dashed flex-row items-center justify-between p-3 min-h-[58px]">
+                                <div class="flex items-center gap-2 pl-1">
+                                    <div class="icon-wrapper w-6 h-6 rounded-full group-hover:border-[var(--life-green-dark)] group-hover:scale-105 transition-transform">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5 text-[var(--text-dark)] group-hover:text-[var(--life-green)]"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                                    </div>
+                                    <span class="text-xs font-bold text-[var(--text-dark)] group-hover:text-white transition-colors">{{ state.localText.emptyFertText }}</span>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4 mr-1 text-[var(--text-dark)] group-hover:text-[var(--life-green)] transition-colors"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+
+                            <div :class="['dropdown-menu bottom-full mb-2 origin-bottom', fertDropdownOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible']">
+                                <div @click.stop="selectFert(-1)" class="dropdown-item hover:bg-[rgba(224,85,85,0.1)] hover:border-[rgba(224,85,85,0.3)] text-[var(--text-dark)]">
+                                    <span class="text-xs font-bold ml-2">{{ state.localText.emptyFertText }}</span>
+                                </div>
+                                <div v-for="fert in state.ferts" :key="fert.index" @click.stop="selectFert(fert.index)" class="dropdown-item hover:bg-[rgba(16,185,129,0.1)] hover:border-[rgba(16,185,129,0.3)]">
+                                    <div class="flex items-center justify-center shrink-0 w-12 h-12 relative">
+                                        <img v-if="fert.icon" :src="fert.icon" class="w-10 h-10 object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]" />
+                                        <svg v-if="fert.hasStory" class="absolute top-0 right-0 w-4 h-4 pointer-events-none drop-shadow-[0_0_2px_rgba(0,0,0,0.9)]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="10" cy="10" r="6" fill="none" stroke="#FFE066" stroke-width="2.5"/>
+                                            <line x1="14.5" y1="14.5" x2="20" y2="20" stroke="#FFE066" stroke-width="3" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="flex flex-col flex-1">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-[13px] font-bold text-white">{{ fert.name }}</span>
+                                            <span :class="['fert-count', isFertPartial(fert) ? 'partial' : 'full']">{{ fert.ownedCount }}/{{ fertNeedCount() }}</span>
+                                        </div>
+                                        <div class="flex justify-between items-center mt-0.5">
+                                            <span v-if="selectedSeed && baseGrowthSeconds > 0" class="text-[10px] font-mono text-amber-400/80">
+                                                {{ formatGrowthTime(baseGrowthSeconds) }} → {{ formatTimeWithRate(baseGrowthSeconds, fertEffRate(fert)) }}
+                                            </span>
+                                            <span v-else></span>
+                                            <span :class="['text-[10px] font-bold text-[var(--life-green)]', isFertPartial(fert) ? 'fert-partial-text' : '']">+{{ fmtRatePct(fertEffRate(fert)) }}%<span v-if="isFertPartial(fert)" class="fert-full-rate">+{{ fmtRatePct(fert.speedRate) }}%</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="status-box !py-3">
+                            <div class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4 text-[var(--text-dark)]"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span class="text-[13px] font-bold">{{ state.localText.growthTimeLabel }}</span>
+                            </div>
+                            <span :class="['font-mono font-black text-2xl tracking-wide', selectedFert ? (isFertPartial(selectedFert) ? 'fert-partial-text' : 'text-[var(--life-green)] text-glow') : 'text-white']">
+                                {{ formatGrowthTime(state.selection.expectedGrowthSeconds) }}
+                            </span>
+                        </div>
+
+                        <div class="mt-2 flex flex-col gap-2">
+                            <div v-if="state.selection.warningText" class="flex items-center justify-center gap-2 text-[var(--danger-red)] text-sm font-bold bg-[rgba(224,85,85,0.1)] py-2.5 rounded-lg border border-[rgba(224,85,85,0.2)] shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                <span>{{ state.selection.warningText }}</span>
+                            </div>
+                            <button @click="startPlant" :disabled="!state.selection.canStartPlant" class="plant-btn" :class="{ 'has-hotkey': state.localText.startBtnKey }">
+                                {{ state.localText.startBtnText }}
+                                <span v-if="state.localText.startBtnKey" class="plant-btn-hotkey">{{ state.localText.startBtnKey }}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const { createApp, reactive, computed, ref, onMounted, onUnmounted } = Vue;
+
+const state = reactive({
+    facility: null,
+    seeds: [],
+    ferts: [],
+    selection: {},
+    localText: {}
+});
+
+const core = typeof createWebUICore !== 'undefined'
+    ? createWebUICore('PlantPanel')
+    : {
+        registerHandlers: () => {},
+        UnitySendEvent: (action, data) => console.log('Mock:', action, data),
+        notifyReady: () => console.log('Mock notifyReady')
+    };
+
+core.registerHandlers({
+    'WebUI_PlantPanel_FacilityMsg': (data) => { state.facility = data; },
+    'WebUI_PlantPanel_SeedMsg': (data) => { state.seeds = (data.seeds || []).map((s, index) => ({ ...s, index })); },
+    'WebUI_PlantPanel_FertMsg': (data) => { state.ferts = (data.ferts || []).map((f, index) => ({ ...f, index })); },
+    'WebUI_PlantPanel_SelectionMsg': (data) => { Object.assign(state.selection, data); },
+    'WebUI_PlantPanel_LocalizationMsg': (data) => { Object.assign(state.localText, data); }
+});
+
+const app = createApp({
+    setup() {
+        const seedDropdownOpen = ref(false);
+        const fertDropdownOpen = ref(false);
+        const seedRef = ref(null);
+        const fertRef = ref(null);
+
+        const requiredSeedCount = computed(() => {
+            if (state.selection && state.selection.requiredSeedCount > 0) {
+                return state.selection.requiredSeedCount;
+            }
+            if (state.facility && state.facility.capacity > 0) {
+                return state.facility.capacity;
+            }
+            return 1;
+        });
+
+        const selectedSeed = computed(() => {
+            const idx = state.selection.selectedSeedIndex;
+            return (idx >= 0 && idx < state.seeds.length) ? state.seeds[idx] : null;
+        });
+
+        const selectedFert = computed(() => {
+            const idx = state.selection.selectedFertIndex;
+            return (idx >= 0 && idx < state.ferts.length) ? state.ferts[idx] : null;
+        });
+
+        function checkSeedEnv(seed) {
+            if (!state.facility) return { lightOk: false, tempOk: false };
+            const lightOk = state.facility.actualLight >= seed.lightNeed;
+            const tempOk = state.facility.coldStress <= seed.coldResistance;
+            return { lightOk, tempOk };
+        }
+
+        function fmtNum(v) { return Number.isInteger(v) ? String(v) : String(Math.round(v * 10) / 10); }
+        function fmtDelta(v, base) {
+            if (v === null || v === undefined) return '—';
+            if (base) return fmtNum(v);
+            if (v > 0) return '+' + fmtNum(v);
+            if (v < 0) return '−' + fmtNum(-v);
+            return '0';
+        }
+        function deltaCls(v, base) {
+            if (v === null || v === undefined) return 'd-zero';
+            if (base) return 'd-base';
+            if (v > 0) return 'd-plus';
+            if (v < 0) return 'd-minus';
+            return 'd-zero';
+        }
+        function srcCls(s) {
+            if (s.off) return 'is-off';
+            if (s.base) return (s.temp > 0 || s.light === 0) ? 'is-neg' : '';
+            const good = (s.light > 0) || (s.temp < 0);
+            const bad  = (s.light < 0) || (s.temp > 0);
+            if (bad && !good) return 'is-neg';
+            if (good && !bad) return 'is-pos';
+            return '';
+        }
+        const ICO = {
+            sun:   '<circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2"/><path d="M12 19.2v2.2"/><path d="m5.2 5.2 1.6 1.6"/><path d="m17.2 17.2 1.6 1.6"/><path d="M2.6 12h2.2"/><path d="M19.2 12h2.2"/><path d="m6.8 17.2-1.6 1.6"/><path d="m18.8 5.2-1.6 1.6"/>',
+            cloud: '<path d="M17.5 18.5a4.2 4.2 0 0 0 .3-8.4 6.2 6.2 0 0 0-11.9 1.5 3.6 3.6 0 0 0 .6 7z"/>',
+            rain:  '<path d="M17.3 15.4a4 4 0 0 0 .3-8 6 6 0 0 0-11.5 1.4 3.5 3.5 0 0 0 .6 6.6"/><path d="M8.5 17.5 7.4 20"/><path d="M12.5 17.5 11.4 20"/><path d="M16.5 17.5 15.4 20"/>',
+            snow:  '<path d="M12 3v18"/><path d="M3.8 7.5l16.4 9"/><path d="M20.2 7.5l-16.4 9"/><path d="m9.4 4.9 2.6 2.2 2.6-2.2"/><path d="m9.4 19.1 2.6-2.2 2.6 2.2"/>',
+            fog:   '<path d="M17 12.6a3.6 3.6 0 0 0 .3-7.2 5.6 5.6 0 0 0-10.6 1.3A3.2 3.2 0 0 0 7 12.6"/><path d="M4.5 16.5h15"/><path d="M7.5 20h9"/>',
+            sunCold: '<circle cx="10" cy="12" r="3.6"/><path d="M10 4v1.8"/><path d="M10 18.2V20"/><path d="M2.6 12h1.8"/><path d="m4.6 6.6 1.3 1.3"/><path d="m4.6 17.4 1.3-1.3"/><path d="M19 4.5v7"/><path d="m16.4 6 2.6 2 2.6-2"/>',
+            house: '<path d="M3.5 10.8 12 4l8.5 6.8"/><path d="M5.8 9.8V20h12.4V9.8"/><path d="M10 20v-5h4v5"/>',
+            sunroom: '<path d="M3.5 11.5 12 5l8.5 6.5"/><path d="M5.8 10.6V20h12.4v-9.4"/><path d="M12 17.4v-4.6"/><path d="M9.7 15.1h4.6"/>',
+            balcony: '<path d="M2.5 9.5h19"/><path d="M2.5 20h19"/><path d="M5.5 9.5V20"/><path d="M12 9.5V20"/><path d="M18.5 9.5V20"/>',
+            cold:  '<rect x="3.5" y="4.5" width="17" height="15" rx="2.2"/><path d="M12 8.2v7.6"/><path d="m9 10 6 3.8"/><path d="m15 10-6 3.8"/>',
+            basement: '<path d="M2.5 6.5h19"/><path d="M6 6.5v13"/><path d="M18 6.5v13"/><path d="M12 10v7"/><path d="m9 14 3 3 3-3"/>',
+            bulb:  '<path d="M12 3a6 6 0 0 0-3.4 10.9V16h6.8v-2.1A6 6 0 0 0 12 3z"/><path d="M10 19.2h4"/>',
+            bolt:  '<path d="M13.2 2.5 4.8 13.4h6.2L10.8 21.5l8.4-10.9h-6.2z"/>',
+            boltOff: '<path d="M13.2 2.5 4.8 13.4h6.2L10.8 21.5l8.4-10.9h-6.2z"/><path d="M3.5 3.5 20.5 20.5"/>',
+            lamps: '<path d="M2.5 5.5h19"/><path d="M7 5.5v3"/><path d="M12 5.5v4.4"/><path d="M17 5.5v3"/><circle cx="7" cy="10.9" r="2.2"/><circle cx="12" cy="12.3" r="2.2"/><circle cx="17" cy="10.9" r="2.2"/>'
+        };
+        // 按 Config_Weather.ID 索引。13-17 是无尽危机专用天气（暴雨/持续阴雨走危机池 102，
+        // 寒雨 15-17 是"寒潮池+阴雨池"合成的 103），漏配会落兜底显示成晴天，
+        // 而它们恰好是最该被看见的极端天气。寒雨归 snow 是因为场景 Timeline 挂的就是 Snow 系列。
+        // 新增 Config_Weather 行时这里和 LogicAdapter.MapWeatherType 两处都要过一遍。
+        const WEATHER_ICO = {
+            1: ICO.sun, 2: ICO.cloud, 3: ICO.rain,
+            4: ICO.snow, 5: ICO.snow, 6: ICO.snow,
+            7: ICO.sunCold, 8: ICO.sunCold, 9: ICO.sunCold,
+            10: ICO.rain, 11: ICO.rain, 12: ICO.fog,
+            13: ICO.rain, 14: ICO.rain,
+            15: ICO.snow, 16: ICO.snow, 17: ICO.snow
+        };
+        const AREA_ICO = { 1: ICO.house, 2: ICO.sunroom, 3: ICO.balcony, 4: ICO.cold, 5: ICO.basement };
+
+        const envSources = computed(() => {
+            const f = state.facility;
+            if (!f) return [];
+            const list = [];
+            if (f.weatherName) {
+                list.push({ key: 'weather', name: f.weatherName, light: f.weatherLight, temp: f.weatherColdBase, base: true,
+                    ico: WEATHER_ICO[f.weatherId] || ICO.cloud });
+            }
+            if (f.areaName) {
+                list.push({
+                    key: 'area', name: f.areaName,
+                    light: Math.round((f.roomBaseLight - f.weatherLight) * 100) / 100,
+                    temp: -f.roomBaseHeat, base: false,
+                    ico: AREA_ICO[f.areaId] || ICO.house
+                });
+            }
+            if (f.facilityLightBonus > 0 || f.facilityHeatBonus > 0) {
+                list.push({
+                    key: 'facility', name: state.localText.facilityLabel,
+                    light: f.facilityLightBonus > 0 ? f.facilityLightBonus : null,
+                    temp: f.facilityHeatBonus > 0 ? -f.facilityHeatBonus : null, base: false,
+                    ico: ICO.bulb
+                });
+            }
+            if (f.electricLightBonus > 0 || f.electricHeatBonus > 0) {
+                list.push({
+                    key: 'power', name: state.localText.electricLabel,
+                    light: f.electricLightBonus > 0 ? f.electricLightBonus : null,
+                    temp: f.electricHeatBonus > 0 ? -f.electricHeatBonus : null, base: false,
+                    ico: ICO.bolt
+                });
+            }
+            if (f.needPower && !f.isPowerOn) {
+                list.push({ key: 'off', name: state.localText.powerOffLabel, light: null, temp: null, base: false, off: true, ico: ICO.boltOff });
+            }
+            if (f.commitLightBonus > 0 || f.commitHeatBonus > 0) {
+                list.push({
+                    key: 'commit', name: state.localText.commitLabel,
+                    light: f.commitLightBonus > 0 ? f.commitLightBonus : null,
+                    temp: f.commitHeatBonus > 0 ? -f.commitHeatBonus : null, base: false,
+                    ico: ICO.lamps
+                });
+            }
+            for (let i = 0; i < list.length; i++) list[i].cls = srcCls(list[i]);
+            return list;
+        });
+
+        function seedRequiredCount(seed) {
+            if (!state.facility || !state.facility.capacity || !seed || !seed.plantSize || seed.plantSize <= 0) return 0;
+            return Math.floor(state.facility.capacity / seed.plantSize);
+        }
+
+        function isSeedSizeOk(seed) {
+            if (!state.facility || !seed || !seed.plantSize) return false;
+            return seed.plantSize > 0 && seed.plantSize <= state.facility.capacity;
+        }
+
+        function isSeedFullyAvailable(seed) {
+            const env = checkSeedEnv(seed);
+            const required = seedRequiredCount(seed);
+            const countOk = required > 0 && seed.ownedCount >= required;
+            return isSeedSizeOk(seed) && env.lightOk && env.tempOk && countOk;
+        }
+
+        const sortedSeeds = computed(() => {
+            return [...state.seeds].sort((a, b) => {
+                const aAvail = isSeedFullyAvailable(a);
+                const bAvail = isSeedFullyAvailable(b);
+                if (aAvail === bAvail) return 0;
+                return aAvail ? -1 : 1;
+            });
+        });
+
+        function selectSeed(index) {
+            seedDropdownOpen.value = false;
+            core.UnitySendEvent('SELECT_SEED', { index: index });
+        }
+
+        function selectFert(index) {
+            fertDropdownOpen.value = false;
+            core.UnitySendEvent('SELECT_FERT', { index: index });
+        }
+
+        function startPlant() {
+            if (state.selection.canStartPlant) {
+                core.UnitySendEvent('START_PLANT', '{}');
+            }
+        }
+
+        function closeUI() {
+            core.UnitySendEvent('CLOSE', '{}');
+        }
+
+        function formatGrowthTime(seconds) {
+            if (!seconds || seconds <= 0) return '--';
+            var d = Math.floor(seconds / 86400);
+            var h = Math.floor((seconds % 86400) / 3600);
+            var m = Math.floor((seconds % 3600) / 60);
+            if (d > 0) return d + 'd ' + h + 'h ' + m + 'm';
+            if (h > 0) return h + 'h ' + m + 'm';
+            return m + 'm';
+        }
+        function formatTimeWithRate(seconds, speedRate) {
+            return formatGrowthTime(Math.max(1, Math.floor(seconds / (1 + speedRate))));
+        }
+
+        // 底肥一盆要几份 = 种植空间；不满一盆按 持有 / 需要 折算（同 PlantComponent.CalcBaseFertRatio）
+        function fertNeedCount() {
+            return (state.facility && state.facility.capacity > 0) ? state.facility.capacity : 1;
+        }
+        function fertRatio(fert) {
+            const need = fertNeedCount();
+            if (!fert || fert.ownedCount >= need) return 1;
+            return fert.ownedCount > 0 ? fert.ownedCount / need : 0;
+        }
+        function isFertPartial(fert) {
+            return !!fert && fertRatio(fert) < 1;
+        }
+        function fertEffRate(fert) {
+            return fert ? fert.speedRate * fertRatio(fert) : 0;
+        }
+        function fmtRatePct(rate) {
+            return Math.round(rate * 1000) / 10;
+        }
+
+        const baseGrowthSeconds = computed(() => {
+            const expected = state.selection.expectedGrowthSeconds;
+            if (!expected || expected <= 0) return 0;
+            if (selectedFert.value) {
+                return Math.round(expected * (1 + fertEffRate(selectedFert.value)));
+            }
+            return expected;
+        });
+
+        const handleClickOutside = (event) => {
+            if (seedDropdownOpen.value && seedRef.value && !seedRef.value.contains(event.target)) {
+                seedDropdownOpen.value = false;
+            }
+            if (fertDropdownOpen.value && fertRef.value && !fertRef.value.contains(event.target)) {
+                fertDropdownOpen.value = false;
+            }
+        };
+
+        onMounted(() => {
+            document.addEventListener('click', handleClickOutside);
+        });
+
+        onUnmounted(() => {
+            document.removeEventListener('click', handleClickOutside);
+        });
+
+        return {
+            state,
+            seedDropdownOpen,
+            fertDropdownOpen,
+            seedRef,
+            fertRef,
+            selectedSeed,
+            selectedFert,
+            requiredSeedCount,
+            sortedSeeds,
+            checkSeedEnv,
+            envSources,
+            fmtDelta,
+            deltaCls,
+            seedRequiredCount,
+            isSeedFullyAvailable,
+            selectSeed,
+            selectFert,
+            startPlant,
+            closeUI,
+            formatGrowthTime,
+            formatTimeWithRate,
+            fertNeedCount,
+            isFertPartial,
+            fertEffRate,
+            fmtRatePct,
+            baseGrowthSeconds
+        };
+    }
+});
+
+app.mount('#app');
+core.notifyReady();
+</script>
+</body>
+</html>

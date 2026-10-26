@@ -1,0 +1,269 @@
+[
+  {
+    "ID": 1,
+    "Type": 1,
+    "ActionID": 0,
+    "MapPoint": 0,
+    "Rate": 0.30000001192092896,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "PreIdle1",
+      "PreIdle2",
+      "PreIdle3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 2,
+    "Type": 2,
+    "ActionID": 1,
+    "MapPoint": 0,
+    "Rate": 0.10000000149011612,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "PreWalk1",
+      "PreWalk2",
+      "PreWalk3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 3,
+    "Type": 2,
+    "ActionID": 30,
+    "MapPoint": 0,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "PreReinforce1",
+      "PreReinforce2",
+      "PreReinforce3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 4,
+    "Type": 2,
+    "ActionID": 31,
+    "MapPoint": 0,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "PreObserve1",
+      "PreObserve2",
+      "PreObserve3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 5,
+    "Type": 2,
+    "ActionID": 32,
+    "MapPoint": 0,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "PreRadio1",
+      "PreRadio2",
+      "PreRadio3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 6,
+    "Type": 3,
+    "ActionID": 0,
+    "MapPoint": 2,
+    "Rate": 1.0,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PreSupermarket1",
+      "PreSupermarket2",
+      "PreSupermarket3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 7,
+    "Type": 3,
+    "ActionID": 0,
+    "MapPoint": 5,
+    "Rate": 1.0,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PreMarket1",
+      "PreMarket2",
+      "PreMarket3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 8,
+    "Type": 3,
+    "ActionID": 0,
+    "MapPoint": 3,
+    "Rate": 1.0,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PreConstruction1",
+      "PreConstruction2",
+      "PreConstruction3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 9,
+    "Type": 3,
+    "ActionID": 0,
+    "MapPoint": 4,
+    "Rate": 1.0,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PreCarDealer1",
+      "PreCarDealer2",
+      "PreCarDealer3"
+    ],
+    "PlayerSelectId": [
+      1,
+      2
+    ]
+  },
+  {
+    "ID": 10,
+    "Type": 3,
+    "ActionID": 0,
+    "MapPoint": 10,
+    "Rate": 1.0,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PreToolStore1",
+      "PreToolStore2",
+      "PreToolStore3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 11,
+    "Type": 3,
+    "ActionID": 0,
+    "MapPoint": 1,
+    "Rate": 1.0,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PreHome1",
+      "PreHome2",
+      "PreHome3",
+      "PreHome4"
+    ],
+    "PlayerSelectId": [
+      1,
+      2
+    ]
+  },
+  {
+    "ID": 12,
+    "Type": 3,
+    "ActionID": 0,
+    "MapPoint": 9,
+    "Rate": 1.0,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PreSmall_Market1",
+      "PreSmall_Market2",
+      "PreSmall_Market3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 13,
+    "Type": 3,
+    "ActionID": 0,
+    "MapPoint": 10,
+    "Rate": 1.0,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PreTools1",
+      "PreTools2",
+      "PreTools3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 14,
+    "Type": 3,
+    "ActionID": 0,
+    "MapPoint": 1000,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomThink": [
+      "PreOut1",
+      "PreOut2",
+      "PreOut3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 207,
+    "Type": 3,
+    "ActionID": 0,
+    "MapPoint": 5,
+    "Rate": 1.0,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PreMarket_NG_1",
+      "PreMarket_NG_2",
+      "PreMarket_NG_3"
+    ],
+    "PlayerSelectId": [
+      2
+    ]
+  },
+  {
+    "ID": 306,
+    "Type": 3,
+    "ActionID": 0,
+    "MapPoint": 2,
+    "Rate": 1.0,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PreSuperMarket_WH_1",
+      "PreSuperMarket_WH_2",
+      "PreSuperMarket_WH_3"
+    ],
+    "PlayerSelectId": [
+      3
+    ]
+  },
+  {
+    "ID": 309,
+    "Type": 3,
+    "ActionID": 0,
+    "MapPoint": 4,
+    "Rate": 1.0,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PreCarDealer_WH_1",
+      "PreCarDealer_WH_2",
+      "PreCarDealer_WH_3"
+    ],
+    "PlayerSelectId": [
+      3
+    ]
+  },
+  {
+    "ID": 311,
+    "Type": 3,
+    "ActionID": 0,
+    "MapPoint": 1,
+    "Rate": 1.0,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PreHome_WH_1",
+      "PreHome_WH_2",
+      "PreHome_WH_3"
+    ],
+    "PlayerSelectId": [
+      3
+    ]
+  }
+]

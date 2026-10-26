@@ -1,0 +1,186 @@
+[
+  {
+    "ID": 20501,
+    "Source": "纸片",
+    "FurnitureId": 205,
+    "ItemId": 20001,
+    "GroupName": "MaterialRack_Group_Basic",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20502,
+    "Source": "碎玻璃",
+    "FurnitureId": 205,
+    "ItemId": 20002,
+    "GroupName": "MaterialRack_Group_Basic",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20503,
+    "Source": "废塑料",
+    "FurnitureId": 205,
+    "ItemId": 20003,
+    "GroupName": "MaterialRack_Group_Basic",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20504,
+    "Source": "铁皮",
+    "FurnitureId": 205,
+    "ItemId": 20004,
+    "GroupName": "MaterialRack_Group_Basic",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20505,
+    "Source": "木片",
+    "FurnitureId": 205,
+    "ItemId": 20005,
+    "GroupName": "MaterialRack_Group_Basic",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20506,
+    "Source": "硬纸",
+    "FurnitureId": 205,
+    "ItemId": 20101,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20507,
+    "Source": "容器",
+    "FurnitureId": 205,
+    "ItemId": 20102,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20508,
+    "Source": "塑胶片",
+    "FurnitureId": 205,
+    "ItemId": 20103,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20509,
+    "Source": "铁丝",
+    "FurnitureId": 205,
+    "ItemId": 20104,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20510,
+    "Source": "木板",
+    "FurnitureId": 205,
+    "ItemId": 20106,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20511,
+    "Source": "集成电路",
+    "FurnitureId": 205,
+    "ItemId": 20371,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20512,
+    "Source": "铜线",
+    "FurnitureId": 205,
+    "ItemId": 20372,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20513,
+    "Source": "不锈钢板",
+    "FurnitureId": 205,
+    "ItemId": 20373,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20514,
+    "Source": "亚克力板",
+    "FurnitureId": 205,
+    "ItemId": 20374,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20515,
+    "Source": "杂色碎片",
+    "FurnitureId": 205,
+    "ItemId": 20105,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20516,
+    "Source": "木条",
+    "FurnitureId": 205,
+    "ItemId": 20376,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20517,
+    "Source": "胶合板",
+    "FurnitureId": 205,
+    "ItemId": 20377,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20518,
+    "Source": "碳纤维板",
+    "FurnitureId": 205,
+    "ItemId": 20378,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20519,
+    "Source": "电器元件",
+    "FurnitureId": 205,
+    "ItemId": 20210,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20520,
+    "Source": "精致铁皮",
+    "FurnitureId": 205,
+    "ItemId": 20360,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20521,
+    "Source": "钢化玻璃",
+    "FurnitureId": 205,
+    "ItemId": 20312,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20522,
+    "Source": "铁棍",
+    "FurnitureId": 205,
+    "ItemId": 20361,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  },
+  {
+    "ID": 20523,
+    "Source": "铁制零件",
+    "FurnitureId": 205,
+    "ItemId": 20362,
+    "GroupName": "MaterialRack_Group_Advanced",
+    "MaxCount": 0
+  }
+]

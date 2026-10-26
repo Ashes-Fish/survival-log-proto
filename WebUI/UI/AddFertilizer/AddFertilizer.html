@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddFertilizer</title>
+    <link rel="stylesheet" href="../../tailwind-static.css">
+    <script src="../../vue.runtime.global.prod.js"></script>
+<script>
+/* === [precompiled v1] === */
+(function(){var __wgArmed__=false;var __wgGaveUp__=false;var __wgReload__=function(missing){if(__wgArmed__||__wgGaveUp__)return;var m=/(?:^|;)wgr=(\d+)/.exec(window.name||"");var n=m?parseInt(m[1],10):0;if(n>=2){__wgGaveUp__=true;console.error("[WebUIGuard] "+missing+" still missing after "+n+" reloads, giving up: "+location.pathname);return;}__wgArmed__=true;window.name=(window.name||"").replace(/(?:^|;)wgr=\d+/,"")+";wgr="+(n+1);console.warn("[WebUIGuard] "+missing+" missing, reloading page ("+(n+1)+"/2): "+location.pathname);setTimeout(function(){location.reload();},300);};window.addEventListener("error",function(e){var msg=(e&&e.message)||"";var isCore=msg.indexOf("createWebUICore is not defined")>=0;if(!isCore&&msg.indexOf("Vue is not defined")<0)return;__wgReload__(isCore?"webui-core.js":"vue.runtime.global.prod.js");if(!__wgGaveUp__)e.preventDefault();});if(typeof Vue==="undefined"){__wgReload__("vue.runtime.global.prod.js");return;}document.addEventListener("DOMContentLoaded",function(){if(document.querySelector("script[src*=webui-core]")&&typeof window.createWebUICore==="undefined"){__wgReload__("webui-core.js");return;}if(!__wgArmed__&&window.name)window.name=window.name.replace(/(?:^|;)wgr=\d+/,"");});var __renderFactory__=function(Vue){const { createElementVNode: _createElementVNode, toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock, createCommentVNode: _createCommentVNode, createTextVNode: _createTextVNode, Fragment: _Fragment, withModifiers: _withModifiers, renderList: _renderList, normalizeClass: _normalizeClass } = Vue
+
+const _hoisted_1 = { class: "min-h-screen w-full flex items-center justify-center p-4" }
+const _hoisted_2 = {
+  key: 0,
+  class: "plant-system w-full max-w-[440px] p-7"
+}
+const _hoisted_3 = { class: "flex items-center justify-between border-b border-white/10 pb-4 mb-6" }
+const _hoisted_4 = { class: "flex items-center gap-3" }
+const _hoisted_5 = { class: "text-xl font-black text-white tracking-widest" }
+const _hoisted_6 = { class: "text-[var(--life-green)] font-black text-lg text-glow tracking-tighter" }
+const _hoisted_7 = {
+  class: "relative w-full z-20",
+  ref: "dropdownRef"
+}
+const _hoisted_8 = {
+  key: 0,
+  class: "slot-box clickable flex-row items-center justify-between p-3",
+  style: {"background":"linear-gradient(90deg, rgba(16, 185, 129, 0.15), rgba(15, 22, 18, 0.85))","border-color":"var(--life-green-dark)"}
+}
+const _hoisted_9 = { class: "flex items-center gap-3" }
+const _hoisted_10 = { class: "icon-wrapper w-8 h-8 bg-black" }
+const _hoisted_11 = ["src"]
+const _hoisted_12 = { class: "flex flex-col" }
+const _hoisted_13 = { class: "text-[11px] font-black text-[var(--life-green)] flex items-center gap-1.5" }
+const _hoisted_14 = { key: 0 }
+const _hoisted_15 = { class: "text-[10px] font-bold text-[var(--life-green)] opacity-80 mt-0.5" }
+const _hoisted_16 = {
+  key: 1,
+  class: "slot-box clickable dashed flex-row items-center justify-between p-3 min-h-[58px]"
+}
+const _hoisted_17 = { class: "flex items-center gap-2 pl-1" }
+const _hoisted_18 = { class: "text-xs font-bold text-[var(--text-dark)] group-hover:text-white transition-colors" }
+const _hoisted_19 = {
+  key: 2,
+  class: "dropdown-menu top-full mt-2"
+}
+const _hoisted_20 = { class: "text-xs font-bold ml-2" }
+const _hoisted_21 = ["onClick"]
+const _hoisted_22 = { class: "icon-wrapper bg-black w-8 h-8" }
+const _hoisted_23 = ["src"]
+const _hoisted_24 = { class: "flex flex-col flex-1" }
+const _hoisted_25 = { class: "flex justify-between items-center" }
+const _hoisted_26 = {
+  key: 0,
+  class: "text-[10px] font-bold text-[var(--life-green)]"
+}
+const _hoisted_27 = { class: "flex justify-between mt-1 items-center" }
+const _hoisted_28 = {
+  key: 0,
+  class: "text-[10px] font-mono text-amber-400/80"
+}
+const _hoisted_29 = {
+  key: 0,
+  class: "flex items-center justify-between px-4 py-3 mt-3 bg-black/40 rounded-lg border border-white/5 shadow-inner"
+}
+const _hoisted_30 = { class: "flex flex-col items-center" }
+const _hoisted_31 = { class: "text-[10px] text-[var(--text-dark)] font-bold mb-1" }
+const _hoisted_32 = { class: "text-sm font-bold text-white/60 line-through" }
+const _hoisted_33 = { class: "flex flex-col items-center" }
+const _hoisted_34 = { class: "text-[10px] text-[var(--life-green)] font-bold mb-1" }
+const _hoisted_35 = { class: "text-2xl font-black text-[#ffea00] tracking-tighter text-glow" }
+const _hoisted_36 = { class: "flex items-center gap-4 mt-10" }
+const _hoisted_37 = ["disabled"]
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createElementBlock("div", _hoisted_1, [
+    _createElementVNode("div", {
+      class: "absolute inset-0 bg-black/50",
+      onClick: _cache[0] || (_cache[0] = (...args) => (_ctx.cancel && _ctx.cancel(...args)))
+    }),
+    (_ctx.state.plantInfo)
+      ? (_openBlock(), _createElementBlock("div", _hoisted_2, [
+          _createElementVNode("div", _hoisted_3, [
+            _createElementVNode("div", _hoisted_4, [
+              _cache[5] || (_cache[5] = _createElementVNode("div", { class: "w-1.5 h-5 bg-[var(--life-green)] rounded-full shadow-[0_0_8px_var(--life-green)]" }, null, -1 /* CACHED */)),
+              _createElementVNode("h1", _hoisted_5, _toDisplayString(_ctx.isTillSoil ? (_ctx.state.localText.tillSoilTitle || '翻土作业') : (_ctx.state.localText.titleText || '施肥')), 1 /* TEXT */)
+            ]),
+            _createElementVNode("div", _hoisted_6, _toDisplayString(_ctx.state.plantInfo.plantName), 1 /* TEXT */)
+          ]),
+          _createElementVNode("div", _hoisted_7, [
+            _createElementVNode("div", {
+              onClick: _cache[2] || (_cache[2] = $event => (_ctx.dropdownOpen = !_ctx.dropdownOpen)),
+              class: "relative group"
+            }, [
+              (_ctx.selectedFert)
+                ? (_openBlock(), _createElementBlock("div", _hoisted_8, [
+                    _createElementVNode("div", _hoisted_9, [
+                      _createElementVNode("div", _hoisted_10, [
+                        (_ctx.selectedFert.icon)
+                          ? (_openBlock(), _createElementBlock("img", {
+                              key: 0,
+                              src: _ctx.selectedFert.icon,
+                              class: "w-5 h-5 object-contain"
+                            }, null, 8 /* PROPS */, _hoisted_11))
+                          : _createCommentVNode("v-if", true)
+                      ]),
+                      _createElementVNode("div", _hoisted_12, [
+                        _createElementVNode("span", _hoisted_13, [
+                          _createTextVNode(_toDisplayString(_ctx.selectedFert.name) + " ", 1 /* TEXT */),
+                          (!_ctx.isTillSoil)
+                            ? (_openBlock(), _createElementBlock("span", _hoisted_14, _toDisplayString(_ctx.state.localText.activeLabel || '生效中'), 1 /* TEXT */))
+                            : _createCommentVNode("v-if", true)
+                        ]),
+                        _createElementVNode("span", _hoisted_15, [
+                          (!_ctx.isTillSoil)
+                            ? (_openBlock(), _createElementBlock(_Fragment, { key: 0 }, [
+                                _createTextVNode(_toDisplayString(_ctx.state.localText.speedUpLabel || '生长速度提升') + " " + _toDisplayString(Math.round(_ctx.selectedFert.speedRate * 100)) + "%", 1 /* TEXT */)
+                              ], 64 /* STABLE_FRAGMENT */))
+                            : (_openBlock(), _createElementBlock(_Fragment, { key: 1 }, [
+                                _createTextVNode(_toDisplayString(_ctx.state.localText.costLabel || '库存消耗') + ": " + _toDisplayString(_ctx.selectedFert.costCount) + "/" + _toDisplayString(_ctx.selectedFert.ownedCount), 1 /* TEXT */)
+                              ], 64 /* STABLE_FRAGMENT */))
+                        ])
+                      ])
+                    ]),
+                    _cache[6] || (_cache[6] = _createElementVNode("svg", {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-width": "2.5",
+                      class: "w-4 h-4 text-[var(--life-green)] opacity-80"
+                    }, [
+                      _createElementVNode("polyline", { points: "6 9 12 15 18 9" })
+                    ], -1 /* CACHED */))
+                  ]))
+                : (_openBlock(), _createElementBlock("div", _hoisted_16, [
+                    _createElementVNode("div", _hoisted_17, [
+                      _cache[7] || (_cache[7] = _createElementVNode("div", { class: "icon-wrapper w-6 h-6 rounded-full group-hover:border-[var(--life-green-dark)] group-hover:scale-105 transition-transform" }, [
+                        _createElementVNode("svg", {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          "stroke-width": "2.5",
+                          stroke: "currentColor",
+                          class: "w-3.5 h-3.5 text-[var(--text-dark)] group-hover:text-[var(--life-green)]"
+                        }, [
+                          _createElementVNode("path", {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M12 4.5v15m7.5-7.5h-15"
+                          })
+                        ])
+                      ], -1 /* CACHED */)),
+                      _createElementVNode("span", _hoisted_18, _toDisplayString(_ctx.isTillSoil ? (_ctx.state.localText.tillSoilSelectText || '准备翻土（需要肥料）') : (_ctx.state.localText.selectFertText || '选择肥料')), 1 /* TEXT */)
+                    ]),
+                    _cache[8] || (_cache[8] = _createElementVNode("svg", {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-width": "2.5",
+                      class: "w-4 h-4 mr-1 text-[var(--text-dark)] group-hover:text-[var(--life-green)] transition-colors"
+                    }, [
+                      _createElementVNode("polyline", { points: "6 9 12 15 18 9" })
+                    ], -1 /* CACHED */))
+                  ])),
+              (_ctx.dropdownOpen)
+                ? (_openBlock(), _createElementBlock("div", _hoisted_19, [
+                    (_ctx.selectedFert)
+                      ? (_openBlock(), _createElementBlock("div", {
+                          key: 0,
+                          onClick: _cache[1] || (_cache[1] = _withModifiers((...args) => (_ctx.clearSelection && _ctx.clearSelection(...args)), ["stop"])),
+                          class: "dropdown-item hover:bg-[rgba(224,85,85,0.1)] hover:border-[rgba(224,85,85,0.3)] text-rose-400"
+                        }, [
+                          _createElementVNode("span", _hoisted_20, _toDisplayString(_ctx.state.localText.clearText || '取消当前选择'), 1 /* TEXT */)
+                        ]))
+                      : _createCommentVNode("v-if", true),
+                    (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.state.ferts, (fert) => {
+                      return (_openBlock(), _createElementBlock("div", {
+                        key: fert.index,
+                        onClick: _withModifiers($event => (_ctx.selectFert(fert.index)), ["stop"]),
+                        class: _normalizeClass(["dropdown-item", fert.ownedCount >= fert.costCount ? 'hover:bg-[rgba(16,185,129,0.1)] hover:border-[rgba(16,185,129,0.3)]' : 'fert-insufficient'])
+                      }, [
+                        _createElementVNode("div", _hoisted_22, [
+                          (fert.icon)
+                            ? (_openBlock(), _createElementBlock("img", {
+                                key: 0,
+                                src: fert.icon,
+                                class: "w-5 h-5 object-contain"
+                              }, null, 8 /* PROPS */, _hoisted_23))
+                            : _createCommentVNode("v-if", true)
+                        ]),
+                        _createElementVNode("div", _hoisted_24, [
+                          _createElementVNode("div", _hoisted_25, [
+                            _createElementVNode("span", {
+                              class: _normalizeClass(['text-[13px] font-bold', fert.ownedCount >= fert.costCount ? 'text-white' : 'text-rose-400'])
+                            }, _toDisplayString(fert.name), 3 /* TEXT, CLASS */),
+                            (!_ctx.isTillSoil)
+                              ? (_openBlock(), _createElementBlock("span", _hoisted_26, "+" + _toDisplayString(Math.round(fert.speedRate * 100)) + "%", 1 /* TEXT */))
+                              : _createCommentVNode("v-if", true)
+                          ]),
+                          _createElementVNode("div", _hoisted_27, [
+                            _createElementVNode("span", {
+                              class: _normalizeClass(['text-[10px] font-bold', fert.ownedCount >= fert.costCount ? 'text-emerald-400' : 'text-rose-400'])
+                            }, _toDisplayString(fert.costCount) + "/" + _toDisplayString(fert.ownedCount), 3 /* TEXT, CLASS */),
+                            (!_ctx.isTillSoil)
+                              ? (_openBlock(), _createElementBlock("span", _hoisted_28, _toDisplayString(_ctx.formatTime(_ctx.state.plantInfo.remainSeconds)) + " → " + _toDisplayString(_ctx.formatTimeWithRate(_ctx.state.plantInfo.remainSeconds, fert.speedRate)), 1 /* TEXT */))
+                              : _createCommentVNode("v-if", true)
+                          ])
+                        ])
+                      ], 10 /* CLASS, PROPS */, _hoisted_21))
+                    }), 128 /* KEYED_FRAGMENT */))
+                  ]))
+                : _createCommentVNode("v-if", true)
+            ]),
+            (_ctx.selectedFert && !_ctx.isTillSoil)
+              ? (_openBlock(), _createElementBlock("div", _hoisted_29, [
+                  _createElementVNode("div", _hoisted_30, [
+                    _createElementVNode("span", _hoisted_31, _toDisplayString(_ctx.state.localText.currentLabel || '当前'), 1 /* TEXT */),
+                    _createElementVNode("span", _hoisted_32, _toDisplayString(_ctx.formatTime(_ctx.state.plantInfo.remainSeconds)), 1 /* TEXT */)
+                  ]),
+                  _cache[9] || (_cache[9] = _createElementVNode("svg", {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    class: "w-5 h-5 text-[var(--life-green)] opacity-50",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "3"
+                  }, [
+                    _createElementVNode("path", { d: "M13 5l7 7-7 7M5 5l7 7-7 7" })
+                  ], -1 /* CACHED */)),
+                  _createElementVNode("div", _hoisted_33, [
+                    _createElementVNode("span", _hoisted_34, _toDisplayString(_ctx.state.localText.acceleratedLabel || '加速后'), 1 /* TEXT */),
+                    _createElementVNode("span", _hoisted_35, _toDisplayString(_ctx.formatTime(_ctx.state.selection.newRemainSeconds)), 1 /* TEXT */)
+                  ])
+                ]))
+              : _createCommentVNode("v-if", true)
+          ], 512 /* NEED_PATCH */),
+          _createElementVNode("div", _hoisted_36, [
+            _createElementVNode("button", {
+              onClick: _cache[3] || (_cache[3] = (...args) => (_ctx.cancel && _ctx.cancel(...args))),
+              class: "plant-btn flex-1 !bg-stone-800/80 hover:!bg-stone-700 !shadow-none border border-white/5 text-white/70"
+            }, _toDisplayString(_ctx.state.localText.cancelBtnText || '取消'), 1 /* TEXT */),
+            _createElementVNode("button", {
+              onClick: _cache[4] || (_cache[4] = (...args) => (_ctx.confirm && _ctx.confirm(...args))),
+              disabled: !_ctx.state.selection.canConfirm,
+              class: "plant-btn flex-1"
+            }, _toDisplayString(_ctx.state.localText.confirmBtnText || '执行作业'), 9 /* TEXT, PROPS */, _hoisted_37)
+          ])
+        ]))
+      : _createCommentVNode("v-if", true)
+  ]))
+}};var __renderCache__=null;var __origCreateApp__=Vue.createApp;Vue.createApp=function(opts){if(!__renderCache__)__renderCache__=__renderFactory__(Vue);if(opts&&typeof opts==="object"&&!opts.render&&!opts.template){opts=Object.assign({},opts,{render:__renderCache__});}var app=__origCreateApp__.call(this,opts);if(!app.config.errorHandler){app.config.errorHandler=function(err){var msg=(err&&err.message)||String(err||"");if(msg.indexOf("createWebUICore is not defined")>=0){__wgReload__("webui-core.js");if(__wgGaveUp__)console.error(err);return;}console.error(err);};}return app;};})();
+/* === [/precompiled v1] === */
+</script>
+    <script src="../../webui-core.js"></script>
+    <style>
+        :root {
+            --bg-dark: rgba(24, 32, 28, 0.85);
+            --panel-bg: rgba(36, 45, 40, 0.95);
+            --life-green: #34d399;
+            --life-green-dark: #10b981;
+            --text-main: #fcfcfc;
+            --text-dark: #a0b5ab;
+            --border-light: rgba(255, 255, 255, 0.18);
+            --border-color: rgba(255, 255, 255, 0.12);
+            --grid-bg: rgba(15, 22, 18, 0.85);
+            --slot-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body { 
+            background: transparent; margin: 0; overflow: hidden; user-select: none; 
+            font-family: 'Segoe UI', "Microsoft YaHei", sans-serif;
+            color: var(--text-main); text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+        }
+
+        .plant-system {
+            position: relative; z-index: 10;
+            background-image: 
+                radial-gradient(circle at center bottom, rgba(16, 185, 129, 0.25) 0%, transparent 65%),
+                linear-gradient(135deg, rgba(45, 58, 50, 0.96) 0%, rgba(24, 32, 28, 0.98) 100%);
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.15);
+        }
+
+        .plant-system::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 20px 20px; pointer-events: none; z-index: 0; border-radius: 12px;
+        }
+
+        .slot-box {
+            background-color: var(--grid-bg); border: 1px solid var(--border-color);
+            border-radius: 8px; padding: 12px; display: flex; flex-direction: column;
+            box-shadow: inset 0 3px 12px rgba(0,0,0,0.7); transition: all 0.2s ease;
+        }
+        .slot-box.clickable { cursor: pointer; }
+        .slot-box.clickable:hover { border-color: var(--life-green); box-shadow: inset 0 0 15px rgba(16, 185, 129, 0.15); }
+
+        .slot-box.active {
+            border-color: var(--life-green-dark);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(15, 22, 18, 0.85));
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+        }
+
+        .icon-wrapper {
+            width: 48px; height: 48px; background-color: rgba(10, 15, 12, 0.8);
+            border: 1px solid var(--slot-border); border-radius: 6px;
+            display: flex; justify-content: center; align-items: center; flex-shrink: 0;
+        }
+
+        .plant-btn {
+            background: var(--life-green-dark); color: #fff; border: none; padding: 12px; 
+            border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; 
+            transition: all 0.2s; text-transform: uppercase; letter-spacing: 2px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+        .plant-btn:hover:not(:disabled) { background: var(--life-green); transform: translateY(-1px); }
+        .plant-btn:disabled { background: rgba(45, 55, 50, 0.8); color: rgba(255,255,255,0.3); cursor: not-allowed; }
+
+        .dropdown-menu {
+            position: absolute; left: 0; right: 0;
+            background: rgba(25, 32, 28, 0.98);
+            border: 1px solid var(--border-color); border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9); z-index: 1000;
+            max-height: 280px; overflow-y: auto; padding: 8px;
+        }
+        .dropdown-item {
+            padding: 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; 
+            display: flex; align-items: center; gap: 10px; border: 1px solid transparent;
+        }
+        .dropdown-item:hover { background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3); }
+
+        .dropdown-item.fert-insufficient { cursor: not-allowed; opacity: 0.6; }
+        .dropdown-item.fert-insufficient:hover { background: rgba(224, 85, 85, 0.08); border-color: rgba(224, 85, 85, 0.35); }
+
+        .text-glow { text-shadow: 0 0 10px rgba(52, 211, 153, 0.6); }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <div class="min-h-screen w-full flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/50" @click="cancel"></div>
+
+        <div v-if="state.plantInfo" class="plant-system w-full max-w-[440px] p-7">
+            
+            <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-5 bg-[var(--life-green)] rounded-full shadow-[0_0_8px_var(--life-green)]"></div>
+                    <h1 class="text-xl font-black text-white tracking-widest">{{ isTillSoil ? (state.localText.tillSoilTitle || '翻土作业') : (state.localText.titleText || '施肥') }}</h1>
+                </div>
+                <div class="text-[var(--life-green)] font-black text-lg text-glow tracking-tighter">
+                    {{ state.plantInfo.plantName }}
+                </div>
+            </div>
+
+            <div class="relative w-full z-20" ref="dropdownRef">
+                <div @click="dropdownOpen = !dropdownOpen" class="relative group">
+                    <div v-if="selectedFert" class="slot-box clickable flex-row items-center justify-between p-3" style="background: linear-gradient(90deg, rgba(16, 185, 129, 0.15), rgba(15, 22, 18, 0.85)); border-color: var(--life-green-dark);">
+                        <div class="flex items-center gap-3">
+                            <div class="icon-wrapper w-8 h-8 bg-black">
+                                <img v-if="selectedFert.icon" :src="selectedFert.icon" class="w-5 h-5 object-contain" />
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[11px] font-black text-[var(--life-green)] flex items-center gap-1.5">
+                                    {{ selectedFert.name }}
+                                    <span v-if="!isTillSoil">{{ state.localText.activeLabel || '生效中' }}</span>
+                                </span>
+                                <span class="text-[10px] font-bold text-[var(--life-green)] opacity-80 mt-0.5">
+                                    <template v-if="!isTillSoil">{{ state.localText.speedUpLabel || '生长速度提升' }} {{ Math.round(selectedFert.speedRate * 100) }}%</template>
+                                    <template v-else>{{ state.localText.costLabel || '库存消耗' }}: {{ selectedFert.costCount }}/{{ selectedFert.ownedCount }}</template>
+                                </span>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4 text-[var(--life-green)] opacity-80"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+
+                    <div v-else class="slot-box clickable dashed flex-row items-center justify-between p-3 min-h-[58px]">
+                        <div class="flex items-center gap-2 pl-1">
+                            <div class="icon-wrapper w-6 h-6 rounded-full group-hover:border-[var(--life-green-dark)] group-hover:scale-105 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5 text-[var(--text-dark)] group-hover:text-[var(--life-green)]"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                            </div>
+                            <span class="text-xs font-bold text-[var(--text-dark)] group-hover:text-white transition-colors">{{ isTillSoil ? (state.localText.tillSoilSelectText || '准备翻土（需要肥料）') : (state.localText.selectFertText || '选择肥料') }}</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4 mr-1 text-[var(--text-dark)] group-hover:text-[var(--life-green)] transition-colors"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+
+                    <div v-if="dropdownOpen" class="dropdown-menu top-full mt-2">
+                        <div v-if="selectedFert" @click.stop="clearSelection" class="dropdown-item hover:bg-[rgba(224,85,85,0.1)] hover:border-[rgba(224,85,85,0.3)] text-rose-400">
+                            <span class="text-xs font-bold ml-2">{{ state.localText.clearText || '取消当前选择' }}</span>
+                        </div>
+                        <div v-for="fert in state.ferts" :key="fert.index" @click.stop="selectFert(fert.index)" class="dropdown-item" :class="fert.ownedCount >= fert.costCount ? 'hover:bg-[rgba(16,185,129,0.1)] hover:border-[rgba(16,185,129,0.3)]' : 'fert-insufficient'">
+                            <div class="icon-wrapper bg-black w-8 h-8">
+                                <img v-if="fert.icon" :src="fert.icon" class="w-5 h-5 object-contain" />
+                            </div>
+                            <div class="flex flex-col flex-1">
+                                <div class="flex justify-between items-center">
+                                    <span :class="['text-[13px] font-bold', fert.ownedCount >= fert.costCount ? 'text-white' : 'text-rose-400']">{{ fert.name }}</span>
+                                    <span v-if="!isTillSoil" class="text-[10px] font-bold text-[var(--life-green)]">+{{ Math.round(fert.speedRate * 100) }}%</span>
+                                </div>
+                                <div class="flex justify-between mt-1 items-center">
+                                    <span :class="['text-[10px] font-bold', fert.ownedCount >= fert.costCount ? 'text-emerald-400' : 'text-rose-400']">{{ fert.costCount }}/{{ fert.ownedCount }}</span>
+                                    <span v-if="!isTillSoil" class="text-[10px] font-mono text-amber-400/80">{{ formatTime(state.plantInfo.remainSeconds) }} → {{ formatTimeWithRate(state.plantInfo.remainSeconds, fert.speedRate) }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="selectedFert && !isTillSoil" class="flex items-center justify-between px-4 py-3 mt-3 bg-black/40 rounded-lg border border-white/5 shadow-inner">
+                    <div class="flex flex-col items-center">
+                        <span class="text-[10px] text-[var(--text-dark)] font-bold mb-1">{{ state.localText.currentLabel || '当前' }}</span>
+                        <span class="text-sm font-bold text-white/60 line-through">{{ formatTime(state.plantInfo.remainSeconds) }}</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[var(--life-green)] opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M13 5l7 7-7 7M5 5l7 7-7 7" /></svg>
+                    <div class="flex flex-col items-center">
+                        <span class="text-[10px] text-[var(--life-green)] font-bold mb-1">{{ state.localText.acceleratedLabel || '加速后' }}</span>
+                        <span class="text-2xl font-black text-[#ffea00] tracking-tighter text-glow">{{ formatTime(state.selection.newRemainSeconds) }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4 mt-10">
+                <button @click="cancel" class="plant-btn flex-1 !bg-stone-800/80 hover:!bg-stone-700 !shadow-none border border-white/5 text-white/70">
+                    {{ state.localText.cancelBtnText || '取消' }}
+                </button>
+                <button @click="confirm" :disabled="!state.selection.canConfirm" class="plant-btn flex-1">
+                    {{ state.localText.confirmBtnText || '执行作业' }}
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+const { createApp, reactive, computed, ref, onMounted, onUnmounted } = Vue;
+
+const state = reactive({
+    plantInfo: null,
+    ferts: [],
+    selection: { selectedFertIndex: -1, newRemainSeconds: 0, canConfirm: false },
+    localText: {}
+});
+
+const core = typeof createWebUICore !== 'undefined'
+    ? createWebUICore('AddFertilizer')
+    : {
+        registerHandlers: () => {},
+        UnitySendEvent: (action, data) => console.log('Mock:', action, data),
+        notifyReady: () => console.log('Mock notifyReady')
+    };
+
+core.registerHandlers({
+    'WebUI_AddFertilizer_PlantInfoMsg': (data) => { state.plantInfo = data; },
+    'WebUI_AddFertilizer_FertMsg': (data) => { state.ferts = (data.ferts || []).map((f, index) => ({ ...f, index })); },
+    'WebUI_AddFertilizer_SelectionMsg': (data) => { Object.assign(state.selection, data); },
+    'WebUI_AddFertilizer_LocalizationMsg': (data) => { Object.assign(state.localText, data); }
+});
+
+const app = createApp({
+    setup() {
+        const dropdownOpen = ref(false);
+        const dropdownRef = ref(null);
+
+        const isTillSoil = computed(() => state.plantInfo && state.plantInfo.mode === 1);
+        const selectedFert = computed(() => {
+            const idx = state.selection.selectedFertIndex;
+            return (idx >= 0 && idx < state.ferts.length) ? state.ferts[idx] : null;
+        });
+
+        const handleClickOutside = (event) => {
+            if (dropdownRef.value && !dropdownRef.value.contains(event.target)) {
+                dropdownOpen.value = false;
+            }
+        };
+
+        onMounted(() => { document.addEventListener('click', handleClickOutside); });
+        onUnmounted(() => { document.removeEventListener('click', handleClickOutside); });
+
+        function selectFert(index) {
+            const fert = state.ferts[index];
+            if (fert && fert.ownedCount < fert.costCount) {
+                core.UnitySendEvent('SELECT_FERT', { index });
+                return;
+            }
+            dropdownOpen.value = false;
+            core.UnitySendEvent('SELECT_FERT', { index });
+        }
+        function clearSelection() {
+            dropdownOpen.value = false;
+            core.UnitySendEvent('SELECT_FERT', { index: -1 });
+        }
+        function cancel() { core.UnitySendEvent('CLOSE', '{}'); }
+        function confirm() { if (state.selection.canConfirm) core.UnitySendEvent('CONFIRM', '{}'); }
+        
+        function formatTime(seconds) {
+            if (!seconds || seconds <= 0) return '--';
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            return h > 0 ? `${h}h ${m}m` : `${m}m`;
+        }
+        function formatTimeWithRate(seconds, speedRate) {
+            return formatTime(Math.max(1, Math.floor(seconds / (1 + speedRate))));
+        }
+
+        return {
+            state, dropdownOpen, dropdownRef, isTillSoil, selectedFert,
+            selectFert, clearSelection, cancel, confirm,
+            formatTime, formatTimeWithRate
+        };
+    }
+});
+
+app.mount('#app');
+core.notifyReady();
+</script>
+</body>
+</html>

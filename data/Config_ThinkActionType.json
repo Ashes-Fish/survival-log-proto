@@ -1,0 +1,1170 @@
+[
+  {
+    "ID": 1,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 1,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think1_1",
+      "Think1_2",
+      "Think1_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 2,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 2,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think2_1",
+      "Think2_2",
+      "Think2_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 3,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 3,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think3_1",
+      "Think3_2",
+      "Think3_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 4,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 4,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think4_1",
+      "Think4_2",
+      "Think4_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 5,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 5,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think5_1",
+      "Think5_2",
+      "Think5_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 6,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 6,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think6_1",
+      "Think6_2",
+      "Think6_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 7,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 7,
+    "Rate": 0.10000000149011612,
+    "TypeCD": 10800,
+    "RandomThink": [
+      "Think7_1",
+      "Think7_2",
+      "Think7_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 8,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 8,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think8_1",
+      "Think8_2",
+      "Think8_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 9,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 9,
+    "Rate": 0.30000001192092896,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think9_1",
+      "Think9_2",
+      "Think9_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10011,
+    "BuffID": 1001,
+    "BuffPower": 50,
+    "ActionType": 1,
+    "Rate": 1.0,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10011_1",
+      "Think10011_2",
+      "Think10011_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10012,
+    "BuffID": 1001,
+    "BuffPower": 50,
+    "ActionType": 2,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think10012_1",
+      "Think10012_2",
+      "Think10012_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10013,
+    "BuffID": 1001,
+    "BuffPower": 50,
+    "ActionType": 3,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think10013_1",
+      "Think10013_2",
+      "Think10013_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10014,
+    "BuffID": 1001,
+    "BuffPower": 50,
+    "ActionType": 4,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think10014_1",
+      "Think10014_2",
+      "Think10014_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10015,
+    "BuffID": 1001,
+    "BuffPower": 50,
+    "ActionType": 5,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think10015_1",
+      "Think10015_2",
+      "Think10015_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10016,
+    "BuffID": 1001,
+    "BuffPower": 50,
+    "ActionType": 6,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think10016_1",
+      "Think10016_2",
+      "Think10016_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10017,
+    "BuffID": 1001,
+    "BuffPower": 50,
+    "ActionType": 7,
+    "Rate": 0.10000000149011612,
+    "TypeCD": 10800,
+    "RandomThink": [
+      "Think10017_1",
+      "Think10017_2",
+      "Think10017_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10018,
+    "BuffID": 1001,
+    "BuffPower": 50,
+    "ActionType": 8,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think10018_1",
+      "Think10018_2",
+      "Think10018_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10019,
+    "BuffID": 1001,
+    "BuffPower": 50,
+    "ActionType": 9,
+    "Rate": 0.30000001192092896,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10019_1",
+      "Think10019_2",
+      "Think10019_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10021,
+    "BuffID": 1002,
+    "BuffPower": 200,
+    "ActionType": 1,
+    "Rate": 1.0,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10021_1",
+      "Think10021_2",
+      "Think10021_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10022,
+    "BuffID": 1002,
+    "BuffPower": 200,
+    "ActionType": 2,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10022_1",
+      "Think10022_2",
+      "Think10022_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10023,
+    "BuffID": 1002,
+    "BuffPower": 200,
+    "ActionType": 3,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10023_1",
+      "Think10023_2",
+      "Think10023_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10024,
+    "BuffID": 1002,
+    "BuffPower": 200,
+    "ActionType": 4,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10024_1",
+      "Think10024_2",
+      "Think10024_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10025,
+    "BuffID": 1002,
+    "BuffPower": 200,
+    "ActionType": 5,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10025_1",
+      "Think10025_2",
+      "Think10025_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10026,
+    "BuffID": 1002,
+    "BuffPower": 200,
+    "ActionType": 6,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10026_1",
+      "Think10026_2",
+      "Think10026_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10027,
+    "BuffID": 1002,
+    "BuffPower": 200,
+    "ActionType": 7,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10027_1",
+      "Think10027_2",
+      "Think10027_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10028,
+    "BuffID": 1002,
+    "BuffPower": 200,
+    "ActionType": 8,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10028_1",
+      "Think10028_2",
+      "Think10028_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10029,
+    "BuffID": 1002,
+    "BuffPower": 200,
+    "ActionType": 9,
+    "Rate": 0.30000001192092896,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10029_1",
+      "Think10029_2",
+      "Think10029_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10031,
+    "BuffID": 1003,
+    "BuffPower": 50,
+    "ActionType": 1,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10031_1",
+      "Think10031_2",
+      "Think10031_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10032,
+    "BuffID": 1003,
+    "BuffPower": 50,
+    "ActionType": 2,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10032_1",
+      "Think10032_2",
+      "Think10032_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10033,
+    "BuffID": 1003,
+    "BuffPower": 50,
+    "ActionType": 3,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10033_1",
+      "Think10033_2",
+      "Think10033_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10034,
+    "BuffID": 1003,
+    "BuffPower": 50,
+    "ActionType": 4,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10034_1",
+      "Think10034_2",
+      "Think10034_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10035,
+    "BuffID": 1003,
+    "BuffPower": 50,
+    "ActionType": 5,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10035_1",
+      "Think10035_2",
+      "Think10035_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10036,
+    "BuffID": 1003,
+    "BuffPower": 50,
+    "ActionType": 6,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10036_1",
+      "Think10036_2",
+      "Think10036_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10037,
+    "BuffID": 1003,
+    "BuffPower": 50,
+    "ActionType": 7,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10037_1",
+      "Think10037_2",
+      "Think10037_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10038,
+    "BuffID": 1003,
+    "BuffPower": 50,
+    "ActionType": 8,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10038_1",
+      "Think10038_2",
+      "Think10038_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10039,
+    "BuffID": 1003,
+    "BuffPower": 50,
+    "ActionType": 9,
+    "Rate": 0.30000001192092896,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10039_1",
+      "Think10039_2",
+      "Think10039_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10041,
+    "BuffID": 1004,
+    "BuffPower": 50,
+    "ActionType": 1,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10041_1",
+      "Think10041_2",
+      "Think10041_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10042,
+    "BuffID": 1004,
+    "BuffPower": 50,
+    "ActionType": 2,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10042_1",
+      "Think10042_2",
+      "Think10042_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10043,
+    "BuffID": 1004,
+    "BuffPower": 50,
+    "ActionType": 3,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10043_1",
+      "Think10043_2",
+      "Think10043_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10044,
+    "BuffID": 1004,
+    "BuffPower": 50,
+    "ActionType": 4,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10044_1",
+      "Think10044_2",
+      "Think10044_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10045,
+    "BuffID": 1004,
+    "BuffPower": 50,
+    "ActionType": 5,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10045_1",
+      "Think10045_2",
+      "Think10045_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10046,
+    "BuffID": 1004,
+    "BuffPower": 50,
+    "ActionType": 6,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10046_1",
+      "Think10046_2",
+      "Think10046_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10047,
+    "BuffID": 1004,
+    "BuffPower": 50,
+    "ActionType": 7,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10047_1",
+      "Think10047_2",
+      "Think10047_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10048,
+    "BuffID": 1004,
+    "BuffPower": 50,
+    "ActionType": 8,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10048_1",
+      "Think10048_2",
+      "Think10048_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10049,
+    "BuffID": 1004,
+    "BuffPower": 50,
+    "ActionType": 9,
+    "Rate": 0.30000001192092896,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10049_1",
+      "Think10049_2",
+      "Think10049_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10051,
+    "BuffID": 1005,
+    "BuffPower": 200,
+    "ActionType": 1,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10051_1",
+      "Think10051_2",
+      "Think10051_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10052,
+    "BuffID": 1005,
+    "BuffPower": 200,
+    "ActionType": 2,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10052_1",
+      "Think10052_2",
+      "Think10052_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10053,
+    "BuffID": 1005,
+    "BuffPower": 200,
+    "ActionType": 3,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10053_1",
+      "Think10053_2",
+      "Think10053_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10054,
+    "BuffID": 1005,
+    "BuffPower": 200,
+    "ActionType": 4,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10054_1",
+      "Think10054_2",
+      "Think10054_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10055,
+    "BuffID": 1005,
+    "BuffPower": 200,
+    "ActionType": 5,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10055_1",
+      "Think10055_2",
+      "Think10055_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10056,
+    "BuffID": 1005,
+    "BuffPower": 200,
+    "ActionType": 6,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10056_1",
+      "Think10056_2",
+      "Think10056_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10057,
+    "BuffID": 1005,
+    "BuffPower": 200,
+    "ActionType": 7,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10057_1",
+      "Think10057_2",
+      "Think10057_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10058,
+    "BuffID": 1005,
+    "BuffPower": 200,
+    "ActionType": 8,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10058_1",
+      "Think10058_2",
+      "Think10058_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10059,
+    "BuffID": 1005,
+    "BuffPower": 200,
+    "ActionType": 9,
+    "Rate": 0.30000001192092896,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10059_1",
+      "Think10059_2",
+      "Think10059_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10061,
+    "BuffID": 1006,
+    "BuffPower": 100,
+    "ActionType": 1,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10061_1",
+      "Think10061_2",
+      "Think10061_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10062,
+    "BuffID": 1006,
+    "BuffPower": 100,
+    "ActionType": 2,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10062_1",
+      "Think10062_2",
+      "Think10062_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10063,
+    "BuffID": 1006,
+    "BuffPower": 100,
+    "ActionType": 3,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10063_1",
+      "Think10063_2",
+      "Think10063_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10064,
+    "BuffID": 1006,
+    "BuffPower": 100,
+    "ActionType": 4,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10064_1",
+      "Think10064_2",
+      "Think10064_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10065,
+    "BuffID": 1006,
+    "BuffPower": 100,
+    "ActionType": 5,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10065_1",
+      "Think10065_2",
+      "Think10065_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10066,
+    "BuffID": 1006,
+    "BuffPower": 100,
+    "ActionType": 6,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10066_1",
+      "Think10066_2",
+      "Think10066_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10067,
+    "BuffID": 1006,
+    "BuffPower": 100,
+    "ActionType": 7,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10067_1",
+      "Think10067_2",
+      "Think10067_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10068,
+    "BuffID": 1006,
+    "BuffPower": 100,
+    "ActionType": 8,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10068_1",
+      "Think10068_2",
+      "Think10068_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10069,
+    "BuffID": 1006,
+    "BuffPower": 100,
+    "ActionType": 9,
+    "Rate": 0.30000001192092896,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10069_1",
+      "Think10069_2",
+      "Think10069_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10071,
+    "BuffID": 1007,
+    "BuffPower": 500,
+    "ActionType": 1,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10071_1",
+      "Think10071_2",
+      "Think10071_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10072,
+    "BuffID": 1007,
+    "BuffPower": 500,
+    "ActionType": 2,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10072_1",
+      "Think10072_2",
+      "Think10072_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10073,
+    "BuffID": 1007,
+    "BuffPower": 500,
+    "ActionType": 3,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10073_1",
+      "Think10073_2",
+      "Think10073_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10074,
+    "BuffID": 1007,
+    "BuffPower": 500,
+    "ActionType": 4,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10074_1",
+      "Think10074_2",
+      "Think10074_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10075,
+    "BuffID": 1007,
+    "BuffPower": 500,
+    "ActionType": 5,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10075_1",
+      "Think10075_2",
+      "Think10075_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10076,
+    "BuffID": 1007,
+    "BuffPower": 500,
+    "ActionType": 6,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10076_1",
+      "Think10076_2",
+      "Think10076_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10077,
+    "BuffID": 1007,
+    "BuffPower": 500,
+    "ActionType": 7,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10077_1",
+      "Think10077_2",
+      "Think10077_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10078,
+    "BuffID": 1007,
+    "BuffPower": 500,
+    "ActionType": 8,
+    "Rate": 0.5,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10078_1",
+      "Think10078_2",
+      "Think10078_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10079,
+    "BuffID": 1007,
+    "BuffPower": 500,
+    "ActionType": 9,
+    "Rate": 0.30000001192092896,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think10079_1",
+      "Think10079_2",
+      "Think10079_3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 2000001,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 1,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think_NG_Eat_1",
+      "Think_NG_Eat_2",
+      "Think_NG_Eat_3"
+    ],
+    "PlayerSelectId": [
+      2
+    ]
+  },
+  {
+    "ID": 2000008,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 8,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think_NG_Sort_1",
+      "Think_NG_Sort_2",
+      "Think_NG_Sort_3"
+    ],
+    "PlayerSelectId": [
+      2
+    ]
+  },
+  {
+    "ID": 2000009,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 9,
+    "Rate": 0.30000001192092896,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think_NG_Idle_1",
+      "Think_NG_Idle_2",
+      "Think_NG_Idle_3"
+    ],
+    "PlayerSelectId": [
+      2
+    ]
+  },
+  {
+    "ID": 2010011,
+    "BuffID": 1001,
+    "BuffPower": 50,
+    "ActionType": 1,
+    "Rate": 1.0,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think_NG_Hungry_1",
+      "Think_NG_Hungry_2",
+      "Think_NG_Hungry_3"
+    ],
+    "PlayerSelectId": [
+      2
+    ]
+  },
+  {
+    "ID": 2010039,
+    "BuffID": 1003,
+    "BuffPower": 50,
+    "ActionType": 9,
+    "Rate": 0.30000001192092896,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think_NG_Blue_1",
+      "Think_NG_Blue_2",
+      "Think_NG_Blue_3"
+    ],
+    "PlayerSelectId": [
+      2
+    ]
+  },
+  {
+    "ID": 3000001,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 1,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think_WH_Eat_1",
+      "Think_WH_Eat_2",
+      "Think_WH_Eat_3"
+    ],
+    "PlayerSelectId": [
+      3
+    ]
+  },
+  {
+    "ID": 3000004,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 4,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think_WH_Train_1",
+      "Think_WH_Train_2",
+      "Think_WH_Train_3"
+    ],
+    "PlayerSelectId": [
+      3
+    ]
+  },
+  {
+    "ID": 3000007,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 7,
+    "Rate": 0.10000000149011612,
+    "TypeCD": 10800,
+    "RandomThink": [
+      "Think_WH_Move_1",
+      "Think_WH_Move_2",
+      "Think_WH_Move_3"
+    ],
+    "PlayerSelectId": [
+      3
+    ]
+  },
+  {
+    "ID": 3000008,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 8,
+    "Rate": 0.5,
+    "TypeCD": 7200,
+    "RandomThink": [
+      "Think_WH_Sort_1",
+      "Think_WH_Sort_2",
+      "Think_WH_Sort_3"
+    ],
+    "PlayerSelectId": [
+      3
+    ]
+  },
+  {
+    "ID": 3000009,
+    "BuffID": 0,
+    "BuffPower": 0,
+    "ActionType": 9,
+    "Rate": 0.30000001192092896,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "Think_WH_Idle_1",
+      "Think_WH_Idle_2",
+      "Think_WH_Idle_3"
+    ],
+    "PlayerSelectId": [
+      3
+    ]
+  }
+]

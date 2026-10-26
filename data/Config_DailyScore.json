@@ -1,0 +1,42 @@
+[
+  {
+    "ID": 1,
+    "DailyStatus": "DailyScore_DailyStatus_1",
+    "DailyStatus_Local": "完美生存",
+    "Max": 500,
+    "Min": 400,
+    "Points": 7
+  },
+  {
+    "ID": 2,
+    "DailyStatus": "DailyScore_DailyStatus_2",
+    "DailyStatus_Local": "状态良好",
+    "Max": 400,
+    "Min": 300,
+    "Points": 6
+  },
+  {
+    "ID": 3,
+    "DailyStatus": "DailyScore_DailyStatus_3",
+    "DailyStatus_Local": "遭遇困难",
+    "Max": 300,
+    "Min": 200,
+    "Points": 5
+  },
+  {
+    "ID": 4,
+    "DailyStatus": "DailyScore_DailyStatus_4",
+    "DailyStatus_Local": "艰难求生",
+    "Max": 200,
+    "Min": 100,
+    "Points": 4
+  },
+  {
+    "ID": 5,
+    "DailyStatus": "DailyScore_DailyStatus_5",
+    "DailyStatus_Local": "垂死挣扎",
+    "Max": 100,
+    "Min": 0,
+    "Points": 3
+  }
+]

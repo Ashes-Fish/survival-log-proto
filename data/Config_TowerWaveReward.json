@@ -1,0 +1,51 @@
+[
+  {
+    "ID": 1,
+    "HpBudgetMin": 0,
+    "RewardSetId": 71001,
+    "LootGroupId": 8041,
+    "Source": "D7教学波"
+  },
+  {
+    "ID": 2,
+    "HpBudgetMin": 1000,
+    "RewardSetId": 71002,
+    "LootGroupId": 8041,
+    "Source": "D14 D15阶段二"
+  },
+  {
+    "ID": 3,
+    "HpBudgetMin": 5000,
+    "RewardSetId": 71003,
+    "LootGroupId": 8041,
+    "Source": "D34 D49首批"
+  },
+  {
+    "ID": 4,
+    "HpBudgetMin": 12000,
+    "RewardSetId": 71004,
+    "LootGroupId": 8042,
+    "Source": "D49末批 D61中段 D75首批"
+  },
+  {
+    "ID": 5,
+    "HpBudgetMin": 30000,
+    "RewardSetId": 71005,
+    "LootGroupId": 8042,
+    "Source": "D61末批 D75中段"
+  },
+  {
+    "ID": 6,
+    "HpBudgetMin": 50000,
+    "RewardSetId": 71006,
+    "LootGroupId": 8043,
+    "Source": "D75末批 无尽T8-T14"
+  },
+  {
+    "ID": 7,
+    "HpBudgetMin": 150000,
+    "RewardSetId": 71007,
+    "LootGroupId": 8043,
+    "Source": "无尽T15以上"
+  }
+]

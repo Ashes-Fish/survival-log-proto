@@ -1,0 +1,87 @@
+[
+  {
+    "ID": "Mode",
+    "Value": 1,
+    "BizTable": ""
+  },
+  {
+    "ID": "Wish",
+    "Value": 0,
+    "BizTable": ""
+  },
+  {
+    "ID": "Achievement",
+    "Value": 0,
+    "BizTable": ""
+  },
+  {
+    "ID": "LiveStream",
+    "Value": 1,
+    "BizTable": ""
+  },
+  {
+    "ID": "PawnShop",
+    "Value": 1,
+    "BizTable": ""
+  },
+  {
+    "ID": "PhoneSMS",
+    "Value": 1,
+    "BizTable": ""
+  },
+  {
+    "ID": "PreDisasterMap",
+    "Value": 1,
+    "BizTable": ""
+  },
+  {
+    "ID": "SelectPeople",
+    "Value": 1,
+    "BizTable": ""
+  },
+  {
+    "ID": "FloorB1",
+    "Value": 1,
+    "BizTable": ""
+  },
+  {
+    "ID": "DemoTwoGameOver",
+    "Value": 1,
+    "BizTable": ""
+  },
+  {
+    "ID": "DemoTwoEventID",
+    "Value": 30015,
+    "BizTable": ""
+  },
+  {
+    "ID": "DemoTwoMaxDay",
+    "Value": 20,
+    "BizTable": ""
+  },
+  {
+    "ID": "DemoTwoMaxRebirth",
+    "Value": 1,
+    "BizTable": ""
+  },
+  {
+    "ID": "DemoTwoTimelineDay",
+    "Value": 19,
+    "BizTable": ""
+  },
+  {
+    "ID": "DemoTwoTimelineHour",
+    "Value": 19,
+    "BizTable": ""
+  },
+  {
+    "ID": "DemoTwoTimelineBlend",
+    "Value": 1000,
+    "BizTable": ""
+  },
+  {
+    "ID": "GroupChat",
+    "Value": 1,
+    "BizTable": "Event(60001-60006/20226-20228)+SMSGroup"
+  }
+]

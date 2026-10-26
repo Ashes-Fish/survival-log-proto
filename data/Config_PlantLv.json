@@ -1,0 +1,84 @@
+[
+  {
+    "Lv": 0,
+    "EXP": 100,
+    "Info": "PlantLv_Info_0",
+    "Info_Local": "未掌握\\n研究一次种植设施，开始积累种植经验",
+    "required_condition": [],
+    "growth_speed_bonus": 0.0,
+    "pest_rate_reduction": 0.0,
+    "perfect_grow_rate": 0.0,
+    "research_exp": 50,
+    "research_action_id": 1921,
+    "unlock_recipes": []
+  },
+  {
+    "Lv": 1,
+    "EXP": 920,
+    "Info": "PlantLv_Info_1",
+    "Info_Local": "见习园丁\\n继续种植以积累经验",
+    "required_condition": [],
+    "growth_speed_bonus": 0.0,
+    "pest_rate_reduction": 0.0,
+    "perfect_grow_rate": 0.0,
+    "research_exp": 0,
+    "research_action_id": 0,
+    "unlock_recipes": []
+  },
+  {
+    "Lv": 2,
+    "EXP": 5000,
+    "Info": "PlantLv_Info_2",
+    "Info_Local": "园艺学徒\\n解锁：主界面家中植物总览卡片\\n新增：作物异常（虫害/长草/干旱）概率 -20%\\n新增：完美种植概率 +10%",
+    "required_condition": [],
+    "growth_speed_bonus": 0.0,
+    "pest_rate_reduction": 0.20000000298023224,
+    "perfect_grow_rate": 0.10000000149011612,
+    "research_exp": 0,
+    "research_action_id": 0,
+    "unlock_recipes": []
+  },
+  {
+    "Lv": 3,
+    "EXP": 17000,
+    "Info": "PlantLv_Info_3",
+    "Info_Local": "熟练园丁\\n强化：完美种植概率 +10% → +20%",
+    "required_condition": [],
+    "growth_speed_bonus": 0.0,
+    "pest_rate_reduction": 0.20000000298023224,
+    "perfect_grow_rate": 0.20000000298023224,
+    "research_exp": 0,
+    "research_action_id": 0,
+    "unlock_recipes": [
+      1513
+    ]
+  },
+  {
+    "Lv": 4,
+    "EXP": 41000,
+    "Info": "PlantLv_Info_4",
+    "Info_Local": "资深园艺师\\n强化：作物异常概率 -20% → -30%\\n强化：完美种植概率 +20% → +30%",
+    "required_condition": [],
+    "growth_speed_bonus": 0.0,
+    "pest_rate_reduction": 0.30000001192092896,
+    "perfect_grow_rate": 0.30000001192092896,
+    "research_exp": 0,
+    "research_action_id": 0,
+    "unlock_recipes": []
+  },
+  {
+    "Lv": 5,
+    "EXP": 0,
+    "Info": "PlantLv_Info_5",
+    "Info_Local": "园艺大师\\n强化：作物异常概率 -30% → -40%\\n强化：完美种植概率 +30% → +40%",
+    "required_condition": [],
+    "growth_speed_bonus": 0.0,
+    "pest_rate_reduction": 0.4000000059604645,
+    "perfect_grow_rate": 0.4000000059604645,
+    "research_exp": 0,
+    "research_action_id": 0,
+    "unlock_recipes": [
+      1514
+    ]
+  }
+]

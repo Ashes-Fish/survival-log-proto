@@ -1,0 +1,122 @@
+[
+  {
+    "ID": 1,
+    "SysName": "SystemLock_SysName_1",
+    "SysName_Local": "生存日志",
+    "InitValue": false,
+    "Tips": "SystemLock_Tips_1",
+    "Tips_Local": "一本记录着你每次重生信息的笔记本；在这里也能看到你获得的能力。"
+  },
+  {
+    "ID": 2,
+    "SysName": "SystemLock_SysName_2",
+    "SysName_Local": "背包",
+    "InitValue": false,
+    "Tips": "SystemLock_Tips_2",
+    "Tips_Local": "打开背包，查看随身物品"
+  },
+  {
+    "ID": 3,
+    "SysName": "SystemLock_SysName_3",
+    "SysName_Local": "地图",
+    "InitValue": false,
+    "Tips": "SystemLock_Tips_3",
+    "Tips_Local": "打开地图，查看附近可前往的地点"
+  },
+  {
+    "ID": 4,
+    "SysName": "SystemLock_SysName_4",
+    "SysName_Local": "完成准备",
+    "InitValue": false,
+    "Tips": "SystemLock_Tips_4",
+    "Tips_Local": "我已经为灾变做好了准备！就静静地等待开始吧！（最好呆在家里）"
+  },
+  {
+    "ID": 5,
+    "SysName": "SystemLock_SysName_5",
+    "SysName_Local": "时间加速",
+    "InitValue": false,
+    "Tips": "SystemLock_Tips_5",
+    "Tips_Local": "时间是一种主观感受……"
+  },
+  {
+    "ID": 6,
+    "SysName": "SystemLock_SysName_6",
+    "SysName_Local": "生存规划",
+    "InitValue": false,
+    "Tips": "SystemLock_Tips_6",
+    "Tips_Local": "查看已激活的规划"
+  },
+  {
+    "ID": 7,
+    "SysName": "SystemLock_SysName_7",
+    "SysName_Local": "灾变倒计时",
+    "InitValue": true,
+    "Tips": "SystemLock_Tips_7",
+    "Tips_Local": "距离灾变，只剩这些时间了……我必须赶紧"
+  },
+  {
+    "ID": 8,
+    "SysName": "SystemLock_SysName_8",
+    "SysName_Local": "金钱",
+    "InitValue": true,
+    "Tips": "SystemLock_Tips_8",
+    "Tips_Local": "还剩这些钱，想想可以买些什么"
+  },
+  {
+    "ID": 9,
+    "SysName": "SystemLock_SysName_9",
+    "SysName_Local": "锁定视角",
+    "InitValue": true,
+    "Tips": "SystemLock_Tips_9",
+    "Tips_Local": "锁定视角"
+  },
+  {
+    "ID": 10,
+    "SysName": "SystemLock_SysName_10",
+    "SysName_Local": "灾后日期",
+    "InitValue": true,
+    "Tips": "SystemLock_Tips_10",
+    "Tips_Local": "距离灾变，已经过去了多少天？这次我能生存多久……"
+  },
+  {
+    "ID": 11,
+    "SysName": "SystemLock_SysName_11",
+    "SysName_Local": "时间",
+    "InitValue": true,
+    "Tips": "SystemLock_Tips_11",
+    "Tips_Local": "白天/夜晚，时光飞逝……"
+  },
+  {
+    "ID": 12,
+    "SysName": "SystemLock_SysName_12",
+    "SysName_Local": "囤货备忘",
+    "InitValue": false,
+    "Tips": "SystemLock_Tips_12",
+    "Tips_Local": "随时清点手头的储备，看看还缺什么。"
+  },
+  {
+    "ID": 1000,
+    "SysName": "SystemLock_SysName_1000",
+    "SysName_Local": "动态事件系统",
+    "InitValue": true,
+    "Tips": "",
+    "Tips_Local": ""
+  },
+  {
+    "ID": 1001,
+    "SysName": "SystemLock_SysName_1001",
+    "SysName_Local": "Thinking系统",
+    "InitValue": true,
+    "Tips": "",
+    "Tips_Local": ""
+  },
+  {
+    "ID": 1002,
+    "SysName": "SystemLock_SysName_1002",
+    "SysName_Local": "电力系统",
+    "InitValue": true,
+    "Tips": "",
+    "Tips_Local": ""
+  }
+]

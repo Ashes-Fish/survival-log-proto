@@ -1,0 +1,114 @@
+[
+  {
+    "ID": 1,
+    "VoiceType": 0,
+    "ActionID": 7,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Girl_Sleep"
+  },
+  {
+    "ID": 2,
+    "VoiceType": 0,
+    "ActionID": 5,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Girl_Sleep"
+  },
+  {
+    "ID": 3,
+    "VoiceType": 0,
+    "ActionID": 10,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Female_dahaqian"
+  },
+  {
+    "ID": 4,
+    "VoiceType": 0,
+    "ActionID": 51,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Girl_Sleep"
+  },
+  {
+    "ID": 5,
+    "VoiceType": 0,
+    "ActionID": 1904,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Girl_Sleep"
+  },
+  {
+    "ID": 6,
+    "VoiceType": 0,
+    "ActionID": 8000,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Girl_Sleep"
+  },
+  {
+    "ID": 7,
+    "VoiceType": 0,
+    "ActionID": 200,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Girl_Sleep"
+  },
+  {
+    "ID": 8,
+    "VoiceType": 0,
+    "ActionID": 1105,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Girl_Sleep"
+  },
+  {
+    "ID": 9,
+    "VoiceType": 0,
+    "ActionID": 1905,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Girl_Sleep"
+  },
+  {
+    "ID": 10,
+    "VoiceType": 0,
+    "ActionID": 8001,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Girl_Sleep"
+  },
+  {
+    "ID": 11,
+    "VoiceType": 0,
+    "ActionID": 1910,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Girl_Yoga"
+  },
+  {
+    "ID": 12,
+    "VoiceType": 0,
+    "ActionID": 1914,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Girl_Yoga"
+  },
+  {
+    "ID": 13,
+    "VoiceType": 1,
+    "ActionID": 0,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Girl_Death"
+  },
+  {
+    "ID": 14,
+    "VoiceType": 0,
+    "ActionID": 106,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Girl_Yoga"
+  },
+  {
+    "ID": 15,
+    "VoiceType": 0,
+    "ActionID": 253,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Girl_Yoga"
+  },
+  {
+    "ID": 16,
+    "VoiceType": 0,
+    "ActionID": 35,
+    "PlayerSelectId": 2,
+    "FmodPath": "event:/Model/Human/Girl_Yoga"
+  }
+]

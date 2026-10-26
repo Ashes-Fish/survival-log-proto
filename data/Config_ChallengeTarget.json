@@ -1,0 +1,69 @@
+[
+  {
+    "ID": 1,
+    "Name": "ChallengeTarget_Name_1",
+    "Name_Local": "极限物资支援",
+    "Desc": "ChallengeTarget_Desc_1",
+    "Desc_Local": "撑满30天  并且保住至少8个无人机交易点不沦陷",
+    "GoalKind": 1,
+    "VictoryConditionSetId": 0,
+    "Param1": 8,
+    "Param2": 0,
+    "Param3": 30,
+    "SortOrder": 10,
+    "DebuffGroupIds": [],
+    "AbilityIds": [],
+    "DebuffPickCount": 0,
+    "AbilityPickCount": 0,
+    "RewardSetId": 0
+  },
+  {
+    "ID": 2,
+    "Name": "ChallengeTarget_Name_2",
+    "Name_Local": "永不消逝的电波",
+    "Desc": "ChallengeTarget_Desc_2",
+    "Desc_Local": "持续给信号基站供电，撑满30天，累计失联不超过8小时",
+    "GoalKind": 2,
+    "VictoryConditionSetId": 0,
+    "Param1": 8,
+    "Param2": 0,
+    "Param3": 30,
+    "SortOrder": 20,
+    "DebuffGroupIds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "AbilityIds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "DebuffPickCount": 3,
+    "AbilityPickCount": 2,
+    "RewardSetId": 71052
+  },
+  {
+    "ID": 3,
+    "Name": "ChallengeTarget_Name_3",
+    "Name_Local": "极限防御",
+    "Desc": "ChallengeTarget_Desc_3",
+    "Desc_Local": "挺过12波尸潮",
+    "GoalKind": 3,
+    "VictoryConditionSetId": 0,
+    "Param1": 12,
+    "Param2": 0,
+    "Param3": 0,
+    "SortOrder": 30,
+    "DebuffGroupIds": [],
+    "AbilityIds": [],
+    "DebuffPickCount": 0,
+    "AbilityPickCount": 0,
+    "RewardSetId": 0
+  }
+]

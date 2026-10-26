@@ -1,0 +1,1427 @@
+[
+  {
+    "ID": 1,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 2,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_1",
+    "Letter_Local": "该院消毒用品已于上月耗尽。此前换药、器械擦拭与走廊清洁每日约需消耗两瓶。\n目前换药前仅能以沸水烫过的布料擦拭。院内住有三十余名老人，一旦发生感染将难以控制。\n所需物资：消毒喷雾 1 瓶、强效消毒喷雾 1 瓶、高浓度消毒喷雾 1 瓶，用于换药、器械消毒与公共区域清洁。",
+    "Say": "AidCommission_Say_1",
+    "Say_Local": "尚缺的物资：消毒喷雾 1 瓶、强效消毒喷雾 1 瓶、高浓度消毒喷雾 1 瓶。用于换药与院内消毒。",
+    "SayDone": "AidCommission_SayDone_1",
+    "SayDone_Local": "物资已备齐，可恢复院内日常的换药与清洁消毒。",
+    "DemandItemIds": [
+      2164,
+      2165,
+      2166
+    ],
+    "DemandCounts": [
+      1,
+      1,
+      1
+    ],
+    "DemandKinds": [
+      0,
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      15026,
+      15016,
+      15032
+    ],
+    "RewardCounts": [
+      4,
+      4,
+      4
+    ],
+    "EarliestDay": 0,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 2,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 4,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_2",
+    "Letter_Local": "该收容点二十余名儿童同住一间大教室，窗户漏风，以纸板封堵后仍有冷风透入。\n近日已有儿童出现整夜咳嗽的情况。该收容点现有的一台电暖器无法满足整间教室的取暖需要。\n所需物资：电暖器 1 台，与现有的一台分别放置于教室东西两侧。供电由该收容点现有的电瓶承担。",
+    "Say": "AidCommission_Say_2",
+    "Say_Local": "尚缺的物资：电暖器 1 台。用于教室东西两侧取暖。",
+    "SayDone": "AidCommission_SayDone_2",
+    "SayDone_Local": "物资已备齐，教室东西两侧可同时供暖。",
+    "DemandItemIds": [
+      14014
+    ],
+    "DemandCounts": [
+      1
+    ],
+    "DemandKinds": [
+      0
+    ],
+    "DemandCategories": [
+      0
+    ],
+    "RewardItemIds": [
+      2146,
+      2151,
+      2148
+    ],
+    "RewardCounts": [
+      2,
+      2,
+      2
+    ],
+    "EarliestDay": 0,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 3,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 1,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_3",
+    "Letter_Local": "该所柴油发电机于上周停机，经拆检确认缸体开裂，无法修复。\n所内冷库存有一批须持续供电保存的物品，断电一次即全部失效。该所计划改为日间以太阳能充电、夜间由 UPS 供电。\n所需物资：家用UPS 1 台、大型太阳能板 1 块。安装与布线由该所自行完成。",
+    "Say": "AidCommission_Say_3",
+    "Say_Local": "尚缺的物资：家用UPS 1 台、大型太阳能板 1 块。用于冷库供电。",
+    "SayDone": "AidCommission_SayDone_3",
+    "SayDone_Local": "物资已备齐，冷库可改由太阳能板与 UPS 持续供电。",
+    "DemandItemIds": [
+      14066,
+      14011
+    ],
+    "DemandCounts": [
+      1,
+      1
+    ],
+    "DemandKinds": [
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      2412,
+      27002
+    ],
+    "RewardCounts": [
+      2,
+      1
+    ],
+    "EarliestDay": 48,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 4,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 3,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_4",
+    "Letter_Local": "该安置点北侧围栏于昨夜被丧尸撞开一段，当晚以看台拆下的座椅临时封堵，次日已出现倾斜。\n安置点内住有一百余人，须优先将缺口封堵牢固。\n所需物资：沙包 2 个，用于封堵北侧围栏缺口。沙包较重，可视无人机载重分两次运送。",
+    "Say": "AidCommission_Say_4",
+    "Say_Local": "尚缺的物资：沙包 2 个。用于封堵北侧围栏缺口。",
+    "SayDone": "AidCommission_SayDone_4",
+    "SayDone_Local": "物资已备齐，北侧缺口可封堵牢固，夜间无需再安排专人值守。",
+    "DemandItemIds": [
+      26001
+    ],
+    "DemandCounts": [
+      2
+    ],
+    "DemandKinds": [
+      0
+    ],
+    "DemandCategories": [
+      0
+    ],
+    "RewardItemIds": [
+      11001
+    ],
+    "RewardCounts": [
+      1
+    ],
+    "EarliestDay": 51,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 5,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 6,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_5",
+    "Letter_Local": "该院现有儿童三十余名，日常饮食以干粮和米汤为主。年龄最小的几名儿童近期进食后频繁呕吐，体重明显下降。\n经医生诊断，原因为长期缺乏肉食与维生素，需逐步补充。\n所需物资：双皮奶 2 份，供年龄最小的儿童食用；复合维生素 2 瓶，按日分发给年龄较大的儿童；任意肉类 4 份，用于日常供餐。",
+    "Say": "AidCommission_Say_5",
+    "Say_Local": "尚缺的物资：双皮奶 2 份、复合维生素 2 瓶、任意肉类 4 份。",
+    "SayDone": "AidCommission_SayDone_5",
+    "SayDone_Local": "物资已备齐，可为院内各年龄段的儿童补充营养。",
+    "DemandItemIds": [
+      12792,
+      2402,
+      0
+    ],
+    "DemandCounts": [
+      2,
+      2,
+      4
+    ],
+    "DemandKinds": [
+      0,
+      0,
+      2
+    ],
+    "DemandCategories": [
+      0,
+      0,
+      102
+    ],
+    "RewardItemIds": [
+      3006,
+      3046
+    ],
+    "RewardCounts": [
+      1,
+      1
+    ],
+    "EarliestDay": 54,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 6,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 5,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_6",
+    "Letter_Local": "该站空投补给已中断一个多月。站内四名工作人员的压缩饼干仅剩半箱，按现有消耗无法维持到入冬。\n后山有野生动物活动，此前布设的简易套索仅捕获过老鼠。\n所需物资：活捉笼 2 个、简易捕鸟网 1 张，用于在后山自行获取食物。无人机可降落在观测场的水泥地面上。",
+    "Say": "AidCommission_Say_6",
+    "Say_Local": "尚缺的物资：活捉笼 2 个、简易捕鸟网 1 张。用于在后山自行获取食物。",
+    "SayDone": "AidCommission_SayDone_6",
+    "SayDone_Local": "物资已备齐，该站入冬期间可自行解决部分食物来源。",
+    "DemandItemIds": [
+      25002,
+      25003
+    ],
+    "DemandCounts": [
+      2,
+      1
+    ],
+    "DemandKinds": [
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      2530,
+      2527,
+      2525,
+      2535,
+      27008
+    ],
+    "RewardCounts": [
+      2,
+      2,
+      2,
+      2,
+      1
+    ],
+    "EarliestDay": 57,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 7,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 2,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_7",
+    "Letter_Local": "该院目前最紧缺的物资为绑带。\n院内数名长期卧床的老人患有褥疮，每日均需换药；纱布已经用尽，目前以剪开的床单代替。\n所需物资：绑带 4 卷，用于褥疮换药；消毒喷雾 2 瓶，用于换药前的伤口清洁。",
+    "Say": "AidCommission_Say_7",
+    "Say_Local": "尚缺的物资：绑带 4 卷、消毒喷雾 2 瓶。用于卧床老人的褥疮换药。",
+    "SayDone": "AidCommission_SayDone_7",
+    "SayDone_Local": "物资已备齐，褥疮换药可按规范进行。",
+    "DemandItemIds": [
+      20214,
+      2164
+    ],
+    "DemandCounts": [
+      4,
+      2
+    ],
+    "DemandKinds": [
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      15022,
+      15030,
+      3049
+    ],
+    "RewardCounts": [
+      3,
+      3,
+      1
+    ],
+    "EarliestDay": 54,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 8,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 3,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_8",
+    "Letter_Local": "该安置点一百余人长期以稀粥和咸菜为食。负责搬运沙包的人员已出现头晕症状，长此以往将无人能承担体力劳动。\n该安置点另计划将场地边缘的空地开垦为菜地。\n所需物资：任意主食 3 份，米饭、面食、饼类均可；任意种子 5 份，用于空地种植。",
+    "Say": "AidCommission_Say_8",
+    "Say_Local": "尚缺的物资：任意主食 3 份、任意种子 5 份。用于保障劳动人员饮食与开垦种植。",
+    "SayDone": "AidCommission_SayDone_8",
+    "SayDone_Local": "物资已备齐，可为安置点人员提供一餐主食，并开始开垦空地。",
+    "DemandItemIds": [
+      0,
+      0
+    ],
+    "DemandCounts": [
+      3,
+      5
+    ],
+    "DemandKinds": [
+      2,
+      2
+    ],
+    "DemandCategories": [
+      101,
+      1000
+    ],
+    "RewardItemIds": [
+      20311,
+      20104
+    ],
+    "RewardCounts": [
+      2,
+      3
+    ],
+    "EarliestDay": 63,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 9,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 1,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_9",
+    "Letter_Local": "近日该所围墙外聚集的丧尸逐渐增多，夜间可听到铁门处的摩擦声。目前由数人轮流值守，难以长期维持。\n所需物资：电网 1 套、尖刺障碍 1 组，布设于大门外侧。电网供电由该所太阳能板另接一路，无需另行准备。",
+    "Say": "AidCommission_Say_9",
+    "Say_Local": "尚缺的物资：电网 1 套、尖刺障碍 1 组。用于大门外侧防御。",
+    "SayDone": "AidCommission_SayDone_9",
+    "SayDone_Local": "物资已备齐，大门外侧防御可布设完成，夜间值守压力得以减轻。",
+    "DemandItemIds": [
+      26003,
+      26002
+    ],
+    "DemandCounts": [
+      1,
+      1
+    ],
+    "DemandKinds": [
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      2212,
+      15028,
+      27005
+    ],
+    "RewardCounts": [
+      2,
+      4,
+      1
+    ],
+    "EarliestDay": 60,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 10,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 4,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_10",
+    "Letter_Local": "自上月起，该收容点的配给削减三成，上报后尚未得到答复。\n操场后方的荒地常有野生动物出没。该收容点计划安排几名年龄较大的儿童轮流查看捕具，以补充伙食。捕具的布设方法已向他人请教。\n所需物资：活捉笼 2 个、简易捕鼠夹 1 个，布设于操场后方的荒地。",
+    "Say": "AidCommission_Say_10",
+    "Say_Local": "尚缺的物资：活捉笼 2 个、简易捕鼠夹 1 个。用于补充收容点伙食。",
+    "SayDone": "AidCommission_SayDone_10",
+    "SayDone_Local": "物资已备齐，可于次日在操场后方布设捕具。",
+    "DemandItemIds": [
+      25002,
+      25001
+    ],
+    "DemandCounts": [
+      2,
+      1
+    ],
+    "DemandKinds": [
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      15025,
+      20312
+    ],
+    "RewardCounts": [
+      3,
+      3
+    ],
+    "EarliestDay": 69,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 11,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 5,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_11",
+    "Letter_Local": "该站所在山地夜间已开始结霜，机房内的仪器与值守人员均需防寒。\n原有的小型太阳能板日间仅能勉强维持仪器用电，无法满足夜间需要。\n所需物资：暖炉 1 台，放置于机房内；中型太阳能板 1 块，用于提高日间发电量。",
+    "Say": "AidCommission_Say_11",
+    "Say_Local": "尚缺的物资：暖炉 1 台、中型太阳能板 1 块。用于机房防寒与供电。",
+    "SayDone": "AidCommission_SayDone_11",
+    "SayDone_Local": "物资已备齐，机房可在入冬后维持仪器运行与人员取暖。",
+    "DemandItemIds": [
+      14025,
+      14010
+    ],
+    "DemandCounts": [
+      1,
+      1
+    ],
+    "DemandKinds": [
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      2101,
+      15010,
+      27016
+    ],
+    "RewardCounts": [
+      2,
+      4,
+      1
+    ],
+    "EarliestDay": 63,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 12,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 6,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_12",
+    "Letter_Local": "上周夜间曾有丧尸进入该院后院，由保育员驱离。\n院墙高度仅一人左右，靠巷子一侧另有一段坍塌。院内三十余名儿童中，年龄最小的尚不能独立行走。\n所需物资：尖刺障碍 1 组，布设于巷口；沙包 2 个，用于封堵坍塌的院墙。此事须尽快处理。",
+    "Say": "AidCommission_Say_12",
+    "Say_Local": "尚缺的物资：尖刺障碍 1 组、沙包 2 个。用于封堵巷口与坍塌的院墙。",
+    "SayDone": "AidCommission_SayDone_12",
+    "SayDone_Local": "物资已备齐，巷口与院墙缺口可封堵完成，夜间无需保育员值守。",
+    "DemandItemIds": [
+      26002,
+      26001
+    ],
+    "DemandCounts": [
+      1,
+      2
+    ],
+    "DemandKinds": [
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      20904
+    ],
+    "RewardCounts": [
+      1
+    ],
+    "EarliestDay": 75,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 13,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 3,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_13",
+    "Letter_Local": "据救援据点通报，北面另有一批规模较大的尸群尚未抵达，该安置点位于其行进路线上。\n该安置点人手充足，可轮班值守，但缺少防御器材。\n所需物资：机械电锯 1 台、电网 1 套，布设于北门；尖刺障碍 2 组，布设于南侧。",
+    "Say": "AidCommission_Say_13",
+    "Say_Local": "尚缺的物资：机械电锯 1 台、电网 1 套、尖刺障碍 2 组。用于南北两侧防御。",
+    "SayDone": "AidCommission_SayDone_13",
+    "SayDone_Local": "物资已备齐，南北两侧的防线可同时布设。",
+    "DemandItemIds": [
+      26004,
+      26003,
+      26002
+    ],
+    "DemandCounts": [
+      1,
+      1,
+      2
+    ],
+    "DemandKinds": [
+      0,
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      30012,
+      30014
+    ],
+    "RewardCounts": [
+      1,
+      1
+    ],
+    "EarliestDay": 77,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 14,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 1,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_14",
+    "Letter_Local": "该所计划建立一处可持续的小型养殖，以减少对外部肉类供应的依赖。饲养笼已搭建完成。\n野兔繁殖较快，作为主要养殖对象；松鼠用作对照。\n所需物资：野兔 1 只、松鼠 1 只，均须为活体且未受伤。",
+    "Say": "AidCommission_Say_14",
+    "Say_Local": "尚缺的物资：野兔 1 只、松鼠 1 只。用于建立小型养殖。",
+    "SayDone": "AidCommission_SayDone_14",
+    "SayDone_Local": "物资已备齐，可开始小型养殖的饲养。",
+    "DemandItemIds": [
+      30014,
+      30006
+    ],
+    "DemandCounts": [
+      1,
+      1
+    ],
+    "DemandKinds": [
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      20210,
+      20373
+    ],
+    "RewardCounts": [
+      3,
+      2
+    ],
+    "EarliestDay": 79,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 15,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 2,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_15",
+    "Letter_Local": "该院数名老人食用外部获得的食物后呕吐两日，嘴唇发紫，初步判断为食物中毒。同期腹泻人数亦有增加。\n上述老人目前仅能进食流食。\n所需物资：任意药物 5 份，优先用于对症治疗；任意蔬菜 4 份，熬煮软烂后用于流食。",
+    "Say": "AidCommission_Say_15",
+    "Say_Local": "尚缺的物资：任意药物 5 份、任意蔬菜 4 份。用于中毒老人的治疗与流食。",
+    "SayDone": "AidCommission_SayDone_15",
+    "SayDone_Local": "物资已备齐，可开始对中毒老人进行治疗并提供流食。",
+    "DemandItemIds": [
+      0,
+      0
+    ],
+    "DemandCounts": [
+      5,
+      4
+    ],
+    "DemandKinds": [
+      2,
+      2
+    ],
+    "DemandCategories": [
+      200,
+      105
+    ],
+    "RewardItemIds": [
+      15503,
+      15029
+    ],
+    "RewardCounts": [
+      3,
+      3
+    ],
+    "EarliestDay": 81,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 16,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 7,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_16",
+    "Letter_Local": "本委托由区域救援据点发布。\n北面规模较大的尸群尚未抵达，该据点计划在其行进路线上设置一道拦截线。近几个月周边各处设施的委托均由该仓库承接，本次亦委托该仓库完成。物资较多，可分批运送。\n所需物资：机械电锯 1 台、电网 2 套，布设于拦截线上；燃烧瓶 3 瓶，用于拦截作业。",
+    "Say": "AidCommission_Say_16",
+    "Say_Local": "尚缺的物资：机械电锯 1 台、电网 2 套、燃烧瓶 3 瓶。用于设置北面拦截线。",
+    "SayDone": "AidCommission_SayDone_16",
+    "SayDone_Local": "物资已备齐，北面拦截线可如期设置。",
+    "DemandItemIds": [
+      26004,
+      26003,
+      26005
+    ],
+    "DemandCounts": [
+      1,
+      2,
+      3
+    ],
+    "DemandKinds": [
+      0,
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      2107,
+      2115
+    ],
+    "RewardCounts": [
+      4,
+      4
+    ],
+    "EarliestDay": 85,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 17,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 8,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_17",
+    "Letter_Local": "该厂目前仍有一台水泵运行，负责将沉淀池的水送入高位水箱，供附近三个小区取水。\n近日该泵控制箱发生烧损，现改为人工提水，供水量仅能满足约一半的需求。\n所需物资：电器元件 3 个，用于更换控制箱内的元件；铁丝 4 卷，用于重新编制进水口滤网。",
+    "Say": "AidCommission_Say_17",
+    "Say_Local": "尚缺的物资：电器元件 3 个、铁丝 4 卷。用于修复水泵控制箱与进水口滤网。",
+    "SayDone": "AidCommission_SayDone_17",
+    "SayDone_Local": "物资已备齐，可恢复水泵运行及三个小区的供水。",
+    "DemandItemIds": [
+      20210,
+      20104
+    ],
+    "DemandCounts": [
+      3,
+      4
+    ],
+    "DemandKinds": [
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      20102,
+      2142
+    ],
+    "RewardCounts": [
+      3,
+      4
+    ],
+    "EarliestDay": 45,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 18,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 1,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_18",
+    "Letter_Local": "该所冷库目前由太阳能板与 UPS 供电，夜间储电不足，库内温度每晚上升两至三度。\n经测算，需增设一台储电站，并重新制作切换与均流电路板。\n所需物资：家用储电站 1 台、集成电路 2 块、电线 3 捆。电路板由该所自行焊接。",
+    "Say": "AidCommission_Say_18",
+    "Say_Local": "尚缺的物资：家用储电站 1 台、集成电路 2 块、电线 3 捆。用于冷库夜间储电。",
+    "SayDone": "AidCommission_SayDone_18",
+    "SayDone_Local": "物资已备齐，可完成冷库储电组的安装。",
+    "DemandItemIds": [
+      14013,
+      20371,
+      20372
+    ],
+    "DemandCounts": [
+      1,
+      2,
+      3
+    ],
+    "DemandKinds": [
+      0,
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      27003
+    ],
+    "RewardCounts": [
+      1
+    ],
+    "EarliestDay": 0,
+    "ReleaseTag": "Got_Robot"
+  },
+  {
+    "ID": 19,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 9,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_19",
+    "Letter_Local": "该站每晚八点播报一次寻人名单，供周边收听区域的居民收听。\n发射机工作电流较大，现有电瓶无法支撑完整播报，部分名单须顺延至次日；天线杆近期受风损弯折，覆盖范围有所缩小。\n所需物资：大型太阳能板 1 块、电线 4 捆，用于重建充电线路；不锈钢板 2 块，用于加固天线杆。",
+    "Say": "AidCommission_Say_19",
+    "Say_Local": "尚缺的物资：大型太阳能板 1 块、电线 4 捆、不锈钢板 2 块。用于充电线路与天线杆。",
+    "SayDone": "AidCommission_SayDone_19",
+    "SayDone_Local": "物资已备齐，可保障每晚寻人名单完整播报。",
+    "DemandItemIds": [
+      14011,
+      20372,
+      20373
+    ],
+    "DemandCounts": [
+      1,
+      4,
+      2
+    ],
+    "DemandKinds": [
+      0,
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      20366,
+      27006
+    ],
+    "RewardCounts": [
+      1,
+      1
+    ],
+    "EarliestDay": 0,
+    "ReleaseTag": "Got_Robot"
+  },
+  {
+    "ID": 20,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 10,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_20",
+    "Letter_Local": "该避难点目前容纳约两百人，居民日间均停留在站内。\n站内烧水所用的炉子燃料已耗尽。\n所需物资：燃烧值合计不低于 24000 的燃料，用于烧水。",
+    "Say": "AidCommission_Say_20",
+    "Say_Local": "尚缺的物资：燃烧值合计不低于 24000 的燃料。",
+    "SayDone": "AidCommission_SayDone_20",
+    "SayDone_Local": "物资已备齐，烧水炉可恢复使用。",
+    "DemandItemIds": [
+      0
+    ],
+    "DemandCounts": [
+      24000
+    ],
+    "DemandKinds": [
+      5
+    ],
+    "DemandCategories": [
+      0
+    ],
+    "RewardItemIds": [
+      2130,
+      2133,
+      20365
+    ],
+    "RewardCounts": [
+      3,
+      3,
+      1
+    ],
+    "EarliestDay": 58,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 21,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 12,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_21",
+    "Letter_Local": "一艘满载面粉的驳船搁浅在该码头外侧浅滩，无法靠岸。\n卸货需从码头搭建一条通往浅滩的栈桥；部分船舱进水，受潮面粉须在库房内连续烘干约一周，否则将结块霉变。河水上涨后驳船可能被冲走，卸货须尽快完成。\n所需物资：胶合板 11 块，用于搭建栈桥；塑胶片 12 张，用于覆盖粮垛与麻袋防潮；燃烧值合计不低于 12000 的燃料，用于烘干面粉。",
+    "Say": "AidCommission_Say_21",
+    "Say_Local": "尚缺的物资：胶合板 11 块、塑胶片 12 张、燃烧值合计不低于 12000 的燃料。",
+    "SayDone": "AidCommission_SayDone_21",
+    "SayDone_Local": "物资已备齐，可搭建栈桥并开始卸运面粉。",
+    "DemandItemIds": [
+      20377,
+      20103,
+      0
+    ],
+    "DemandCounts": [
+      11,
+      12,
+      12000
+    ],
+    "DemandKinds": [
+      0,
+      0,
+      5
+    ],
+    "DemandCategories": [
+      0,
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      27010
+    ],
+    "RewardCounts": [
+      1
+    ],
+    "EarliestDay": 0,
+    "ReleaseTag": "Got_Robot"
+  },
+  {
+    "ID": 22,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 11,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_22",
+    "Letter_Local": "该库存放灾前储备粮，按人数定期发放。\n近期库内鼠害加重，粮袋破损严重；房梁上聚集大量麻雀啄食粮食；院墙底部被野狗掘开一处缺口。\n所需物资：简易捕鼠夹 5 个，布设于粮垛周围；简易捕鸟网 2 张，悬挂于气窗与房梁下；铁制捕兽夹 2 个，布设于院墙缺口处。",
+    "Say": "AidCommission_Say_22",
+    "Say_Local": "尚缺的物资：简易捕鼠夹 5 个、简易捕鸟网 2 张、铁制捕兽夹 2 个。用于粮库防治鼠害与鸟害。",
+    "SayDone": "AidCommission_SayDone_22",
+    "SayDone_Local": "物资已备齐，可在粮库内全面布设捕具。",
+    "DemandItemIds": [
+      25001,
+      25003,
+      25004
+    ],
+    "DemandCounts": [
+      5,
+      2,
+      2
+    ],
+    "DemandKinds": [
+      0,
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      2103,
+      2108
+    ],
+    "RewardCounts": [
+      6,
+      3
+    ],
+    "EarliestDay": 67,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 23,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 4,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_23",
+    "Letter_Local": "该收容点新接收城南转移人员四十余人，教室与过道均已住满。\n现有配给仍按原人数核定，无法满足需要。成年人需保证饮食，才能承担外出搜集与夜间值守工作。\n所需物资：饱腹值合计不低于 400 的肉类、饱腹值合计不低于 200 的蔬菜、饱腹值合计不低于 400 的主食。熟食与生食均可，用于连续数日的集体供餐。",
+    "Say": "AidCommission_Say_23",
+    "Say_Local": "尚缺的物资：饱腹值合计不低于 400 的肉类、不低于 200 的蔬菜、不低于 400 的主食。",
+    "SayDone": "AidCommission_SayDone_23",
+    "SayDone_Local": "物资已备齐，可满足收容点连续数日的集体供餐。",
+    "DemandItemIds": [
+      0,
+      0,
+      0
+    ],
+    "DemandCounts": [
+      400,
+      200,
+      400
+    ],
+    "DemandKinds": [
+      4,
+      4,
+      4
+    ],
+    "DemandCategories": [
+      102,
+      105,
+      101
+    ],
+    "RewardItemIds": [
+      20910,
+      27004
+    ],
+    "RewardCounts": [
+      1,
+      1
+    ],
+    "EarliestDay": 0,
+    "ReleaseTag": "Got_Robot"
+  },
+  {
+    "ID": 24,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 13,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_24",
+    "Letter_Local": "该场现存奶牛十一头，所产牛奶分配给附近有幼儿的家庭。\n近日两头奶牛出现乳房炎症状，需使用抗生素治疗；因干草储备不足，产奶质量持续下降。\n所需物资：抗生素 1 盒，用于治疗；任意蔬菜 3 份、任意水果 3 份，切碎后掺入草料。",
+    "Say": "AidCommission_Say_24",
+    "Say_Local": "尚缺的物资：抗生素 1 盒、任意蔬菜 3 份、任意水果 3 份。用于奶牛治疗与补充草料。",
+    "SayDone": "AidCommission_SayDone_24",
+    "SayDone_Local": "物资已备齐，可满足奶牛治疗与饲料补充的需要。",
+    "DemandItemIds": [
+      2405,
+      0,
+      0
+    ],
+    "DemandCounts": [
+      1,
+      3,
+      3
+    ],
+    "DemandKinds": [
+      0,
+      2,
+      2
+    ],
+    "DemandCategories": [
+      0,
+      105,
+      106
+    ],
+    "RewardItemIds": [
+      2118,
+      20367
+    ],
+    "RewardCounts": [
+      3,
+      1
+    ],
+    "EarliestDay": 74,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 25,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 5,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_25",
+    "Letter_Local": "该站负责每日发布天气预报，并在大风与暴雨前提前半天发布预警。\n山顶自动观测设备目前停用，改由人工每三小时上山读数，夜间作业存在坠落风险，近期已发生一次事故。\n所需物资：大型太阳能板 1 块，用于供电；集成电路 2 块，用于更换风速、雨量、气压仪器主板；钢化玻璃 5 块，用于制作防护罩。",
+    "Say": "AidCommission_Say_25",
+    "Say_Local": "尚缺的物资：大型太阳能板 1 块、集成电路 2 块、钢化玻璃 5 块。",
+    "SayDone": "AidCommission_SayDone_25",
+    "SayDone_Local": "物资已备齐，可恢复山顶设备的自动观测。",
+    "DemandItemIds": [
+      14011,
+      20371,
+      20312
+    ],
+    "DemandCounts": [
+      1,
+      2,
+      5
+    ],
+    "DemandKinds": [
+      0,
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      27007
+    ],
+    "RewardCounts": [
+      1
+    ],
+    "EarliestDay": 0,
+    "ReleaseTag": "Got_Robot"
+  },
+  {
+    "ID": 26,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 12,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_26",
+    "Letter_Local": "面粉卸运完成后，该码头组织人员下河捕鱼。\n现有小艇两条，其中一条船底破损；河中鱼群分散，须撒玉米打窝诱鱼。\n所需物资：塑胶片 2 张，用于修补船底；玉米 3 个，用于打窝诱鱼。",
+    "Say": "AidCommission_Say_26",
+    "Say_Local": "尚缺的物资：塑胶片 2 张、玉米 3 个。用于修船与打窝。",
+    "SayDone": "AidCommission_SayDone_26",
+    "SayDone_Local": "物资已备齐，可修复小艇并开始下河捕鱼。",
+    "DemandItemIds": [
+      20103,
+      2536
+    ],
+    "DemandCounts": [
+      2,
+      3
+    ],
+    "DemandKinds": [
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      2122,
+      2149
+    ],
+    "RewardCounts": [
+      3,
+      2
+    ],
+    "EarliestDay": 83,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 27,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 10,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_27",
+    "Letter_Local": "该避难点约两百人的食物目前完全依赖外部输送。站内计划将废弃的半段换乘通道改建为室内菜地，以植物灯代替日照。\n通道内潮湿，墙面有霉斑，种植前需对地面与墙面进行消毒。\n所需物资：植物灯培育箱（大）1 台、任意种子 10 份、消毒喷雾 4 瓶（强效消毒喷雾与高浓度消毒喷雾同样接收）。",
+    "Say": "AidCommission_Say_27",
+    "Say_Local": "尚缺的物资：植物灯培育箱（大）1 台、任意种子 10 份、消毒喷雾 4 瓶。",
+    "SayDone": "AidCommission_SayDone_27",
+    "SayDone_Local": "物资已备齐，可在换乘通道内建成室内菜地。",
+    "DemandItemIds": [
+      14018,
+      0,
+      2164
+    ],
+    "DemandCounts": [
+      1,
+      10,
+      4
+    ],
+    "DemandKinds": [
+      0,
+      2,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      1000,
+      0
+    ],
+    "RewardItemIds": [
+      27018
+    ],
+    "RewardCounts": [
+      1
+    ],
+    "EarliestDay": 0,
+    "ReleaseTag": "Got_Robot"
+  },
+  {
+    "ID": 28,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 9,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_28",
+    "Letter_Local": "该站的寻人名单播报已持续近两个月，每周日下午开放新名单登记。前来登记的多为替家人办理的儿童，部分需步行十余里。\n该站计划为每名前来登记的儿童发放一份能让人高兴些的食品。\n所需物资：心态高于 10 的食物 6 份，以耐储存的品种为宜。",
+    "Say": "AidCommission_Say_28",
+    "Say_Local": "尚缺的物资：心态高于 10 的食物 6 份，以耐储存的品种为宜。",
+    "SayDone": "AidCommission_SayDone_28",
+    "SayDone_Local": "物资已备齐，可为周日前来登记的儿童每人发放一份。",
+    "DemandItemIds": [
+      2010
+    ],
+    "DemandCounts": [
+      6
+    ],
+    "DemandKinds": [
+      8
+    ],
+    "DemandCategories": [
+      100
+    ],
+    "RewardItemIds": [
+      20902,
+      20210,
+      2132
+    ],
+    "RewardCounts": [
+      2,
+      3,
+      2
+    ],
+    "EarliestDay": 92,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 29,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 7,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_29",
+    "Letter_Local": "本委托由区域救援据点发布。\n据点计划将这一片区的物资中转枢纽设在该仓库。作为补给枢纽，仓库的防御须足以抵御尸潮。\n第 75 天至第 85 天将有大规模尸潮经过本区域。完成条件：撑过这一轮尸潮。",
+    "Say": "AidCommission_Say_29",
+    "Say_Local": "尚需完成：撑过第 75 天至第 85 天的尸潮。",
+    "SayDone": "AidCommission_SayDone_29",
+    "SayDone_Local": "尸潮已经退去，据点确认该仓库可作为这一片区的物资中转枢纽。",
+    "DemandItemIds": [],
+    "DemandCounts": [],
+    "DemandKinds": [],
+    "DemandCategories": [],
+    "RewardItemIds": [],
+    "RewardCounts": [],
+    "EarliestDay": 0,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 30,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 4,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_30",
+    "Letter_Local": "该收容点停水已近二十日，存水只够饮用。上周拆课桌加固门窗时，多名儿童的手掌与小腿被铁钉和木刺划伤，伤口无法冲洗。\n其中两名儿童的伤口已经红肿流脓，一名夜间开始低烧。\n所需物资：创可贴 3 片，用于包扎已感染儿童的伤口，防止继续恶化。",
+    "Say": "AidCommission_Say_30",
+    "Say_Local": "尚缺的物资：创可贴 3 片。用于包扎儿童已感染的伤口。",
+    "SayDone": "AidCommission_SayDone_30",
+    "SayDone_Local": "物资已备齐，受伤儿童的伤口可每日更换包扎，感染不再扩大。",
+    "DemandItemIds": [
+      2509
+    ],
+    "DemandCounts": [
+      3
+    ],
+    "DemandKinds": [
+      0
+    ],
+    "DemandCategories": [
+      0
+    ],
+    "RewardItemIds": [
+      2206
+    ],
+    "RewardCounts": [
+      2
+    ],
+    "EarliestDay": 46,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 31,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 12,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_31",
+    "Letter_Local": "该码头的捕鱼人员每日下河作业。上游常有尸体顺流漂下，河水已受污染。\n近一周已有五人高烧不退，其中三人伴有持续腹泻，码头内没有任何存药。捕鱼一旦停止，码头四十余人的口粮将失去来源。\n所需物资：任意药品 5 份，按症状分发给发病人员。",
+    "Say": "AidCommission_Say_31",
+    "Say_Local": "尚缺的物资：任意药品 5 份。用于高烧与腹泻人员的治疗。",
+    "SayDone": "AidCommission_SayDone_31",
+    "SayDone_Local": "物资已备齐，发病人员可以开始用药，下河捕鱼得以继续。",
+    "DemandItemIds": [
+      0
+    ],
+    "DemandCounts": [
+      5
+    ],
+    "DemandKinds": [
+      2
+    ],
+    "DemandCategories": [
+      200
+    ],
+    "RewardItemIds": [
+      30025
+    ],
+    "RewardCounts": [
+      1
+    ],
+    "EarliestDay": 49,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 32,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 13,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_32",
+    "Letter_Local": "该场牛棚外仅有一圈木栅栏。上周夜里有丧尸翻入牛棚，一头怀孕的母牛被咬伤致死，值守人员直到天亮才发现。\n该场人手有限，无法整夜巡查，计划在栅栏上悬挂罐子，丧尸碰触时即发出声响。\n所需物资：叮当罐子 3 个，悬挂于牛棚外侧栅栏，用于夜间报警。",
+    "Say": "AidCommission_Say_32",
+    "Say_Local": "尚缺的物资：叮当罐子 3 个。用于牛棚栅栏的夜间报警。",
+    "SayDone": "AidCommission_SayDone_32",
+    "SayDone_Local": "物资已备齐，栅栏一有响动，值守人员即可起身驱离。",
+    "DemandItemIds": [
+      20340
+    ],
+    "DemandCounts": [
+      3
+    ],
+    "DemandKinds": [
+      0
+    ],
+    "DemandCategories": [
+      0
+    ],
+    "RewardItemIds": [
+      2118
+    ],
+    "RewardCounts": [
+      2
+    ],
+    "EarliestDay": 52,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 33,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 10,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_33",
+    "Letter_Local": "该避难点一名妇女三日前在站台上分娩。站内没有医护人员，由几名住户协助接生。\n产妇失血较多，至今无法下地，也没有奶水；站内饮水按人头限量，每人每日不足一瓶。\n所需物资：任意蛋奶 1 份，用于产妇补充营养；任意饮料 1 份，用于补充水分。",
+    "Say": "AidCommission_Say_33",
+    "Say_Local": "尚缺的物资：任意蛋奶 1 份、任意饮料 1 份。用于产妇产后的营养与补水。",
+    "SayDone": "AidCommission_SayDone_33",
+    "SayDone_Local": "物资已备齐，产妇可补充营养与水分，婴儿的喂养有望恢复。",
+    "DemandItemIds": [
+      0,
+      0
+    ],
+    "DemandCounts": [
+      1,
+      1
+    ],
+    "DemandKinds": [
+      7,
+      2
+    ],
+    "DemandCategories": [
+      103,
+      109
+    ],
+    "RewardItemIds": [
+      20368
+    ],
+    "RewardCounts": [
+      1
+    ],
+    "EarliestDay": 55,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 34,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 8,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_34",
+    "Letter_Local": "该厂上游取水口附近近日发现数具腐烂的尸体，已由厂内人员打捞掩埋。厂内化验试剂早已用尽，无法确认水质是否受到污染，附近小区已有住户饮用后出现腹泻。\n该厂已暂停供水，改用活鼠检验：以处理后的水喂养活鼠三日，未见异常再恢复供水。\n所需物资：小家鼠 2 只，须为活体，用于饮用水检验。",
+    "Say": "AidCommission_Say_34",
+    "Say_Local": "尚缺的物资：小家鼠 2 只，须为活体。用于检验处理后的饮用水。",
+    "SayDone": "AidCommission_SayDone_34",
+    "SayDone_Local": "物资已备齐，活鼠检验可于当日开始，三日后视结果恢复供水。",
+    "DemandItemIds": [
+      30000
+    ],
+    "DemandCounts": [
+      2
+    ],
+    "DemandKinds": [
+      0
+    ],
+    "DemandCategories": [
+      0
+    ],
+    "RewardItemIds": [
+      2525
+    ],
+    "RewardCounts": [
+      4
+    ],
+    "EarliestDay": 59,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 35,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 11,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_35",
+    "Letter_Local": "该库一号仓的屋顶在暴雨中塌落一角，至今无人能上房修补，仓内积水已没过脚踝。\n底层粮袋下的木制垫板已经泡烂，粮袋开始受潮发芽。这批粮食是周边两处安置点仅剩的口粮，按现有发放量只够维持两个月。\n所需物资：木板 3 块，用于重新铺设垫板，将底层粮袋架离积水。",
+    "Say": "AidCommission_Say_35",
+    "Say_Local": "尚缺的物资：木板 3 块。用于重新铺设一号仓的垫板。",
+    "SayDone": "AidCommission_SayDone_35",
+    "SayDone_Local": "物资已备齐，底层粮袋可架离积水，余粮不再受潮霉变。",
+    "DemandItemIds": [
+      20106
+    ],
+    "DemandCounts": [
+      3
+    ],
+    "DemandKinds": [
+      0
+    ],
+    "DemandCategories": [
+      0
+    ],
+    "RewardItemIds": [
+      2103
+    ],
+    "RewardCounts": [
+      3
+    ],
+    "EarliestDay": 62,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 36,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 9,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_36",
+    "Letter_Local": "前来该站查询失散亲人下落的人每日不断。核对须依据灾前的居民名册，名册锁在档案室的铁皮柜中；原管理员在灾变当日未能撤出，钥匙随之遗失。\n目前只能凭来人口述登记，同一人被重复登记、已故者被登记为失踪的情况时有发生。\n所需物资：开锁器 1 个，用于打开档案室门锁；撬棍 1 根，用于撬开铁皮柜。",
+    "Say": "AidCommission_Say_36",
+    "Say_Local": "尚缺的物资：开锁器 1 个、撬棍 1 根。用于打开档案室与铁皮柜，取出居民名册。",
+    "SayDone": "AidCommission_SayDone_36",
+    "SayDone_Local": "物资已备齐，可取出居民名册，寻人登记将逐一核对。",
+    "DemandItemIds": [
+      20320,
+      20330
+    ],
+    "DemandCounts": [
+      1,
+      1
+    ],
+    "DemandKinds": [
+      0,
+      0
+    ],
+    "DemandCategories": [
+      0,
+      0
+    ],
+    "RewardItemIds": [
+      20367
+    ],
+    "RewardCounts": [
+      1
+    ],
+    "EarliestDay": 65,
+    "ReleaseTag": ""
+  },
+  {
+    "ID": 37,
+    "WhoName": "",
+    "WhoName_Local": "",
+    "FacilityId": 3,
+    "AcceptEventId": 0,
+    "Letter": "AidCommission_Letter_37",
+    "Letter_Local": "该安置点拆除看台加固围墙时，一段看台突然坍塌，两名工人的小腿被压伤，伤口已开始溃烂。\n点内一名退休外科医生判断须尽快清创，否则感染将蔓延至全身。手术器械与伤口均须消毒，而点内的消毒用品已全部用完。\n所需物资：烈性酒精 2 瓶，用于器械与伤口消毒。",
+    "Say": "AidCommission_Say_37",
+    "Say_Local": "尚缺的物资：烈性酒精 2 瓶。用于清创时的器械与伤口消毒。",
+    "SayDone": "AidCommission_SayDone_37",
+    "SayDone_Local": "物资已备齐，两名伤员可以接受清创。",
+    "DemandItemIds": [
+      15506
+    ],
+    "DemandCounts": [
+      2
+    ],
+    "DemandKinds": [
+      0
+    ],
+    "DemandCategories": [
+      0
+    ],
+    "RewardItemIds": [
+      20371
+    ],
+    "RewardCounts": [
+      1
+    ],
+    "EarliestDay": 68,
+    "ReleaseTag": ""
+  }
+]

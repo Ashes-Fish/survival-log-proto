@@ -1,0 +1,52 @@
+[
+  {
+    "ID": 1,
+    "PoolId": 1,
+    "CrisisEventId": 48100,
+    "Weight": 100,
+    "MinGapDays": 5,
+    "DurationDays": 2,
+    "StartHour": 8,
+    "ConditionSetId": 0,
+    "ForceWeatherPoolId": 101,
+    "ResetCounterKeys": []
+  },
+  {
+    "ID": 2,
+    "PoolId": 1,
+    "CrisisEventId": 48110,
+    "Weight": 100,
+    "MinGapDays": 5,
+    "DurationDays": 2,
+    "StartHour": 8,
+    "ConditionSetId": 32146,
+    "ForceWeatherPoolId": 102,
+    "ResetCounterKeys": []
+  },
+  {
+    "ID": 3,
+    "PoolId": 1,
+    "CrisisEventId": 48130,
+    "Weight": 80,
+    "MinGapDays": 5,
+    "DurationDays": 3,
+    "StartHour": 8,
+    "ConditionSetId": 32147,
+    "ForceWeatherPoolId": 0,
+    "ResetCounterKeys": []
+  },
+  {
+    "ID": 4,
+    "PoolId": 1,
+    "CrisisEventId": 48120,
+    "Weight": 70,
+    "MinGapDays": 5,
+    "DurationDays": 3,
+    "StartHour": 8,
+    "ConditionSetId": 32149,
+    "ForceWeatherPoolId": 0,
+    "ResetCounterKeys": [
+      "ratCatch"
+    ]
+  }
+]

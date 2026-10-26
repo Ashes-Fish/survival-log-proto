@@ -1,0 +1,1374 @@
+[
+  {
+    "ID": 36,
+    "RandomGroupId": 8001,
+    "PositionName": "NEWMaket01_after_36",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 37,
+    "RandomGroupId": 8001,
+    "PositionName": "NEWMaket01_after_37",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 38,
+    "RandomGroupId": 8001,
+    "PositionName": "NEWMaket01_after_38",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 39,
+    "RandomGroupId": 8004,
+    "PositionName": "NEWMaket01_after_39",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 40,
+    "RandomGroupId": 8004,
+    "PositionName": "NEWMaket01_after_40",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 41,
+    "RandomGroupId": 8004,
+    "PositionName": "NEWMaket01_after_41",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 42,
+    "RandomGroupId": 8001,
+    "PositionName": "NEWMaket01_after_42",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 43,
+    "RandomGroupId": 8001,
+    "PositionName": "NEWMaket01_after_43",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 44,
+    "RandomGroupId": 8001,
+    "PositionName": "NEWMaket01_after_44",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 45,
+    "RandomGroupId": 8002,
+    "PositionName": "NEWMaket01_after_45",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 46,
+    "RandomGroupId": 8002,
+    "PositionName": "NEWMaket01_after_46",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 47,
+    "RandomGroupId": 8002,
+    "PositionName": "NEWMaket01_after_47",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 48,
+    "RandomGroupId": 8002,
+    "PositionName": "NEWMaket01_after_48",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 49,
+    "RandomGroupId": 8002,
+    "PositionName": "NEWMaket01_after_49",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 50,
+    "RandomGroupId": 8005,
+    "PositionName": "NEWMaket01_after_50",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 51,
+    "RandomGroupId": 8003,
+    "PositionName": "NEWMaket01_after_51",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 52,
+    "RandomGroupId": 8005,
+    "PositionName": "NEWMaket01_after_52",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 53,
+    "RandomGroupId": 8001,
+    "PositionName": "NEWMaket01_after_53",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 54,
+    "RandomGroupId": 8001,
+    "PositionName": "NEWMaket01_after_54",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 55,
+    "RandomGroupId": 8011,
+    "PositionName": "TanSuo_Small01_01",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 56,
+    "RandomGroupId": 8011,
+    "PositionName": "TanSuo_Small01_10",
+    "Radius": 1.0,
+    "Weight": 10
+  },
+  {
+    "ID": 57,
+    "RandomGroupId": 8011,
+    "PositionName": "TanSuo_Small01_13",
+    "Radius": 1.0,
+    "Weight": 10
+  },
+  {
+    "ID": 58,
+    "RandomGroupId": 8011,
+    "PositionName": "TanSuo_Small01_17",
+    "Radius": 1.0,
+    "Weight": 10
+  },
+  {
+    "ID": 59,
+    "RandomGroupId": 8038,
+    "PositionName": "Building_materials_market_34",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 60,
+    "RandomGroupId": 8038,
+    "PositionName": "Building_materials_market_35",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 61,
+    "RandomGroupId": 8038,
+    "PositionName": "Building_materials_market_36",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 62,
+    "RandomGroupId": 8038,
+    "PositionName": "Building_materials_market_37",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 63,
+    "RandomGroupId": 8038,
+    "PositionName": "Building_materials_market_38",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 64,
+    "RandomGroupId": 8038,
+    "PositionName": "Building_materials_market_39",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 65,
+    "RandomGroupId": 8038,
+    "PositionName": "Building_materials_market_40",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 66,
+    "RandomGroupId": 8038,
+    "PositionName": "Building_materials_market_41",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 67,
+    "RandomGroupId": 8038,
+    "PositionName": "Building_materials_market_42",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 68,
+    "RandomGroupId": 8038,
+    "PositionName": "Building_materials_market_43",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 69,
+    "RandomGroupId": 8039,
+    "PositionName": "Market_24",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 70,
+    "RandomGroupId": 8039,
+    "PositionName": "Market_25",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 71,
+    "RandomGroupId": 8039,
+    "PositionName": "Market_26",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 72,
+    "RandomGroupId": 8039,
+    "PositionName": "Market_27",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 73,
+    "RandomGroupId": 8039,
+    "PositionName": "Market_28",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 74,
+    "RandomGroupId": 8039,
+    "PositionName": "Market_29",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 75,
+    "RandomGroupId": 8039,
+    "PositionName": "Market_30",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 76,
+    "RandomGroupId": 8039,
+    "PositionName": "Market_31",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 77,
+    "RandomGroupId": 8039,
+    "PositionName": "Market_32",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 78,
+    "RandomGroupId": 8039,
+    "PositionName": "Market_33",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 79,
+    "RandomGroupId": 8039,
+    "PositionName": "Market_34",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 80,
+    "RandomGroupId": 8039,
+    "PositionName": "Market_35",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 81,
+    "RandomGroupId": 8039,
+    "PositionName": "Market_36",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 82,
+    "RandomGroupId": 8039,
+    "PositionName": "Market_37",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 83,
+    "RandomGroupId": 8039,
+    "PositionName": "Market_38",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 84,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_47",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 85,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_48",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 86,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_49",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 87,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_50",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 88,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_51",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 89,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_52",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 90,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_53",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 91,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_54",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 92,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_55",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 93,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_56",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 94,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_57",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 95,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_58",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 96,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_59",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 97,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_60",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 98,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_61",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 99,
+    "RandomGroupId": 8040,
+    "PositionName": "Farmers_market_62",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 100,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_195",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 101,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_196",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 102,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_197",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 103,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_198",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 104,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_199",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 105,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_200",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 106,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_201",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 107,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_202",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 108,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_203",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 109,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_204",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 110,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_205",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 111,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_206",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 112,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_207",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 113,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_208",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 114,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_209",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 115,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_210",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 116,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_211",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 117,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_212",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 118,
+    "RandomGroupId": 8217,
+    "PositionName": "TanSuo_Hospital_213",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 119,
+    "RandomGroupId": 8218,
+    "PositionName": "TanSuo_Hospital_214",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 120,
+    "RandomGroupId": 8218,
+    "PositionName": "TanSuo_Hospital_215",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 121,
+    "RandomGroupId": 8218,
+    "PositionName": "TanSuo_Hospital_216",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 122,
+    "RandomGroupId": 8218,
+    "PositionName": "TanSuo_Hospital_217",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 123,
+    "RandomGroupId": 8218,
+    "PositionName": "TanSuo_Hospital_218",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 124,
+    "RandomGroupId": 8218,
+    "PositionName": "TanSuo_Hospital_219",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 125,
+    "RandomGroupId": 8218,
+    "PositionName": "TanSuo_Hospital_220",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 126,
+    "RandomGroupId": 8218,
+    "PositionName": "TanSuo_Hospital_221",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 127,
+    "RandomGroupId": 8218,
+    "PositionName": "TanSuo_Hospital_222",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 128,
+    "RandomGroupId": 8218,
+    "PositionName": "TanSuo_Hospital_223",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 129,
+    "RandomGroupId": 8218,
+    "PositionName": "TanSuo_Hospital_224",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 130,
+    "RandomGroupId": 8218,
+    "PositionName": "TanSuo_Hospital_225",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 131,
+    "RandomGroupId": 8218,
+    "PositionName": "TanSuo_Hospital_226",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 132,
+    "RandomGroupId": 8218,
+    "PositionName": "TanSuo_Hospital_227",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 133,
+    "RandomGroupId": 8219,
+    "PositionName": "TanSuo_Hospital_228",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 134,
+    "RandomGroupId": 8219,
+    "PositionName": "TanSuo_Hospital_229",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 135,
+    "RandomGroupId": 8219,
+    "PositionName": "TanSuo_Hospital_230",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 136,
+    "RandomGroupId": 8220,
+    "PositionName": "TanSuo_Hospital_231",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 137,
+    "RandomGroupId": 8220,
+    "PositionName": "TanSuo_Hospital_232",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 138,
+    "RandomGroupId": 8220,
+    "PositionName": "TanSuo_Hospital_233",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 139,
+    "RandomGroupId": 8220,
+    "PositionName": "TanSuo_Hospital_234",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 140,
+    "RandomGroupId": 8220,
+    "PositionName": "TanSuo_Hospital_235",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 141,
+    "RandomGroupId": 8220,
+    "PositionName": "TanSuo_Hospital_236",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 142,
+    "RandomGroupId": 8220,
+    "PositionName": "TanSuo_Hospital_237",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 143,
+    "RandomGroupId": 8220,
+    "PositionName": "TanSuo_Hospital_238",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 144,
+    "RandomGroupId": 8220,
+    "PositionName": "TanSuo_Hospital_239",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 145,
+    "RandomGroupId": 8221,
+    "PositionName": "TanSuo_School_205",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 146,
+    "RandomGroupId": 8221,
+    "PositionName": "TanSuo_School_206",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 147,
+    "RandomGroupId": 8221,
+    "PositionName": "TanSuo_School_207",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 148,
+    "RandomGroupId": 8221,
+    "PositionName": "TanSuo_School_208",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 149,
+    "RandomGroupId": 8221,
+    "PositionName": "TanSuo_School_209",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 150,
+    "RandomGroupId": 8222,
+    "PositionName": "TanSuo_School_210",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 151,
+    "RandomGroupId": 8222,
+    "PositionName": "TanSuo_School_211",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 152,
+    "RandomGroupId": 8222,
+    "PositionName": "TanSuo_School_212",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 153,
+    "RandomGroupId": 8222,
+    "PositionName": "TanSuo_School_213",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 154,
+    "RandomGroupId": 8222,
+    "PositionName": "TanSuo_School_214",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 155,
+    "RandomGroupId": 8222,
+    "PositionName": "TanSuo_School_215",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 156,
+    "RandomGroupId": 8223,
+    "PositionName": "TanSuo_School_216",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 157,
+    "RandomGroupId": 8223,
+    "PositionName": "TanSuo_School_217",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 158,
+    "RandomGroupId": 8223,
+    "PositionName": "TanSuo_School_218",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 159,
+    "RandomGroupId": 8223,
+    "PositionName": "TanSuo_School_219",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 160,
+    "RandomGroupId": 8223,
+    "PositionName": "TanSuo_School_220",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 161,
+    "RandomGroupId": 8223,
+    "PositionName": "TanSuo_School_221",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 162,
+    "RandomGroupId": 8223,
+    "PositionName": "TanSuo_School_222",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 163,
+    "RandomGroupId": 8223,
+    "PositionName": "TanSuo_School_223",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 164,
+    "RandomGroupId": 8223,
+    "PositionName": "TanSuo_School_224",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 165,
+    "RandomGroupId": 8223,
+    "PositionName": "TanSuo_School_225",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 166,
+    "RandomGroupId": 8223,
+    "PositionName": "TanSuo_School_226",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 167,
+    "RandomGroupId": 8223,
+    "PositionName": "TanSuo_School_227",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 168,
+    "RandomGroupId": 8223,
+    "PositionName": "TanSuo_School_228",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 169,
+    "RandomGroupId": 8223,
+    "PositionName": "TanSuo_School_229",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 170,
+    "RandomGroupId": 8224,
+    "PositionName": "TanSuo_School_230",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 171,
+    "RandomGroupId": 8224,
+    "PositionName": "TanSuo_School_231",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 172,
+    "RandomGroupId": 8224,
+    "PositionName": "TanSuo_School_232",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 173,
+    "RandomGroupId": 8224,
+    "PositionName": "TanSuo_School_233",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 174,
+    "RandomGroupId": 8224,
+    "PositionName": "TanSuo_School_234",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 175,
+    "RandomGroupId": 8224,
+    "PositionName": "TanSuo_School_235",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 176,
+    "RandomGroupId": 8224,
+    "PositionName": "TanSuo_School_236",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 177,
+    "RandomGroupId": 8224,
+    "PositionName": "TanSuo_School_237",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 178,
+    "RandomGroupId": 8224,
+    "PositionName": "TanSuo_School_238",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 179,
+    "RandomGroupId": 8224,
+    "PositionName": "TanSuo_School_239",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 180,
+    "RandomGroupId": 8224,
+    "PositionName": "TanSuo_School_240",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 181,
+    "RandomGroupId": 8224,
+    "PositionName": "TanSuo_School_241",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 182,
+    "RandomGroupId": 8224,
+    "PositionName": "TanSuo_School_242",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 183,
+    "RandomGroupId": 8225,
+    "PositionName": "TanSuo_School_243",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 184,
+    "RandomGroupId": 8225,
+    "PositionName": "TanSuo_School_244",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 185,
+    "RandomGroupId": 8225,
+    "PositionName": "TanSuo_School_245",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 186,
+    "RandomGroupId": 8225,
+    "PositionName": "TanSuo_School_246",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 187,
+    "RandomGroupId": 8225,
+    "PositionName": "TanSuo_School_247",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 188,
+    "RandomGroupId": 8225,
+    "PositionName": "TanSuo_School_248",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 189,
+    "RandomGroupId": 8225,
+    "PositionName": "TanSuo_School_249",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 190,
+    "RandomGroupId": 8226,
+    "PositionName": "TanSuo_School_250",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 191,
+    "RandomGroupId": 8226,
+    "PositionName": "TanSuo_School_251",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 192,
+    "RandomGroupId": 8226,
+    "PositionName": "TanSuo_School_252",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 193,
+    "RandomGroupId": 8226,
+    "PositionName": "TanSuo_School_253",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 194,
+    "RandomGroupId": 8226,
+    "PositionName": "TanSuo_School_254",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 195,
+    "RandomGroupId": 8226,
+    "PositionName": "TanSuo_School_255",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 196,
+    "RandomGroupId": 8226,
+    "PositionName": "TanSuo_School_256",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 197,
+    "RandomGroupId": 8226,
+    "PositionName": "TanSuo_School_257",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 198,
+    "RandomGroupId": 8226,
+    "PositionName": "TanSuo_School_258",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 199,
+    "RandomGroupId": 8226,
+    "PositionName": "TanSuo_School_259",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 200,
+    "RandomGroupId": 8226,
+    "PositionName": "TanSuo_School_260",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 201,
+    "RandomGroupId": 8226,
+    "PositionName": "TanSuo_School_261",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 202,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF1_136",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 203,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF1_137",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 204,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF1_138",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 205,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF1_139",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 206,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF1_140",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 207,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF1_141",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 208,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF1_142",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 209,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF1_143",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 210,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF1_144",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 211,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF1_145",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 212,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF1_146",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 213,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF1_147",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 214,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_157",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 215,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_158",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 216,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_159",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 217,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_160",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 218,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_161",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 219,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_162",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 220,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_163",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 221,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_164",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 222,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_165",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 223,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_166",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 224,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_167",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 225,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_168",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 226,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_169",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 227,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_170",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 228,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_171",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 229,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_172",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 230,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_173",
+    "Radius": 0.5,
+    "Weight": 10
+  },
+  {
+    "ID": 231,
+    "RandomGroupId": 8227,
+    "PositionName": "TanSuo_OfficeF2_174",
+    "Radius": 0.5,
+    "Weight": 10
+  }
+]

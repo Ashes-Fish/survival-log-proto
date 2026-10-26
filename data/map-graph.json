@@ -1,0 +1,3114 @@
+{
+ "schema": 1,
+ "sources": [
+  "Config_MapPoint",
+  "Config_MapRoom",
+  "Config_MapSlot",
+  "Config_Map (Map-decoded.json)"
+ ],
+ "mapProvenance": {
+  "source": "investigation\\extracted\\text\\6dd3f58c50251767834b861902f6e0ef_-8633583741886556953_Map",
+  "sha256": "bae8bdd94a67fb29d05b30ca267cc7fb5200abadee542bcdcc93aca2cb964e64",
+  "container": "Dictionary<string, Config_Map>",
+  "bytesConsumed": 394334,
+  "rows": 66,
+  "schemas": {
+   "Config_Map": [
+    [
+     "string",
+     "Name"
+    ],
+    [
+     "List<MapPoint>",
+     "MapPoints"
+    ],
+    [
+     "List<MapPoint>",
+     "BuildingMapPoints"
+    ],
+    [
+     "List<MapPoint>",
+     "PackageMapPoints"
+    ],
+    [
+     "List<CameraRange>",
+     "CameraRanges"
+    ],
+    [
+     "List<EnvBox>",
+     "EnvBoxes"
+    ],
+    [
+     "List<UnlockBox>",
+     "UnlockBoxes"
+    ]
+   ],
+   "MapPoint": [
+    [
+     "string",
+     "NodeName"
+    ],
+    [
+     "List<float>",
+     "WorldPos"
+    ],
+    [
+     "List<float>",
+     "WoldRotation"
+    ],
+    [
+     "List<float>",
+     "ActionWorldPos"
+    ],
+    [
+     "List<float>",
+     "ActionWorldRotation"
+    ]
+   ],
+   "CameraRange": [
+    [
+     "string",
+     "NodeName"
+    ],
+    [
+     "List<float>",
+     "MinWorldPos"
+    ],
+    [
+     "List<float>",
+     "MaxWorldPos"
+    ]
+   ],
+   "EnvBox": [
+    [
+     "string",
+     "NodeName"
+    ],
+    [
+     "int",
+     "AreaId"
+    ],
+    [
+     "List<float>",
+     "MinWorldPos"
+    ],
+    [
+     "List<float>",
+     "MaxWorldPos"
+    ]
+   ],
+   "UnlockBox": [
+    [
+     "string",
+     "NodeName"
+    ],
+    [
+     "string",
+     "Tag"
+    ],
+    [
+     "List<float>",
+     "MinWorldPos"
+    ],
+    [
+     "List<float>",
+     "MaxWorldPos"
+    ]
+   ]
+  },
+  "coverage": "Serialized map anchors; not scene geometry or pathfinding"
+ },
+ "coverage": "Static config only: anchors and travel costs, not scene geometry, navmesh or runtime unlock order.",
+ "counts": {
+  "points": 32,
+  "scenes": 21,
+  "sceneRows": 66,
+  "edges": 16,
+  "unresolved": 7
+ },
+ "points": [
+  {
+   "id": 1,
+   "name": "家",
+   "category": 1,
+   "type": 1,
+   "chapterId": 0,
+   "unlocked": true,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": 1,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/EventNew/011.jpeg",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": {
+    "node": "Home",
+    "scenes": [
+     "Scene_AfterTheDisaster",
+     "Scene_AfterTheDisaster02",
+     "Scene_AfterTheDisaster02_Neighbor_Girl",
+     "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+     "Scene_AfterTheDisaster02_Shell",
+     "Scene_AfterTheDisaster02_WarehouseManager",
+     "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+     "Scene_AfterTheDisaster03",
+     "Scene_AfterTheDisaster03_Neighbor_Girl",
+     "Scene_AfterTheDisaster03_WarehouseManager",
+     "Scene_BeforeCatastrophe"
+    ]
+   },
+   "anchors": {
+    "position": {
+     "node": "HomeStart",
+     "scenes": [
+      {
+       "scene": "Home_XUZhang",
+       "pos": [
+        -767.302978515625,
+        4.1016998291015625,
+        -236.59300231933594
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster",
+       "pos": [
+        -27.65999984741211,
+        0,
+        6.590000152587891
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        -25.937000274658203,
+        0,
+        10.758999824523926
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl",
+       "pos": [
+        -9.180000305175781,
+        0,
+        12.229999542236328
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+       "pos": [
+        -9.180000305175781,
+        0,
+        12.229999542236328
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        -25.937000274658203,
+        0,
+        10.758999824523926
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        7.150000095367432,
+        0,
+        -12.210000038146973
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        7.150000095367432,
+        0,
+        -12.210000038146973
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03",
+       "pos": [
+        -25.937000274658203,
+        0,
+        10.758999824523926
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_Neighbor_Girl",
+       "pos": [
+        -9.180000305175781,
+        0,
+        12.229999542236328
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_WarehouseManager",
+       "pos": [
+        7.150000095367432,
+        0,
+        -12.210000038146973
+       ]
+      },
+      {
+       "scene": "Scene_BeforeCatastrophe",
+       "pos": [
+        -27.65999984741211,
+        0,
+        6.590000152587891
+       ]
+      },
+      {
+       "scene": "Scene_supermarket01",
+       "pos": [
+        -26.707000732421875,
+        0,
+        9.795000076293945
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "HomeExit",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        -21.047000885009766,
+        0.04699999839067459,
+        6.584000110626221
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl",
+       "pos": [
+        -7.2170000076293945,
+        0,
+        8.413999557495117
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+       "pos": [
+        -7.2170000076293945,
+        0,
+        8.413999557495117
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        -21.047000885009766,
+        0.04699999839067459,
+        6.584000110626221
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        6.593999862670898,
+        0,
+        -23.954999923706055
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        6.593999862670898,
+        0,
+        -23.954999923706055
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03",
+       "pos": [
+        -21.047000885009766,
+        0,
+        6.584000110626221
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_Neighbor_Girl",
+       "pos": [
+        -7.2170000076293945,
+        0,
+        8.413999557495117
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_WarehouseManager",
+       "pos": [
+        6.593999862670898,
+        0,
+        -23.954999923706055
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "Home_XUZhang",
+    "Scene_AfterTheDisaster",
+    "Scene_AfterTheDisaster02",
+    "Scene_AfterTheDisaster02_Neighbor_Girl",
+    "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+    "Scene_AfterTheDisaster02_Shell",
+    "Scene_AfterTheDisaster02_WarehouseManager",
+    "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+    "Scene_AfterTheDisaster03",
+    "Scene_AfterTheDisaster03_Neighbor_Girl",
+    "Scene_AfterTheDisaster03_WarehouseManager",
+    "Scene_BeforeCatastrophe",
+    "Scene_supermarket01"
+   ]
+  },
+  {
+   "id": 2,
+   "name": "特价超市",
+   "category": 1,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": true,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": null,
+   "travelSeconds": 3600,
+   "travelSecondsByPlayer": [
+    3600,
+    3600,
+    1200
+   ],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/SuperMarketR.png",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": {
+    "node": "Market",
+    "scenes": [
+     "NEWMaket01_after",
+     "Scene_AfterTheDisaster",
+     "Scene_AfterTheDisaster02",
+     "Scene_AfterTheDisaster02_Neighbor_Girl",
+     "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+     "Scene_AfterTheDisaster02_Shell",
+     "Scene_AfterTheDisaster02_WarehouseManager",
+     "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+     "Scene_BeforeCatastrophe",
+     "Scene_supermarket01"
+    ]
+   },
+   "anchors": {
+    "position": {
+     "node": "MarketStart",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster",
+       "pos": [
+        581.0399780273438,
+        0,
+        134.10000610351562
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        222.27999877929688,
+        0,
+        23.719999313354492
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl",
+       "pos": [
+        222.27999877929688,
+        0,
+        23.719999313354492
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+       "pos": [
+        222.27999877929688,
+        0,
+        23.719999313354492
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        222.27999877929688,
+        0,
+        23.719999313354492
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        222.27999877929688,
+        0,
+        23.719999313354492
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        222.27999877929688,
+        0,
+        23.719999313354492
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03",
+       "pos": [
+        222.27999877929688,
+        0,
+        23.719999313354492
+       ]
+      },
+      {
+       "scene": "Scene_BeforeCatastrophe",
+       "pos": [
+        581.0399780273438,
+        0,
+        134.10000610351562
+       ]
+      },
+      {
+       "scene": "Scene_supermarket01",
+       "pos": [
+        222.27999877929688,
+        0,
+        23.719999313354492
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "MarketExit",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        219.8350067138672,
+        0.07000000029802322,
+        17.15399932861328
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl",
+       "pos": [
+        219.8350067138672,
+        0.07000000029802322,
+        17.15399932861328
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+       "pos": [
+        219.8350067138672,
+        0.07000000029802322,
+        17.15399932861328
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        219.8350067138672,
+        0.07000000029802322,
+        17.15399932861328
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        219.8350067138672,
+        0.07000000029802322,
+        17.15399932861328
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        219.8350067138672,
+        0.07000000029802322,
+        17.15399932861328
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "Scene_AfterTheDisaster",
+    "Scene_AfterTheDisaster02",
+    "Scene_AfterTheDisaster02_Neighbor_Girl",
+    "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+    "Scene_AfterTheDisaster02_Shell",
+    "Scene_AfterTheDisaster02_WarehouseManager",
+    "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+    "Scene_AfterTheDisaster03",
+    "Scene_BeforeCatastrophe",
+    "Scene_supermarket01"
+   ]
+  },
+  {
+   "id": 3,
+   "name": "装修公司",
+   "category": 1,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": true,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": null,
+   "travelSeconds": 3600,
+   "travelSecondsByPlayer": [
+    3600,
+    3600,
+    5400
+   ],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/FurnitureShop.png",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": {
+    "node": "Building_materials_market",
+    "scenes": [
+     "Scene_AfterTheDisaster02",
+     "Scene_AfterTheDisaster02_Neighbor_Girl",
+     "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+     "Scene_AfterTheDisaster02_Shell",
+     "Scene_AfterTheDisaster02_WarehouseManager",
+     "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+     "Scene_AfterTheDisaster_Building_materials_market"
+    ]
+   },
+   "anchors": {
+    "position": {
+     "node": "Building_materials_marketStart",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        -294.3900146484375,
+        0,
+        220.74000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl",
+       "pos": [
+        -294.3900146484375,
+        0,
+        220.74000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+       "pos": [
+        -294.3900146484375,
+        0,
+        220.74000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        -294.3900146484375,
+        0,
+        220.74000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        -294.3900146484375,
+        0,
+        220.74000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        -294.3900146484375,
+        0,
+        220.74000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster_Building_materials_market",
+       "pos": [
+        0.5,
+        0,
+        21.770000457763672
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "Building_materials_marketExit",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        -293.79998779296875,
+        0,
+        219.63999938964844
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl",
+       "pos": [
+        -293.79998779296875,
+        0,
+        219.63999938964844
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+       "pos": [
+        -293.79998779296875,
+        0,
+        219.63999938964844
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        -293.79998779296875,
+        0,
+        219.63999938964844
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        -293.79998779296875,
+        0,
+        219.63999938964844
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        -293.79998779296875,
+        0,
+        219.63999938964844
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster_Building_materials_market",
+       "pos": [
+        3.7200000286102295,
+        0,
+        59.5
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "Scene_AfterTheDisaster02",
+    "Scene_AfterTheDisaster02_Neighbor_Girl",
+    "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+    "Scene_AfterTheDisaster02_Shell",
+    "Scene_AfterTheDisaster02_WarehouseManager",
+    "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+    "Scene_AfterTheDisaster_Building_materials_market"
+   ]
+  },
+  {
+   "id": 4,
+   "name": "二手车行",
+   "category": 1,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": true,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": null,
+   "travelSeconds": 5400,
+   "travelSecondsByPlayer": [
+    5400,
+    5400,
+    3600
+   ],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/MapPoint4.png",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": {
+    "node": "Used_Car_DealerShip",
+    "scenes": [
+     "Scene_AfterTheDisaster02",
+     "Scene_AfterTheDisaster02_Neighbor_Girl",
+     "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+     "Scene_AfterTheDisaster02_Shell",
+     "Scene_AfterTheDisaster02_WarehouseManager",
+     "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+     "Scene_AfterTheDisaster_Farmers_market",
+     "Scene_AfterTheDisaster_Used_Car"
+    ]
+   },
+   "anchors": {
+    "position": {
+     "node": "Used_Car_DealerShipStart",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        -272.5,
+        0,
+        -177.6999969482422
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl",
+       "pos": [
+        -272.5,
+        0,
+        -177.6999969482422
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+       "pos": [
+        -272.5,
+        0,
+        -177.6999969482422
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        -272.5,
+        0,
+        -177.6999969482422
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        -272.5,
+        0,
+        -177.6999969482422
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        -272.5,
+        0,
+        -177.6999969482422
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "Used_Car_DealerShipExit",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        -274.0199890136719,
+        0,
+        -178.83999633789062
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl",
+       "pos": [
+        -274.0199890136719,
+        0,
+        -178.83999633789062
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+       "pos": [
+        -274.0199890136719,
+        0,
+        -178.83999633789062
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        -274.0199890136719,
+        0,
+        -178.83999633789062
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        -274.0199890136719,
+        0,
+        -178.83999633789062
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        -274.0199890136719,
+        0,
+        -178.83999633789062
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "Scene_AfterTheDisaster02",
+    "Scene_AfterTheDisaster02_Neighbor_Girl",
+    "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+    "Scene_AfterTheDisaster02_Shell",
+    "Scene_AfterTheDisaster02_WarehouseManager",
+    "Scene_AfterTheDisaster02_WarehouseManager_Shell"
+   ]
+  },
+  {
+   "id": 5,
+   "name": "农贸市场",
+   "category": 1,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": true,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": null,
+   "travelSeconds": 3600,
+   "travelSecondsByPlayer": [
+    3600,
+    3600,
+    1800
+   ],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/PlantShop.png",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": {
+    "node": "Farmers_market",
+    "scenes": [
+     "Scene_AfterTheDisaster02",
+     "Scene_AfterTheDisaster02_Neighbor_Girl",
+     "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+     "Scene_AfterTheDisaster02_Shell",
+     "Scene_AfterTheDisaster02_WarehouseManager",
+     "Scene_AfterTheDisaster02_WarehouseManager_Shell"
+    ]
+   },
+   "anchors": {
+    "position": {
+     "node": "Farmers_marketStart",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        199.3300018310547,
+        0,
+        243.24000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl",
+       "pos": [
+        199.3300018310547,
+        0,
+        243.24000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+       "pos": [
+        199.3300018310547,
+        0,
+        243.24000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        199.3300018310547,
+        0,
+        243.24000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        199.3300018310547,
+        0,
+        243.24000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        199.3300018310547,
+        0,
+        243.24000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster_Farmers_market",
+       "pos": [
+        183.50999450683594,
+        0,
+        43.5
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "Farmers_marketExit",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        204.83999633789062,
+        0,
+        246.24000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl",
+       "pos": [
+        204.83999633789062,
+        0,
+        246.24000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+       "pos": [
+        204.83999633789062,
+        0,
+        246.24000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        204.83999633789062,
+        0,
+        246.24000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        204.83999633789062,
+        0,
+        246.24000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        204.83999633789062,
+        0,
+        246.24000549316406
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster_Farmers_market",
+       "pos": [
+        221.61000061035156,
+        0,
+        28.90999984741211
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "Scene_AfterTheDisaster02",
+    "Scene_AfterTheDisaster02_Neighbor_Girl",
+    "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+    "Scene_AfterTheDisaster02_Shell",
+    "Scene_AfterTheDisaster02_WarehouseManager",
+    "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+    "Scene_AfterTheDisaster_Farmers_market"
+   ]
+  },
+  {
+   "id": 6,
+   "name": "未知地点",
+   "category": 1,
+   "type": 3,
+   "chapterId": 0,
+   "unlocked": false,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": null,
+   "travelSeconds": 7200,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/MapPoint5.png",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": null,
+   "anchors": {},
+   "scenes": []
+  },
+  {
+   "id": 7,
+   "name": "NPC邻居家",
+   "category": 1,
+   "type": 3,
+   "chapterId": 0,
+   "unlocked": false,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": null,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/MapPoint5.png",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": {
+    "node": "GirlHome",
+    "scenes": []
+   },
+   "anchors": {
+    "position": {
+     "node": "GirlHome_01",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        -9.289999961853027,
+        0,
+        11.454999923706055
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        -9.289999961853027,
+        0,
+        11.454999923706055
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03",
+       "pos": [
+        -9.289999961853027,
+        0,
+        11.454999923706055
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "GirlHomeExit",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        -8.16100025177002,
+        0.009999999776482582,
+        8.581000328063965
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        -8.16100025177002,
+        0.009999999776482582,
+        8.581000328063965
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "Scene_AfterTheDisaster02",
+    "Scene_AfterTheDisaster02_Shell",
+    "Scene_AfterTheDisaster03"
+   ]
+  },
+  {
+   "id": 8,
+   "name": "卧室",
+   "category": 1,
+   "type": 3,
+   "chapterId": 0,
+   "unlocked": false,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": null,
+   "travelSeconds": 3600,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/EventNew/011.jpeg",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": {
+    "node": "Home_XUZhang",
+    "scenes": [
+     "Home_XUZhang"
+    ]
+   },
+   "anchors": {
+    "position": {
+     "node": "HomeXuZhangStart",
+     "scenes": [
+      {
+       "scene": "Home_XUZhang",
+       "pos": [
+        -767.158935546875,
+        4.101806640625,
+        -236.68408203125
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "Home_XUZhangExit",
+     "scenes": [
+      {
+       "scene": "Home_XUZhang",
+       "pos": [
+        -764.2650146484375,
+        4.092700004577637,
+        -238.5500030517578
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "Home_XUZhang"
+   ]
+  },
+  {
+   "id": 9,
+   "name": "社区便利店",
+   "category": 1,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": true,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": null,
+   "travelSeconds": 1200,
+   "travelSecondsByPlayer": [
+    1200,
+    1200,
+    2400
+   ],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/SmallShop.png",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": {
+    "node": "Small_Market",
+    "scenes": [
+     "Scene_AfterTheDisaster02",
+     "Scene_AfterTheDisaster02_Neighbor_Girl",
+     "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+     "Scene_AfterTheDisaster02_Shell",
+     "Scene_AfterTheDisaster02_WarehouseManager",
+     "Scene_AfterTheDisaster02_WarehouseManager_Shell"
+    ]
+   },
+   "anchors": {
+    "position": {
+     "node": "Small_MarketStart",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        659.5,
+        0,
+        57
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl",
+       "pos": [
+        659.5,
+        0,
+        57
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+       "pos": [
+        659.5,
+        0,
+        57
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        659.5,
+        0,
+        57
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        659.5,
+        0,
+        57
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        659.5,
+        0,
+        57
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "Small_MarketExit",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        659.1500244140625,
+        0,
+        50.27000045776367
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl",
+       "pos": [
+        659.1500244140625,
+        0,
+        50.27000045776367
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+       "pos": [
+        659.1500244140625,
+        0,
+        50.27000045776367
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        659.1500244140625,
+        0,
+        50.27000045776367
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        659.1500244140625,
+        0,
+        50.27000045776367
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        659.1500244140625,
+        0,
+        50.27000045776367
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "Scene_AfterTheDisaster02",
+    "Scene_AfterTheDisaster02_Neighbor_Girl",
+    "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+    "Scene_AfterTheDisaster02_Shell",
+    "Scene_AfterTheDisaster02_WarehouseManager",
+    "Scene_AfterTheDisaster02_WarehouseManager_Shell"
+   ]
+  },
+  {
+   "id": 10,
+   "name": "工具店",
+   "category": 1,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": true,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": null,
+   "travelSeconds": 1800,
+   "travelSecondsByPlayer": [
+    1800,
+    1800,
+    3600
+   ],
+   "costItems": [],
+   "webIcon": "../../Res/Story/1035.png",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": {
+    "node": "Tool_Store",
+    "scenes": [
+     "Scene_AfterTheDisaster02",
+     "Scene_AfterTheDisaster02_Neighbor_Girl",
+     "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+     "Scene_AfterTheDisaster02_Shell",
+     "Scene_AfterTheDisaster02_WarehouseManager",
+     "Scene_AfterTheDisaster02_WarehouseManager_Shell"
+    ]
+   },
+   "anchors": {
+    "position": {
+     "node": "Tool_StoreStart",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        641.1199951171875,
+        0,
+        -94.69000244140625
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl",
+       "pos": [
+        641.1199951171875,
+        0,
+        -94.69000244140625
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+       "pos": [
+        641.1199951171875,
+        0,
+        -94.69000244140625
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        641.1199951171875,
+        0,
+        -94.69000244140625
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        641.1199951171875,
+        0,
+        -94.69000244140625
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        641.1199951171875,
+        0,
+        -94.69000244140625
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "Tool_StoreExit",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02",
+       "pos": [
+        639.75,
+        0,
+        -97.83999633789062
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl",
+       "pos": [
+        639.75,
+        0,
+        -97.83999633789062
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+       "pos": [
+        639.75,
+        0,
+        -97.83999633789062
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_Shell",
+       "pos": [
+        639.75,
+        0,
+        -97.83999633789062
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        639.75,
+        0,
+        -97.83999633789062
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        639.75,
+        0,
+        -97.83999633789062
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "Scene_AfterTheDisaster02",
+    "Scene_AfterTheDisaster02_Neighbor_Girl",
+    "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+    "Scene_AfterTheDisaster02_Shell",
+    "Scene_AfterTheDisaster02_WarehouseManager",
+    "Scene_AfterTheDisaster02_WarehouseManager_Shell"
+   ]
+  },
+  {
+   "id": 11,
+   "name": "NPC打工仔家",
+   "category": 1,
+   "type": 1,
+   "chapterId": 0,
+   "unlocked": true,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": null,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/EventNew/011.jpeg",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": {
+    "node": "NewHome01_after_AI",
+    "scenes": []
+   },
+   "anchors": {
+    "position": {
+     "node": "NewHome01_after_AIStart",
+     "scenes": []
+    },
+    "exit": {
+     "node": "NewHome01_after_AIExit",
+     "scenes": []
+    }
+   },
+   "scenes": []
+  },
+  {
+   "id": 12,
+   "name": "未知地点",
+   "category": 1,
+   "type": 3,
+   "chapterId": 0,
+   "unlocked": false,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": null,
+   "travelSeconds": 7200,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/MapPoint5.png",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": null,
+   "anchors": {},
+   "scenes": []
+  },
+  {
+   "id": 101,
+   "name": "地下室",
+   "category": 1,
+   "type": 1,
+   "chapterId": 0,
+   "unlocked": false,
+   "unlockTag": "TAG_FLOOR_B1_UNLOCKED",
+   "conditionSetId": null,
+   "homeGroup": 1,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/EventNew/011.jpeg",
+   "groundBox": "GroudBox_B1",
+   "cameraRange": {
+    "node": "Home_basement",
+    "scenes": [
+     "Scene_AfterTheDisaster03",
+     "Scene_AfterTheDisaster03_Neighbor_Girl"
+    ]
+   },
+   "anchors": {
+    "position": {
+     "node": "HomeBasementStart",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        -16.729999542236328,
+        0,
+        -17.739999771118164
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        -16.729999542236328,
+        0,
+        -17.739999771118164
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03",
+       "pos": [
+        -35.900001525878906,
+        -38.63600158691406,
+        6.559999942779541
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_Neighbor_Girl",
+       "pos": [
+        -4.460000038146973,
+        -40,
+        16.920000076293945
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_WarehouseManager",
+       "pos": [
+        -16.729999542236328,
+        0,
+        -17.739999771118164
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "HomeBasementStart",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        -16.729999542236328,
+        0,
+        -17.739999771118164
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        -16.729999542236328,
+        0,
+        -17.739999771118164
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03",
+       "pos": [
+        -35.900001525878906,
+        -38.63600158691406,
+        6.559999942779541
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_Neighbor_Girl",
+       "pos": [
+        -4.460000038146973,
+        -40,
+        16.920000076293945
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_WarehouseManager",
+       "pos": [
+        -16.729999542236328,
+        0,
+        -17.739999771118164
+       ]
+      }
+     ]
+    },
+    "entry": {
+     "node": "BasementEntry",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        -9.460000038146973,
+        0.0000152587890625,
+        -21.309999465942383
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        -9.460000038146973,
+        0.0000152587890625,
+        -21.309999465942383
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03",
+       "pos": [
+        -33.66999816894531,
+        0.0000152587890625,
+        11.602999687194824
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_Neighbor_Girl",
+       "pos": [
+        -7.894000053405762,
+        0,
+        15.413000106811523
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_WarehouseManager",
+       "pos": [
+        -9.460000038146973,
+        0.0000152587890625,
+        -21.309999465942383
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "Scene_AfterTheDisaster02_WarehouseManager",
+    "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+    "Scene_AfterTheDisaster03",
+    "Scene_AfterTheDisaster03_Neighbor_Girl",
+    "Scene_AfterTheDisaster03_WarehouseManager"
+   ]
+  },
+  {
+   "id": 102,
+   "name": "二楼",
+   "category": 1,
+   "type": 1,
+   "chapterId": 0,
+   "unlocked": false,
+   "unlockTag": "TAG_FLOOR_2F_UNLOCKED",
+   "conditionSetId": null,
+   "homeGroup": 1,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/EventNew/011.jpeg",
+   "groundBox": "GroudBox_F2",
+   "cameraRange": {
+    "node": "Home_secondfloor",
+    "scenes": [
+     "Scene_AfterTheDisaster03",
+     "Scene_AfterTheDisaster03_Neighbor_Girl",
+     "Scene_AfterTheDisaster03_WarehouseManager"
+    ]
+   },
+   "anchors": {
+    "position": {
+     "node": "HomeSecondfloorStart",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        6.849999904632568,
+        7.099999904632568,
+        -13.206999778747559
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        6.849999904632568,
+        7.099999904632568,
+        -13.206999778747559
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03",
+       "pos": [
+        -26.920000076293945,
+        5.123000144958496,
+        17.5
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_Neighbor_Girl",
+       "pos": [
+        -11.215999603271484,
+        5,
+        17.511999130249023
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_WarehouseManager",
+       "pos": [
+        6.849999904632568,
+        7.099999904632568,
+        -13.206999778747559
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "HomeSecondfloorStart",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        6.849999904632568,
+        7.099999904632568,
+        -13.206999778747559
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        6.849999904632568,
+        7.099999904632568,
+        -13.206999778747559
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03",
+       "pos": [
+        -26.920000076293945,
+        5.123000144958496,
+        17.5
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_Neighbor_Girl",
+       "pos": [
+        -11.215999603271484,
+        5,
+        17.511999130249023
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_WarehouseManager",
+       "pos": [
+        6.849999904632568,
+        7.099999904632568,
+        -13.206999778747559
+       ]
+      }
+     ]
+    },
+    "entry": {
+     "node": "StairTo2F",
+     "scenes": [
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager",
+       "pos": [
+        10.449999809265137,
+        0.0000152587890625,
+        -13.229999542236328
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+       "pos": [
+        10.449999809265137,
+        0.0000152587890625,
+        -13.229999542236328
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03",
+       "pos": [
+        -27.676000595092773,
+        0.0000152587890625,
+        17.325000762939453
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_Neighbor_Girl",
+       "pos": [
+        -9.6850004196167,
+        0,
+        18.082000732421875
+       ]
+      },
+      {
+       "scene": "Scene_AfterTheDisaster03_WarehouseManager",
+       "pos": [
+        10.449999809265137,
+        0.0000152587890625,
+        -13.229999542236328
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "Scene_AfterTheDisaster02_WarehouseManager",
+    "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+    "Scene_AfterTheDisaster03",
+    "Scene_AfterTheDisaster03_Neighbor_Girl",
+    "Scene_AfterTheDisaster03_WarehouseManager"
+   ]
+  },
+  {
+   "id": 1000,
+   "name": "社区检修小屋​",
+   "category": 2,
+   "type": 2,
+   "chapterId": 1000,
+   "unlocked": true,
+   "unlockTag": null,
+   "conditionSetId": 3001,
+   "homeGroup": null,
+   "travelSeconds": 3600,
+   "travelSecondsByPlayer": [],
+   "costItems": [
+    20340
+   ],
+   "webIcon": "../../Res/MapPoint/RepairHut.png",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": {
+    "node": "TanSuo_Small01",
+    "scenes": [
+     "TanSuo_Hospital",
+     "TanSuo_School",
+     "TanSuo_Small01"
+    ]
+   },
+   "anchors": {
+    "position": {
+     "node": "TanSuo_Small01Start",
+     "scenes": [
+      {
+       "scene": "TanSuo_Small01",
+       "pos": [
+        4.929999828338623,
+        0,
+        0.3700000047683716
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "TanSuo_Small01Exit",
+     "scenes": [
+      {
+       "scene": "TanSuo_Small01",
+       "pos": [
+        9.489999771118164,
+        0,
+        -5.980000019073486
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "TanSuo_Small01"
+   ]
+  },
+  {
+   "id": 1001,
+   "name": "加油站",
+   "category": 2,
+   "type": 2,
+   "chapterId": 1001,
+   "unlocked": false,
+   "unlockTag": null,
+   "conditionSetId": 3002,
+   "homeGroup": null,
+   "travelSeconds": 3600,
+   "travelSecondsByPlayer": [],
+   "costItems": [
+    20002
+   ],
+   "webIcon": "../../Res/MapPoint/GasStation.png",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": null,
+   "anchors": {},
+   "scenes": []
+  },
+  {
+   "id": 1002,
+   "name": "废弃学校",
+   "category": 2,
+   "type": 2,
+   "chapterId": 1002,
+   "unlocked": false,
+   "unlockTag": "School_Open",
+   "conditionSetId": 3003,
+   "homeGroup": null,
+   "travelSeconds": 3600,
+   "travelSecondsByPlayer": [],
+   "costItems": [
+    20340
+   ],
+   "webIcon": "../../Res/MapPoint/School.png",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": {
+    "node": "TanSuo_School",
+    "scenes": []
+   },
+   "anchors": {
+    "position": {
+     "node": "TanSuo_SchoolStart",
+     "scenes": [
+      {
+       "scene": "TanSuo_School",
+       "pos": [
+        62.779998779296875,
+        0,
+        -100.83000183105469
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "TanSuo_SchoolExit",
+     "scenes": [
+      {
+       "scene": "TanSuo_School",
+       "pos": [
+        63.52000045776367,
+        0,
+        -100.22000122070312
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "TanSuo_School"
+   ]
+  },
+  {
+   "id": 1003,
+   "name": "科技公司",
+   "category": 2,
+   "type": 2,
+   "chapterId": 1003,
+   "unlocked": false,
+   "unlockTag": "Office_Open",
+   "conditionSetId": 3004,
+   "homeGroup": 1003,
+   "travelSeconds": 3600,
+   "travelSecondsByPlayer": [],
+   "costItems": [
+    20340
+   ],
+   "webIcon": "../../Res/MapPoint/OfficeBuilding.png",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": {
+    "node": "1F",
+    "scenes": [
+     "TanSuo_Office"
+    ]
+   },
+   "anchors": {
+    "position": {
+     "node": "TanSuo_OfficeStart",
+     "scenes": [
+      {
+       "scene": "TanSuo_Office",
+       "pos": [
+        -41.02000045776367,
+        0,
+        -5.110000133514404
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "TanSuo_OfficeExit",
+     "scenes": [
+      {
+       "scene": "TanSuo_Office",
+       "pos": [
+        -41.02000045776367,
+        0,
+        -5.110000133514404
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "TanSuo_Office"
+   ]
+  },
+  {
+   "id": 10031,
+   "name": "公司",
+   "category": 0,
+   "type": 2,
+   "chapterId": 1003,
+   "unlocked": false,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": 1003,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/OfficeBuilding.png",
+   "groundBox": "GroudBox_B1",
+   "cameraRange": {
+    "node": "B1",
+    "scenes": [
+     "TanSuo_Office"
+    ]
+   },
+   "anchors": {
+    "position": {
+     "node": "TanSuo_OfficeB1",
+     "scenes": [
+      {
+       "scene": "TanSuo_Office",
+       "pos": [
+        -32.4900016784668,
+        -100,
+        22.1299991607666
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "TanSuo_OfficeB1_01",
+     "scenes": [
+      {
+       "scene": "TanSuo_Office",
+       "pos": [
+        -32.61000061035156,
+        -100,
+        21.209999084472656
+       ]
+      }
+     ]
+    },
+    "entry": {
+     "node": "TanSuo_OfficeF1",
+     "scenes": [
+      {
+       "scene": "TanSuo_Office",
+       "pos": [
+        -31.099000930786133,
+        0,
+        23.35099983215332
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "TanSuo_Office"
+   ]
+  },
+  {
+   "id": 10032,
+   "name": "公司",
+   "category": 0,
+   "type": 2,
+   "chapterId": 1003,
+   "unlocked": false,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": 1003,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/OfficeBuilding.png",
+   "groundBox": "GroudBox_F2",
+   "cameraRange": {
+    "node": "2F",
+    "scenes": [
+     "TanSuo_Office"
+    ]
+   },
+   "anchors": {
+    "position": {
+     "node": "TanSuo_OfficeF2",
+     "scenes": [
+      {
+       "scene": "TanSuo_Office",
+       "pos": [
+        -31.114999771118164,
+        6,
+        23.211000442504883
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "TanSuo_OfficeF2_01",
+     "scenes": [
+      {
+       "scene": "TanSuo_Office",
+       "pos": [
+        -31.1200008392334,
+        6,
+        23.229999542236328
+       ]
+      }
+     ]
+    },
+    "entry": {
+     "node": "TanSuo_OfficeF1",
+     "scenes": [
+      {
+       "scene": "TanSuo_Office",
+       "pos": [
+        -31.099000930786133,
+        0,
+        23.35099983215332
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "TanSuo_Office"
+   ]
+  },
+  {
+   "id": 1004,
+   "name": "残破超市",
+   "category": 2,
+   "type": 2,
+   "chapterId": 1004,
+   "unlocked": false,
+   "unlockTag": "Supermarket_Open",
+   "conditionSetId": 3005,
+   "homeGroup": null,
+   "travelSeconds": 3600,
+   "travelSecondsByPlayer": [],
+   "costItems": [
+    20340
+   ],
+   "webIcon": "../../Res/MapPoint/SuperMarketAfter.png",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": {
+    "node": "NEWMaket01_after",
+    "scenes": []
+   },
+   "anchors": {
+    "position": {
+     "node": "NEWMaket01_afterStart",
+     "scenes": [
+      {
+       "scene": "NEWMaket01_after",
+       "pos": [
+        19.420000076293945,
+        0,
+        17.700000762939453
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "NEWMaket01_afterExit",
+     "scenes": [
+      {
+       "scene": "NEWMaket01_after",
+       "pos": [
+        19.56999969482422,
+        0,
+        17.059999465942383
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "NEWMaket01_after"
+   ]
+  },
+  {
+   "id": 1005,
+   "name": "废弃医院",
+   "category": 2,
+   "type": 2,
+   "chapterId": 1005,
+   "unlocked": false,
+   "unlockTag": "Hospital_Open",
+   "conditionSetId": 3006,
+   "homeGroup": null,
+   "travelSeconds": 3600,
+   "travelSecondsByPlayer": [],
+   "costItems": [
+    20340
+   ],
+   "webIcon": "../../Res/MapPoint/Hospital.png",
+   "groundBox": "GroudBox_F1",
+   "cameraRange": {
+    "node": "TanSuo_Hospital",
+    "scenes": []
+   },
+   "anchors": {
+    "position": {
+     "node": "TanSuo_HospitalStart",
+     "scenes": [
+      {
+       "scene": "TanSuo_Hospital",
+       "pos": [
+        -16.5,
+        0,
+        -3.2899999618530273
+       ]
+      }
+     ]
+    },
+    "exit": {
+     "node": "TanSuo_HospitalExit",
+     "scenes": [
+      {
+       "scene": "TanSuo_Hospital",
+       "pos": [
+        -16.760000228881836,
+        0,
+        -3.119999885559082
+       ]
+      }
+     ]
+    }
+   },
+   "scenes": [
+    "TanSuo_Hospital"
+   ]
+  },
+  {
+   "id": 1100,
+   "name": "城东的幸存者营地",
+   "category": 3,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": true,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": null,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/Trade_SurvivorCamp.webp",
+   "groundBox": null,
+   "cameraRange": null,
+   "anchors": {},
+   "scenes": []
+  },
+  {
+   "id": 1101,
+   "name": "废墟边的回收站",
+   "category": 3,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": true,
+   "unlockTag": null,
+   "conditionSetId": null,
+   "homeGroup": null,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/Trade_RecycleYard.webp",
+   "groundBox": null,
+   "cameraRange": null,
+   "anchors": {},
+   "scenes": []
+  },
+  {
+   "id": 1102,
+   "name": "天台上的育苗棚",
+   "category": 3,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": false,
+   "unlockTag": "TradePointUnlock_1102",
+   "conditionSetId": 91,
+   "homeGroup": null,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/Trade_RooftopNursery.webp",
+   "groundBox": null,
+   "cameraRange": null,
+   "anchors": {},
+   "scenes": []
+  },
+  {
+   "id": 1103,
+   "name": "城郊的堆肥场",
+   "category": 3,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": false,
+   "unlockTag": "TradePointUnlock_1103",
+   "conditionSetId": 92,
+   "homeGroup": null,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/Trade_CompostYard.webp",
+   "groundBox": null,
+   "cameraRange": null,
+   "anchors": {},
+   "scenes": []
+  },
+  {
+   "id": 1104,
+   "name": "巷子深处的安全屋",
+   "category": 3,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": false,
+   "unlockTag": "TradePointUnlock_1104",
+   "conditionSetId": 94,
+   "homeGroup": null,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/Trade_AlleySafehouse.webp",
+   "groundBox": null,
+   "cameraRange": null,
+   "anchors": {},
+   "scenes": []
+  },
+  {
+   "id": 1105,
+   "name": "城北的公寓",
+   "category": 3,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": false,
+   "unlockTag": "CrossTradePointUnlock",
+   "conditionSetId": null,
+   "homeGroup": null,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/Trade_NorthApartment.webp",
+   "groundBox": null,
+   "cameraRange": null,
+   "anchors": {},
+   "scenes": []
+  },
+  {
+   "id": 1106,
+   "name": "地下车库的工作间",
+   "category": 3,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": false,
+   "unlockTag": "CrossTradePointUnlock",
+   "conditionSetId": null,
+   "homeGroup": null,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/Trade_GarageWorkshop.webp",
+   "groundBox": null,
+   "cameraRange": null,
+   "anchors": {},
+   "scenes": []
+  },
+  {
+   "id": 1107,
+   "name": "城中心的大本营",
+   "category": 3,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": false,
+   "unlockTag": "TradePointUnlock_1107",
+   "conditionSetId": 96,
+   "homeGroup": null,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/Trade_CityCenterBase.webp",
+   "groundBox": null,
+   "cameraRange": null,
+   "anchors": {},
+   "scenes": []
+  },
+  {
+   "id": 1108,
+   "name": "城西的地下室",
+   "category": 3,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": false,
+   "unlockTag": "TradePointUnlock_1108",
+   "conditionSetId": 95,
+   "homeGroup": null,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/Trade_WestBasement.webp",
+   "groundBox": null,
+   "cameraRange": null,
+   "anchors": {},
+   "scenes": []
+  },
+  {
+   "id": 1109,
+   "name": "街垒后的岗哨",
+   "category": 3,
+   "type": 2,
+   "chapterId": 0,
+   "unlocked": false,
+   "unlockTag": "TradePointUnlock_1109",
+   "conditionSetId": 93,
+   "homeGroup": null,
+   "travelSeconds": 0,
+   "travelSecondsByPlayer": [],
+   "costItems": [],
+   "webIcon": "../../Res/MapPoint/Trade_BarricadeOutpost.webp",
+   "groundBox": null,
+   "cameraRange": null,
+   "anchors": {},
+   "scenes": []
+  }
+ ],
+ "edges": [
+  {
+   "from": 1,
+   "to": 101,
+   "kind": "floor",
+   "via": "BasementEntry",
+   "evidence": "config",
+   "bidirectional": true
+  },
+  {
+   "from": 1,
+   "to": 102,
+   "kind": "floor",
+   "via": "StairTo2F",
+   "evidence": "config",
+   "bidirectional": true
+  },
+  {
+   "from": 1003,
+   "to": 10031,
+   "kind": "floor",
+   "via": "TanSuo_OfficeF1",
+   "evidence": "config",
+   "bidirectional": true
+  },
+  {
+   "from": 1003,
+   "to": 10032,
+   "kind": "floor",
+   "via": "TanSuo_OfficeF1",
+   "evidence": "config",
+   "bidirectional": true
+  },
+  {
+   "from": 1,
+   "to": 2,
+   "kind": "travel",
+   "seconds": 3600,
+   "evidence": "inferred",
+   "bidirectional": true
+  },
+  {
+   "from": 1,
+   "to": 3,
+   "kind": "travel",
+   "seconds": 3600,
+   "evidence": "inferred",
+   "bidirectional": true
+  },
+  {
+   "from": 1,
+   "to": 4,
+   "kind": "travel",
+   "seconds": 5400,
+   "evidence": "inferred",
+   "bidirectional": true
+  },
+  {
+   "from": 1,
+   "to": 5,
+   "kind": "travel",
+   "seconds": 3600,
+   "evidence": "inferred",
+   "bidirectional": true
+  },
+  {
+   "from": 1,
+   "to": 9,
+   "kind": "travel",
+   "seconds": 1200,
+   "evidence": "inferred",
+   "bidirectional": true
+  },
+  {
+   "from": 1,
+   "to": 10,
+   "kind": "travel",
+   "seconds": 1800,
+   "evidence": "inferred",
+   "bidirectional": true
+  },
+  {
+   "from": 1,
+   "to": 1000,
+   "kind": "travel",
+   "seconds": 3600,
+   "evidence": "inferred",
+   "bidirectional": true
+  },
+  {
+   "from": 1,
+   "to": 1001,
+   "kind": "travel",
+   "seconds": 3600,
+   "evidence": "inferred",
+   "bidirectional": true
+  },
+  {
+   "from": 1,
+   "to": 1002,
+   "kind": "travel",
+   "seconds": 3600,
+   "evidence": "inferred",
+   "bidirectional": true
+  },
+  {
+   "from": 1,
+   "to": 1003,
+   "kind": "travel",
+   "seconds": 3600,
+   "evidence": "inferred",
+   "bidirectional": true
+  },
+  {
+   "from": 1,
+   "to": 1004,
+   "kind": "travel",
+   "seconds": 3600,
+   "evidence": "inferred",
+   "bidirectional": true
+  },
+  {
+   "from": 1,
+   "to": 1005,
+   "kind": "travel",
+   "seconds": 3600,
+   "evidence": "inferred",
+   "bidirectional": true
+  }
+ ],
+ "scenes": [
+  {
+   "name": "Home_XUZhang",
+   "nodeCount": 16,
+   "buildingNodeCount": 0,
+   "packageNodeCount": 0,
+   "cameraRanges": [
+    "Home_XUZhang"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    1,
+    8
+   ]
+  },
+  {
+   "name": "NEWMaket01_after",
+   "nodeCount": 57,
+   "buildingNodeCount": 0,
+   "packageNodeCount": 0,
+   "cameraRanges": [
+    "Market"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    1004
+   ]
+  },
+  {
+   "name": "Scene_AfterTheDisaster",
+   "nodeCount": 93,
+   "buildingNodeCount": 0,
+   "packageNodeCount": 0,
+   "cameraRanges": [
+    "Home",
+    "FreshMart",
+    "Building",
+    "UsedCar",
+    "Market"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    1,
+    2
+   ]
+  },
+  {
+   "name": "Scene_AfterTheDisaster02",
+   "nodeCount": 336,
+   "buildingNodeCount": 56,
+   "packageNodeCount": 12,
+   "cameraRanges": [
+    "Home",
+    "Farmers_market",
+    "Building_materials_market",
+    "Used_Car_DealerShip",
+    "Market",
+    "Small_Market",
+    "Tool_Store"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    9,
+    10
+   ]
+  },
+  {
+   "name": "Scene_AfterTheDisaster02_Neighbor_Girl",
+   "nodeCount": 312,
+   "buildingNodeCount": 58,
+   "packageNodeCount": 12,
+   "cameraRanges": [
+    "Home",
+    "Farmers_market",
+    "Building_materials_market",
+    "Used_Car_DealerShip",
+    "Market",
+    "Small_Market",
+    "Tool_Store"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    9,
+    10
+   ]
+  },
+  {
+   "name": "Scene_AfterTheDisaster02_Neighbor_Girl_Shell",
+   "nodeCount": 312,
+   "buildingNodeCount": 58,
+   "packageNodeCount": 12,
+   "cameraRanges": [
+    "Home",
+    "Farmers_market",
+    "Building_materials_market",
+    "Used_Car_DealerShip",
+    "Market",
+    "Small_Market",
+    "Tool_Store"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    9,
+    10
+   ]
+  },
+  {
+   "name": "Scene_AfterTheDisaster02_Shell",
+   "nodeCount": 336,
+   "buildingNodeCount": 56,
+   "packageNodeCount": 12,
+   "cameraRanges": [
+    "Home",
+    "Farmers_market",
+    "Building_materials_market",
+    "Used_Car_DealerShip",
+    "Market",
+    "Small_Market",
+    "Tool_Store"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    9,
+    10
+   ]
+  },
+  {
+   "name": "Scene_AfterTheDisaster02_WarehouseManager",
+   "nodeCount": 377,
+   "buildingNodeCount": 149,
+   "packageNodeCount": 13,
+   "cameraRanges": [
+    "Home",
+    "Farmers_market",
+    "Building_materials_market",
+    "Used_Car_DealerShip",
+    "Market",
+    "Small_Market",
+    "Tool_Store"
+   ],
+   "unlockTags": [
+    "WH_ColdstoreOpen",
+    "WH_HutROpen",
+    "WH_HutLOpen",
+    "WH_GarageOpen"
+   ],
+   "pointIds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    9,
+    10,
+    101,
+    102
+   ]
+  },
+  {
+   "name": "Scene_AfterTheDisaster02_WarehouseManager_Shell",
+   "nodeCount": 377,
+   "buildingNodeCount": 149,
+   "packageNodeCount": 13,
+   "cameraRanges": [
+    "Home",
+    "Farmers_market",
+    "Building_materials_market",
+    "Used_Car_DealerShip",
+    "Market",
+    "Small_Market",
+    "Tool_Store"
+   ],
+   "unlockTags": [
+    "WH_ColdstoreOpen",
+    "WH_HutROpen",
+    "WH_HutLOpen",
+    "WH_GarageOpen"
+   ],
+   "pointIds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    9,
+    10,
+    101,
+    102
+   ]
+  },
+  {
+   "name": "Scene_AfterTheDisaster03",
+   "nodeCount": 246,
+   "buildingNodeCount": 280,
+   "packageNodeCount": 12,
+   "cameraRanges": [
+    "Home",
+    "Home_basement",
+    "Home_secondfloor"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    1,
+    2,
+    7,
+    101,
+    102
+   ]
+  },
+  {
+   "name": "Scene_AfterTheDisaster03_Neighbor_Girl",
+   "nodeCount": 174,
+   "buildingNodeCount": 287,
+   "packageNodeCount": 12,
+   "cameraRanges": [
+    "Home",
+    "Home_basement",
+    "Home_secondfloor"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    1,
+    101,
+    102
+   ]
+  },
+  {
+   "name": "Scene_AfterTheDisaster03_WarehouseManager",
+   "nodeCount": 154,
+   "buildingNodeCount": 444,
+   "packageNodeCount": 13,
+   "cameraRanges": [
+    "Home",
+    "Home_secondfloor"
+   ],
+   "unlockTags": [
+    "WH_ColdstoreOpen",
+    "WH_HutROpen",
+    "WH_HutLOpen",
+    "WH_GarageOpen"
+   ],
+   "pointIds": [
+    1,
+    101,
+    102
+   ]
+  },
+  {
+   "name": "Scene_AfterTheDisaster_Building_materials_market",
+   "nodeCount": 3,
+   "buildingNodeCount": 0,
+   "packageNodeCount": 0,
+   "cameraRanges": [
+    "Building_materials_market"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    3
+   ]
+  },
+  {
+   "name": "Scene_AfterTheDisaster_Farmers_market",
+   "nodeCount": 3,
+   "buildingNodeCount": 0,
+   "packageNodeCount": 0,
+   "cameraRanges": [
+    "Used_Car_DealerShip"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    5
+   ]
+  },
+  {
+   "name": "Scene_AfterTheDisaster_Used_Car",
+   "nodeCount": 3,
+   "buildingNodeCount": 0,
+   "packageNodeCount": 0,
+   "cameraRanges": [
+    "Used_Car_DealerShip"
+   ],
+   "unlockTags": [],
+   "pointIds": []
+  },
+  {
+   "name": "Scene_BeforeCatastrophe",
+   "nodeCount": 19,
+   "buildingNodeCount": 0,
+   "packageNodeCount": 0,
+   "cameraRanges": [
+    "Home",
+    "FreshMart",
+    "Building",
+    "UsedCar",
+    "Market"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    1,
+    2
+   ]
+  },
+  {
+   "name": "Scene_supermarket01",
+   "nodeCount": 26,
+   "buildingNodeCount": 0,
+   "packageNodeCount": 0,
+   "cameraRanges": [
+    "Market"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    1,
+    2
+   ]
+  },
+  {
+   "name": "TanSuo_Hospital",
+   "nodeCount": 241,
+   "buildingNodeCount": 0,
+   "packageNodeCount": 0,
+   "cameraRanges": [
+    "TanSuo_Small01"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    1005
+   ]
+  },
+  {
+   "name": "TanSuo_Office",
+   "nodeCount": 327,
+   "buildingNodeCount": 0,
+   "packageNodeCount": 0,
+   "cameraRanges": [
+    "B1",
+    "1F",
+    "2F"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    1003,
+    10031,
+    10032
+   ]
+  },
+  {
+   "name": "TanSuo_School",
+   "nodeCount": 263,
+   "buildingNodeCount": 0,
+   "packageNodeCount": 0,
+   "cameraRanges": [
+    "TanSuo_Small01"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    1002
+   ]
+  },
+  {
+   "name": "TanSuo_Small01",
+   "nodeCount": 21,
+   "buildingNodeCount": 0,
+   "packageNodeCount": 0,
+   "cameraRanges": [
+    "TanSuo_Small01"
+   ],
+   "unlockTags": [],
+   "pointIds": [
+    1000
+   ]
+  }
+ ],
+ "rooms": [
+  {
+   "id": 1,
+   "name": "一楼",
+   "light": 0.5,
+   "heat": 1
+  },
+  {
+   "id": 2,
+   "name": "地下室",
+   "light": 0,
+   "heat": 2
+  },
+  {
+   "id": 3,
+   "name": "二楼",
+   "light": 1,
+   "heat": 1
+  },
+  {
+   "id": 4,
+   "name": "二楼露台",
+   "light": 1,
+   "heat": 0
+  },
+  {
+   "id": 5,
+   "name": "阳光房",
+   "light": 1,
+   "heat": 1
+  },
+  {
+   "id": 6,
+   "name": "冷库",
+   "light": 0,
+   "heat": 2
+  },
+  {
+   "id": 7,
+   "name": "仓库室内",
+   "light": 0.5,
+   "heat": 1
+  },
+  {
+   "id": 8,
+   "name": "室外",
+   "light": 1,
+   "heat": 0
+  }
+ ],
+ "slots": [
+  {
+   "pointId": 1,
+   "total": 836,
+   "rooms": {
+    "一楼": 110,
+    "室外": 19,
+    "仓库室内": 104,
+    "冷库": 11,
+    "未分房间": 592
+   }
+  },
+  {
+   "pointId": 101,
+   "total": 44,
+   "rooms": {
+    "地下室": 44
+   }
+  },
+  {
+   "pointId": 102,
+   "total": 97,
+   "rooms": {
+    "二楼": 31,
+    "二楼露台": 56,
+    "阳光房": 10
+   }
+  }
+ ],
+ "unresolved": [
+  {
+   "pointId": 7,
+   "field": "CameraRange",
+   "name": "GirlHome"
+  },
+  {
+   "pointId": 11,
+   "field": "PositionName",
+   "name": "NewHome01_after_AIStart"
+  },
+  {
+   "pointId": 11,
+   "field": "ExitPos",
+   "name": "NewHome01_after_AIExit"
+  },
+  {
+   "pointId": 11,
+   "field": "CameraRange",
+   "name": "NewHome01_after_AI"
+  },
+  {
+   "pointId": 1002,
+   "field": "CameraRange",
+   "name": "TanSuo_School"
+  },
+  {
+   "pointId": 1004,
+   "field": "CameraRange",
+   "name": "NEWMaket01_after"
+  },
+  {
+   "pointId": 1005,
+   "field": "CameraRange",
+   "name": "TanSuo_Hospital"
+  }
+ ]
+}

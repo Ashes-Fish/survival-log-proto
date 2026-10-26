@@ -1,0 +1,1655 @@
+[
+  {
+    "ID": 1,
+    "RobotKind": 0,
+    "SceneType": 1,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 180,
+    "RandomText": [
+      "RobotTalk_Common_LeaveDock_1",
+      "RobotTalk_Common_LeaveDock_2",
+      "RobotTalk_Common_LeaveDock_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 2,
+    "RobotKind": 0,
+    "SceneType": 2,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Common_LowBattery_1",
+      "RobotTalk_Common_LowBattery_2",
+      "RobotTalk_Common_LowBattery_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 3,
+    "RobotKind": 0,
+    "SceneType": 3,
+    "Rate": 0.800000011920929,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Common_ChargedOut_1",
+      "RobotTalk_Common_ChargedOut_2",
+      "RobotTalk_Common_ChargedOut_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 4,
+    "RobotKind": 0,
+    "SceneType": 4,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Common_NoWork_1",
+      "RobotTalk_Common_NoWork_2",
+      "RobotTalk_Common_NoWork_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 5,
+    "RobotKind": 0,
+    "SceneType": 5,
+    "Rate": 1.0,
+    "TypeCD": 5,
+    "RandomText": [
+      "RobotTalk_Common_MasterOn_1",
+      "RobotTalk_Common_MasterOn_2",
+      "RobotTalk_Common_MasterOn_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 6,
+    "RobotKind": 0,
+    "SceneType": 6,
+    "Rate": 1.0,
+    "TypeCD": 5,
+    "RandomText": [
+      "RobotTalk_Common_MasterOff_1",
+      "RobotTalk_Common_MasterOff_2",
+      "RobotTalk_Common_MasterOff_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 7,
+    "RobotKind": 0,
+    "SceneType": 7,
+    "Rate": 1.0,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Common_PowerOff_1",
+      "RobotTalk_Common_PowerOff_2",
+      "RobotTalk_Common_PowerOff_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 8,
+    "RobotKind": 1,
+    "SceneType": 10,
+    "Rate": 0.5,
+    "TypeCD": 90,
+    "RandomText": [
+      "RobotTalk_Sort_CarryDone_1",
+      "RobotTalk_Sort_CarryDone_2",
+      "RobotTalk_Sort_CarryDone_3",
+      "RobotTalk_Sort_CarryDone_4"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 9,
+    "RobotKind": 1,
+    "SceneType": 11,
+    "Rate": 0.800000011920929,
+    "TypeCD": 120,
+    "RandomText": [
+      "RobotTalk_Sort_PutBack_1",
+      "RobotTalk_Sort_PutBack_2",
+      "RobotTalk_Sort_PutBack_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 10,
+    "RobotKind": 1,
+    "SceneType": 12,
+    "Rate": 0.4000000059604645,
+    "TypeCD": 120,
+    "RandomText": [
+      "RobotTalk_Sort_PickGround_1",
+      "RobotTalk_Sort_PickGround_2",
+      "RobotTalk_Sort_PickGround_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 11,
+    "RobotKind": 1,
+    "SceneType": 13,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_SkipNoTag_1",
+      "RobotTalk_Sort_SkipNoTag_2",
+      "RobotTalk_Sort_SkipNoTag_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 12,
+    "RobotKind": 1,
+    "SceneType": 14,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_SkipFridgeFull_1",
+      "RobotTalk_Sort_SkipFridgeFull_2",
+      "RobotTalk_Sort_SkipFridgeFull_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 13,
+    "RobotKind": 1,
+    "SceneType": 15,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_SkipNoRoom_1",
+      "RobotTalk_Sort_SkipNoRoom_2",
+      "RobotTalk_Sort_SkipNoRoom_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 14,
+    "RobotKind": 1,
+    "SceneType": 16,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_SkipPolluted_1",
+      "RobotTalk_Sort_SkipPolluted_2",
+      "RobotTalk_Sort_SkipPolluted_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 15,
+    "RobotKind": 1,
+    "SceneType": 17,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_SkipKeyItem_1",
+      "RobotTalk_Sort_SkipKeyItem_2",
+      "RobotTalk_Sort_SkipKeyItem_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 16,
+    "RobotKind": 1,
+    "SceneType": 18,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_SkipReserved_1",
+      "RobotTalk_Sort_SkipReserved_2",
+      "RobotTalk_Sort_SkipReserved_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 17,
+    "RobotKind": 1,
+    "SceneType": 19,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_SkipForbidden_1",
+      "RobotTalk_Sort_SkipForbidden_2",
+      "RobotTalk_Sort_SkipForbidden_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 18,
+    "RobotKind": 1,
+    "SceneType": 20,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_SkipNoPower_1",
+      "RobotTalk_Sort_SkipNoPower_2",
+      "RobotTalk_Sort_SkipNoPower_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 19,
+    "RobotKind": 2,
+    "SceneType": 30,
+    "Rate": 0.699999988079071,
+    "TypeCD": 120,
+    "RandomText": [
+      "RobotTalk_Plant_CurePest_1",
+      "RobotTalk_Plant_CurePest_2",
+      "RobotTalk_Plant_CurePest_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 20,
+    "RobotKind": 2,
+    "SceneType": 31,
+    "Rate": 0.699999988079071,
+    "TypeCD": 120,
+    "RandomText": [
+      "RobotTalk_Plant_CureWeed_1",
+      "RobotTalk_Plant_CureWeed_2",
+      "RobotTalk_Plant_CureWeed_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 21,
+    "RobotKind": 2,
+    "SceneType": 32,
+    "Rate": 0.5,
+    "TypeCD": 120,
+    "RandomText": [
+      "RobotTalk_Plant_Water_1",
+      "RobotTalk_Plant_Water_2",
+      "RobotTalk_Plant_Water_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 22,
+    "RobotKind": 2,
+    "SceneType": 33,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 900,
+    "RandomText": [
+      "RobotTalk_Plant_AllHealthy_1",
+      "RobotTalk_Plant_AllHealthy_2",
+      "RobotTalk_Plant_AllHealthy_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 23,
+    "RobotKind": 3,
+    "SceneType": 40,
+    "Rate": 0.800000011920929,
+    "TypeCD": 120,
+    "RandomText": [
+      "RobotTalk_Repair_Done_1",
+      "RobotTalk_Repair_Done_2",
+      "RobotTalk_Repair_Done_3",
+      "RobotTalk_Repair_Done_4"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 24,
+    "RobotKind": 3,
+    "SceneType": 41,
+    "Rate": 1.0,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Repair_NoMaterial_1",
+      "RobotTalk_Repair_NoMaterial_2",
+      "RobotTalk_Repair_NoMaterial_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 25,
+    "RobotKind": 3,
+    "SceneType": 42,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 900,
+    "RandomText": [
+      "RobotTalk_Repair_WaveLocked_1",
+      "RobotTalk_Repair_WaveLocked_2",
+      "RobotTalk_Repair_WaveLocked_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 26,
+    "RobotKind": 3,
+    "SceneType": 43,
+    "Rate": 1.0,
+    "TypeCD": 30,
+    "RandomText": [
+      "RobotTalk_Repair_Manual_1",
+      "RobotTalk_Repair_Manual_2",
+      "RobotTalk_Repair_Manual_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 27,
+    "RobotKind": 1,
+    "SceneType": 50,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomText": [
+      "RobotTalk_Sort_Idle_1",
+      "RobotTalk_Sort_Idle_2",
+      "RobotTalk_Sort_Idle_3",
+      "RobotTalk_Sort_Idle_4",
+      "RobotTalk_Sort_Idle_5",
+      "RobotTalk_Sort_Idle_6",
+      "RobotTalk_Sort_Idle_7",
+      "RobotTalk_Sort_Idle_8",
+      "RobotTalk_Sort_Idle_9",
+      "RobotTalk_Sort_Idle_10",
+      "RobotTalk_Sort_Idle_11",
+      "RobotTalk_Sort_Idle_12",
+      "RobotTalk_Sort_Idle_13"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 28,
+    "RobotKind": 2,
+    "SceneType": 50,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomText": [
+      "RobotTalk_Plant_Idle_1",
+      "RobotTalk_Plant_Idle_2",
+      "RobotTalk_Plant_Idle_3",
+      "RobotTalk_Plant_Idle_4",
+      "RobotTalk_Plant_Idle_5",
+      "RobotTalk_Plant_Idle_6",
+      "RobotTalk_Plant_Idle_7",
+      "RobotTalk_Plant_Idle_8",
+      "RobotTalk_Plant_Idle_9",
+      "RobotTalk_Plant_Idle_10",
+      "RobotTalk_Plant_Idle_11",
+      "RobotTalk_Plant_Idle_12"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 29,
+    "RobotKind": 3,
+    "SceneType": 50,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomText": [
+      "RobotTalk_Repair_Idle_1",
+      "RobotTalk_Repair_Idle_2",
+      "RobotTalk_Repair_Idle_3",
+      "RobotTalk_Repair_Idle_4",
+      "RobotTalk_Repair_Idle_5",
+      "RobotTalk_Repair_Idle_6",
+      "RobotTalk_Repair_Idle_7",
+      "RobotTalk_Repair_Idle_8",
+      "RobotTalk_Repair_Idle_9",
+      "RobotTalk_Repair_Idle_10",
+      "RobotTalk_Repair_Idle_11",
+      "RobotTalk_Repair_Idle_12",
+      "RobotTalk_Repair_Idle_13"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 30,
+    "RobotKind": 0,
+    "SceneType": 8,
+    "Rate": 1.0,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Common_OutageDepleted_1",
+      "RobotTalk_Common_OutageDepleted_2",
+      "RobotTalk_Common_OutageDepleted_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 31,
+    "RobotKind": 0,
+    "SceneType": 9,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomText": [
+      "RobotTalk_Common_JustBuilt_1",
+      "RobotTalk_Common_JustBuilt_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 32,
+    "RobotKind": 1,
+    "SceneType": 9,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomText": [
+      "RobotTalk_Sort_JustBuilt_1",
+      "RobotTalk_Sort_JustBuilt_2",
+      "RobotTalk_Sort_JustBuilt_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 33,
+    "RobotKind": 2,
+    "SceneType": 9,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomText": [
+      "RobotTalk_Plant_JustBuilt_1",
+      "RobotTalk_Plant_JustBuilt_2",
+      "RobotTalk_Plant_JustBuilt_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 34,
+    "RobotKind": 3,
+    "SceneType": 9,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomText": [
+      "RobotTalk_Repair_JustBuilt_1",
+      "RobotTalk_Repair_JustBuilt_2",
+      "RobotTalk_Repair_JustBuilt_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 35,
+    "RobotKind": 1,
+    "SceneType": 1,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 180,
+    "RandomText": [
+      "RobotTalk_Sort_LeaveDock_1",
+      "RobotTalk_Sort_LeaveDock_2",
+      "RobotTalk_Sort_LeaveDock_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 36,
+    "RobotKind": 2,
+    "SceneType": 1,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 180,
+    "RandomText": [
+      "RobotTalk_Plant_LeaveDock_1",
+      "RobotTalk_Plant_LeaveDock_2",
+      "RobotTalk_Plant_LeaveDock_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 37,
+    "RobotKind": 3,
+    "SceneType": 1,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 180,
+    "RandomText": [
+      "RobotTalk_Repair_LeaveDock_1",
+      "RobotTalk_Repair_LeaveDock_2",
+      "RobotTalk_Repair_LeaveDock_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 38,
+    "RobotKind": 1,
+    "SceneType": 2,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_LowBattery_1",
+      "RobotTalk_Sort_LowBattery_2",
+      "RobotTalk_Sort_LowBattery_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 39,
+    "RobotKind": 2,
+    "SceneType": 2,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Plant_LowBattery_1",
+      "RobotTalk_Plant_LowBattery_2",
+      "RobotTalk_Plant_LowBattery_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 40,
+    "RobotKind": 3,
+    "SceneType": 2,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Repair_LowBattery_1",
+      "RobotTalk_Repair_LowBattery_2",
+      "RobotTalk_Repair_LowBattery_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 41,
+    "RobotKind": 1,
+    "SceneType": 3,
+    "Rate": 0.800000011920929,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_ChargedOut_1",
+      "RobotTalk_Sort_ChargedOut_2",
+      "RobotTalk_Sort_ChargedOut_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 42,
+    "RobotKind": 2,
+    "SceneType": 3,
+    "Rate": 0.800000011920929,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Plant_ChargedOut_1",
+      "RobotTalk_Plant_ChargedOut_2",
+      "RobotTalk_Plant_ChargedOut_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 43,
+    "RobotKind": 3,
+    "SceneType": 3,
+    "Rate": 0.800000011920929,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Repair_ChargedOut_1",
+      "RobotTalk_Repair_ChargedOut_2",
+      "RobotTalk_Repair_ChargedOut_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 44,
+    "RobotKind": 1,
+    "SceneType": 4,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Sort_NoWork_1",
+      "RobotTalk_Sort_NoWork_2",
+      "RobotTalk_Sort_NoWork_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 45,
+    "RobotKind": 3,
+    "SceneType": 4,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Repair_NoWork_1",
+      "RobotTalk_Repair_NoWork_2",
+      "RobotTalk_Repair_NoWork_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 46,
+    "RobotKind": 1,
+    "SceneType": 5,
+    "Rate": 1.0,
+    "TypeCD": 5,
+    "RandomText": [
+      "RobotTalk_Sort_MasterOn_1",
+      "RobotTalk_Sort_MasterOn_2",
+      "RobotTalk_Sort_MasterOn_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 47,
+    "RobotKind": 2,
+    "SceneType": 5,
+    "Rate": 1.0,
+    "TypeCD": 5,
+    "RandomText": [
+      "RobotTalk_Plant_MasterOn_1",
+      "RobotTalk_Plant_MasterOn_2",
+      "RobotTalk_Plant_MasterOn_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 48,
+    "RobotKind": 3,
+    "SceneType": 5,
+    "Rate": 1.0,
+    "TypeCD": 5,
+    "RandomText": [
+      "RobotTalk_Repair_MasterOn_1",
+      "RobotTalk_Repair_MasterOn_2",
+      "RobotTalk_Repair_MasterOn_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 49,
+    "RobotKind": 1,
+    "SceneType": 6,
+    "Rate": 1.0,
+    "TypeCD": 5,
+    "RandomText": [
+      "RobotTalk_Sort_MasterOff_1",
+      "RobotTalk_Sort_MasterOff_2",
+      "RobotTalk_Sort_MasterOff_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 50,
+    "RobotKind": 2,
+    "SceneType": 6,
+    "Rate": 1.0,
+    "TypeCD": 5,
+    "RandomText": [
+      "RobotTalk_Plant_MasterOff_1",
+      "RobotTalk_Plant_MasterOff_2",
+      "RobotTalk_Plant_MasterOff_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 51,
+    "RobotKind": 3,
+    "SceneType": 6,
+    "Rate": 1.0,
+    "TypeCD": 5,
+    "RandomText": [
+      "RobotTalk_Repair_MasterOff_1",
+      "RobotTalk_Repair_MasterOff_2",
+      "RobotTalk_Repair_MasterOff_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 52,
+    "RobotKind": 1,
+    "SceneType": 7,
+    "Rate": 1.0,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Sort_PowerOff_1",
+      "RobotTalk_Sort_PowerOff_2",
+      "RobotTalk_Sort_PowerOff_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 53,
+    "RobotKind": 2,
+    "SceneType": 7,
+    "Rate": 1.0,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Plant_PowerOff_1",
+      "RobotTalk_Plant_PowerOff_2",
+      "RobotTalk_Plant_PowerOff_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 54,
+    "RobotKind": 3,
+    "SceneType": 7,
+    "Rate": 1.0,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Repair_PowerOff_1",
+      "RobotTalk_Repair_PowerOff_2",
+      "RobotTalk_Repair_PowerOff_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 55,
+    "RobotKind": 2,
+    "SceneType": 34,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 120,
+    "RandomText": [
+      "RobotTalk_Plant_Harvest_1",
+      "RobotTalk_Plant_Harvest_2",
+      "RobotTalk_Plant_Harvest_3",
+      "RobotTalk_Plant_Harvest_4"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 56,
+    "RobotKind": 2,
+    "SceneType": 35,
+    "Rate": 0.5,
+    "TypeCD": 120,
+    "RandomText": [
+      "RobotTalk_Plant_Sow_1",
+      "RobotTalk_Plant_Sow_2",
+      "RobotTalk_Plant_Sow_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 57,
+    "RobotKind": 3,
+    "SceneType": 44,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 120,
+    "RandomText": [
+      "RobotTalk_Repair_RepairDoor_1",
+      "RobotTalk_Repair_RepairDoor_2",
+      "RobotTalk_Repair_RepairDoor_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 58,
+    "RobotKind": 1,
+    "SceneType": 60,
+    "Rate": 1.0,
+    "TypeCD": 900,
+    "RandomText": [
+      "RobotTalk_Sort_Clutter_1",
+      "RobotTalk_Sort_Clutter_2",
+      "RobotTalk_Sort_Clutter_3",
+      "RobotTalk_Sort_Clutter_4"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 59,
+    "RobotKind": 2,
+    "SceneType": 60,
+    "Rate": 0.20000000298023224,
+    "TypeCD": 900,
+    "RandomText": [
+      "RobotTalk_Plant_Clutter_1",
+      "RobotTalk_Plant_Clutter_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 60,
+    "RobotKind": 3,
+    "SceneType": 60,
+    "Rate": 0.20000000298023224,
+    "TypeCD": 900,
+    "RandomText": [
+      "RobotTalk_Repair_Clutter_1",
+      "RobotTalk_Repair_Clutter_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 61,
+    "RobotKind": 1,
+    "SceneType": 61,
+    "Rate": 0.5,
+    "TypeCD": 60,
+    "RandomText": [
+      "RobotTalk_Sort_PlayerDrop_1",
+      "RobotTalk_Sort_PlayerDrop_2",
+      "RobotTalk_Sort_PlayerDrop_3",
+      "RobotTalk_Sort_PlayerDrop_4",
+      "RobotTalk_Sort_PlayerDrop_5"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 62,
+    "RobotKind": 0,
+    "SceneType": 62,
+    "Rate": 0.5,
+    "TypeCD": 0,
+    "RandomText": [
+      "RobotTalk_Common_Meet_1",
+      "RobotTalk_Common_Meet_2",
+      "RobotTalk_Common_Meet_3",
+      "RobotTalk_Common_Meet_4",
+      "RobotTalk_Common_Meet_5",
+      "RobotTalk_Common_Meet_6"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 63,
+    "RobotKind": 2,
+    "SceneType": 62,
+    "Rate": 0.5,
+    "TypeCD": 0,
+    "RandomText": [
+      "RobotTalk_Plant_Meet_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 64,
+    "RobotKind": 1,
+    "SceneType": 63,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_SiegeStart_1",
+      "RobotTalk_Sort_SiegeStart_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 65,
+    "RobotKind": 2,
+    "SceneType": 63,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Plant_SiegeStart_1",
+      "RobotTalk_Plant_SiegeStart_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 66,
+    "RobotKind": 3,
+    "SceneType": 63,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Repair_SiegeStart_1",
+      "RobotTalk_Repair_SiegeStart_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 67,
+    "RobotKind": 3,
+    "SceneType": 64,
+    "Rate": 1.0,
+    "TypeCD": 60,
+    "RandomText": [
+      "RobotTalk_Repair_SiegeCritical_1",
+      "RobotTalk_Repair_SiegeCritical_2",
+      "RobotTalk_Repair_SiegeCritical_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 68,
+    "RobotKind": 1,
+    "SceneType": 64,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 60,
+    "RandomText": [
+      "RobotTalk_Sort_SiegeCritical_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 69,
+    "RobotKind": 2,
+    "SceneType": 64,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 60,
+    "RandomText": [
+      "RobotTalk_Plant_SiegeCritical_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 70,
+    "RobotKind": 3,
+    "SceneType": 65,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Repair_SiegeRetreat_1",
+      "RobotTalk_Repair_SiegeRetreat_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 71,
+    "RobotKind": 1,
+    "SceneType": 65,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_SiegeRetreat_1",
+      "RobotTalk_Sort_SiegeRetreat_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 72,
+    "RobotKind": 2,
+    "SceneType": 65,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Plant_SiegeRetreat_1",
+      "RobotTalk_Plant_SiegeRetreat_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 73,
+    "RobotKind": 0,
+    "SceneType": 66,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Common_Starving_1",
+      "RobotTalk_Common_Starving_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 74,
+    "RobotKind": 1,
+    "SceneType": 66,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Sort_Starving_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 75,
+    "RobotKind": 2,
+    "SceneType": 66,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Plant_Starving_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 76,
+    "RobotKind": 0,
+    "SceneType": 67,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Common_Exhausted_1",
+      "RobotTalk_Common_Exhausted_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 77,
+    "RobotKind": 3,
+    "SceneType": 67,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Repair_Exhausted_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 78,
+    "RobotKind": 0,
+    "SceneType": 68,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Common_Injured_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 79,
+    "RobotKind": 3,
+    "SceneType": 68,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Repair_Injured_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 80,
+    "RobotKind": 1,
+    "SceneType": 68,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Sort_Injured_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 81,
+    "RobotKind": 0,
+    "SceneType": 69,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Common_Fever_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 82,
+    "RobotKind": 2,
+    "SceneType": 69,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Plant_Fever_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 83,
+    "RobotKind": 0,
+    "SceneType": 70,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Common_Frozen_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 84,
+    "RobotKind": 3,
+    "SceneType": 70,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Repair_Frozen_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 85,
+    "RobotKind": 1,
+    "SceneType": 71,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_NearDeath_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 86,
+    "RobotKind": 2,
+    "SceneType": 71,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Plant_NearDeath_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 87,
+    "RobotKind": 3,
+    "SceneType": 71,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Repair_NearDeath_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 88,
+    "RobotKind": 2,
+    "SceneType": 72,
+    "Rate": 1.0,
+    "TypeCD": 900,
+    "RandomText": [
+      "RobotTalk_Plant_MoraleLow_1",
+      "RobotTalk_Plant_MoraleLow_2",
+      "RobotTalk_Plant_MoraleLow_3"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 89,
+    "RobotKind": 1,
+    "SceneType": 72,
+    "Rate": 0.5,
+    "TypeCD": 900,
+    "RandomText": [
+      "RobotTalk_Sort_MoraleLow_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 90,
+    "RobotKind": 3,
+    "SceneType": 72,
+    "Rate": 0.5,
+    "TypeCD": 900,
+    "RandomText": [
+      "RobotTalk_Repair_MoraleLow_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 91,
+    "RobotKind": 0,
+    "SceneType": 73,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Common_Sleeping_1",
+      "RobotTalk_Common_Sleeping_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 92,
+    "RobotKind": 1,
+    "SceneType": 73,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Sort_Sleeping_1",
+      "RobotTalk_Sort_Sleeping_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 93,
+    "RobotKind": 2,
+    "SceneType": 73,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Plant_Sleeping_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 94,
+    "RobotKind": 3,
+    "SceneType": 73,
+    "Rate": 0.3499999940395355,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Repair_Sleeping_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 95,
+    "RobotKind": 0,
+    "SceneType": 74,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Common_DishPerfect_1",
+      "RobotTalk_Common_DishPerfect_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 96,
+    "RobotKind": 1,
+    "SceneType": 74,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_DishPerfect_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 97,
+    "RobotKind": 0,
+    "SceneType": 75,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Common_DishFailed_1",
+      "RobotTalk_Common_DishFailed_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 98,
+    "RobotKind": 2,
+    "SceneType": 75,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Plant_DishFailed_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 99,
+    "RobotKind": 3,
+    "SceneType": 75,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Repair_DishFailed_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 100,
+    "RobotKind": 0,
+    "SceneType": 76,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Common_GridLost_1",
+      "RobotTalk_Common_GridLost_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 101,
+    "RobotKind": 0,
+    "SceneType": 77,
+    "Rate": 0.800000011920929,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Common_HousePowerOff_1",
+      "RobotTalk_Common_HousePowerOff_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 102,
+    "RobotKind": 2,
+    "SceneType": 77,
+    "Rate": 0.800000011920929,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Plant_HousePowerOff_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 103,
+    "RobotKind": 0,
+    "SceneType": 78,
+    "Rate": 0.800000011920929,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Common_PowerRestored_1",
+      "RobotTalk_Common_PowerRestored_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 104,
+    "RobotKind": 1,
+    "SceneType": 78,
+    "Rate": 0.800000011920929,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_PowerRestored_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 105,
+    "RobotKind": 1,
+    "SceneType": 79,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Sort_Rat_1",
+      "RobotTalk_Sort_Rat_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 106,
+    "RobotKind": 2,
+    "SceneType": 79,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Plant_Rat_1",
+      "RobotTalk_Plant_Rat_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 107,
+    "RobotKind": 3,
+    "SceneType": 79,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Repair_Rat_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 108,
+    "RobotKind": 2,
+    "SceneType": 80,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Plant_ColdWave_1",
+      "RobotTalk_Plant_ColdWave_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 109,
+    "RobotKind": 3,
+    "SceneType": 80,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Repair_ColdWave_1",
+      "RobotTalk_Repair_ColdWave_2"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 110,
+    "RobotKind": 1,
+    "SceneType": 80,
+    "Rate": 0.5,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Sort_ColdWave_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 111,
+    "RobotKind": 1,
+    "SceneType": 81,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomText": [
+      "RobotTalk_Sort_Basement_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 112,
+    "RobotKind": 0,
+    "SceneType": 82,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomText": [
+      "RobotTalk_Common_FinalWave_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 113,
+    "RobotKind": 1,
+    "SceneType": 83,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_Return_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 114,
+    "RobotKind": 3,
+    "SceneType": 83,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Repair_Return_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 115,
+    "RobotKind": 2,
+    "SceneType": 83,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Plant_Return_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 116,
+    "RobotKind": 1,
+    "SceneType": 50,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomText": [
+      "RobotTalk_Sort_IdleNeighborGift_1"
+    ],
+    "ConditionSetId": 13180,
+    "PlayerSelectIds": [
+      1,
+      2
+    ]
+  },
+  {
+    "ID": 117,
+    "RobotKind": 2,
+    "SceneType": 50,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomText": [
+      "RobotTalk_Plant_IdleNeighborCrush_1"
+    ],
+    "ConditionSetId": 13181,
+    "PlayerSelectIds": [
+      1
+    ]
+  },
+  {
+    "ID": 118,
+    "RobotKind": 3,
+    "SceneType": 50,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomText": [
+      "RobotTalk_Repair_IdleNeighborRepair_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": [
+      1,
+      2
+    ]
+  },
+  {
+    "ID": 119,
+    "RobotKind": 1,
+    "SceneType": 50,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomText": [
+      "RobotTalk_Sort_IdleWarehouse_1"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": [
+      3
+    ]
+  },
+  {
+    "ID": 120,
+    "RobotKind": 1,
+    "SceneType": 21,
+    "Rate": 1.0,
+    "TypeCD": 300,
+    "RandomText": [
+      "RobotTalk_Sort_SkipMoldyTarget_1",
+      "RobotTalk_Sort_SkipMoldyTarget_2",
+      "RobotTalk_Sort_SkipMoldyTarget_3",
+      "RobotTalk_Sort_SkipMoldyTarget_4"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  },
+  {
+    "ID": 121,
+    "RobotKind": 1,
+    "SceneType": 84,
+    "Rate": 1.0,
+    "TypeCD": 600,
+    "RandomText": [
+      "RobotTalk_Sort_MoldSpotted_1",
+      "RobotTalk_Sort_MoldSpotted_2",
+      "RobotTalk_Sort_MoldSpotted_3",
+      "RobotTalk_Sort_MoldSpotted_4",
+      "RobotTalk_Sort_MoldSpotted_5",
+      "RobotTalk_Sort_MoldSpotted_6",
+      "RobotTalk_Sort_MoldSpotted_7"
+    ],
+    "ConditionSetId": 0,
+    "PlayerSelectIds": []
+  }
+]

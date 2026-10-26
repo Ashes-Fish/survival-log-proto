@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>TriggerUI</title>
+    <link rel="stylesheet" href="../../webui-common.css">
+    <style>
+        :root{
+            --panel: rgba(25,25,25,0.93);
+            --gold:#E5D85B; --body:#E6E6E6; --quote:rgb(191,185,115); --mint:rgb(224,255,204);
+            --font-main:"Source Han Sans SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+            --lh:1.18;
+            --tr-w:1200px; --tr-h:655.3px;
+            --tr-titlefs:45px; --tr-titletop:23.76px; --tr-titleleft:41px; --tr-titlew:640px;
+            --tr-imgleft:41px; --tr-imgtop:128.65px; --tr-imgw:640px;
+            --tr-bodyleft:749.35px; --tr-bodytop:120.65px; --tr-bodyw:410px; --tr-bodyh:236px; --tr-bodyfs:20px;
+            --tr-quotetop:356.65px; --tr-quoteh:166px; --tr-quotefs:20px;
+            --tr-btnleft:854.35px; --tr-btntop:522.65px; --tr-btnw:200px; --tr-btnh:60px; --tr-btnfs:22px;
+        }
+        *{ box-sizing:border-box; margin:0; padding:0; }
+        body{
+            user-select:none; -webkit-user-select:none;
+            background-color:transparent;
+            font-family:var(--font-main); color:var(--body);
+            height:100vh; overflow:hidden;
+        }
+
+        .modal-overlay{
+            position:fixed; inset:0;
+            display:flex; justify-content:center; align-items:center;
+            background-color:rgba(0,0,0,0.5);
+            animation:wc-fade-in 0.34s ease-out both;
+        }
+        @keyframes wc-fade-in{ from{opacity:0;} to{opacity:1;} }
+        .modal-overlay.is-leaving{ animation:fadeOut 0.4s ease-in forwards; }
+        @keyframes fadeOut{ from{opacity:1;} to{opacity:0;} }
+
+        .panel{
+            position:relative; width:var(--tr-w); height:var(--tr-h);
+            max-width:96vw; max-height:96vh;
+            background:var(--panel);
+            border:1px solid rgba(255,255,255,0.12); border-radius:14px;
+            box-shadow:0 28px 80px rgba(0,0,0,0.66);
+            overflow:hidden;
+            animation:panelIn 0.44s cubic-bezier(0.19, 1, 0.22, 1) both;
+        }
+        @keyframes panelIn{
+            from{ opacity:0; transform:translateY(18px) scale(0.97); }
+            to  { opacity:1; transform:translateY(0) scale(1); }
+        }
+        .panel::before{
+            content:''; position:absolute; top:0; left:0; right:0; height:3px; z-index:2;
+            background:linear-gradient(90deg, transparent, var(--gold), transparent); opacity:.9;
+            animation:goldLineSweep 0.72s cubic-bezier(0.19, 1, 0.22, 1) 0.14s both;
+        }
+        @keyframes goldLineSweep{
+            from{ transform:scaleX(0); opacity:0; }
+            to  { transform:scaleX(1); opacity:.9; }
+        }
+
+        .close-x{
+            position:absolute; top:14px; right:18px; z-index:5;
+            width:34px; height:34px; background:rgba(0,0,0,0.35);
+            border:1px solid rgba(255,255,255,0.18); border-radius:6px;
+            color:rgba(255,255,255,0.6); cursor:pointer; font-size:20px; line-height:1;
+            display:flex; align-items:center; justify-content:center; transition:color .15s, background .15s;
+        }
+        .close-x:hover{ color:#fff; background:rgba(0,0,0,0.55); }
+
+        .t-title{
+            position:absolute; left:var(--tr-titleleft); top:var(--tr-titletop); width:var(--tr-titlew);
+            display:flex; align-items:center; justify-content:center; text-align:center;
+            font-size:var(--tr-titlefs); font-weight:900; color:#fff; letter-spacing:1px; line-height:var(--lh);
+            text-shadow:0 0 22px rgba(229,216,91,0.22), 0 2px 8px rgba(0,0,0,0.75);
+            white-space:nowrap; overflow:hidden;
+            animation:elFloatIn 0.55s cubic-bezier(0.19, 1, 0.22, 1) 0.16s both;
+        }
+        .t-illus{
+            position:absolute; left:var(--tr-imgleft); top:var(--tr-imgtop);
+            width:var(--tr-imgw); height:calc(var(--tr-imgw) * 0.75);
+            border-radius:8px; overflow:hidden;
+            border:1px solid rgba(255,255,255,0.08);
+            box-shadow:0 10px 30px rgba(0,0,0,0.45), 0 2px 6px rgba(0,0,0,0.3);
+            animation:elFloatIn 0.35s cubic-bezier(0.19, 1, 0.22, 1) 0.16s both;
+        }
+        .t-illus img{
+            width:100%; height:100%; object-fit:cover; display:block;
+            transform-origin:center;
+            animation:illusKenBurns 32s linear 0.5s forwards;
+        }
+        @keyframes illusKenBurns{
+            from{ transform:scale(1); }
+            to  { transform:scale(1.08); }
+        }
+        html.quality-low .t-illus img{ animation:none; }
+        .t-illus::after{
+            content:''; position:absolute; inset:0;
+            pointer-events:none; border-radius:8px;
+            box-shadow:inset 0 0 50px 10px rgba(0,0,0,0.55);
+            background:radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.35) 100%);
+        }
+
+        .t-body{
+            position:absolute; left:var(--tr-bodyleft); top:var(--tr-bodytop);
+            width:var(--tr-bodyw); height:var(--tr-bodyh);
+            font-size:var(--tr-bodyfs); line-height:var(--lh); letter-spacing:.3px;
+            text-align:left; color:var(--body); text-shadow:0 1px 3px rgba(0,0,0,0.6);
+            white-space:pre-wrap; text-wrap:pretty; overflow:hidden;
+            animation:elFloatIn 0.55s cubic-bezier(0.19, 1, 0.22, 1) 0.26s both;
+        }
+        .t-quote{
+            position:absolute; left:var(--tr-bodyleft); top:var(--tr-quotetop);
+            width:var(--tr-bodyw); height:var(--tr-quoteh);
+            font-size:var(--tr-quotefs); line-height:var(--lh); letter-spacing:.3px;
+            text-align:left; color:var(--quote); white-space:pre-wrap; text-wrap:pretty; overflow:hidden;
+            animation:elFloatIn 0.55s cubic-bezier(0.19, 1, 0.22, 1) 0.30s both;
+        }
+        @keyframes elFloatIn{
+            from{ opacity:0; transform:translateY(10px); }
+            to  { opacity:1; transform:translateY(0); }
+        }
+        .t-btn{
+            position:absolute; left:var(--tr-btnleft); top:var(--tr-btntop);
+            width:var(--tr-btnw); height:var(--tr-btnh);
+            display:flex; align-items:center; justify-content:center;
+            font-family:var(--font-main); font-size:var(--tr-btnfs); font-weight:700; letter-spacing:1px;
+            cursor:pointer; color:#16331a;
+            border:1px solid rgba(40,60,30,0.55); border-radius:6px;
+            background:linear-gradient(180deg, #d4ebb6 0%, #b6d295 100%);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.55),
+                inset 0 -1px 0 rgba(0,0,0,0.18),
+                0 3px 10px rgba(0,0,0,0.42),
+                0 1px 2px rgba(0,0,0,0.28);
+            text-shadow:0 1px 0 rgba(255,255,255,0.4);
+            transition:transform .12s, filter .15s, box-shadow .15s;
+            animation:btnFadeIn 0.5s ease-out 0.34s both;
+        }
+        @keyframes btnFadeIn{ from{opacity:0;} to{opacity:1;} }
+        .t-btn:hover{
+            filter:brightness(1.04);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.6),
+                inset 0 -1px 0 rgba(0,0,0,0.18),
+                0 4px 14px rgba(0,0,0,0.5),
+                0 1px 2px rgba(0,0,0,0.3);
+        }
+        .t-btn:active{
+            transform:translateY(1px);
+            box-shadow:
+                inset 0 2px 4px rgba(0,0,0,0.28),
+                inset 0 -1px 0 rgba(255,255,255,0.18),
+                0 1px 3px rgba(0,0,0,0.4);
+        }
+    </style>
+    <script src="../../vue.runtime.global.prod.js"></script>
+<script>
+/* === [precompiled v1] === */
+(function(){var __wgArmed__=false;var __wgGaveUp__=false;var __wgReload__=function(missing){if(__wgArmed__||__wgGaveUp__)return;var m=/(?:^|;)wgr=(\d+)/.exec(window.name||"");var n=m?parseInt(m[1],10):0;if(n>=2){__wgGaveUp__=true;console.error("[WebUIGuard] "+missing+" still missing after "+n+" reloads, giving up: "+location.pathname);return;}__wgArmed__=true;window.name=(window.name||"").replace(/(?:^|;)wgr=\d+/,"")+";wgr="+(n+1);console.warn("[WebUIGuard] "+missing+" missing, reloading page ("+(n+1)+"/2): "+location.pathname);setTimeout(function(){location.reload();},300);};window.addEventListener("error",function(e){var msg=(e&&e.message)||"";var isCore=msg.indexOf("createWebUICore is not defined")>=0;if(!isCore&&msg.indexOf("Vue is not defined")<0)return;__wgReload__(isCore?"webui-core.js":"vue.runtime.global.prod.js");if(!__wgGaveUp__)e.preventDefault();});if(typeof Vue==="undefined"){__wgReload__("vue.runtime.global.prod.js");return;}document.addEventListener("DOMContentLoaded",function(){if(document.querySelector("script[src*=webui-core]")&&typeof window.createWebUICore==="undefined"){__wgReload__("webui-core.js");return;}if(!__wgArmed__&&window.name)window.name=window.name.replace(/(?:^|;)wgr=\d+/,"");});var __renderFactory__=function(Vue){const { openBlock: _openBlock, createElementBlock: _createElementBlock, createCommentVNode: _createCommentVNode, toDisplayString: _toDisplayString, createElementVNode: _createElementVNode, normalizeClass: _normalizeClass } = Vue
+
+const _hoisted_1 = { class: "panel" }
+const _hoisted_2 = {
+  key: 1,
+  class: "t-illus"
+}
+const _hoisted_3 = ["src"]
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createElementBlock("div", {
+    class: _normalizeClass(["modal-overlay", { 'is-leaving': _ctx.leaving }])
+  }, [
+    _createElementVNode("div", _hoisted_1, [
+      (_ctx.s.showClose)
+        ? (_openBlock(), _createElementBlock("button", {
+            key: 0,
+            class: "close-x",
+            onClick: _cache[0] || (_cache[0] = (...args) => (_ctx.onClose && _ctx.onClose(...args))),
+            "aria-label": "Close"
+          }, "✕"))
+        : _createCommentVNode("v-if", true),
+      _createElementVNode("div", {
+        class: "t-title",
+        ref: "titleEl"
+      }, _toDisplayString(_ctx.s.title), 513 /* TEXT, NEED_PATCH */),
+      (_ctx.s.imageUrl)
+        ? (_openBlock(), _createElementBlock("div", _hoisted_2, [
+            _createElementVNode("img", {
+              src: _ctx.s.imageUrl,
+              alt: "",
+              draggable: "false",
+              onError: _cache[1] || (_cache[1] = (...args) => (_ctx.onImgError && _ctx.onImgError(...args)))
+            }, null, 40 /* PROPS, NEED_HYDRATION */, _hoisted_3)
+          ]))
+        : _createCommentVNode("v-if", true),
+      _createElementVNode("div", {
+        class: "t-body",
+        ref: "bodyEl"
+      }, _toDisplayString(_ctx.s.des1), 513 /* TEXT, NEED_PATCH */),
+      (_ctx.s.des2)
+        ? (_openBlock(), _createElementBlock("div", {
+            key: 2,
+            class: "t-quote",
+            ref: "quoteEl"
+          }, _toDisplayString(_ctx.s.des2), 513 /* TEXT, NEED_PATCH */))
+        : _createCommentVNode("v-if", true),
+      _createElementVNode("div", {
+        class: "t-btn",
+        onClick: _cache[2] || (_cache[2] = (...args) => (_ctx.onConfirm && _ctx.onConfirm(...args)))
+      }, _toDisplayString(_ctx.s.buttonText || '确定'), 1 /* TEXT */)
+    ])
+  ], 2 /* CLASS */))
+}};var __renderCache__=null;var __origCreateApp__=Vue.createApp;Vue.createApp=function(opts){if(!__renderCache__)__renderCache__=__renderFactory__(Vue);if(opts&&typeof opts==="object"&&!opts.render&&!opts.template){opts=Object.assign({},opts,{render:__renderCache__});}var app=__origCreateApp__.call(this,opts);if(!app.config.errorHandler){app.config.errorHandler=function(err){var msg=(err&&err.message)||String(err||"");if(msg.indexOf("createWebUICore is not defined")>=0){__wgReload__("webui-core.js");if(__wgGaveUp__)console.error(err);return;}console.error(err);};}return app;};})();
+/* === [/precompiled v1] === */
+</script>
+    <script src="../../webui-core.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <div class="modal-overlay" :class="{ 'is-leaving': leaving }">
+        <div class="panel">
+            <button v-if="s.showClose" class="close-x" @click="onClose" aria-label="Close">✕</button>
+            <div class="t-title" ref="titleEl">{{ s.title }}</div>
+            <div v-if="s.imageUrl" class="t-illus">
+                <img :src="s.imageUrl" alt="" draggable="false" @error="onImgError">
+            </div>
+            <div class="t-body" ref="bodyEl">{{ s.des1 }}</div>
+            <div v-if="s.des2" class="t-quote" ref="quoteEl">{{ s.des2 }}</div>
+            <div class="t-btn" @click="onConfirm">{{ s.buttonText || '确定' }}</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const core = createWebUICore('TriggerUI');
+    const { createApp, reactive, ref, nextTick } = Vue;
+
+    const s = reactive({
+        title: '', des1: '', des2: '', buttonText: '', imageUrl: '', showClose: true
+    });
+    const leaving = ref(false);
+    const titleEl = ref(null), bodyEl = ref(null), quoteEl = ref(null);
+    let closed = false;
+
+    function applyFit() {
+        nextTick(() => {
+            core.fitTextBox(titleEl.value, 45, 28);
+            core.fitTextBox(bodyEl.value, 20, 16);
+            core.fitTextBox(quoteEl.value, 20, 16);
+        });
+    }
+
+    core.registerHandlers({
+        'WebUI_TriggerUI_UpdateMsg': (data) => {
+            if (typeof data.title === 'string') s.title = data.title;
+            if (typeof data.des1 === 'string') s.des1 = data.des1;
+            if (typeof data.des2 === 'string') s.des2 = data.des2;
+            if (typeof data.buttonText === 'string') s.buttonText = data.buttonText;
+            if (typeof data.imageUrl === 'string') s.imageUrl = data.imageUrl;
+            if (typeof data.showClose === 'boolean') s.showClose = data.showClose;
+            applyFit();
+        }
+    });
+
+    function fire(evt) {
+        if (closed) return;
+        closed = true; leaving.value = true;
+        setTimeout(() => core.UnitySendEvent(evt), 380);
+    }
+    function onConfirm() { fire('CONFIRM'); }
+    function onClose() { fire('CLOSE'); }
+    function onImgError() { s.imageUrl = ''; }
+
+    createApp({
+        setup() { return { s, leaving, titleEl, bodyEl, quoteEl, onConfirm, onClose, onImgError }; }
+    }).mount('#app');
+
+    core.notifyReady();
+</script>
+
+</body>
+</html>

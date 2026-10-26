@@ -1,0 +1,84 @@
+[
+  {
+    "ID": 1,
+    "NpcConfigId": 2,
+    "MoodType": 0,
+    "Rate": 0.800000011920929,
+    "TypeCD": 3600,
+    "RandomText": [
+      "NpcMono_Girl_Calm_1",
+      "NpcMono_Girl_Calm_2"
+    ]
+  },
+  {
+    "ID": 2,
+    "NpcConfigId": 2,
+    "MoodType": 1,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 3600,
+    "RandomText": [
+      "NpcMono_Girl_LowVit_1"
+    ]
+  },
+  {
+    "ID": 3,
+    "NpcConfigId": 2,
+    "MoodType": 2,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 3600,
+    "RandomText": [
+      "NpcMono_Girl_LowMor_1"
+    ]
+  },
+  {
+    "ID": 4,
+    "NpcConfigId": 2,
+    "MoodType": 3,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 3600,
+    "RandomText": [
+      "NpcMono_Girl_LowMat_1"
+    ]
+  },
+  {
+    "ID": 5,
+    "NpcConfigId": 2002,
+    "MoodType": 0,
+    "Rate": 0.800000011920929,
+    "TypeCD": 3600,
+    "RandomText": [
+      "NpcMono_Man_Calm_1",
+      "NpcMono_Man_Calm_2"
+    ]
+  },
+  {
+    "ID": 6,
+    "NpcConfigId": 2002,
+    "MoodType": 1,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 3600,
+    "RandomText": [
+      "NpcMono_Man_LowVit_1"
+    ]
+  },
+  {
+    "ID": 7,
+    "NpcConfigId": 2002,
+    "MoodType": 2,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 3600,
+    "RandomText": [
+      "NpcMono_Man_LowMor_1"
+    ]
+  },
+  {
+    "ID": 8,
+    "NpcConfigId": 2002,
+    "MoodType": 3,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 3600,
+    "RandomText": [
+      "NpcMono_Man_LowMat_1"
+    ]
+  }
+]

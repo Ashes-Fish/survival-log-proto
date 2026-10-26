@@ -1,0 +1,764 @@
+[
+  {
+    "UIName": "UI_AddItemPop",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_Battle_Loading",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_BattleBag",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "UI_BattleSelect",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_BattleSetting",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_BattleShop",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_BattleUI_Step0",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_BattleUI_Step1",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_BlackBg",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_BlackStory",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_BuffTips",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_ConfirmationDialog",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_DayTips",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_DisableResponse",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_DynamicEventChose",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_Explore",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_ExploreReward",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_FurnitureHeadBar",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_GameOver",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_GameResult",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_GameSetting",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_GuideTips",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_HandMade",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_HitText",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_ItemTips",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_LiveStream",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_LoginTips",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_MainUI",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_Map",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "UI_MapJumpStory",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_NpcDialogue",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_PlanTalent",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "UI_PopText",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_Rebirth",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_RogueSelect",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_RunningTips",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_SentryFeedback",
+    "IsWebUI": false,
+    "ClosePriority": 0,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "UI_SettleBeliefPoints",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_Shady",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_StateMask",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_SurvivalLog",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_TalentPop",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_TipsBar",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_TransitionStory",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_UnitHeadBar",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_Waiting",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_WebInitFailure",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_WishFinished",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_WishTips",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "UI_ZombieSiegeTips",
+    "IsWebUI": false,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_Announcement",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_CoreUI0",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_CoreUI1",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_DataStatistics",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_ExploreMap",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_MainUI",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_OutSetting",
+    "IsWebUI": true,
+    "ClosePriority": 0,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_PreDisasterMap",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_SelectMenu",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_SelectPeople",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_Settlement",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_SurvivalLogs",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_ToolTable",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_BuildShop",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_BuildTips",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_PlantPanel",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_BackpackUI",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_Cooking",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_FurnitureDetail",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_PlantingDetails",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_PowerPanel",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_ShopUI",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_TrapPanel",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_AddFertilizer",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_ItemDetailPopup",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_WishTipsUI",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_ItemPickup",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_SkillLevelUpPopup",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_PhoneSMS",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_NeighborMonologue",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_TradeUI",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_Codex",
+    "IsWebUI": true,
+    "ClosePriority": 20,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_FuelGenerator",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_Heater",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_SpeedUp",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_TriggerUI",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_CancelPlanBtn",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_GeneratorFloatPopup",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_EventChoice",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_RebirthUpgrade",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_RewardList",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_DailySettlement",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_VasePanel",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_DifficultySelect",
+    "IsWebUI": true,
+    "ClosePriority": 0,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_ChallengeSetup",
+    "IsWebUI": true,
+    "ClosePriority": 0,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_GameResult",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_SettleBeliefPoints",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": false
+  },
+  {
+    "UIName": "WebUI_TVGame",
+    "IsWebUI": true,
+    "ClosePriority": 0,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_TruthRecorder",
+    "IsWebUI": true,
+    "ClosePriority": 0,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_MusicPanel",
+    "IsWebUI": true,
+    "ClosePriority": 0,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_Brew",
+    "IsWebUI": true,
+    "ClosePriority": 0,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_PawnShop",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_VehicleShop",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_FeedingUI",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_TrapSelectPanel",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_FreeBuildMenu",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_MinimapFull",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_RatCage",
+    "IsWebUI": true,
+    "ClosePriority": 20,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_Shredder",
+    "IsWebUI": true,
+    "ClosePriority": 20,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_Compressor",
+    "IsWebUI": true,
+    "ClosePriority": 20,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_TalentPop",
+    "IsWebUI": true,
+    "ClosePriority": 20,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_WishFinished",
+    "IsWebUI": true,
+    "ClosePriority": 20,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_RebirthChoice",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_EndingShow",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_EndingChoice",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_EndlessSettlement",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_DossierUI",
+    "IsWebUI": true,
+    "ClosePriority": 20,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_Achievement",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_DroneHub",
+    "IsWebUI": true,
+    "ClosePriority": 20,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_RobotPanel",
+    "IsWebUI": true,
+    "ClosePriority": 20,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_Dye",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_GreenhouseBuild",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_MaterialRack",
+    "IsWebUI": true,
+    "ClosePriority": 0,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_DailyFert",
+    "IsWebUI": true,
+    "ClosePriority": 10,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_CampPanel",
+    "IsWebUI": true,
+    "ClosePriority": 0,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_AidDepot",
+    "IsWebUI": true,
+    "ClosePriority": 20,
+    "IsEscClose": true
+  },
+  {
+    "UIName": "WebUI_CasualHome",
+    "IsWebUI": true,
+    "ClosePriority": 5,
+    "IsEscClose": true
+  }
+]

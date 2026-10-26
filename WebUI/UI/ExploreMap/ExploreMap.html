@@ -1,0 +1,3554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploreMap</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --em-bg-mask: rgba(0, 0, 0, 0.6);
+            --em-panel-bg: rgba(48, 38, 28, 0.93);
+            --em-panel-border: rgba(180, 144, 100, 0.28);
+            --em-panel-shadow: 0 0 64px rgba(0, 0, 0, 0.92);
+
+            --em-node-normal: #c4a078;
+            --em-node-normal-bg: rgba(48, 36, 26, 0.97);
+            --em-node-visited: #7d6850;
+            --em-node-visited-bg: rgba(36, 28, 20, 0.95);
+            --em-node-pending: #9a8464;
+            --em-node-pending-bg: rgba(38, 30, 22, 0.95);
+            --em-node-soon: #4a4640;
+            --em-node-soon-bg: rgba(24, 21, 18, 0.92);
+            --em-hint-bg: rgba(70, 54, 34, 0.55);
+            --em-node-active-bg: rgba(240, 220, 180, 0.98);
+            --em-node-active-fg: #1a140c;
+            --em-node-active-dot: #e8c062;
+            --em-node-active-glow: 0 0 16px rgba(232, 192, 98, 0.78);
+
+            --em-text-main: #e6dac4;
+            --em-text-sub: #b0a48c;
+            --em-text-strong: #f4e6c4;
+
+            --em-go-grad: linear-gradient(135deg, #6c5238 0%, #3a2c1c 100%);
+            --em-go-border: #8a6e48;
+            --em-go-glow: 0 0 22px rgba(196, 160, 100, 0.6);
+
+            --em-danger: #c85838;
+            --em-danger-bg: rgba(200, 88, 56, 0.22);
+
+            --em-info-bg: rgba(54, 42, 30, 0.62);
+            --em-divider: rgba(168, 132, 92, 0.28);
+
+            --em-node-fallen: #9a5a48;
+            --em-node-fallen-bg: rgba(30, 20, 17, 0.96);
+            --em-fallen-bg: rgba(74, 34, 26, 0.42);
+            /* [安全屋线] 受损态：焦橙，与沦陷的暗红刻意拉开 —— 沦陷是"再也去不了"（冷、灭），
+               受损是"还在烧、但会缓过来"（暖、活）。 */
+            --em-node-damaged: #d8873f;
+            --em-node-damaged-bg: rgba(40, 26, 15, 0.95);
+            --em-damaged-bg: rgba(96, 56, 20, 0.34);
+        }
+
+        body {
+            user-select: none;
+            -webkit-user-select: none;
+            background-color: var(--em-bg-mask);
+            font-family: "Microsoft YaHei", "SimHei", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: var(--em-text-main);
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .trade-mode {
+            --em-bg-mask: rgba(6, 10, 14, 0.6);
+            --em-panel-bg: rgba(20, 26, 32, 0.985);
+            --em-panel-border: rgba(140, 170, 200, 0.22);
+
+            --em-node-normal: #8ba9c0;
+            --em-node-normal-bg: rgba(30, 40, 50, 0.97);
+            --em-node-visited: #4d5a6a;
+            --em-node-visited-bg: rgba(24, 32, 40, 0.95);
+            --em-node-active-bg: rgba(220, 230, 240, 0.98);
+            --em-node-active-fg: #16202a;
+            --em-node-active-dot: #d9c25a;
+            --em-node-active-glow: 0 0 16px rgba(217, 194, 90, 0.65);
+
+            --em-text-main: #cfd6dc;
+            --em-text-sub: #95a0aa;
+            --em-text-strong: #e0e8f0;
+
+            --em-go-grad: linear-gradient(135deg, #3d556e 0%, #243648 100%);
+            --em-go-border: #5e7388;
+            --em-go-glow: 0 0 22px rgba(130, 170, 210, 0.55);
+
+            --em-danger: #a06848;
+            --em-danger-bg: rgba(160, 104, 72, 0.18);
+
+            --em-info-bg: rgba(22, 28, 36, 0.92);
+            --em-divider: rgba(140, 170, 200, 0.28);
+        }
+
+        .game-container {
+            position: relative;
+            width: 1200px;
+            height: 675px;
+            background-color: var(--em-panel-bg);
+            display: flex;
+            box-shadow: var(--em-panel-shadow);
+            border: 1px solid var(--em-panel-border);
+            overflow: hidden;
+            animation: emPanelEnter 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+
+        .game-container::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at top left, transparent 50%, rgba(0, 0, 0, 0.32) 100%),
+                radial-gradient(ellipse at bottom right, transparent 50%, rgba(0, 0, 0, 0.32) 100%);
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        .em-noise {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.6  0 0 0 0 0.6  0 0 0 0 0.6  0 0 0 0.7 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+            background-size: 160px 160px;
+            opacity: 0.05;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+            z-index: 49;
+        }
+
+        .em-fog {
+            position: absolute;
+            inset: -10% -10%;
+            background:
+                radial-gradient(ellipse at 30% 40%, rgba(120, 150, 130, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 70%, rgba(90, 120, 100, 0.05) 0%, transparent 55%);
+            animation: emFogDrift 60s linear infinite;
+            pointer-events: none;
+            z-index: 48;
+        }
+        .trade-mode .em-fog { display: none; }
+        .trade-mode .em-noise { opacity: 0.025; }
+
+        .map-section {
+            flex: 2;
+            position: relative;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .map-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--em-panel-border);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.55);
+        }
+
+        .map-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            display: block;
+        }
+
+        .map-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(20, 14, 8, 0.12) 0%, rgba(8, 6, 4, 0.18) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .trade-mode .map-section::before {
+            background: linear-gradient(180deg, rgba(20, 26, 36, 0.12) 0%, rgba(10, 14, 22, 0.18) 100%);
+        }
+
+        .area-label {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 18px 7px 12px;
+            background: linear-gradient(135deg,
+                rgba(8, 14, 10, 0.72) 0%,
+                rgba(8, 14, 10, 0.42) 70%,
+                rgba(8, 14, 10, 0.10) 100%);
+            border-left: 3px solid var(--em-node-normal);
+            color: var(--em-text-strong);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            z-index: 30;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+        }
+        .area-label::before {
+            content: "🔦";
+            font-size: 16px;
+            filter: brightness(0.95);
+        }
+        .trade-mode .area-label {
+            background: linear-gradient(135deg,
+                rgba(10, 14, 20, 0.72) 0%,
+                rgba(10, 14, 20, 0.42) 70%,
+                rgba(10, 14, 20, 0.10) 100%);
+        }
+
+        .map-marker {
+            position: absolute;
+            transform: translate(var(--mx, -50%), calc(-100% - 5px));
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 6px 12px 6px 10px;
+            background: var(--em-node-normal-bg);
+            border: 1px solid var(--em-panel-border);
+            border-radius: 3px;
+            font-size: 14px;
+            color: var(--em-text-main);
+            cursor: pointer;
+            transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        .map-marker::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -6px;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 6px solid var(--em-node-normal-bg);
+            filter: drop-shadow(0 1px 0 var(--em-panel-border));
+        }
+
+        .marker-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--em-node-normal);
+            box-shadow: 0 0 6px var(--em-node-normal);
+            flex-shrink: 0;
+        }
+
+        .loc-ico {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+            align-self: center;
+            opacity: 0.92;
+        }
+        .map-marker.active .loc-ico { opacity: 1; }
+
+        .map-marker:hover {
+            transform: translate(var(--mx, -50%), calc(-100% - 8px));
+            background: var(--em-node-normal-bg);
+            border-color: var(--em-node-normal);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            z-index: 12;
+        }
+
+        .map-marker.active {
+            background: var(--em-node-active-bg);
+            color: var(--em-node-active-fg);
+            border-color: var(--em-node-active-dot);
+            box-shadow: var(--em-node-active-glow);
+            z-index: 14;
+            animation: emMarkerPop 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .map-marker.active::after {
+            border-top-color: var(--em-node-active-bg);
+        }
+        .map-marker.active .marker-dot {
+            position: relative;
+            width: 9px;
+            height: 9px;
+            background: var(--em-node-active-dot);
+            box-shadow: 0 0 12px rgba(232, 192, 98, 0.7), 0 0 4px rgba(255, 220, 130, 0.85);
+            animation: emActiveDotPulse 1.6s ease-in-out infinite, emTorchFlicker 5.5s steps(3, end) infinite;
+        }
+        .map-marker.active .marker-dot::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            box-shadow: 0 0 22px rgba(232, 192, 98, 1.0), 0 0 6px rgba(255, 230, 150, 1.0);
+            opacity: 0;
+            animation: emActiveDotGlow 1.6s ease-in-out infinite;
+        }
+
+        .map-marker.visited:not(.active) {
+            background: var(--em-node-visited-bg);
+            border-color: rgba(80, 100, 90, 0.4);
+            color: var(--em-text-sub);
+        }
+        .map-marker.visited::after {
+            border-top-color: var(--em-node-visited-bg);
+        }
+        .map-marker.visited .marker-dot {
+            background: var(--em-node-visited);
+            box-shadow: none;
+        }
+        .map-marker.visited .marker-name::after {
+            content: " ▣";
+            color: var(--em-node-visited);
+            margin-left: 2px;
+            font-size: 10px;
+        }
+
+        .map-marker.pending {
+            opacity: 0.9;
+            background: var(--em-node-pending-bg);
+            color: var(--em-text-sub);
+            border: 1px dashed rgba(154, 132, 100, 0.55);
+        }
+        .map-marker.pending::after {
+            border-top-color: var(--em-node-pending-bg);
+        }
+        .map-marker.pending .marker-dot {
+            width: 8px;
+            height: 8px;
+            background: transparent;
+            border: 2px solid var(--em-node-pending);
+            box-shadow: none;
+        }
+        .map-marker.pending.active {
+            background: var(--em-node-pending-bg);
+            color: var(--em-text-main);
+            border: 1px solid var(--em-node-pending);
+            box-shadow: 0 0 14px rgba(154, 132, 100, 0.45);
+            opacity: 1;
+        }
+        .map-marker.pending.active::after {
+            border-top-color: var(--em-node-pending-bg);
+        }
+        .map-marker.pending.active .marker-dot {
+            background: transparent;
+            border-color: var(--em-node-pending);
+            box-shadow: none;
+            animation: none;
+        }
+
+        /* 常规探索的未解锁点：不立牌子、不带箭头，压成印在地图上的远处地名（图标换锁，见 iconFor）；
+           已开放的点仍是立起来的牌子，两者靠"有没有牌子"区分。选中后回到上面 pending.active 的牌子样式。
+           交易地图的未解锁点有自己的「未知信号」样式，不走这里。 */
+        .explore-mode .map-marker.pending:not(.active) {
+            opacity: 1;
+            background: rgba(16, 12, 9, 0.62);
+            border: 1px solid rgba(110, 96, 76, 0.28);
+            padding: 4px 10px 4px 8px;
+            font-size: 13px;
+            color: rgba(176, 164, 140, 0.66);
+            box-shadow: none;
+            transform: translate(var(--mx, -50%), -50%);
+        }
+        .explore-mode .map-marker.pending:not(.active)::after { display: none; }
+        .explore-mode .map-marker.pending .loc-ico { opacity: 0.75; }
+        .explore-mode .map-marker.pending:not(.active):hover {
+            transform: translate(var(--mx, -50%), -50%);
+            border-color: rgba(154, 132, 100, 0.5);
+            color: rgba(206, 192, 166, 0.85);
+        }
+        .explore-mode .map-marker.pending.active { border-style: solid; }
+
+        .map-marker.soon {
+            cursor: default;
+            opacity: 0.62;
+            background: var(--em-node-soon-bg);
+            color: #8a8274;
+            border: 1px solid rgba(90, 84, 74, 0.5);
+            padding: 5px 11px 5px 9px;
+            font-size: 13px;
+            z-index: 8;
+        }
+        .map-marker.soon::after {
+            display: none;
+        }
+        .map-marker.soon .marker-dot {
+            width: 5px;
+            height: 5px;
+            background: var(--em-node-soon);
+            box-shadow: none;
+        }
+        .map-marker.soon .marker-name {
+            filter: blur(2.5px);
+            letter-spacing: 2px;
+        }
+        .map-marker.soon:hover {
+            transform: translate(var(--mx, -50%), calc(-100% - 5px));
+            box-shadow: none;
+            border-color: rgba(90, 84, 74, 0.5);
+        }
+        .soon-tag {
+            flex-shrink: 0;
+            margin-left: 3px;
+            padding: 1px 5px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: #9a9184;
+            border: 1px solid rgba(120, 112, 100, 0.55);
+            border-radius: 2px;
+            background: rgba(46, 42, 36, 0.9);
+        }
+        .map-marker.deny-shake {
+            animation: emDenyShake 0.4s ease both;
+        }
+
+        .map-marker.fallen:not(.active) {
+            background: var(--em-node-fallen-bg);
+            border: 1px solid rgba(154, 90, 72, 0.45);
+            color: #8a7168;
+            opacity: 0.88;
+        }
+        .map-marker.fallen::after { border-top-color: var(--em-node-fallen-bg); }
+        .map-marker.fallen .marker-name {
+            text-decoration: line-through;
+            text-decoration-color: rgba(154, 90, 72, 0.85);
+        }
+        .map-marker.fallen .loc-ico { opacity: 0.45; }
+        .map-marker.fallen:hover {
+            transform: translate(var(--mx, -50%), calc(-100% - 5px));
+            box-shadow: none;
+            border-color: rgba(154, 90, 72, 0.45);
+        }
+        .map-marker.fallen.active {
+            background: var(--em-node-fallen-bg);
+            color: #c09a8c;
+            border: 1px solid var(--em-node-fallen);
+            box-shadow: 0 0 14px rgba(154, 90, 72, 0.4);
+            opacity: 1;
+        }
+        .map-marker.fallen.active::after { border-top-color: var(--em-node-fallen-bg); }
+        .fallen-tag {
+            flex-shrink: 0;
+            margin-left: 3px;
+            padding: 1px 5px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: var(--em-node-fallen);
+            border: 1px solid rgba(154, 90, 72, 0.5);
+            border-radius: 2px;
+            background: rgba(60, 26, 20, 0.55);
+        }
+
+        /* [安全屋线] 受损态：拒接过求救的交易点被啃了一遍 —— 货架只剩 1-2 件，15 天后自行恢复。
+           与沦陷态的区别刻意做足：**仍然可点可交易**，所以不划名字、不降 opacity，
+           只把边框换成焦橙虚线（"不完整"的静态表达，零动画成本）+ 一簇会晃的火。 */
+        .map-marker.damaged:not(.active) {
+            background: var(--em-node-damaged-bg);
+            border: 1px dashed rgba(216, 135, 63, 0.55);
+        }
+        .map-marker.damaged::after { border-top-color: var(--em-node-damaged-bg); }
+        .map-marker.damaged.active {
+            background: var(--em-node-damaged-bg);
+            border: 1px dashed var(--em-node-damaged);
+        }
+        .damage-flame {
+            flex-shrink: 0;
+            margin-left: 2px;
+            font-size: 12px;
+            line-height: 1;
+            /* 只动 opacity/transform（合成器直通），见 CodeGuidelines/webui-effects-performance.md */
+            transform-origin: 50% 100%;
+            animation: emFlameFlicker 1.6s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes emFlameFlicker {
+            0%, 100% { opacity: 0.7; transform: scale(0.92); }
+            50%      { opacity: 1;   transform: scale(1.08); }
+        }
+        .damaged-tag {
+            flex-shrink: 0;
+            margin-left: 3px;
+            padding: 1px 5px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: var(--em-node-damaged);
+            border: 1px solid rgba(216, 135, 63, 0.5);
+            border-radius: 2px;
+            background: rgba(70, 40, 14, 0.6);
+        }
+        /* 沦陷倒计时角标：与受损角标同尺寸，警示红 */
+        .fall-countdown-tag {
+            flex-shrink: 0;
+            margin-left: 3px;
+            padding: 1px 5px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            color: #e07a6e;
+            border: 1px solid rgba(200, 85, 74, 0.55);
+            border-radius: 2px;
+            background: rgba(70, 18, 14, 0.6);
+        }
+
+        .aid-urgency-tag {
+            flex-shrink: 0;
+            margin-left: 3px;
+            padding: 1px 5px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            border-radius: 2px;
+        }
+        .aid-urgency-tag.aid-stable {
+            color: #9fc98a;
+            border: 1px solid rgba(120, 170, 96, 0.5);
+            background: rgba(38, 52, 32, 0.7);
+        }
+        .aid-urgency-tag.aid-tight {
+            color: #e0b35a;
+            border: 1px solid rgba(200, 150, 70, 0.55);
+            background: rgba(60, 46, 20, 0.7);
+        }
+        .aid-urgency-tag.aid-critical {
+            color: #e0806e;
+            border: 1px solid rgba(200, 100, 80, 0.6);
+            background: rgba(60, 26, 20, 0.7);
+        }
+
+        .new-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #e05a4e;
+            border: 1px solid rgba(30, 24, 20, 0.9);
+            box-shadow: 0 0 6px rgba(224, 90, 78, 0.8);
+            pointer-events: none;
+        }
+
+        .em-flashlight {
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle,
+                rgba(230, 220, 195, 0.20) 0%,
+                rgba(230, 220, 195, 0.08) 35%,
+                transparent 72%);
+            pointer-events: none;
+            z-index: 6;
+            animation: emFlashlightSweep 1.8s ease-in-out infinite;
+            mix-blend-mode: screen;
+        }
+        .trade-mode .em-flashlight {
+            background: radial-gradient(circle,
+                rgba(180, 210, 240, 0.16) 0%,
+                rgba(180, 210, 240, 0.06) 35%,
+                transparent 72%);
+        }
+
+        .info-panel {
+            position: relative;
+            flex: 1;
+            min-width: 380px;
+            background: var(--em-info-bg);
+            padding: 18px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid var(--em-divider);
+            z-index: 20;
+        }
+
+        .location-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            background-color: rgba(10, 16, 12, 0.6);
+            margin-bottom: 16px;
+            overflow: hidden;
+            border: 1px solid var(--em-divider);
+            border-radius: 6px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+            animation: emInfoFade 0.5s ease-out both;
+        }
+
+        .thumbnail-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .location-thumbnail::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                0deg,
+                rgba(255, 255, 255, 0.025) 0px,
+                rgba(255, 255, 255, 0.025) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .thumbnail-header {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 32px 14px 12px;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.42) 0%, transparent 70%);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            z-index: 3;
+        }
+        .thumbnail-name {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--em-text-strong);
+            text-shadow:
+                0 2px 6px rgba(0, 0, 0, 1),
+                0 0 14px rgba(0, 0, 0, 0.9),
+                0 1px 0 rgba(0, 0, 0, 1);
+        }
+        .thumbnail-chapter {
+            font-size: 11px;
+            letter-spacing: 1.2px;
+            color: var(--em-node-active-dot);
+            padding: 3px 8px;
+            border: 1px solid var(--em-node-active-dot);
+            background: rgba(20, 28, 22, 0.7);
+            border-radius: 2px;
+            opacity: 0.85;
+        }
+
+        .stats-block {
+            margin-bottom: 14px;
+            animation: emInfoFade 0.5s 0.05s ease-out both;
+        }
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 9px 0;
+            border-bottom: 1px solid var(--em-divider);
+            font-size: 15px;
+        }
+        .stat-row:last-child { border-bottom: none; }
+        .stat-label {
+            color: var(--em-text-sub);
+            letter-spacing: 1px;
+            flex-shrink: 0;
+        }
+        .stat-value {
+            color: #f4eccc;
+            font-weight: 600;
+            text-align: right;
+            letter-spacing: 0.5px;
+            max-width: 70%;
+            word-break: break-word;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+        }
+
+        .trade-cat-block {
+            display: flex;
+            align-items: center;
+            /* 原本是 wrap —— 右端多了剩余货源那一格后，wrap 会在窄栏里把百分比甩到第二行。
+               品类上限 3 枚（下发侧同口径），380px 的右栏排不到第二行，改 nowrap 不会挤坏。 */
+            flex-wrap: nowrap;
+            gap: 8px;
+            margin-bottom: 14px;
+            padding: 11px 0;
+            border-top: 1px solid var(--em-divider);
+            border-bottom: 1px solid var(--em-divider);
+            animation: emInfoFade 0.5s 0.05s ease-out both;
+        }
+        .trade-cat-label {
+            flex-shrink: 0;
+            font-size: 15px;
+            color: var(--em-text-sub);
+            letter-spacing: 1px;
+        }
+        .trade-cat-list {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            /* 让品类区吃掉中间的空档：百分比靠 margin-left:auto 贴右端，
+               品类过长时先压缩这里，不去挤百分比。 */
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+        .trade-cat-chip {
+            padding: 5px 11px 6px;
+            font-size: 13px;
+            line-height: 1;
+            letter-spacing: 1px;
+            border: 1px solid currentColor;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #949494;
+        }
+        .trade-cat-more {
+            font-size: 13px;
+            color: var(--em-text-sub);
+        }
+
+        /* 剩余货源：类型栏最右一格，只有数值、右对齐、10% 颗粒度。
+           不写标签也不写「货源」二字 —— 它挂在品类那排的右端，位置本身就说明了它在说这些货。
+           右边界与 .status-row .v / .stat-value 同为右栏内容右缘，三处共用一条右对齐基线。
+           tabular-nums 是必须的：切点时数字宽度不能跳。 */
+        .trade-cat-stock {
+            flex: 0 0 auto;
+            margin-left: auto;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-align: right;
+            color: var(--em-text-strong);
+            font-variant-numeric: tabular-nums;
+        }
+        .trade-cat-chip[data-c="1"]  { color: #b0b884; }
+        .trade-cat-chip[data-c="2"]  { color: #bd9c9c; }
+        .trade-cat-chip[data-c="3"]  { color: #a9a3bb; }
+        .trade-cat-chip[data-c="5"]  { color: #9aa8b3; }
+        .trade-cat-chip[data-c="6"]  { color: #a9b1b8; }
+        .trade-cat-chip[data-c="9"]  { color: #b3a794; }
+        .trade-cat-chip[data-c="10"] { color: #9fbd9f; }
+        .trade-cat-chip[data-c="11"] { color: #b8a68c; }
+        .trade-cat-chip[data-c="12"] { color: #b5a0a0; }
+        .trade-cat-chip[data-c="13"] { color: #c0a882; }
+        .trade-cat-chip[data-c="4"]  { color: #9fb0bd; }
+        .trade-cat-chip[data-c="8"]  { color: #b0a8a0; }
+        .trade-cat-chip[data-c="14"] { color: #b5ac96; }
+        .trade-cat-chip[data-c="15"] { color: #c2a4b4; }
+        .trade-cat-chip[data-c="16"] { color: #c09a86; }
+        .trade-cat-chip[data-c="0"]  { color: #949494; }
+        /* 暂缺的品类：标签保留、置灰（与交易面板 .cat-chip.cat-off 同样式） */
+        .trade-cat-chip.cat-off[data-c] { color: #5c5c5c; border-color: rgba(255, 255, 255, 0.12); background: transparent; }
+
+        /* 常规探索「主要产出」：形状与上面的 .trade-cat-block 刻意同款——两张地图回答的是同一个问题
+           （去这儿能拿到什么），玩家不该在两套视觉语言之间来回换挡。配色跟着探索态的暖色走。 */
+        .produce-block {
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 14px;
+            padding: 11px 0;
+            border-top: 1px solid var(--em-divider);
+            border-bottom: 1px solid var(--em-divider);
+            animation: emInfoFade 0.5s 0.05s ease-out both;
+        }
+        .produce-label {
+            flex-shrink: 0;
+            font-size: 15px;
+            line-height: 24px;
+            color: var(--em-text-sub);
+            letter-spacing: 1px;
+        }
+        .produce-list {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .produce-chip {
+            padding: 5px 11px 6px;
+            font-size: 13px;
+            line-height: 1;
+            letter-spacing: 1px;
+            border: 1px solid currentColor;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--em-node-normal);
+        }
+
+        /* 昏暗角标：压在缩略图右上，与右下的章节徽章分踞两角，互不打架。
+           只有 Config_Instance.NeedFlashlight 为真的图才出（1004 超市 / 1005 医院）。 */
+        .light-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 9px 5px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            background: rgba(12, 12, 14, 0.78);
+            border: 1px solid rgba(190, 180, 150, 0.45);
+            color: #cfc4a4;
+        }
+        .location-thumbnail.dimmed .light-badge { opacity: 0.4; }
+
+        .description-block {
+            flex: 0 1 auto;
+            margin-bottom: 14px;
+            padding: 12px 12px 12px 14px;
+            background: rgba(28, 22, 14, 0.38);
+            border-left: 2px solid var(--em-node-normal);
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--em-text-main);
+            overflow-y: auto;
+            min-height: 56px;
+            max-height: 140px;
+            animation: emInfoFade 0.5s 0.1s ease-out both;
+        }
+        .info-panel-spacer { flex: 1 1 auto; }
+        /* 交易地图的说明栏不要左侧高亮条：右栏已经有状态块、品类栏、提示条三种带色边的块，
+           地点描述是这一屏最不需要被强调的一段，再挂一条竖线只是噪音。
+           padding-left 从 14px 提到 16px 补回失掉的 2px 边框宽度，文字左缘位置不动。 */
+        .trade-mode .description-block {
+            border-left: none;
+            padding-left: 16px;
+        }
+        .description-block::-webkit-scrollbar { width: 6px; }
+        .description-block::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); }
+        .description-block::-webkit-scrollbar-thumb {
+            background: var(--em-node-visited);
+            border-radius: 3px;
+        }
+        .description-block::-webkit-scrollbar-thumb:hover {
+            background: var(--em-node-normal);
+        }
+
+        .unlock-hint {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            margin-bottom: 12px;
+            padding: 11px 13px;
+            background: var(--em-hint-bg);
+            border-left: 3px solid var(--em-node-pending);
+            border-radius: 2px;
+            font-size: 13.5px;
+            line-height: 1.65;
+            animation: emInfoFade 0.5s 0.08s ease-out both;
+        }
+        .unlock-hint-icon {
+            flex-shrink: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+        .unlock-hint-label {
+            color: var(--em-node-pending);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .unlock-hint-text {
+            color: var(--em-text-main);
+        }
+        .unlock-cond {
+            margin-top: 9px;
+            padding-top: 8px;
+            border-top: 1px solid var(--em-divider);
+        }
+        .unlock-cond-item + .unlock-cond-item {
+            margin-top: 8px;
+        }
+        .unlock-cond-item.done .unlock-cond-label,
+        .unlock-cond-item.done .unlock-cond-text {
+            opacity: 0.55;
+        }
+        .unlock-cond-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .unlock-cond-check {
+            color: var(--em-node-pending);
+            font-weight: 700;
+        }
+        .unlock-cond-label {
+            color: var(--em-text-sub);
+            font-size: 12.5px;
+            letter-spacing: 0.5px;
+        }
+        .unlock-cond-text {
+            flex-shrink: 0;
+            color: var(--em-text-strong);
+            font-size: 13px;
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+        .unlock-cond-bar {
+            margin-top: 6px;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(0, 0, 0, 0.38);
+            overflow: hidden;
+        }
+        .unlock-cond-bar-fill {
+            width: 100%;
+            height: 100%;
+            transform: scaleX(0);
+            transform-origin: left;
+            background: var(--em-node-pending);
+            transition: transform 0.45s ease-out;
+        }
+
+        .location-thumbnail.dimmed::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(8, 6, 4, 0.55);
+            z-index: 1;
+        }
+
+        .location-thumbnail.fallen::after {
+            background: linear-gradient(180deg, rgba(40, 14, 10, 0.42) 0%, rgba(8, 6, 4, 0.72) 100%);
+        }
+        .fallen-stamp {
+            position: absolute;
+            z-index: 4;
+            top: 92px;
+            left: -14px;
+            right: -14px;
+            padding: 7px 0;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 10px;
+            color: #e8b4a0;
+            background: rgba(96, 34, 24, 0.62);
+            border-top: 1px solid rgba(220, 130, 100, 0.45);
+            border-bottom: 1px solid rgba(220, 130, 100, 0.45);
+            transform: rotate(-7deg);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+        }
+
+        .fallen-notice {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            margin-bottom: 12px;
+            padding: 11px 13px;
+            background: var(--em-fallen-bg);
+            border-left: 3px solid var(--em-node-fallen);
+            border-radius: 2px;
+            font-size: 13.5px;
+            line-height: 1.65;
+            animation: emInfoFade 0.5s 0.08s ease-out both;
+        }
+        .fallen-notice-icon {
+            flex-shrink: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+        .fallen-notice-label {
+            color: #d08a70;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .fallen-notice-text { color: var(--em-text-main); }
+
+        /* [安全屋线] 受损提示条：与沦陷条同一个位置、同一套骨架，只换配色与图标（两者互斥） */
+        .damaged-notice {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            margin-bottom: 12px;
+            padding: 11px 13px;
+            background: var(--em-damaged-bg);
+            border-left: 3px solid var(--em-node-damaged);
+            border-radius: 2px;
+            font-size: 13.5px;
+            line-height: 1.65;
+            animation: emInfoFade 0.5s 0.08s ease-out both;
+        }
+        .damaged-notice-icon {
+            flex-shrink: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+        .damaged-notice-label {
+            color: #e0a05a;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .damaged-notice-text { color: var(--em-text-main); }
+
+        /* 沦陷倒计时提示条：与受损条同一套骨架，换成警示红（离沦陷只剩几天） */
+        .fall-countdown-notice {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            margin-bottom: 12px;
+            padding: 11px 13px;
+            background: rgba(110, 30, 26, 0.34);
+            border-left: 3px solid #c8554a;
+            border-radius: 2px;
+            font-size: 13.5px;
+            line-height: 1.65;
+            animation: emInfoFade 0.5s 0.08s ease-out both;
+        }
+        .fall-countdown-notice-icon {
+            flex-shrink: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+        .fall-countdown-notice-label {
+            color: #e07a6e;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .fall-countdown-notice-text { color: var(--em-text-main); }
+
+        .stats-block.muted { opacity: 0.4; }
+        .location-thumbnail.dimmed + .stats-block .stat-value,
+        .location-thumbnail.dimmed .thumbnail-name {
+            color: var(--em-text-sub);
+        }
+        .location-thumbnail.dimmed .thumbnail-chapter {
+            opacity: 0.4;
+        }
+
+        .action-btn {
+            position: relative;
+            width: 100%;
+            padding: 14px 0 13px;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--em-text-strong);
+            background: var(--em-go-grad);
+            border: 1px solid var(--em-go-border);
+            border-radius: 2px;
+            cursor: pointer;
+            text-align: center;
+            overflow: hidden;
+            letter-spacing: 4px;
+            transition: filter 0.18s ease, box-shadow 0.18s ease, transform 0.1s ease;
+        }
+        .action-btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 8px 8px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .action-btn:hover {
+            filter: brightness(1.15);
+            box-shadow: var(--em-go-glow);
+        }
+        .action-btn:active {
+            transform: translateY(1px);
+            filter: brightness(1.05);
+        }
+        .action-btn.disabled {
+            background: linear-gradient(135deg, #37302a 0%, #23201c 100%);
+            border-color: #4a443c;
+            color: #7d7466;
+            cursor: not-allowed;
+            letter-spacing: 3px;
+            font-size: 16px;
+        }
+        .action-btn.disabled:hover {
+            filter: none;
+            box-shadow: none;
+        }
+        .action-btn.disabled:active {
+            transform: none;
+            filter: none;
+        }
+        .action-btn.disabled.fallen {
+            background: linear-gradient(135deg, #3a2420 0%, #221a18 100%);
+            border-color: #5a3a30;
+            color: #a06e5c;
+        }
+
+        .corner-deco {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            width: 8px;
+            height: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            border-right: 1px solid rgba(255, 255, 255, 0.4);
+            opacity: 0.5;
+        }
+
+        @keyframes emPanelEnter {
+            0% {
+                opacity: 0;
+                transform: scale(0.99);
+            }
+            60% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes emMarkerPop {
+            0% { transform: translate(var(--mx, -50%), calc(-100% - 5px)) scale(0.92); }
+            55% { transform: translate(var(--mx, -50%), calc(-100% - 8px)) scale(1.04); }
+            100% { transform: translate(var(--mx, -50%), calc(-100% - 5px)) scale(1); }
+        }
+
+        @keyframes emDenyShake {
+            0%, 100% { transform: translate(var(--mx, -50%), calc(-100% - 5px)) translateX(0); }
+            20% { transform: translate(var(--mx, -50%), calc(-100% - 5px)) translateX(-4px); }
+            40% { transform: translate(var(--mx, -50%), calc(-100% - 5px)) translateX(4px); }
+            60% { transform: translate(var(--mx, -50%), calc(-100% - 5px)) translateX(-3px); }
+            80% { transform: translate(var(--mx, -50%), calc(-100% - 5px)) translateX(3px); }
+        }
+
+        @keyframes emFlashlightSweep {
+            0%, 100% { opacity: 0.55; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        @keyframes emTorchFlicker {
+            0%, 78%, 100% { opacity: 1; }
+            80% { opacity: 0.35; }
+            83% { opacity: 1; }
+            86% { opacity: 0.55; }
+            89% { opacity: 1; }
+        }
+
+        @keyframes emFogDrift {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(2.4%, -1.4%); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes emInfoFade {
+            0% { opacity: 0; transform: translateY(8px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes emActiveDotPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        @keyframes emActiveDotGlow {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+
+        /* ── 交易地图：新开启 / 求援与协防 / 刚解围 / 沦陷 ─────────────────────
+           动画只动 transform / opacity（合成器直通），quality-low 档全部静态化（见文件末尾）。 */
+
+        /* 新开启：名字后缀「（新）」，不加外壳 */
+        .new-suffix { color: #e8c062; font-weight: 600; margin-left: -4px; }
+        .map-marker.active .new-suffix { color: #8a6a12; }
+
+        /* 求援 / 协防进行中：标签向外扩散两圈脉冲（错开半个周期）。
+           颜色与节奏跟紧急度走：1 档慢而淡、2 档琥珀、3 档红且快。 */
+        .map-marker.urg-1 { --pulse-color: rgba(226, 196, 130, 0.85); --pulse-dur: 2.6s; }
+        .map-marker.urg-2 { --pulse-color: rgba(228, 160, 72, 0.95);  --pulse-dur: 1.9s; }
+        .map-marker.urg-3 { --pulse-color: rgba(232, 104, 84, 1);     --pulse-dur: 1.25s; }
+        .pulse-ring {
+            position: absolute;
+            inset: -1px;
+            border-radius: 3px;
+            border: 1.5px solid var(--pulse-color, rgba(228, 160, 72, 0.95));
+            opacity: 0;
+            pointer-events: none;
+            animation: emPulseOut var(--pulse-dur, 1.9s) ease-out infinite;
+        }
+        .pulse-ring.r2 { animation-delay: calc(var(--pulse-dur, 1.9s) / 2); }
+        @keyframes emPulseOut {
+            0%   { opacity: 0.95; transform: scale(1, 1); }
+            100% { opacity: 0;    transform: scale(1.16, 1.95); }
+        }
+        /* 标签里的小圆点闪烁：这件事正在进行 */
+        .live-dot {
+            display: inline-block;
+            width: 5px; height: 5px;
+            margin-right: 4px;
+            border-radius: 50%;
+            background: currentColor;
+            vertical-align: 1px;
+            animation: emLiveBlink 1s steps(2, jump-none) infinite;
+        }
+        @keyframes emLiveBlink { 0% { opacity: 1; } 100% { opacity: 0.15; } }
+
+        /* 求援最低档用浅琥珀：绿色只留给「已解围」，求援不该有"看着挺安全"的颜色 */
+        .aid-urgency-tag.aid-stable {
+            color: #e2c482;
+            border: 1px solid rgba(200, 170, 100, 0.5);
+            background: rgba(58, 48, 26, 0.7);
+        }
+        .defend-tag {
+            flex-shrink: 0;
+            margin-left: 3px;
+            padding: 1px 5px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            color: #e0b35a;
+            border: 1px solid rgba(200, 150, 70, 0.55);
+            background: rgba(60, 46, 20, 0.7);
+        }
+        .defend-tag.fight {
+            color: #e0806e;
+            border-color: rgba(200, 100, 80, 0.6);
+            background: rgba(60, 26, 20, 0.7);
+        }
+
+        /* 刚解围：绿色标签；打开地图时绿圈只扩散两次，之后静止 */
+        .map-marker.relieved { --pulse-color: rgba(150, 204, 128, 0.95); --pulse-dur: 1.8s; }
+        .map-marker.relieved .pulse-ring { animation-iteration-count: 2; }
+        .relieved-tag {
+            flex-shrink: 0;
+            margin-left: 3px;
+            padding: 1px 5px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            color: #9fc98a;
+            border: 1px solid rgba(120, 170, 96, 0.5);
+            background: rgba(38, 52, 32, 0.7);
+        }
+
+        /* [营地共生] 握手：援助过的营地名字后面一枚线稿，金 = 今天在给生存点，灰 = 危机中 / 被每日封顶挡掉。
+           抬头「握手×N」用同一枚（.camp-header .bond-ico）。2026-09-27 设计拍板 mock v2 方案 A。 */
+        .bond-ico {
+            flex-shrink: 0;
+            width: 17px;
+            height: 17px;
+            margin-left: -1px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            color: #e0c45a;
+            filter: drop-shadow(0 0 3px rgba(217, 194, 90, 0.45));
+        }
+        .bond-ico.idle { color: #6f7880; filter: none; }
+        .map-marker.active .bond-ico { color: #8a6a12; filter: none; }
+        .map-marker.active .bond-ico.idle { color: #8a939c; }
+        .camp-header .bond-ico {
+            width: 18px;
+            height: 18px;
+            margin: 0 2px 0 0;
+            vertical-align: -4px;
+        }
+
+        /* 交易地图上的沦陷点：灰暗、不要边框、衬底左右两侧渐变羽化，不用红色抢眼
+           （透明边框占位，标签尺寸与其它点一致）。选中时没有边框可亮，改为衬底加深 + 字提亮。
+           探索地图的沦陷态不走这里。 */
+        .trade-mode .map-marker.fallen:not(.active),
+        .trade-mode .map-marker.fallen.active {
+            background: linear-gradient(90deg,
+                rgba(24, 28, 32, 0) 0%,
+                rgba(24, 28, 32, 0.5) 20%,
+                rgba(24, 28, 32, 0.5) 80%,
+                rgba(24, 28, 32, 0) 100%);
+            border: 1px solid transparent;
+            color: #7a828a;
+            box-shadow: none;
+        }
+        .trade-mode .map-marker.fallen:not(.active) { opacity: 0.85; }
+        .trade-mode .map-marker.fallen.active {
+            background: linear-gradient(90deg,
+                rgba(30, 34, 38, 0) 0%,
+                rgba(30, 34, 38, 0.78) 20%,
+                rgba(30, 34, 38, 0.78) 80%,
+                rgba(30, 34, 38, 0) 100%);
+            color: #a9b1b9;
+        }
+        .trade-mode .map-marker.fallen:hover,
+        .trade-mode .map-marker.fallen.active:hover { border-color: transparent; }
+        .trade-mode .map-marker.fallen::after { border-top-color: rgba(24, 28, 32, 0.5); filter: none; }
+        .trade-mode .map-marker.fallen.active::after { border-top-color: rgba(30, 34, 38, 0.78); }
+        .trade-mode .map-marker.fallen .marker-name { text-decoration-color: rgba(150, 158, 166, 0.55); }
+        .trade-mode .map-marker.fallen .fallen-tag {
+            color: #858c94;
+            border-color: rgba(140, 150, 160, 0.3);
+            background: rgba(36, 40, 44, 0.35);
+        }
+
+        /* 与右侧邻点挨得太近的点：标签主体往左偏，箭头仍指原位（挂上状态标签后不压住邻点） */
+        .map-marker.lean-left { --mx: -82%; }
+        .map-marker.lean-left::after { left: 82%; }
+
+        .status-block {
+            margin-bottom: 12px;
+            animation: emInfoFade 0.5s 0.06s ease-out both;
+        }
+        .st-aid, .st-defend { --st-color: #e0a860; }
+        .st-aid.urg-3, .st-defend.urg-3 { --st-color: #e8806a; }
+        /* [面板精简] 无尽营地的告警块（求援 / 协防）一律告警红，不再随三档变色 ——
+           档位玩家本来就看不到，同一个「求援中」今天橙明天红只会让人以为是两种状态。
+           写在 urg-3 之后靠后来居上覆盖它；安全屋线协防不带 alarm，配色逐字不变。 */
+        .status-block.alarm { --st-color: #e2574a; }
+        .st-relieved { --st-color: #9fc98a; }
+        /* [营地共生] 底座单独成块：常驻信息用冷静的蓝灰，别跟求援/协防的暖橙抢注意力 */
+        .st-camp { --st-color: #a8bdd4; }
+        .st-camp .status-title .live-dot { animation: none; }
+        .status-head {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--em-divider);
+        }
+        .status-title {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--st-color);
+        }
+        .status-title .live-dot { width: 6px; height: 6px; margin-right: 6px; vertical-align: 2px; }
+        .st-relieved .status-title .live-dot { animation: none; }
+        .status-time {
+            margin-left: auto;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--em-text-strong);
+            font-variant-numeric: tabular-nums;
+        }
+        /* [面板精简] 这一格在告警块里写的是「还有 N 天沦陷」，跟着标题一起红 */
+        .status-time.alarm { color: var(--st-color); }
+        /* [面板精简] 状态词一行：取代四段流程条（待你应答 / 已答应，等下一波 / 交战中）。
+           流程条仍留着给安全屋线协防用，两者互斥出一个。 */
+        .status-state {
+            padding: 8px 0 1px;
+            font-size: 12.5px;
+            letter-spacing: 1px;
+            color: var(--st-color);
+            font-weight: 700;
+        }
+        .status-phases {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 7px 0 3px;
+            font-size: 12px;
+            color: var(--em-text-sub);
+            letter-spacing: 0.5px;
+        }
+        .status-phases span + span::before { content: "—"; margin-right: 6px; opacity: 0.35; }
+        .status-phases span.done { opacity: 0.5; }
+        .status-phases span.cur { color: var(--st-color); font-weight: 700; }
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 14px;
+            padding: 7px 0;
+            border-bottom: 1px solid rgba(140, 170, 200, 0.12);
+            font-size: 13.5px;
+        }
+        .status-row:last-child { border-bottom: none; }
+        .status-row .k { flex-shrink: 0; color: var(--em-text-sub); letter-spacing: 1px; }
+        .status-row .v { color: #f4eccc; text-align: right; line-height: 1.5; }
+        .status-bar {
+            display: block;
+            width: 150px;
+            margin: 5px 0 1px auto;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(0, 0, 0, 0.42);
+            overflow: hidden;
+        }
+        .status-bar i {
+            display: block;
+            width: 100%;
+            height: 100%;
+            transform-origin: left;
+            background: var(--st-color);
+        }
+
+        /* [面板精简] 状态说明描述：渲染 C# 一直在下发、前端从来没用过的 quote（＝该轮事件的 EventDes）。
+           配置里每个营地每一轮说的话都不一样，比把同一段话拆成几行 k-v 有用得多。
+           pre-line 是必须的 —— 那些描述本身带换行。 */
+        .status-quote {
+            margin-top: 9px;
+            padding: 9px 11px;
+            font-size: 13px;
+            line-height: 1.85;
+            letter-spacing: 0.3px;
+            white-space: pre-line;
+            color: #d6c9ac;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+        }
+        /* [面板精简] 块尾那句规则提示（求援的「紧急状态下，无法回馈和主动求援。」）：
+           它是规则不是剧情，压到最弱一层，别跟上面的描述抢。 */
+        .status-note {
+            padding: 8px 2px 2px 0;
+            font-size: 12.5px;
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+            color: #9c907a;
+        }
+
+        /* ── [营地共生] 状态词小牌 / 主动求援那一格 / 抬头汇总 ───────────────────────── */
+
+        /* 求援·协防·刚解围块上并进来的营地状态词：抬头右侧一枚小牌，不跟主标题抢位置 */
+        .status-camp {
+            padding: 1px 7px;
+            font-size: 11.5px;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            color: #a8bdd4;
+            border: 1px solid rgba(150, 180, 210, 0.42);
+            background: rgba(26, 34, 44, 0.7);
+        }
+        /* [面板精简] 告警块里这枚牌写的是「物资紧缺」/「尸潮危机」（不再是营地状态词），跟着变红 */
+        .status-camp.alarm {
+            color: #f3a99d;
+            border-color: rgba(226, 87, 74, 0.6);
+            background: rgba(70, 26, 22, 0.78);
+        }
+
+        /* 主动求援：长得像一条 status-row，但它是按钮。可用时才有边框与手型 */
+        .status-callaid {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 14px;
+            width: 100%;
+            margin-top: 8px;
+            padding: 8px 10px;
+            font-family: inherit;
+            font-size: 13.5px;
+            letter-spacing: 1px;
+            text-align: left;
+            color: var(--em-text-sub);
+            background: rgba(22, 28, 36, 0.55);
+            border: 1px solid rgba(140, 170, 200, 0.16);
+            border-radius: 3px;
+            cursor: default;
+            transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+        }
+        .status-callaid .ca-state { color: #cdd8e2; }
+        .status-callaid.can {
+            color: #d9e6f2;
+            border-color: rgba(150, 190, 230, 0.5);
+            background: rgba(30, 44, 60, 0.7);
+            cursor: pointer;
+        }
+        .status-callaid.can .ca-state { color: #9fc98a; font-weight: 700; }
+        .status-callaid.can:hover {
+            border-color: rgba(180, 216, 250, 0.8);
+            background: rgba(38, 56, 76, 0.85);
+        }
+
+        /* 抬头汇总：地图右上角一条，与左上的区域名对称 */
+        .camp-header {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            padding: 7px 14px;
+            background: linear-gradient(225deg,
+                rgba(10, 14, 20, 0.72) 0%,
+                rgba(10, 14, 20, 0.42) 70%,
+                rgba(10, 14, 20, 0.10) 100%);
+            border-right: 3px solid #8fb4d8;
+            color: var(--em-text-strong);
+            font-size: 13.5px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            z-index: 30;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+            animation: emInfoFade 0.5s 0.1s ease-out both;
+        }
+
+        /* 求救短信待回复：地图右上角一条，指向手机短信（与营地汇总不会同时出现，共用同一个位置） */
+        .sms-hint {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px 8px 12px;
+            background: linear-gradient(225deg,
+                rgba(28, 16, 10, 0.82) 0%,
+                rgba(28, 16, 10, 0.52) 70%,
+                rgba(28, 16, 10, 0.12) 100%);
+            border-right: 3px solid #e0a860;
+            color: #f0d3a8;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            z-index: 30;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+            animation: emInfoFade 0.5s 0.1s ease-out both;
+        }
+        .sms-hint-ico { width: 18px; height: 18px; color: #e0a860; flex: 0 0 auto; }
+        .sms-hint .live-dot { width: 6px; height: 6px; }
+
+        html.quality-low .em-flashlight { animation: none; }
+        html.quality-low .em-fog { animation: none; }
+        html.quality-low .map-marker.active .marker-dot { animation: none; }
+        html.quality-low .map-marker.active .marker-dot::before { animation: none; }
+        html.quality-low .damage-flame { animation: none; opacity: 0.9; }
+        html.quality-low .pulse-ring { animation: none; opacity: 0.55; transform: scale(1.06, 1.35); }
+        html.quality-low .map-marker.relieved .pulse-ring { opacity: 0; }
+        html.quality-low .live-dot { animation: none; }
+        /* 营地插画的信号画面整组是纯装饰 ⇒ Low 档全停。
+           亮带与撕裂条连元素一起隐掉（停在半路会变成一条不动的亮线，比没有更怪）；
+           扫描线与晕影是静态质感，留着不动。 */
+        html.quality-low .trade-mode .thumbnail-img { animation: none; transform: scale(1.035); }
+        html.quality-low .crt-lines { animation: none; }
+        html.quality-low .crt-sweep { animation: none; opacity: 0; }
+        html.quality-low .crt-tear { animation: none; opacity: 0; }
+        /* 常规探索点的旧照片质感同理：颗粒与暗角留作静态质感，推拉与漏光停在中值 */
+        html.quality-low .explore-mode .thumbnail-img { animation: none; transform: scale(1.04); }
+        html.quality-low .photo-grain { animation: none; }
+        html.quality-low .photo-light { animation: none; opacity: 0.8; }
+        /* 手电光斑停在中段，浮尘不出 */
+        html.quality-low .torch-dark,
+        html.quality-low .torch-glow { animation: none; transform: translate3d(-4%, -1%, 0); }
+        html.quality-low .torch-dust { display: none; }
+
+        /* ── [营地共生 2026-09-21] 主动求援：一颗按钮 + 右边一句原因（此前是一条通栏 status-row）──
+           旧的 .status-callaid 规则保留在上面不动：改形态时只换模板引用的类名，回退只需把模板换回去。 */
+        .ca-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+        .ca-btn {
+            flex: 0 0 auto;
+            height: 32px;
+            padding: 0 18px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            line-height: 30px;
+            color: #d9e6f2;
+            background: rgba(30, 44, 60, 0.7);
+            border: 1px solid rgba(150, 190, 230, 0.5);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+        }
+        .ca-btn:hover:not(:disabled) {
+            border-color: rgba(180, 216, 250, 0.85);
+            background: rgba(38, 56, 76, 0.9);
+            color: #eaf3fb;
+        }
+        .ca-btn:disabled {
+            color: rgba(205, 216, 226, 0.32);
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.1);
+            cursor: not-allowed;
+        }
+        /* 按钮右边那句：按不了写为什么，亮着写这一下会做什么 */
+        .ca-why {
+            font-size: 12px;
+            line-height: 1.45;
+            color: rgba(214, 196, 168, 0.45);
+        }
+        .ca-why.ready { color: rgba(232, 192, 122, 0.78); }
+
+        /* 二次确认：页内弹层，配色 / 直角 / 按钮全部走母界面那套 --em-* 变量与 .action-btn 的做法，
+           所以交易模式（冷蓝）与灾前模式（暖棕）各自跟着变，不自带第二套皮。
+           挂在 .game-container 的直接子级 + absolute：放在地图那一栏里只能盖住半张面板（那层有 overflow:hidden）。 */
+        .ca-modal-mask {
+            position: absolute;
+            inset: 0;
+            z-index: 90;
+            background: rgba(0, 0, 0, 0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: caFade 0.18s ease both;
+        }
+        @keyframes caFade { from { opacity: 0; } to { opacity: 1; } }
+        .ca-modal {
+            width: 380px;
+            max-width: 86%;
+            padding: 0 0 18px;
+            background: var(--em-panel-bg);
+            border: 1px solid var(--em-panel-border);
+            border-radius: 2px;
+            box-shadow: var(--em-panel-shadow);
+            animation: caRise 0.2s ease both;
+        }
+        @keyframes caRise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+        .ca-modal-title {
+            padding: 15px 20px 11px;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--em-text-strong);
+            border-bottom: 1px solid var(--em-divider);
+        }
+        .ca-modal-body {
+            padding: 16px 20px 2px;
+            font-size: 13.5px;
+            line-height: 1.9;
+            color: var(--em-text-sub);
+        }
+        .ca-modal-cost {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--em-divider);
+        }
+        .ca-modal-btns {
+            display: flex;
+            gap: 12px;
+            padding: 18px 20px 0;
+        }
+        /* 主按钮＝「前往」那颗（.action-btn）的缩小版，连 8px 网格纹理一起抄 */
+        .ca-modal-btns button {
+            position: relative;
+            flex: 1 1 0;
+            height: 40px;
+            overflow: hidden;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--em-text-strong);
+            background: var(--em-go-grad);
+            border: 1px solid var(--em-go-border);
+            border-radius: 2px;
+            cursor: pointer;
+            transition: filter 0.18s ease, box-shadow 0.18s ease, transform 0.1s ease;
+        }
+        .ca-modal-btns button::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.5;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 8px 8px;
+        }
+        .ca-modal-btns button:hover { filter: brightness(1.15); box-shadow: var(--em-go-glow); }
+        .ca-modal-btns button:active { transform: translateY(1px); }
+        .ca-modal-btns button.ca-sec {
+            flex: 0 0 116px;
+            background: none;
+            border-color: var(--em-divider);
+            color: var(--em-text-sub);
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+        .ca-modal-btns button.ca-sec::before { display: none; }
+        .ca-modal-btns button.ca-sec:hover {
+            box-shadow: none;
+            color: var(--em-text-main);
+            border-color: var(--em-panel-border);
+        }
+
+        /* 求援回执：面板底部居中的浮动提示（形制同 ToolTable 的 .fill-toast）。
+           顶部会压住抬头汇总、中上会压住选中营地的名牌，底部那块恒定是空的。 */
+        .ca-toast {
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            z-index: 95;
+            max-width: 340px;
+            padding: 8px 18px;
+            transform: translateX(-50%);
+            background: rgba(10, 13, 17, 0.94);
+            border: 1px solid var(--em-panel-border);
+            border-radius: 3px;
+            color: var(--em-text-strong);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-align: center;
+            white-space: nowrap;
+            pointer-events: none;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            animation: caToast 2.6s ease both;
+        }
+        @keyframes caToast {
+            0%   { opacity: 0; transform: translate(-50%, 8px); }
+            10%  { opacity: 1; transform: translate(-50%, 0); }
+            82%  { opacity: 1; transform: translate(-50%, 0); }
+            100% { opacity: 0; transform: translate(-50%, -8px); }
+        }
+
+        /* 刚解围：标题照常写状态词（「稳定」），这枚牌改写「已解围」并上绿 */
+        .status-camp.relieved {
+            color: #b6d9a6;
+            border-color: rgba(159, 201, 138, 0.55);
+            background: rgba(30, 48, 30, 0.72);
+        }
+
+        /* 交易模式左上角标：文案换「联络地图」，🔦 换成帐篷线稿（探索模式仍是 🔦） */
+        .trade-mode .area-label::before {
+            content: "";
+            width: 17px;
+            height: 17px;
+            filter: none;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23cfe2f4' stroke-width='1.15' stroke-linecap='round' stroke-linejoin='round'><path d='M8 2.3 1.8 13.4h12.4z'/><path d='M8 6.4 5.2 13.4h5.6z'/></svg>");
+        }
+
+        /* ══════════════════════════════════════════════════════════════════════════
+           交易地图专属：未知信号衬底 / 右栏冷色收口 / 营地插画的信号画面
+           全部挂 .trade-mode 前缀 —— 常规探索地图那套暖色（土黄 / 奶油 / 暖褐）是它自己的
+           调性，一个字都不动。
+           ══════════════════════════════════════════════════════════════════════════ */
+
+        /* ── 未知信号：衬底压到半透明 ────────────────────────────────────────────
+           它是「还没认识的人」，不该和已建交的营地一样顶着一块实心牌子，底图要透得出来。
+           选中态另给一档（0.72）—— 那时候要读清名字与解锁条件。 */
+        .trade-mode .map-marker.pending {
+            background: rgba(18, 26, 34, 0.40);
+            border-color: rgba(138, 166, 190, 0.40);
+        }
+        .trade-mode .map-marker.pending::after {
+            border-top-color: rgba(18, 26, 34, 0.40);
+            filter: drop-shadow(0 1px 0 rgba(138, 166, 190, 0.28));
+        }
+        .trade-mode .map-marker.pending.active {
+            background: rgba(20, 30, 40, 0.72);
+            box-shadow: 0 0 14px rgba(125, 149, 171, 0.35);
+        }
+        .trade-mode .map-marker.pending.active::after { border-top-color: rgba(20, 30, 40, 0.72); }
+
+        /* ── 右栏冷色收口 ────────────────────────────────────────────────────────
+           上面的 .trade-mode 变量块只覆盖了常规节点 / 文字 / 按钮 / 危险色，
+           pending（未解锁）与 hint 两组变量、外加右栏里几处写死的暖色 hex 从来没跟着换。
+           刻意保留的两处语义色：告警红（求援 / 紧急）与解围绿 —— 它们表状态不表风格。 */
+        .trade-mode {
+            --em-node-pending: #7d95ab;
+            --em-node-pending-bg: rgba(22, 30, 38, 0.95);
+            --em-hint-bg: rgba(26, 38, 52, 0.55);
+        }
+        /* 数值文字：右栏里出现频次最高的一处暖色，也是最显眼的一处 */
+        .trade-mode .stat-value,
+        .trade-mode .status-row .v { color: #e4ecf4; }
+        /* 状态说明描述与块尾规则提示 */
+        .trade-mode .status-quote { color: #c2cfda; background: rgba(4, 10, 16, 0.26); }
+        .trade-mode .status-note { color: #8494a2; }
+        /* 缩略图底色（图还没加载出来时露出来的那层）与章节牌衬底 */
+        .trade-mode .location-thumbnail { background-color: rgba(10, 16, 22, 0.6); }
+        .trade-mode .thumbnail-chapter { background: rgba(18, 26, 34, 0.7); }
+        .trade-mode .light-badge { border-color: rgba(150, 180, 205, 0.45); color: #b6c6d2; }
+        /* 主动求援可点时右边那句原因 */
+        .trade-mode .ca-why.ready { color: rgba(150, 196, 230, 0.82); }
+        /* 「尚未解锁」「待开放」的禁用按钮：整条通栏的暖褐，右栏底部第二显眼的一处 */
+        .trade-mode .action-btn.disabled {
+            background: linear-gradient(135deg, #2a3138 0%, #1b2026 100%);
+            border-color: #3e474f;
+            color: #74808a;
+        }
+        /* 沦陷点那三处红：地图那侧的沦陷标记早已统一成冷灰（交易地图里它是「失联」不是
+           「着火」），右栏当时没跟上，是这一屏最后一处不同调的地方。 */
+        .trade-mode .action-btn.disabled.fallen {
+            background: linear-gradient(135deg, #2e2b33 0%, #1e1c22 100%);
+            border-color: #4a4552;
+            color: #98909f;
+        }
+        .trade-mode .fallen-notice {
+            background: rgba(38, 34, 46, 0.5);
+            border-left-color: #8a8298;
+        }
+        .trade-mode .fallen-notice-label { color: #b3aabd; }
+        .trade-mode .location-thumbnail.fallen::after {
+            background: linear-gradient(180deg, rgba(24, 22, 30, 0.46) 0%, rgba(6, 8, 12, 0.74) 100%);
+        }
+        .trade-mode .fallen-stamp {
+            color: #c8c0d2;
+            background: rgba(44, 40, 54, 0.66);
+            border-top-color: rgba(160, 150, 175, 0.42);
+            border-bottom-color: rgba(160, 150, 175, 0.42);
+        }
+        /* 品类标签色板整体搬进 150-304 度的冷色带。六个高频类别先占满六个等距锚点
+           （两两相隔 >= 22 度），其余插空 —— 同屏最多出 3 枚，近邻色相不会真的挨在一起比。
+           排在这里而不是改上面那 16 条：常规探索地图不出品类标签，但那 16 条是共用规则，
+           就地改会把探索态也一起换掉。 */
+        .trade-mode .trade-cat-chip[data-c="1"] { color: #9dcdb5; }   /* 食物 · 薄荷绿 */
+        .trade-mode .trade-cat-chip[data-c="10"] { color: #9ac4cb; }   /* 种子 · 青 */
+        .trade-mode .trade-cat-chip[data-c="2"] { color: #a3b9d1; }   /* 药品 · 蓝 */
+        .trade-mode .trade-cat-chip[data-c="9"] { color: #abafce; }   /* 材料 · 钢蓝 */
+        .trade-mode .trade-cat-chip[data-c="11"] { color: #beb2d2; }   /* 肥料 · 紫 */
+        .trade-mode .trade-cat-chip[data-c="3"] { color: #ccb2d2; }   /* 书籍 · 兰紫 */
+        .trade-mode .trade-cat-chip[data-c="4"] { color: #a6c9c4; }
+        .trade-mode .trade-cat-chip[data-c="13"] { color: #98bdb1; }
+        .trade-mode .trade-cat-chip[data-c="16"] { color: #9ab7c6; }
+        .trade-mode .trade-cat-chip[data-c="14"] { color: #aca9c6; }
+        .trade-mode .trade-cat-chip[data-c="12"] { color: #c2b1cd; }
+        .trade-mode .trade-cat-chip[data-c="15"] { color: #ceb1cc; }
+        .trade-mode .trade-cat-chip[data-c="5"] { color: #a9b4bc; }   /* 杂物 · 灰蓝（"杂"就该接近中性） */
+        .trade-mode .trade-cat-chip[data-c="6"] { color: #b4bdc5; }
+        .trade-mode .trade-cat-chip[data-c="8"] { color: #abbabf; }
+        .trade-mode .trade-cat-chip[data-c="0"] { color: #9ca1a5; }   /* 回退「物资」· 近中性冷灰 */
+        /* 暂缺品类照旧置灰，只把灰调冷一档；写在色板之后才盖得住上面 16 条 */
+        .trade-mode .trade-cat-chip.cat-off[data-c] {
+            color: #5f6b75;
+            border-color: rgba(160, 190, 215, 0.14);
+            background: transparent;
+        }
+
+        /* ── 营地插画：无人机回传的信号画面 ──────────────────────────────────────
+           四层叠出来：细扫描线缓慢下滚 + 亮带每 5.5s 扫过一次 + 8.3s 一轮的横向撕裂
+           + 冷色晕影；外加插画自己 3.7s 一次的亮度抖动与 24s 一轮的缓动推拉。
+           只在交易地图挂 —— 常规探索点那张图是实景照片，加信号感就成了穿帮。
+
+           🚨 全部只动 transform / opacity（见 CodeGuidelines 的 WebUI 特效性能规范）：
+           这几层每帧都在跑，动 top / height / background-position 会让右栏整块重排或逐帧重绘。
+           quality-low 档整组静态化，规则并在文件下方那一块里。 */
+        .trade-mode .location-thumbnail::before { display: none; }   /* 换成下面会动的那层 */
+        .trade-mode .thumbnail-img {
+            /* 静态 filter（只栅格化一次，不进 keyframe）：压一点饱和、提一点对比，
+               让插画和右栏的冷色调不至于各说各话。 */
+            filter: saturate(0.88) contrast(1.06) brightness(1.02);
+            animation: crtFlicker 3.7s steps(1, end) infinite,
+                       campDrift 24s ease-in-out infinite;
+        }
+        @keyframes crtFlicker {
+            0%, 42% { opacity: 1; }
+            43% { opacity: 0.94; }
+            44%, 76% { opacity: 1; }
+            77% { opacity: 0.97; }
+            78%, 100% { opacity: 1; }
+        }
+        /* 缓动循环推拉：24s 一轮、首尾同帧（无跳变），ease-in-out 让两端慢中间快。
+           基准 scale 已经是 1.035 ⇒ 任何一帧都过量覆盖容器，平移不会露出边缘空隙。 */
+        @keyframes campDrift {
+            0%, 100% { transform: scale(1.035) translate3d(0, 0, 0); }
+            50% { transform: scale(1.075) translate3d(-1.2%, -0.9%, 0); }
+        }
+        .crt-fx {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .crt-lines {
+            position: absolute;
+            inset: -4px 0;
+            background-image: repeating-linear-gradient(
+                0deg,
+                rgba(170, 205, 235, 0.04) 0px,
+                rgba(170, 205, 235, 0.04) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            animation: crtLines 1.7s linear infinite;
+        }
+        /* 位移 3px == 一个条纹周期，首尾接得上，看着是无限下滚 */
+        @keyframes crtLines { from { transform: translateY(0); } to { transform: translateY(3px); } }
+        .crt-sweep {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30%;
+            background: linear-gradient(180deg,
+                transparent 0%,
+                rgba(160, 205, 240, 0.078) 45%,
+                rgba(205, 232, 255, 0.13) 52%,
+                rgba(160, 205, 240, 0.058) 62%,
+                transparent 100%);
+            animation: crtSweep 5.5s linear infinite;
+        }
+        /* translateY 的 % 基于自身高度（= 容器的 30%）：-120% 起在容器上方、345% 收在下方外
+           —— 容器高 260px、自身 78px，(120% + 345%) * 78 ≈ 363px > 260 + 78。 */
+        @keyframes crtSweep {
+            0% { transform: translateY(-120%); }
+            100% { transform: translateY(345%); }
+        }
+        /* 撕裂条：位移写的是 px 而不是 %（% 基于自身 13px 高度，换不出纵向落点）。
+           缩略图高度在上面钉死 260px，改那个值时这里的 95 / 178 要跟着改。 */
+        .crt-tear {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 13px;
+            background: rgba(190, 220, 245, 0.07);
+            box-shadow: 0 0 0 1px rgba(120, 170, 210, 0.05);
+            opacity: 0;
+            animation: crtTear 8.3s linear infinite;
+        }
+        @keyframes crtTear {
+            0%, 33% { opacity: 0; transform: translate(0, 95px); }
+            34% { opacity: 1; transform: translate(-7px, 95px); }
+            36% { opacity: 1; transform: translate(6px, 95px); }
+            37%, 70% { opacity: 0; transform: translate(0, 95px); }
+            71% { opacity: 0; transform: translate(0, 178px); }
+            72% { opacity: 1; transform: translate(5px, 178px); }
+            74% { opacity: 1; transform: translate(-4px, 178px); }
+            75%, 100% { opacity: 0; transform: translate(0, 178px); }
+        }
+        .crt-vignette {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at center, transparent 52%, rgba(6, 12, 20, 0.34) 100%),
+                linear-gradient(180deg,
+                    rgba(120, 170, 210, 0.04) 0%,
+                    rgba(120, 170, 210, 0.012) 40%,
+                    transparent 70%);
+        }
+
+        /* ── 常规探索点插画：旧照片 / 胶片质感 ──────────────────────────────────
+           与上面营地那套对位但不同源：营地是无人机回传的信号，这里是实景照片，
+           所以不要扫描线滚动、撕裂这类信号感，改成「胶片颗粒跳动 + 暖色漏光呼吸
+           + 暗角」，插画本身走 26s 一轮的缓动推拉（方向与营地相反，两张图切换时不像复制粘贴）。
+           同样只动 transform / opacity；quality-low 档规则在文件上方画质分级块里。 */
+        .explore-mode .thumbnail-img {
+            /* 静态 filter：轻微做旧、压饱和，贴合常规地图的暖棕调 */
+            filter: sepia(0.16) saturate(0.88) contrast(1.06) brightness(0.97);
+            animation: photoDrift 26s ease-in-out infinite;
+        }
+        /* 基准 scale 1.04 ⇒ 平移 1.2% 以内不露边 */
+        @keyframes photoDrift {
+            0%, 100% { transform: scale(1.04) translate3d(0, 0, 0); }
+            50% { transform: scale(1.08) translate3d(1.2%, -0.8%, 0); }
+        }
+        .photo-fx {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        /* 颗粒层比容器四边各大 40px，跳位不超过 ±24px，不会露边 */
+        .photo-grain {
+            position: absolute;
+            inset: -40px;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.75  0 0 0 0 0.68  0 0 0 0 0.55  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+            background-size: 180px 180px;
+            opacity: 0.16;
+            mix-blend-mode: overlay;
+            animation: photoGrain 0.6s steps(1, end) infinite;
+        }
+        @keyframes photoGrain {
+            0% { transform: translate3d(0, 0, 0); }
+            25% { transform: translate3d(-17px, 11px, 0); }
+            50% { transform: translate3d(13px, -21px, 0); }
+            75% { transform: translate3d(-9px, -14px, 0); }
+            100% { transform: translate3d(0, 0, 0); }
+        }
+        /* 左上角的暖色漏光：7s 一轮明暗呼吸 + 轻微游移，像窗口透进来的日光 */
+        .photo-light {
+            position: absolute;
+            inset: -20%;
+            background:
+                radial-gradient(ellipse 55% 45% at 22% 18%, rgba(255, 205, 140, 0.16) 0%, rgba(255, 190, 120, 0.06) 45%, transparent 75%);
+            mix-blend-mode: screen;
+            opacity: 0.6;
+            animation: photoLight 7s ease-in-out infinite;
+        }
+        @keyframes photoLight {
+            0%, 100% { opacity: 0.6; transform: translate3d(0, 0, 0); }
+            50% { opacity: 1; transform: translate3d(3%, 2%, 0); }
+        }
+        .photo-vignette {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at center, transparent 50%, rgba(20, 12, 4, 0.38) 100%),
+                linear-gradient(180deg, rgba(200, 160, 100, 0.05) 0%, transparent 45%);
+        }
+        /* 未解锁 / 沦陷的图已经压暗，再透漏光就像灯还亮着 ⇒ 关掉 */
+        .location-thumbnail.dimmed .photo-light { display: none; }
+
+        /* ── 昏暗点插画：手电照进去 ──────────────────────────────────────────
+           只在 state.isDark 的点挂（模板里 v-if）。三层：带洞的大暗场 + 暖色光斑同路径游走
+           （14s 一轮，偶尔轻微一闪）+ 几颗上飘的浮尘。强度刻意压低，只是让画面"有人举着灯"，
+           不抢插画本身。漏光换成手电，所以这里关掉 photo-light。
+           同样只动 transform / opacity；quality-low 档规则在画质分级块里。 */
+        .location-thumbnail.is-dark .photo-light { display: none; }
+        .torch-dark,
+        .torch-glow {
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            left: -100%;
+            top: -100%;
+            pointer-events: none;
+        }
+        .torch-dark {
+            background: radial-gradient(circle at 50% 50%,
+                rgba(6, 4, 2, 0) 0px,
+                rgba(6, 4, 2, 0) 120px,
+                rgba(6, 4, 2, 0.18) 190px,
+                rgba(6, 4, 2, 0.30) 280px,
+                rgba(6, 4, 2, 0.34) 100%);
+            animation: torchPath 14s ease-in-out infinite;
+        }
+        .torch-glow {
+            background: radial-gradient(circle at 50% 50%,
+                rgba(255, 214, 150, 0.10) 0px,
+                rgba(255, 200, 130, 0.04) 110px,
+                rgba(255, 190, 120, 0) 170px);
+            mix-blend-mode: screen;
+            animation: torchPath 14s ease-in-out infinite, torchFlicker 9s steps(1, end) infinite;
+        }
+        /* 光斑只在画面中部小范围游走，首尾同帧 */
+        @keyframes torchPath {
+            0%, 100% { transform: translate3d(-12%, -5%, 0); }
+            30% { transform: translate3d(10%, -2%, 0); }
+            60% { transform: translate3d(4%, 7%, 0); }
+            82% { transform: translate3d(-8%, 3%, 0); }
+        }
+        @keyframes torchFlicker {
+            0%, 71% { opacity: 1; }
+            72% { opacity: 0.85; }
+            73%, 100% { opacity: 1; }
+        }
+        /* 浮尘：一个 2px 点用 box-shadow 复制出 5 颗，整组一起上飘（缩略图高 260px，落点按它算） */
+        .torch-dust {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow:
+                90px 220px 0 0 rgba(255, 230, 190, 0.28),
+                170px 250px 0 0 rgba(255, 230, 190, 0.22),
+                230px 210px 0 0 rgba(255, 230, 190, 0.26),
+                300px 270px 0 0 rgba(255, 230, 190, 0.2),
+                140px 290px 0 0 rgba(255, 230, 190, 0.22);
+            animation: torchDust 14s linear infinite;
+        }
+        @keyframes torchDust {
+            0% { transform: translate3d(0, 0, 0); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translate3d(10px, -150px, 0); opacity: 0; }
+        }
+
+        /* 无尽：「前往」上方的今日探索次数与消耗 */
+        .trip-strip {
+            margin: 0 0 10px;
+            text-align: center;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: var(--em-text-main);
+            animation: emInfoFade 0.5s 0.15s ease-out both;
+        }
+        .trip-cost { margin-left: 14px; font-weight: 700; }
+        .trip-strip.fresh .trip-cost { color: #b9cf98; }
+        .trip-strip.paid .trip-cost { color: #e8c062; }
+        .trip-strip.poor .trip-cost { color: #e08a6c; }
+        .ca-modal-body b { color: #f3d68a; }
+        .trip-rp { margin-top: 6px; font-style: italic; color: var(--em-text-main); }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <div class="game-container" :class="state.isTradeMode ? 'trade-mode' : 'explore-mode'">
+            <div class="em-noise"></div>
+            <div class="em-fog"></div>
+
+            <div class="map-section">
+                <div class="map-inner">
+                    <img src="Map2.webp" alt="" class="map-bg">
+
+                    <div class="area-label">
+                        <span>{{ areaLabelText }}</span>
+                    </div>
+
+                    <!-- [营地共生] 抬头汇总：「还在联系的营地 N 个 · 今天回馈 +M」。
+                         整句由 Logic 侧算好并本地化；非纯净无尽 / 开关 B 关着一律是空串，这一条整块不出。 -->
+                    <div class="camp-header" v-if="state.campHeader"><svg class="bond-ico" viewBox="0 0 24 24" v-html="BOND_ICON"></svg>{{ state.campHeader }}</div>
+
+                    <!-- 求救短信还没回：提示去手机里回复。整句已本地化，空串不渲染。 -->
+                    <div class="sms-hint" v-if="state.shelterSmsHint">
+                        <i class="live-dot"></i>
+                        <svg class="sms-hint-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"
+                             stroke-linecap="round" stroke-linejoin="round"><rect x="4.2" y="1.8" width="7.6" height="12.4" rx="1.4"/><path d="M7 12.1h2"/><path d="M6 4.6h4M6 6.8h4M6 9h2.4"/></svg>
+                        <span>{{ state.shelterSmsHint }}</span>
+                    </div>
+
+                    <div v-if="activeMarkerPos"
+                         class="em-flashlight"
+                         :style="{ top: activeMarkerPos.top, left: activeMarkerPos.left }"></div>
+
+                    <template v-for="(item, index) in state.mapList" :key="index">
+                    <div v-if="item.lockState !== 2"
+                         class="map-marker"
+                         :class="{
+                             active: item.isActive,
+                             pending: item.lockState === 1,
+                             soon: item.lockState === 2,
+                             fallen: item.lockState === 3,
+                             damaged: item.damagedDays > 0,
+                             relieved: item.relieved,
+                             'lean-left': LEAN_LEFT.has(item.configId),
+                             ['urg-' + item.pulse]: item.pulse > 0,
+                             'deny-shake': denyShakeIndex === index
+                         }"
+                         :style="markerPositions[index] || {}"
+                         @click="onSelectMap(item, index)">
+                        <span class="pulse-ring" v-if="item.pulse > 0 || item.relieved"></span>
+                        <span class="pulse-ring r2" v-if="item.pulse > 0 || item.relieved"></span>
+                        <span class="marker-dot" v-if="SHOW_MARKER_DOT"></span>
+                        <svg class="loc-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                             stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"
+                             v-html="locIcons[iconFor(item)]"></svg>
+                        <span class="marker-name">{{ item.name }}</span>
+                        <span class="new-suffix" v-if="item.isNew">{{ state.localText.newSuffix }}</span>
+                        <svg class="bond-ico" :class="{ idle: item.campBond === 2 }" viewBox="0 0 24 24"
+                             v-if="item.campBond > 0" v-html="BOND_ICON"></svg>
+                        <span class="soon-tag" v-if="item.lockState === 2">{{ state.localText.comingSoonText }}</span>
+                        <span class="fallen-tag" v-if="item.lockState === 3">{{ item.fallEvac ? state.localText.evacText : state.localText.fallenTagText }}</span>
+                        <span class="damage-flame" v-if="item.damagedDays > 0">🔥</span>
+                        <span class="damaged-tag" v-if="item.damagedDays > 0">{{ state.localText.damagedTagText }}</span>
+                        <span class="fall-countdown-tag" v-if="item.fallInDays > 0 && item.lockState !== 3">{{ fallCountdownTagText(item.fallInDays) }}</span>
+                        <span class="aid-urgency-tag" :class="aidUrgencyClass(item.aidUrgency)" v-if="item.aidUrgency > 0"><i class="live-dot"></i>{{ aidUrgencyText(item.aidUrgency) }}</span>
+                        <span class="defend-tag" :class="item.defendTag" v-if="item.defendTag"><i class="live-dot"></i>{{ defendText(item.defendTag) }}</span>
+                        <span class="relieved-tag" v-if="item.relieved">✓ {{ state.localText.relievedText }}</span>
+                        <span class="new-badge" v-if="item.hasNew"></span>
+                    </div>
+                    </template>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="location-thumbnail"
+                     :class="{ dimmed: state.lockState !== 0, fallen: state.lockState === 3, 'is-dark': state.isDark }"
+                     :key="state.mapName">
+                    <img :src="state.mapIcon" alt="" class="thumbnail-img" v-show="state.mapIcon">
+                    <!-- 无人机回传的信号画面：扫描线 / 亮带 / 撕裂 / 晕影四层。
+                         只在交易地图出 —— 常规探索点那张图是实景照片，不该有信号感。 -->
+                    <div class="crt-fx" v-if="state.isTradeMode">
+                        <div class="crt-lines"></div>
+                        <div class="crt-sweep"></div>
+                        <div class="crt-tear"></div>
+                        <div class="crt-vignette"></div>
+                    </div>
+                    <!-- 常规探索点：旧照片质感（颗粒 / 漏光 / 暗角），与上面的信号画面二选一 -->
+                    <div class="photo-fx" v-else>
+                        <div class="photo-grain"></div>
+                        <div class="photo-light"></div>
+                        <!-- 昏暗点（右上「昏暗」角标同一个判据）：手电光斑游走 + 浮尘，其余点不出 -->
+                        <template v-if="state.isDark">
+                            <div class="torch-dark"></div>
+                            <div class="torch-glow"></div>
+                            <div class="torch-dust"></div>
+                        </template>
+                        <div class="photo-vignette"></div>
+                    </div>
+                    <div class="fallen-stamp" v-if="state.lockState === 3">{{ fallenStampText }}</div>
+                    <!-- 昏暗角标：这张图进去默认就开着手电（Config_Instance.NeedFlashlight）。
+                         写「昏暗」不写「需要手电」——手电任何副本都能自己开关，这一位只管进图初值。 -->
+                    <div class="light-badge" v-if="state.isDark">{{ state.localText.darkText }}</div>
+                    <div class="thumbnail-header">
+                        <div class="thumbnail-name">{{ state.mapName }}</div>
+                        <div class="thumbnail-chapter" v-if="state.chapterLabel">{{ state.chapterLabel }}</div>
+                    </div>
+                </div>
+
+                <div class="stats-block" v-if="!state.isTradeMode" :class="{ muted: state.lockState === 3 }">
+                    <div class="stat-row">
+                        <span class="stat-label">{{ state.localText.timeDuringLabel }}</span>
+                        <span class="stat-value">{{ state.timeDuring }}</span>
+                    </div>
+                    <!-- 「携带」被「探索消耗」完全覆盖时 C# 已把 itemRequire 置空，这一行整条不出：
+                         能进的探索点两列填的是同一件道具，两行说的是同一句话。
+                         两者真不同的点（1001 加油站）itemRequire 非空，照常双显。 -->
+                    <div class="stat-row" v-if="state.itemRequire">
+                        <span class="stat-label">{{ state.localText.carryLabel }}</span>
+                        <span class="stat-value">{{ state.itemRequire }}</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">{{ state.localText.requireLabel }}</span>
+                        <span class="stat-value">{{ state.openRequire }}</span>
+                    </div>
+                    <!-- 每天只能进一次的点：剩余次数 / 上限 -->
+                    <div class="stat-row" v-if="state.dailyOnce">
+                        <span class="stat-label">{{ state.localText.dailyLabel }}</span>
+                        <span class="stat-value">{{ (state.doneToday ? 0 : 1) + '/1' }}</span>
+                    </div>
+                </div>
+
+                <!-- 主要产出：Config_MapPoint.Subtitle 的顿号分隔品类，C# 只在常规探索且可进入时下发 -->
+                <div class="produce-block" v-if="produceList.length" :key="'pd-' + state.mapName">
+                    <span class="produce-label" v-if="state.localText.produceLabel">{{ state.localText.produceLabel }}</span>
+                    <span class="produce-list">
+                        <span class="produce-chip" v-for="(p, pi) in produceList" :key="'pdc-' + pi">{{ p }}</span>
+                    </span>
+                </div>
+
+                <div class="trade-cat-block" v-if="state.isTradeMode && tradeCats.length" :key="'tc-' + state.mapName">
+                    <span class="trade-cat-label" v-if="state.localText.tradeCatLabel">{{ state.localText.tradeCatLabel }}</span>
+                    <span class="trade-cat-list">
+                        <span class="trade-cat-chip" v-for="(c, ci) in tradeCats" :key="'tcc-' + ci" :data-c="c.c" :class="{ 'cat-off': c.g }">{{ c.n }}</span>
+                        <span class="trade-cat-more" v-if="state.tradeCatMore > 0">+{{ state.tradeCatMore }}</span>
+                    </span>
+                    <!-- 剩余货源：C# 算好的 10% 颗粒度整数（0-100）。
+                         -1 = 这个点没有货架概念（未解锁 / 沦陷）⇒ 整格不出。 -->
+                    <span class="trade-cat-stock" v-if="state.stockPct >= 0">{{ state.stockPct }}%</span>
+                </div>
+
+                <!-- [面板精简 2026-09-20] alarm＝无尽营地的告警块（求援 / 协防）：配色走告警红、状态说明描述出。
+                     它是本次改动唯一的爆炸范围闸 —— quote 在求援 / 无尽协防 / 安全屋线协防 / 刚解围四种块里都有值，
+                     而安全屋线协防的 kind 同样是 defend，这里分不开它和无尽协防，只能认 C# 下发的这一位。 -->
+                <div class="status-block" v-if="status"
+                     :class="['st-' + status.kind, 'urg-' + (status.urgency || 0), { alarm: status.alarm }]"
+                     :key="'st-' + state.mapName + (status.phaseKey || '')">
+                    <div class="status-head">
+                        <span class="status-title"><i class="live-dot"></i>{{ status.title }}</span>
+                        <!-- [营地共生] 底座并进刚解围块时，状态词挂成一枚小牌；底座自己成块（kind=camp）时状态词就是上面的标题，这里不出。
+                             [面板精简] 告警块里这枚牌改写固定的「物资紧缺」/「尸潮危机」，不再是营地状态词。 -->
+                        <span class="status-camp" v-if="status.camp" :class="{ alarm: status.alarm, relieved: status.campRelieved }">{{ status.camp }}</span>
+                        <span class="status-time" :class="{ alarm: status.alarm }">{{ status.time }}</span>
+                    </div>
+                    <!-- [面板精简] 状态词一行与四段流程条互斥：无尽协防走前者，安全屋线协防继续走后者 -->
+                    <div class="status-state" v-if="status.state">{{ status.state }}</div>
+                    <div class="status-phases" v-else-if="status.phases && status.phases.list && status.phases.list.length">
+                        <span v-for="(p, pi) in status.phases.list" :key="'ph-' + pi"
+                              :class="{ done: pi < status.phases.cur, cur: pi === status.phases.cur }">{{ p }}</span>
+                    </div>
+                    <div class="status-row" v-for="(r, ri) in (status.rows || [])" :key="'sr-' + ri">
+                        <span class="k">{{ r.k }}</span>
+                        <span class="v">{{ r.v }}<span class="status-bar" v-if="r.pct != null"><i :style="{ transform: 'scaleX(' + r.pct + ')' }"></i></span></span>
+                    </div>
+                    <!-- [面板精简] 状态说明描述 ＋ 块尾规则提示 -->
+                    <div class="status-quote" v-if="status.alarm && status.quote">{{ status.quote }}</div>
+                    <div class="status-note" v-if="status.note">{{ status.note }}</div>
+                    <!-- [营地共生 2026-09-21] 主动求援：一颗按钮 + 右边一句原因。按不了就灰掉，原因写明为什么
+                         （现在没有危险 / N 天内无法提供援助 / 已求援，他们答应了 / 营地危机中）。
+                         点完不自动关图，但会让 Logic 重算一次快照（Btn_CallAid 末尾的 RequestReopenTradeMap）。 -->
+                    <div class="ca-line" v-if="status.callAid">
+                        <button class="ca-btn"
+                                :disabled="!status.callAid.can"
+                                @click="onCallAid">{{ status.callAid.label }}</button>
+                        <span class="ca-why" :class="{ ready: status.callAid.can }">{{ status.callAid.reason }}</span>
+                    </div>
+                </div>
+
+                <!-- [营地共生] 撤离点走另一套说法：标题「撤离」、正文只写「第 N 天撤离。」——
+                     他们是自己走的，不能再跟失联点共用「尸群已经占据这里，无法再前往」。 -->
+                <div class="fallen-notice" v-if="state.lockState === 3" :key="'fallen-' + state.mapName">
+                    <span class="fallen-notice-icon">{{ state.fallEvac ? '✦' : '⚠' }}</span>
+                    <div style="flex: 1 1 auto; min-width: 0;">
+                        <span class="fallen-notice-label">{{ fallenNoticeLabel }}</span><br>
+                        <span class="fallen-notice-text">{{ fallenDayText }}{{ state.fallEvac ? '' : state.localText.fallenNoticeText }}</span>
+                    </div>
+                </div>
+
+                <div class="damaged-notice" v-if="state.damagedDays > 0 && state.lockState !== 3" :key="'damaged-' + state.mapName">
+                    <span class="damaged-notice-icon">🔥</span>
+                    <div style="flex: 1 1 auto; min-width: 0;">
+                        <span class="damaged-notice-label">{{ state.localText.damagedNoticeLabel }}</span><br>
+                        <span class="damaged-notice-text">{{ damagedNoticeText }}</span>
+                    </div>
+                </div>
+
+                <div class="fall-countdown-notice" v-if="state.fallInDays > 0 && state.lockState !== 3" :key="'fallcd-' + state.mapName">
+                    <span class="fall-countdown-notice-icon">⏳</span>
+                    <div style="flex: 1 1 auto; min-width: 0;">
+                        <span class="fall-countdown-notice-label">{{ state.localText.fallCountdownLabel }}</span><br>
+                        <span class="fall-countdown-notice-text">{{ fallCountdownText }}</span>
+                    </div>
+                </div>
+
+                <div class="unlock-hint" v-if="state.lockState === 1 && (state.unlockHint || unlockConds.length)" :key="'hint-' + state.mapName">
+                    <span class="unlock-hint-icon">🔦</span>
+                    <div style="flex: 1 1 auto; min-width: 0;">
+                        <span class="unlock-hint-label">{{ state.localText.unlockHintLabel }}</span><br>
+                        <span class="unlock-hint-text" v-if="state.unlockHint">{{ state.unlockHint }}</span>
+                        <div class="unlock-cond" v-if="unlockConds.length">
+                            <div class="unlock-cond-item" :class="{ done: cond.done }"
+                                 v-for="(cond, ci) in unlockConds" :key="'cond-' + ci">
+                                <div class="unlock-cond-row">
+                                    <span class="unlock-cond-label">
+                                        <span class="unlock-cond-check" v-if="cond.done">✓</span>
+                                        {{ cond.label }}
+                                    </span>
+                                    <span class="unlock-cond-text">{{ cond.text }}</span>
+                                </div>
+                                <div class="unlock-cond-bar">
+                                    <div class="unlock-cond-bar-fill" :style="{ transform: 'scaleX(' + (cond.pct / 100) + ')' }"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 有状态块（求援 / 协防 / 刚解围）时描述区让位，右栏放不下两块。
+                     [营地共生] 底座单独成块（kind=camp）是例外：它只有两三行，右栏还剩大半空间
+                     （探针实测 1536×864 下 info-panel scrollHeight == clientHeight），
+                     再把地点描述砍掉的话，纯净无尽里八个营地就永远看不到自己的介绍了。 -->
+                <div class="description-block" v-if="!status || status.kind === 'camp'" :key="'desc-' + state.mapName">
+                    {{ state.description }}
+                </div>
+
+                <div class="info-panel-spacer"></div>
+
+                <!-- 无尽：今天第几次探索 + 这一趟的消耗；tripIndex 为 0 时整行不出 -->
+                <div class="trip-strip" v-if="state.tripIndex > 0" :class="tripTone">
+                    {{ tripIndexLine }}<span class="trip-cost">{{ tripCostLine }}</span>
+                </div>
+
+                <button class="action-btn"
+                        :class="{ disabled: state.lockState !== 0 || tripPoor || state.doneToday, fallen: state.lockState === 3 }"
+                        @click="onGo"
+                        @mouseenter="onBtnHover">
+                    {{ tripPoor ? state.localText.tripPoorText : goButtonText }}
+                    <div class="corner-deco"></div>
+                </button>
+            </div>
+
+            <!-- [营地共生 2026-09-21] 求援回执：面板底部的浮动提示，2.6s 自己走完（由 Logic 的受理回执驱动） -->
+            <div class="ca-toast" v-if="aidToast" :key="'ct-' + aidToastSeq">{{ aidToast }}</div>
+
+            <!-- 无尽：当天付费出门前确认一次 -->
+            <div class="ca-modal-mask" v-if="tripConfirm" @click.self="tripConfirm = false">
+                <div class="ca-modal">
+                    <div class="ca-modal-title">{{ tripIndexLine }}</div>
+                    <div class="ca-modal-body">
+                        <div>{{ tripCostLine }}</div>
+                        <div class="trip-rp">{{ tripRp }}</div>
+                    </div>
+                    <div class="ca-modal-btns">
+                        <button class="ca-sec" @click="tripConfirm = false">{{ state.localText.callAidCancel }}</button>
+                        <button @click="onTripOk">{{ state.localText.tripOk }}</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- [营地共生 2026-09-21] 求援二次确认：这一下会消耗掉该营地的冷却并让它陷入窘迫，不能点一下就生效 -->
+            <div class="ca-modal-mask" v-if="aidConfirm.show" @click.self="onAidCancel">
+                <div class="ca-modal">
+                    <div class="ca-modal-title">{{ aidConfirm.title }}</div>
+                    <div class="ca-modal-body">
+                        <div>{{ state.localText.callAidBody }}</div>
+                        <div class="ca-modal-cost">{{ state.localText.callAidCost }}</div>
+                    </div>
+                    <div class="ca-modal-btns">
+                        <button class="ca-sec" @click="onAidCancel">{{ state.localText.callAidCancel }}</button>
+                        <button @click="onAidOk">{{ state.localText.callAidOk }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../vue.runtime.global.prod.js"></script>
+<script>
+/* === [precompiled v1] === */
+(function(){var __wgArmed__=false;var __wgGaveUp__=false;var __wgReload__=function(missing){if(__wgArmed__||__wgGaveUp__)return;var m=/(?:^|;)wgr=(\d+)/.exec(window.name||"");var n=m?parseInt(m[1],10):0;if(n>=2){__wgGaveUp__=true;console.error("[WebUIGuard] "+missing+" still missing after "+n+" reloads, giving up: "+location.pathname);return;}__wgArmed__=true;window.name=(window.name||"").replace(/(?:^|;)wgr=\d+/,"")+";wgr="+(n+1);console.warn("[WebUIGuard] "+missing+" missing, reloading page ("+(n+1)+"/2): "+location.pathname);setTimeout(function(){location.reload();},300);};window.addEventListener("error",function(e){var msg=(e&&e.message)||"";var isCore=msg.indexOf("createWebUICore is not defined")>=0;if(!isCore&&msg.indexOf("Vue is not defined")<0)return;__wgReload__(isCore?"webui-core.js":"vue.runtime.global.prod.js");if(!__wgGaveUp__)e.preventDefault();});if(typeof Vue==="undefined"){__wgReload__("vue.runtime.global.prod.js");return;}document.addEventListener("DOMContentLoaded",function(){if(document.querySelector("script[src*=webui-core]")&&typeof window.createWebUICore==="undefined"){__wgReload__("webui-core.js");return;}if(!__wgArmed__&&window.name)window.name=window.name.replace(/(?:^|;)wgr=\d+/,"");});var __renderFactory__=function(Vue){const { createElementVNode: _createElementVNode, toDisplayString: _toDisplayString, createCommentVNode: _createCommentVNode, openBlock: _openBlock, createElementBlock: _createElementBlock, createTextVNode: _createTextVNode, normalizeStyle: _normalizeStyle, renderList: _renderList, Fragment: _Fragment, normalizeClass: _normalizeClass, vShow: _vShow, withDirectives: _withDirectives, withModifiers: _withModifiers, createStaticVNode: _createStaticVNode } = Vue
+
+const _hoisted_1 = { class: "map-section" }
+const _hoisted_2 = { class: "map-inner" }
+const _hoisted_3 = { class: "area-label" }
+const _hoisted_4 = {
+  key: 0,
+  class: "camp-header"
+}
+const _hoisted_5 = ["innerHTML"]
+const _hoisted_6 = {
+  key: 1,
+  class: "sms-hint"
+}
+const _hoisted_7 = ["onClick"]
+const _hoisted_8 = {
+  key: 0,
+  class: "pulse-ring"
+}
+const _hoisted_9 = {
+  key: 1,
+  class: "pulse-ring r2"
+}
+const _hoisted_10 = {
+  key: 2,
+  class: "marker-dot"
+}
+const _hoisted_11 = ["innerHTML"]
+const _hoisted_12 = { class: "marker-name" }
+const _hoisted_13 = {
+  key: 3,
+  class: "new-suffix"
+}
+const _hoisted_14 = ["innerHTML"]
+const _hoisted_15 = {
+  key: 5,
+  class: "soon-tag"
+}
+const _hoisted_16 = {
+  key: 6,
+  class: "fallen-tag"
+}
+const _hoisted_17 = {
+  key: 7,
+  class: "damage-flame"
+}
+const _hoisted_18 = {
+  key: 8,
+  class: "damaged-tag"
+}
+const _hoisted_19 = {
+  key: 9,
+  class: "fall-countdown-tag"
+}
+const _hoisted_20 = {
+  key: 12,
+  class: "relieved-tag"
+}
+const _hoisted_21 = {
+  key: 13,
+  class: "new-badge"
+}
+const _hoisted_22 = { class: "info-panel" }
+const _hoisted_23 = ["src"]
+const _hoisted_24 = {
+  key: 0,
+  class: "crt-fx"
+}
+const _hoisted_25 = { class: "photo-fx" }
+const _hoisted_26 = {
+  key: 2,
+  class: "fallen-stamp"
+}
+const _hoisted_27 = {
+  key: 3,
+  class: "light-badge"
+}
+const _hoisted_28 = { class: "thumbnail-header" }
+const _hoisted_29 = { class: "thumbnail-name" }
+const _hoisted_30 = {
+  key: 0,
+  class: "thumbnail-chapter"
+}
+const _hoisted_31 = { class: "stat-row" }
+const _hoisted_32 = { class: "stat-label" }
+const _hoisted_33 = { class: "stat-value" }
+const _hoisted_34 = {
+  key: 0,
+  class: "stat-row"
+}
+const _hoisted_35 = { class: "stat-label" }
+const _hoisted_36 = { class: "stat-value" }
+const _hoisted_37 = { class: "stat-row" }
+const _hoisted_38 = { class: "stat-label" }
+const _hoisted_39 = { class: "stat-value" }
+const _hoisted_40 = {
+  key: 1,
+  class: "stat-row"
+}
+const _hoisted_41 = { class: "stat-label" }
+const _hoisted_42 = { class: "stat-value" }
+const _hoisted_43 = {
+  key: 0,
+  class: "produce-label"
+}
+const _hoisted_44 = { class: "produce-list" }
+const _hoisted_45 = {
+  key: 0,
+  class: "trade-cat-label"
+}
+const _hoisted_46 = { class: "trade-cat-list" }
+const _hoisted_47 = ["data-c"]
+const _hoisted_48 = {
+  key: 0,
+  class: "trade-cat-more"
+}
+const _hoisted_49 = {
+  key: 1,
+  class: "trade-cat-stock"
+}
+const _hoisted_50 = { class: "status-head" }
+const _hoisted_51 = { class: "status-title" }
+const _hoisted_52 = {
+  key: 0,
+  class: "status-state"
+}
+const _hoisted_53 = {
+  key: 1,
+  class: "status-phases"
+}
+const _hoisted_54 = { class: "k" }
+const _hoisted_55 = { class: "v" }
+const _hoisted_56 = {
+  key: 0,
+  class: "status-bar"
+}
+const _hoisted_57 = {
+  key: 2,
+  class: "status-quote"
+}
+const _hoisted_58 = {
+  key: 3,
+  class: "status-note"
+}
+const _hoisted_59 = {
+  key: 4,
+  class: "ca-line"
+}
+const _hoisted_60 = ["disabled"]
+const _hoisted_61 = { class: "fallen-notice-icon" }
+const _hoisted_62 = { style: {"flex":"1 1 auto","min-width":"0"} }
+const _hoisted_63 = { class: "fallen-notice-label" }
+const _hoisted_64 = { class: "fallen-notice-text" }
+const _hoisted_65 = { style: {"flex":"1 1 auto","min-width":"0"} }
+const _hoisted_66 = { class: "damaged-notice-label" }
+const _hoisted_67 = { class: "damaged-notice-text" }
+const _hoisted_68 = { style: {"flex":"1 1 auto","min-width":"0"} }
+const _hoisted_69 = { class: "fall-countdown-notice-label" }
+const _hoisted_70 = { class: "fall-countdown-notice-text" }
+const _hoisted_71 = { style: {"flex":"1 1 auto","min-width":"0"} }
+const _hoisted_72 = { class: "unlock-hint-label" }
+const _hoisted_73 = {
+  key: 0,
+  class: "unlock-hint-text"
+}
+const _hoisted_74 = {
+  key: 1,
+  class: "unlock-cond"
+}
+const _hoisted_75 = { class: "unlock-cond-row" }
+const _hoisted_76 = { class: "unlock-cond-label" }
+const _hoisted_77 = {
+  key: 0,
+  class: "unlock-cond-check"
+}
+const _hoisted_78 = { class: "unlock-cond-text" }
+const _hoisted_79 = { class: "unlock-cond-bar" }
+const _hoisted_80 = { class: "trip-cost" }
+const _hoisted_81 = { class: "ca-modal" }
+const _hoisted_82 = { class: "ca-modal-title" }
+const _hoisted_83 = { class: "ca-modal-body" }
+const _hoisted_84 = { class: "trip-rp" }
+const _hoisted_85 = { class: "ca-modal-btns" }
+const _hoisted_86 = { class: "ca-modal" }
+const _hoisted_87 = { class: "ca-modal-title" }
+const _hoisted_88 = { class: "ca-modal-body" }
+const _hoisted_89 = { class: "ca-modal-cost" }
+const _hoisted_90 = { class: "ca-modal-btns" }
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createElementBlock("div", {
+    class: _normalizeClass(["game-container", _ctx.state.isTradeMode ? 'trade-mode' : 'explore-mode'])
+  }, [
+    _cache[30] || (_cache[30] = _createElementVNode("div", { class: "em-noise" }, null, -1 /* CACHED */)),
+    _cache[31] || (_cache[31] = _createElementVNode("div", { class: "em-fog" }, null, -1 /* CACHED */)),
+    _createElementVNode("div", _hoisted_1, [
+      _createElementVNode("div", _hoisted_2, [
+        _cache[12] || (_cache[12] = _createElementVNode("img", {
+          src: "Map2.webp",
+          alt: "",
+          class: "map-bg"
+        }, null, -1 /* CACHED */)),
+        _createElementVNode("div", _hoisted_3, [
+          _createElementVNode("span", null, _toDisplayString(_ctx.areaLabelText), 1 /* TEXT */)
+        ]),
+        _createCommentVNode(" [营地共生] 抬头汇总：「还在联系的营地 N 个 · 今天回馈 +M」。\n                         整句由 Logic 侧算好并本地化；非纯净无尽 / 开关 B 关着一律是空串，这一条整块不出。 "),
+        (_ctx.state.campHeader)
+          ? (_openBlock(), _createElementBlock("div", _hoisted_4, [
+              (_openBlock(), _createElementBlock("svg", {
+                class: "bond-ico",
+                viewBox: "0 0 24 24",
+                innerHTML: _ctx.BOND_ICON
+              }, null, 8 /* PROPS */, _hoisted_5)),
+              _createTextVNode(_toDisplayString(_ctx.state.campHeader), 1 /* TEXT */)
+            ]))
+          : _createCommentVNode("v-if", true),
+        _createCommentVNode(" 求救短信还没回：提示去手机里回复。整句已本地化，空串不渲染。 "),
+        (_ctx.state.shelterSmsHint)
+          ? (_openBlock(), _createElementBlock("div", _hoisted_6, [
+              _cache[9] || (_cache[9] = _createStaticVNode("<i class=\"live-dot\"></i><svg class=\"sms-hint-ico\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4.2\" y=\"1.8\" width=\"7.6\" height=\"12.4\" rx=\"1.4\"></rect><path d=\"M7 12.1h2\"></path><path d=\"M6 4.6h4M6 6.8h4M6 9h2.4\"></path></svg>", 2)),
+              _createElementVNode("span", null, _toDisplayString(_ctx.state.shelterSmsHint), 1 /* TEXT */)
+            ]))
+          : _createCommentVNode("v-if", true),
+        (_ctx.activeMarkerPos)
+          ? (_openBlock(), _createElementBlock("div", {
+              key: 2,
+              class: "em-flashlight",
+              style: _normalizeStyle({ top: _ctx.activeMarkerPos.top, left: _ctx.activeMarkerPos.left })
+            }, null, 4 /* STYLE */))
+          : _createCommentVNode("v-if", true),
+        (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.state.mapList, (item, index) => {
+          return (_openBlock(), _createElementBlock(_Fragment, { key: index }, [
+            (item.lockState !== 2)
+              ? (_openBlock(), _createElementBlock("div", {
+                  key: 0,
+                  class: _normalizeClass(["map-marker", {
+                             active: item.isActive,
+                             pending: item.lockState === 1,
+                             soon: item.lockState === 2,
+                             fallen: item.lockState === 3,
+                             damaged: item.damagedDays > 0,
+                             relieved: item.relieved,
+                             'lean-left': _ctx.LEAN_LEFT.has(item.configId),
+                             ['urg-' + item.pulse]: item.pulse > 0,
+                             'deny-shake': _ctx.denyShakeIndex === index
+                         }]),
+                  style: _normalizeStyle(_ctx.markerPositions[index] || {}),
+                  onClick: $event => (_ctx.onSelectMap(item, index))
+                }, [
+                  (item.pulse > 0 || item.relieved)
+                    ? (_openBlock(), _createElementBlock("span", _hoisted_8))
+                    : _createCommentVNode("v-if", true),
+                  (item.pulse > 0 || item.relieved)
+                    ? (_openBlock(), _createElementBlock("span", _hoisted_9))
+                    : _createCommentVNode("v-if", true),
+                  (_ctx.SHOW_MARKER_DOT)
+                    ? (_openBlock(), _createElementBlock("span", _hoisted_10))
+                    : _createCommentVNode("v-if", true),
+                  (_openBlock(), _createElementBlock("svg", {
+                    class: "loc-ico",
+                    viewBox: "0 0 16 16",
+                    fill: "none",
+                    stroke: "currentColor",
+                    "stroke-width": "1.4",
+                    "stroke-linecap": "round",
+                    "stroke-linejoin": "round",
+                    innerHTML: _ctx.locIcons[_ctx.iconFor(item)]
+                  }, null, 8 /* PROPS */, _hoisted_11)),
+                  _createElementVNode("span", _hoisted_12, _toDisplayString(item.name), 1 /* TEXT */),
+                  (item.isNew)
+                    ? (_openBlock(), _createElementBlock("span", _hoisted_13, _toDisplayString(_ctx.state.localText.newSuffix), 1 /* TEXT */))
+                    : _createCommentVNode("v-if", true),
+                  (item.campBond > 0)
+                    ? (_openBlock(), _createElementBlock("svg", {
+                        key: 4,
+                        class: _normalizeClass(["bond-ico", { idle: item.campBond === 2 }]),
+                        viewBox: "0 0 24 24",
+                        innerHTML: _ctx.BOND_ICON
+                      }, null, 10 /* CLASS, PROPS */, _hoisted_14))
+                    : _createCommentVNode("v-if", true),
+                  (item.lockState === 2)
+                    ? (_openBlock(), _createElementBlock("span", _hoisted_15, _toDisplayString(_ctx.state.localText.comingSoonText), 1 /* TEXT */))
+                    : _createCommentVNode("v-if", true),
+                  (item.lockState === 3)
+                    ? (_openBlock(), _createElementBlock("span", _hoisted_16, _toDisplayString(item.fallEvac ? _ctx.state.localText.evacText : _ctx.state.localText.fallenTagText), 1 /* TEXT */))
+                    : _createCommentVNode("v-if", true),
+                  (item.damagedDays > 0)
+                    ? (_openBlock(), _createElementBlock("span", _hoisted_17, "🔥"))
+                    : _createCommentVNode("v-if", true),
+                  (item.damagedDays > 0)
+                    ? (_openBlock(), _createElementBlock("span", _hoisted_18, _toDisplayString(_ctx.state.localText.damagedTagText), 1 /* TEXT */))
+                    : _createCommentVNode("v-if", true),
+                  (item.fallInDays > 0 && item.lockState !== 3)
+                    ? (_openBlock(), _createElementBlock("span", _hoisted_19, _toDisplayString(_ctx.fallCountdownTagText(item.fallInDays)), 1 /* TEXT */))
+                    : _createCommentVNode("v-if", true),
+                  (item.aidUrgency > 0)
+                    ? (_openBlock(), _createElementBlock("span", {
+                        key: 10,
+                        class: _normalizeClass(["aid-urgency-tag", _ctx.aidUrgencyClass(item.aidUrgency)])
+                      }, [
+                        _cache[10] || (_cache[10] = _createElementVNode("i", { class: "live-dot" }, null, -1 /* CACHED */)),
+                        _createTextVNode(_toDisplayString(_ctx.aidUrgencyText(item.aidUrgency)), 1 /* TEXT */)
+                      ], 2 /* CLASS */))
+                    : _createCommentVNode("v-if", true),
+                  (item.defendTag)
+                    ? (_openBlock(), _createElementBlock("span", {
+                        key: 11,
+                        class: _normalizeClass(["defend-tag", item.defendTag])
+                      }, [
+                        _cache[11] || (_cache[11] = _createElementVNode("i", { class: "live-dot" }, null, -1 /* CACHED */)),
+                        _createTextVNode(_toDisplayString(_ctx.defendText(item.defendTag)), 1 /* TEXT */)
+                      ], 2 /* CLASS */))
+                    : _createCommentVNode("v-if", true),
+                  (item.relieved)
+                    ? (_openBlock(), _createElementBlock("span", _hoisted_20, "✓ " + _toDisplayString(_ctx.state.localText.relievedText), 1 /* TEXT */))
+                    : _createCommentVNode("v-if", true),
+                  (item.hasNew)
+                    ? (_openBlock(), _createElementBlock("span", _hoisted_21))
+                    : _createCommentVNode("v-if", true)
+                ], 14 /* CLASS, STYLE, PROPS */, _hoisted_7))
+              : _createCommentVNode("v-if", true)
+          ], 64 /* STABLE_FRAGMENT */))
+        }), 128 /* KEYED_FRAGMENT */))
+      ])
+    ]),
+    _createElementVNode("div", _hoisted_22, [
+      (_openBlock(), _createElementBlock("div", {
+        class: _normalizeClass(["location-thumbnail", { dimmed: _ctx.state.lockState !== 0, fallen: _ctx.state.lockState === 3, 'is-dark': _ctx.state.isDark }]),
+        key: _ctx.state.mapName
+      }, [
+        _withDirectives(_createElementVNode("img", {
+          src: _ctx.state.mapIcon,
+          alt: "",
+          class: "thumbnail-img"
+        }, null, 8 /* PROPS */, _hoisted_23), [
+          [_vShow, _ctx.state.mapIcon]
+        ]),
+        _createCommentVNode(" 无人机回传的信号画面：扫描线 / 亮带 / 撕裂 / 晕影四层。\n                         只在交易地图出 —— 常规探索点那张图是实景照片，不该有信号感。 "),
+        (_ctx.state.isTradeMode)
+          ? (_openBlock(), _createElementBlock("div", _hoisted_24, [...(_cache[13] || (_cache[13] = [
+              _createElementVNode("div", { class: "crt-lines" }, null, -1 /* CACHED */),
+              _createElementVNode("div", { class: "crt-sweep" }, null, -1 /* CACHED */),
+              _createElementVNode("div", { class: "crt-tear" }, null, -1 /* CACHED */),
+              _createElementVNode("div", { class: "crt-vignette" }, null, -1 /* CACHED */)
+            ]))]))
+          : (_openBlock(), _createElementBlock(_Fragment, { key: 1 }, [
+              _createCommentVNode(" 常规探索点：旧照片质感（颗粒 / 漏光 / 暗角），与上面的信号画面二选一 "),
+              _createElementVNode("div", _hoisted_25, [
+                _cache[17] || (_cache[17] = _createElementVNode("div", { class: "photo-grain" }, null, -1 /* CACHED */)),
+                _cache[18] || (_cache[18] = _createElementVNode("div", { class: "photo-light" }, null, -1 /* CACHED */)),
+                _createCommentVNode(" 昏暗点（右上「昏暗」角标同一个判据）：手电光斑游走 + 浮尘，其余点不出 "),
+                (_ctx.state.isDark)
+                  ? (_openBlock(), _createElementBlock(_Fragment, { key: 0 }, [
+                      _cache[14] || (_cache[14] = _createElementVNode("div", { class: "torch-dark" }, null, -1 /* CACHED */)),
+                      _cache[15] || (_cache[15] = _createElementVNode("div", { class: "torch-glow" }, null, -1 /* CACHED */)),
+                      _cache[16] || (_cache[16] = _createElementVNode("div", { class: "torch-dust" }, null, -1 /* CACHED */))
+                    ], 64 /* STABLE_FRAGMENT */))
+                  : _createCommentVNode("v-if", true),
+                _cache[19] || (_cache[19] = _createElementVNode("div", { class: "photo-vignette" }, null, -1 /* CACHED */))
+              ])
+            ], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */)),
+        (_ctx.state.lockState === 3)
+          ? (_openBlock(), _createElementBlock("div", _hoisted_26, _toDisplayString(_ctx.fallenStampText), 1 /* TEXT */))
+          : _createCommentVNode("v-if", true),
+        _createCommentVNode(" 昏暗角标：这张图进去默认就开着手电（Config_Instance.NeedFlashlight）。\n                         写「昏暗」不写「需要手电」——手电任何副本都能自己开关，这一位只管进图初值。 "),
+        (_ctx.state.isDark)
+          ? (_openBlock(), _createElementBlock("div", _hoisted_27, _toDisplayString(_ctx.state.localText.darkText), 1 /* TEXT */))
+          : _createCommentVNode("v-if", true),
+        _createElementVNode("div", _hoisted_28, [
+          _createElementVNode("div", _hoisted_29, _toDisplayString(_ctx.state.mapName), 1 /* TEXT */),
+          (_ctx.state.chapterLabel)
+            ? (_openBlock(), _createElementBlock("div", _hoisted_30, _toDisplayString(_ctx.state.chapterLabel), 1 /* TEXT */))
+            : _createCommentVNode("v-if", true)
+        ])
+      ], 2 /* CLASS */)),
+      (!_ctx.state.isTradeMode)
+        ? (_openBlock(), _createElementBlock("div", {
+            key: 0,
+            class: _normalizeClass(["stats-block", { muted: _ctx.state.lockState === 3 }])
+          }, [
+            _createElementVNode("div", _hoisted_31, [
+              _createElementVNode("span", _hoisted_32, _toDisplayString(_ctx.state.localText.timeDuringLabel), 1 /* TEXT */),
+              _createElementVNode("span", _hoisted_33, _toDisplayString(_ctx.state.timeDuring), 1 /* TEXT */)
+            ]),
+            _createCommentVNode(" 「携带」被「探索消耗」完全覆盖时 C# 已把 itemRequire 置空，这一行整条不出：\n                         能进的探索点两列填的是同一件道具，两行说的是同一句话。\n                         两者真不同的点（1001 加油站）itemRequire 非空，照常双显。 "),
+            (_ctx.state.itemRequire)
+              ? (_openBlock(), _createElementBlock("div", _hoisted_34, [
+                  _createElementVNode("span", _hoisted_35, _toDisplayString(_ctx.state.localText.carryLabel), 1 /* TEXT */),
+                  _createElementVNode("span", _hoisted_36, _toDisplayString(_ctx.state.itemRequire), 1 /* TEXT */)
+                ]))
+              : _createCommentVNode("v-if", true),
+            _createElementVNode("div", _hoisted_37, [
+              _createElementVNode("span", _hoisted_38, _toDisplayString(_ctx.state.localText.requireLabel), 1 /* TEXT */),
+              _createElementVNode("span", _hoisted_39, _toDisplayString(_ctx.state.openRequire), 1 /* TEXT */)
+            ]),
+            _createCommentVNode(" 每天只能进一次的点：剩余次数 / 上限 "),
+            (_ctx.state.dailyOnce)
+              ? (_openBlock(), _createElementBlock("div", _hoisted_40, [
+                  _createElementVNode("span", _hoisted_41, _toDisplayString(_ctx.state.localText.dailyLabel), 1 /* TEXT */),
+                  _createElementVNode("span", _hoisted_42, _toDisplayString((_ctx.state.doneToday ? 0 : 1) + '/1'), 1 /* TEXT */)
+                ]))
+              : _createCommentVNode("v-if", true)
+          ], 2 /* CLASS */))
+        : _createCommentVNode("v-if", true),
+      _createCommentVNode(" 主要产出：Config_MapPoint.Subtitle 的顿号分隔品类，C# 只在常规探索且可进入时下发 "),
+      (_ctx.produceList.length)
+        ? (_openBlock(), _createElementBlock("div", {
+            class: "produce-block",
+            key: 'pd-' + _ctx.state.mapName
+          }, [
+            (_ctx.state.localText.produceLabel)
+              ? (_openBlock(), _createElementBlock("span", _hoisted_43, _toDisplayString(_ctx.state.localText.produceLabel), 1 /* TEXT */))
+              : _createCommentVNode("v-if", true),
+            _createElementVNode("span", _hoisted_44, [
+              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.produceList, (p, pi) => {
+                return (_openBlock(), _createElementBlock("span", {
+                  class: "produce-chip",
+                  key: 'pdc-' + pi
+                }, _toDisplayString(p), 1 /* TEXT */))
+              }), 128 /* KEYED_FRAGMENT */))
+            ])
+          ]))
+        : _createCommentVNode("v-if", true),
+      (_ctx.state.isTradeMode && _ctx.tradeCats.length)
+        ? (_openBlock(), _createElementBlock("div", {
+            class: "trade-cat-block",
+            key: 'tc-' + _ctx.state.mapName
+          }, [
+            (_ctx.state.localText.tradeCatLabel)
+              ? (_openBlock(), _createElementBlock("span", _hoisted_45, _toDisplayString(_ctx.state.localText.tradeCatLabel), 1 /* TEXT */))
+              : _createCommentVNode("v-if", true),
+            _createElementVNode("span", _hoisted_46, [
+              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.tradeCats, (c, ci) => {
+                return (_openBlock(), _createElementBlock("span", {
+                  class: _normalizeClass(["trade-cat-chip", { 'cat-off': c.g }]),
+                  key: 'tcc-' + ci,
+                  "data-c": c.c
+                }, _toDisplayString(c.n), 11 /* TEXT, CLASS, PROPS */, _hoisted_47))
+              }), 128 /* KEYED_FRAGMENT */)),
+              (_ctx.state.tradeCatMore > 0)
+                ? (_openBlock(), _createElementBlock("span", _hoisted_48, "+" + _toDisplayString(_ctx.state.tradeCatMore), 1 /* TEXT */))
+                : _createCommentVNode("v-if", true)
+            ]),
+            _createCommentVNode(" 剩余货源：C# 算好的 10% 颗粒度整数（0-100）。\n                         -1 = 这个点没有货架概念（未解锁 / 沦陷）⇒ 整格不出。 "),
+            (_ctx.state.stockPct >= 0)
+              ? (_openBlock(), _createElementBlock("span", _hoisted_49, _toDisplayString(_ctx.state.stockPct) + "%", 1 /* TEXT */))
+              : _createCommentVNode("v-if", true)
+          ]))
+        : _createCommentVNode("v-if", true),
+      _createCommentVNode(" [面板精简 2026-09-20] alarm＝无尽营地的告警块（求援 / 协防）：配色走告警红、状态说明描述出。\n                     它是本次改动唯一的爆炸范围闸 —— quote 在求援 / 无尽协防 / 安全屋线协防 / 刚解围四种块里都有值，\n                     而安全屋线协防的 kind 同样是 defend，这里分不开它和无尽协防，只能认 C# 下发的这一位。 "),
+      (_ctx.status)
+        ? (_openBlock(), _createElementBlock("div", {
+            class: _normalizeClass(["status-block", ['st-' + _ctx.status.kind, 'urg-' + (_ctx.status.urgency || 0), { alarm: _ctx.status.alarm }]]),
+            key: 'st-' + _ctx.state.mapName + (_ctx.status.phaseKey || '')
+          }, [
+            _createElementVNode("div", _hoisted_50, [
+              _createElementVNode("span", _hoisted_51, [
+                _cache[20] || (_cache[20] = _createElementVNode("i", { class: "live-dot" }, null, -1 /* CACHED */)),
+                _createTextVNode(_toDisplayString(_ctx.status.title), 1 /* TEXT */)
+              ]),
+              _createCommentVNode(" [营地共生] 底座并进刚解围块时，状态词挂成一枚小牌；底座自己成块（kind=camp）时状态词就是上面的标题，这里不出。\n                             [面板精简] 告警块里这枚牌改写固定的「物资紧缺」/「尸潮危机」，不再是营地状态词。 "),
+              (_ctx.status.camp)
+                ? (_openBlock(), _createElementBlock("span", {
+                    key: 0,
+                    class: _normalizeClass(["status-camp", { alarm: _ctx.status.alarm, relieved: _ctx.status.campRelieved }])
+                  }, _toDisplayString(_ctx.status.camp), 3 /* TEXT, CLASS */))
+                : _createCommentVNode("v-if", true),
+              _createElementVNode("span", {
+                class: _normalizeClass(["status-time", { alarm: _ctx.status.alarm }])
+              }, _toDisplayString(_ctx.status.time), 3 /* TEXT, CLASS */)
+            ]),
+            _createCommentVNode(" [面板精简] 状态词一行与四段流程条互斥：无尽协防走前者，安全屋线协防继续走后者 "),
+            (_ctx.status.state)
+              ? (_openBlock(), _createElementBlock("div", _hoisted_52, _toDisplayString(_ctx.status.state), 1 /* TEXT */))
+              : (_ctx.status.phases && _ctx.status.phases.list && _ctx.status.phases.list.length)
+                ? (_openBlock(), _createElementBlock("div", _hoisted_53, [
+                    (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.status.phases.list, (p, pi) => {
+                      return (_openBlock(), _createElementBlock("span", {
+                        key: 'ph-' + pi,
+                        class: _normalizeClass({ done: pi < _ctx.status.phases.cur, cur: pi === _ctx.status.phases.cur })
+                      }, _toDisplayString(p), 3 /* TEXT, CLASS */))
+                    }), 128 /* KEYED_FRAGMENT */))
+                  ]))
+                : _createCommentVNode("v-if", true),
+            (_openBlock(true), _createElementBlock(_Fragment, null, _renderList((_ctx.status.rows || []), (r, ri) => {
+              return (_openBlock(), _createElementBlock("div", {
+                class: "status-row",
+                key: 'sr-' + ri
+              }, [
+                _createElementVNode("span", _hoisted_54, _toDisplayString(r.k), 1 /* TEXT */),
+                _createElementVNode("span", _hoisted_55, [
+                  _createTextVNode(_toDisplayString(r.v), 1 /* TEXT */),
+                  (r.pct != null)
+                    ? (_openBlock(), _createElementBlock("span", _hoisted_56, [
+                        _createElementVNode("i", {
+                          style: _normalizeStyle({ transform: 'scaleX(' + r.pct + ')' })
+                        }, null, 4 /* STYLE */)
+                      ]))
+                    : _createCommentVNode("v-if", true)
+                ])
+              ]))
+            }), 128 /* KEYED_FRAGMENT */)),
+            _createCommentVNode(" [面板精简] 状态说明描述 ＋ 块尾规则提示 "),
+            (_ctx.status.alarm && _ctx.status.quote)
+              ? (_openBlock(), _createElementBlock("div", _hoisted_57, _toDisplayString(_ctx.status.quote), 1 /* TEXT */))
+              : _createCommentVNode("v-if", true),
+            (_ctx.status.note)
+              ? (_openBlock(), _createElementBlock("div", _hoisted_58, _toDisplayString(_ctx.status.note), 1 /* TEXT */))
+              : _createCommentVNode("v-if", true),
+            _createCommentVNode(" [营地共生 2026-09-21] 主动求援：一颗按钮 + 右边一句原因。按不了就灰掉，原因写明为什么\n                         （现在没有危险 / N 天内无法提供援助 / 已求援，他们答应了 / 营地危机中）。\n                         点完不自动关图，但会让 Logic 重算一次快照（Btn_CallAid 末尾的 RequestReopenTradeMap）。 "),
+            (_ctx.status.callAid)
+              ? (_openBlock(), _createElementBlock("div", _hoisted_59, [
+                  _createElementVNode("button", {
+                    class: "ca-btn",
+                    disabled: !_ctx.status.callAid.can,
+                    onClick: _cache[0] || (_cache[0] = (...args) => (_ctx.onCallAid && _ctx.onCallAid(...args)))
+                  }, _toDisplayString(_ctx.status.callAid.label), 9 /* TEXT, PROPS */, _hoisted_60),
+                  _createElementVNode("span", {
+                    class: _normalizeClass(["ca-why", { ready: _ctx.status.callAid.can }])
+                  }, _toDisplayString(_ctx.status.callAid.reason), 3 /* TEXT, CLASS */)
+                ]))
+              : _createCommentVNode("v-if", true)
+          ], 2 /* CLASS */))
+        : _createCommentVNode("v-if", true),
+      _createCommentVNode(" [营地共生] 撤离点走另一套说法：标题「撤离」、正文只写「第 N 天撤离。」——\n                     他们是自己走的，不能再跟失联点共用「尸群已经占据这里，无法再前往」。 "),
+      (_ctx.state.lockState === 3)
+        ? (_openBlock(), _createElementBlock("div", {
+            class: "fallen-notice",
+            key: 'fallen-' + _ctx.state.mapName
+          }, [
+            _createElementVNode("span", _hoisted_61, _toDisplayString(_ctx.state.fallEvac ? '✦' : '⚠'), 1 /* TEXT */),
+            _createElementVNode("div", _hoisted_62, [
+              _createElementVNode("span", _hoisted_63, _toDisplayString(_ctx.fallenNoticeLabel), 1 /* TEXT */),
+              _cache[21] || (_cache[21] = _createElementVNode("br", null, null, -1 /* CACHED */)),
+              _createElementVNode("span", _hoisted_64, _toDisplayString(_ctx.fallenDayText) + _toDisplayString(_ctx.state.fallEvac ? '' : _ctx.state.localText.fallenNoticeText), 1 /* TEXT */)
+            ])
+          ]))
+        : _createCommentVNode("v-if", true),
+      (_ctx.state.damagedDays > 0 && _ctx.state.lockState !== 3)
+        ? (_openBlock(), _createElementBlock("div", {
+            class: "damaged-notice",
+            key: 'damaged-' + _ctx.state.mapName
+          }, [
+            _cache[23] || (_cache[23] = _createElementVNode("span", { class: "damaged-notice-icon" }, "🔥", -1 /* CACHED */)),
+            _createElementVNode("div", _hoisted_65, [
+              _createElementVNode("span", _hoisted_66, _toDisplayString(_ctx.state.localText.damagedNoticeLabel), 1 /* TEXT */),
+              _cache[22] || (_cache[22] = _createElementVNode("br", null, null, -1 /* CACHED */)),
+              _createElementVNode("span", _hoisted_67, _toDisplayString(_ctx.damagedNoticeText), 1 /* TEXT */)
+            ])
+          ]))
+        : _createCommentVNode("v-if", true),
+      (_ctx.state.fallInDays > 0 && _ctx.state.lockState !== 3)
+        ? (_openBlock(), _createElementBlock("div", {
+            class: "fall-countdown-notice",
+            key: 'fallcd-' + _ctx.state.mapName
+          }, [
+            _cache[25] || (_cache[25] = _createElementVNode("span", { class: "fall-countdown-notice-icon" }, "⏳", -1 /* CACHED */)),
+            _createElementVNode("div", _hoisted_68, [
+              _createElementVNode("span", _hoisted_69, _toDisplayString(_ctx.state.localText.fallCountdownLabel), 1 /* TEXT */),
+              _cache[24] || (_cache[24] = _createElementVNode("br", null, null, -1 /* CACHED */)),
+              _createElementVNode("span", _hoisted_70, _toDisplayString(_ctx.fallCountdownText), 1 /* TEXT */)
+            ])
+          ]))
+        : _createCommentVNode("v-if", true),
+      (_ctx.state.lockState === 1 && (_ctx.state.unlockHint || _ctx.unlockConds.length))
+        ? (_openBlock(), _createElementBlock("div", {
+            class: "unlock-hint",
+            key: 'hint-' + _ctx.state.mapName
+          }, [
+            _cache[27] || (_cache[27] = _createElementVNode("span", { class: "unlock-hint-icon" }, "🔦", -1 /* CACHED */)),
+            _createElementVNode("div", _hoisted_71, [
+              _createElementVNode("span", _hoisted_72, _toDisplayString(_ctx.state.localText.unlockHintLabel), 1 /* TEXT */),
+              _cache[26] || (_cache[26] = _createElementVNode("br", null, null, -1 /* CACHED */)),
+              (_ctx.state.unlockHint)
+                ? (_openBlock(), _createElementBlock("span", _hoisted_73, _toDisplayString(_ctx.state.unlockHint), 1 /* TEXT */))
+                : _createCommentVNode("v-if", true),
+              (_ctx.unlockConds.length)
+                ? (_openBlock(), _createElementBlock("div", _hoisted_74, [
+                    (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.unlockConds, (cond, ci) => {
+                      return (_openBlock(), _createElementBlock("div", {
+                        class: _normalizeClass(["unlock-cond-item", { done: cond.done }]),
+                        key: 'cond-' + ci
+                      }, [
+                        _createElementVNode("div", _hoisted_75, [
+                          _createElementVNode("span", _hoisted_76, [
+                            (cond.done)
+                              ? (_openBlock(), _createElementBlock("span", _hoisted_77, "✓"))
+                              : _createCommentVNode("v-if", true),
+                            _createTextVNode(" " + _toDisplayString(cond.label), 1 /* TEXT */)
+                          ]),
+                          _createElementVNode("span", _hoisted_78, _toDisplayString(cond.text), 1 /* TEXT */)
+                        ]),
+                        _createElementVNode("div", _hoisted_79, [
+                          _createElementVNode("div", {
+                            class: "unlock-cond-bar-fill",
+                            style: _normalizeStyle({ transform: 'scaleX(' + (cond.pct / 100) + ')' })
+                          }, null, 4 /* STYLE */)
+                        ])
+                      ], 2 /* CLASS */))
+                    }), 128 /* KEYED_FRAGMENT */))
+                  ]))
+                : _createCommentVNode("v-if", true)
+            ])
+          ]))
+        : _createCommentVNode("v-if", true),
+      _createCommentVNode(" 有状态块（求援 / 协防 / 刚解围）时描述区让位，右栏放不下两块。\n                     [营地共生] 底座单独成块（kind=camp）是例外：它只有两三行，右栏还剩大半空间\n                     （探针实测 1536×864 下 info-panel scrollHeight == clientHeight），\n                     再把地点描述砍掉的话，纯净无尽里八个营地就永远看不到自己的介绍了。 "),
+      (!_ctx.status || _ctx.status.kind === 'camp')
+        ? (_openBlock(), _createElementBlock("div", {
+            class: "description-block",
+            key: 'desc-' + _ctx.state.mapName
+          }, _toDisplayString(_ctx.state.description), 1 /* TEXT */))
+        : _createCommentVNode("v-if", true),
+      _cache[29] || (_cache[29] = _createElementVNode("div", { class: "info-panel-spacer" }, null, -1 /* CACHED */)),
+      _createCommentVNode(" 无尽：今天第几次探索 + 这一趟的消耗；tripIndex 为 0 时整行不出 "),
+      (_ctx.state.tripIndex > 0)
+        ? (_openBlock(), _createElementBlock("div", {
+            key: 9,
+            class: _normalizeClass(["trip-strip", _ctx.tripTone])
+          }, [
+            _createTextVNode(_toDisplayString(_ctx.tripIndexLine), 1 /* TEXT */),
+            _createElementVNode("span", _hoisted_80, _toDisplayString(_ctx.tripCostLine), 1 /* TEXT */)
+          ], 2 /* CLASS */))
+        : _createCommentVNode("v-if", true),
+      _createElementVNode("button", {
+        class: _normalizeClass(["action-btn", { disabled: _ctx.state.lockState !== 0 || _ctx.tripPoor || _ctx.state.doneToday, fallen: _ctx.state.lockState === 3 }]),
+        onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.onGo && _ctx.onGo(...args))),
+        onMouseenter: _cache[2] || (_cache[2] = (...args) => (_ctx.onBtnHover && _ctx.onBtnHover(...args)))
+      }, [
+        _createTextVNode(_toDisplayString(_ctx.tripPoor ? _ctx.state.localText.tripPoorText : _ctx.goButtonText) + " ", 1 /* TEXT */),
+        _cache[28] || (_cache[28] = _createElementVNode("div", { class: "corner-deco" }, null, -1 /* CACHED */))
+      ], 34 /* CLASS, NEED_HYDRATION */)
+    ]),
+    _createCommentVNode(" [营地共生 2026-09-21] 求援回执：面板底部的浮动提示，2.6s 自己走完（由 Logic 的受理回执驱动） "),
+    (_ctx.aidToast)
+      ? (_openBlock(), _createElementBlock("div", {
+          class: "ca-toast",
+          key: 'ct-' + _ctx.aidToastSeq
+        }, _toDisplayString(_ctx.aidToast), 1 /* TEXT */))
+      : _createCommentVNode("v-if", true),
+    _createCommentVNode(" 无尽：当天付费出门前确认一次 "),
+    (_ctx.tripConfirm)
+      ? (_openBlock(), _createElementBlock("div", {
+          key: 1,
+          class: "ca-modal-mask",
+          onClick: _cache[5] || (_cache[5] = _withModifiers($event => (_ctx.tripConfirm = false), ["self"]))
+        }, [
+          _createElementVNode("div", _hoisted_81, [
+            _createElementVNode("div", _hoisted_82, _toDisplayString(_ctx.tripIndexLine), 1 /* TEXT */),
+            _createElementVNode("div", _hoisted_83, [
+              _createElementVNode("div", null, _toDisplayString(_ctx.tripCostLine), 1 /* TEXT */),
+              _createElementVNode("div", _hoisted_84, _toDisplayString(_ctx.tripRp), 1 /* TEXT */)
+            ]),
+            _createElementVNode("div", _hoisted_85, [
+              _createElementVNode("button", {
+                class: "ca-sec",
+                onClick: _cache[3] || (_cache[3] = $event => (_ctx.tripConfirm = false))
+              }, _toDisplayString(_ctx.state.localText.callAidCancel), 1 /* TEXT */),
+              _createElementVNode("button", {
+                onClick: _cache[4] || (_cache[4] = (...args) => (_ctx.onTripOk && _ctx.onTripOk(...args)))
+              }, _toDisplayString(_ctx.state.localText.tripOk), 1 /* TEXT */)
+            ])
+          ])
+        ]))
+      : _createCommentVNode("v-if", true),
+    _createCommentVNode(" [营地共生 2026-09-21] 求援二次确认：这一下会消耗掉该营地的冷却并让它陷入窘迫，不能点一下就生效 "),
+    (_ctx.aidConfirm.show)
+      ? (_openBlock(), _createElementBlock("div", {
+          key: 2,
+          class: "ca-modal-mask",
+          onClick: _cache[8] || (_cache[8] = _withModifiers((...args) => (_ctx.onAidCancel && _ctx.onAidCancel(...args)), ["self"]))
+        }, [
+          _createElementVNode("div", _hoisted_86, [
+            _createElementVNode("div", _hoisted_87, _toDisplayString(_ctx.aidConfirm.title), 1 /* TEXT */),
+            _createElementVNode("div", _hoisted_88, [
+              _createElementVNode("div", null, _toDisplayString(_ctx.state.localText.callAidBody), 1 /* TEXT */),
+              _createElementVNode("div", _hoisted_89, _toDisplayString(_ctx.state.localText.callAidCost), 1 /* TEXT */)
+            ]),
+            _createElementVNode("div", _hoisted_90, [
+              _createElementVNode("button", {
+                class: "ca-sec",
+                onClick: _cache[6] || (_cache[6] = (...args) => (_ctx.onAidCancel && _ctx.onAidCancel(...args)))
+              }, _toDisplayString(_ctx.state.localText.callAidCancel), 1 /* TEXT */),
+              _createElementVNode("button", {
+                onClick: _cache[7] || (_cache[7] = (...args) => (_ctx.onAidOk && _ctx.onAidOk(...args)))
+              }, _toDisplayString(_ctx.state.localText.callAidOk), 1 /* TEXT */)
+            ])
+          ])
+        ]))
+      : _createCommentVNode("v-if", true)
+  ], 2 /* CLASS */))
+}};var __renderCache__=null;var __origCreateApp__=Vue.createApp;Vue.createApp=function(opts){if(!__renderCache__)__renderCache__=__renderFactory__(Vue);if(opts&&typeof opts==="object"&&!opts.render&&!opts.template){opts=Object.assign({},opts,{render:__renderCache__});}var app=__origCreateApp__.call(this,opts);if(!app.config.errorHandler){app.config.errorHandler=function(err){var msg=(err&&err.message)||String(err||"");if(msg.indexOf("createWebUICore is not defined")>=0){__wgReload__("webui-core.js");if(__wgGaveUp__)console.error(err);return;}console.error(err);};}return app;};})();
+/* === [/precompiled v1] === */
+</script>
+    <script src="../../webui-core.js"></script>
+    <script>
+        const { createApp, reactive, computed, ref } = Vue;
+        createApp({
+            setup() {
+                const core = createWebUICore('ExploreMap');
+                const state = reactive({
+                    mapList: [],
+                    mapName: '',
+                    mapIcon: '',
+                    timeDuring: '',
+                    itemRequire: '',
+                    openRequire: '',
+                    description: '',
+                    chapterLabel: '',
+                    isTradeMode: false,
+                    lockState: 0,
+                    unlockHint: '',
+                    unlockCondJson: '',
+                    tradeCatJson: '',
+                    tradeCatMore: 0,
+                    stockPct: -1,                   // 剩余货源百分比，-1 = 不出这一格
+                    // 常规探索：主要产出（顿号分隔品类）与「这图默认开手电」
+                    produce: '',
+                    isDark: false,
+                    damagedDays: 0,
+                    fallInDays: 0,
+                    statusJson: '',
+                    fallDay: 0,
+                    // [营地共生] 选中的沦陷点是体面撤离走的（不是失联）
+                    fallEvac: false,
+                    // [营地共生] 抬头汇总整句（Logic 侧算好并本地化），空串则不渲染
+                    campHeader: '',
+                    // 求救短信待回复提示（整句已本地化），空串则不渲染
+                    shelterSmsHint: '',
+                    // 无尽：今天第几次探索（0 = 不显示）/ 这一趟的生存点 / 当前持有
+                    tripIndex: 0,
+                    tripCost: 0,
+                    tripHave: 0,
+                    // 每天只能进一次的点：选中点受限 / 今天已经去过
+                    dailyOnce: false,
+                    doneToday: false,
+                    // [营地共生 2026-09-21] 主动求援回执：seq 的上升沿 = 来了新的一条（同一结果连发也各弹一次）
+                    aidCallSeq: 0,
+                    localText: {
+                        areaLabel: '',
+                        timeDuringLabel: '',
+                        carryLabel: '',
+                        requireLabel: '',
+                        goText: '',
+                        unlockHintLabel: '',
+                        lockedText: '',
+                        comingSoonText: '',
+                        // 这两条词条已随本次改动正规入 ConstantText + Localization，
+                        // 故刻意不配中文兜底——缺词条时露裸 key 才是该被看见的信号（8/4 口径）。
+                        produceLabel: '',
+                        darkText: '',
+                        tradeCatLabel: '',
+                        fallenText: '已沦陷',
+                        fallenTagText: '沦陷',
+                        fallenNoticeLabel: '该区域已沦陷',
+                        fallenNoticeText: '尸群已经占据这里，无法再前往。',
+                        aidStableText: '求援',
+                        aidTightText: '求援吃紧',
+                        aidCriticalText: '求援危急',
+                        damagedTagText: '受损',
+                        damagedNoticeLabel: '这里被啃过一遍',
+                        damagedNoticeText: '货架上几乎空了，还要 {0} 天才缓得过来。',
+                        // 沦陷倒计时三条已入 ConstantText 表，C# 侧走 OrExposeKey；中文只在整表缺失时顶上
+                        fallCountdownTag: '{0} 天后沦陷',
+                        fallCountdownLabel: '沦陷倒计时',
+                        fallCountdownText: '还有 {0} 天，尸群就会占据这里。',
+                        newSuffix: '（新）',
+                        defendAskText: '求协防',
+                        defendOnText: '协防中',
+                        defendFightText: '交战中',
+                        relievedText: '已解围',
+                        // 表里 SR_Web_ExploreMap_25 已由配置打底 CL 改成「第 {0} 天失联。」，
+                        // 这条兜底跟着对齐（只有 ConstantText 整表缺失时才会用到）
+                        fallenDayText: '第 {0} 天失联。',
+                        // [营地共生] 撤离式：这两条已入 ConstantText 表，C# 侧走 OrExposeKey；
+                        // 这里的中文只在整表缺失时才顶上，与上面那批兜底同口径。
+                        evacDayText: '第 {0} 天撤离。',
+                        evacText: '撤离',
+                        // [营地共生 2026-09-21] 交易模式角标与求援二次确认那一套（缺词条时才会看到这里的中文）
+                        areaLabelTrade: '',
+                        callAidTitle: '向「{0}」求援',
+                        callAidBody: '',
+                        callAidCost: '',
+                        callAidOk: '求援',
+                        callAidCancel: '取消',
+                        callAidToast: '求援信息已发出',
+                        tripIndexText: '今天第 {0} 次探索',
+                        tripFreeText: '免费',
+                        tripCostText: '消耗 {0} 生存点',
+                        tripPoorText: '生存点不足',
+                        tripRp2: '一天之内来回跑，总会被什么留意到。',
+                        tripRp3: '门口的脚印越来越多，不知道会引来什么。',
+                        tripRp4: '外面安静得不太对劲。',
+                        tripOk: '出发',
+                        dailyLabel: '每日进入次数:',
+                        dailyDoneBtn: '明天再来'
+                    }
+                });
+
+                const denyShakeIndex = ref(-1);
+
+                const SHOW_MARKER_DOT = false;
+                // 与右侧邻点挨得太近、挂上状态标签就会压住对方的点：标签主体左偏，箭头仍指原位
+                const LEAN_LEFT = new Set([]);
+
+                const markerPositionsByConfigId = {
+                    1000: { top: '58%', left: '32%' },
+                    1001: { top: '28%', left: '72%' },
+                    1002: { top: '43%', left: '44%' },
+                    1003: { top: '24%', left: '46%' },
+                    1004: { top: '58%', left: '73%' },
+                    1005: { top: '80%', left: '61%' },
+                    1100: { top: '63.5%', left: '81%' },
+                    1101: { top: '19%', left: '51.5%' },
+                    1102: { top: '65.5%', left: '35%' },
+                    1103: { top: '85.5%', left: '40%' },
+                    1104: { top: '41.5%', left: '44%' },
+                    1105: { top: '32%', left: '62%' },
+                    1106: { top: '40.5%', left: '80%' },
+                    // 1107 城中心：2026-08-27 review 修正——原 (52%,54%) 与 1104 (50%,64%) 纵向只差 2%、横向 10%，
+                    // 两个 14px 字标签（各约 140-156px 宽、33px 高）结构性重叠且压住的半边点不动。挪到 (44%,50%)：
+                    // 2026-08-27 review 第二轮再修：上一版写 44% 时把两笔偏移算漏了——标签自身
+                    // transform: translate(var(--mx, -50%), calc(-100% - 5px)) 的 5px，加上 ::after 箭头 bottom:-6px 的 6px。
+                    // 44% 时 1107 箭头底到 1104 标签顶只剩 ≈1.3px 净余（.map-inner 高 635px、标签高 ≈30.8px），
+                    // 技术上不重叠但零缓冲，任何字号 / 内边距 / 字体回退变化都会当场压上；英文名更长
+                    // （City Center Base / Safe House / Survivor Camp）+ 求援角标（Aid Critical）横向必然重叠，
+                    // 全靠这点纵向余量分开。改到 42% 留出 ≈14px 缓冲。
+                    1107: { top: '57%', left: '58.5%' },
+                    1108: { top: '57%', left: '13%' },
+                    1109: { top: '75.5%', left: '64.5%' }
+                };
+                const fallbackPos = (i) => {
+                    const col = i % 4;
+                    const row = Math.floor(i / 4);
+                    const left = 22 + col * 18;
+                    const top = 30 + (row % 3) * 18 + (col % 2) * 8;
+                    return { top: top + '%', left: left + '%' };
+                };
+                const markerPositions = computed(() => state.mapList.map((p, i) =>
+                    markerPositionsByConfigId[p.configId] || fallbackPos(i)
+                ));
+
+                // [营地共生] 握手线稿（Lucide handshake，ISC 许可；24 格，与 locIcons 的 16 格不同，单列）
+                const BOND_ICON = '<path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/>';
+
+                const locIcons = {
+                    lock:    '<rect x="3.4" y="7.2" width="9.2" height="6.6" rx="1.2"/><path d="M5.4 7.2V5.2a2.6 2.6 0 0 1 5.2 0v2"/><path d="M8 9.8v1.6"/>',
+                    home:    '<path d="M2.8 8.3 8 3.6l5.2 4.7"/><path d="M4.3 7.2V13h7.4V7.2"/><path d="M6.7 13v-3h2.6v3"/>',
+                    store:   '<path d="M2.6 6 3.6 3h8.8l1 3z"/><path d="M3.4 6v7h9.2V6"/><path d="M6.2 13V9.6h3.6V13"/><path d="M2.6 6h10.8"/>',
+                    hammer:  '<path d="M2.8 12.8 7.7 7.9"/><path d="M6.3 3.6 8.8 1.9l4.6 4.6-1.7 2.5z"/>',
+                    cart:    '<path d="M1.8 2.8h1.8l1.5 6.6h6.6l1.6-4.8H4.1"/><circle cx="6" cy="12.3" r="1.15"/><circle cx="10.9" cy="12.3" r="1.15"/>',
+                    sprout:  '<path d="M8 13.2V7.6"/><path d="M8 8.2C8 5.4 6 3.9 3.2 3.9c0 2.8 2 4.3 4.8 4.3z"/><path d="M8 6.9c0-2 1.5-3.1 3.6-3.1 0 2-1.5 3.1-3.6 3.1z"/>',
+                    unknown: '<circle cx="8" cy="8" r="6.2"/><path d="M6.2 6.2c0-1 .8-1.8 1.8-1.8s1.8.7 1.8 1.7c0 1.3-1.8 1.4-1.8 2.9"/><circle cx="8" cy="11.5" r="0.3" fill="currentColor"/>',
+                    school:  '<path d="M8 2.6 1.9 5.6 8 8.6l6.1-3z"/><path d="M4.5 7.3v3.3c0 .9 1.6 1.7 3.5 1.7s3.5-.8 3.5-1.7V7.3"/><path d="M13.4 6.2v3.6"/>',
+                    office:  '<path d="M3.6 13.4V2.9h6.1v10.5"/><path d="M9.7 6.6h2.7v6.8"/><path d="M2.2 13.4h11.6"/><path d="M5.4 5.3h1M7.4 5.3h1M5.4 7.7h1M7.4 7.7h1M5.4 10.1h1M7.4 10.1h1"/>',
+                    hospital:'<rect x="2.5" y="2.5" width="11" height="11" rx="1.4"/><path d="M8 5.3v5.4M5.3 8h5.4"/>',
+                    fuel:    '<path d="M2.6 13.5V3.5c0-.6.4-1 1-1h3.9c.6 0 1 .4 1 1v10"/><path d="M1.8 13.5h7.5"/><path d="M4 4.7h3.1v2.5H4z"/><path d="M9.5 6.4h1.7c.6 0 1 .4 1 1v3.3c0 .5.4.9.9.9s.9-.4.9-.9V6.1l-1.7-1.8"/>',
+                    food:    '<path d="M4.5 2.4v4.3M3.1 2.4v2.9c0 .8.6 1.4 1.4 1.4s1.4-.6 1.4-1.4V2.4M4.5 6.7v6.9"/><path d="M11.7 13.6V8.3c-1.1-.2-1.9-1.3-1.9-2.7 0-1.6.8-2.8 1.9-3.2v11.2"/>',
+                    crate:   '<path d="M8 2.2 13.7 5v6L8 13.8 2.3 11V5z"/><path d="M2.4 5.1 8 7.8l5.6-2.7M8 7.8v6"/>',
+                    fertil:  '<path d="M4.5 5.4h7l.9 7.1c.1.7-.5 1.3-1.1 1.3H4.7c-.7 0-1.2-.6-1.1-1.3z"/><path d="M5.7 5.4V3.7c0-.7.5-1.2 1.2-1.2h2.2c.7 0 1.2.5 1.2 1.2v1.7"/>',
+                    pill:    '<path d="M5.7 2.5h4.6v2.1H5.7z"/><path d="M4.5 6.2c0-.9.7-1.6 1.6-1.6h3.8c.9 0 1.6.7 1.6 1.6v6.1c0 .8-.7 1.5-1.6 1.5H6.1c-.9 0-1.6-.7-1.6-1.5z"/><path d="M8 7.7v3.3M6.4 9.3h3.2"/>',
+                    trade:   '<path d="M2.4 5.6h9.3M9.1 3 11.7 5.6 9.1 8.2"/><path d="M13.6 10.4H4.3M6.9 7.8 4.3 10.4l2.6 2.6"/>'
+                };
+                const configIdToIcon = {
+                    1000: 'hammer',
+                    1001: 'fuel',
+                    1002: 'school',
+                    1003: 'office',
+                    1004: 'cart',
+                    1005: 'hospital',
+                    1100: 'food',
+                    1101: 'crate',
+                    1102: 'sprout',
+                    1103: 'fertil',
+                    1104: 'pill',
+                    1105: 'home',
+                    1106: 'home',
+                    1107: 'trade',
+                    1108: 'trade',
+                    1109: 'trade'
+                };
+                const iconFor = (item) => {
+                    if (item.lockState === 1) return state.isTradeMode ? 'unknown' : 'lock';
+                    return configIdToIcon[item.configId] || 'unknown';
+                };
+
+                const activeMarkerPos = computed(() => {
+                    const idx = state.mapList.findIndex(p => p.isActive);
+                    if (idx < 0 || state.mapList[idx].lockState !== 0) return null;
+                    return markerPositions.value[idx];
+                });
+
+                const unlockConds = computed(() => {
+                    if (!state.unlockCondJson) return [];
+                    try {
+                        const list = JSON.parse(state.unlockCondJson);
+                        return Array.isArray(list) ? list : [];
+                    } catch (e) {
+                        return [];
+                    }
+                });
+
+                const tradeCats = computed(() => {
+                    if (!state.tradeCatJson) return [];
+                    try {
+                        const list = JSON.parse(state.tradeCatJson);
+                        return Array.isArray(list) ? list : [];
+                    } catch (e) {
+                        return [];
+                    }
+                });
+
+                // 主要产出：C# 下发的是 Config_MapPoint.Subtitle 原文（顿号分隔），这里拆成标签。
+                // 全角「、」与半角「,」都认——配置是人手填的，两种分隔符都出现过。
+                const produceList = computed(() => {
+                    if (!state.produce) return [];
+                    return String(state.produce)
+                        .split(/[、,，]/)
+                        .map(s => s.trim())
+                        .filter(s => s.length > 0);
+                });
+
+                const goButtonText = computed(() => {
+                    if (state.lockState === 1) return state.localText.lockedText;
+                    if (state.lockState === 2) return state.localText.comingSoonText;
+                    // [营地共生] 撤离点写「撤离」而不是「已沦陷」：这个营地不是被打没的，是被你送走的
+                    if (state.lockState === 3) return state.fallEvac ? state.localText.evacText : state.localText.fallenText;
+                    if (state.doneToday) return state.localText.dailyDoneBtn;
+                    return state.localText.goText;
+                });
+
+                core.registerHandlers({
+                    'WebUI_ExploreMap_MapListMsg': (data) => {
+                        if (data.mapList) state.mapList = data.mapList;
+                    },
+                    'WebUI_ExploreMap_MapInfoMsg': (data) => {
+                        if (data.mapName !== undefined) state.mapName = data.mapName;
+                        if (data.mapIcon !== undefined) state.mapIcon = data.mapIcon;
+                        if (data.timeDuring !== undefined) state.timeDuring = data.timeDuring;
+                        if (data.itemRequire !== undefined) state.itemRequire = data.itemRequire;
+                        if (data.openRequire !== undefined) state.openRequire = data.openRequire;
+                        if (data.description !== undefined) state.description = data.description;
+                        if (data.isTradeMode !== undefined) state.isTradeMode = data.isTradeMode;
+                        if (data.chapterLabel !== undefined) state.chapterLabel = data.chapterLabel;
+                        if (data.lockState !== undefined) state.lockState = data.lockState;
+                        if (data.unlockHint !== undefined) state.unlockHint = data.unlockHint;
+                        if (data.unlockCondJson !== undefined) state.unlockCondJson = data.unlockCondJson;
+                        if (data.tradeCatJson !== undefined) state.tradeCatJson = data.tradeCatJson;
+                        if (data.tradeCatMore !== undefined) state.tradeCatMore = data.tradeCatMore;
+                        if (data.stockPct !== undefined) state.stockPct = data.stockPct;
+                        if (data.produce !== undefined) state.produce = data.produce;
+                        if (data.isDark !== undefined) state.isDark = data.isDark;
+                        if (data.tripIndex !== undefined) state.tripIndex = data.tripIndex;
+                        if (data.tripCost !== undefined) state.tripCost = data.tripCost;
+                        if (data.tripHave !== undefined) state.tripHave = data.tripHave;
+                        if (data.dailyOnce !== undefined) state.dailyOnce = data.dailyOnce;
+                        if (data.doneToday !== undefined) state.doneToday = data.doneToday;
+                        if (data.damagedDays !== undefined) state.damagedDays = data.damagedDays;
+                        if (data.fallInDays !== undefined) state.fallInDays = data.fallInDays;
+                        if (data.statusJson !== undefined) state.statusJson = data.statusJson;
+                        if (data.fallDay !== undefined) state.fallDay = data.fallDay;
+                        if (data.fallEvac !== undefined) state.fallEvac = data.fallEvac;
+                        if (data.campHeader !== undefined) state.campHeader = data.campHeader;
+                        if (data.shelterSmsHint !== undefined) state.shelterSmsHint = data.shelterSmsHint;
+                    },
+                    // [营地共生 2026-09-21] 求援回执：受理才弹提示；回绝只进日志（按钮态由 Logic 重算的快照决定）
+                    'WebUI_ExploreMap_AidCallResultMsg': (data) => {
+                        if (!data || data.seq === undefined || data.seq <= state.aidCallSeq) return;
+                        state.aidCallSeq = data.seq;
+                        if (data.ok) { showAidToast(); }
+                    },
+                    'WebUI_ExploreMap_LocalizationMsg': (data) => {
+                        if (data.areaLabel) state.localText.areaLabel = data.areaLabel;
+                        if (data.timeDuringLabel) state.localText.timeDuringLabel = data.timeDuringLabel;
+                        if (data.carryLabel) state.localText.carryLabel = data.carryLabel;
+                        if (data.requireLabel) state.localText.requireLabel = data.requireLabel;
+                        if (data.goText) state.localText.goText = data.goText;
+                        if (data.unlockHintLabel) state.localText.unlockHintLabel = data.unlockHintLabel;
+                        if (data.lockedText) state.localText.lockedText = data.lockedText;
+                        if (data.comingSoonText) state.localText.comingSoonText = data.comingSoonText;
+                        if (data.produceLabel) state.localText.produceLabel = data.produceLabel;
+                        if (data.darkText) state.localText.darkText = data.darkText;
+                        if (data.tradeCatLabel) state.localText.tradeCatLabel = data.tradeCatLabel;
+                        if (data.fallenText) state.localText.fallenText = data.fallenText;
+                        if (data.fallenTagText) state.localText.fallenTagText = data.fallenTagText;
+                        if (data.fallenNoticeLabel) state.localText.fallenNoticeLabel = data.fallenNoticeLabel;
+                        if (data.fallenNoticeText) state.localText.fallenNoticeText = data.fallenNoticeText;
+                        if (data.aidStableText) state.localText.aidStableText = data.aidStableText;
+                        if (data.aidTightText) state.localText.aidTightText = data.aidTightText;
+                        if (data.aidCriticalText) state.localText.aidCriticalText = data.aidCriticalText;
+                        if (data.damagedTagText) state.localText.damagedTagText = data.damagedTagText;
+                        if (data.damagedNoticeLabel) state.localText.damagedNoticeLabel = data.damagedNoticeLabel;
+                        if (data.damagedNoticeText) state.localText.damagedNoticeText = data.damagedNoticeText;
+                        if (data.fallCountdownTag) state.localText.fallCountdownTag = data.fallCountdownTag;
+                        if (data.fallCountdownLabel) state.localText.fallCountdownLabel = data.fallCountdownLabel;
+                        if (data.fallCountdownText) state.localText.fallCountdownText = data.fallCountdownText;
+                        if (data.newSuffix) state.localText.newSuffix = data.newSuffix;
+                        if (data.defendAskText) state.localText.defendAskText = data.defendAskText;
+                        if (data.defendOnText) state.localText.defendOnText = data.defendOnText;
+                        if (data.defendFightText) state.localText.defendFightText = data.defendFightText;
+                        if (data.relievedText) state.localText.relievedText = data.relievedText;
+                        if (data.fallenDayText) state.localText.fallenDayText = data.fallenDayText;
+                        if (data.evacDayText) state.localText.evacDayText = data.evacDayText;
+                        if (data.evacText) state.localText.evacText = data.evacText;
+                        if (data.areaLabelTrade) state.localText.areaLabelTrade = data.areaLabelTrade;
+                        if (data.callAidTitle) state.localText.callAidTitle = data.callAidTitle;
+                        if (data.callAidBody) state.localText.callAidBody = data.callAidBody;
+                        if (data.callAidCost) state.localText.callAidCost = data.callAidCost;
+                        if (data.callAidOk) state.localText.callAidOk = data.callAidOk;
+                        if (data.callAidCancel) state.localText.callAidCancel = data.callAidCancel;
+                        if (data.callAidToast) state.localText.callAidToast = data.callAidToast;
+                        if (data.tripIndexText) state.localText.tripIndexText = data.tripIndexText;
+                        if (data.tripFreeText) state.localText.tripFreeText = data.tripFreeText;
+                        if (data.tripCostText) state.localText.tripCostText = data.tripCostText;
+                        if (data.tripPoorText) state.localText.tripPoorText = data.tripPoorText;
+                        if (data.tripRp2) state.localText.tripRp2 = data.tripRp2;
+                        if (data.tripRp3) state.localText.tripRp3 = data.tripRp3;
+                        if (data.tripRp4) state.localText.tripRp4 = data.tripRp4;
+                        if (data.tripOk) state.localText.tripOk = data.tripOk;
+                        if (data.dailyLabel) state.localText.dailyLabel = data.dailyLabel;
+                        if (data.dailyDoneBtn) state.localText.dailyDoneBtn = data.dailyDoneBtn;
+                    }
+                });
+
+                // [安全屋线] 受损提示正文：把词条里的 {0} 换成还剩几天。
+                // 词条尚未入 ConstantText（loc 由用户统一触发），此刻走的是上面的中文兜底串。
+                const damagedNoticeText = computed(() =>
+                    String(state.localText.damagedNoticeText || '').replace('{0}', state.damagedDays));
+
+                // 沦陷倒计时：角标（逐点天数）与提示条正文（选中点天数），把词条里的 {0} 换成还剩几天
+                const fallCountdownTagText = (days) =>
+                    String(state.localText.fallCountdownTag || '').replace('{0}', days);
+                const fallCountdownText = computed(() =>
+                    String(state.localText.fallCountdownText || '').replace('{0}', state.fallInDays));
+
+                // 状态详情（求援 / 协防 / 刚解围）：C# 侧连文案一起算好，前端只渲染
+                const status = computed(() => {
+                    if (!state.statusJson) return null;
+                    try {
+                        const s = JSON.parse(state.statusJson);
+                        return s && s.kind ? s : null;
+                    } catch (e) {
+                        return null;
+                    }
+                });
+                // [营地共生] 沦陷点的那句日期分两式：撤离（体面走的）与失联（被尸群吞掉的）。
+                // 失联式逐字沿用现状，只有撤离点改口。
+                const fallenDayText = computed(() => {
+                    if (state.fallDay <= 0) return '';
+                    const fmt = state.fallEvac ? state.localText.evacDayText : state.localText.fallenDayText;
+                    return String(fmt || '').replace('{0}', state.fallDay);
+                });
+                // 缩略图印章 / 「前往」按钮的禁用态文案：撤离点写「撤离」，失联点写「已沦陷」
+                const fallenStampText = computed(() =>
+                    state.fallEvac ? state.localText.evacText : state.localText.fallenText);
+                // 提示条标题：撤离点写「撤离」，失联点维持「该区域已沦陷」
+                const fallenNoticeLabel = computed(() =>
+                    state.fallEvac ? state.localText.evacText : state.localText.fallenNoticeLabel);
+                const defendText = (tag) => {
+                    if (tag === 'ask') return state.localText.defendAskText;
+                    if (tag === 'fight') return state.localText.defendFightText;
+                    return state.localText.defendOnText;
+                };
+
+                const aidUrgencyText = (level) => {
+                    if (level === 1) return state.localText.aidStableText;
+                    if (level === 2) return state.localText.aidTightText;
+                    if (level === 3) return state.localText.aidCriticalText;
+                    return '';
+                };
+                const aidUrgencyClass = (level) => {
+                    if (level === 1) return 'aid-stable';
+                    if (level === 2) return 'aid-tight';
+                    if (level === 3) return 'aid-critical';
+                    return '';
+                };
+
+                const onSelectMap = (item, index) => {
+                    if (item.lockState === 2) {
+                        core.UnitySendEvent('SFX_LOCKED_CLICK', {});
+                        denyShakeIndex.value = index;
+                        setTimeout(() => { denyShakeIndex.value = -1; }, 420);
+                    } else {
+                        core.UnitySendEvent('SFX_MARKER_HOVER', {});
+                    }
+                    core.UnitySendEvent('SELECT_MAP', { configId: item.configId });
+                };
+
+                // 无尽：今天第几次探索 / 这一趟的消耗。文案全部来自 localText，派生值随它重算。
+                const tripPoor = computed(() => state.tripIndex > 0 && state.lockState === 0 && state.tripHave < state.tripCost);
+                const tripTone = computed(() => {
+                    if (state.tripIndex <= 0) return '';
+                    if (tripPoor.value) return 'poor';
+                    return state.tripCost > 0 ? 'paid' : 'fresh';
+                });
+                const tripIndexLine = computed(() =>
+                    String(state.localText.tripIndexText || '').replace('{0}', state.tripIndex));
+                const tripCostLine = computed(() => state.tripCost > 0
+                    ? String(state.localText.tripCostText || '').replace('{0}', state.tripCost)
+                    : state.localText.tripFreeText);
+                const tripRp = computed(() => {
+                    if (state.tripIndex <= 2) return state.localText.tripRp2;
+                    if (state.tripIndex === 3) return state.localText.tripRp3;
+                    return state.localText.tripRp4;
+                });
+                const tripConfirm = ref(false);
+                const onTripOk = () => {
+                    tripConfirm.value = false;
+                    core.UnitySendEvent('GO', {});
+                };
+
+                const onGo = () => {
+                    if (state.lockState === 2) return;
+                    // 付费且够付：先确认；生存点不够时照常发出，由逻辑层拒绝并飘字说明差多少
+                    if (state.lockState === 0 && state.tripCost > 0 && !tripPoor.value) {
+                        tripConfirm.value = true;
+                        return;
+                    }
+                    core.UnitySendEvent('GO', {});
+                };
+
+                // [营地共生 2026-09-21] 主动求援：先弹页内二次确认，确认后才发 CALL_AID。
+                // 不关图 —— 玩家可能要接着喊第二个营地；按钮态与原因由 Logic 重算的快照决定，前端不做乐观更新。
+                const aidConfirm = reactive({ show: false, id: 0, title: '' });
+                const aidToast = ref('');
+                const aidToastSeq = ref(0);
+                let aidToastTimer = null;
+
+                const onCallAid = () => {
+                    const ca = status.value && status.value.callAid;
+                    if (!ca || !ca.can) return;
+                    aidConfirm.id = ca.id;
+                    aidConfirm.title = String(state.localText.callAidTitle || '').replace('{0}', state.mapName);
+                    aidConfirm.show = true;
+                };
+                const onAidCancel = () => { aidConfirm.show = false; };
+                const onAidOk = () => {
+                    const id = aidConfirm.id;
+                    aidConfirm.show = false;
+                    if (id <= 0) return;
+                    core.UnitySendEvent('CALL_AID', { configId: id });
+                };
+                // 浮动提示：2.6s 的 CSS 动画自己走完，这里只管上下线与重播（seq 变化 → :key 变化 → 动画重跑）
+                const showAidToast = () => {
+                    aidToast.value = state.localText.callAidToast || '';
+                    aidToastSeq.value += 1;
+                    if (aidToastTimer) clearTimeout(aidToastTimer);
+                    aidToastTimer = setTimeout(() => { aidToast.value = ''; }, 2600);
+                };
+
+                // 左上角标：交易模式写「联络地图」，探索模式维持「探索区域」（两边不共用一条词条）
+                const areaLabelText = computed(() =>
+                    (state.isTradeMode && state.localText.areaLabelTrade) || state.localText.areaLabel);
+
+                const onBtnHover = () => {
+                    if (state.lockState !== 0 || state.doneToday) return;
+                    core.UnitySendEvent('SFX_BTN_HOVER', {});
+                };
+
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.game-container')) {
+                        core.UnitySendEvent('CLOSE', {});
+                    }
+                });
+
+                core.notifyReady();
+                setTimeout(() => core.UnitySendEvent('SFX_PANEL_ENTER', {}), 60);
+
+                return { tripPoor, tripTone, tripIndexLine, tripCostLine, tripRp, tripConfirm, onTripOk, aidConfirm, aidToast, aidToastSeq, onAidCancel, onAidOk, areaLabelText,
+                    state, markerPositions, activeMarkerPos, denyShakeIndex, unlockConds, tradeCats, produceList, goButtonText,
+                    locIcons, BOND_ICON, iconFor, SHOW_MARKER_DOT, onSelectMap, onGo, onBtnHover, onCallAid, aidUrgencyText, aidUrgencyClass,
+                    damagedNoticeText, fallCountdownTagText, fallCountdownText, status, fallenDayText, fallenStampText, fallenNoticeLabel, defendText, LEAN_LEFT };
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

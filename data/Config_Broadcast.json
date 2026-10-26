@@ -1,0 +1,502 @@
+[
+  {
+    "ID": 1,
+    "Chapter": 1,
+    "Day": 0,
+    "OfficialMessage": [
+      101,
+      102,
+      103
+    ],
+    "WeatherMessage": [
+      111,
+      112,
+      113
+    ],
+    "SurvivorMessage": [
+      121,
+      122,
+      123
+    ],
+    "RandomMessage": [
+      131,
+      132,
+      133
+    ]
+  },
+  {
+    "ID": 3,
+    "Chapter": 2,
+    "Day": 1,
+    "OfficialMessage": [
+      301,
+      302,
+      303
+    ],
+    "WeatherMessage": [
+      311,
+      312,
+      313
+    ],
+    "SurvivorMessage": [
+      321,
+      322,
+      323
+    ],
+    "RandomMessage": [
+      331,
+      332,
+      333
+    ]
+  },
+  {
+    "ID": 4,
+    "Chapter": 2,
+    "Day": 2,
+    "OfficialMessage": [
+      401,
+      402,
+      403
+    ],
+    "WeatherMessage": [
+      411,
+      412,
+      413
+    ],
+    "SurvivorMessage": [
+      421,
+      422,
+      423
+    ],
+    "RandomMessage": [
+      431,
+      432,
+      433
+    ]
+  },
+  {
+    "ID": 5,
+    "Chapter": 2,
+    "Day": 3,
+    "OfficialMessage": [
+      501,
+      502,
+      503
+    ],
+    "WeatherMessage": [
+      511,
+      512,
+      513
+    ],
+    "SurvivorMessage": [
+      521,
+      522,
+      523
+    ],
+    "RandomMessage": [
+      531,
+      532,
+      533
+    ]
+  },
+  {
+    "ID": 6,
+    "Chapter": 2,
+    "Day": 4,
+    "OfficialMessage": [
+      601,
+      602,
+      603
+    ],
+    "WeatherMessage": [
+      611,
+      612,
+      613
+    ],
+    "SurvivorMessage": [
+      621,
+      622,
+      623
+    ],
+    "RandomMessage": [
+      631,
+      632,
+      633
+    ]
+  },
+  {
+    "ID": 7,
+    "Chapter": 2,
+    "Day": 5,
+    "OfficialMessage": [
+      701,
+      702,
+      703
+    ],
+    "WeatherMessage": [
+      711,
+      712,
+      713
+    ],
+    "SurvivorMessage": [
+      721,
+      722,
+      723
+    ],
+    "RandomMessage": [
+      731,
+      732,
+      733
+    ]
+  },
+  {
+    "ID": 8,
+    "Chapter": 2,
+    "Day": 6,
+    "OfficialMessage": [
+      801,
+      802,
+      803
+    ],
+    "WeatherMessage": [
+      811,
+      812,
+      813
+    ],
+    "SurvivorMessage": [
+      821,
+      822,
+      823
+    ],
+    "RandomMessage": [
+      831,
+      832,
+      833
+    ]
+  },
+  {
+    "ID": 9,
+    "Chapter": 2,
+    "Day": 7,
+    "OfficialMessage": [
+      901,
+      902,
+      903
+    ],
+    "WeatherMessage": [
+      911,
+      912,
+      913
+    ],
+    "SurvivorMessage": [
+      921,
+      922,
+      923
+    ],
+    "RandomMessage": [
+      931,
+      932,
+      933
+    ]
+  },
+  {
+    "ID": 10,
+    "Chapter": 2,
+    "Day": 8,
+    "OfficialMessage": [
+      1001,
+      1002,
+      1003
+    ],
+    "WeatherMessage": [
+      1011,
+      1012,
+      1013
+    ],
+    "SurvivorMessage": [
+      1021,
+      1022,
+      1023
+    ],
+    "RandomMessage": [
+      1031,
+      1032,
+      1033
+    ]
+  },
+  {
+    "ID": 11,
+    "Chapter": 2,
+    "Day": 9,
+    "OfficialMessage": [
+      1101,
+      1102,
+      1103
+    ],
+    "WeatherMessage": [
+      1111,
+      1112,
+      1113
+    ],
+    "SurvivorMessage": [
+      1121,
+      1122,
+      1123
+    ],
+    "RandomMessage": [
+      1131,
+      1132,
+      1133
+    ]
+  },
+  {
+    "ID": 12,
+    "Chapter": 2,
+    "Day": 10,
+    "OfficialMessage": [
+      1201,
+      1202,
+      1203
+    ],
+    "WeatherMessage": [
+      1211,
+      1212,
+      1213
+    ],
+    "SurvivorMessage": [
+      1221,
+      1222,
+      1223
+    ],
+    "RandomMessage": [
+      1231,
+      1232,
+      1233
+    ]
+  },
+  {
+    "ID": 13,
+    "Chapter": 2,
+    "Day": 11,
+    "OfficialMessage": [
+      1301,
+      1302,
+      1303
+    ],
+    "WeatherMessage": [
+      1311,
+      1312,
+      1313
+    ],
+    "SurvivorMessage": [
+      1321,
+      1322,
+      1323
+    ],
+    "RandomMessage": [
+      1331,
+      1332,
+      1333
+    ]
+  },
+  {
+    "ID": 14,
+    "Chapter": 2,
+    "Day": 12,
+    "OfficialMessage": [
+      1401,
+      1402,
+      1403
+    ],
+    "WeatherMessage": [
+      1411,
+      1412,
+      1413
+    ],
+    "SurvivorMessage": [
+      1421,
+      1422,
+      1423
+    ],
+    "RandomMessage": [
+      1431,
+      1432,
+      1433
+    ]
+  },
+  {
+    "ID": 15,
+    "Chapter": 2,
+    "Day": 13,
+    "OfficialMessage": [
+      1501,
+      1502,
+      1503
+    ],
+    "WeatherMessage": [
+      1511,
+      1512,
+      1513
+    ],
+    "SurvivorMessage": [
+      1521,
+      1522,
+      1523
+    ],
+    "RandomMessage": [
+      1531,
+      1532,
+      1533
+    ]
+  },
+  {
+    "ID": 16,
+    "Chapter": 2,
+    "Day": 14,
+    "OfficialMessage": [
+      1601,
+      1602,
+      1603
+    ],
+    "WeatherMessage": [
+      1611,
+      1612,
+      1613
+    ],
+    "SurvivorMessage": [
+      1621,
+      1622,
+      1623
+    ],
+    "RandomMessage": [
+      1631,
+      1632,
+      1633
+    ]
+  },
+  {
+    "ID": 17,
+    "Chapter": 2,
+    "Day": 15,
+    "OfficialMessage": [
+      1701,
+      1702,
+      1703
+    ],
+    "WeatherMessage": [
+      1711,
+      1712,
+      1713
+    ],
+    "SurvivorMessage": [
+      1721,
+      1722,
+      1723
+    ],
+    "RandomMessage": [
+      1731,
+      1732,
+      1733
+    ]
+  },
+  {
+    "ID": 18,
+    "Chapter": 2,
+    "Day": 16,
+    "OfficialMessage": [
+      1801,
+      1802,
+      1803
+    ],
+    "WeatherMessage": [
+      1811,
+      1812,
+      1813
+    ],
+    "SurvivorMessage": [
+      1821,
+      1822,
+      1823
+    ],
+    "RandomMessage": [
+      1831,
+      1832,
+      1833
+    ]
+  },
+  {
+    "ID": 19,
+    "Chapter": 2,
+    "Day": 17,
+    "OfficialMessage": [
+      1901,
+      1902,
+      1903
+    ],
+    "WeatherMessage": [
+      1911,
+      1912,
+      1913
+    ],
+    "SurvivorMessage": [
+      1921,
+      1922,
+      1923
+    ],
+    "RandomMessage": [
+      1931,
+      1932,
+      1933
+    ]
+  },
+  {
+    "ID": 20,
+    "Chapter": 2,
+    "Day": 18,
+    "OfficialMessage": [
+      2001,
+      2002,
+      2003
+    ],
+    "WeatherMessage": [
+      2011,
+      2012,
+      2013
+    ],
+    "SurvivorMessage": [
+      2021,
+      2022,
+      2023
+    ],
+    "RandomMessage": [
+      2031,
+      2032,
+      2033
+    ]
+  },
+  {
+    "ID": 21,
+    "Chapter": 2,
+    "Day": 19,
+    "OfficialMessage": [
+      2101,
+      2102,
+      2103
+    ],
+    "WeatherMessage": [
+      2111,
+      2112,
+      2113
+    ],
+    "SurvivorMessage": [
+      2121,
+      2122,
+      2123
+    ],
+    "RandomMessage": [
+      2131,
+      2132,
+      2133
+    ]
+  }
+]

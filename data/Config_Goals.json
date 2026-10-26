@@ -1,0 +1,130 @@
+[
+  {
+    "ID": 1,
+    "Name": "Goals_Name_1",
+    "Name_Local": "好饿",
+    "RepeatInterval": 0,
+    "Key": "ZoneOut",
+    "Config": "Goals/Zone_Out"
+  },
+  {
+    "ID": 2,
+    "Name": "Goals_Name_2",
+    "Name_Local": "随机吃东西",
+    "RepeatInterval": 7200,
+    "Key": "EatRandomly",
+    "Config": "Goals/Eat_Randomly"
+  },
+  {
+    "ID": 3,
+    "Name": "Goals_Name_3",
+    "Name_Local": "睡觉",
+    "RepeatInterval": 14400,
+    "Key": "Sleep",
+    "Config": "Goals/Sleep_6Hour"
+  },
+  {
+    "ID": 4,
+    "Name": "Goals_Name_4",
+    "Name_Local": "打盹",
+    "RepeatInterval": 7200,
+    "Key": "TakeANap",
+    "Config": "Goals/Take_Nap"
+  },
+  {
+    "ID": 5,
+    "Name": "Goals_Name_5",
+    "Name_Local": "打游戏",
+    "RepeatInterval": 14400,
+    "Key": "PlayGames",
+    "Config": "Goals/Play_Games"
+  },
+  {
+    "ID": 6,
+    "Name": "Goals_Name_6",
+    "Name_Local": "好低落",
+    "RepeatInterval": 0,
+    "Key": "ZoneOut1",
+    "Config": "Goals/Zone_Out1"
+  },
+  {
+    "ID": 7,
+    "Name": "Goals_Name_7",
+    "Name_Local": "好困",
+    "RepeatInterval": 0,
+    "Key": "ZoneOut2",
+    "Config": "Goals/Zone_Out2"
+  },
+  {
+    "ID": 8,
+    "Name": "Goals_Name_8",
+    "Name_Local": "随机休闲活动",
+    "RepeatInterval": 3600,
+    "Key": "PlayRandom",
+    "Config": "Goals/Casual_PlayRandom"
+  },
+  {
+    "ID": 9,
+    "Name": "Goals_Name_9",
+    "Name_Local": "养生随机",
+    "RepeatInterval": 3600,
+    "Key": "LifeRandom",
+    "Config": "Goals/Casual_LifeRandom"
+  },
+  {
+    "ID": 10,
+    "Name": "Goals_Name_10",
+    "Name_Local": "上厕所",
+    "RepeatInterval": 21600,
+    "Key": "GoToilet",
+    "Config": "Goals/Go_Toilet"
+  },
+  {
+    "ID": 11,
+    "Name": "Goals_Name_11",
+    "Name_Local": "清空背包",
+    "RepeatInterval": 0,
+    "Key": "RobotStow",
+    "Config": "Goals/Robot_Stow"
+  },
+  {
+    "ID": 12,
+    "Name": "Goals_Name_12",
+    "Name_Local": "充电",
+    "RepeatInterval": 0,
+    "Key": "RobotCharge",
+    "Config": "Goals/Robot_Charge"
+  },
+  {
+    "ID": 13,
+    "Name": "Goals_Name_13",
+    "Name_Local": "整理",
+    "RepeatInterval": 0,
+    "Key": "RobotSort",
+    "Config": "Goals/Robot_Sort"
+  },
+  {
+    "ID": 14,
+    "Name": "Goals_Name_14",
+    "Name_Local": "回座待机",
+    "RepeatInterval": 0,
+    "Key": "RobotDock",
+    "Config": "Goals/Robot_Dock"
+  },
+  {
+    "ID": 15,
+    "Name": "Goals_Name_15",
+    "Name_Local": "农务",
+    "RepeatInterval": 0,
+    "Key": "RobotPlantChore",
+    "Config": "Goals/Robot_PlantChore"
+  },
+  {
+    "ID": 16,
+    "Name": "Goals_Name_16",
+    "Name_Local": "维修防御装置",
+    "RepeatInterval": 0,
+    "Key": "RobotRepairChore",
+    "Config": "Goals/Robot_RepairChore"
+  }
+]

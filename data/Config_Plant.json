@@ -1,0 +1,1675 @@
+[
+  {
+    "ID": 1,
+    "Name": "Plant_Name_1",
+    "Name_Local": "豆芽（测试种子）",
+    "Des": "Plant_Des_1",
+    "Des_Local": "豆芽说明",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00323",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00323",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00342",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00343",
+    "Size": 1,
+    "GrowthTime": 64800,
+    "LightNeed": 1,
+    "ColdResistance": 0,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2504
+    ],
+    "HarvestExp": 30,
+    "Perfect_Gain": [
+      2504
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15501
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 259200,
+    "Discovery_Exp": 200,
+    "InCodex": false
+  },
+  {
+    "ID": 2,
+    "Name": "Plant_Name_2",
+    "Name_Local": "小番茄（测试种子）",
+    "Des": "Plant_Des_2",
+    "Des_Local": "小番茄说明",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00341",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00341",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00324",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00325",
+    "Size": 1,
+    "GrowthTime": 285000,
+    "LightNeed": 2,
+    "ColdResistance": 0,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2504
+    ],
+    "HarvestExp": 70,
+    "Perfect_Gain": [
+      2504
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15501
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 259200,
+    "Discovery_Exp": 200,
+    "InCodex": false
+  },
+  {
+    "ID": 3,
+    "Name": "Plant_Name_3",
+    "Name_Local": "生菜（测试种子）",
+    "Des": "Plant_Des_3",
+    "Des_Local": "生菜说明",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00174",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00174",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00148",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00168",
+    "Size": 2,
+    "GrowthTime": 226800,
+    "LightNeed": 1,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2528
+    ],
+    "HarvestExp": 100,
+    "Perfect_Gain": [
+      2528
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15501
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 259200,
+    "Discovery_Exp": 200,
+    "InCodex": false
+  },
+  {
+    "ID": 4,
+    "Name": "Plant_Name_4",
+    "Name_Local": "蘑菇（测试种子）",
+    "Des": "Plant_Des_4",
+    "Des_Local": "蘑菇说明",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00335",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00335",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00336",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00337",
+    "Size": 1,
+    "GrowthTime": 307500,
+    "LightNeed": 0,
+    "ColdResistance": 2,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2905
+    ],
+    "HarvestExp": 75,
+    "Perfect_Gain": [
+      2905
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15501
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 259200,
+    "Discovery_Exp": 200,
+    "InCodex": false
+  },
+  {
+    "ID": 5,
+    "Name": "Plant_Name_5",
+    "Name_Local": "白玉菇",
+    "Des": "Plant_Des_5",
+    "Des_Local": "偏爱阴暗潮湿的角落。不需要阳光的眷顾，独自便能绽出一片洁白。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Common_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Baiyugu_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Baiyugu_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Baiyugu_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Baiyugu_04",
+    "Size": 1,
+    "GrowthTime": 172800,
+    "LightNeed": 0,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2513,
+      2513
+    ],
+    "HarvestExp": 45,
+    "Perfect_Gain": [
+      2513,
+      2513,
+      15007
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15007
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15501
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 6,
+    "Name": "Plant_Name_6",
+    "Name_Local": "草菇",
+    "Des": "Plant_Des_6",
+    "Des_Local": "不挑土壤，不争光照。最先在废墟缝隙里醒来的，往往是这样的生命。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Common_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Caogu_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Caogu_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Caogu_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Caogu_04",
+    "Size": 1,
+    "GrowthTime": 259200,
+    "LightNeed": 0,
+    "ColdResistance": 0,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2514,
+      2514
+    ],
+    "HarvestExp": 65,
+    "Perfect_Gain": [
+      2514,
+      2514,
+      15008
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15008
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15501
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 7,
+    "Name": "Plant_Name_7",
+    "Name_Local": "平菇",
+    "Des": "Plant_Des_7",
+    "Des_Local": "层叠而生，片片相依，像旧书页间夹着的一段温柔注脚。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Common_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Pinggu_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Pinggu_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Pinggu_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Pinggu_04",
+    "Size": 1,
+    "GrowthTime": 292500,
+    "LightNeed": 0,
+    "ColdResistance": 2,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2515,
+      2515
+    ],
+    "HarvestExp": 70,
+    "Perfect_Gain": [
+      2515,
+      2515,
+      15009
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15009
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15501
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 8,
+    "Name": "Plant_Name_8",
+    "Name_Local": "杏鲍菇",
+    "Des": "Plant_Des_8",
+    "Des_Local": "敦实的身形，朴素的颜色。可靠的事物不需要漂亮的外表。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Common_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Xinbaogu_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Xinbaogu_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Xinbaogu_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Xinbaogu_04",
+    "Size": 2,
+    "GrowthTime": 300000,
+    "LightNeed": 0,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2516,
+      2516
+    ],
+    "HarvestExp": 130,
+    "Perfect_Gain": [
+      2516,
+      2516,
+      15010
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15010
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15501
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 9,
+    "Name": "Plant_Name_9",
+    "Name_Local": "茶树菇",
+    "Des": "Plant_Des_9",
+    "Des_Local": "生长缓慢，回报丰厚。时间偏爱有耐心的人。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Common_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Chashugu_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Chashugu_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Chashugu_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Chashugu_04",
+    "Size": 1,
+    "GrowthTime": 315000,
+    "LightNeed": 0,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2517,
+      2517,
+      2517
+    ],
+    "HarvestExp": 75,
+    "Perfect_Gain": [
+      2517,
+      2517,
+      2517,
+      15011
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15011
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15501
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 10,
+    "Name": "Plant_Name_10",
+    "Name_Local": "鸡腿菇",
+    "Des": "Plant_Des_10",
+    "Des_Local": "圆润饱满地破土而出，带着一个不太相称却令人会心的名字。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Common_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Jituigu_05",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Jituigu_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Jituigu_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Jituigu_04",
+    "Size": 2,
+    "GrowthTime": 297000,
+    "LightNeed": 0,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2518,
+      2518
+    ],
+    "HarvestExp": 130,
+    "Perfect_Gain": [
+      2518,
+      2518,
+      15012
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15012
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15501
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 11,
+    "Name": "Plant_Name_11",
+    "Name_Local": "松茸",
+    "Des": "Plant_Des_11",
+    "Des_Local": "山林深处的气息被封存在小小的菌包里，等待再次苏醒。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Common_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Songrong_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Songrong_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Songrong_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Songrong_04",
+    "Size": 2,
+    "GrowthTime": 648000,
+    "LightNeed": 0,
+    "ColdResistance": 3,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2519
+    ],
+    "HarvestExp": 250,
+    "Perfect_Gain": [
+      2519,
+      15013
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15013
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15503
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 12,
+    "Name": "Plant_Name_12",
+    "Name_Local": "灵芝",
+    "Des": "Plant_Des_12",
+    "Des_Local": "自古被寄予长生的期许。如今的期许更简单——只要它好好长大。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Common_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Lingzhi_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Lingzhi_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Lingzhi_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Lingzhi_04",
+    "Size": 2,
+    "GrowthTime": 648000,
+    "LightNeed": 0,
+    "ColdResistance": 2,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2520
+    ],
+    "HarvestExp": 250,
+    "Perfect_Gain": [
+      2520,
+      15014
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15014
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15503
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 13,
+    "Name": "Plant_Name_13",
+    "Name_Local": "向日葵",
+    "Des": "Plant_Des_13",
+    "Des_Local": "无论被种在哪里，都记得朝向阳光。这份执着，令人心生暖意。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00329",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00330",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00331",
+    "Size": 4,
+    "GrowthTime": 457500,
+    "LightNeed": 2,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2521
+    ],
+    "HarvestExp": 335,
+    "Perfect_Gain": [
+      2521,
+      15015
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15015
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 14,
+    "Name": "Plant_Name_14",
+    "Name_Local": "胡萝卜",
+    "Des": "Plant_Des_14",
+    "Des_Local": "果实深藏土中，拔起之前无人知晓它的心事。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00341",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00342",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00343",
+    "Size": 2,
+    "GrowthTime": 367500,
+    "LightNeed": 2,
+    "ColdResistance": 3,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2522
+    ],
+    "HarvestExp": 155,
+    "Perfect_Gain": [
+      2522,
+      15016
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15016
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 15,
+    "Name": "Plant_Name_15",
+    "Name_Local": "甜菜",
+    "Des": "Plant_Des_15",
+    "Des_Local": "切开后是沉静的深红，像大地在根茎里私藏了一枚落日。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00323",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00324",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00325",
+    "Size": 2,
+    "GrowthTime": 357000,
+    "LightNeed": 2,
+    "ColdResistance": 3,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2523
+    ],
+    "HarvestExp": 150,
+    "Perfect_Gain": [
+      2523,
+      15017
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15017
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 16,
+    "Name": "Plant_Name_16",
+    "Name_Local": "韭菜",
+    "Des": "Plant_Des_16",
+    "Des_Local": "割去又生，循环往复。最质朴的生命力，不需要解释。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Jiucai_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Jiucai_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Jiucai_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Jiucai_04",
+    "Size": 1,
+    "GrowthTime": 262500,
+    "LightNeed": 1,
+    "ColdResistance": 3,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2524
+    ],
+    "HarvestExp": 65,
+    "Perfect_Gain": [
+      2524,
+      15018
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15018
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15501
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 17,
+    "Name": "Plant_Name_17",
+    "Name_Local": "茄子",
+    "Des": "Plant_Des_17",
+    "Des_Local": "紫色果实低垂枝头，姿态谦逊，仿佛在安静地点头致意。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Qiezi_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Qiezi_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Qiezi_04",
+    "Size": 2,
+    "GrowthTime": 427500,
+    "LightNeed": 2,
+    "ColdResistance": 0,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2525,
+      2525
+    ],
+    "HarvestExp": 175,
+    "Perfect_Gain": [
+      2525,
+      2525,
+      15019
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15019
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 18,
+    "Name": "Plant_Name_18",
+    "Name_Local": "咖啡",
+    "Des": "Plant_Des_18",
+    "Des_Local": "从一粒种子到一杯热饮，隔着一段值得期待的漫长旅程。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00335",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00336",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00337",
+    "Size": 4,
+    "GrowthTime": 648000,
+    "LightNeed": 1,
+    "ColdResistance": 0,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2526
+    ],
+    "HarvestExp": 450,
+    "Perfect_Gain": [
+      2526,
+      15020
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15020
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15503
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 19,
+    "Name": "Plant_Name_19",
+    "Name_Local": "土豆",
+    "Des": "Plant_Des_19",
+    "Des_Local": "深埋土中，不事声张。朴实的外表下，藏着扎实的分量。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00243",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00144",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00164",
+    "Size": 1,
+    "GrowthTime": 382500,
+    "LightNeed": 1,
+    "ColdResistance": 2,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2527,
+      2527
+    ],
+    "HarvestExp": 90,
+    "Perfect_Gain": [
+      2527,
+      2527,
+      15021
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15021
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 20,
+    "Name": "Plant_Name_20",
+    "Name_Local": "卷心菜",
+    "Des": "Plant_Des_20",
+    "Des_Local": "叶片层层相拥，像在替彼此抵挡外面的寒意。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Cabbage_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Cabbage_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Cabbage_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Cabbage_04",
+    "Size": 2,
+    "GrowthTime": 442500,
+    "LightNeed": 1,
+    "ColdResistance": 2,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2528,
+      2528
+    ],
+    "HarvestExp": 180,
+    "Perfect_Gain": [
+      2528,
+      2528,
+      15022
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15022
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 21,
+    "Name": "Plant_Name_21",
+    "Name_Local": "花椰菜",
+    "Des": "Plant_Des_21",
+    "Des_Local": "细密的花球聚成一小朵云，仿佛从某个晴天的记忆里落下来的。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Huacai_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Huacai_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Huacai_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Huacai_04",
+    "Size": 2,
+    "GrowthTime": 447000,
+    "LightNeed": 1,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2529
+    ],
+    "HarvestExp": 180,
+    "Perfect_Gain": [
+      2529,
+      15023
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15023
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 22,
+    "Name": "Plant_Name_22",
+    "Name_Local": "菠菜",
+    "Des": "Plant_Des_22",
+    "Des_Local": "不声不响铺满一角，那种绿色会让人想起久违的春天。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Bocai_01",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Bocai_02",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Bocai_03",
+    "Size": 1,
+    "GrowthTime": 114900,
+    "LightNeed": 1,
+    "ColdResistance": 3,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2530
+    ],
+    "HarvestExp": 30,
+    "Perfect_Gain": [
+      2530,
+      15024
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15024
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15501
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 23,
+    "Name": "Plant_Name_23",
+    "Name_Local": "黄瓜",
+    "Des": "Plant_Des_23",
+    "Des_Local": "藤蔓沿着支架安静攀升，在有限的空间里勾勒出自己的秩序。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Cucumber_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Cucumber_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Cucumber_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Cucumber_04",
+    "Size": 4,
+    "GrowthTime": 412500,
+    "LightNeed": 2,
+    "ColdResistance": 0,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2531,
+      2531,
+      2531
+    ],
+    "HarvestExp": 305,
+    "Perfect_Gain": [
+      2531,
+      2531,
+      2531,
+      15025
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15025
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 24,
+    "Name": "Plant_Name_24",
+    "Name_Local": "西红柿",
+    "Des": "Plant_Des_24",
+    "Des_Local": "果实转红的那天，阳台上会燃起一小片温暖的颜色。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00174",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00148",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00168",
+    "Size": 2,
+    "GrowthTime": 435000,
+    "LightNeed": 2,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2504,
+      2504,
+      2504
+    ],
+    "HarvestExp": 320,
+    "Perfect_Gain": [
+      2504,
+      2504,
+      2504,
+      15026
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15026
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 25,
+    "Name": "Plant_Name_25",
+    "Name_Local": "草莓",
+    "Des": "Plant_Des_25",
+    "Des_Local": "对温度和光线百般挑剔。美好的事物，值得多一份用心。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00103",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00102",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00104",
+    "Size": 1,
+    "GrowthTime": 307500,
+    "LightNeed": 2,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2533,
+      2533,
+      2533
+    ],
+    "HarvestExp": 75,
+    "Perfect_Gain": [
+      2533,
+      2533,
+      2533,
+      15027
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15027
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15501
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 26,
+    "Name": "Plant_Name_26",
+    "Name_Local": "彩椒",
+    "Des": "Plant_Des_26",
+    "Des_Local": "红黄绿三色并陈，是单调日子里一组明快的色彩。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00357",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00358",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00359",
+    "Size": 2,
+    "GrowthTime": 432000,
+    "LightNeed": 2,
+    "ColdResistance": 0,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2534,
+      2534,
+      2534
+    ],
+    "HarvestExp": 175,
+    "Perfect_Gain": [
+      2534,
+      2534,
+      2534,
+      15028
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15028
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 27,
+    "Name": "Plant_Name_27",
+    "Name_Local": "南瓜",
+    "Des": "Plant_Des_27",
+    "Des_Local": "藤蔓舒展，果实日渐丰盈。耐心总会收获沉甸甸的回应。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00347",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00348",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00349",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00351",
+    "Size": 4,
+    "GrowthTime": 502500,
+    "LightNeed": 2,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2535
+    ],
+    "HarvestExp": 360,
+    "Perfect_Gain": [
+      2535,
+      15029
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15029
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 28,
+    "Name": "Plant_Name_28",
+    "Name_Local": "玉米",
+    "Des": "Plant_Des_28",
+    "Des_Local": "茎秆笔直并肩而立，整齐的样子带着一种令人安心的秩序。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00173",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00143",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00160",
+    "Size": 4,
+    "GrowthTime": 465000,
+    "LightNeed": 2,
+    "ColdResistance": 0,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2536,
+      2536,
+      2536
+    ],
+    "HarvestExp": 340,
+    "Perfect_Gain": [
+      2536,
+      2536,
+      2536,
+      15030
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15030
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 29,
+    "Name": "Plant_Name_29",
+    "Name_Local": "大蒜",
+    "Des": "Plant_Des_29",
+    "Des_Local": "气味锋利，性情刚烈。温和的花园里也需要一两个这样的角色。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/GarlicSeed_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Garlic_01",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Garlic_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Garlic_04",
+    "Size": 1,
+    "GrowthTime": 555000,
+    "LightNeed": 1,
+    "ColdResistance": 3,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2537
+    ],
+    "HarvestExp": 120,
+    "Perfect_Gain": [
+      2537,
+      15031
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15031
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 30,
+    "Name": "Plant_Name_30",
+    "Name_Local": "洋葱",
+    "Des": "Plant_Des_30",
+    "Des_Local": "层层包裹，至核无心。但每剥开一层，都有滋味。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/OnionSeed_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Onion_01",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Onion_03b",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Onion_04",
+    "Size": 1,
+    "GrowthTime": 477000,
+    "LightNeed": 2,
+    "ColdResistance": 3,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2538
+    ],
+    "HarvestExp": 105,
+    "Perfect_Gain": [
+      2538,
+      15032
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15032
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 31,
+    "Name": "Plant_Name_31",
+    "Name_Local": "西瓜",
+    "Des": "Plant_Des_31",
+    "Des_Local": "需要充足的阳光与漫长的等待。种下它，便是对夏天许下的一个约定。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Watermelon_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Watermelon_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Watermelon_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/Watermelon_04",
+    "Size": 4,
+    "GrowthTime": 532500,
+    "LightNeed": 2,
+    "ColdResistance": 0,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2539
+    ],
+    "HarvestExp": 380,
+    "Perfect_Gain": [
+      2539,
+      15033
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15033
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 32,
+    "Name": "Plant_Name_32",
+    "Name_Local": "雏菊",
+    "Des": "Plant_Des_32",
+    "Des_Local": "最不起眼却最坚韧，随便一个角落都能开成一片。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/Furniture/P_Flowerchuju_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/Furniture/P_Flowerchuju_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/Furniture/P_Flowerchuju_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/Furniture/P_Flowerchuju_04",
+    "Size": 1,
+    "GrowthTime": 450000,
+    "LightNeed": 2,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2541
+    ],
+    "HarvestExp": 100,
+    "Perfect_Gain": [
+      2541,
+      15034
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15034
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 33,
+    "Name": "Plant_Name_33",
+    "Name_Local": "三色堇",
+    "Des": "Plant_Des_33",
+    "Des_Local": "耐寒的小家伙，霜降里照样开得热闹。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/Furniture/P_FlowerSansejing_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/Furniture/P_FlowerSansejing_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/Furniture/P_FlowerSansejing_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/Furniture/P_FlowerSansejing_04",
+    "Size": 1,
+    "GrowthTime": 360000,
+    "LightNeed": 2,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2542
+    ],
+    "HarvestExp": 100,
+    "Perfect_Gain": [
+      2542,
+      15035
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15035
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 34,
+    "Name": "Plant_Name_34",
+    "Name_Local": "金盏菊",
+    "Des": "Plant_Des_34",
+    "Des_Local": "据说能驱虫，橙黄的花盘也让屋里亮堂了几分。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/Furniture/P_Flowerjinzhanju_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/Furniture/P_Flowerjinzhanju_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/Furniture/P_Flowerjinzhanju_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/Furniture/P_Flowerjinzhanju_04",
+    "Size": 1,
+    "GrowthTime": 300000,
+    "LightNeed": 2,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2543
+    ],
+    "HarvestExp": 100,
+    "Perfect_Gain": [
+      2543,
+      15036
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15036
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 35,
+    "Name": "Plant_Name_35",
+    "Name_Local": "波斯菊",
+    "Des": "Plant_Des_35",
+    "Des_Local": "风一吹就成片摇曳，最适合铺满一整个窗台。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/Furniture/P_Flowerbosiju_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/Furniture/P_Flowerbosiju_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/Furniture/P_Flowerbosiju_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/Furniture/P_Flowerbosiju_04",
+    "Size": 1,
+    "GrowthTime": 240000,
+    "LightNeed": 2,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2544
+    ],
+    "HarvestExp": 100,
+    "Perfect_Gain": [
+      2544,
+      15037
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15037
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 36,
+    "Name": "Plant_Name_36",
+    "Name_Local": "矮牵牛",
+    "Des": "Plant_Des_36",
+    "Des_Local": "泼辣好养，开起来一簇一簇的，怎么都养不死。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/Furniture/P_FlowerAiqianniu_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/Furniture/P_FlowerAiqianniu_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/Furniture/P_FlowerAiqianniu_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/Furniture/P_FlowerAiqianniu_04",
+    "Size": 1,
+    "GrowthTime": 600000,
+    "LightNeed": 2,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2545
+    ],
+    "HarvestExp": 100,
+    "Perfect_Gain": [
+      2545,
+      15038
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15038
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 37,
+    "Name": "Plant_Name_37",
+    "Name_Local": "金针菇",
+    "Des": "Plant_Des_37",
+    "Des_Local": "不需要光。在阴湿的角落里细白成束地挤上来——至于吃下去之后会怎样。它似乎另有打算。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Common_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Jingzhenggu_01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Jingzhenggu_02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Jingzhenggu_03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Jingzhenggu_04",
+    "Size": 1,
+    "GrowthTime": 162000,
+    "LightNeed": 0,
+    "ColdResistance": 2,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2908,
+      2908
+    ],
+    "HarvestExp": 45,
+    "Perfect_Gain": [
+      2908,
+      2908,
+      15039
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15039
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15501
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 38,
+    "Name": "Plant_Name_38",
+    "Name_Local": "爬山虎",
+    "Des": "Plant_Des_38",
+    "Des_Local": "攀着墙缝一寸寸往上，把裸露的水泥慢慢遮住。它不急，反正墙也跑不掉。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/Furniture/P_Ivy01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/Furniture/P_Ivy02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/Furniture/P_Ivy03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/Furniture/P_Ivy04",
+    "Size": 1,
+    "GrowthTime": 604800,
+    "LightNeed": 1,
+    "ColdResistance": 3,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      20107
+    ],
+    "HarvestExp": 130,
+    "Perfect_Gain": [
+      20107,
+      15040
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15040
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15501
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 40,
+    "Name": "Plant_Name_40",
+    "Name_Local": "蔷薇",
+    "Des": "Plant_Des_40",
+    "Des_Local": "带刺的藤，爬上架子要十几天，开起来一整面墙都是。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/Furniture/P_Rose01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/Furniture/P_Rose02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/Furniture/P_Rose03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/Furniture/P_Rose04",
+    "Size": 2,
+    "GrowthTime": 864000,
+    "LightNeed": 2,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2547
+    ],
+    "HarvestExp": 100,
+    "Perfect_Gain": [
+      2547,
+      15042
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15042
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 41,
+    "Name": "Plant_Name_41",
+    "Name_Local": "木香",
+    "Des": "Plant_Des_41",
+    "Des_Local": "细碎的白花能开满整根藤，长得慢，但开得久。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/Furniture/P_Rose01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/Furniture/P_Rosemuxiang02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/Furniture/P_Rosemuxiang03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/Furniture/P_Rose04",
+    "Size": 2,
+    "GrowthTime": 604800,
+    "LightNeed": 2,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2548
+    ],
+    "HarvestExp": 100,
+    "Perfect_Gain": [
+      2548,
+      15043
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15043
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 42,
+    "Name": "Plant_Name_42",
+    "Name_Local": "凌霄",
+    "Des": "Plant_Des_42",
+    "Des_Local": "橙红的喇叭花，攀着墙一路往上，越高开得越密。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/Furniture/P_Rose01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/Furniture/P_Roselingxiao02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/Furniture/P_Roselingxiao03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/Furniture/P_Rose04",
+    "Size": 2,
+    "GrowthTime": 734400,
+    "LightNeed": 2,
+    "ColdResistance": 1,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2549
+    ],
+    "HarvestExp": 100,
+    "Perfect_Gain": [
+      2549,
+      15044
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15044
+    ],
+    "Seed_Rate": 0.5,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  },
+  {
+    "ID": 39,
+    "Name": "Plant_Name_39",
+    "Name_Local": "越冬一号",
+    "Des": "Plant_Des_39",
+    "Des_Local": "研究所育出来的种，针叶又短又硬，霜落上去化了就滑走。",
+    "Modle1": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_Herb_00175_small",
+    "Modle2": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_YueDong01",
+    "Modle3": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_YueDong02",
+    "Modle4": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_YueDong03",
+    "Modle5": "Assets/RuntimeAssets/Prefabs/PlantFurniture/P_YueDong04",
+    "Size": 4,
+    "GrowthTime": 432000,
+    "LightNeed": 1,
+    "ColdResistance": 3,
+    "Pest": 0.5,
+    "Weed": 0.5,
+    "Dry": 0.20000000298023224,
+    "Gain": [
+      2550,
+      2550,
+      2550,
+      2550
+    ],
+    "HarvestExp": 400,
+    "Perfect_Gain": [
+      2550,
+      2550,
+      2550,
+      2550
+    ],
+    "Perfect_Rate": 0.20000000298023224,
+    "Gain_Seed": [
+      15045
+    ],
+    "Seed_Rate": 0.0,
+    "WitheredGain": [
+      15502
+    ],
+    "DecayTime": 86400,
+    "HarvestTime": 388800,
+    "Discovery_Exp": 200,
+    "InCodex": true
+  }
+]

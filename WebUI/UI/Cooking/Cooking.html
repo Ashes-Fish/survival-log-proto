@@ -1,0 +1,2302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>烹饪系统</title>
+    <script src="../../webui-core.js"></script>
+    <script src="../../webui-bag.js"></script>
+    <!-- 「脚边」横排：界面下方那一排身边地面物品（与其他物品界面共用） -->
+    <script src="../../webui-grounddock.js"></script>
+    <!-- A/D 切页签键的每日首次提示（背包 / 制造台 / 烹饪共用一份，见文件头说明） -->
+    <script src="../../webui-tabhint.js"></script>
+    <!-- 拖到左栏其他页签上松手 = 整叠放进那个容器（与其他多页签界面共用） -->
+    <script src="../../webui-tabdrop.js"></script>
+    <style>
+        :root {
+            --bg-dark: rgba(35, 28, 24, 0.85);
+            --panel-bg: rgba(48, 40, 36, 0.95);
+            --warm-gold: #fbb034;
+            --warm-orange: #ff9500;
+            --warm-orange-dark: #e67e22;
+            --army-green: rgba(139, 153, 59, 0.9);
+            --army-green-light: #a4b546;
+            --danger-red: #e05555;
+            
+            --text-main: #fcfcfc;
+            --text-dark: #c0c0c0;
+            --border-light: rgba(255, 255, 255, 0.18);
+            --border-color: rgba(255, 255, 255, 0.12);
+            
+            --grid-bg: rgba(20, 15, 12, 0.85);
+            --slot-border: rgba(255, 255, 255, 0.1);
+            --slot-size: 40px;
+            --slot-gap: 6px;
+            --grid-padding: 10px;
+
+            --q-perfect: #FFC107;
+            --q-perfect-glow: rgba(255, 193, 7, 0.45);
+            --q-good: #B988E6;
+            --q-good-glow: rgba(185, 136, 230, 0.35);
+            --q-normal: rgba(255, 255, 255, 0.55);
+            --q-fail: #707070;
+            --rarity-common-bg: rgba(170, 170, 170, 0.1);
+        }
+
+        body {
+            background-color: transparent; color: var(--text-main); font-family: 'Segoe UI', "Microsoft YaHei", sans-serif;
+            margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh;
+            user-select: none; overflow: hidden; text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+        }
+        body::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(15, 10, 8, 0.45);
+            z-index: -1; pointer-events: none;
+        }
+
+        .cooking-system {
+            display: flex; gap: 20px; position: relative;
+            background-image: radial-gradient(circle at center bottom, rgba(251, 176, 52, 0.25) 0%, transparent 65%), linear-gradient(135deg, rgba(65, 52, 45, 0.96) 0%, rgba(35, 28, 24, 0.98) 100%);
+            padding: 16px; border-radius: 12px; border: 1px solid var(--border-light);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.15);
+            min-height: 520px; overflow: hidden;
+        }
+        .cooking-system::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 20px 20px; pointer-events: none; z-index: 0;
+        }
+        .cooking-system > * { position: relative; }
+
+        .panel {
+            background: linear-gradient(180deg, rgba(55, 48, 44, 0.85) 0%, rgba(35, 28, 25, 0.95) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; padding: 15px; display: flex; flex-direction: column;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.4), 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .panel-title {
+            font-size: 16px; font-weight: bold; color: var(--warm-gold); margin-bottom: 12px; text-transform: uppercase;
+            letter-spacing: 1px; display: flex; align-items: center; width: 100%; flex-shrink: 0; text-shadow: 0 0 10px rgba(251, 176, 52, 0.4);
+        }
+        .panel-title::before {
+            content: ''; display: inline-block; width: 4px; height: 16px; background-color: var(--warm-gold); margin-right: 8px;
+            border-radius: 2px; box-shadow: 0 0 8px rgba(251, 176, 52, 0.8);
+        }
+        .bag-tabs {
+            display: none; flex-wrap: nowrap; align-items: stretch; gap: 4px;
+            margin-bottom: 6px; flex-shrink: 0; min-width: 0; box-sizing: border-box;
+            align-self: center;
+            position: relative;
+        }
+
+        .bag-tab.guide-hint {
+            position: relative;
+            color: var(--text-main);
+            border-color: rgba(251, 176, 52, 0.55);
+        }
+        .bag-tab.guide-hint::before {
+            content: '';
+            position: absolute; top: 3px; right: 5px;
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--warm-gold);
+            box-shadow: 0 0 6px rgba(251, 176, 52, 0.9);
+            pointer-events: none;
+        }
+        .bag-tab.guide-hint::after {
+            content: '';
+            position: absolute; inset: 0;
+            border-radius: inherit;
+            box-shadow: 0 0 12px rgba(251, 176, 52, 0.7), inset 0 0 10px rgba(251, 176, 52, 0.25);
+            opacity: 0.45;
+            animation: fridgeTabPulse 1.6s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes fridgeTabPulse {
+            0%, 100% { opacity: 0.32; }
+            50% { opacity: 0.75; }
+        }
+        html.quality-low .bag-tab.guide-hint::after { animation: none; opacity: 0.72; }
+
+        .fridge-guide {
+            display: none;
+            position: absolute;
+            top: calc(100% + 5px); left: 0; right: 0;
+            z-index: 60;
+            background: linear-gradient(168deg, rgb(48, 44, 32) 0%, rgb(26, 24, 18) 100%);
+            border: 1px solid rgba(251, 176, 52, 0.55);
+            border-radius: 10px;
+            padding: 12px 14px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
+            animation: fridgeGuideIn 0.32s cubic-bezier(0.19, 1, 0.22, 1);
+            text-align: left;
+        }
+        .fridge-guide.show { display: block; }
+        @keyframes fridgeGuideIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fridge-guide::before, .fridge-guide::after {
+            content: '';
+            position: absolute;
+            left: var(--arrow-x, 50%); margin-left: -8px;
+            border: 8px solid transparent;
+            border-top: none;
+        }
+        .fridge-guide::before { top: -8px; border-bottom-color: rgba(251, 176, 52, 0.55); }
+        .fridge-guide::after { top: -7px; border-bottom-color: rgb(47, 43, 32); }
+        .fridge-guide-title {
+            font-size: 14px; font-weight: 700;
+            color: var(--warm-gold); letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .fridge-guide-body { font-size: 13px; line-height: 1.6; color: #ddd; font-weight: 400; }
+        .fridge-guide-footer { display: flex; justify-content: flex-end; margin-top: 10px; }
+        .fridge-guide-btn {
+            font-size: 13px; font-weight: 600; color: #1a1a1a;
+            background: var(--warm-gold);
+            border: none; border-radius: 6px;
+            padding: 5px 16px; cursor: pointer;
+            transition: transform 0.15s;
+        }
+        .fridge-guide-btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
+        .fridge-guide-btn:active { filter: brightness(0.92); transform: translateY(0); }
+        .bag-tab {
+            padding: 6px 14px; font-size: 14px; color: var(--text-dark); cursor: pointer; user-select: none;
+            background: rgba(20, 15, 12, 0.55); border: 1px solid var(--border-color); border-radius: 6px;
+            transition: background 0.15s, color 0.15s, border-color 0.15s; white-space: nowrap; flex-shrink: 0;
+        }
+        .bag-tab:hover {
+            background: rgba(251, 176, 52, 0.12); color: var(--text-main); border-color: rgba(251, 176, 52, 0.5);
+        }
+        .bag-tab.active {
+            background: linear-gradient(180deg, rgba(251, 176, 52, 0.25) 0%, rgba(251, 176, 52, 0.1) 100%);
+            color: var(--warm-gold); border-color: var(--warm-gold); cursor: default;
+            box-shadow: 0 0 8px rgba(251, 176, 52, 0.35) inset;
+        }
+        .bag-tab.locked { color: rgba(255,255,255,0.28); background: rgba(18, 14, 12, 0.85); border-color: rgba(255,255,255,0.06); cursor: not-allowed; }
+        .bag-tab.locked:hover { background: rgba(18, 14, 12, 0.85); color: rgba(255,255,255,0.28); border-color: rgba(255,255,255,0.06); }
+        .bag-tab-pinned-slot {
+            flex-shrink: 0; display: flex; gap: 4px; position: relative; margin-right: 12px;
+        }
+        .bag-tab-pinned-slot::after {
+            content: ''; position: absolute; right: -7px; top: 22%; bottom: 22%;
+            width: 1px; background: var(--border-light); pointer-events: none;
+        }
+        .bag-tabs-scroll {
+            flex: 1 1 0; min-width: 0; overflow-x: hidden; overflow-y: visible;
+            display: flex; gap: 4px; scroll-behavior: smooth;
+        }
+        .bag-tabs-scroll::-webkit-scrollbar { display: none; }
+        .tab-scroll-btn {
+            flex-shrink: 0; width: 26px; padding: 0; line-height: 1;
+            background: rgba(20, 15, 12, 0.55); color: var(--text-dark);
+            border: 1px solid var(--border-color); border-radius: 6px;
+            cursor: pointer; font-size: 18px; font-weight: bold;
+            transition: background 0.15s, color 0.15s, opacity 0.15s;
+            display: none; align-items: center; justify-content: center; user-select: none;
+            font-family: inherit;
+        }
+        .tab-scroll-btn.is-visible { display: flex; }
+        .tab-scroll-btn:hover:not(:disabled) {
+            background: rgba(251, 176, 52, 0.12); color: var(--warm-gold);
+            border-color: rgba(251, 176, 52, 0.5);
+        }
+        .tab-scroll-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        /* 左栏底部工具条：一键整理当前页签容器 */
+        .bag-toolbar { display: flex; justify-content: flex-end; margin-top: 10px; flex-shrink: 0; }
+        .bag-sort-btn {
+            font-family: inherit; font-size: 13px; color: var(--text-dark); cursor: pointer; user-select: none;
+            background: rgba(20, 15, 12, 0.55); border: 1px solid var(--border-color); border-radius: 6px;
+            padding: 5px 14px; transition: background 0.15s, color 0.15s, border-color 0.15s;
+        }
+        .bag-sort-btn:hover { background: rgba(251, 176, 52, 0.12); color: var(--warm-gold); border-color: rgba(251, 176, 52, 0.5); }
+        .bag-sort-btn:active { filter: brightness(0.9); }
+
+        .grid-container {
+            background-color: var(--grid-bg); padding: var(--grid-padding); border-radius: 8px; position: relative;
+            display: grid; gap: var(--slot-gap); border: 1px solid var(--border-color); box-shadow: inset 0 5px 20px rgba(0,0,0,0.8), 0 2px 0 rgba(255,255,255,0.05); width: fit-content;
+            align-self: center;
+        }
+        .slot {
+            width: var(--slot-size); height: var(--slot-size); background-color: rgba(12, 9, 8, 0.8);
+            border: 1px solid var(--slot-border); border-radius: 4px; box-sizing: border-box; pointer-events: none; transition: all 0.2s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+        }
+        .slot.valid-hover { background-color: rgba(251, 176, 52, 0.2); border-color: var(--warm-gold); box-shadow: inset 0 0 15px rgba(251, 176, 52, 0.4); }
+        .slot.invalid-hover { background-color: rgba(224, 85, 85, 0.2); border-color: var(--danger-red); box-shadow: inset 0 0 15px rgba(224, 85, 85, 0.4); }
+
+        .item {
+            position: absolute; z-index: 100; cursor: grab; display: flex; justify-content: center; align-items: center;
+            background: linear-gradient(135deg, rgba(70,60,55,0.95), rgba(45,38,34,0.95)); border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px; transition: filter 0.1s, transform 0.1s; box-shadow: 0 4px 10px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        .grid-container.is-frozen .item { border-color: rgba(130, 180, 240, 0.5); }
+        .item:hover { filter: brightness(1.25); z-index: 150; border-color: var(--warm-gold); box-shadow: 0 0 15px rgba(251, 176, 52, 0.5); transform: scale(1.05); }
+        .item:active { cursor: grabbing; transform: scale(1); z-index: 9999; }
+
+        .item.is-fuel::before {
+            content: ''; position: absolute; top: -4px; left: -4px; width: 15px; height: 15px; box-sizing: border-box;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 1.6c0 5.6-2.4 6.9-4.2 9C6 12.9 4.8 14.9 4.8 17.1c0 3.5 3.2 5.9 7.2 5.9s7.2-2.4 7.2-5.9c0-2.4-1.3-4.3-2.9-6.3-.6 2-1.8 2.8-2.8 2.2-1.2-.7-1.3-4.5-1.5-11.4z' fill='white'/></svg>"),
+                              linear-gradient(135deg, var(--warm-orange), var(--danger-red));
+            background-size: 9px 9px, 100% 100%; background-position: center, center; background-repeat: no-repeat, no-repeat;
+            border-radius: 3px; pointer-events: none; z-index: 5; box-shadow: 0 2px 4px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.4);
+        }
+        .item.is-food::after {
+            content: ''; position: absolute; top: -4px; right: -4px; width: 15px; height: 15px; box-sizing: border-box;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><g fill='white' transform='rotate(-45 12 12)'><ellipse cx='12' cy='16.4' rx='7.6' ry='6.76'/><rect x='9.8' y='4.6' width='4.4' height='6.44' rx='2.2'/><circle cx='8.6' cy='4.4' r='2.6'/><circle cx='15.4' cy='4.4' r='2.6'/></g></svg>"),
+                              linear-gradient(135deg, var(--army-green-light), var(--army-green));
+            background-size: 9px 9px, 100% 100%; background-position: center, center; background-repeat: no-repeat, no-repeat;
+            border-radius: 3px; pointer-events: none; z-index: 5; box-shadow: 0 2px 4px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .item.q-perfect, .item.q-good, .item.q-normal, .item.q-fail {
+            border-width: 1.5px;
+            border-style: solid;
+            overflow: hidden;
+        }
+        .item.q-perfect::before {
+            content: ''; position: absolute; inset: 0; width: auto; height: auto;
+            background: radial-gradient(circle at top right, rgba(255, 193, 7, 0.55) 0%, transparent 28%);
+            border-radius: 3px; pointer-events: none; z-index: 1;
+        }
+
+        .item.q-perfect {
+            border-color: var(--q-perfect);
+            box-shadow: 0 0 14px 1px var(--q-perfect-glow), inset 0 0 8px rgba(255, 193, 7, 0.18), 0 4px 10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        .item.q-good {
+            border-color: var(--q-good);
+            box-shadow: 0 0 10px var(--q-good-glow), inset 0 0 6px rgba(185, 136, 230, 0.15), 0 4px 10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        .item.q-normal {
+            border-color: var(--q-normal);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        .item.q-fail {
+            border-color: var(--q-fail);
+            box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.55), 0 0 4px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.6);
+            filter: saturate(0.5) brightness(0.85);
+        }
+        .item.q-fail img { filter: grayscale(0.55); }
+
+        .item.q-perfect:hover { border-color: var(--q-perfect); box-shadow: 0 0 14px 1px var(--q-perfect-glow), inset 0 0 8px rgba(255, 193, 7, 0.18), 0 4px 10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2); transform: scale(1.05); }
+        .item.q-good:hover    { border-color: var(--q-good);    box-shadow: 0 0 10px var(--q-good-glow), inset 0 0 6px rgba(185, 136, 230, 0.15), 0 4px 10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2); transform: scale(1.05); }
+        .item.q-normal:hover  { border-color: var(--q-normal);  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2); transform: scale(1.05); }
+        .item.q-fail:hover    { border-color: var(--q-fail);    box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.55), 0 0 4px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.6); transform: scale(1.05); }
+
+        .item-count { position: absolute; bottom: 1px; right: 3px; font-size: 12px; font-weight: bold; color: #fff; text-shadow: 0 1px 2px #000, 0 0 3px rgba(0,0,0,0.9); pointer-events: none; z-index: 6; line-height: 1; letter-spacing: 0.5px; }
+
+        /* !important 压过 q-* 品质边与 .item:hover 金边：过期是"这东西还能不能吃"的硬信息，优先级高于品质展示 */
+        .item.expired { border-color: rgba(178, 72, 55, 0.75) !important; }
+        .expired-mask {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top,
+                rgba(146, 52, 38, 0.7) 0%,
+                rgba(146, 52, 38, 0.45) 35%,
+                rgba(146, 52, 38, 0.15) 75%,
+                rgba(146, 52, 38, 0) 100%);
+            pointer-events: none;
+            z-index: 2;
+            border-radius: 3px;
+        }
+        /* 快过期：底部 12px 贴底黄晕（无硬线）。与「已过期」的暗红褐满片染底靠**色相 + 范围 + 浓度**区分
+           （亮黄 vs 暗红 / 底部 12px vs 整格渐变 / 贴底 .42 vs .7），
+           标识要在「背包里只有快过期、没有已过期做参照」时也能自解释。
+           ★ 晕高 12px 已接近上限：去掉硬线后两者形态同为「底部染色」，只剩上述三个维度，
+             实测拉到 16px 范围就与已过期拉平，单独出现时会误认。再往上加必须重验贴脸场景。
+           ★ 刻意做轻：快过期是提醒不是判决，染重了会盖住物品，也会被读成「已经坏了」。 */
+        .near-expiry-mask {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top,
+                rgba(255, 210, 60, 0.42) 0px,
+                rgba(255, 210, 60, 0.18) 5px,
+                rgba(255, 210, 60, 0) 12px);
+            pointer-events: none;
+            z-index: 5;
+            border-radius: 3px;
+        }
+
+
+        .polluted-ring {
+            position: absolute; inset: 0;
+            border: 2px solid rgba(140, 220, 110, 0.9);
+            border-radius: 3px;
+            box-shadow: inset 0 0 12px rgba(110, 190, 90, 0.55);
+            pointer-events: none;
+            z-index: 4;
+            animation: polluted-breathe 2s ease-in-out infinite;
+        }
+        @keyframes polluted-breathe { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+        html.quality-low .polluted-ring { animation: none; opacity: 0.8; }
+
+        .grid-container.is-frozen .slot {
+            background-color: #16293d;
+            border-color: rgba(130, 180, 240, 0.45);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+        }
+        .grid-container.is-frozen .slot.valid-hover { background-color: rgba(251, 176, 52, 0.2); border-color: var(--warm-gold); }
+        .grid-container.is-frozen .slot.invalid-hover { background-color: rgba(224, 85, 85, 0.2); border-color: var(--danger-red); }
+        .item-frost {
+            position: absolute; inset: 0;
+            background-image: url('../BackpackUI/Refrigerator_ICE.png');
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-position: top center;
+            pointer-events: none;
+            z-index: 3;
+            border-radius: 3px;
+        }
+
+        .power-badges { display: none; align-items: center; gap: 6px; margin: 4px 0 10px 12px; flex-wrap: wrap; }
+        .power-badges.is-electric { display: flex; }
+        .power-badge {
+            display: inline-flex; align-items: baseline; gap: 4px;
+            background: linear-gradient(135deg, rgba(70,60,55,0.95), rgba(45,38,34,0.95));
+            border: 1px solid var(--border-light); border-radius: 4px;
+            padding: 3px 7px; line-height: 1; white-space: nowrap;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 2px 4px rgba(0,0,0,0.4);
+            text-transform: none; letter-spacing: 0;
+        }
+        .power-badge-label { font-size: 11px; color: var(--text-dark); font-weight: normal; }
+        .power-badge-value { font-size: 12px; color: var(--warm-gold); font-weight: bold; text-shadow: 0 0 6px rgba(251,176,52,0.35); }
+        .power-badge.battery-warn  .power-badge-value { color: var(--warm-orange); text-shadow: 0 0 6px rgba(255,149,0,0.35); }
+        .power-badge.battery-low   .power-badge-value { color: var(--danger-red);  text-shadow: 0 0 8px rgba(224,85,85,0.5); animation: batteryPulse 1.6s ease-in-out infinite; }
+        @keyframes batteryPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.55; }
+        }
+
+        .pot-capacity-bar {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; margin-bottom: 10px;
+        }
+        .capacity-badge {
+            display: inline-flex; align-items: baseline; gap: 6px;
+            background: linear-gradient(135deg, rgba(70,60,55,0.95), rgba(45,38,34,0.95));
+            border: 1px solid var(--border-light); border-radius: 5px;
+            padding: 6px 12px; line-height: 1; white-space: nowrap;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 2px 4px rgba(0,0,0,0.4);
+        }
+        .capacity-badge-label { font-size: 14px; color: var(--text-dark); font-weight: normal; }
+        .capacity-badge-value { font-size: 18px; color: var(--warm-gold); font-weight: bold; text-shadow: 0 0 8px rgba(251,176,52,0.45); letter-spacing: 0.5px; }
+        .capacity-badge.is-full .capacity-badge-value { color: var(--danger-red); text-shadow: 0 0 10px rgba(224,85,85,0.6); }
+        .capacity-badge.is-hidden { display: none; }
+
+        .fuel-section { margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); flex-shrink: 0; }
+        .fuel-section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 8px; flex-wrap: wrap; gap: 4px 12px; }
+        .fuel-section-header > #totalHeatDisplay { margin-left: auto; }
+        .fuel-section-title { font-size: 12px; color: var(--text-dark); margin-bottom: 0; font-weight: bold; }
+        .total-heat { font-size: 12px; color: var(--warm-gold); font-weight: bold; text-shadow: 0 0 5px rgba(251, 176, 52, 0.4); }
+        .heat-readout-inline { font-size: 12px; line-height: 1; white-space: nowrap; text-shadow: 0 0 5px rgba(251, 176, 52, 0.4); }
+        .heat-readout-inline .label { color: var(--text-dark); font-weight: normal; margin-right: 3px; }
+        .heat-readout-inline .value { color: var(--warm-gold); font-weight: bold; }
+        .heat-readout-inline .sep { color: var(--text-dark); margin: 0 6px; opacity: 0.6; }
+        
+        .fuel-queue { display: flex; gap: 10px; align-items: center; min-height: 60px; background-color: rgba(0,0,0,0.4); border: 1px dashed rgba(255,255,255,0.2); padding: 10px; border-radius: 6px; transition: all 0.2s; box-shadow: inset 0 2px 8px rgba(0,0,0,0.5); }
+        .fuel-queue.drag-over { border-color: var(--warm-gold); background-color: rgba(251, 176, 52, 0.12); }
+        .fuel-slot { width: 50px; height: 50px; background-color: rgba(20, 15, 12, 0.8); border: 1px solid var(--slot-border); border-radius: 4px; display: flex; justify-content: center; align-items: center; font-size: 11px; color: #888; position: relative; overflow: hidden; flex-shrink: 0; box-shadow: inset 0 2px 6px rgba(0,0,0,0.8); }
+        .fuel-slot.active-burn { border-color: var(--warm-orange); box-shadow: 0 0 20px rgba(255, 149, 0, 0.6), inset 0 0 10px rgba(0,0,0,0.9); color: #fff; background-color: rgba(70, 32, 16, 0.9); }
+        .fuel-slot.queued-item { border-color: rgba(251, 176, 52, 0.5); color: #fce1b6; cursor: pointer; background: linear-gradient(to bottom, rgba(70,55,40,0.9), rgba(45,35,25,0.9)); }
+        .fuel-slot.queued-item:hover { filter: brightness(1.25); border-color: var(--warm-gold); }
+        .fuel-slot.queued-item::after { content: '－'; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(224, 85, 85, 0.85); color: white; font-size: 28px; font-weight: bold; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.2s; z-index: 10; }
+        .fuel-slot.queued-item:hover::after { opacity: 1; }
+        .burn-progress-fill { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(251, 176, 52, 0.9), rgba(255, 100, 0, 0.7)); height: 0%; z-index: 1; }
+        .fuel-slot-text { position: relative; z-index: 2; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; pointer-events: none; }
+        .fuel-icon { width: 24px; height: 24px; object-fit: contain; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8)); flex-shrink: 0; }
+        .fuel-name { font-size: 10px; line-height: 1.2; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; width: 90%; text-shadow: 0 1px 2px #000; }
+        .fuel-pct { font-size: 12px; font-weight: bold; line-height: 1; text-shadow: 0 1px 2px #000; margin-top: 2px; }
+
+        .cooking-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 8px; display: none; justify-content: center; align-items: center; z-index: 200; pointer-events: all; }
+        .cooking-overlay.show { display: flex; }
+        .cooking-overlay::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(circle, rgba(251, 176, 52, 0.3) 0%, rgba(230, 126, 34, 0.1) 100%); box-shadow: inset 0 0 40px rgba(255, 100, 0, 0.6); pointer-events: none; animation: pulseFire 1.2s infinite alternate ease-in-out; }
+        .cooking-overlay span { position: relative; font-size: 26px; font-weight: bold; color: #fff; text-shadow: 0 2px 10px rgba(255, 100, 0, 0.8), 0 0 20px rgba(255, 149, 0, 0.6); letter-spacing: 2px; animation: pulseFire 1.2s infinite alternate ease-in-out; }
+        @keyframes pulseFire { 0% { opacity: 0.6; } 100% { opacity: 1; } }
+
+        .success-burst { position: absolute; top: 50%; left: 50%; width: 0px; height: 0px; box-shadow: 0 0 100px 80px var(--warm-gold), 0 0 200px 150px var(--warm-orange); border-radius: 50%; transform: translate(-50%, -50%); z-index: 300; pointer-events: none; animation: burstFlash 1.2s ease-out forwards; }
+        @keyframes burstFlash { 0% { opacity: 1; transform: translate(-50%, -50%) scale(0.1); } 30% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); } 100% { opacity: 0; transform: translate(-50%, -50%) scale(2.5); } }
+        .burst-particle { position: absolute; top: 50%; left: 50%; width: 6px; height: 6px; background: #fff; border-radius: 50%; box-shadow: 0 0 12px 3px var(--warm-gold); z-index: 301; pointer-events: none; animation: flyOut 1s cubic-bezier(0.1, 0.8, 0.3, 1) forwards; }
+        @keyframes flyOut { 0% { transform: translate(-50%, -50%) scale(1); opacity: 1; } 100% { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0); opacity: 0; } }
+
+        .right-panel { width: 290px; display: flex; flex-direction: column; }
+        .recipe-section { display: flex; flex-direction: column; flex-grow: 1; min-height: 0; overflow: hidden; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .recipe-list { overflow-y: auto; height: 0; min-height: 0; flex-grow: 1; display: flex; flex-direction: column; gap: 6px; padding-right: 5px; }
+        .recipe-list::-webkit-scrollbar { width: 4px; }
+        .recipe-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+        .book-item {
+            display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 6px;
+            background-color: rgba(25, 20, 18, 0.85); border: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px; color: var(--text-dark); cursor: not-allowed; flex-shrink: 0; position: relative;
+        }
+        .book-item .book-ico {
+            width: 38px; height: 38px; border-radius: 5px; background: rgba(0,0,0,0.45);
+            border: 1px solid rgba(255,255,255,0.12); flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .book-item .book-ico img { width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.8)); }
+        .book-item .book-ico .ico-ph { font-size: 18px; font-weight: bold; color: rgba(255,255,255,0.35); }
+        .book-item .book-bd { flex: 1; min-width: 0; }
+        .book-item .book-nm { font-weight: bold; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .book-item .book-cost { font-size: 11px; margin-top: 2px; opacity: 0.65; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .book-item .st-ready { font-size: 11px; color: var(--warm-gold); flex-shrink: 0; display: flex; align-items: center; gap: 3px; }
+        .book-item .st-ready::before { content: '\2713'; font-size: 13px; }
+        .book-item .st-fill {
+            flex-shrink: 0; font-size: 11px; padding: 4px 9px; border-radius: 4px; cursor: pointer;
+            color: var(--warm-gold); background: rgba(251,176,52,0.12); border: 1px solid rgba(251,176,52,0.45);
+        }
+        .book-item.ready { border-color: rgba(251, 176, 52, 0.35); cursor: default; }
+        .book-item.fillable { cursor: pointer; }
+        .book-item.fillable:hover { background-color: rgba(45, 36, 28, 0.95); border-color: rgba(251, 176, 52, 0.5); }
+        .book-item.fillable:hover .st-fill { background: rgba(251,176,52,0.28); }
+        .book-item.insuff { opacity: 0.62; }
+        .book-item.craft-locked { color: rgba(255,255,255,0.28); background-color: rgba(18, 14, 12, 0.85); border-color: rgba(255,255,255,0.06); cursor: pointer; }
+        .book-item.craft-locked .book-nm { color: rgba(255,255,255,0.35); }
+        .book-item.craft-locked .book-ico img { filter: grayscale(1) brightness(0.5); }
+        .recipe-count { font-size: 12px; color: var(--text-dark); font-weight: normal; margin-left: 8px; text-transform: none; letter-spacing: 0; }
+        .recipe-lock-badge { display: inline-block; width: 11px; height: 11px; position: relative; margin-left: 6px; vertical-align: -1px; opacity: 0.7; pointer-events: none; }
+        .recipe-lock-badge::before { content: ''; position: absolute; top: 0; left: 2px; width: 7px; height: 6px; box-sizing: border-box; border: 1.5px solid rgba(255,255,255,0.45); border-bottom: none; border-radius: 4px 4px 0 0; }
+        .recipe-lock-badge::after { content: ''; position: absolute; bottom: 0; left: 0; width: 11px; height: 6px; background: rgba(255,255,255,0.45); border-radius: 2px; }
+
+        .bottom-controls { margin-top: auto; display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
+        .prediction-box { background-color: rgba(20, 15, 12, 0.85); border: 1px solid rgba(255,255,255,0.1); min-height: 60px; border-radius: 6px; padding: 10px; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 15px; font-weight: bold; color: var(--text-dark); box-shadow: inset 0 2px 10px rgba(0,0,0,0.6); }
+        .prediction-box.success { color: var(--warm-gold); text-shadow: 0 0 10px rgba(251, 176, 52, 0.5); }
+        .prediction-box.warning { color: var(--warm-orange-dark); text-shadow: 0 0 10px rgba(230, 126, 34, 0.5); }
+        .prediction-box.danger { color: var(--danger-red); text-shadow: 0 0 10px rgba(224,85,85,0.5); }
+
+        .pot-sec-title {
+            font-size: 14px; font-weight: bold; color: var(--warm-gold); text-transform: uppercase;
+            letter-spacing: 1px; display: flex; align-items: center; text-shadow: 0 0 10px rgba(251, 176, 52, 0.4);
+        }
+        .pot-sec-title::before {
+            content: ''; display: inline-block; width: 4px; height: 14px; background-color: var(--warm-gold);
+            margin-right: 8px; border-radius: 2px; box-shadow: 0 0 8px rgba(251, 176, 52, 0.8);
+        }
+        .prediction-list { background-color: rgba(20, 15, 12, 0.85); border: 1px solid rgba(255,255,255,0.1); min-height: 60px; max-height: 180px; overflow-y: auto; border-radius: 6px; padding: 8px; display: flex; flex-direction: column; gap: 5px; box-shadow: inset 0 2px 10px rgba(0,0,0,0.6); }
+        .prediction-list::-webkit-scrollbar { width: 4px; }
+        .prediction-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+        .prediction-empty { color: var(--text-dark); font-size: 14px; text-align: center; padding: 10px 0; font-weight: bold; flex-grow: 1; display: flex; align-items: center; justify-content: center; }
+        .pot-card {
+            display: flex; align-items: center; gap: 10px; padding: 6px 9px; border-radius: 5px;
+            background: rgba(50, 42, 38, 0.6); border: 1px solid rgba(255,255,255,0.07); flex-shrink: 0;
+        }
+        .pot-card .pot-ico {
+            width: 42px; height: 42px; border-radius: 5px; background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.15); flex-shrink: 0; position: relative;
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
+        }
+        .pot-card .pot-ico img { width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.8)); }
+        .pot-card .pot-bd { flex: 1; min-width: 0; }
+        .pot-card .pot-nm { font-size: 14px; font-weight: bold; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-shadow: 0 1px 2px rgba(0,0,0,0.6); }
+        .pot-card .pot-hint { font-size: 11px; color: var(--text-dark); opacity: 0.8; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .pot-card.known { border-color: rgba(251, 176, 52, 0.45); }
+        .pot-card.known .pot-ico { border-color: rgba(251, 176, 52, 0.5); box-shadow: 0 0 8px rgba(251,176,52,0.25); }
+        .pot-card.known .pot-nm { color: var(--warm-gold); text-shadow: 0 0 6px rgba(251, 176, 52, 0.35); }
+        .pot-card.foggy .pot-ico img { filter: blur(2px) saturate(0.65) brightness(0.85); }
+        .pot-card.foggy .pot-ico::after {
+            content: '?'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+            font-size: 20px; font-weight: bold; color: rgba(255,255,255,0.85); text-shadow: 0 0 6px rgba(0,0,0,0.9);
+            background: radial-gradient(circle, rgba(30,24,20,0.05) 35%, rgba(30,24,20,0.4) 100%);
+        }
+        .pot-card.foggy .pot-nm { color: var(--warm-orange-dark); }
+        .pot-card.mystery .pot-ico { background: rgba(0,0,0,0.6); }
+        .pot-card.mystery .pot-ico::after { content: '?'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: bold; color: rgba(255,255,255,0.5); }
+        .pot-card.mystery .pot-nm { color: var(--warm-orange-dark); }
+        .pot-card.is-dark { border-color: rgba(224, 85, 85, 0.4); background: linear-gradient(90deg, rgba(224, 85, 85, 0.12), rgba(50, 42, 38, 0.6)); }
+        .pot-card.is-dark .pot-ico { background: rgba(0,0,0,0.6); }
+        .pot-card.is-dark .pot-ico::after { content: '?'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: bold; color: rgba(224,85,85,0.75); }
+        .pot-card.is-dark .pot-nm { color: var(--danger-red); }
+        .warning-box { color: var(--danger-red); font-size: 13px; min-height: 18px; font-weight: bold; text-shadow: 0 1px 2px rgba(0,0,0,0.8); text-align: center; }
+        .action-buttons { display: flex; gap: 10px; width: 100%; }
+        .cook-btn { background: var(--warm-gold); color: #111; border: none; padding: 14px; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; flex-grow: 1; transition: all 0.2s; text-transform: uppercase; box-shadow: 0 4px 15px rgba(251, 176, 52, 0.4); text-shadow: none; }
+        .cook-btn:hover:not(:disabled) { background: var(--warm-orange); box-shadow: 0 6px 20px rgba(255, 149, 0, 0.6); transform: translateY(-2px); }
+        .cook-btn:disabled { background: rgba(60, 50, 45, 0.8); color: rgba(255,255,255,0.3); cursor: not-allowed; box-shadow: none; }
+        .stop-btn { background: var(--danger-red); color: #fff; box-shadow: 0 4px 15px rgba(224, 85, 85, 0.4); display: none; flex-grow: 0; width: 80px; }
+        .stop-btn:hover { background: #ff6b6b; box-shadow: 0 6px 20px rgba(224, 85, 85, 0.6); }
+
+        .progress-container { width: 100%; height: 12px; background-color: rgba(10, 5, 0, 0.6); border-radius: 6px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); display: none; box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); }
+        .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--warm-orange-dark), var(--warm-gold)); border-radius: 6px; box-shadow: 0 0 12px rgba(251, 176, 52, 0.6); }
+
+        #recipeTooltip { position: fixed; background: rgba(30, 24, 22, 0.95); border: 1px solid rgba(251, 176, 52, 0.5); color: var(--text-main); padding: 12px; border-radius: 6px; font-size: 12px; pointer-events: none; z-index: 2000; display: none; line-height: 1.5; box-shadow: 0 8px 24px rgba(0,0,0,0.8); }
+
+        @keyframes overlayFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes modalFadeIn { 0% { opacity: 0; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1); } }
+
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            display: none; justify-content: center; align-items: center; z-index: 1000; cursor: pointer;
+        }
+        .modal-overlay::before { content: ''; position: absolute; inset: 0; z-index: -1; background: rgba(0,0,0,0.6); animation: overlayFadeIn 0.3s ease-out forwards; pointer-events: none; }
+        .modal-content {
+            background: radial-gradient(ellipse at center, rgba(35, 25, 20, 0.95) 0%, rgba(35, 25, 20, 0.7) 40%, transparent 70%);
+            border: none; box-shadow: none; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            min-width: 600px; min-height: 500px; animation: modalFadeIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; pointer-events: none;
+        }
+        .modal-title { margin: 0; color: var(--warm-gold); font-size: 32px; text-shadow: 0 0 20px var(--warm-orange); font-weight: bold; letter-spacing: 2px;}
+        .modal-icon-wrapper {
+            width: 90px; height: 90px; margin: 30px 0 15px 0; background: rgba(0,0,0,0.5); border: 2px solid rgba(251, 176, 52, 0.8);
+            border-radius: 16px; box-shadow: 0 0 30px rgba(251,176,52,0.4), inset 0 0 20px rgba(0,0,0,0.8);
+            display: flex; justify-content: center; align-items: center;
+        }
+        .modal-icon-wrapper img { max-width: 65px; max-height: 65px; filter: drop-shadow(0 5px 8px rgba(0,0,0,0.9)); }
+        .modal-item-name { font-size: 26px; color: var(--text-main); font-weight: bold; text-shadow: 0 2px 5px #000; }
+
+        .modal-product-list { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 14px; max-width: 580px; max-height: 60vh; overflow-y: auto; padding: 16px 8px; margin: 20px auto; pointer-events: auto; }
+        .modal-product-list::-webkit-scrollbar { width: 6px; }
+        .modal-product-list::-webkit-scrollbar-thumb { background: rgba(251, 176, 52, 0.5); border-radius: 3px; }
+        .modal-product-card { width: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: transparent; border: none; box-shadow: none; padding: 0; pointer-events: none; text-align: center; flex-shrink: 0; }
+        .modal-product-card .product-icon-wrapper { width: 90px; height: 90px; background: rgba(0, 0, 0, 0.4); border-radius: 10px; display: flex; justify-content: center; align-items: center; margin: 0 auto 10px; flex-shrink: 0; }
+        .modal-product-card .product-icon-wrapper img { max-width: 75px; max-height: 75px; display: block; margin: auto; object-fit: contain; filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.8)); }
+        .modal-product-card .product-name { font-size: 18px; color: var(--text-main); font-weight: bold; text-align: center; line-height: 1.3; -webkit-line-clamp: 2; -webkit-box-orient: vertical; display: -webkit-box; overflow: hidden; text-shadow: 0 1px 3px #000; margin-bottom: 6px; max-width: 100%; }
+        .modal-product-card .product-tier-badge { font-size: 13px; color: var(--text-main); background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.25); padding: 3px 9px; border-radius: 4px; line-height: 1.2; letter-spacing: 0.5px; }
+        .modal-product-card.tier-high { border-color: var(--army-green-light); box-shadow: 0 0 24px rgba(164, 181, 70, 0.3), inset 0 0 12px rgba(0, 0, 0, 0.8); }
+        .modal-product-card.tier-high .product-tier-badge { color: var(--army-green-light); border-color: var(--army-green-light); }
+        .modal-product-card.tier-low { border-color: rgba(192, 192, 192, 0.5); box-shadow: 0 0 12px rgba(255, 255, 255, 0.1), inset 0 0 12px rgba(0, 0, 0, 0.8); }
+        .modal-product-card.tier-low .product-tier-badge { color: var(--text-dark); border-color: rgba(255, 255, 255, 0.25); }
+        .modal-product-card.is-fail { border-color: rgba(224, 85, 85, 0.65); box-shadow: 0 0 16px rgba(224, 85, 85, 0.3), inset 0 0 12px rgba(0, 0, 0, 0.8); }
+        .modal-product-card.is-fail .product-tier-badge { color: var(--danger-red); border-color: var(--danger-red); }
+        .modal-product-card.q-perfect .product-tier-badge { color: var(--q-perfect); border-color: var(--q-perfect); background: rgba(255, 193, 7, 0.08); }
+        .modal-product-card.q-good .product-tier-badge { color: var(--q-good); border-color: var(--q-good); background: rgba(185, 136, 230, 0.08); }
+        .modal-product-card.q-normal .product-tier-badge { color: var(--text-main); border-color: rgba(255, 255, 255, 0.35); }
+        .modal-product-card.q-fail { filter: saturate(0.5) brightness(0.85); }
+        .modal-product-card.q-fail .product-tier-badge { color: var(--text-dark); border-color: var(--q-fail); }
+
+        .modal-product-card .product-icon-wrapper.q-perfect, .modal-product-card .product-icon-wrapper.q-good,
+        .modal-product-card .product-icon-wrapper.q-normal, .modal-product-card .product-icon-wrapper.q-fail {
+            border-width: 1.5px; border-style: solid; position: relative; overflow: hidden;
+        }
+        .modal-product-card .product-icon-wrapper.q-perfect::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at top right, rgba(255, 193, 7, 0.55) 0%, transparent 28%);
+            border-radius: 9px; pointer-events: none; z-index: 1;
+        }
+        .modal-product-card .product-icon-wrapper.q-perfect { border-color: var(--q-perfect); box-shadow: 0 0 14px 1px var(--q-perfect-glow), inset 0 0 8px rgba(255, 193, 7, 0.18); }
+        .modal-product-card .product-icon-wrapper.q-good    { border-color: var(--q-good);    box-shadow: 0 0 10px var(--q-good-glow), inset 0 0 6px rgba(185, 136, 230, 0.15); }
+        .modal-product-card .product-icon-wrapper.q-normal  { border-color: var(--q-normal); }
+        .modal-product-card .product-icon-wrapper.q-fail    { border-color: var(--q-fail); box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.55), 0 0 4px rgba(0, 0, 0, 0.3); }
+        .modal-product-card .product-icon-wrapper.q-fail img { filter: grayscale(0.55) drop-shadow(0 3px 4px rgba(0, 0, 0, 0.8)); }
+
+        .click-to-close { font-size: 14px; color: var(--text-dark); margin-top: 40px; animation: blink 2s infinite; text-shadow: 0 1px 2px #000; }
+        @keyframes blink { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+        .cook-guide-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.62);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            display: none; justify-content: center; align-items: center;
+            z-index: 300; cursor: pointer;
+        }
+        .cook-guide-overlay.show { display: flex; }
+        .cook-guide-card {
+            position: relative; width: 600px; max-width: 82%; min-height: 480px;
+            background:
+                radial-gradient(ellipse at 50% 38%, rgba(251, 176, 52, 0.10) 0%, rgba(251, 176, 52, 0) 55%),
+                radial-gradient(ellipse at 50% 50%, rgba(35, 28, 24, 0.96) 0%, rgba(28, 22, 18, 0.85) 45%, rgba(18, 14, 12, 0.35) 78%, rgba(0, 0, 0, 0) 100%);
+            border: none; box-shadow: none;
+            padding: 42px 60px 32px 60px;
+            display: flex; flex-direction: column; align-items: center;
+            animation: cookGuideSlideUp 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        @keyframes cookGuideSlideUp {
+            from { opacity: 0; transform: translateY(28px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .cook-guide-title {
+            font-size: 22px; color: var(--warm-gold); font-weight: 600;
+            letter-spacing: 2px; text-align: center; margin-bottom: 4px;
+            text-shadow: 0 0 12px rgba(251, 176, 52, 0.35);
+        }
+        .cook-guide-subtitle {
+            font-size: 13px; color: #aaa; letter-spacing: 1px;
+            text-align: center; margin-bottom: 8px; font-style: italic;
+        }
+        .cook-guide-divider {
+            width: 60%; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(251, 176, 52, 0.5), transparent);
+            margin-bottom: 22px;
+        }
+        .cook-guide-line {
+            font-size: 17px; color: #e6e6e6; line-height: 1.7;
+            text-align: center; margin-bottom: 14px; letter-spacing: 1px;
+        }
+        .cook-guide-view {
+            width: 100%; flex: 1;
+            display: none; flex-direction: column; align-items: center;
+            animation: cookViewFadeIn 0.35s ease;
+        }
+        .cook-guide-view.active { display: flex; }
+        @keyframes cookViewFadeIn {
+            from { opacity: 0; transform: translateX(12px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .cook-guide-steps { display: flex; flex-direction: column; gap: 14px; width: 100%; margin: 4px 0 12px 0; }
+        .cook-guide-step {
+            display: flex; align-items: center; gap: 18px;
+            padding: 14px 22px;
+            background: rgba(20, 15, 12, 0.6);
+            border-left: 2px solid var(--warm-gold); border-radius: 3px;
+        }
+        .cook-guide-step-icon-box {
+            width: 60px; height: 60px; flex-shrink: 0;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid var(--border-color); border-radius: 4px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 0 8px rgba(251, 176, 52, 0.08);
+        }
+        .cook-guide-step-icon-box img {
+            width: 50px; height: 50px; object-fit: contain;
+            filter: drop-shadow(0 0 4px rgba(251, 176, 52, 0.25));
+        }
+        .cook-guide-step-icons-dual { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+        .cook-guide-step-icons-dual .cook-guide-step-icon-box { width: 52px; height: 52px; }
+        .cook-guide-step-icons-dual .cook-guide-step-icon-box img { width: 42px; height: 42px; }
+        .cook-guide-dual-or {
+            font-size: 11px; color: var(--warm-gold); opacity: 0.75;
+            font-weight: bold; margin: 0 2px; letter-spacing: 1px;
+        }
+        .cook-guide-step-text {
+            flex: 1; font-size: 16px; color: #e6e6e6; line-height: 1.55;
+        }
+        .cook-guide-step-text strong {
+            display: inline-block; color: var(--warm-gold); font-weight: 600;
+            margin-right: 10px; font-size: 17px; letter-spacing: 2px;
+        }
+        .cook-guide-tabs-wrap {
+            width: 100%; box-sizing: border-box;
+            margin: 8px 0 20px 0; padding: 22px 24px 0 24px;
+            background: rgba(20, 15, 12, 0.55); border-radius: 6px; position: relative;
+        }
+        .cook-guide-tabs {
+            display: flex; gap: 4px; align-items: stretch;
+            margin-bottom: -1px; justify-content: center; flex-wrap: nowrap;
+        }
+        .cook-guide-tab-demo {
+            padding: 8px 18px; font-size: 15px;
+            background: rgba(20, 15, 12, 0.6); border: 1px solid var(--border-color);
+            border-bottom: none; border-radius: 6px 6px 0 0;
+            color: #999; white-space: nowrap; flex-shrink: 0; letter-spacing: 1px;
+        }
+        .cook-guide-tab-demo.active {
+            background: linear-gradient(180deg, rgba(251, 176, 52, 0.28) 0%, rgba(251, 176, 52, 0.08) 100%);
+            color: var(--warm-gold); border-color: var(--warm-gold); cursor: default;
+        }
+        .cook-guide-tabs-underline {
+            height: 8px;
+            border-top: 1px solid var(--warm-gold);
+            background: linear-gradient(180deg, rgba(20, 15, 12, 0.85) 0%, rgba(20, 15, 12, 0) 100%);
+            box-shadow: 0 0 8px rgba(251, 176, 52, 0.15);
+        }
+        .cook-guide-storage-hint {
+            font-size: 15px; color: #d0d0d0; line-height: 2;
+            text-align: left; padding: 0 12px; width: 100%; box-sizing: border-box;
+        }
+        .cook-guide-storage-hint b { color: var(--warm-gold); }
+        .cook-guide-recipe-list { display: flex; flex-direction: column; gap: 12px; width: 100%; margin: 4px 0 12px 0; }
+        .cook-guide-recipe-row {
+            display: flex; align-items: center; gap: 14px;
+            padding: 10px 18px;
+            background: rgba(20, 15, 12, 0.6); border-radius: 4px;
+            border-left: 2px solid rgba(251, 176, 52, 0.5);
+        }
+        .cook-guide-recipe-row.high {
+            border-left-color: #FFC107;
+            background: linear-gradient(90deg, rgba(255, 193, 7, 0.08) 0%, rgba(20, 15, 12, 0.6) 40%);
+        }
+        .cook-guide-recipe-mats { flex: 1; font-size: 15px; color: #ddd; line-height: 1.5; }
+        .cook-guide-recipe-mats b { color: #fff; }
+        .cook-guide-recipe-arrow {
+            color: var(--warm-gold); font-size: 20px; flex-shrink: 0;
+            text-shadow: 0 0 8px rgba(251, 176, 52, 0.6);
+        }
+        .cook-guide-recipe-dish {
+            display: flex; align-items: center; gap: 10px;
+            flex-shrink: 0; min-width: 158px;
+        }
+        .cook-guide-recipe-dish-icon {
+            width: 46px; height: 46px; flex-shrink: 0;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-color); border-radius: 4px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .cook-guide-recipe-dish-icon img { width: 40px; height: 40px; object-fit: contain; }
+        .cook-guide-recipe-row.high .cook-guide-recipe-dish-icon {
+            border-color: rgba(255, 193, 7, 0.6);
+            box-shadow: 0 0 8px rgba(255, 193, 7, 0.3);
+        }
+        .cook-guide-recipe-dish-name {
+            font-size: 15px; color: var(--warm-gold); font-weight: 600; letter-spacing: 1px;
+        }
+        .cook-guide-recipe-row.high .cook-guide-recipe-dish-name {
+            color: #FFC107; text-shadow: 0 0 8px rgba(255, 193, 7, 0.5);
+        }
+        .cook-guide-recipe-tip {
+            font-size: 13px; color: #999; text-align: center;
+            margin: 6px 0 8px 0; font-style: italic;
+        }
+        .cook-guide-footer {
+            display: flex; align-items: center; justify-content: center;
+            width: 100%; margin-top: 14px; min-height: 44px;
+        }
+        .cook-guide-click-hint {
+            font-size: 13px; color: #999; letter-spacing: 3px;
+            animation: cookGuideHintBlink 2s ease-in-out infinite;
+        }
+        @keyframes cookGuideHintBlink {
+            0%, 100% { opacity: 0.35; }
+            50% { opacity: 0.85; }
+        }
+        .cook-guide-click-hint::before { content: '\203A '; color: var(--warm-gold); }
+        .cook-guide-click-hint::after  { content: ' \2039'; color: var(--warm-gold); }
+        .cook-guide-btn {
+            min-width: 210px; padding: 13px 46px;
+            background:
+                radial-gradient(ellipse at 50% 50%, rgba(251, 176, 52, 0.38) 0%, rgba(251, 176, 52, 0.14) 60%, rgba(251, 176, 52, 0) 100%);
+            border: none; border-radius: 999px;
+            color: var(--warm-gold); font-family: inherit;
+            font-size: 17px; letter-spacing: 5px; cursor: pointer;
+            text-shadow: 0 0 10px rgba(251, 176, 52, 0.5);
+            transition: filter 0.2s, transform 0.15s;
+        }
+        .cook-guide-btn:hover { filter: brightness(1.25); transform: translateY(-1px); }
+        .cook-guide-btn:active { filter: brightness(0.9); transform: translateY(0); }
+
+        .cooking-help-btn {
+            position: absolute; top: 12px; right: 12px;
+            width: 24px; height: 24px; border-radius: 50%;
+            background:
+                radial-gradient(ellipse at 50% 45%, rgba(251, 176, 52, 0.35) 0%, rgba(251, 176, 52, 0.1) 60%, rgba(251, 176, 52, 0) 100%);
+            border: 1px solid rgba(251, 176, 52, 0.5);
+            color: var(--warm-gold);
+            font-family: 'Georgia', serif;
+            font-size: 15px; font-weight: bold; font-style: italic;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 100;
+            transition: filter 0.15s, transform 0.15s, box-shadow 0.15s;
+            text-shadow: 0 0 6px rgba(251, 176, 52, 0.7);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+        }
+        .cooking-help-btn:hover {
+            filter: brightness(1.3); transform: scale(1.08);
+            box-shadow: 0 0 14px rgba(251, 176, 52, 0.5);
+        }
+        .cooking-help-btn:active { transform: scale(0.95); }
+        .cooking-help-btn::after {
+            content: attr(data-tip); position: absolute;
+            top: 32px; right: 0; white-space: nowrap;
+            padding: 5px 10px; font-size: 12px;
+            background: rgba(0, 0, 0, 0.85); border: 1px solid var(--border-color);
+            border-radius: 3px; color: var(--warm-gold);
+            opacity: 0; pointer-events: none; transition: opacity 0.2s;
+            letter-spacing: 1px;
+            font-family: 'Segoe UI', "Microsoft YaHei", sans-serif;
+            font-style: normal; font-weight: normal; text-shadow: none;
+        }
+        .cooking-help-btn:hover::after { opacity: 1; }
+
+        .hotpot-panel { display: none; flex-direction: column; gap: 8px; flex: 1; min-height: 0; }
+        .hotpot-panel.active { display: flex; }
+        .hotpot-readout {
+            display: flex; flex-direction: column; gap: 8px;
+            padding: 14px 12px; border-radius: 6px;
+            background: rgba(0, 0, 0, 0.22);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .hotpot-row { display: flex; align-items: baseline; justify-content: space-between; }
+        .hotpot-label { font-size: 13px; color: var(--text-dark); }
+        .hotpot-value { font-size: 20px; font-weight: bold; color: #fff; font-variant-numeric: tabular-nums; }
+        .hotpot-row-remain .hotpot-label { color: #e8c48a; }
+        .hotpot-value-remain { font-size: 26px; color: #ffb545; text-shadow: 0 0 10px rgba(255, 145, 40, 0.45); }
+        .hotpot-value-morale { font-size: 20px; color: #9fd8ff; }
+        .hotpot-row-rule .hotpot-label { font-size: 12px; }
+        .hotpot-row-rule .hotpot-value { font-size: 14px; color: var(--text-dark); }
+        .hotpot-bar {
+            height: 8px; border-radius: 4px; overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .hotpot-bar-fill {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, #ff7a2f, #ffc061);
+            transition: width 0.25s ease-out;
+        }
+        .hotpot-hint { font-size: 12px; line-height: 1.5; color: var(--text-dark); min-height: 18px; }
+        .hotpot-hint.cold { color: #78b4ff; }
+        .cooking-system.hotpot-view .panel:not(.right-panel) { display: none; }
+        .cooking-system.hotpot-view .bottom-controls { display: none; }
+        .cooking-system.hotpot-view .right-panel { width: 340px; }
+        .hotpot-illust { display: none; align-items: center; justify-content: center; padding: 12px 0 6px; }
+        .cooking-system.hotpot-view .hotpot-illust { display: flex; }
+        .hotpot-illust img {
+            width: 200px; max-width: 70%; user-select: none; -webkit-user-drag: none;
+            border-radius: 10px; border: 1px solid rgba(255, 176, 52, 0.25);
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55), 0 0 18px rgba(255, 145, 40, 0.25);
+        }
+        .hotpot-coeff-note { font-size: 12px; color: var(--warm-gold); opacity: 0.85; text-align: right; }
+
+        html.quality-low .power-badge.battery-low .power-badge-value { animation: none; opacity: 0.78; }
+        html.quality-low .cooking-overlay::before,
+        html.quality-low .cooking-overlay span { animation: none; }
+        html.quality-low .click-to-close { animation: none; }
+        html.quality-low .cook-guide-click-hint { animation: none; }
+    </style>
+</head>
+<body>
+
+<div id="recipeTooltip" data-no-sync></div>
+
+<div class="cooking-system" id="cookingSystem">
+    <div class="panel">
+        <div class="panel-title" id="bagPanelTitle" data-i18n="bagTitle">角色背包</div>
+        <div class="bag-tabs" id="bagTabs">
+            <div class="bag-tab-pinned-slot" id="bagTabPinned"></div>
+            <button class="tab-scroll-btn" id="tabScrollLeft" type="button" aria-label="向左">&lsaquo;</button>
+            <div class="bag-tabs-scroll" id="bagTabsScroll"></div>
+            <button class="tab-scroll-btn" id="tabScrollRight" type="button" aria-label="向右">&rsaquo;</button>
+            <div class="fridge-guide" id="fridgeGuide">
+                <div class="fridge-guide-title" id="fridgeGuideTitle">冰箱可以直接取用了</div>
+                <div class="fridge-guide-body" id="fridgeGuideBody">烹饪熟练度达到 Lv2 —— 做菜时可以直接从冰箱页签拿食材，不用先搬进背包</div>
+                <div class="fridge-guide-footer">
+                    <button class="fridge-guide-btn" id="fridgeGuideBtn" type="button">知道了</button>
+                </div>
+            </div>
+        </div>
+        <div class="grid-container" id="backpackGrid"></div>
+        <div class="bag-toolbar">
+            <button class="bag-sort-btn" id="sortBagBtn" type="button" data-i18n="sortBagBtn">一键整理</button>
+        </div>
+    </div>
+
+    <div class="panel" style="width: 360px;">
+        <button class="cooking-help-btn" id="cookingHelpBtn" type="button" data-tip="重看烹饪引导" aria-label="重看烹饪引导">?</button>
+        <div class="panel-title">
+            <span data-i18n="potTitle">烹饪操作台</span>
+            <span id="workbenchNameDisplay" style="color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.5); margin-left: 6px; font-size: 14px;"></span>
+        </div>
+        <div id="powerBadges" class="power-badges">
+            <span id="badgePower" class="power-badge"><span class="power-badge-label">每10分钟用电</span><span class="power-badge-value">—</span></span>
+            <span id="badgeCost"  class="power-badge"><span class="power-badge-label">本次</span><span class="power-badge-value">—</span></span>
+            <span id="badgeBattery" class="power-badge"><span class="power-badge-label">电池</span><span class="power-badge-value">—</span></span>
+        </div>
+        <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center;">
+            <div style="position: relative;">
+                <div id="potCapacityBar" class="pot-capacity-bar">
+                    <span id="capFood" class="capacity-badge">
+                        <span class="capacity-badge-label" data-i18n="capFoodLabel">食材</span>
+                        <span class="capacity-badge-value">0/0</span>
+                    </span>
+                    <span id="capSeasoning" class="capacity-badge">
+                        <span class="capacity-badge-label" data-i18n="capSeasoningLabel">调味料</span>
+                        <span class="capacity-badge-value">0/0</span>
+                    </span>
+                </div>
+                <div class="grid-container" id="mainPotGrid"></div>
+                <div class="cooking-overlay" id="cookingOverlay"><span data-i18n="cookingText">烹饪中…</span></div>
+            </div>
+        </div>
+
+        <div class="fuel-section">
+            <div class="fuel-section-header">
+                <div class="fuel-section-title" data-i18n="fuelHint">燃料队列</div>
+                <div id="totalHeatDisplay" class="heat-readout-inline">
+                    <span id="heatRequiredSegment" style="display:none;"><span class="label">需要</span><span class="value" id="heatTargetValue">0</span><span class="sep">·</span></span>
+                    <span class="label">已加</span><span class="value" id="heatCurrentValue">0</span>
+                </div>
+            </div>
+            <div class="fuel-queue" id="fuelQueueZone">
+                <div class="fuel-slot" id="activeFuelSlot"><div class="burn-progress-fill" id="burnFill"></div><div class="fuel-slot-text" data-i18n="fuelSlotEmpty">燃烧槽<br>(空)</div></div>
+                <div class="fuel-slot" data-i18n="queueSlot">列队</div><div class="fuel-slot" data-i18n="queueSlot">列队</div><div class="fuel-slot" data-i18n="queueSlot">列队</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel right-panel">
+        <div class="panel-title" id="recipePanelTitle"><span id="recipeBookTitle">菜谱书</span><span class="recipe-count" id="recipeCountDisplay"></span></div>
+        <div class="recipe-section" id="recipeSection"><div class="recipe-list" id="recipeList"></div></div>
+
+        <div class="hotpot-panel" id="hotPotPanel">
+            <div class="panel-title" data-i18n="hotPotTitle">这一锅</div>
+            <div class="hotpot-illust" id="hotPotIllust"><img id="hotPotIllustImg" alt="" draggable="false"></div>
+            <div class="hotpot-readout">
+                <div class="hotpot-row hotpot-row-remain" id="hotPotPreviewRow">
+                    <span class="hotpot-label" data-i18n="hotPotPreviewLabel">预计煮出饱腹度</span>
+                    <span class="hotpot-value hotpot-value-remain" id="hotPotPreviewValue">—</span>
+                </div>
+                <div class="hotpot-row" id="hotPotTasteRow">
+                    <span class="hotpot-label" data-i18n="hotPotTasteLabel">预计美味程度</span>
+                    <span class="hotpot-value" id="hotPotTasteValue">—</span>
+                </div>
+                <div class="hotpot-row" id="hotPotMoralePreviewRow">
+                    <span class="hotpot-label" data-i18n="hotPotMoralePreviewLabel">煮好后每次心态</span>
+                    <span class="hotpot-value hotpot-value-morale" id="hotPotMoralePreviewValue">—</span>
+                </div>
+                <div class="hotpot-coeff-note" id="hotPotCoeffNote" style="display:none;"></div>
+                <div class="hotpot-row hotpot-row-remain" id="hotPotRemainRow" style="display:none;">
+                    <span class="hotpot-label" data-i18n="hotPotRemainLabel">剩余饱腹度</span>
+                    <span class="hotpot-value hotpot-value-remain" id="hotPotRemainValue">—</span>
+                </div>
+                <div class="hotpot-bar" id="hotPotBar" style="display:none;"><div class="hotpot-bar-fill" id="hotPotBarFill"></div></div>
+                <div class="hotpot-row" id="hotPotMoraleRow" style="display:none;">
+                    <span class="hotpot-label" data-i18n="hotPotMoraleLabel">每次享用心态</span>
+                    <span class="hotpot-value hotpot-value-morale" id="hotPotMoraleValue">—</span>
+                </div>
+                <div class="hotpot-row hotpot-row-rule" id="hotPotServeCapRow" style="display:none;">
+                    <span class="hotpot-label" data-i18n="hotPotServeCapLabel">单次享用上限</span>
+                    <span class="hotpot-value" id="hotPotServeCapValue">—</span>
+                </div>
+            </div>
+            <div class="hotpot-hint" id="hotPotHint"></div>
+        </div>
+
+        <div class="bottom-controls">
+            <div class="pot-sec" id="potSection">
+                <div class="pot-sec-title" id="potSectionTitle" style="margin-bottom: 8px;">这一锅</div>
+                <div class="prediction-list" id="predictionList">
+                    <div class="prediction-empty" id="predictionEmpty" data-i18n="waitingText">等待食材投入...</div>
+                </div>
+            </div>
+            <div class="warning-box" id="warningBox"></div>
+            <div class="action-buttons">
+                <button class="cook-btn" id="cookBtn" disabled data-i18n="cookBtn">开始烹饪</button>
+                <button class="cook-btn stop-btn" id="stopBtn" data-i18n="stopBtn">停止</button>
+            </div>
+            <div class="progress-container" id="progressContainer"><div class="progress-bar" id="cookProgressBar"></div></div>
+        </div>
+    </div>
+
+    <div class="cook-guide-overlay" id="cookGuideOverlay">
+        <div class="cook-guide-card">
+            <div class="cook-guide-title" id="cookGuideTitle">烹饪台前 · 觉醒者的第一顿饭</div>
+            <div class="cook-guide-subtitle" id="cookGuideSubtitle">灾变前你也许下过厨，此刻胃里空空——先把锅烧热</div>
+            <div class="cook-guide-divider"></div>
+
+            <div class="cook-guide-view active" data-step="1">
+                <div class="cook-guide-line" id="cookGuideStep1Head">烹饪三步走</div>
+                <div class="cook-guide-steps">
+                    <div class="cook-guide-step">
+                        <div class="cook-guide-step-icon-box">
+                            <img src="../../Res/Food/UI_zhuwuhuatoukuai.png" alt="肉">
+                        </div>
+                        <div class="cook-guide-step-text">
+                            <strong id="cookGuideStep1Label">投料</strong><span id="cookGuideStep1Text">把食材、调味料拖进烹饪操作台</span>
+                        </div>
+                    </div>
+                    <div class="cook-guide-step">
+                        <div class="cook-guide-step-icons-dual">
+                            <div class="cook-guide-step-icon-box">
+                                <img src="../../Res/Material/UI_Item_Icon_Mat_S_1503002201.png" alt="卡式气瓶">
+                            </div>
+                            <span class="cook-guide-dual-or" id="cookGuideDualOr">或</span>
+                            <div class="cook-guide-step-icon-box">
+                                <img src="../../Res/Furniture/UI_Item_Icon_taiyangnengda.png" alt="太阳能电板">
+                            </div>
+                        </div>
+                        <div class="cook-guide-step-text">
+                            <strong id="cookGuideStep2Label">供能</strong><span id="cookGuideStep2Text">柴火灶塞燃料，电烹具靠电力驱动</span>
+                        </div>
+                    </div>
+                    <div class="cook-guide-step">
+                        <div class="cook-guide-step-icon-box">
+                            <img src="../../Res/Food/UI_Item_Icon_Food_niuroudunjuanxincai.png" alt="菜肴">
+                        </div>
+                        <div class="cook-guide-step-text">
+                            <strong id="cookGuideStep3Label">开火</strong><span id="cookGuideStep3Text">点【开始烹饪】，右上会提前告诉你能做出什么</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cook-guide-footer"><div class="cook-guide-click-hint" id="cookGuideClickHint1">点击任意位置继续</div></div>
+            </div>
+
+            <div class="cook-guide-view" data-step="2">
+                <div class="cook-guide-line" id="cookGuideStorageHead">食材从哪儿拿？</div>
+                <div class="cook-guide-tabs-wrap">
+                    <div class="cook-guide-tabs">
+                        <span class="cook-guide-tab-demo active" id="cookGuideTabBag">背包</span>
+                        <span class="cook-guide-tab-demo" id="cookGuideTabFridge1">冰箱·厨房</span>
+                        <span class="cook-guide-tab-demo" id="cookGuideTabFridge2">冰箱·客厅</span>
+                    </div>
+                    <div class="cook-guide-tabs-underline"></div>
+                </div>
+                <div class="cook-guide-storage-hint">
+                    <span id="cookGuideStorageHint1">· <b>角色背包</b>永远在最左</span><br>
+                    <span id="cookGuideStorageHint2">· 家里每台<b>冰箱</b>作为一个页签接入，直接取用</span><br>
+                    <span id="cookGuideStorageHint3">· 冰箱超出可视范围时，两端 <b>‹ ›</b> 按钮翻页</span>
+                </div>
+                <div class="cook-guide-footer"><div class="cook-guide-click-hint" id="cookGuideClickHint2">点击任意位置继续</div></div>
+            </div>
+
+            <div class="cook-guide-view" data-step="3">
+                <div class="cook-guide-line">
+                    <span id="cookGuideRecipeHead">锅里放什么，端出什么</span><br>
+                    <span style="font-size:14px; color:#aaa;" id="cookGuideRecipeSub">百余种菜谱等你摸索</span>
+                </div>
+                <div class="cook-guide-recipe-list">
+                    <div class="cook-guide-recipe-row">
+                        <div class="cook-guide-recipe-mats" id="cookGuideRecipeMats1"><b>菌菇</b>类食材</div>
+                        <span class="cook-guide-recipe-arrow">›</span>
+                        <div class="cook-guide-recipe-dish">
+                            <div class="cook-guide-recipe-dish-icon"><img src="../../Res/Food/qingchaojungu.png" alt="清炒菌菇"></div>
+                            <span class="cook-guide-recipe-dish-name" id="cookGuideRecipeName1">清炒菌菇</span>
+                        </div>
+                    </div>
+                    <div class="cook-guide-recipe-row">
+                        <div class="cook-guide-recipe-mats" id="cookGuideRecipeMats2"><b>大米</b> + <b>鸡蛋</b></div>
+                        <span class="cook-guide-recipe-arrow">›</span>
+                        <div class="cook-guide-recipe-dish">
+                            <div class="cook-guide-recipe-dish-icon"><img src="../../Res/Food/danchaofan.png" alt="蛋炒饭"></div>
+                            <span class="cook-guide-recipe-dish-name" id="cookGuideRecipeName2">蛋炒饭</span>
+                        </div>
+                    </div>
+                    <div class="cook-guide-recipe-row high">
+                        <div class="cook-guide-recipe-mats" id="cookGuideRecipeMats3"><b>原切牛排</b> + <b>松茸</b> + <b>土豆</b></div>
+                        <span class="cook-guide-recipe-arrow">›</span>
+                        <div class="cook-guide-recipe-dish">
+                            <div class="cook-guide-recipe-dish-icon"><img src="../../Res/Food/UI_Item_Icon_Food_songrongniupai.png" alt="松茸牛排盛宴"></div>
+                            <span class="cook-guide-recipe-dish-name" id="cookGuideRecipeName3">松茸牛排盛宴</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cook-guide-recipe-tip" id="cookGuideRecipeTip">调味料是加分项 —— 从"能吃"到"好吃"的那一步</div>
+                <div class="cook-guide-footer"><button class="cook-guide-btn" id="cookGuideBtnOk" type="button">我 学 会 了</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal-content">
+        <h2 class="modal-title" data-i18n="resultTitle">烹饪完成！</h2>
+        <div class="modal-product-list" id="modalProductList"></div>
+        <div class="click-to-close" data-i18n="clickToClose">点击任意位置关闭</div>
+    </div>
+</div>
+
+<script>
+    var core = createWebUICore('Cooking');
+    var i18nText = {
+        bagTitle: '角色背包', potTitle: '烹饪操作台',
+        powerBadgeLabel: '每10分钟用电', costBadgeLabel: '本次', batteryBadgeLabel: '电池',
+        capFoodLabel: '食材', capSeasoningLabel: '调味料',
+        cookingText: '烹饪中…', fuelHint: '燃料队列',
+        heatRequiredLabel: '需要', heatAddedLabel: '已加',
+        fuelSlotEmpty: '燃烧槽<br>(空)', queueSlot: '列队',
+        recipeTitle: '已知菜谱', controlTitle: '预测与控制',
+        hotPotTitle: '这一锅', hotPotPreviewLabel: '预计煮出饱腹度', hotPotRemainLabel: '剩余饱腹度',
+        hotPotTasteLabel: '预计美味程度', hotPotMoralePreviewLabel: '煮好后每次心态',
+        hotPotMoraleLabel: '每次享用心态', hotPotServeCapLabel: '单次享用上限',
+        hotPotCoeffNote: '食材饱腹合计 ×{0} 加成',
+        hotPotCookBtn: '开始煮', hotPotHintReady: '煮好后可以分多次享用，一次吃下一份的量。锅里料越好越丰盛，每口的心情越好。',
+        hotPotHintCold: '停电了，火锅是凉的。来电后可以继续吃，剩下的分量不会少。',
+        hotPotHintEating: '锅里还有东西，点家具上的「享用」就能吃 —— 饿着来吃一整份，心情最好。',
+        waitingText: '等待食材投入...', cookBtn: '开始烹饪', stopBtn: '停止',
+        resultTitle: '烹饪完成！', clickToClose: '点击任意位置关闭',
+        burningText: '燃烧中', fuelReturnTip: '点击退回背包',
+        warningCookingFuel: '烹饪中不可退回燃料！', recipeReady: '已在操作台就绪', recipeCraftable: '点击自动放入操作台', recipeInsufficient: '材料不足',
+        warningNoMaterial: '材料不足，无法快捷填装！', predictionDanger: '高危组合 (预测: 黑暗料理)', predictionPrefix: '推测方向:',
+        recipeBookTitle: '菜谱书', recipeCountFmt: '已解锁 {0} / {1}',
+        fillBtn: '填装', readyShort: '就绪',
+        potKnownHint: '已知菜谱 · 必出', potFoggyHint: '没做过的组合 · 出锅才揭晓',
+        warningFuelOnly: '放入失败：该位置仅限【燃料】类型物品！', warningFuelFull: '燃料队列已满！', warningFoodOnly: '不可将非食材放入烹饪锅！', warningProductOnly: '成品菜无法再次烹饪！',
+        warningCollision: '空间不足或有重叠！', warningNoFuel: '无法生火：燃烧槽和燃料队列均为空！', noFuelBtn: '缺燃料(点击继续)',
+        warningCancelled: '烹饪已中断，食材未消耗，已返还至操作台。', warningFuelEmpty: '燃料已耗尽，请向队列补充木柴等燃料！',
+        startCookText: '开始烹饪', cancelCookText: '取消烹饪',
+        heatValueLabel: '热值', warningFuelOnlyShort: '仅接受可燃物品',
+        warningSeasoningFull: '调味料已达上限', warningFoodFull: '食材已达上限',
+        warningNeedCut: '大件食材需先切割成小块才能下锅！',
+        unknownDish: '未知料理',
+        bagWeightLabel: '背包负重', bagCapacityLabel: '背包容量', bagSpaceLabel: '背包空间',
+        sortBagBtn: '一键整理',
+        pageTitle: '烹饪系统',
+        predictionTitle: '预测产出',
+        tierHighLabel: '高档', tierMidLabel: '中档', tierLowLabel: '低档', tierNaLabel: '-',
+        predictionUnknown: '未知菜肴', predictionMystery: '???', predictionDark: '黑暗料理',
+        qualityPerfect: '完美', qualityGood: '良好', qualityNormal: '普通', qualityFail: '失败',
+        cookGuideTitle: '烹饪台前 · 觉醒者的第一顿饭',
+        cookGuideSubtitle: '灾变前你也许下过厨，此刻胃里空空——先把锅烧热',
+        cookGuideStep1Head: '烹饪三步走',
+        cookGuideStep1Label: '投料', cookGuideStep1Text: '把食材、调味料拖进烹饪操作台',
+        cookGuideStep2Label: '供能', cookGuideStep2Text: '柴火灶塞燃料，电烹具靠电力驱动',
+        cookGuideStep3Label: '开火', cookGuideStep3Text: '点【开始烹饪】，右上会提前告诉你能做出什么',
+        cookGuideDualOr: '或',
+        cookGuideStorageHead: '食材从哪儿拿？',
+        cookGuideStorageTabBag: '背包', cookGuideStorageTabFridge1: '冰箱·厨房', cookGuideStorageTabFridge2: '冰箱·客厅',
+        cookGuideStorageHint1: '· <b>角色背包</b>永远在最左',
+        cookGuideStorageHint2: '· 家里每台<b>冰箱</b>作为一个页签接入，直接取用',
+        cookGuideStorageHint3: '· 冰箱超出可视范围时，两端 <b>‹ ›</b> 按钮翻页',
+        cookGuideRecipeHead: '锅里放什么，端出什么',
+        cookGuideRecipeSub: '百余种菜谱等你摸索',
+        cookGuideRecipeMats1: '<b>菌菇</b>类食材', cookGuideRecipeName1: '清炒菌菇',
+        cookGuideRecipeMats2: '<b>大米</b> + <b>鸡蛋</b>', cookGuideRecipeName2: '蛋炒饭',
+        cookGuideRecipeMats3: '<b>原切牛排</b> + <b>松茸</b> + <b>土豆</b>', cookGuideRecipeName3: '松茸牛排盛宴',
+        cookGuideRecipeTip: '调味料是加分项 —— 从"能吃"到"好吃"的那一步',
+        cookGuideBtnOk: '我 学 会 了',
+        cookGuideClickHint: '点击任意位置继续',
+        cookingHelpTip: '重看烹饪引导',
+        fridgeGuideTitle: '冰箱可以直接取用了',
+        fridgeGuideBody: '烹饪熟练度达到 Lv2 —— 做菜时可以直接从冰箱页签拿食材，不用先搬进背包',
+        fridgeGuideBtn: '知道了',
+        shelfLifeLabel: '保质期',
+        moldyLabel: '已经发霉'
+    };
+
+    var i18nFallback = Object.assign({}, i18nText);
+
+    var applyItemBadges = function(el, itemData) {
+        var raw = itemData._raw || {};
+        if (raw.burnable) el.classList.add('is-fuel');
+        if (raw.category === 1 && raw.canCook !== false) el.classList.add('is-food');
+        if (raw.isExpired) {
+            el.classList.add('expired');
+            var mask = document.createElement('div');
+            mask.className = 'expired-mask';
+            el.appendChild(mask);
+        } else if (raw.nearExpiry){
+          var nearMask = document.createElement('div');
+          nearMask.className = 'near-expiry-mask';
+          el.appendChild(nearMask);
+        }
+        if (raw.polluted) {
+            var ring = document.createElement('div');
+            ring.className = 'polluted-ring';
+            el.appendChild(ring);
+        }
+        var frozen = (itemData.containerId === 'backpackGrid') ? State.bagFrozen : State.workbenchFrozen;
+        if (frozen) {
+            var frost = document.createElement('div');
+            frost.className = 'item-frost';
+            el.appendChild(frost);
+        }
+    };
+    function applyFrozenClass() {
+        var bagEl = document.getElementById('backpackGrid');
+        if (bagEl) bagEl.classList.toggle('is-frozen', !!State.bagFrozen);
+        var potEl = document.getElementById('mainPotGrid');
+        if (potEl) potEl.classList.toggle('is-frozen', !!State.workbenchFrozen);
+    }
+
+    var _fit = createViewportFit({ measureSelector: '.cooking-system', margin: 48, bodyHeightProp: 'minHeight' });
+    function getUiZoom() { return _fit.getZoom(); }
+
+    var backpack = createGridBag('backpackGrid', { cols: 6, rows: 5, onItemRendered: applyItemBadges });
+
+    var bagLock = createGridSizeLock('backpackGrid');
+    var pot = createGridBag('mainPotGrid', { cols: 5, rows: 4, onItemRendered: applyItemBadges });
+    var cookingConfig = { maxFoodCount: 0, maxSeasoningCount: 0, cookType: 0, fuelSlotCount: 3, fuelRate: 1.0 };
+
+    // 「脚边」横排实例（页面初始化末尾创建）；创建前到的快照先暂存
+    var groundDock = null;
+    var groundDockJson = '';
+
+    // 拖到左栏其他页签：松手即把整叠放进那个容器（自动找位），界面停在当前页签
+    var tabDropHandled = false;
+    var tabDrop = createTabDrop({
+        getTabs: function() {
+            var out = [];
+            if (!DOM.bagTabs || DOM.bagTabs.style.display === 'none') return out;
+            DOM.bagTabs.querySelectorAll('.bag-tab').forEach(function(el) {
+                if (el.classList.contains('active') || el._ownerId === undefined) return;
+                out.push({ el: el, key: el._ownerId, blocked: el.classList.contains('locked') });
+            });
+            return out;
+        },
+        onDrop: function(key, itemData, blocked) {
+            var srcBag = itemData && itemData.containerId === pot.getContainerId() ? pot : backpack;
+            // 上锁的冰箱同样发过去：由那边飘出解锁条件
+            core.UnitySendEvent('DROP_TO_TAB', {
+                itemId: parseInt(itemData.id), fromOwnerId: srcBag.getOwnerId(), toOwnerId: key
+            });
+        }
+    });
+
+    var dragCoord = createBagDragCoordinator([backpack, pot], {
+        canAcceptItem: function(targetBag, itemData, isFinal) {
+            // 从「脚边」横排拖来的东西只进左栏当前页签容器；操作台有自己的投料准入，不收地上的东西
+            if (itemData && itemData._external) return targetBag !== pot;
+            if (targetBag !== pot) return true;
+            if (!itemData._raw || itemData._raw.category !== 1) { if (isFinal) showWarning(i18nText.warningFoodOnly); return false; }
+            if (itemData._raw.canCook === false) { if (isFinal) showWarning(i18nText.warningProductOnly); return false; }
+            if (itemData._raw.needCut) { if (isFinal) showWarning(i18nText.warningNeedCut); return false; }
+            var potItems = pot.getItems(), totalCount = 0;
+            for (var i = 0; i < potItems.length; i++) {
+                if (potItems[i].id === itemData.id) continue;
+                totalCount++;
+            }
+            if (totalCount >= cookingConfig.maxFoodCount) { if (isFinal) showWarning(i18nText.warningFoodFull || '食材已达上限'); return false; }
+            return true;
+        },
+        onItemMove: function(data) { core.UnitySendEvent('ITEM_MOVE', data); },
+        onExternalDrop: function(payload, target) {
+            if (payload && payload.groundBoxId) {
+                if (target && target.bag === backpack) {
+                    core.UnitySendEvent('GROUND_PICK_TO', {
+                        id: payload.groundBoxId, ownerId: target.bag.getOwnerId(), x: target.x, y: target.y
+                    });
+                }
+                if (groundDock) groundDock.clearDragging();
+                return;
+            }
+        },
+        onItemPickup: function(itemData) {
+            core.UnitySendEvent('SFX_ITEM_PICKUP', { itemId: itemData ? itemData.id : 0 });
+            if (tabDrop) tabDrop.arm();
+        },
+        onItemPutback: function(itemData) {
+            // 投进别的页签那一下格子动画也是回弹，但操作本身已经发出去了，不放「放回原处」的音效
+            if (tabDropHandled) { tabDropHandled = false; return; }
+            core.UnitySendEvent('SFX_ITEM_PUTBACK', { itemId: itemData ? itemData.id : 0 });
+        },
+        onDragFinished: function() { tabDropHandled = false; if (tabDrop) tabDrop.disarm(); },
+        onItemClick: function(itemId, rightClick) { core.UnitySendEvent('ITEM_CLICK', { itemId: itemId, rightClick: !!rightClick }); },
+        onItemHover: function(itemId, isEnter) {
+            core.UnitySendEvent('ITEM_HOVER', { itemId: itemId, isEnter: isEnter });
+            if (!isEnter) { hideFuelTip(); return; }
+            var all = (State.lastBagItems || []).concat(State.lastWorkbenchItems || []);
+            for (var i = 0; i < all.length; i++) {
+                if (all[i] && all[i].itemId == itemId) {
+                    showItemTip(all[i]);
+                    return;
+                }
+            }
+        }
+    });
+
+    var DOM = {
+        cookingSystem: document.getElementById('cookingSystem'),
+        hotPotPanel: document.getElementById('hotPotPanel'),
+        hotPotIllustImg: document.getElementById('hotPotIllustImg'),
+        hotPotPreviewRow: document.getElementById('hotPotPreviewRow'),
+        hotPotPreviewValue: document.getElementById('hotPotPreviewValue'),
+        hotPotTasteRow: document.getElementById('hotPotTasteRow'),
+        hotPotTasteValue: document.getElementById('hotPotTasteValue'),
+        hotPotMoralePreviewRow: document.getElementById('hotPotMoralePreviewRow'),
+        hotPotMoralePreviewValue: document.getElementById('hotPotMoralePreviewValue'),
+        hotPotMoraleRow: document.getElementById('hotPotMoraleRow'),
+        hotPotMoraleValue: document.getElementById('hotPotMoraleValue'),
+        hotPotServeCapRow: document.getElementById('hotPotServeCapRow'),
+        hotPotServeCapValue: document.getElementById('hotPotServeCapValue'),
+        hotPotCoeffNote: document.getElementById('hotPotCoeffNote'),
+        hotPotRemainRow: document.getElementById('hotPotRemainRow'),
+        hotPotRemainValue: document.getElementById('hotPotRemainValue'),
+        hotPotBar: document.getElementById('hotPotBar'),
+        hotPotBarFill: document.getElementById('hotPotBarFill'),
+        hotPotHint: document.getElementById('hotPotHint'),
+        recipePanelTitle: document.getElementById('recipePanelTitle'),
+        recipeBookTitle: document.getElementById('recipeBookTitle'),
+        recipeCountDisplay: document.getElementById('recipeCountDisplay'),
+        recipeSection: document.getElementById('recipeSection'),
+        potSection: document.getElementById('potSection'),
+        potSectionTitle: document.getElementById('potSectionTitle'),
+        fuelQueueZone: document.getElementById('fuelQueueZone'), activeFuelSlot: document.getElementById('activeFuelSlot'),
+        predictionList: document.getElementById('predictionList'), predictionEmpty: document.getElementById('predictionEmpty'),
+        modalProductList: document.getElementById('modalProductList'),
+        warningBox: document.getElementById('warningBox'), cookBtn: document.getElementById('cookBtn'), stopBtn: document.getElementById('stopBtn'),
+        burnFill: document.getElementById('burnFill'), modalOverlay: document.getElementById('modalOverlay'),
+        recipeList: document.getElementById('recipeList'), recipeTooltip: document.getElementById('recipeTooltip'), progressContainer: document.getElementById('progressContainer'), cookProgressBar: document.getElementById('cookProgressBar'), cookingOverlay: document.getElementById('cookingOverlay'),
+        workbenchNameDisplay: document.getElementById('workbenchNameDisplay'), totalHeatDisplay: document.getElementById('totalHeatDisplay'),
+        heatRequiredSegment: document.getElementById('heatRequiredSegment'),
+        heatTargetValue: document.getElementById('heatTargetValue'),
+        heatCurrentValue: document.getElementById('heatCurrentValue'),
+        powerBadges: document.getElementById('powerBadges'),
+        badgePower: document.getElementById('badgePower'),
+        badgeCost: document.getElementById('badgeCost'),
+        badgeBattery: document.getElementById('badgeBattery'),
+        potCapacityBar: document.getElementById('potCapacityBar'),
+        capFood: document.getElementById('capFood'),
+        capSeasoning: document.getElementById('capSeasoning'),
+        bagPanelTitle: document.getElementById('bagPanelTitle'),
+        bagTabs: document.getElementById('bagTabs'),
+        fridgeGuide: document.getElementById('fridgeGuide'),
+        bagTabPinned: document.getElementById('bagTabPinned'),
+        bagTabsScroll: document.getElementById('bagTabsScroll'),
+        tabScrollLeft: document.getElementById('tabScrollLeft'),
+        tabScrollRight: document.getElementById('tabScrollRight')
+    };
+
+    var State = {
+        bagCols: 6, bagRows: 5, bagMaxCols: 0, bagMaxRows: 0, lastBagItems: [], lastWorkbenchItems: [], workbenchName: '',
+        fuelQueue: [], activeFuel: null, isCooking: false, isCancelledByUser: false,
+        cookDuration: 0, cookProgress: 0, cookType: 0, _progressTimer: null, _fuelDisplayPct: 100, _fuelAnimTimer: null,
+        powerCost: 0, batteryPercent: 0, currentCookPowerCost: 0, currentCookHeatRequired: 0,
+        hotPotMode: false, hotPotTotal: 0, hotPotRemain: 0, hotPotPowered: false, hotPotPreview: 0, hotPotIcon: '', hotPotCoeff: 0,
+        bagFrozen: false, workbenchFrozen: false,
+        hotPotServeCap: 0, hotPotMorale: 0, hotPotTastePreview: 0, hotPotMoralePreview: 0,
+        lastRecipes: [], lastPredictionEntries: [], recipeUnlockedCount: 0, recipeTotalCount: 0
+    };
+
+    function updatePotCapacityDisplay() {
+        if (!DOM.potCapacityBar || !DOM.capFood || !DOM.capSeasoning) return;
+        var items = State.lastWorkbenchItems || [], total = items.length;
+        var maxFood = cookingConfig.maxFoodCount || 0;
+        var maxSeasoning = cookingConfig.maxSeasoningCount || 0;
+
+        var foodValEl = DOM.capFood.querySelector('.capacity-badge-value');
+        if (foodValEl) foodValEl.textContent = total + '/' + maxFood;
+        DOM.capFood.classList.toggle('is-full', maxFood > 0 && total >= maxFood);
+        DOM.capFood.classList.toggle('is-hidden', maxFood <= 0);
+
+        DOM.capSeasoning.classList.toggle('is-hidden', maxSeasoning <= 0);
+    }
+
+    function renderHotPot() {
+        if (!DOM.hotPotPanel) return;
+
+        var on = !!State.hotPotMode;
+        var remain = State.hotPotRemain || 0;
+        var hasFood = remain > 0;
+        if (DOM.cookingSystem) DOM.cookingSystem.classList.toggle('hotpot-view', on && hasFood);
+
+        DOM.hotPotPanel.classList.toggle('active', on);
+        if (DOM.recipePanelTitle) DOM.recipePanelTitle.style.display = on ? 'none' : '';
+        if (DOM.recipeSection) DOM.recipeSection.style.display = on ? 'none' : '';
+        if (DOM.potSection) DOM.potSection.style.display = on ? 'none' : '';
+        if (!on) return;
+
+        var total = State.hotPotTotal || 0;
+
+        if (DOM.hotPotIllustImg && State.hotPotIcon
+            && DOM.hotPotIllustImg.getAttribute('src') !== State.hotPotIcon) {
+            DOM.hotPotIllustImg.src = State.hotPotIcon;
+        }
+
+        if (DOM.hotPotPreviewRow) DOM.hotPotPreviewRow.style.display = hasFood ? 'none' : '';
+        if (DOM.hotPotTasteRow) DOM.hotPotTasteRow.style.display = hasFood ? 'none' : '';
+        if (DOM.hotPotMoralePreviewRow) DOM.hotPotMoralePreviewRow.style.display = hasFood ? 'none' : '';
+        if (DOM.hotPotRemainRow) DOM.hotPotRemainRow.style.display = hasFood ? '' : 'none';
+        if (DOM.hotPotBar) DOM.hotPotBar.style.display = hasFood ? '' : 'none';
+        if (DOM.hotPotMoraleRow) DOM.hotPotMoraleRow.style.display = hasFood ? '' : 'none';
+
+        if (hasFood) {
+            DOM.hotPotRemainValue.textContent = Math.round(remain);
+            DOM.hotPotBarFill.style.width = total > 0
+                ? Math.max(0, Math.min(100, remain / total * 100)) + '%'
+                : '0%';
+            if (DOM.hotPotMoraleValue) {
+                var morale = State.hotPotMorale || 0;
+                DOM.hotPotMoraleValue.textContent = morale > 0 ? '+' + Math.round(morale) : '—';
+            }
+        } else {
+            if (DOM.hotPotPreviewValue) {
+                var preview = State.hotPotPreview || 0;
+                DOM.hotPotPreviewValue.textContent = preview > 0 ? Math.round(preview) : '—';
+            }
+            if (DOM.hotPotTasteValue) {
+                var taste = State.hotPotTastePreview || 0;
+                DOM.hotPotTasteValue.textContent = taste > 0 ? (Math.round(taste * 10) / 10) : '—';
+            }
+            if (DOM.hotPotMoralePreviewValue) {
+                var moralePreview = State.hotPotMoralePreview || 0;
+                DOM.hotPotMoralePreviewValue.textContent = moralePreview > 0 ? '+' + Math.round(moralePreview) : '—';
+            }
+        }
+
+        if (DOM.hotPotServeCapRow) {
+            var cap = State.hotPotServeCap || 0;
+            DOM.hotPotServeCapRow.style.display = cap > 0 ? '' : 'none';
+            if (cap > 0 && DOM.hotPotServeCapValue) DOM.hotPotServeCapValue.textContent = Math.round(cap);
+        }
+
+        if (DOM.hotPotCoeffNote) {
+            var coeff = State.hotPotCoeff || 0;
+            var showCoeff = !hasFood && coeff > 1;
+            DOM.hotPotCoeffNote.style.display = showCoeff ? '' : 'none';
+            if (showCoeff) {
+                DOM.hotPotCoeffNote.textContent = (i18nText.hotPotCoeffNote || '食材饱腹合计 ×{0} 加成')
+                    .replace('{0}', Math.round(coeff * 10) / 10);
+            }
+        }
+
+        var hint = DOM.hotPotHint;
+        hint.classList.remove('cold');
+        if (hasFood && !State.hotPotPowered) {
+            hint.classList.add('cold');
+            hint.textContent = i18nText.hotPotHintCold;
+        } else if (hasFood) {
+            hint.textContent = i18nText.hotPotHintEating;
+        } else {
+            hint.textContent = i18nText.hotPotHintReady;
+        }
+
+        if (DOM.cookBtn) {
+            DOM.cookBtn.textContent = i18nText.hotPotCookBtn;
+            if (hasFood) DOM.cookBtn.disabled = true;
+        }
+    }
+
+    function renderPowerBadges() {
+        if (!DOM.powerBadges) return;
+        if (State.cookType !== 2) { DOM.powerBadges.classList.remove('is-electric'); return; }
+        DOM.powerBadges.classList.add('is-electric');
+
+        if (DOM.badgePower) {
+            DOM.badgePower.querySelector('.power-badge-value').textContent = (State.powerCost > 0) ? State.powerCost : '—';
+        }
+
+        if (DOM.badgeCost) {
+            var costEl = DOM.badgeCost.querySelector('.power-badge-value');
+            costEl.textContent = (State.currentCookPowerCost > 0) ? State.currentCookPowerCost : '—';
+        }
+
+        if (DOM.badgeBattery) {
+            var pct = Math.max(0, Math.min(100, State.batteryPercent));
+            var valEl = DOM.badgeBattery.querySelector('.power-badge-value');
+            valEl.textContent = Math.round(pct) + '%';
+            DOM.badgeBattery.classList.remove('battery-warn', 'battery-low');
+            if (pct < 20) DOM.badgeBattery.classList.add('battery-low');
+            else if (pct < 40) DOM.badgeBattery.classList.add('battery-warn');
+        }
+    }
+
+
+    function updateTotalHeatDisplay() {
+        if (!DOM.totalHeatDisplay) return;
+        var total = 0;
+        if (State.activeFuel && State.activeFuel.maxTime) {
+            total += State.activeFuel.maxTime * (State._fuelDisplayPct / 100);
+        }
+        if (State.fuelQueue) {
+            for (var i = 0; i < State.fuelQueue.length; i++) {
+                var q = State.fuelQueue[i];
+                total += (q.fuelValue || 0) * (q.count || 1);
+            }
+        }
+        var current = Math.round(total);
+        var required = State.currentCookHeatRequired || 0;
+        if (DOM.heatCurrentValue) DOM.heatCurrentValue.textContent = current;
+        if (DOM.heatTargetValue) DOM.heatTargetValue.textContent = required;
+        if (DOM.heatRequiredSegment) DOM.heatRequiredSegment.style.display = required > 0 ? '' : 'none';
+    }
+
+    function triggerEnhancedSuccessBurst() {
+        var parent = DOM.cookingOverlay.parentElement;
+        var burst = document.createElement('div'); burst.className = 'success-burst'; parent.appendChild(burst);
+        for (var i = 0; i < 15; i++) {
+            var particle = document.createElement('div'); particle.className = 'burst-particle';
+            var angle = Math.random() * Math.PI * 2, dist = 60 + Math.random() * 80;
+            particle.style.setProperty('--tx', (Math.cos(angle) * dist) + 'px');
+            particle.style.setProperty('--ty', (Math.sin(angle) * dist) + 'px');
+            parent.appendChild(particle);
+            (function(p){ setTimeout(function(){ if(p.parentNode) p.parentNode.removeChild(p); }, 1000); })(particle);
+        }
+        setTimeout(function() { if(burst.parentNode) burst.parentNode.removeChild(burst); }, 1200);
+    }
+
+    function tierLabel(tier) {
+        switch (tier) {
+            case 1: return i18nText.tierHighLabel || '高档';
+            case 2: return i18nText.tierMidLabel || '中档';
+            case 3: return i18nText.tierLowLabel || '低档';
+            default: return i18nText.tierNaLabel || '-';
+        }
+    }
+    function qualityLabel(qt) {
+        switch (qt) {
+            case 3: return '【' + (i18nText.qualityPerfect || '完美') + '】';
+            case 2: return '【' + (i18nText.qualityGood || '良好') + '】';
+            case 1: return '【' + (i18nText.qualityNormal || '普通') + '】';
+            default: return '【' + (i18nText.qualityFail || '失败') + '】';
+        }
+    }
+    var QUALITY_TIER_CLASS = { 3: 'q-perfect', 2: 'q-good', 1: 'q-normal', 0: 'q-fail' };
+    function createProductCard(p) {
+        var card = document.createElement('div');
+        card.className = 'modal-product-card';
+        var tier = p.CookingTier || 0;
+        var qt = p.QualityTier || 0;
+        var qClass = QUALITY_TIER_CLASS[qt];
+        if (qClass) {
+            card.classList.add(qClass);
+        } else {
+            if (tier === 1) card.classList.add('tier-high');
+            else if (tier === 3) card.classList.add('tier-low');
+        }
+
+        var iconWrap = document.createElement('div');
+        iconWrap.className = 'product-icon-wrapper';
+        if (qClass) iconWrap.classList.add(qClass);
+        if (p.Icon) {
+            var img = document.createElement('img');
+            img.src = p.Icon;
+            img.onerror = function () { this.style.display = 'none'; };
+            iconWrap.appendChild(img);
+        }
+
+        var name = document.createElement('div');
+        name.className = 'product-name';
+        name.textContent = p.RecipeName || (i18nText.unknownDish || '未知料理');
+
+        var badge = document.createElement('div');
+        badge.className = 'product-tier-badge';
+        badge.textContent = qualityLabel(qt);
+
+        card.appendChild(iconWrap);
+        card.appendChild(name);
+        card.appendChild(badge);
+        return card;
+    }
+    function showCookingModal(products) {
+        var list = DOM.modalProductList;
+        if (!list) return;
+        list.innerHTML = '';
+        if (!Array.isArray(products) || products.length === 0) {
+            list.appendChild(createProductCard({ RecipeName: i18nText.unknownDish || '未知料理', QualityTier: 1, CookingTier: 0 }));
+        } else {
+            products.forEach(function (p) { list.appendChild(createProductCard(p)); });
+        }
+        DOM.modalOverlay.style.display = 'flex';
+    }
+    function renderPredictionList(entries) {
+        State.lastPredictionEntries = Array.isArray(entries) ? entries : [];
+        var list = DOM.predictionList;
+        if (!list) return;
+        var old = list.querySelectorAll('.pot-card');
+        old.forEach(function (e) { e.remove(); });
+        var empty = DOM.predictionEmpty;
+        if (!Array.isArray(entries) || entries.length === 0) {
+            if (empty) empty.style.display = '';
+            return;
+        }
+        if (empty) empty.style.display = 'none';
+        entries.forEach(function (entry) {
+            var isDark = entry.RecipeId === 0;
+            var known = entry.Level === 2;
+            var icon = entry.Icon || '';
+            var div = document.createElement('div');
+            div.className = 'pot-card ' + (isDark ? 'is-dark' : (known ? 'known' : (icon ? 'foggy' : 'mystery')));
+
+            var ico = document.createElement('div');
+            ico.className = 'pot-ico';
+            if (icon && !isDark) {
+                var img = document.createElement('img');
+                img.src = icon;
+                ico.appendChild(img);
+            }
+            div.appendChild(ico);
+
+            var bd = document.createElement('div');
+            bd.className = 'pot-bd';
+            var nm = document.createElement('div');
+            nm.className = 'pot-nm';
+            nm.textContent = entry.Name || '';
+            bd.appendChild(nm);
+            if (!isDark) {
+                var hint = document.createElement('div');
+                hint.className = 'pot-hint';
+                hint.textContent = known ? (i18nText.potKnownHint || '已知菜谱 · 必出')
+                                         : (i18nText.potFoggyHint || '没做过的组合 · 出锅才揭晓');
+                bd.appendChild(hint);
+            }
+            div.appendChild(bd);
+            list.appendChild(div);
+        });
+    }
+
+    function createTabEl(t, isActive) {
+        var el = document.createElement('div');
+        el.className = 'bag-tab' + (isActive ? ' active' : '');
+        el.textContent = t.name || '';
+        el._ownerId = t.ownerId;
+        if (t.locked) {
+            el.classList.add('locked');
+            var lockBadge = document.createElement('span');
+            lockBadge.className = 'recipe-lock-badge';
+            el.appendChild(lockBadge);
+        }
+        if (t.isNew) el.classList.add('guide-hint');
+        if (!isActive) {
+            (function(ownerId) {
+                el.addEventListener('click', function() {
+                    fridgeGuideDismissed = true;
+                    hideFridgeGuide();
+                    core.UnitySendEvent('SWITCH_BAG', { ownerId: ownerId });
+                });
+            })(t.ownerId);
+        }
+        return el;
+    }
+
+    var fridgeGuideDismissed = false;
+    var lastFridgeGuideFlag = false;
+
+    function updateFridgeGuideArrow() {
+        var guide = DOM.fridgeGuide;
+        if (!guide || !DOM.bagTabs) return;
+        var hinted = DOM.bagTabs.querySelector('.bag-tab.guide-hint');
+        if (!hinted) return;
+        var barRect = DOM.bagTabs.getBoundingClientRect();
+        var tabRect = hinted.getBoundingClientRect();
+        if (barRect.width <= 0) return;
+        var centerPx = (tabRect.left + tabRect.width / 2) - barRect.left;
+        var clamped = Math.max(12, Math.min(barRect.width - 12, centerPx));
+        guide.style.setProperty('--arrow-x', clamped + 'px');
+    }
+
+    function showFridgeGuide() {
+        if (!DOM.fridgeGuide) return;
+        DOM.fridgeGuide.classList.add('show');
+        requestAnimationFrame(updateFridgeGuideArrow);
+    }
+
+    function hideFridgeGuide() {
+        if (DOM.fridgeGuide) DOM.fridgeGuide.classList.remove('show');
+        if (DOM.bagTabs) {
+            var hints = DOM.bagTabs.querySelectorAll('.bag-tab.guide-hint');
+            for (var i = 0; i < hints.length; i++) hints[i].classList.remove('guide-hint');
+        }
+    }
+
+    function renderBagTabs(tabs, currentOwnerId) {
+        if (!DOM.bagTabs || !DOM.bagTabPinned || !DOM.bagTabsScroll) return;
+        tabs = tabs || [];
+        if (tabs.length <= 1) {
+            DOM.bagTabs.style.display = 'none';
+            DOM.bagTabPinned.innerHTML = '';
+            DOM.bagTabsScroll.innerHTML = '';
+            if (DOM.bagPanelTitle) DOM.bagPanelTitle.style.display = '';
+            return;
+        }
+        DOM.bagTabs.style.display = 'flex';
+        if (DOM.bagPanelTitle) DOM.bagPanelTitle.style.display = 'none';
+
+        DOM.bagTabPinned.innerHTML = '';
+        DOM.bagTabsScroll.innerHTML = '';
+
+        var first = tabs[0];
+        DOM.bagTabPinned.appendChild(createTabEl(first, first.ownerId === currentOwnerId));
+
+        for (var i = 1; i < tabs.length; i++) {
+            var t = tabs[i];
+            DOM.bagTabsScroll.appendChild(createTabEl(t, t.ownerId === currentOwnerId));
+        }
+
+        requestAnimationFrame(syncBagTabsWidth);
+        requestAnimationFrame(updateFridgeGuideArrow);
+    }
+
+    function syncBagTabsWidth() {
+        if (!DOM.bagTabs) return;
+        var grid = document.getElementById('backpackGrid');
+        if (!grid) { updateTabScrollButtons(); return; }
+        var w = Math.max(bagLock.width(), grid.offsetWidth);
+        if (w > 0) DOM.bagTabs.style.width = Math.floor(w * 15 / 16) + 'px';
+        updateTabScrollButtons();
+    }
+
+    function updateTabScrollButtons() {
+        var scroll = DOM.bagTabsScroll;
+        if (!scroll || !DOM.tabScrollLeft || !DOM.tabScrollRight) return;
+        var needScroll = scroll.scrollWidth > scroll.clientWidth + 1;
+        DOM.tabScrollLeft.classList.toggle('is-visible', needScroll);
+        DOM.tabScrollRight.classList.toggle('is-visible', needScroll);
+        if (needScroll) {
+            DOM.tabScrollLeft.disabled = scroll.scrollLeft <= 0;
+            DOM.tabScrollRight.disabled = scroll.scrollLeft >= scroll.scrollWidth - scroll.clientWidth - 1;
+        }
+    }
+
+    core.registerHandlers({
+        'WebUI_Cooking_BagMsg': function(data) {
+            backpack.setOwnerId(data.bagOwnerId || 0); pot.setOwnerId(data.workbenchOwnerId || 0);
+            State.lastBagItems = data.bagItems || [];
+            State.lastWorkbenchItems = data.workbenchItems || [];
+
+            if (data.bagTabs !== undefined) {
+                renderBagTabs(data.bagTabs, data.bagOwnerId || 0);
+            }
+            
+            if (data.bagCols !== undefined) { State.bagCols = data.bagCols; if (data.bagRows !== undefined) State.bagRows = data.bagRows; backpack.resize(State.bagCols, State.bagRows); }
+            if (data.bagMaxCols !== undefined) State.bagMaxCols = data.bagMaxCols;
+            if (data.bagMaxRows !== undefined) State.bagMaxRows = data.bagMaxRows;
+            if (data.cookType !== undefined) State.cookType = data.cookType;
+            if (data.powerCost !== undefined) State.powerCost = data.powerCost;
+            if (data.batteryPercent !== undefined) State.batteryPercent = data.batteryPercent;
+            renderPowerBadges();
+            if (data.workbenchCols !== undefined) pot.resize(data.workbenchCols, data.workbenchRows);
+            if (data.maxFoodCount !== undefined) cookingConfig.maxFoodCount = data.maxFoodCount;
+            if (data.maxSeasoningCount !== undefined) cookingConfig.maxSeasoningCount = data.maxSeasoningCount;
+            if (data.cookType !== undefined) cookingConfig.cookType = data.cookType;
+            var fuelSlotChanged = false;
+            if (data.fuelSlotCount !== undefined && cookingConfig.fuelSlotCount !== data.fuelSlotCount) { cookingConfig.fuelSlotCount = data.fuelSlotCount; fuelSlotChanged = true; }
+            if (data.fuelRate !== undefined) cookingConfig.fuelRate = data.fuelRate;
+
+            var fuelSection = document.querySelector('.fuel-section');
+            if (fuelSection) fuelSection.style.display = (cookingConfig.cookType === 2) ? 'none' : '';
+
+            if (data.workbenchName !== undefined) {
+                State.workbenchName = data.workbenchName;
+                if (DOM.workbenchNameDisplay) DOM.workbenchNameDisplay.textContent = State.workbenchName ? (' - ' + State.workbenchName) : '';
+            }
+
+            if (data.bagIsFreezing !== undefined) State.bagFrozen = !!(data.bagIsFreezing && data.bagIsPowered);
+            if (data.workbenchIsFreezing !== undefined) State.workbenchFrozen = !!(data.workbenchIsFreezing && data.workbenchIsPowered);
+            applyFrozenClass();
+
+            backpack.refresh(data.bagItems || []); pot.refresh(data.workbenchItems || []);
+            bagLock.apply({ cols: State.bagCols, rows: State.bagRows, maxCols: State.bagMaxCols, maxRows: State.bagMaxRows });
+            _fit.apply();
+
+            if (data.showGuide === true) { openGuide(); }
+            if (data.showFridgeGuide !== undefined) {
+                if (data.showFridgeGuide && !lastFridgeGuideFlag) fridgeGuideDismissed = false;
+                lastFridgeGuideFlag = !!data.showFridgeGuide;
+                if (data.showFridgeGuide && !fridgeGuideDismissed) showFridgeGuide();
+                else hideFridgeGuide();
+            }
+            if (groundDock) groundDock.place();
+
+            requestAnimationFrame(syncBagTabsWidth);
+
+            if (data.fuelItems) {
+                State.fuelQueue = []; State.activeFuel = null;
+                data.fuelItems.forEach(function(fi, idx) {
+                    var item = { id: fi.configId, name: fi.name, icon: fi.icon, fuelValue: fi.burnValue, count: fi.count, burnProgress: fi.burnProgress };
+                    if (idx === 0) { State.activeFuel = { item: item, maxTime: fi.burnValue, remainingTime: fi.burnValue * (1 - fi.burnProgress), animStartPct: (1 - (fi.burnProgressStart || 0)) * 100, animEndPct: (1 - (fi.burnProgressEnd || 0)) * 100, animDuration: fi.burnDurationSeconds || 0 }; } 
+                    else { item.animStartPct = (1 - (fi.burnProgressStart || 0)) * 100; item.animEndPct = (1 - (fi.burnProgressEnd || 0)) * 100; item.animDuration = fi.burnDurationSeconds || 0; State.fuelQueue.push(item); }
+                });
+                if (!State.activeFuel && State.fuelQueue.length > 0) loadNextFuel(); else renderFuelArea();
+            } else if (fuelSlotChanged) {
+                renderFuelArea();
+            }
+            updatePotCapacityDisplay();
+            updateUI();
+        },
+        'WebUI_Cooking_ResultMsg': function(data) {
+            if (!data || data.productsJson === undefined) return;
+            if (data.productsJson === '' || data.productsJson === '[]') return;
+            try {
+                var products = JSON.parse(data.productsJson);
+                if (!products || products.length === 0) return;
+                triggerEnhancedSuccessBurst();
+                setTimeout(function () { showCookingModal(products); }, 350);
+            } catch (e) {
+                console.error('[Cooking] productsJson parse failed:', e, data.productsJson);
+            }
+        },
+        'WebUI_Cooking_RecipeMsg': function(data) {
+            if (data.recipes !== undefined) renderRecipeListFromData(data.recipes || []);
+            var countDirty = false;
+            if (data.unlockedCount !== undefined) { State.recipeUnlockedCount = data.unlockedCount; countDirty = true; }
+            if (data.totalCount !== undefined) { State.recipeTotalCount = data.totalCount; countDirty = true; }
+            if (countDirty) updateRecipeCount();
+        },
+        'WebUI_Cooking_PredictionMsg': function(data) {
+            if (data.predictionListJson !== undefined) {
+                try {
+                    var entries = JSON.parse(data.predictionListJson || '[]');
+                    renderPredictionList(entries);
+                } catch (e) {
+                    renderPredictionList([]);
+                }
+            }
+        },
+        'WebUI_Cooking_CookingStateMsg': function(data) {
+            if (data.currentCookPowerCost !== undefined) { State.currentCookPowerCost = data.currentCookPowerCost; renderPowerBadges(); }
+            if (data.currentCookHeatRequired !== undefined) { State.currentCookHeatRequired = data.currentCookHeatRequired; updateTotalHeatDisplay(); }
+            var hotPotDirty = false;
+            if (data.hotPotMode !== undefined) { State.hotPotMode = data.hotPotMode; hotPotDirty = true; }
+            if (data.hotPotTotal !== undefined) { State.hotPotTotal = data.hotPotTotal; hotPotDirty = true; }
+            if (data.hotPotRemain !== undefined) { State.hotPotRemain = data.hotPotRemain; hotPotDirty = true; }
+            if (data.hotPotPowered !== undefined) { State.hotPotPowered = data.hotPotPowered; hotPotDirty = true; }
+            if (data.hotPotPreview !== undefined) { State.hotPotPreview = data.hotPotPreview; hotPotDirty = true; }
+            if (data.hotPotIcon !== undefined) { State.hotPotIcon = data.hotPotIcon; hotPotDirty = true; }
+            if (data.hotPotCoeff !== undefined) { State.hotPotCoeff = data.hotPotCoeff; hotPotDirty = true; }
+            if (data.hotPotServeCap !== undefined) { State.hotPotServeCap = data.hotPotServeCap; hotPotDirty = true; }
+            if (data.hotPotMorale !== undefined) { State.hotPotMorale = data.hotPotMorale; hotPotDirty = true; }
+            if (data.hotPotTastePreview !== undefined) { State.hotPotTastePreview = data.hotPotTastePreview; hotPotDirty = true; }
+            if (data.hotPotMoralePreview !== undefined) { State.hotPotMoralePreview = data.hotPotMoralePreview; hotPotDirty = true; }
+            if (hotPotDirty) { renderHotPot(); if (groundDock) groundDock.place(); }
+            if (data.isCooking !== undefined) {
+                if (data.isCooking && !State.isCooking) {
+                    State.cookDuration = data.cookDuration || 0; State.cookProgress = data.cookProgress || 0;
+                    State.isCooking = true; State.isCancelledByUser = false; enterCookingMode();
+                    renderPowerBadges();
+                } else if (!data.isCooking && State.isCooking) {
+                    exitCookingMode();
+                    State.isCancelledByUser = false;
+                }
+            }
+            if (data.cookDuration !== undefined && data.cookDuration > 0 && State.isCooking) { State.cookDuration = data.cookDuration; }
+            if (data.cookProgress !== undefined && State.isCooking) { State.cookProgress = data.cookProgress; setCookProgressWidth(State.cookProgress); }
+            if (data.isPaused !== undefined && State.isCooking) {
+                if (data.isPaused) { if (State._progressTimer) { clearInterval(State._progressTimer); State._progressTimer = null; } }
+                else if (!State._progressTimer) { if (data.cookDuration > 0) State.cookDuration = data.cookDuration; enterCookingMode(); }
+            }
+        },
+        'WebUI_Cooking_GroundDockMsg': function(data) {
+            if (!data || data.groundDockJson === undefined) return;
+            groundDockJson = data.groundDockJson;
+            if (groundDock) groundDock.setData(groundDockJson);
+        },
+        'WebUI_Cooking_LocalizationMsg': function(data) {
+            if (!data) return;
+            Object.assign(i18nText, data);
+            for (var fk in i18nFallback) { if (i18nText[fk] === '') i18nText[fk] = i18nFallback[fk]; }
+            if (data.cookBtn) i18nText.startCookText = data.cookBtn;
+
+            if (data.bagTitle) core.i18n.updateText('[data-i18n="bagTitle"]', data.bagTitle);
+            if (data.potTitle) core.i18n.updateText('[data-i18n="potTitle"]', data.potTitle);
+            if (data.sortBagBtn) core.i18n.updateText('[data-i18n="sortBagBtn"]', data.sortBagBtn);
+            if (data.capFoodLabel) core.i18n.updateText('[data-i18n="capFoodLabel"]', data.capFoodLabel);
+            if (data.capSeasoningLabel) core.i18n.updateText('[data-i18n="capSeasoningLabel"]', data.capSeasoningLabel);
+            if (data.cookingText) core.i18n.updateText('[data-i18n="cookingText"]', data.cookingText);
+            if (data.fuelHint) core.i18n.updateText('[data-i18n="fuelHint"]', data.fuelHint);
+            if (data.recipeTitle) core.i18n.updateText('[data-i18n="recipeTitle"]', data.recipeTitle);
+            if (data.controlTitle) core.i18n.updateText('[data-i18n="controlTitle"]', data.controlTitle);
+            if (data.waitingText) core.i18n.updateText('[data-i18n="waitingText"]', data.waitingText);
+            if (data.cookBtn) core.i18n.updateText('[data-i18n="cookBtn"]', data.cookBtn);
+            if (data.stopBtn) core.i18n.updateText('[data-i18n="stopBtn"]', data.stopBtn);
+            if (data.resultTitle) core.i18n.updateText('[data-i18n="resultTitle"]', data.resultTitle);
+            if (data.recipeBookTitle && DOM.recipeBookTitle) DOM.recipeBookTitle.textContent = data.recipeBookTitle;
+            if (data.recipeCountFmt) updateRecipeCount();
+            if (data.fillBtn || data.readyShort) renderRecipeListFromData(State.lastRecipes);
+            if (data.potKnownHint || data.potFoggyHint) renderPredictionList(State.lastPredictionEntries);
+            if (data.hotPotTitle) {
+                core.i18n.updateText('[data-i18n="hotPotTitle"]', data.hotPotTitle);
+                if (DOM.potSectionTitle) DOM.potSectionTitle.textContent = data.hotPotTitle;
+            }
+            if (data.hotPotPreviewLabel) core.i18n.updateText('[data-i18n="hotPotPreviewLabel"]', data.hotPotPreviewLabel);
+            if (data.hotPotRemainLabel) core.i18n.updateText('[data-i18n="hotPotRemainLabel"]', data.hotPotRemainLabel);
+            if (data.hotPotTasteLabel) core.i18n.updateText('[data-i18n="hotPotTasteLabel"]', data.hotPotTasteLabel);
+            if (data.hotPotMoralePreviewLabel) core.i18n.updateText('[data-i18n="hotPotMoralePreviewLabel"]', data.hotPotMoralePreviewLabel);
+            if (data.hotPotMoraleLabel) core.i18n.updateText('[data-i18n="hotPotMoraleLabel"]', data.hotPotMoraleLabel);
+            if (data.hotPotServeCapLabel) core.i18n.updateText('[data-i18n="hotPotServeCapLabel"]', data.hotPotServeCapLabel);
+            if (data.hotPotHintReady || data.hotPotHintCold || data.hotPotHintEating
+                || data.hotPotCookBtn || data.hotPotCoeffNote) renderHotPot();
+            if (data.fuelSlotEmpty) {
+                var fseDom = document.querySelector('[data-i18n="fuelSlotEmpty"]');
+                if (fseDom && !State.activeFuel) fseDom.innerHTML = core.safeHtml(data.fuelSlotEmpty);
+            }
+            if (data.queueSlot) { var qSlots = document.querySelectorAll('[data-i18n="queueSlot"]'); for (var i = 0; i < qSlots.length; i++) qSlots[i].textContent = data.queueSlot; }
+            if (data.clickToClose) core.i18n.updateText('[data-i18n="clickToClose"]', data.clickToClose);
+
+            if (data.powerBadgeLabel) { var el = document.querySelector('#badgePower .power-badge-label'); if (el) el.textContent = data.powerBadgeLabel; }
+            if (data.costBadgeLabel)  { var el = document.querySelector('#badgeCost .power-badge-label');  if (el) el.textContent = data.costBadgeLabel; }
+            if (data.batteryBadgeLabel) { var el = document.querySelector('#badgeBattery .power-badge-label'); if (el) el.textContent = data.batteryBadgeLabel; }
+            if (data.heatRequiredLabel) { var el = document.querySelector('#heatRequiredSegment .label'); if (el) el.textContent = data.heatRequiredLabel; }
+            if (data.heatAddedLabel) {
+                var labels = DOM.totalHeatDisplay ? DOM.totalHeatDisplay.querySelectorAll(':scope > .label') : [];
+                for (var i = 0; i < labels.length; i++) labels[i].textContent = data.heatAddedLabel;
+            }
+            if (data.pageTitle) document.title = data.pageTitle;
+
+            var setText = function(id, key) { if (data[key]) { var el = document.getElementById(id); if (el) el.textContent = data[key]; } };
+            var setHtml = function(id, key) { if (data[key]) { var el = document.getElementById(id); if (el) el.innerHTML = core.safeHtml(data[key]); } };
+            setText('cookGuideTitle', 'cookGuideTitle');
+            setText('cookGuideSubtitle', 'cookGuideSubtitle');
+            setText('cookGuideStep1Head', 'cookGuideStep1Head');
+            setText('cookGuideStep1Label', 'cookGuideStep1Label'); setText('cookGuideStep1Text', 'cookGuideStep1Text');
+            setText('cookGuideStep2Label', 'cookGuideStep2Label'); setText('cookGuideStep2Text', 'cookGuideStep2Text');
+            setText('cookGuideStep3Label', 'cookGuideStep3Label'); setText('cookGuideStep3Text', 'cookGuideStep3Text');
+            setText('cookGuideDualOr', 'cookGuideDualOr');
+            setText('cookGuideStorageHead', 'cookGuideStorageHead');
+            setText('cookGuideTabBag', 'cookGuideStorageTabBag');
+            setText('cookGuideTabFridge1', 'cookGuideStorageTabFridge1');
+            setText('cookGuideTabFridge2', 'cookGuideStorageTabFridge2');
+            setHtml('cookGuideStorageHint1', 'cookGuideStorageHint1');
+            setHtml('cookGuideStorageHint2', 'cookGuideStorageHint2');
+            setHtml('cookGuideStorageHint3', 'cookGuideStorageHint3');
+            setText('cookGuideRecipeHead', 'cookGuideRecipeHead');
+            setText('cookGuideRecipeSub', 'cookGuideRecipeSub');
+            setHtml('cookGuideRecipeMats1', 'cookGuideRecipeMats1'); setText('cookGuideRecipeName1', 'cookGuideRecipeName1');
+            setHtml('cookGuideRecipeMats2', 'cookGuideRecipeMats2'); setText('cookGuideRecipeName2', 'cookGuideRecipeName2');
+            setHtml('cookGuideRecipeMats3', 'cookGuideRecipeMats3'); setText('cookGuideRecipeName3', 'cookGuideRecipeName3');
+            setText('cookGuideRecipeTip', 'cookGuideRecipeTip');
+            setText('cookGuideBtnOk', 'cookGuideBtnOk');
+            setText('cookGuideClickHint1', 'cookGuideClickHint'); setText('cookGuideClickHint2', 'cookGuideClickHint');
+            if (data.cookingHelpTip) { var hb = document.getElementById('cookingHelpBtn'); if (hb) hb.setAttribute('data-tip', data.cookingHelpTip); }
+            setText('fridgeGuideTitle', 'fridgeGuideTitle');
+            setText('fridgeGuideBody', 'fridgeGuideBody');
+            setText('fridgeGuideBtn', 'fridgeGuideBtn');
+        }
+    });
+
+    function setCookProgressWidth(progress) {
+        var q = Math.round(progress * 200) / 200;
+        if (q === State._cookProgressQ) return;
+        State._cookProgressQ = q;
+        DOM.cookProgressBar.style.width = (q * 100) + '%';
+    }
+
+    function setBurnFillHeight(pct) {
+        var q = Math.round(pct * 2) / 2;
+        if (q === State._burnFillQ) return;
+        State._burnFillQ = q;
+        DOM.burnFill.style.height = q + '%';
+    }
+
+    function updateFuelText() {
+        var activeText = DOM.activeFuelSlot.querySelector('.fuel-slot-text');
+        if (!activeText || !State.activeFuel) return;
+        var item = State.activeFuel.item;
+        var pctText = Math.round(State._fuelDisplayPct) + '%';
+        var pctEl = activeText.querySelector('.fuel-pct');
+        var iconEl = activeText.querySelector('.fuel-icon');
+        var iconUnchanged = item.icon ? (iconEl && iconEl.getAttribute('src') === item.icon) : !iconEl;
+        if (pctEl && iconUnchanged) {
+            if (pctEl.textContent !== pctText) pctEl.textContent = pctText;
+            return;
+        }
+        activeText.innerHTML = (item.icon ? '<img src="' + item.icon + '" class="fuel-icon">' : '') + '<div class="fuel-pct">' + pctText + '</div>';
+    }
+
+    function animateFuelPct(startPct, endPct, durationSec) {
+        if (State._fuelAnimTimer) clearInterval(State._fuelAnimTimer);
+        if (durationSec <= 0) { State._fuelDisplayPct = endPct; updateFuelText(); setBurnFillHeight(endPct); updateTotalHeatDisplay(); return; }
+        State._fuelDisplayPct = startPct; var elapsed = 0, interval = 50;
+        State._fuelAnimTimer = setInterval(function() {
+            elapsed += interval; var t = Math.min(elapsed / (durationSec * 1000), 1); State._fuelDisplayPct = startPct + (endPct - startPct) * t;
+            updateFuelText(); setBurnFillHeight(State._fuelDisplayPct); updateTotalHeatDisplay();
+            if (t >= 1) { clearInterval(State._fuelAnimTimer); State._fuelAnimTimer = null; if (endPct <= 0) loadNextFuel(); }
+        }, interval);
+    }
+
+    function renderFuelArea() {
+        var children = Array.from(DOM.fuelQueueZone.children); children.forEach(function(child) { if (child.id !== 'activeFuelSlot') child.remove(); });
+        var activeText = DOM.activeFuelSlot.querySelector('.fuel-slot-text');
+        if (State.activeFuel) {
+            DOM.activeFuelSlot.classList.add('active-burn'); var af = State.activeFuel;
+            if (af.animDuration > 0) { animateFuelPct(af.animStartPct, af.animEndPct, af.animDuration); } 
+            else { if (State._fuelAnimTimer) { clearInterval(State._fuelAnimTimer); State._fuelAnimTimer = null; } State._fuelDisplayPct = (af.remainingTime / af.maxTime) * 100; updateFuelText(); setBurnFillHeight(State._fuelDisplayPct); }
+        } else {
+            DOM.activeFuelSlot.classList.remove('active-burn'); activeText.innerHTML = core.safeHtml(i18nText.fuelSlotEmpty); setBurnFillHeight(0); State._fuelDisplayPct = 100;
+            if (State._fuelAnimTimer) { clearInterval(State._fuelAnimTimer); State._fuelAnimTimer = null; }
+        }
+        var maxQueueRender = Math.max((cookingConfig.fuelSlotCount || 3) - 1, 0);
+        for (var i = 0; i < maxQueueRender; i++) {
+            var slot = document.createElement('div'); slot.className = 'fuel-slot';
+            if (i < State.fuelQueue.length) {
+                var qItem = State.fuelQueue[i]; slot.classList.add('queued-item');
+                slot.innerHTML = '<div class="fuel-slot-text">' + (qItem.icon ? '<img src="' + qItem.icon + '" class="fuel-icon">' : '') + '<div class="fuel-name">' + core.escapeHtml(qItem.name) + '</div></div>';
+                (function(idx, item) {
+                    slot.addEventListener('mouseenter', function() { showFuelTip(item.name, item.fuelValue || 0, i18nText.fuelReturnTip); });
+                    slot.addEventListener('mouseleave', hideFuelTip);
+                    slot.onclick = function() { returnFuelToBackpack(idx); };
+                })(i, qItem);
+            } else { slot.textContent = i18nText.queueSlot; }
+            DOM.fuelQueueZone.appendChild(slot);
+        }
+        updateTotalHeatDisplay();
+    }
+
+    function returnFuelToBackpack(queueIndex) {
+        var slotIndex = queueIndex + (State.activeFuel ? 1 : 0); core.UnitySendEvent('FUEL_RETURN', { slotIndex: slotIndex });
+    }
+    function loadNextFuel() {
+        if (State.fuelQueue.length > 0) { var nextItem = State.fuelQueue.shift(); State.activeFuel = { item: nextItem, maxTime: nextItem.fuelValue || 4000, remainingTime: nextItem.fuelValue || 4000, animStartPct: nextItem.animStartPct || 100, animEndPct: nextItem.animEndPct || 0, animDuration: nextItem.animDuration || 0 }; } 
+        else { State.activeFuel = null; } renderFuelArea();
+    }
+
+    // 投进别的页签后先把回弹回来的原格子藏住，免得「弹回去再消失」闪一下；
+    // 放进去了，格子刷新会重建整栏（旧节点随之移除）；过一会儿节点还在 = 没放进去，恢复显示
+    function hideUntilRefresh(itemId) {
+        setTimeout(function() {
+            var el = document.getElementById(String(itemId));
+            if (!el) return;
+            el.style.visibility = 'hidden';
+            setTimeout(function() { if (el.isConnected) el.style.visibility = ''; }, 800);
+        }, 0);
+    }
+
+    dragCoord.setDropInterceptor(function(itemData, mouseX, mouseY) {
+        // 落在左栏其他页签上：放入由 Unity 判定并刷新两侧格子，这里一律回弹。
+        // 放进去了，刷新会把它从原格子里拿掉；放不进（满了 / 超重 / 上锁）那边会飘字，原格子照旧
+        var tabResult = tabDrop.drop(mouseX, mouseY, itemData);
+        if (tabResult) {
+            tabDropHandled = true;
+            if (tabResult === 'ok') hideUntilRefresh(itemData.id);
+            return 'reject';
+        }
+        var rect = DOM.fuelQueueZone.getBoundingClientRect();
+        if (!(mouseX >= rect.left && mouseX <= rect.right && mouseY >= rect.top && mouseY <= rect.bottom)) {
+            // 底板内（面板、面板间空隙、锅格子周边的标签和留白）一律回弹；拖出底板（含「脚边」横排）才丢地上，口径同 ToolTable
+            var box = DOM.cookingSystem && DOM.cookingSystem.getBoundingClientRect();
+            if (box && mouseX >= box.left && mouseX <= box.right && mouseY >= box.top && mouseY <= box.bottom) return 'reject';
+            return false;
+        }
+        if (itemData._raw && itemData._raw.burnable) {
+            if ((State.activeFuel ? 1 : 0) + State.fuelQueue.length >= cookingConfig.fuelSlotCount) { showWarning(i18nText.warningFuelFull || '燃料队列已满！'); return 'reject'; }
+            core.UnitySendEvent('FUEL_ADD', { itemId: parseInt(itemData.id) }); return true;
+        }
+        showWarning(i18nText.warningFuelOnlyShort || '仅接受可燃物品'); return 'reject';
+    });
+    var _fuelMousePos = null, _fuelRafId = 0, _fuelZoneRect = null, _wasDraggingForFuel = false;
+    document.addEventListener('mousemove', function(e) {
+        _fuelMousePos = { x: e.clientX, y: e.clientY };
+        if (_fuelRafId) return;
+        _fuelRafId = requestAnimationFrame(function() {
+            _fuelRafId = 0;
+            var dragging = dragCoord.isDragging();
+            if (!dragging) {
+                if (_wasDraggingForFuel) {
+                    DOM.fuelQueueZone.classList.remove('drag-over');
+                    _wasDraggingForFuel = false; _fuelZoneRect = null;
+                }
+                return;
+            }
+            if (!_wasDraggingForFuel) {
+                _fuelZoneRect = DOM.fuelQueueZone.getBoundingClientRect();
+                _wasDraggingForFuel = true;
+            }
+            var item = dragCoord.getDraggedItem(), pos = _fuelMousePos, rect = _fuelZoneRect;
+            var inside = pos && rect && pos.x >= rect.left && pos.x <= rect.right && pos.y >= rect.top && pos.y <= rect.bottom;
+            DOM.fuelQueueZone.classList.toggle('drag-over', inside && item && item._raw && item._raw.burnable);
+        });
+    });
+
+    function renderRecipeListFromData(recipes) {
+        State.lastRecipes = recipes || [];
+        DOM.recipeList.innerHTML = '';
+        for (var i = 0; i < recipes.length; i++) {
+            var r = recipes[i], el = document.createElement('div'); el.className = 'book-item';
+            if (r.craftLocked) el.classList.add('craft-locked');
+            else if (r.status === 2) el.classList.add('ready');
+            else if (r.status === 1) el.classList.add('fillable');
+            else el.classList.add('insuff');
+
+            var icoHtml = r.icon ? '<img src="' + r.icon + '" loading="lazy" decoding="async">' : '<span class="ico-ph">?</span>';
+            var costLine = r.craftLocked ? (r.craftLockText || '') : (r.costText || '').replace(/\|/g, ' · ');
+            var stHtml = '';
+            if (!r.craftLocked) {
+                if (r.status === 2) stHtml = '<span class="st-ready">' + core.escapeHtml(i18nText.readyShort || '就绪') + '</span>';
+                else if (r.status === 1) stHtml = '<span class="st-fill">' + core.escapeHtml(i18nText.fillBtn || '填装') + '</span>';
+            }
+            el.innerHTML = '<div class="book-ico">' + icoHtml + '</div>'
+                + '<div class="book-bd"><div class="book-nm">' + core.escapeHtml(r.name) + (r.craftLocked ? '<span class="recipe-lock-badge"></span>' : '') + '</div>'
+                + '<div class="book-cost">' + core.escapeHtml(costLine) + '</div></div>' + stHtml;
+
+            if (r.status === 1 || r.craftLocked) { (function(recipeId) { el.addEventListener('click', function() { core.UnitySendEvent('RECIPE_CLICK', { recipeId: recipeId }); }); })(r.recipeId); }
+            (function(recipe, element) {
+                element.addEventListener('mouseenter', function(e) {
+                    var tip;
+                    if (recipe.craftLocked) {
+                        tip = recipe.name + '\n' + (recipe.craftLockText || '');
+                    } else {
+                        var statusLine = recipe.status === 2 ? i18nText.recipeReady : (recipe.status === 1 ? i18nText.recipeCraftable : i18nText.recipeInsufficient);
+                        tip = recipe.name + '\n'
+                            + (recipe.effectText ? recipe.effectText + '\n' : '')
+                            + (recipe.costText || '').replace(/\|/g, '\n') + '\n' + statusLine;
+                    }
+                    DOM.recipeTooltip.textContent = tip; DOM.recipeTooltip.style.whiteSpace = 'pre-line'; DOM.recipeTooltip.style.display = 'block'; moveTooltip(e);
+                });
+                element.addEventListener('mouseleave', function() { DOM.recipeTooltip.style.display = 'none'; });
+            })(r, el);
+            DOM.recipeList.appendChild(el);
+        }
+    }
+
+    function updateRecipeCount() {
+        if (!DOM.recipeCountDisplay) return;
+        if (State.recipeTotalCount > 0) {
+            var fmt = i18nText.recipeCountFmt || '已解锁 {0} / {1}';
+            DOM.recipeCountDisplay.textContent = fmt.replace('{0}', State.recipeUnlockedCount).replace('{1}', State.recipeTotalCount);
+        } else {
+            DOM.recipeCountDisplay.textContent = '';
+        }
+    }
+    function moveTooltip(e) { var z = getUiZoom(); DOM.recipeTooltip.style.left = ((e.clientX + 15) / z) + 'px'; DOM.recipeTooltip.style.top = ((e.clientY + 15) / z) + 'px'; }
+
+    var _heatTipLastMouse = { x: 0, y: 0 };
+    var _heatTipRafId = 0;
+    document.addEventListener('mousemove', function(e) {
+        _heatTipLastMouse.x = e.clientX; _heatTipLastMouse.y = e.clientY;
+        if (_heatTipRafId) return;
+        _heatTipRafId = requestAnimationFrame(function () {
+            _heatTipRafId = 0;
+            if (DOM.recipeTooltip.style.display === 'block') {
+                moveTooltip({ clientX: _heatTipLastMouse.x, clientY: _heatTipLastMouse.y });
+            }
+        });
+    });
+    function showFuelTip(name, burnValue, extra) {
+        var lines = [];
+        if (name) lines.push(name);
+        lines.push(i18nText.heatValueLabel + ' ' + burnValue);
+        if (extra) lines.push(extra);
+        DOM.recipeTooltip.textContent = lines.join('\n');
+        DOM.recipeTooltip.style.whiteSpace = 'pre-line';
+        DOM.recipeTooltip.style.display = 'block';
+        moveTooltip({ clientX: _heatTipLastMouse.x, clientY: _heatTipLastMouse.y });
+    }
+    function hideFuelTip() { DOM.recipeTooltip.style.display = 'none'; }
+
+    function showItemTip(item) {
+        if (!item) return;
+        var lines = [];
+        if (item.name) lines.push(item.name);
+        if (item.burnValue > 0) lines.push(i18nText.heatValueLabel + ' ' + item.burnValue);
+        if (item.polluted) lines.push(i18nText.moldyLabel || '已经发霉');
+        if (item.shelfLife) lines.push((i18nText.shelfLifeLabel || '保质期') + ': ' + item.shelfLife);
+        if (lines.length === 0) return;
+        DOM.recipeTooltip.textContent = lines.join('\n');
+        DOM.recipeTooltip.style.whiteSpace = 'pre-line';
+        DOM.recipeTooltip.style.display = 'block';
+        moveTooltip({ clientX: _heatTipLastMouse.x, clientY: _heatTipLastMouse.y });
+    }
+
+    function getPotItems() { return pot.getItems(); }
+    function updateUI() {
+        var potItems = getPotItems();
+        DOM.cookBtn.disabled = potItems.length === 0;
+    }
+
+    function enterCookingMode() {
+        DOM.cookBtn.textContent = i18nText.cancelCookText || '取消烹饪'; DOM.cookBtn.disabled = false; DOM.stopBtn.style.display = 'none'; DOM.progressContainer.style.display = 'block';
+        setCookProgressWidth(State.cookProgress); DOM.cookingOverlay.classList.add('show');
+        if (State._progressTimer) clearInterval(State._progressTimer);
+        State._progressTimer = setInterval(function() {
+            if (!State.isCooking || State.cookDuration <= 0) return; State.cookProgress += 0.05 / State.cookDuration;
+            if (State.cookProgress > 1) State.cookProgress = 1; setCookProgressWidth(State.cookProgress);
+        }, 50);
+    }
+
+    function exitCookingMode() {
+        if (State._progressTimer) { clearInterval(State._progressTimer); State._progressTimer = null; }
+        State.isCooking = false; DOM.cookBtn.textContent = i18nText.startCookText || '开始烹饪'; DOM.cookBtn.disabled = (getPotItems().length === 0);
+        DOM.progressContainer.style.display = 'none'; setCookProgressWidth(0); DOM.cookingOverlay.classList.remove('show'); State.cookProgress = 0;
+        State.cookDuration = 0; renderPowerBadges();
+    }
+
+    DOM.cookBtn.addEventListener('click', function() { if (State.isCooking) { State.isCancelledByUser = true; core.UnitySendEvent('STOP_COOK'); } else { State.isCancelledByUser = false; core.UnitySendEvent('START_COOK'); } });
+    DOM.stopBtn.addEventListener('click', function() { State.isCancelledByUser = true; core.UnitySendEvent('STOP_COOK'); });
+    function showWarning(msg) { DOM.warningBox.textContent = msg; setTimeout(function() { DOM.warningBox.textContent = ''; }, 3000); }
+    function closeModal() { DOM.modalOverlay.style.display = 'none'; }
+    // 按下点在「脚边」横排上的这一下（点捡 / 从横排拖出去松手），松手处落在空白时 click 会冒到 body 上，
+    // 不能当成「点空白关面板」
+    var _pressFromGroundDock = false;
+    window.addEventListener('mousedown', function(e) {
+        _pressFromGroundDock = !!(e.target && e.target.closest && e.target.closest('.gd-row'));
+    }, true);
+    document.body.addEventListener('click', function(e) {
+        if (e.target !== document.body) return;
+        if (_pressFromGroundDock) return;
+        if (State._progressTimer) { clearInterval(State._progressTimer); State._progressTimer = null; }
+        if (State._fuelAnimTimer) { clearInterval(State._fuelAnimTimer); State._fuelAnimTimer = null; }
+        core.UnitySendEvent('CLOSE');
+    });
+
+    DOM.activeFuelSlot.addEventListener('mouseenter', function() {
+        if (State.activeFuel && State.activeFuel.item) {
+            var it = State.activeFuel.item;
+            showFuelTip(it.name, it.fuelValue || State.activeFuel.maxTime || 0);
+        }
+    });
+    DOM.activeFuelSlot.addEventListener('mouseleave', hideFuelTip);
+
+    // 一键整理：整理左栏当前页签（背包 / 冰箱），操作台不参与
+    var sortBagBtn = document.getElementById('sortBagBtn');
+    if (sortBagBtn) {
+        sortBagBtn.addEventListener('click', function() { core.UnitySendEvent('SORT_BAG'); });
+    }
+
+    var tabScrollStep = 160;
+    if (DOM.tabScrollLeft) {
+        DOM.tabScrollLeft.addEventListener('click', function() {
+            if (DOM.bagTabsScroll) DOM.bagTabsScroll.scrollBy({ left: -tabScrollStep, behavior: 'smooth' });
+        });
+    }
+    if (DOM.tabScrollRight) {
+        DOM.tabScrollRight.addEventListener('click', function() {
+            if (DOM.bagTabsScroll) DOM.bagTabsScroll.scrollBy({ left: tabScrollStep, behavior: 'smooth' });
+        });
+    }
+    if (DOM.bagTabsScroll) DOM.bagTabsScroll.addEventListener('scroll', function() {
+        updateTabScrollButtons();
+        updateFridgeGuideArrow();
+    });
+    window.addEventListener('resize', syncBagTabsWidth);
+
+    var _guideStep = 1;
+    function _renderGuideStep() {
+        var views = document.querySelectorAll('.cook-guide-view');
+        for (var i = 0; i < views.length; i++) {
+            views[i].classList.toggle('active', parseInt(views[i].dataset.step) === _guideStep);
+        }
+    }
+    function openGuide() {
+        _guideStep = 1;
+        _renderGuideStep();
+        var ov = document.getElementById('cookGuideOverlay');
+        if (ov) ov.classList.add('show');
+    }
+    function dismissGuide() {
+        var ov = document.getElementById('cookGuideOverlay');
+        if (ov) ov.classList.remove('show');
+        core.UnitySendEvent('DISMISS_GUIDE', {});
+    }
+    function replayGuide() {
+        _guideStep = 1;
+        _renderGuideStep();
+        var ov = document.getElementById('cookGuideOverlay');
+        if (ov) ov.classList.add('show');
+    }
+    (function bindGuideEvents() {
+        var ov = document.getElementById('cookGuideOverlay');
+        if (ov) {
+            ov.addEventListener('click', function(e) {
+                if (e.target.closest('.cook-guide-btn')) return;
+                if (_guideStep >= 3) return;
+                _guideStep++;
+                _renderGuideStep();
+            });
+        }
+        var btnOk = document.getElementById('cookGuideBtnOk');
+        if (btnOk) {
+            btnOk.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dismissGuide();
+            });
+        }
+        var helpBtn = document.getElementById('cookingHelpBtn');
+        if (helpBtn) {
+            helpBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                replayGuide();
+            });
+        }
+        var fridgeBtn = document.getElementById('fridgeGuideBtn');
+        if (fridgeBtn) {
+            fridgeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                fridgeGuideDismissed = true;
+                hideFridgeGuide();
+                core.UnitySendEvent('DISMISS_FRIDGE_GUIDE', {});
+            });
+        }
+    })();
+
+    // 「脚边」横排：挂在左栏（角色背包 / 冰箱页签那块面板）下方，避开整张烹饪卡片。
+    // 火锅享用态左栏会被隐藏，此时改挂整张卡片
+    function groundDockAnchorRect() {
+        var grid = document.getElementById('backpackGrid');
+        var panel = grid && grid.closest('.panel');
+        var r = panel ? panel.getBoundingClientRect() : null;
+        if (r && r.width && r.height) return r;
+        return DOM.cookingSystem ? DOM.cookingSystem.getBoundingClientRect() : null;
+    }
+    function groundDockObstacles() {
+        var out = [];
+        document.querySelectorAll('#cookingSystem, #cookingSystem > .panel, .fridge-guide.show')
+            .forEach(function(el) { var r = el.getBoundingClientRect(); if (r.width && r.height) out.push(r); });
+        return out;
+    }
+    groundDock = createGroundDock({
+        send: function(ev, payload) { core.UnitySendEvent(ev, payload); },
+        getAnchorRect: groundDockAnchorRect,
+        getObstacleRects: groundDockObstacles,
+        getZoom: getUiZoom,
+        onDragStart: function(e, g) {
+            return dragCoord.beginExternalDrag(e, {
+                id: -g.ids[0], icon: g.icon, w: g.w, h: g.h, payload: { groundBoxId: g.ids[0] }
+            }) === true;
+        }
+    });
+    if (groundDockJson) groundDock.setData(groundDockJson);
+    // 右栏预测列表 / 进度条等会撑高卡片，尺寸一变就重新摆
+    if (typeof ResizeObserver !== 'undefined' && DOM.cookingSystem) {
+        new ResizeObserver(function() { if (groundDock) groundDock.place(); }).observe(DOM.cookingSystem);
+    }
+
+    renderFuelArea();
+    renderRecipeListFromData([]);
+    updatePotCapacityDisplay();
+    updateUI();
+    core.notifyReady();
+
+</script>
+</body>
+</html>

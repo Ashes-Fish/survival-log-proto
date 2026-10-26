@@ -1,0 +1,419 @@
+[
+  {
+    "EventLog": 1,
+    "LogPriority": 190,
+    "Text": "EventLog_Text_1",
+    "Text_Local": "冰箱见底了。明天必须出门。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 2,
+    "LogPriority": 190,
+    "Text": "EventLog_Text_2",
+    "Text_Local": "清点了下储物架——撑不过这周了。下次得多备两箱罐头。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 3,
+    "LogPriority": 190,
+    "Text": "EventLog_Text_3",
+    "Text_Local": "还有大约一周的口粮。计划得收紧些了。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 4,
+    "LogPriority": 190,
+    "Text": "EventLog_Text_4",
+    "Text_Local": "水龙头干了。还好澡盆里存满了。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 5,
+    "LogPriority": 190,
+    "Text": "EventLog_Text_5",
+    "Text_Local": "灯全灭了。点上蜡烛，反倒安静下来。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 6,
+    "LogPriority": 190,
+    "Text": "EventLog_Text_6",
+    "Text_Local": "信号彻底断了。世界终于安静了。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 7,
+    "LogPriority": 190,
+    "Text": "EventLog_Text_7",
+    "Text_Local": "楼上着火了。烟从天花板缝里钻进来——下一轮得提前备好灭火器。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 100,
+    "LogPriority": 1000,
+    "Text": "EventLog_Text_100",
+    "Text_Local": "橱柜空了三天。眼前一阵阵发黑，大概撑不到明天。",
+    "RandomText": [
+      "Death1_1",
+      "Death1_2",
+      "Death1_3",
+      "Death1_4"
+    ]
+  },
+  {
+    "EventLog": 101,
+    "LogPriority": 1000,
+    "Text": "EventLog_Text_101",
+    "Text_Local": "烧了几天了，冷一阵热一阵。笔快握不住了。",
+    "RandomText": [
+      "Death2_2",
+      "Death2_3",
+      "Death2_4"
+    ]
+  },
+  {
+    "EventLog": 102,
+    "LogPriority": 1000,
+    "Text": "EventLog_Text_102",
+    "Text_Local": "门在响，木头已经开始裂。",
+    "RandomText": [
+      "Death4_1",
+      "Death4_2",
+      "Death4_3",
+      "Death4_4"
+    ]
+  },
+  {
+    "EventLog": 20020,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_20020",
+    "Text_Local": "大批丧尸聚到门外，开始撞门。加固的那几块木板，今晚见分晓。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 20040,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_20040",
+    "Text_Local": "门口的丧尸终于散去了，很高兴还能看到明天的太阳……",
+    "RandomText": []
+  },
+  {
+    "EventLog": 30010,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_30010",
+    "Text_Local": "收音机宣布戒严。十天后统一疏散——又一个必须撑过去的期限。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 30016,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_30016",
+    "Text_Local": "隔壁的窗户在反复闪光——是她的求救信号。我必须做点什么。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 30062,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_30062",
+    "Text_Local": "对面传来了敲击声。是她，她还活着。可我为什么会担心她出事？",
+    "RandomText": []
+  },
+  {
+    "EventLog": 30064,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_30064",
+    "Text_Local": "社区另一头那个男人把街角共用物资点的东西全搬回了自己院里，一点也不肯匀。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 30065,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_30065",
+    "Text_Local": "隔壁安静下来好几天了。希望她只是在节省力气。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 30066,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_30066",
+    "Text_Local": "她的敲击声准时响起。这一次，我先回应了她。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 30069,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_30069",
+    "Text_Local": "D7。她的声音里有笑意。这一轮的第七天，和上次不一样。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 30070,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_30070",
+    "Text_Local": "我把水从门缝递了出去。上一轮他没来敲过这扇门，这次他还能说声谢谢。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 30071,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_30071",
+    "Text_Local": "我没有开门。他的脚步声消失在楼道尽头。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 30072,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_30072",
+    "Text_Local": "我当面拦下了顶楼的男人。这次我没有躲在门后。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 30073,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_30073",
+    "Text_Local": "我隔着楼道警告了顶楼的男人。他放下了东西。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 30074,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_30074",
+    "Text_Local": "窗台的灯稳稳地亮着。她很好，这就够了。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40634,
+    "LogPriority": 250,
+    "Text": "EventLog_Text_40634",
+    "Text_Local": "这次不是零星几只。声音从四面压过来，我把能顶的都顶上了。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40635,
+    "LogPriority": 250,
+    "Text": "EventLog_Text_40635",
+    "Text_Local": "它们发现窗户了。整夜都是指甲刮玻璃的声音。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40639,
+    "LogPriority": 220,
+    "Text": "EventLog_Text_40639",
+    "Text_Local": "天亮时它们散了。电也来了。门口散着些东西，先捡回来再说。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40643,
+    "LogPriority": 250,
+    "Text": "EventLog_Text_40643",
+    "Text_Local": "又清出两袋被啃过的东西。得先把它们的路堵上，不然囤多少都是白囤。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40658,
+    "LogPriority": 220,
+    "Text": "EventLog_Text_40658",
+    "Text_Local": "墙缝里安静了三天。这一波算是过去了。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40640,
+    "LogPriority": 250,
+    "Text": "EventLog_Text_40640",
+    "Text_Local": "一夜之间冷透了。暖气是坏的，先把能烧的和能盖的都归到一处。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40642,
+    "LogPriority": 220,
+    "Text": "EventLog_Text_40642",
+    "Text_Local": "今天回暖了几度。手指终于能弯回来。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40647,
+    "LogPriority": 250,
+    "Text": "EventLog_Text_40647",
+    "Text_Local": "储物柜里飘出腐臭。一柜一柜地清，扔掉的比留下的多。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40648,
+    "LogPriority": 220,
+    "Text": "EventLog_Text_40648",
+    "Text_Local": "气味散了。剩下的还能吃，只是比上个月少了一半。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40649,
+    "LogPriority": 250,
+    "Text": "EventLog_Text_40649",
+    "Text_Local": "远处的脚步声连成一片。又来了。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40650,
+    "LogPriority": 220,
+    "Text": "EventLog_Text_40650",
+    "Text_Local": "嘶吼稀了。门还在。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40651,
+    "LogPriority": 250,
+    "Text": "EventLog_Text_40651",
+    "Text_Local": "呵气成霜。这次比上回来得早，也来得狠。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40652,
+    "LogPriority": 220,
+    "Text": "EventLog_Text_40652",
+    "Text_Local": "寒意退了。这次能撑下来，是因为上回冻过一次。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40682,
+    "LogPriority": 300,
+    "Text": "EventLog_Text_40682",
+    "Text_Local": "天没亮它们就到了，外面挤得看不见地面。接下来几天，哪儿也去不了。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40685,
+    "LogPriority": 220,
+    "Text": "EventLog_Text_40685",
+    "Text_Local": "早上就停了。剩下的往南边去了。门还在。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40600,
+    "LogPriority": 300,
+    "Text": "EventLog_Text_40600",
+    "Text_Local": "从早上起就在发热。吃不下，也站不久。剩下的只能靠熬。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40601,
+    "LogPriority": 220,
+    "Text": "EventLog_Text_40601",
+    "Text_Local": "热退了。今天第一次觉得饿——是好事。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40653,
+    "LogPriority": 300,
+    "Text": "EventLog_Text_40653",
+    "Text_Local": "比上次更密。这一波不是一晚上能过去的。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40654,
+    "LogPriority": 220,
+    "Text": "EventLog_Text_40654",
+    "Text_Local": "连着几天的撞击停了。我还活着，门也还在。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40604,
+    "LogPriority": 300,
+    "Text": "EventLog_Text_40604",
+    "Text_Local": "整座城的东西好像都往这边来了。今天没有别的事可做，只有守住门窗。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40655,
+    "LogPriority": 220,
+    "Text": "EventLog_Text_40655",
+    "Text_Local": "嘶吼终于远了。窗外安静下来——最凶的一波，我撑过去了。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 111,
+    "LogPriority": 1000,
+    "Text": "EventLog_Text_111",
+    "Text_Local": "屋里比外面暖不了多少了。手指早就没了知觉。下一次，先解决取暖。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 112,
+    "LogPriority": 1000,
+    "Text": "EventLog_Text_112",
+    "Text_Local": "不该吃那口的。当时就闻出不对，还是咽了下去。",
+    "RandomText": [
+      "Death2_1"
+    ]
+  },
+  {
+    "EventLog": 113,
+    "LogPriority": 1000,
+    "Text": "EventLog_Text_113",
+    "Text_Local": "身体不听使唤了。想不起来最后一次好好吃饭是哪天。",
+    "RandomText": [
+      "Death3_1"
+    ]
+  },
+  {
+    "EventLog": 114,
+    "LogPriority": 1000,
+    "Text": "EventLog_Text_114",
+    "Text_Local": "已经很久没有真正睡着了。手抬不起来，笔也握不住。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40602,
+    "LogPriority": 300,
+    "Text": "EventLog_Text_40602",
+    "Text_Local": "烧得比昨天更凶。坐起来就天旋地转，药只剩最后一板。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40603,
+    "LogPriority": 300,
+    "Text": "EventLog_Text_40603",
+    "Text_Local": "半夜被自己的咳嗽惊醒。这次不是着凉那么简单。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 40659,
+    "LogPriority": 220,
+    "Text": "EventLog_Text_40659",
+    "Text_Local": "夹子空了两天。墙里那点动静，总算是没了。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 51312,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_51312",
+    "Text_Local": "对面传来了敲击声。是他，他还活着。……可我为什么觉得，这声音本该是我先敲出去的？",
+    "RandomText": []
+  },
+  {
+    "EventLog": 51316,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_51316",
+    "Text_Local": "这一次不等他先出声。我先敲了三下，那边才回。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 51319,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_51319",
+    "Text_Local": "D7。两边都撑过了一整周。上一轮这句是他先说的，这次换我。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 51328,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_51328",
+    "Text_Local": "窗台那盏灯稳稳地亮着，不像上一轮那样一闪一闪。他很好，这就够了。",
+    "RandomText": []
+  },
+  {
+    "EventLog": 51329,
+    "LogPriority": 200,
+    "Text": "EventLog_Text_51329",
+    "Text_Local": "他的求救还压在屏幕上。上一轮的篮子是他先放下来的——这一次我比他早想起来。",
+    "RandomText": []
+  }
+]

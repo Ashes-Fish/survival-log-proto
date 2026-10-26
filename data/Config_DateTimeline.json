@@ -1,0 +1,69 @@
+[
+  {
+    "ID": 10,
+    "PlayerSelectId": [
+      1,
+      2
+    ],
+    "Day": 0,
+    "LogPriority": 10,
+    "LastTime": 480,
+    "Text": "Zombie_01",
+    "EndlessMode": 1
+  },
+  {
+    "ID": 15,
+    "PlayerSelectId": [
+      3
+    ],
+    "Day": 0,
+    "LogPriority": 10,
+    "LastTime": 480,
+    "Text": "ZombieWarehouseManager_01",
+    "EndlessMode": 1
+  },
+  {
+    "ID": 1,
+    "PlayerSelectId": [
+      1
+    ],
+    "Day": 0,
+    "LogPriority": 10,
+    "LastTime": 480,
+    "Text": "Zombie_02",
+    "EndlessMode": 1
+  },
+  {
+    "ID": 2,
+    "PlayerSelectId": [
+      1
+    ],
+    "Day": 6,
+    "LogPriority": 10,
+    "LastTime": 480,
+    "Text": "Zombie_zamen02",
+    "EndlessMode": 1
+  },
+  {
+    "ID": 5,
+    "PlayerSelectId": [
+      2
+    ],
+    "Day": 6,
+    "LogPriority": 10,
+    "LastTime": 480,
+    "Text": "Zombie_zamen03",
+    "EndlessMode": 1
+  },
+  {
+    "ID": 7,
+    "PlayerSelectId": [
+      2
+    ],
+    "Day": 15,
+    "LogPriority": 10,
+    "LastTime": 480,
+    "Text": "Zombie_zamen01",
+    "EndlessMode": 1
+  }
+]

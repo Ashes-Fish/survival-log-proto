@@ -1,0 +1,122 @@
+[
+  {
+    "Lv": 1,
+    "EXP": 350,
+    "Info": "DefenseLv_Info_1",
+    "Info_Local": "防线学徒\\n新增：可制作 沙包工事 与 尖刺障碍",
+    "Info_P1": "",
+    "Info_P1_Local": "",
+    "Info_P2": "",
+    "Info_P2_Local": "",
+    "Info_P3": "",
+    "Info_P3_Local": "",
+    "Info_P4": "",
+    "Info_P4_Local": "",
+    "required_condition": [],
+    "install_time_reduction": 0.05000000074505806,
+    "unlock_recipes": [
+      102
+    ],
+    "unlock_recipes_P1": [],
+    "unlock_recipes_P2": [],
+    "unlock_recipes_P3": [],
+    "unlock_recipes_P4": []
+  },
+  {
+    "Lv": 2,
+    "EXP": 1000,
+    "Info": "DefenseLv_Info_2",
+    "Info_Local": "熟练守备\\n新增：解锁 燃烧瓶\\n新增：开放 近侧 防御格购买",
+    "Info_P1": "",
+    "Info_P1_Local": "",
+    "Info_P2": "DefenseLv_Info_P2_2",
+    "Info_P2_Local": "熟练守备\\n新增：收获植物时可能发现 爬山虎种子\\n新增：开放 近侧 防御格购买",
+    "Info_P3": "",
+    "Info_P3_Local": "",
+    "Info_P4": "",
+    "Info_P4_Local": "",
+    "required_condition": [],
+    "install_time_reduction": 0.10000000149011612,
+    "unlock_recipes": [
+      404,
+      405,
+      406
+    ],
+    "unlock_recipes_P1": [],
+    "unlock_recipes_P2": [
+      0
+    ],
+    "unlock_recipes_P3": [],
+    "unlock_recipes_P4": []
+  },
+  {
+    "Lv": 3,
+    "EXP": 2300,
+    "Info": "DefenseLv_Info_3",
+    "Info_Local": "资深守备\\n新增：解锁 电网\\n新增：开放 中段 防御格购买",
+    "Info_P1": "",
+    "Info_P1_Local": "",
+    "Info_P2": "",
+    "Info_P2_Local": "",
+    "Info_P3": "",
+    "Info_P3_Local": "",
+    "Info_P4": "",
+    "Info_P4_Local": "",
+    "required_condition": [],
+    "install_time_reduction": 0.15000000596046448,
+    "unlock_recipes": [
+      402
+    ],
+    "unlock_recipes_P1": [],
+    "unlock_recipes_P2": [],
+    "unlock_recipes_P3": [],
+    "unlock_recipes_P4": []
+  },
+  {
+    "Lv": 4,
+    "EXP": 3900,
+    "Info": "DefenseLv_Info_4",
+    "Info_Local": "工事技师\\n新增：解锁 机械电锯\\n新增：开放 外围 防御格购买",
+    "Info_P1": "",
+    "Info_P1_Local": "",
+    "Info_P2": "",
+    "Info_P2_Local": "",
+    "Info_P3": "",
+    "Info_P3_Local": "",
+    "Info_P4": "",
+    "Info_P4_Local": "",
+    "required_condition": [],
+    "install_time_reduction": 0.20000000298023224,
+    "unlock_recipes": [
+      403
+    ],
+    "unlock_recipes_P1": [],
+    "unlock_recipes_P2": [],
+    "unlock_recipes_P3": [],
+    "unlock_recipes_P4": []
+  },
+  {
+    "Lv": 5,
+    "EXP": 0,
+    "Info": "DefenseLv_Info_5",
+    "Info_Local": "筑垒大师\\n新增：解锁 钛合金大门 与 防弹窗\\n新增：开放 最外围 防御格购买",
+    "Info_P1": "",
+    "Info_P1_Local": "",
+    "Info_P2": "",
+    "Info_P2_Local": "",
+    "Info_P3": "",
+    "Info_P3_Local": "",
+    "Info_P4": "",
+    "Info_P4_Local": "",
+    "required_condition": [],
+    "install_time_reduction": 0.30000001192092896,
+    "unlock_recipes": [
+      407,
+      408
+    ],
+    "unlock_recipes_P1": [],
+    "unlock_recipes_P2": [],
+    "unlock_recipes_P3": [],
+    "unlock_recipes_P4": []
+  }
+]

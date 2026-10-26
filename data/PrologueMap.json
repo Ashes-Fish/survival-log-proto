@@ -1,0 +1,394 @@
+{
+  "map": {
+    "Name": "Home_XUZhang",
+    "MapPoints": [
+      {
+        "NodeName": "HomeXuZhangStart",
+        "WorldPos": [
+          -767.158935546875,
+          4.101806640625,
+          -236.68408203125
+        ],
+        "WoldRotation": [
+          -0.0,
+          0.9914448857307434,
+          -0.0,
+          0.13052654266357422
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      },
+      {
+        "NodeName": "HomeStart",
+        "WorldPos": [
+          -767.302978515625,
+          4.1016998291015625,
+          -236.59300231933594
+        ],
+        "WoldRotation": [
+          -0.0,
+          -0.0,
+          -0.0,
+          1.0
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      },
+      {
+        "NodeName": "HomeXuZhang_01",
+        "WorldPos": [
+          -764.969970703125,
+          4.095200061798096,
+          -236.2310028076172
+        ],
+        "WoldRotation": [
+          -0.0,
+          -0.0,
+          -0.0,
+          1.0
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      },
+      {
+        "NodeName": "HomeXuZhang_02",
+        "WorldPos": [
+          -768.5826416015625,
+          4.089874267578125,
+          -235.9857940673828
+        ],
+        "WoldRotation": [
+          -0.0,
+          -0.0,
+          -0.0,
+          1.0
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      },
+      {
+        "NodeName": "HomeXuZhang_03",
+        "WorldPos": [
+          -768.0999145507812,
+          4.6878743171691895,
+          -237.8131866455078
+        ],
+        "WoldRotation": [
+          -0.0,
+          0.027052685618400574,
+          -0.0,
+          0.9996340274810791
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      },
+      {
+        "NodeName": "HomeXuZhang_04",
+        "WorldPos": [
+          -771.8895874023438,
+          4.995874404907227,
+          -236.24778747558594
+        ],
+        "WoldRotation": [
+          -0.0,
+          -0.9659252166748047,
+          -0.0,
+          0.25882142782211304
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      },
+      {
+        "NodeName": "HomeXuZhang_05",
+        "WorldPos": [
+          -772.4556274414062,
+          4.190874099731445,
+          -236.79779052734375
+        ],
+        "WoldRotation": [
+          -0.34467005729675293,
+          0.3446703553199768,
+          -0.6174148917198181,
+          0.6174169778823853
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      },
+      {
+        "NodeName": "HomeXuZhang_06",
+        "WorldPos": [
+          -768.472412109375,
+          6.677874565124512,
+          -234.38699340820312
+        ],
+        "WoldRotation": [
+          -0.0,
+          -0.0,
+          -0.0,
+          1.0
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      },
+      {
+        "NodeName": "HomeXuZhang_07",
+        "WorldPos": [
+          -770.0856323242188,
+          4.100381851196289,
+          -235.05178833007812
+        ],
+        "WoldRotation": [
+          -0.0,
+          -0.0,
+          -0.0,
+          1.0
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      },
+      {
+        "NodeName": "HomeXuZhang_08",
+        "WorldPos": [
+          -767.0206298828125,
+          4.093548774719238,
+          -235.44580078125
+        ],
+        "WoldRotation": [
+          -0.00254757865332067,
+          0.04286385700106621,
+          -0.009402760304510593,
+          0.9990334510803223
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      },
+      {
+        "NodeName": "HomeXuZhang_09",
+        "WorldPos": [
+          -765.1776123046875,
+          4.1003828048706055,
+          -235.164794921875
+        ],
+        "WoldRotation": [
+          -0.0,
+          -0.0,
+          -0.0,
+          1.0
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      },
+      {
+        "NodeName": "HomeXuZhang_10",
+        "WorldPos": [
+          -774.1436157226562,
+          5.089875221252441,
+          -236.39041137695312
+        ],
+        "WoldRotation": [
+          -0.0,
+          -0.7071067690849304,
+          -0.0,
+          0.7071068286895752
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      },
+      {
+        "NodeName": "HomeXuZhang_11",
+        "WorldPos": [
+          -763.8475952148438,
+          4.083874225616455,
+          -238.49740600585938
+        ],
+        "WoldRotation": [
+          -0.0,
+          0.7071070671081543,
+          -0.0,
+          0.7071065306663513
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      },
+      {
+        "NodeName": "HomeXuZhang_12",
+        "WorldPos": [
+          -764.6640014648438,
+          4.122000217437744,
+          -238.8679962158203
+        ],
+        "WoldRotation": [
+          -0.0,
+          -0.0,
+          -0.0,
+          1.0
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      },
+      {
+        "NodeName": "Home_XUZhangExit",
+        "WorldPos": [
+          -764.2650146484375,
+          4.092700004577637,
+          -238.5500030517578
+        ],
+        "WoldRotation": [
+          -0.0,
+          -0.0,
+          -0.0,
+          1.0
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      },
+      {
+        "NodeName": "HomeXuZhang_13",
+        "WorldPos": [
+          -773.37255859375,
+          4.1003828048706055,
+          -235.0347900390625
+        ],
+        "WoldRotation": [
+          -0.0,
+          -0.0,
+          -0.0,
+          1.0
+        ],
+        "ActionWorldPos": null,
+        "ActionWorldRotation": null
+      }
+    ],
+    "BuildingMapPoints": [],
+    "PackageMapPoints": [],
+    "CameraRanges": [
+      {
+        "NodeName": "Home_XUZhang",
+        "MinWorldPos": [
+          -790.2294311523438,
+          0.0,
+          -247.61244201660156
+        ],
+        "MaxWorldPos": [
+          -759.72021484375,
+          0.0,
+          -228.9423370361328
+        ]
+      }
+    ],
+    "EnvBoxes": [],
+    "UnlockBoxes": []
+  },
+  "provenance": {
+    "source": "investigation\\extracted\\text\\6dd3f58c50251767834b861902f6e0ef_-8633583741886556953_Map",
+    "sha256": "bae8bdd94a67fb29d05b30ca267cc7fb5200abadee542bcdcc93aca2cb964e64",
+    "container": "Dictionary<string, Config_Map>",
+    "bytesConsumed": 394334,
+    "rows": 66,
+    "schemas": {
+      "Config_Map": [
+        [
+          "string",
+          "Name"
+        ],
+        [
+          "List<MapPoint>",
+          "MapPoints"
+        ],
+        [
+          "List<MapPoint>",
+          "BuildingMapPoints"
+        ],
+        [
+          "List<MapPoint>",
+          "PackageMapPoints"
+        ],
+        [
+          "List<CameraRange>",
+          "CameraRanges"
+        ],
+        [
+          "List<EnvBox>",
+          "EnvBoxes"
+        ],
+        [
+          "List<UnlockBox>",
+          "UnlockBoxes"
+        ]
+      ],
+      "MapPoint": [
+        [
+          "string",
+          "NodeName"
+        ],
+        [
+          "List<float>",
+          "WorldPos"
+        ],
+        [
+          "List<float>",
+          "WoldRotation"
+        ],
+        [
+          "List<float>",
+          "ActionWorldPos"
+        ],
+        [
+          "List<float>",
+          "ActionWorldRotation"
+        ]
+      ],
+      "CameraRange": [
+        [
+          "string",
+          "NodeName"
+        ],
+        [
+          "List<float>",
+          "MinWorldPos"
+        ],
+        [
+          "List<float>",
+          "MaxWorldPos"
+        ]
+      ],
+      "EnvBox": [
+        [
+          "string",
+          "NodeName"
+        ],
+        [
+          "int",
+          "AreaId"
+        ],
+        [
+          "List<float>",
+          "MinWorldPos"
+        ],
+        [
+          "List<float>",
+          "MaxWorldPos"
+        ]
+      ],
+      "UnlockBox": [
+        [
+          "string",
+          "NodeName"
+        ],
+        [
+          "string",
+          "Tag"
+        ],
+        [
+          "List<float>",
+          "MinWorldPos"
+        ],
+        [
+          "List<float>",
+          "MaxWorldPos"
+        ]
+      ]
+    },
+    "coverage": "Serialized map anchors; not scene geometry or pathfinding"
+  }
+}

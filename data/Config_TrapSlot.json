@@ -1,0 +1,212 @@
+[
+  {
+    "ID": 1,
+    "Map_Id": 1,
+    "Room_Id": 1,
+    "Position": "HomeBuildingPos25"
+  },
+  {
+    "ID": 2,
+    "Map_Id": 1,
+    "Room_Id": 1,
+    "Position": "HomeBuildingPos50"
+  },
+  {
+    "ID": 3,
+    "Map_Id": 1,
+    "Room_Id": 1,
+    "Position": "HomeBuildingPos51"
+  },
+  {
+    "ID": 4,
+    "Map_Id": 1,
+    "Room_Id": 1,
+    "Position": "HomeBuildingPos52"
+  },
+  {
+    "ID": 5,
+    "Map_Id": 102,
+    "Room_Id": 3,
+    "Position": "HomesecondfloorPos37"
+  },
+  {
+    "ID": 6,
+    "Map_Id": 102,
+    "Room_Id": 4,
+    "Position": "HomesecondfloorPos35"
+  },
+  {
+    "ID": 7,
+    "Map_Id": 102,
+    "Room_Id": 4,
+    "Position": "HomesecondfloorPos36"
+  },
+  {
+    "ID": 8,
+    "Map_Id": 1,
+    "Room_Id": 1,
+    "Position": "NeighborGirlBuildingPos50"
+  },
+  {
+    "ID": 9,
+    "Map_Id": 1,
+    "Room_Id": 1,
+    "Position": "NeighborGirlBuildingPos51"
+  },
+  {
+    "ID": 10,
+    "Map_Id": 1,
+    "Room_Id": 1,
+    "Position": "NeighborGirlBuildingPos52"
+  },
+  {
+    "ID": 11,
+    "Map_Id": 1,
+    "Room_Id": 1,
+    "Position": "NeighborGirlBuildingPos53"
+  },
+  {
+    "ID": 17,
+    "Map_Id": 102,
+    "Room_Id": 4,
+    "Position": "NeighborGirlBuilding2FPos35"
+  },
+  {
+    "ID": 18,
+    "Map_Id": 102,
+    "Room_Id": 4,
+    "Position": "NeighborGirlBuilding2FPos36"
+  },
+  {
+    "ID": 19,
+    "Map_Id": 102,
+    "Room_Id": 4,
+    "Position": "NeighborGirlBuilding2FPos37"
+  },
+  {
+    "ID": 20,
+    "Map_Id": 101,
+    "Room_Id": 2,
+    "Position": "HomeBuildingbasementPos19"
+  },
+  {
+    "ID": 21,
+    "Map_Id": 101,
+    "Room_Id": 2,
+    "Position": "HomeBuildingbasementPos20"
+  },
+  {
+    "ID": 22,
+    "Map_Id": 101,
+    "Room_Id": 2,
+    "Position": "HomeBuildingbasementPos21"
+  },
+  {
+    "ID": 23,
+    "Map_Id": 101,
+    "Room_Id": 2,
+    "Position": "HomeBuildingbasementPos22"
+  },
+  {
+    "ID": 24,
+    "Map_Id": 101,
+    "Room_Id": 2,
+    "Position": "NeighborGirlBasementPos19"
+  },
+  {
+    "ID": 25,
+    "Map_Id": 101,
+    "Room_Id": 2,
+    "Position": "NeighborGirlBasementPos20"
+  },
+  {
+    "ID": 26,
+    "Map_Id": 101,
+    "Room_Id": 2,
+    "Position": "NeighborGirlBasementPos21"
+  },
+  {
+    "ID": 27,
+    "Map_Id": 101,
+    "Room_Id": 2,
+    "Position": "NeighborGirlBasementPos22"
+  },
+  {
+    "ID": 28,
+    "Map_Id": 1,
+    "Room_Id": 7,
+    "Position": "WarehousePos92"
+  },
+  {
+    "ID": 29,
+    "Map_Id": 1,
+    "Room_Id": 7,
+    "Position": "WarehousePos93"
+  },
+  {
+    "ID": 30,
+    "Map_Id": 1,
+    "Room_Id": 7,
+    "Position": "WarehousePos94"
+  },
+  {
+    "ID": 31,
+    "Map_Id": 1,
+    "Room_Id": 7,
+    "Position": "WarehousePos95"
+  },
+  {
+    "ID": 32,
+    "Map_Id": 1,
+    "Room_Id": 7,
+    "Position": "WarehousePos96"
+  },
+  {
+    "ID": 33,
+    "Map_Id": 1,
+    "Room_Id": 7,
+    "Position": "WarehousePos97"
+  },
+  {
+    "ID": 34,
+    "Map_Id": 1,
+    "Room_Id": 7,
+    "Position": "WarehousePos98"
+  },
+  {
+    "ID": 35,
+    "Map_Id": 1,
+    "Room_Id": 8,
+    "Position": "WarehousePos99"
+  },
+  {
+    "ID": 36,
+    "Map_Id": 1,
+    "Room_Id": 8,
+    "Position": "WarehousePos100"
+  },
+  {
+    "ID": 37,
+    "Map_Id": 1,
+    "Room_Id": 8,
+    "Position": "WarehousePos101"
+  },
+  {
+    "ID": 38,
+    "Map_Id": 102,
+    "Room_Id": 4,
+    "Position": "WarehousePos2F05"
+  },
+  {
+    "ID": 39,
+    "Map_Id": 102,
+    "Room_Id": 4,
+    "Position": "WarehousePos2F06"
+  },
+  {
+    "ID": 40,
+    "Map_Id": 1,
+    "Room_Id": 7,
+    "Position": "WarehousePos91"
+  }
+]

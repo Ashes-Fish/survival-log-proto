@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<title>生存日志 · 网页重建（M6–M8 运行时）</title>
+<style>
+  html,body{margin:0;height:100%;background:#0b0e0b;overflow:hidden;font:13px/1.5 "Microsoft YaHei",system-ui;color:#dfe3d6}
+  canvas{display:block}
+  .panel{background:rgba(14,16,13,.78);border:1px solid rgba(255,255,255,.07);border-radius:8px}
+  #clock{position:fixed;right:14px;top:12px;padding:8px 14px;text-align:right;min-width:140px}
+  #clock #day{color:#e8d9a8;font-weight:700;letter-spacing:1px}
+  #clock #time{font-size:22px;font-weight:600;color:#f2ead8}
+  #clock #phase,#clock #money,#clock #scene{color:#9aa48c;font-size:12px}
+  #homeBtn{position:fixed;right:14px;top:132px;min-width:140px;padding:7px 14px;font:inherit;font-weight:600;color:#f0e6c8;cursor:pointer;background:rgba(58,44,24,.85);border:1px solid #c8a24a;border-radius:8px}
+  #homeBtn:hover{background:rgba(90,66,30,.92)} #homeBtn[hidden]{display:none}
+  #status{position:fixed;right:14px;bottom:12px;padding:10px 12px;width:260px}
+  #bars .bar{display:grid;grid-template-columns:34px 1fr 64px;align-items:center;gap:8px;margin:3px 0}
+  #bars .label{color:#b9c0ad;font-size:12px}
+  #bars .track{height:8px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden}
+  #bars .track i{display:block;height:100%}
+  #bars .num{text-align:right;font-size:11px;color:#9aa48c}
+  #bars .bar.low .label{color:#e07a5f}
+  #buffs{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+  .buff{font-size:11px;padding:1px 6px;border-radius:3px;cursor:default}
+  .buff.good{background:rgba(110,160,110,.25);color:#b8dcb0}
+  .buff.bad{background:rgba(200,90,80,.25);color:#f0b0a6}
+  #exposure{display:none;margin-top:6px;font-size:11px;color:#c99}
+  #exposure.on{display:block}
+  #exposure .track{height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+  #exposure i{display:block;height:100%;background:#c0554a}
+  #action{position:fixed;left:50%;top:18px;transform:translateX(-50%);padding:8px 14px;min-width:240px;display:none}
+  #action.on{display:block}
+  #action .name{color:#e8d9a8;margin-bottom:4px;text-align:center}
+  #action .track{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+  #action .fill{height:100%;background:#d8c27a;width:0}
+  #action .hint{font-size:11px;color:#7f8a74;text-align:center;margin-top:3px}
+  #log{position:fixed;left:14px;top:12px;width:300px;max-height:34vh;overflow:auto;padding:8px 10px;font-size:12px;color:#a8b09a}
+  #log div{padding:2px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+  #tasks{position:fixed;left:14px;top:calc(34vh + 24px);width:300px;padding:0;font-size:12px;color:#e7dcb8;background:none;pointer-events:none}
+  #tasks .task{padding:6px 10px;margin-bottom:4px;background:rgba(28,22,15,.72);border-left:3px solid #c8a24a}
+  #tasks .task .t{color:#f0e6c8;font-weight:600}
+  #tasks .task .i{color:#b7ad92;font-size:11px;margin-top:2px}
+  #tasks:empty{display:none}
+  #near,#exitPrompt{position:fixed;left:50%;transform:translateX(-50%);padding:7px 14px;color:#f0e6c8;opacity:0;transition:opacity .15s;pointer-events:none}
+  #near{bottom:96px} #exitPrompt{bottom:136px}
+  #near.on,#exitPrompt.on{opacity:1}
+  #toast{position:fixed;left:50%;top:38%;transform:translateX(-50%);padding:10px 20px;color:#f6edd5;opacity:0;transition:opacity .2s;pointer-events:none}
+  #toast.on{opacity:1}
+  /* Furniture function bar: name floats above, one row of buttons beside the furniture (original layout, compare-2026-10-23). */
+  #menu{position:fixed;left:50%;top:60%;transform:translate(-50%,-100%);display:none;flex-direction:column;align-items:center;gap:4px;pointer-events:auto;background:none;border:none}
+  #menu.on{display:flex}
+  #menu.anchored{transform:none;left:0;top:0;width:0;height:0}
+  #menu.anchored.on{display:block}
+  #menu.anchored .title,#menu.anchored .row{position:fixed;left:0;top:0}
+  #menu.anchored .tipbox{position:fixed;left:0;top:0;right:auto;margin:0}
+  #menu .title{color:#fff;font-weight:700;font-size:14px;text-shadow:0 1px 3px #000,0 0 6px #000;padding:0}
+  #menu .row{display:flex;gap:4px}
+  #menu .item{display:flex;align-items:center;gap:8px;height:38px;padding:0 14px;border-radius:4px;border:1px solid rgba(255,255,255,.08);background:rgba(28,30,32,.88);color:#e8e8e2;font:inherit;font-size:14px;cursor:pointer;white-space:nowrap}
+  #menu .item:hover{background:rgba(60,62,60,.95)}
+  #menu .item.disabled{color:#8a8a86;cursor:default}
+  #menu .item.disabled .ico{opacity:.45}
+  #menu .item .ico{width:20px;height:20px;object-fit:contain}
+  #menu .item .key{margin-left:6px;min-width:18px;padding:0 4px;border:1px solid rgba(255,255,255,.35);border-radius:3px;font-size:11px;line-height:16px;text-align:center;color:#d8d8d0}
+  #menu .tipbox{display:none;position:absolute;right:100%;top:50%;margin-right:8px;max-width:360px;padding:6px 10px;border-radius:3px;background:rgba(18,18,18,.92);color:#ddd;font-size:12px;white-space:nowrap}
+  #menu .tipbox.on{display:block}
+  #menu.plan .title{display:none} #menu.plan .row{flex-direction:column;gap:6px} #menu.plan .item{justify-content:center;min-width:200px}
+  #menu.plan .title{display:none}
+  #story{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);display:none;width:min(520px,90vw);padding:18px}
+  #story.on{display:block}
+  #story .title{color:#e8d9a8;font-size:16px;font-weight:700;margin-bottom:8px}
+  #story .quote{color:#c9b98e;white-space:pre-line;font-style:italic;margin:10px 0}
+  #story button{display:block;margin:10px auto 0;padding:7px 22px;border-radius:6px;border:1px solid #6b7458;background:rgba(170,200,140,.18);color:#e9eedd;cursor:pointer}
+  #black{position:fixed;inset:0;background:#000;display:none;place-items:center;color:#d8d0bb;font-size:20px;letter-spacing:2px;z-index:20}
+  #black.on{display:grid}
+  #loading{position:fixed;inset:0;background:#0b0e0b;display:none;place-items:center;z-index:30}
+  #loading.on{display:grid}
+  #loading .box{width:min(420px,80vw);text-align:center}
+  #loading .text{color:#b9c0ad;margin-bottom:10px}
+  #loading .bar{height:4px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}
+  #loading .bar i{display:block;height:100%;background:#d8c27a;width:0;transition:width .2s}
+  #ui-layer{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,.45);z-index:10}
+  #ui-layer.on{display:grid}
+  .webui-frame{width:100vw;height:100vh;border:0;background:transparent}
+  /* Bottom key hints (web-build help, not an original UI element): a highlighted bar. */
+  #tip{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:4;padding:8px 18px;max-width:calc(100vw - 40px);
+    background:rgba(18,22,19,.88);border:1px solid rgba(233,215,122,.55);border-radius:8px;box-shadow:0 0 14px rgba(233,215,122,.25),0 4px 12px rgba(0,0,0,.5);
+    color:#f2ead0;font-size:14px;line-height:1.5;text-align:center;letter-spacing:.5px;pointer-events:none}
+  #tip b{color:#ffd76a;font-weight:700}
+  #tip.flash{animation:tipFlash 1s ease-in-out 4}
+  @keyframes tipFlash{50%{box-shadow:0 0 26px rgba(255,215,106,.85),0 4px 12px rgba(0,0,0,.5);border-color:#ffd76a}}
+  /* Start-of-game help popup (web build). */
+  #welcome{position:fixed;inset:0;z-index:30;display:none;place-items:center;background:rgba(0,0,0,.55)}
+  #welcome.on{display:grid}
+  #welcome .box{min-width:420px;max-width:560px;padding:26px 30px 22px;background:linear-gradient(135deg,rgba(45,52,46,.97),rgba(24,28,25,.98));
+    border:1px solid rgba(233,215,122,.7);border-radius:12px;box-shadow:0 0 30px rgba(233,215,122,.3),0 20px 50px rgba(0,0,0,.7);color:#eee;text-align:center}
+  #welcome h2{margin:0 0 6px;font-size:22px;color:#ffd76a;letter-spacing:2px}
+  #welcome .big{margin:16px 0 14px;font-size:30px;font-weight:800;color:#fff}
+  #welcome .big span{display:inline-block;padding:2px 12px;margin-right:8px;border-radius:6px;background:#ffd76a;color:#1b1b1b}
+  #welcome ul{margin:0 0 18px;padding:0;list-style:none;font-size:15px;line-height:1.9;color:#d8d8d0}
+  #welcome ul b{color:#ffd76a}
+  #welcome button{padding:10px 38px;font-size:16px;font-weight:700;border:0;border-radius:8px;background:#ffd76a;color:#1b1b1b;cursor:pointer}
+  #welcome button:hover{background:#ffe48f}
+  #welcome .hint{margin-top:10px;font-size:12px;color:#8a8f84}
+  /* Right-side round buttons (視角切换 / 计划模式) and the 轮回 box: styles copied from the original CoreUI0 page (.middle-right, .ui-btn.map-trigger-btn, .btn-tooltip--left, .info-box). */
+  #sideBtns{position:fixed;top:45%;right:25px;display:flex;flex-direction:column;gap:10px;z-index:5}
+  #sideBtns .wrap{position:relative}
+  #sideBtns button{width:60px;height:60px;font-size:28px;border-radius:10px;background:rgba(60,60,60,.9);border:1px solid rgba(255,255,255,.15);color:#ddd;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 4px rgba(0,0,0,.4);cursor:pointer;padding:0}
+  #sideBtns button.active{background:rgba(255,193,7,.2);border-color:rgba(255,193,7,.6);color:#FFC107;box-shadow:0 0 8px rgba(255,193,7,.3)}
+  #sideBtns svg{width:1em;height:1em;fill:currentColor} #sideBtns svg.stroke{width:1.07em;height:1.07em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  #sideBtns .tip{position:absolute;top:50%;right:calc(100% + 12px);transform:translateY(-50%);padding:8px 14px;background:rgba(20,25,22,.92);border:1px solid rgba(255,255,255,.22);border-radius:6px;color:#fff;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.55);pointer-events:none;opacity:0;transition:opacity .12s}
+  #sideBtns .wrap:hover .tip{opacity:1;transition-delay:.4s}
+  #sideBtns .tip b{display:block;font-size:14px} #sideBtns .tip span{display:block;font-size:12px;color:#bbb;margin-top:3px}
+  #sideBtns[hidden],#cycle[hidden]{display:none}
+  body.plan #sideBtns .wrap.cam{display:none} body.plan #cycle,body.plan #status,body.plan #log,body.plan #tasks,body.plan #tip,body.plan #near,body.plan #exitPrompt,body.plan #clock,body.plan #homeBtn,body.plan #action{display:none}
+  #cycle{position:fixed;bottom:30px;right:30px;background:rgba(20,20,20,.85);border:1px solid #555;padding:10px 20px;color:#ccc;font-size:16px;border-radius:4px;font-family:monospace;cursor:pointer;z-index:5}
+  #cycle:hover{border-color:#999;color:#fff}
+  #status{bottom:86px}
+  /* World labels: hover name, magnifier, durability bar, speech line (compare-2026-10-23 n20/n30/n71/n75). */
+  #world-ui{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+  #world-ui.off{display:none}
+  #world-ui>div{position:absolute;left:0;top:0;will-change:transform}
+  .wu-name{color:#fff;font-weight:700;font-size:14px;text-shadow:0 1px 3px #000,0 0 6px #000;white-space:nowrap}
+  .wu-mag{width:22px;height:22px;background:url(../WebUI/Res/icon/chakanmubiao.png) center/contain no-repeat;filter:drop-shadow(0 0 2px rgba(0,0,0,.9))}
+  .wu-hp{width:112px;height:18px;background:rgba(20,20,20,.55);border-radius:2px;overflow:hidden}
+  .wu-hp i{position:absolute;left:0;top:0;bottom:0;background:#1f9a3c}
+  .wu-hp span{position:absolute;inset:0;text-align:center;color:#eef;font-size:13px;line-height:18px;text-shadow:0 1px 2px #000}
+  .wu-say{color:#fff;font-size:12px;text-shadow:0 1px 2px #000,0 0 4px #000;white-space:nowrap;opacity:0;transition:opacity .25s}
+  .wu-say.on{opacity:1}
+  /* Plan mode (original 计划模式, n50/s2-10): greyed world, slot boxes, BuildTips bar. */
+  .overlay-frame{position:fixed;inset:0;width:100vw;height:100vh;border:0;background:transparent;z-index:8}
+  #slotTip{position:fixed;left:0;top:0;display:none;align-items:center;gap:8px;padding:6px 12px;background:rgba(40,40,40,.82);border-radius:4px;color:#fff;pointer-events:none;z-index:6}
+  #planHint{position:fixed;left:50%;bottom:180px;transform:translateX(-50%);padding:8px 46px;color:#fff;font-weight:700;font-size:16px;background:linear-gradient(90deg,transparent,rgba(20,20,20,.75),transparent);opacity:0;transition:opacity .3s;pointer-events:none;z-index:9}
+  #planHint.on{opacity:1}
+  #slotTip.on{display:flex} #slotTip img{width:22px;height:22px} #slotTip b{display:block;font-size:14px} #slotTip span{display:block;font-size:11px;color:#bbb}
+</style>
+<script type="importmap">
+{"imports":{"three":"../world/vendor/three.module.js"}}
+</script>
+</head>
+<body>
+<div id="clock" class="panel"><div id="day">DAY 1</div><div id="time">--:--</div><div id="phase"></div><div id="money"></div><div id="scene"></div></div>
+<button id="homeBtn" hidden title="回家（H）">回家</button>
+<div id="status" class="panel"><div id="bars"></div><div id="buffs"></div><div id="exposure">暴露值<div class="track"><i></i></div></div></div>
+<div id="action" class="panel"><div class="name"></div><div class="track"><div class="fill"></div></div><div class="hint">X 取消</div></div>
+<div id="log" class="panel"></div>
+<div id="tasks" class="panel"></div>
+<div id="near" class="panel"></div>
+<div id="exitPrompt" class="panel"></div>
+<div id="toast" class="panel"></div>
+<div id="menu" class="panel"></div>
+<div id="story" class="panel"><div class="title"></div><div class="body"></div><div class="quote"></div><button></button></div>
+<div id="sideBtns">
+  <div class="wrap cam"><button id="camBtn" aria-label="视角切换"><svg class="stroke" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="7"/><line x1="12" y1="17" x2="12" y2="22"/><line x1="2" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="22" y2="12"/><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/></svg></button><div class="tip"><b></b><span></span></div></div>
+  <div class="wrap plan"><button id="planBtn" aria-label="计划模式"><svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg></button><div class="tip"><b></b><span></span></div></div>
+</div>
+<div id="cycle" hidden></div>
+<div id="planHint"></div>
+<div id="slotTip"><img alt=""><div><b></b><span></span></div></div>
+<div id="world-ui"></div>
+<div id="tip"><b>右键</b> 移动 / 交互 · <b>E</b> 执行 · <b>B</b> 背包 · <b>N</b> 计划模式 · <b>空格</b> 视角切换 · <b>WASD</b> 移动镜头 · <b>M</b> 地图 · <b>H</b> 回家 · <b>X</b> 取消 · <b>C</b> 墙体剖切 · <b>P</b> 暂停 · <b>1/2/3</b> 速度 · <b>Ctrl+S</b> 保存 · <b>滚轮</b> 缩放</div>
+<div id="welcome"><div class="box">
+  <h2>操作提示</h2>
+  <div class="big"><span>右键</span>移动 / 交互</div>
+  <ul>
+    <li>右键点地面走过去，右键点家具弹出功能条</li>
+    <li><b>E</b> 执行功能条第一项 · <b>B</b> 打开背包 · <b>ESC</b> 暂停菜单</li>
+    <li>全部按键见画面底部的提示栏</li>
+  </ul>
+  <button id="welcomeOk">知道了</button>
+  <div class="hint">按回车或空格也可关闭；关闭前游戏时间暂停</div>
+</div></div>
+<div id="ui-layer"></div>
+<div id="black"><div class="text"></div></div>
+<div id="loading" class="on"><div class="box"><div class="text">加载中</div><div class="bar"><i></i></div></div></div>
+<script type="module" src="./main.mjs"></script>
+</body>
+</html>

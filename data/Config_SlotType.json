@@ -1,0 +1,82 @@
+[
+  {
+    "ID": 1,
+    "Name": "SlotType_Name_1",
+    "Name_Local": "小",
+    "IsUpgrade": false,
+    "IsOverride": false,
+    "WebIcon": "../../Res/icon/dakaimubiao.png"
+  },
+  {
+    "ID": 2,
+    "Name": "SlotType_Name_2",
+    "Name_Local": "中",
+    "IsUpgrade": false,
+    "IsOverride": false,
+    "WebIcon": "../../Res/icon/dakaimubiao.png"
+  },
+  {
+    "ID": 3,
+    "Name": "SlotType_Name_3",
+    "Name_Local": "大",
+    "IsUpgrade": false,
+    "IsOverride": false,
+    "WebIcon": "../../Res/icon/dakaimubiao.png"
+  },
+  {
+    "ID": 4,
+    "Name": "SlotType_Name_4",
+    "Name_Local": "挂壁",
+    "IsUpgrade": false,
+    "IsOverride": false,
+    "WebIcon": "../../Res/icon/dakaimubiao.png"
+  },
+  {
+    "ID": 5,
+    "Name": "SlotType_Name_5",
+    "Name_Local": "中央",
+    "IsUpgrade": false,
+    "IsOverride": false,
+    "WebIcon": "../../Res/icon/dakaimubiao.png"
+  },
+  {
+    "ID": 6,
+    "Name": "SlotType_Name_6",
+    "Name_Local": "桌上",
+    "IsUpgrade": false,
+    "IsOverride": false,
+    "WebIcon": "../../Res/icon/dakaimubiao.png"
+  },
+  {
+    "ID": 7,
+    "Name": "SlotType_Name_7",
+    "Name_Local": "床",
+    "IsUpgrade": false,
+    "IsOverride": false,
+    "WebIcon": "../../Res/icon/dakaimubiao.png"
+  },
+  {
+    "ID": 8,
+    "Name": "SlotType_Name_8",
+    "Name_Local": "门",
+    "IsUpgrade": true,
+    "IsOverride": true,
+    "WebIcon": "../../Res/icon/dakaimubiao.png"
+  },
+  {
+    "ID": 9,
+    "Name": "SlotType_Name_9",
+    "Name_Local": "窗",
+    "IsUpgrade": true,
+    "IsOverride": true,
+    "WebIcon": "../../Res/icon/dakaimubiao.png"
+  },
+  {
+    "ID": 10,
+    "Name": "SlotType_Name_10",
+    "Name_Local": "塔防装置",
+    "IsUpgrade": false,
+    "IsOverride": false,
+    "WebIcon": "../../Res/icon/dakaimubiao.png"
+  }
+]

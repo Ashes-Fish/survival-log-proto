@@ -1,0 +1,42 @@
+[
+  {
+    "ID": 1,
+    "Name": "EnvArea_Name_1",
+    "Name_Local": "室内",
+    "IsOutdoor": false,
+    "DeviceHeat": true,
+    "FoodDecayScale": 1.0
+  },
+  {
+    "ID": 2,
+    "Name": "EnvArea_Name_2",
+    "Name_Local": "阳光房",
+    "IsOutdoor": false,
+    "DeviceHeat": true,
+    "FoodDecayScale": 1.0
+  },
+  {
+    "ID": 3,
+    "Name": "EnvArea_Name_3",
+    "Name_Local": "露台",
+    "IsOutdoor": true,
+    "DeviceHeat": false,
+    "FoodDecayScale": 2.0
+  },
+  {
+    "ID": 4,
+    "Name": "EnvArea_Name_4",
+    "Name_Local": "冷库",
+    "IsOutdoor": false,
+    "DeviceHeat": false,
+    "FoodDecayScale": 0.20000000298023224
+  },
+  {
+    "ID": 5,
+    "Name": "EnvArea_Name_5",
+    "Name_Local": "地下室",
+    "IsOutdoor": false,
+    "DeviceHeat": true,
+    "FoodDecayScale": 0.5
+  }
+]

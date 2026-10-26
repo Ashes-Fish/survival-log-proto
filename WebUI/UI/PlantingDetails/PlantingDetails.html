@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>植物详情面板</title>
+<link rel="stylesheet" href="../../tailwind-static.css">
+<script src="../../vue.runtime.global.prod.js"></script>
+<script>
+/* === [precompiled v1] === */
+(function(){var __wgArmed__=false;var __wgGaveUp__=false;var __wgReload__=function(missing){if(__wgArmed__||__wgGaveUp__)return;var m=/(?:^|;)wgr=(\d+)/.exec(window.name||"");var n=m?parseInt(m[1],10):0;if(n>=2){__wgGaveUp__=true;console.error("[WebUIGuard] "+missing+" still missing after "+n+" reloads, giving up: "+location.pathname);return;}__wgArmed__=true;window.name=(window.name||"").replace(/(?:^|;)wgr=\d+/,"")+";wgr="+(n+1);console.warn("[WebUIGuard] "+missing+" missing, reloading page ("+(n+1)+"/2): "+location.pathname);setTimeout(function(){location.reload();},300);};window.addEventListener("error",function(e){var msg=(e&&e.message)||"";var isCore=msg.indexOf("createWebUICore is not defined")>=0;if(!isCore&&msg.indexOf("Vue is not defined")<0)return;__wgReload__(isCore?"webui-core.js":"vue.runtime.global.prod.js");if(!__wgGaveUp__)e.preventDefault();});if(typeof Vue==="undefined"){__wgReload__("vue.runtime.global.prod.js");return;}document.addEventListener("DOMContentLoaded",function(){if(document.querySelector("script[src*=webui-core]")&&typeof window.createWebUICore==="undefined"){__wgReload__("webui-core.js");return;}if(!__wgArmed__&&window.name)window.name=window.name.replace(/(?:^|;)wgr=\d+/,"");});var __renderFactory__=function(Vue){const { createElementVNode: _createElementVNode, openBlock: _openBlock, createElementBlock: _createElementBlock, createCommentVNode: _createCommentVNode, toDisplayString: _toDisplayString, normalizeClass: _normalizeClass, normalizeStyle: _normalizeStyle, renderList: _renderList, Fragment: _Fragment } = Vue
+
+const _hoisted_1 = {
+  class: "plant-system",
+  "data-interactive": ""
+}
+const _hoisted_2 = { class: "flex items-center gap-3 border-b border-[var(--border-color)] pb-4" }
+const _hoisted_3 = {
+  key: 0,
+  class: "icon-wrapper w-10 h-10 bg-black/60"
+}
+const _hoisted_4 = ["src"]
+const _hoisted_5 = {
+  key: 1,
+  class: "icon-wrapper w-10 h-10 bg-black/60 text-[var(--text-dark)]"
+}
+const _hoisted_6 = { class: "text-sm font-bold text-[var(--text-dark)] tracking-wide" }
+const _hoisted_7 = { class: "panel" }
+const _hoisted_8 = { class: "flex flex-col items-center text-center gap-2 mb-5" }
+const _hoisted_9 = {
+  key: 0,
+  class: "icon-wrapper w-16 h-16 bg-black shadow-inner border-[var(--life-green-dark)]/30 mb-1"
+}
+const _hoisted_10 = ["src"]
+const _hoisted_11 = { class: "plant-name-highlight text-glow" }
+const _hoisted_12 = { class: "relative w-full h-8 bg-[var(--grid-bg)] rounded-md border border-[var(--border-color)] overflow-hidden shadow-inner" }
+const _hoisted_13 = { class: "absolute inset-0 flex items-center justify-center text-[14px] font-black text-white font-mono drop-shadow-md z-10 tracking-widest" }
+const _hoisted_14 = {
+  key: 0,
+  class: "absolute inset-0 bg-[var(--danger-red)]/25 z-0"
+}
+const _hoisted_15 = {
+  key: 0,
+  class: "flex flex-col gap-2"
+}
+const _hoisted_16 = { class: "flex items-center gap-3" }
+const _hoisted_17 = { class: "icon-wrapper !w-8 !h-8 bg-black/50" }
+const _hoisted_18 = {
+  key: 0,
+  viewBox: "0 0 24 24",
+  class: "w-4 h-4 text-blue-400"
+}
+const _hoisted_19 = {
+  key: 1,
+  viewBox: "0 0 24 24",
+  class: "w-4 h-4 text-gray-400"
+}
+const _hoisted_20 = {
+  key: 2,
+  viewBox: "0 0 24 24",
+  class: "w-4 h-4 text-amber-400"
+}
+const _hoisted_21 = {
+  key: 0,
+  class: "text-xs font-mono font-bold text-[var(--danger-red)]"
+}
+const _hoisted_22 = { class: "flex gap-3 mt-2" }
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createElementBlock(_Fragment, null, [
+    _createElementVNode("div", {
+      class: "absolute inset-0 bg-black/40",
+      onClick: _cache[0] || (_cache[0] = (...args) => (_ctx.onClose && _ctx.onClose(...args)))
+    }),
+    _createElementVNode("div", _hoisted_1, [
+      _createElementVNode("div", _hoisted_2, [
+        (_ctx.state.containerIcon)
+          ? (_openBlock(), _createElementBlock("div", _hoisted_3, [
+              _createElementVNode("img", {
+                src: _ctx.state.containerIcon,
+                class: "w-6 h-6 object-contain drop-shadow-md"
+              }, null, 8 /* PROPS */, _hoisted_4)
+            ]))
+          : (_openBlock(), _createElementBlock("div", _hoisted_5, [...(_cache[3] || (_cache[3] = [
+              _createElementVNode("svg", {
+                viewBox: "0 0 24 24",
+                class: "w-5 h-5"
+              }, [
+                _createElementVNode("path", { d: "M4 10h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10Z" }),
+                _createElementVNode("path", { d: "M8 6h8V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2Z" }),
+                _createElementVNode("line", {
+                  x1: "12",
+                  y1: "10",
+                  x2: "12",
+                  y2: "22"
+                })
+              ], -1 /* CACHED */)
+            ]))])),
+        _createElementVNode("span", _hoisted_6, _toDisplayString(_ctx.state.containerName), 1 /* TEXT */)
+      ]),
+      _createElementVNode("div", _hoisted_7, [
+        _createElementVNode("div", _hoisted_8, [
+          (_ctx.state.plantIcon)
+            ? (_openBlock(), _createElementBlock("div", _hoisted_9, [
+                _createElementVNode("img", {
+                  src: _ctx.state.plantIcon,
+                  class: "w-10 h-10 object-contain drop-shadow-md"
+                }, null, 8 /* PROPS */, _hoisted_10)
+              ]))
+            : _createCommentVNode("v-if", true),
+          _createElementVNode("div", _hoisted_11, _toDisplayString(_ctx.state.plantName), 1 /* TEXT */),
+          _createElementVNode("div", {
+            class: _normalizeClass(["status-tag", {'is-stalled': _ctx.state.isStalled}])
+          }, _toDisplayString(_ctx.state.statusText), 3 /* TEXT, CLASS */)
+        ]),
+        _createElementVNode("div", _hoisted_12, [
+          _createElementVNode("div", {
+            class: "absolute top-0 left-0 h-full bg-[var(--life-green-dark)] transition-all duration-100 ease-linear shadow-[0_0_15px_rgba(16,185,129,0.5)]",
+            style: _normalizeStyle({ width: _ctx.progressWidth })
+          }, null, 4 /* STYLE */),
+          _createElementVNode("div", _hoisted_13, _toDisplayString(_ctx.timeText), 1 /* TEXT */),
+          (_ctx.state.isStalled)
+            ? (_openBlock(), _createElementBlock("div", _hoisted_14))
+            : _createCommentVNode("v-if", true)
+        ])
+      ]),
+      (_ctx.state.anomalies && _ctx.state.anomalies.length > 0)
+        ? (_openBlock(), _createElementBlock("div", _hoisted_15, [
+            (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.state.anomalies, (item) => {
+              return (_openBlock(), _createElementBlock("div", {
+                class: "slot-box !p-3 flex-row items-center justify-between !bg-[rgba(224,85,85,0.08)] !border-[rgba(224,85,85,0.25)]",
+                key: item.Index
+              }, [
+                _createElementVNode("div", _hoisted_16, [
+                  _createElementVNode("div", _hoisted_17, [
+                    (item.iconKey === 'frost')
+                      ? (_openBlock(), _createElementBlock("svg", _hoisted_18, [...(_cache[4] || (_cache[4] = [
+                          _createElementVNode("path", { d: "M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93" }, null, -1 /* CACHED */)
+                        ]))]))
+                      : (item.iconKey === 'lightLow')
+                        ? (_openBlock(), _createElementBlock("svg", _hoisted_19, [...(_cache[5] || (_cache[5] = [
+                            _createElementVNode("circle", {
+                              cx: "12",
+                              cy: "12",
+                              r: "5"
+                            }, null, -1 /* CACHED */),
+                            _createElementVNode("path", { d: "M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" }, null, -1 /* CACHED */)
+                          ]))]))
+                        : (item.iconKey === 'pest')
+                          ? (_openBlock(), _createElementBlock("svg", _hoisted_20, [...(_cache[6] || (_cache[6] = [
+                              _createElementVNode("rect", {
+                                x: "7",
+                                y: "6",
+                                width: "10",
+                                height: "14",
+                                rx: "5"
+                              }, null, -1 /* CACHED */),
+                              _createElementVNode("path", { d: "M7 10h10M7 14h10M5 8l2 2M19 8l-2 2M5 16l2-2M19 16l-2-2M9 4v2M15 4v2" }, null, -1 /* CACHED */)
+                            ]))]))
+                          : _createCommentVNode("v-if", true)
+                  ]),
+                  _createElementVNode("span", {
+                    class: _normalizeClass(["text-[14px] font-bold", item.isDanger ? 'text-[var(--danger-red)] text-glow-red' : 'text-white'])
+                  }, _toDisplayString(item.label), 3 /* TEXT, CLASS */)
+                ]),
+                (item.remainSeconds > 0)
+                  ? (_openBlock(), _createElementBlock("span", _hoisted_21, _toDisplayString(_ctx.formatTime(item.remainSeconds)), 1 /* TEXT */))
+                  : _createCommentVNode("v-if", true)
+              ]))
+            }), 128 /* KEYED_FRAGMENT */))
+          ]))
+        : _createCommentVNode("v-if", true),
+      _createElementVNode("div", _hoisted_22, [
+        (_ctx.state.showEradicateBtn)
+          ? (_openBlock(), _createElementBlock("button", {
+              key: 0,
+              class: "plant-btn btn-remove",
+              onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.onEradicate && _ctx.onEradicate(...args)))
+            }, _toDisplayString(_ctx.state.loc.eradicateBtnText), 1 /* TEXT */))
+          : _createCommentVNode("v-if", true),
+        _createElementVNode("button", {
+          class: "plant-btn btn-confirm",
+          onClick: _cache[2] || (_cache[2] = (...args) => (_ctx.onClose && _ctx.onClose(...args)))
+        }, _toDisplayString(_ctx.state.loc.confirmBtnText), 1 /* TEXT */)
+      ])
+    ])
+  ], 64 /* STABLE_FRAGMENT */))
+}};var __renderCache__=null;var __origCreateApp__=Vue.createApp;Vue.createApp=function(opts){if(!__renderCache__)__renderCache__=__renderFactory__(Vue);if(opts&&typeof opts==="object"&&!opts.render&&!opts.template){opts=Object.assign({},opts,{render:__renderCache__});}var app=__origCreateApp__.call(this,opts);if(!app.config.errorHandler){app.config.errorHandler=function(err){var msg=(err&&err.message)||String(err||"");if(msg.indexOf("createWebUICore is not defined")>=0){__wgReload__("webui-core.js");if(__wgGaveUp__)console.error(err);return;}console.error(err);};}return app;};})();
+/* === [/precompiled v1] === */
+</script>
+<script src="../../webui-core.js"></script>
+<style>
+    :root {
+        --bg-dark: rgba(24, 32, 28, 0.85);
+        --panel-bg: rgba(36, 45, 40, 0.95);
+        --life-green: #34d399;
+        --life-green-dark: #10b981;
+        --life-green-glow: #059669;
+        --danger-red: #e05555;
+        
+        --text-main: #fcfcfc;
+        --text-dark: #a0b5ab;
+        --border-light: rgba(255, 255, 255, 0.18);
+        --border-color: rgba(255, 255, 255, 0.12);
+        
+        --grid-bg: rgba(15, 22, 18, 0.85);
+        --slot-border: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+        background: transparent;
+        font-family: 'Segoe UI', "Microsoft YaHei", sans-serif;
+        overflow: hidden;
+        user-select: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+        color: var(--text-main);
+    }
+
+    .plant-system {
+        display: flex; flex-direction: column; gap: 16px;
+        position: relative; z-index: 10;
+        background-image: 
+            radial-gradient(circle at center bottom, rgba(16, 185, 129, 0.15) 0%, transparent 65%),
+            linear-gradient(135deg, rgba(45, 58, 50, 0.96) 0%, rgba(24, 32, 28, 0.98) 100%);
+        padding: 24px; border-radius: 12px;
+        border: 1px solid var(--border-light);
+        box-shadow: 0 25px 60px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.15);
+        width: 100%; max-width: 400px;
+        overflow: hidden;
+        pointer-events: auto;
+    }
+
+    .plant-system::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background-image:
+            linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+        background-size: 20px 20px; pointer-events: none; z-index: 0;
+    }
+
+    .plant-system > * { position: relative; z-index: 10; }
+
+    .panel {
+        background: linear-gradient(180deg, rgba(50, 60, 53, 0.85) 0%, rgba(30, 38, 33, 0.95) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; padding: 20px;
+        display: flex; flex-direction: column;
+        box-shadow: inset 0 2px 10px rgba(0,0,0,0.4), 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .icon-wrapper {
+        background-color: rgba(10, 15, 12, 0.8);
+        border: 1px solid var(--slot-border); border-radius: 6px;
+        display: flex; justify-content: center; align-items: center; flex-shrink: 0;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+    }
+
+    .slot-box {
+        background-color: var(--grid-bg); border: 1px solid var(--border-color);
+        border-radius: 8px; padding: 12px; display: flex; flex-direction: column;
+        box-shadow: inset 0 3px 12px rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .plant-btn {
+        color: #fff; border: none; padding: 12px; 
+        border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; 
+        transition: all 0.2s; letter-spacing: 1px;
+        text-shadow: none; flex: 1;
+        display: flex; justify-content: center; align-items: center;
+    }
+    
+    .plant-btn.btn-remove {
+        background: rgba(224, 85, 85, 0.15); border: 1px solid rgba(224, 85, 85, 0.4);
+        color: var(--danger-red);
+    }
+    .plant-btn.btn-remove:hover {
+        background: rgba(224, 85, 85, 0.25); border-color: var(--danger-red);
+        box-shadow: 0 4px 15px rgba(224, 85, 85, 0.3);
+    }
+
+    .plant-btn.btn-confirm {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: var(--text-dark);
+    }
+    .plant-btn.btn-confirm:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.3);
+        color: var(--text-main);
+    }
+
+    svg {
+        width: 100%; height: 100%; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; fill: none; stroke: currentColor;
+    }
+    
+    .text-glow { text-shadow: 0 0 12px rgba(52, 211, 153, 0.7); }
+    .text-glow-red { text-shadow: 0 0 10px rgba(224, 85, 85, 0.6); }
+
+    .plant-name-highlight {
+        font-size: 22px;
+        font-weight: 900;
+        color: var(--life-green);
+        letter-spacing: 1px;
+    }
+    .status-tag {
+        font-size: 14px;
+        font-weight: 800;
+        color: #fff;
+        background: rgba(16, 185, 129, 0.2);
+        padding: 2px 10px;
+        border-radius: 4px;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        display: inline-block;
+    }
+    .status-tag.is-stalled {
+        background: rgba(224, 85, 85, 0.2);
+        border-color: rgba(224, 85, 85, 0.3);
+    }
+</style>
+</head>
+<body>
+    <div id="app" class="w-full h-full flex justify-center items-center relative">
+        <div class="absolute inset-0 bg-black/40" @click="onClose"></div>
+        
+        <div class="plant-system" data-interactive>
+            <div class="flex items-center gap-3 border-b border-[var(--border-color)] pb-4">
+                <div v-if="state.containerIcon" class="icon-wrapper w-10 h-10 bg-black/60">
+                    <img :src="state.containerIcon" class="w-6 h-6 object-contain drop-shadow-md" />
+                </div>
+                <div v-else class="icon-wrapper w-10 h-10 bg-black/60 text-[var(--text-dark)]">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5"><path d="M4 10h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10Z"/><path d="M8 6h8V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2Z"/><line x1="12" y1="10" x2="12" y2="22"/></svg>
+                </div>
+                <span class="text-sm font-bold text-[var(--text-dark)] tracking-wide">{{ state.containerName }}</span>
+            </div>
+
+            <div class="panel">
+                <div class="flex flex-col items-center text-center gap-2 mb-5">
+                    <div v-if="state.plantIcon" class="icon-wrapper w-16 h-16 bg-black shadow-inner border-[var(--life-green-dark)]/30 mb-1">
+                        <img :src="state.plantIcon" class="w-10 h-10 object-contain drop-shadow-md" />
+                    </div>
+                    <div class="plant-name-highlight text-glow">{{ state.plantName }}</div>
+                    <div class="status-tag" :class="{'is-stalled': state.isStalled}">{{ state.statusText }}</div>
+                </div>
+
+                <div class="relative w-full h-8 bg-[var(--grid-bg)] rounded-md border border-[var(--border-color)] overflow-hidden shadow-inner">
+                    <div class="absolute top-0 left-0 h-full bg-[var(--life-green-dark)] transition-all duration-100 ease-linear shadow-[0_0_15px_rgba(16,185,129,0.5)]" :style="{ width: progressWidth }"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-[14px] font-black text-white font-mono drop-shadow-md z-10 tracking-widest">
+                        {{ timeText }}
+                    </div>
+                    <div v-if="state.isStalled" class="absolute inset-0 bg-[var(--danger-red)]/25 z-0"></div>
+                </div>
+            </div>
+
+            <div v-if="state.anomalies && state.anomalies.length > 0" class="flex flex-col gap-2">
+                <div class="slot-box !p-3 flex-row items-center justify-between !bg-[rgba(224,85,85,0.08)] !border-[rgba(224,85,85,0.25)]" v-for="item in state.anomalies" :key="item.Index">
+                    <div class="flex items-center gap-3">
+                        <div class="icon-wrapper !w-8 !h-8 bg-black/50">
+                            <svg v-if="item.iconKey === 'frost'" viewBox="0 0 24 24" class="w-4 h-4 text-blue-400">
+                                <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93" />
+                            </svg>
+                            <svg v-else-if="item.iconKey === 'lightLow'" viewBox="0 0 24 24" class="w-4 h-4 text-gray-400">
+                                <circle cx="12" cy="12" r="5" />
+                                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                            </svg>
+                            <svg v-else-if="item.iconKey === 'pest'" viewBox="0 0 24 24" class="w-4 h-4 text-amber-400">
+                                <rect x="7" y="6" width="10" height="14" rx="5" />
+                                <path d="M7 10h10M7 14h10M5 8l2 2M19 8l-2 2M5 16l2-2M19 16l-2-2M9 4v2M15 4v2" />
+                            </svg>
+                        </div>
+                        <span class="text-[14px] font-bold" :class="item.isDanger ? 'text-[var(--danger-red)] text-glow-red' : 'text-white'">{{ item.label }}</span>
+                    </div>
+                    <span class="text-xs font-mono font-bold text-[var(--danger-red)]" v-if="item.remainSeconds > 0">{{ formatTime(item.remainSeconds) }}</span>
+                </div>
+            </div>
+
+            <div class="flex gap-3 mt-2">
+                <button v-if="state.showEradicateBtn" class="plant-btn btn-remove" @click="onEradicate">{{ state.loc.eradicateBtnText }}</button>
+                <button class="plant-btn btn-confirm" @click="onClose">{{ state.loc.confirmBtnText }}</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp, reactive, computed } = Vue;
+
+        createApp({
+            setup() {
+                const core = createWebUICore('PlantingDetails');
+
+                const state = reactive({
+                    containerName: '',
+                    containerIcon: '',
+                    plantName: '',
+                    plantIcon: '',
+                    statusText: '',
+                    isStalled: false,
+                    growthProgress: 0,
+                    remainSeconds: 0,
+                    effectiveTimeScale: 1,
+                    showEradicateBtn: true,
+                    anomalies: [],
+                    loc: {
+                        eradicateBtnText: '',
+                        confirmBtnText: '',
+                        statusStallText: '',
+                        statusGrowingText: '',
+                        statusMatureText: '',
+                        statusWitheredText: '',
+                        statusPoorText: ''
+                    }
+                });
+
+                let growthTotalSeconds = 0;
+
+                const countdown = core.createCountdownEngine({
+                    onTick: (remainSec) => {
+                        state.remainSeconds = Math.max(0, Math.ceil(remainSec));
+                        if (growthTotalSeconds > 0) {
+                            const p = 1 - remainSec / growthTotalSeconds;
+                            state.growthProgress = Math.max(0, Math.min(1, p));
+                        }
+                    }
+                });
+
+                core.registerHandlers({
+                    'WebUI_PlantingDetails_InfoMsg': (data) => {
+                        Object.assign(state, data);
+                        const remainPercent = Math.max(1 - state.growthProgress, 0.0001);
+                        growthTotalSeconds = state.remainSeconds / remainPercent;
+                        const scale = state.effectiveTimeScale > 0 ? state.effectiveTimeScale : 1;
+                        countdown.stop();
+                        if (state.remainSeconds > 0) {
+                            countdown.start(state.remainSeconds, scale);
+                            countdown.pause(state.isStalled);
+                        }
+                    },
+                    'WebUI_PlantingDetails_AnomalyMsg': (data) => {
+                        state.anomalies = data.anomalies || [];
+                    },
+                    'WebUI_PlantingDetails_LocalizationMsg': (data) => {
+                        Object.assign(state.loc, data);
+                    }
+                });
+
+                const progressWidth = computed(() => (state.growthProgress * 100).toFixed(1) + '%');
+                const timeText = computed(() => {
+                    const totalSec = Math.max(0, Math.floor(state.remainSeconds));
+                    const days = Math.floor(totalSec / 86400);
+                    const hours = Math.floor((totalSec % 86400) / 3600);
+                    const mins = Math.floor((totalSec % 3600) / 60);
+                    const pad = (n) => n.toString().padStart(2, '0');
+                    return days > 0
+                        ? `${days}d ${pad(hours)}:${pad(mins)}`
+                        : `${pad(hours)}:${pad(mins)}`;
+                });
+                const formatTime = (s) => core.formatTime(s);
+
+                const onEradicate = (evt) => {
+                    evt.stopPropagation();
+                    core.UnitySendEvent('ERADICATE', {});
+                };
+                const onClose = (evt) => {
+                    evt.stopPropagation();
+                    countdown.stop();
+                    core.UnitySendEvent('CLOSE', {});
+                };
+
+                core.clickThrough.start();
+                core.notifyReady();
+
+                return { state, progressWidth, timeText, formatTime, onEradicate, onClose };
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

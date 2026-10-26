@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Pause</title>
+    <script src="../../vue.runtime.global.prod.js"></script>
+<script>
+/* === [precompiled v1] === */
+(function(){var __wgArmed__=false;var __wgGaveUp__=false;var __wgReload__=function(missing){if(__wgArmed__||__wgGaveUp__)return;var m=/(?:^|;)wgr=(\d+)/.exec(window.name||"");var n=m?parseInt(m[1],10):0;if(n>=2){__wgGaveUp__=true;console.error("[WebUIGuard] "+missing+" still missing after "+n+" reloads, giving up: "+location.pathname);return;}__wgArmed__=true;window.name=(window.name||"").replace(/(?:^|;)wgr=\d+/,"")+";wgr="+(n+1);console.warn("[WebUIGuard] "+missing+" missing, reloading page ("+(n+1)+"/2): "+location.pathname);setTimeout(function(){location.reload();},300);};window.addEventListener("error",function(e){var msg=(e&&e.message)||"";var isCore=msg.indexOf("createWebUICore is not defined")>=0;if(!isCore&&msg.indexOf("Vue is not defined")<0)return;__wgReload__(isCore?"webui-core.js":"vue.runtime.global.prod.js");if(!__wgGaveUp__)e.preventDefault();});if(typeof Vue==="undefined"){__wgReload__("vue.runtime.global.prod.js");return;}document.addEventListener("DOMContentLoaded",function(){if(document.querySelector("script[src*=webui-core]")&&typeof window.createWebUICore==="undefined"){__wgReload__("webui-core.js");return;}if(!__wgArmed__&&window.name)window.name=window.name.replace(/(?:^|;)wgr=\d+/,"");});var __renderFactory__=function(Vue){const { createElementVNode: _createElementVNode, createCommentVNode: _createCommentVNode, openBlock: _openBlock, createElementBlock: _createElementBlock, toDisplayString: _toDisplayString, normalizeClass: _normalizeClass, renderList: _renderList, Fragment: _Fragment, withModifiers: _withModifiers, vShow: _vShow, withDirectives: _withDirectives, vModelCheckbox: _vModelCheckbox, createStaticVNode: _createStaticVNode } = Vue
+
+const _hoisted_1 = { class: "left-panel" }
+const _hoisted_2 = { class: "menu-list" }
+const _hoisted_3 = {
+  class: "wishlist-container",
+  style: {"display":"none"}
+}
+const _hoisted_4 = { class: "icon-bar" }
+const _hoisted_5 = { class: "settings-header" }
+const _hoisted_6 = { class: "set-tabs" }
+const _hoisted_7 = { class: "settings-body" }
+const _hoisted_8 = { class: "set-page" }
+const _hoisted_9 = { class: "settings-section" }
+const _hoisted_10 = { class: "key-group-title" }
+const _hoisted_11 = { class: "setting-row" }
+const _hoisted_12 = { class: "setting-label" }
+const _hoisted_13 = { class: "settings-section" }
+const _hoisted_14 = { class: "key-group-title" }
+const _hoisted_15 = { class: "setting-row" }
+const _hoisted_16 = { class: "setting-label" }
+const _hoisted_17 = { class: "select-wrapper" }
+const _hoisted_18 = ["onClick"]
+const _hoisted_19 = { class: "dd-text" }
+const _hoisted_20 = ["onClick"]
+const _hoisted_21 = {
+  key: 0,
+  class: "setting-hint warn"
+}
+const _hoisted_22 = {
+  key: 1,
+  class: "setting-hint"
+}
+const _hoisted_23 = { class: "settings-section" }
+const _hoisted_24 = { class: "key-group-title" }
+const _hoisted_25 = { class: "set-page" }
+const _hoisted_26 = { class: "settings-section" }
+const _hoisted_27 = { class: "key-group-title" }
+const _hoisted_28 = { class: "key-grid" }
+const _hoisted_29 = ["onClick"]
+const _hoisted_30 = { class: "key-tag" }
+const _hoisted_31 = { class: "key-desc" }
+const _hoisted_32 = { class: "settings-section" }
+const _hoisted_33 = { class: "key-group-title" }
+const _hoisted_34 = { class: "key-grid" }
+const _hoisted_35 = ["onClick"]
+const _hoisted_36 = { class: "key-tag" }
+const _hoisted_37 = { class: "key-desc" }
+const _hoisted_38 = { class: "settings-section" }
+const _hoisted_39 = { class: "key-group-title" }
+const _hoisted_40 = { class: "key-grid" }
+const _hoisted_41 = ["onClick"]
+const _hoisted_42 = { class: "key-tag" }
+const _hoisted_43 = { class: "key-desc" }
+const _hoisted_44 = {
+  key: 1,
+  class: "control-row full"
+}
+const _hoisted_45 = { class: "key-tag" }
+const _hoisted_46 = { class: "key-desc" }
+const _hoisted_47 = { class: "key-actions" }
+const _hoisted_48 = {
+  class: "controls-footer-note",
+  "data-i18n": "controlsFooter"
+}
+const _hoisted_49 = { class: "confirm-title" }
+const _hoisted_50 = {
+  key: 0,
+  class: "confirm-text"
+}
+const _hoisted_51 = {
+  key: 1,
+  class: "confirm-text"
+}
+const _hoisted_52 = { class: "warn-optout" }
+const _hoisted_53 = { class: "confirm-buttons" }
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createElementBlock(_Fragment, null, [
+    _createElementVNode("div", _hoisted_1, [
+      _cache[31] || (_cache[31] = _createElementVNode("div", {
+        class: "menu-header",
+        "data-i18n": "menuTitle"
+      }, "PAUSE", -1 /* CACHED */)),
+      _createElementVNode("div", _hoisted_2, [
+        _createElementVNode("div", {
+          class: "main-btn",
+          "data-i18n": "back",
+          onClick: _cache[0] || (_cache[0] = $event => (_ctx.UnitySendEvent('BACK')))
+        }, " 返回游戏 "),
+        _createElementVNode("div", {
+          class: "main-btn",
+          "data-i18n": "settings",
+          onClick: _cache[1] || (_cache[1] = $event => (_ctx.openSettings()))
+        }, " 设置 "),
+        _createElementVNode("div", {
+          class: "main-btn",
+          "data-i18n": "codex",
+          onClick: _cache[2] || (_cache[2] = $event => (_ctx.UnitySendEvent('CODEX')))
+        }, " 图鉴 "),
+        _createElementVNode("div", {
+          class: "main-btn",
+          "data-i18n": "achievement",
+          onClick: _cache[3] || (_cache[3] = $event => (_ctx.UnitySendEvent('ACHIEVEMENT')))
+        }, "成就"),
+        _createElementVNode("div", _hoisted_3, [
+          _createElementVNode("div", {
+            class: "main-btn btn-wishlist",
+            "data-i18n": "wishlist",
+            onClick: _cache[4] || (_cache[4] = $event => (_ctx.UnitySendEvent('CART')))
+          }, [...(_cache[25] || (_cache[25] = [
+            _createElementVNode("img", {
+              src: "../../Res/WebRequest/icon01.png",
+              alt: "Star"
+            }, null, -1 /* CACHED */),
+            _createElementVNode("span", { "data-i18n": "wishlistText" }, "加入愿望单", -1 /* CACHED */)
+          ]))])
+        ]),
+        _createCommentVNode(" [本轮重开] 与「保存并退出」一起沉在列表底部（设计拍板：向下靠、贴在退出上方）。用 v-if 不用 v-show：\n                     隐藏时要从 DOM 移除，`.btn-restart + .btn-exit` 的 margin 归零规则才不会误伤退出按钮的 margin-top:auto "),
+        (_ctx.state.restartRoundVisible)
+          ? (_openBlock(), _createElementBlock("div", {
+              key: 0,
+              class: "main-btn btn-restart",
+              "data-i18n": "restartRound",
+              onClick: _cache[5] || (_cache[5] = $event => (_ctx.UnitySendEvent('RESTART_ROUND')))
+            }, " 作废这一轮重来 "))
+          : _createCommentVNode("v-if", true),
+        _createElementVNode("div", {
+          class: "main-btn btn-exit",
+          "data-i18n": "saveExit",
+          onClick: _cache[6] || (_cache[6] = $event => (_ctx.UnitySendEvent('SAVE_EXIT')))
+        }, " 保存并退出 ")
+      ]),
+      _createElementVNode("div", _hoisted_4, [
+        _createElementVNode("div", {
+          class: "icon-btn",
+          onClick: _cache[7] || (_cache[7] = $event => (_ctx.UnitySendEvent('CART'))),
+          "data-i18n": "community",
+          "data-tooltip": "steam社区"
+        }, [...(_cache[26] || (_cache[26] = [
+          _createStaticVNode("<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"></path><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"></path></svg>", 1)
+        ]))]),
+        _createElementVNode("div", {
+          class: "icon-btn",
+          onClick: _cache[8] || (_cache[8] = $event => (_ctx.UnitySendEvent('EDIT'))),
+          "data-i18n": "record",
+          "data-tooltip": "反馈"
+        }, [...(_cache[27] || (_cache[27] = [
+          _createStaticVNode("<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z\"></path><path d=\"M7 11h10\"></path><path d=\"M7 15h6\"></path><path d=\"M7 7h8\"></path></svg>", 1)
+        ]))]),
+        _createElementVNode("div", {
+          class: "icon-btn",
+          onClick: _cache[9] || (_cache[9] = $event => (_ctx.UnitySendEvent('SENTRY_FEEDBACK'))),
+          "data-i18n": "sentryFeedback",
+          "data-tooltip": "问题反馈"
+        }, [...(_cache[28] || (_cache[28] = [
+          _createElementVNode("svg", {
+            xmlns: "http://www.w3.org/2000/svg",
+            viewBox: "0 0 24 24",
+            fill: "none",
+            stroke: "currentColor",
+            "stroke-width": "2",
+            "stroke-linecap": "round",
+            "stroke-linejoin": "round"
+          }, [
+            _createElementVNode("path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" }),
+            _createElementVNode("polyline", { points: "17 8 12 3 7 8" }),
+            _createElementVNode("line", {
+              x1: "12",
+              y1: "3",
+              x2: "12",
+              y2: "15"
+            })
+          ], -1 /* CACHED */)
+        ]))]),
+        _createElementVNode("div", {
+          class: "icon-btn",
+          onClick: _cache[10] || (_cache[10] = $event => (_ctx.UnitySendEvent('QQ'))),
+          "data-i18n": "qq",
+          "data-tooltip": "QQ"
+        }, [...(_cache[29] || (_cache[29] = [
+          _createElementVNode("svg", {
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "currentColor",
+            viewBox: "0 0 16 16"
+          }, [
+            _createElementVNode("path", { d: "M6.048 3.323c.022.277-.13.523-.338.55-.21.026-.397-.176-.419-.453s.13-.523.338-.55c.21-.026.397.176.42.453Zm2.265-.24c-.603-.146-.894.256-.936.333-.027.048-.008.117.037.15.045.035.092.025.119-.003.361-.39.751-.172.829-.129l.011.007c.053.024.147.028.193-.098.023-.063.017-.11-.006-.142-.016-.023-.089-.08-.247-.118" }),
+            _createElementVNode("path", { d: "M11.727 6.719c0-.022.01-.375.01-.557 0-3.07-1.45-6.156-5.015-6.156S1.708 3.092 1.708 6.162c0 .182.01.535.01.557l-.72 1.795a26 26 0 0 0-.534 1.508c-.68 2.187-.46 3.093-.292 3.113.36.044 1.401-1.647 1.401-1.647 0 .979.504 2.256 1.594 3.179-.408.126-.907.319-1.228.556-.29.213-.253.43-.201.518.228.386 3.92.246 4.985.126 1.065.12 4.756.26 4.984-.126.052-.088.088-.305-.2-.518-.322-.237-.822-.43-1.23-.557 1.09-.922 1.594-2.2 1.594-3.178 0 0 1.041 1.69 1.401 1.647.168-.02.388-.926-.292-3.113a26 26 0 0 0-.534-1.508l-.72-1.795ZM9.773 5.53a.1.1 0 0 1-.009.096c-.109.159-1.554.943-3.033.943h-.017c-1.48 0-2.925-.784-3.034-.943a.1.1 0 0 1-.018-.055q0-.022.01-.04c.13-.287 1.43-.606 3.042-.606h.017c1.611 0 2.912.319 3.042.605m-4.32-.989c-.483.022-.896-.529-.922-1.229s.344-1.286.828-1.308c.483-.022.896.529.922 1.23.027.7-.344 1.286-.827 1.307Zm2.538 0c-.484-.022-.854-.607-.828-1.308.027-.7.44-1.25.923-1.23.483.023.853.608.827 1.309-.026.7-.439 1.251-.922 1.23ZM2.928 8.99q.32.063.639.117v2.336s1.104.222 2.21.068V9.363q.49.027.937.023h.017c1.117.013 2.474-.136 3.786-.396.097.622.151 1.386.097 2.284-.146 2.45-1.6 3.99-3.846 4.012h-.091c-2.245-.023-3.7-1.562-3.846-4.011-.054-.9 0-1.663.097-2.285" })
+          ], -1 /* CACHED */)
+        ]))]),
+        _createElementVNode("div", {
+          class: "icon-btn",
+          onClick: _cache[11] || (_cache[11] = $event => (_ctx.UnitySendEvent('DISCORD'))),
+          "data-i18n": "discord",
+          "data-tooltip": "Discord"
+        }, [...(_cache[30] || (_cache[30] = [
+          _createElementVNode("svg", {
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "currentColor",
+            viewBox: "0 0 16 16"
+          }, [
+            _createElementVNode("path", { d: "M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612" })
+          ], -1 /* CACHED */)
+        ]))])
+      ])
+    ]),
+    _createElementVNode("div", {
+      id: "settingsModal",
+      class: "modal-overlay",
+      onClick: _cache[19] || (_cache[19] = $event => (_ctx.closeSettings($event)))
+    }, [
+      _createElementVNode("div", {
+        class: "settings-box tabbed",
+        onClick: _cache[18] || (_cache[18] = _withModifiers($event => (_ctx.closeDd()), ["stop"]))
+      }, [
+        _createElementVNode("div", _hoisted_5, [
+          _cache[32] || (_cache[32] = _createElementVNode("div", { class: "settings-title-text" }, "SETTINGS", -1 /* CACHED */)),
+          _cache[33] || (_cache[33] = _createElementVNode("div", { class: "settings-deco" }, "SYS-CONFIG_V1.0", -1 /* CACHED */)),
+          _createElementVNode("span", {
+            class: "close-btn",
+            onClick: _cache[12] || (_cache[12] = (...args) => (_ctx.closeSettings && _ctx.closeSettings(...args)))
+          }, "×")
+        ]),
+        _cache[41] || (_cache[41] = _createElementVNode("div", { class: "corner tl" }, null, -1 /* CACHED */)),
+        _cache[42] || (_cache[42] = _createElementVNode("div", { class: "corner tr" }, null, -1 /* CACHED */)),
+        _cache[43] || (_cache[43] = _createElementVNode("div", { class: "corner bl" }, null, -1 /* CACHED */)),
+        _cache[44] || (_cache[44] = _createElementVNode("div", { class: "corner br" }, null, -1 /* CACHED */)),
+        _createCommentVNode(" 常规（声音 / 画面 / 界面）与按键分两页；窗口高度固定，切页签外框不跳 "),
+        _createElementVNode("div", _hoisted_6, [
+          _createElementVNode("div", {
+            class: _normalizeClass(["set-tab", { on: _ctx.state.settingsTab === 'general' }]),
+            onClick: _cache[13] || (_cache[13] = $event => (_ctx.switchTab('general')))
+          }, _toDisplayString(_ctx.state.loc.tabGeneral || '常规'), 3 /* TEXT, CLASS */),
+          _createElementVNode("div", {
+            class: _normalizeClass(["set-tab", { on: _ctx.state.settingsTab === 'keys' }]),
+            onClick: _cache[14] || (_cache[14] = $event => (_ctx.switchTab('keys')))
+          }, _toDisplayString(_ctx.state.loc.tabKeys || '按键'), 3 /* TEXT, CLASS */)
+        ]),
+        _createElementVNode("div", _hoisted_7, [
+          _withDirectives(_createElementVNode("div", _hoisted_8, [
+            _createElementVNode("div", _hoisted_9, [
+              _createElementVNode("div", _hoisted_10, _toDisplayString(_ctx.state.loc.groupSound || '声音'), 1 /* TEXT */),
+              _cache[35] || (_cache[35] = _createElementVNode("div", { class: "setting-row" }, [
+                _createElementVNode("div", {
+                  class: "setting-label",
+                  "data-i18n": "settingsMusic"
+                }, "音乐"),
+                _createElementVNode("div", { class: "slider-wrapper" }, [
+                  _createElementVNode("input", {
+                    type: "range",
+                    id: "sliderBg",
+                    min: "0",
+                    max: "100",
+                    value: "50",
+                    oninput: "updateSlider(this); onBgVolumeChange(this.value)"
+                  })
+                ])
+              ], -1 /* CACHED */)),
+              _createElementVNode("div", _hoisted_11, [
+                _createElementVNode("div", _hoisted_12, _toDisplayString(_ctx.state.loc.settingsAmbient || '环境音'), 1 /* TEXT */),
+                _cache[34] || (_cache[34] = _createElementVNode("div", { class: "slider-wrapper" }, [
+                  _createElementVNode("input", {
+                    type: "range",
+                    id: "sliderAmbient",
+                    min: "0",
+                    max: "100",
+                    value: "50",
+                    oninput: "updateSlider(this); onAmbientVolumeChange(this.value)"
+                  })
+                ], -1 /* CACHED */))
+              ]),
+              _cache[36] || (_cache[36] = _createElementVNode("div", { class: "setting-row" }, [
+                _createElementVNode("div", {
+                  class: "setting-label",
+                  "data-i18n": "settingsSound"
+                }, "音效"),
+                _createElementVNode("div", { class: "slider-wrapper" }, [
+                  _createElementVNode("input", {
+                    type: "range",
+                    id: "sliderAction",
+                    min: "0",
+                    max: "100",
+                    value: "50",
+                    oninput: "updateSlider(this); onActionVolumeChange(this.value)"
+                  })
+                ])
+              ], -1 /* CACHED */))
+            ]),
+            _createElementVNode("div", _hoisted_13, [
+              _createElementVNode("div", _hoisted_14, _toDisplayString(_ctx.state.loc.groupDisplay || '画面'), 1 /* TEXT */),
+              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.ddDefs, (dd) => {
+                return (_openBlock(), _createElementBlock(_Fragment, {
+                  key: dd.id
+                }, [
+                  _createElementVNode("div", _hoisted_15, [
+                    _createElementVNode("div", _hoisted_16, _toDisplayString(dd.label), 1 /* TEXT */),
+                    _createElementVNode("div", _hoisted_17, [
+                      _createElementVNode("div", {
+                        class: _normalizeClass(["dd", { open: _ctx.state.ddOpen === dd.id, up: dd.up }])
+                      }, [
+                        _createElementVNode("div", {
+                          class: "dd-trigger",
+                          onClick: _withModifiers($event => (_ctx.toggleDd(dd.id)), ["stop"])
+                        }, [
+                          _createElementVNode("span", _hoisted_19, _toDisplayString(_ctx.ddText(dd)), 1 /* TEXT */),
+                          _cache[37] || (_cache[37] = _createElementVNode("span", { class: "dd-arrow" }, null, -1 /* CACHED */))
+                        ], 8 /* PROPS */, _hoisted_18),
+                        _createElementVNode("div", {
+                          class: "dd-list",
+                          onWheel: _cache[15] || (_cache[15] = _withModifiers($event => (_ctx.onDdWheel($event)), ["stop","prevent"]))
+                        }, [
+                          (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(dd.options, (o) => {
+                            return (_openBlock(), _createElementBlock("div", {
+                              class: _normalizeClass(["dd-item", { selected: String(o.v) === String(dd.value) }]),
+                              key: o.v,
+                              onClick: _withModifiers($event => (_ctx.pickDd(dd.id, o.v)), ["stop"])
+                            }, _toDisplayString(o.t), 11 /* TEXT, CLASS, PROPS */, _hoisted_20))
+                          }), 128 /* KEYED_FRAGMENT */))
+                        ], 32 /* NEED_HYDRATION */)
+                      ], 2 /* CLASS */)
+                    ])
+                  ]),
+                  (dd.id === 'quality' && _ctx.state.disp.graphicsNeedRestart)
+                    ? (_openBlock(), _createElementBlock("div", _hoisted_21, _toDisplayString(_ctx.state.loc.graphicsRestartHint || '画质已更新，界面帧率将在重启游戏后生效'), 1 /* TEXT */))
+                    : _createCommentVNode("v-if", true),
+                  (dd.id === 'fps')
+                    ? (_openBlock(), _createElementBlock("div", _hoisted_22, _toDisplayString(_ctx.state.loc.frameRateClampHint || '主菜单与游戏暂停期间帧率上限为 60，游戏进行中按此设置生效。'), 1 /* TEXT */))
+                    : _createCommentVNode("v-if", true)
+                ], 64 /* STABLE_FRAGMENT */))
+              }), 128 /* KEYED_FRAGMENT */))
+            ]),
+            _createElementVNode("div", _hoisted_23, [
+              _createElementVNode("div", _hoisted_24, _toDisplayString(_ctx.state.loc.groupInterface || '界面'), 1 /* TEXT */),
+              _cache[38] || (_cache[38] = _createElementVNode("div", { class: "setting-row" }, [
+                _createElementVNode("div", {
+                  class: "setting-label",
+                  "data-i18n": "actionEcho"
+                }, "操作提示"),
+                _createElementVNode("label", { class: "setting-toggle" }, [
+                  _createElementVNode("input", {
+                    type: "checkbox",
+                    id: "actionEchoCheck",
+                    checked: "",
+                    onchange: "onActionEchoToggle(this.checked)"
+                  }),
+                  _createElementVNode("span", { class: "track" }),
+                  _createElementVNode("span", { class: "knob" })
+                ])
+              ], -1 /* CACHED */)),
+              _cache[39] || (_cache[39] = _createElementVNode("div", {
+                class: "setting-hint",
+                "data-i18n": "actionEchoHint"
+              }, "在画面下方显示你刚下达的操作，方便回看录像", -1 /* CACHED */))
+            ])
+          ], 512 /* NEED_PATCH */), [
+            [_vShow, _ctx.state.settingsTab === 'general']
+          ]),
+          _withDirectives(_createElementVNode("div", _hoisted_25, [
+            _createElementVNode("div", _hoisted_26, [
+              _createElementVNode("div", _hoisted_27, _toDisplayString(_ctx.state.loc.groupBasic || '基础操作'), 1 /* TEXT */),
+              _createElementVNode("div", _hoisted_28, [
+                (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.bindsOf('basic'), (kb, i) => {
+                  return (_openBlock(), _createElementBlock("div", {
+                    class: _normalizeClass(["control-row", { full: (kb.keyName || '').length >= 12 || ((kb.keyName || '').length + (kb.label || '').length) >= 30, rebindable: kb.rebindable && _ctx.ENABLE_REBIND, listening: kb.rebindable && _ctx.ENABLE_REBIND && _ctx.state.listeningId === kb.id }]),
+                    key: 'b' + i,
+                    onClick: $event => (_ctx.onKeyRowClick(kb))
+                  }, [
+                    _createElementVNode("span", _hoisted_30, "[" + _toDisplayString((_ctx.ENABLE_REBIND && kb.rebindable && _ctx.state.listeningId === kb.id) ? (_ctx.state.localText.pressKeyText || '请按键...') : kb.keyName) + "]", 1 /* TEXT */),
+                    _createElementVNode("span", _hoisted_31, _toDisplayString(kb.label), 1 /* TEXT */)
+                  ], 10 /* CLASS, PROPS */, _hoisted_29))
+                }), 128 /* KEYED_FRAGMENT */))
+              ])
+            ]),
+            _createElementVNode("div", _hoisted_32, [
+              _createElementVNode("div", _hoisted_33, _toDisplayString(_ctx.state.loc.groupPanels || '界面'), 1 /* TEXT */),
+              _createElementVNode("div", _hoisted_34, [
+                (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.bindsOf('panels'), (kb, i) => {
+                  return (_openBlock(), _createElementBlock("div", {
+                    class: _normalizeClass(["control-row", { rebindable: kb.rebindable && _ctx.ENABLE_REBIND, listening: kb.rebindable && _ctx.ENABLE_REBIND && _ctx.state.listeningId === kb.id }]),
+                    key: 'p' + i,
+                    onClick: $event => (_ctx.onKeyRowClick(kb))
+                  }, [
+                    _createElementVNode("span", _hoisted_36, "[" + _toDisplayString((_ctx.ENABLE_REBIND && kb.rebindable && _ctx.state.listeningId === kb.id) ? (_ctx.state.localText.pressKeyText || '请按键...') : kb.keyName) + "]", 1 /* TEXT */),
+                    _createElementVNode("span", _hoisted_37, _toDisplayString(kb.label), 1 /* TEXT */)
+                  ], 10 /* CLASS, PROPS */, _hoisted_35))
+                }), 128 /* KEYED_FRAGMENT */))
+              ])
+            ]),
+            _createElementVNode("div", _hoisted_38, [
+              _createElementVNode("div", _hoisted_39, _toDisplayString(_ctx.state.loc.groupTime || '时间控制'), 1 /* TEXT */),
+              _createElementVNode("div", _hoisted_40, [
+                (_ctx.ENABLE_REBIND)
+                  ? (_openBlock(true), _createElementBlock(_Fragment, { key: 0 }, _renderList(_ctx.bindsOf('time'), (kb, i) => {
+                      return (_openBlock(), _createElementBlock("div", {
+                        class: _normalizeClass(["control-row", { rebindable: kb.rebindable, listening: kb.rebindable && _ctx.state.listeningId === kb.id }]),
+                        key: 't' + i,
+                        onClick: $event => (_ctx.onKeyRowClick(kb))
+                      }, [
+                        _createElementVNode("span", _hoisted_42, "[" + _toDisplayString((kb.rebindable && _ctx.state.listeningId === kb.id) ? (_ctx.state.localText.pressKeyText || '请按键...') : kb.keyName) + "]", 1 /* TEXT */),
+                        _createElementVNode("span", _hoisted_43, _toDisplayString(kb.label), 1 /* TEXT */)
+                      ], 10 /* CLASS, PROPS */, _hoisted_41))
+                    }), 128 /* KEYED_FRAGMENT */))
+                  : (_openBlock(), _createElementBlock("div", _hoisted_44, [
+                      _createElementVNode("span", _hoisted_45, _toDisplayString(_ctx.speedKeysTag), 1 /* TEXT */),
+                      _createElementVNode("span", _hoisted_46, _toDisplayString(_ctx.state.loc.speedRow || '游戏速度：正常 / 2倍 / 3倍 / 暂停'), 1 /* TEXT */)
+                    ]))
+              ]),
+              _withDirectives(_createElementVNode("div", { class: "key-conflict" }, _toDisplayString(_ctx.state.conflictText), 513 /* TEXT, NEED_PATCH */), [
+                [_vShow, _ctx.ENABLE_REBIND]
+              ]),
+              _withDirectives(_createElementVNode("div", _hoisted_47, [
+                _withDirectives(_createElementVNode("span", {
+                  class: "key-btn cancel",
+                  onClick: _cache[16] || (_cache[16] = $event => (_ctx.cancelRebind()))
+                }, _toDisplayString(_ctx.state.localText.cancelRebindText || '取消监听'), 513 /* TEXT, NEED_PATCH */), [
+                  [_vShow, _ctx.state.listeningId]
+                ]),
+                _cache[40] || (_cache[40] = _createElementVNode("span", { style: {"flex":"1"} }, null, -1 /* CACHED */)),
+                _createElementVNode("span", {
+                  class: "key-btn",
+                  onClick: _cache[17] || (_cache[17] = $event => (_ctx.resetKeys()))
+                }, _toDisplayString(_ctx.state.localText.resetKeysText || '恢复默认'), 1 /* TEXT */)
+              ], 512 /* NEED_PATCH */), [
+                [_vShow, _ctx.ENABLE_REBIND]
+              ])
+            ])
+          ], 512 /* NEED_PATCH */), [
+            [_vShow, _ctx.state.settingsTab === 'keys']
+          ])
+        ]),
+        _withDirectives(_createElementVNode("div", _hoisted_48, "完整版将支持自定义按键", 512 /* NEED_PATCH */), [
+          [_vShow, _ctx.SHOW_REBIND_NOTE]
+        ]),
+        _cache[45] || (_cache[45] = _createElementVNode("div", { class: "settings-footer" }, [
+          _createElementVNode("div", { class: "status-dot" })
+        ], -1 /* CACHED */))
+      ])
+    ]),
+    _createCommentVNode(" 帧率性能警告：选 60 以上或无限制时先确认；「不再提示」与主菜单高级设置共用同一个存档值 "),
+    _createElementVNode("div", {
+      class: _normalizeClass(["modal-overlay warn-overlay", { active: _ctx.state.perfWarn.show }]),
+      onClick: _cache[24] || (_cache[24] = $event => (_ctx.closePerfWarn()))
+    }, [
+      _createElementVNode("div", {
+        class: "confirm-box",
+        onClick: _cache[23] || (_cache[23] = _withModifiers(() => {}, ["stop"]))
+      }, [
+        _createElementVNode("div", _hoisted_49, _toDisplayString(_ctx.state.loc.perfWarnTitle || '性能警告'), 1 /* TEXT */),
+        (_ctx.state.perfWarn.fps === -1)
+          ? (_openBlock(), _createElementBlock("div", _hoisted_50, _toDisplayString(_ctx.state.loc.perfWarnBodyUnlimited || '「无限制」将完全解除帧率限制，显卡与处理器会持续满负荷运行，极易导致画面高延迟、设备过热、掉帧甚至游戏卡死。仅建议确认硬件性能充足的玩家使用。若调整后游戏出现异常，请将帧率上限改回 60 FPS。是否确认应用？'), 1 /* TEXT */))
+          : (_openBlock(), _createElementBlock("div", _hoisted_51, _toDisplayString(_ctx.state.loc.perfWarnBodyHigh || '较高的帧率上限会显著增加显卡与处理器负载。若硬件性能不足，可能导致画面延迟、掉帧甚至卡死。若调整后游戏出现异常，请将帧率上限改回 60 FPS。是否确认应用？'), 1 /* TEXT */)),
+        _createElementVNode("label", _hoisted_52, [
+          _withDirectives(_createElementVNode("input", {
+            type: "checkbox",
+            "onUpdate:modelValue": _cache[20] || (_cache[20] = $event => ((_ctx.state.perfWarn.optOut) = $event))
+          }, null, 512 /* NEED_PATCH */), [
+            [_vModelCheckbox, _ctx.state.perfWarn.optOut]
+          ]),
+          _createElementVNode("span", null, _toDisplayString(_ctx.state.loc.perfWarnDontShow || '不再提示'), 1 /* TEXT */)
+        ]),
+        _createElementVNode("div", _hoisted_53, [
+          _createElementVNode("div", {
+            class: "c-btn c-btn-cancel",
+            onClick: _cache[21] || (_cache[21] = $event => (_ctx.closePerfWarn()))
+          }, _toDisplayString(_ctx.state.loc.perfWarnCancel || '取消'), 1 /* TEXT */),
+          _createElementVNode("div", {
+            class: "c-btn c-btn-confirm",
+            onClick: _cache[22] || (_cache[22] = $event => (_ctx.confirmPerfWarn()))
+          }, _toDisplayString(_ctx.state.loc.perfWarnOk || '确认应用'), 1 /* TEXT */)
+        ])
+      ])
+    ], 2 /* CLASS */)
+  ], 64 /* STABLE_FRAGMENT */))
+}};var __renderCache__=null;var __origCreateApp__=Vue.createApp;Vue.createApp=function(opts){if(!__renderCache__)__renderCache__=__renderFactory__(Vue);if(opts&&typeof opts==="object"&&!opts.render&&!opts.template){opts=Object.assign({},opts,{render:__renderCache__});}var app=__origCreateApp__.call(this,opts);if(!app.config.errorHandler){app.config.errorHandler=function(err){var msg=(err&&err.message)||String(err||"");if(msg.indexOf("createWebUICore is not defined")>=0){__wgReload__("webui-core.js");if(__wgGaveUp__)console.error(err);return;}console.error(err);};}return app;};})();
+/* === [/precompiled v1] === */
+</script>
+    <script src="../../webui-core.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+            overflow: hidden;
+            background-color: transparent;
+            user-select: none;
+        }
+
+        .left-panel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 33vw;
+            min-width: 450px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            padding: 80px 60px;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+            border-right: 1px solid rgba(255,255,255,0.05);
+            z-index: 10;
+            
+            transform: translateX(-100%);
+            animation: slideIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes slideIn {
+            to { transform: translateX(0); }
+        }
+
+        .menu-header {
+            font-family: Impact, 'Arial Black', 'Microsoft YaHei', sans-serif;
+            font-size: 5rem;
+            color: #EBA308;
+            letter-spacing: 4px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            line-height: 1;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .menu-header::after {
+            content: "SYSTEM MENU";
+            display: block;
+            font-family: Consolas, monospace;
+            font-size: 1rem;
+            color: #666;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex-grow: 1;
+        }
+
+        .main-btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            height: 60px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+            border-left: 4px solid rgba(255,255,255,0.1);
+            color: #ccc;
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .main-btn:hover {
+            background: linear-gradient(90deg, rgba(235, 163, 8, 0.15) 0%, transparent 100%);
+            border-left-color: #EBA308;
+            color: #fff;
+            padding-left: 35px;
+            text-shadow: 0 0 10px rgba(235, 163, 8, 0.5);
+        }
+
+        .main-btn:active {
+            transform: scale(0.98);
+        }
+
+        .wishlist-container {
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .wishlist-container::before, .wishlist-container::after {
+            content: "";
+            position: absolute;
+            left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+        }
+        .wishlist-container::before { top: -10px; }
+        .wishlist-container::after { bottom: -10px; }
+
+        .btn-wishlist {
+            background: linear-gradient(90deg, rgba(235, 163, 8, 0.08) 0%, transparent 100%);
+            border-left-color: #EBA308;
+            color: #EBA308;
+            gap: 15px;
+        }
+
+        .btn-wishlist img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px rgba(235, 163, 8, 0.8));
+        }
+
+        .btn-wishlist:hover {
+            background: linear-gradient(90deg, rgba(235, 163, 8, 0.25) 0%, transparent 100%);
+            padding-left: 35px;
+            color: #FFD700;
+            text-shadow: 0 0 15px rgba(235, 163, 8, 0.8);
+        }
+
+        .btn-exit {
+            margin-top: auto;
+            border-left-color: rgba(200, 50, 50, 0.3);
+            margin-bottom: 20px;
+        }
+        /* [本轮重开 2026-08-20] 「作废这一轮重来」沉底、贴在「保存并退出」正上方：它接管 margin-top:auto，退出按钮紧随其后 */
+        .btn-restart {
+            margin-top: auto;
+            border-left-color: rgba(143, 199, 191, 0.35);
+        }
+        .btn-restart::after {
+            content: '\21BA';
+            position: absolute;
+            right: 18px;
+            color: #8fc7bf;
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+        .btn-restart:hover {
+            background: linear-gradient(90deg, rgba(143, 199, 191, 0.12) 0%, transparent 100%);
+            border-left-color: #8fc7bf;
+            text-shadow: 0 0 10px rgba(143, 199, 191, 0.45);
+        }
+        .btn-restart + .btn-exit { margin-top: 0; }
+        .btn-exit:hover {
+            background: linear-gradient(90deg, rgba(200, 50, 50, 0.15) 0%, transparent 100%);
+            border-left-color: #ff4444;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+        }
+
+        .icon-bar {
+            display: flex;
+            justify-content: flex-start;
+            gap: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .icon-btn {
+            position: relative;
+            width: 46px;
+            height: 46px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .icon-btn img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            opacity: 0.9;
+            transition: all 0.2s;
+        }
+
+        .icon-btn svg {
+            width: 24px;
+            height: 24px;
+            color: #d6cbb6;
+            opacity: 0.9;
+            pointer-events: none;
+            transition: color 0.2s, opacity 0.2s;
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));
+        }
+
+        .icon-btn:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .icon-btn:hover img { opacity: 1; filter: brightness(1.2); }
+        .icon-btn:hover svg { color: #EBA308; opacity: 1; }
+
+        .icon-btn::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 115%;
+            left: 50%;
+            transform: translateX(-50%) translateY(5px);
+            background: rgba(10, 10, 12, 0.95);
+            color: #EBA308;
+            padding: 6px 10px;
+            font-size: 0.8rem;
+            border-radius: 2px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            font-weight: bold;
+            z-index: 20;
+        }
+        
+        .icon-btn:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 100; display: flex; justify-content: center; align-items: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active { opacity: 1; pointer-events: all; }
+
+        .settings-box {
+            width: 780px; background: #121214;
+            background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 20px 20px;
+            border: 1px solid #3a3a3a; box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.05);
+            padding: 0; display: flex; flex-direction: column; transform: scale(0.95); transition: all 0.3s ease; position: relative;
+            max-height: 848px;
+        }
+        .modal-overlay.active .settings-box { transform: scale(1); }
+
+        .settings-header { width: 100%; height: 60px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: space-between; padding: 0 30px; box-sizing: border-box; }
+        .settings-title-text { font-family: Impact, 'Arial Black', 'Microsoft YaHei', sans-serif; font-size: 1.8rem; color: #ffffff; letter-spacing: 2px; text-transform: uppercase; }
+        .settings-deco { font-family: Consolas, monospace; font-size: 0.8rem; color: #EBA308; opacity: 0.7; }
+        .close-btn { cursor: pointer; font-size: 1.5rem; color: #888; transition: color 0.2s; }
+        .close-btn:hover { color: #fff; }
+
+        .settings-body { padding: 20px 50px 4px 50px; display: flex; flex-direction: column; gap: 8px; flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden; }
+        .settings-body::-webkit-scrollbar { width: 6px; }
+        .settings-body::-webkit-scrollbar-thumb { background: rgba(235,163,8,0.35); border-radius: 3px; }
+        .settings-body::-webkit-scrollbar-track { background: rgba(255,255,255,0.04); }
+        .settings-section { display: flex; flex-direction: column; gap: 10px; }
+
+        .settings-section + .settings-section {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 12px;
+        }
+
+        .setting-row { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+        .setting-label { font-size: 1.1rem; font-weight: 700; color: #ccc; letter-spacing: 1px; min-width: 100px; white-space: nowrap; }
+        
+        .slider-wrapper { flex-grow: 1; position: relative; height: 26px; display: flex; align-items: center; }
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; cursor: pointer; }
+        input[type=range]:focus { outline: none; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 10px; border-radius: 5px; border: none; background: transparent; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 22px; width: 22px; background: #ffffff; margin-top: -6px; border-radius: 50%; box-shadow: 0 0 8px rgba(0,0,0,0.6); cursor: pointer; transition: transform 0.1s; }
+        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+
+        /* 「操作提示」开关。滑块位移只用 transform（webui-effects-performance.md [强制]：
+           只准动 transform/opacity），不改 left/width 触发布局。 */
+        .setting-toggle { position: relative; width: 46px; height: 24px; flex-shrink: 0; cursor: pointer; }
+        .setting-toggle input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+        .setting-toggle .track {
+            position: absolute; inset: 0; border-radius: 12px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transition: background 0.18s, border-color 0.18s;
+            pointer-events: none;
+        }
+        .setting-toggle .knob {
+            position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%;
+            background: #ddd; box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+            transition: transform 0.18s cubic-bezier(0.2, 1, 0.4, 1), background 0.18s;
+            pointer-events: none;
+        }
+        .setting-toggle input:checked ~ .track { background: rgba(224, 190, 85, 0.55); border-color: rgba(224, 190, 85, 0.8); }
+        .setting-toggle input:checked ~ .knob { transform: translateX(22px); background: #fff; }
+        .setting-hint { font-size: 0.82rem; color: rgba(200, 200, 200, 0.55); letter-spacing: 0.5px; margin-top: -4px; }
+
+        .key-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 24px; }
+        .control-row { display: flex; align-items: center; justify-content: flex-start; padding-bottom: 2px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .control-row.full { grid-column: 1 / -1; }
+
+        .key-group-title {
+            font-family: Consolas, monospace; font-size: 0.78rem; color: #EBA308; opacity: 0.75;
+            letter-spacing: 3px; text-transform: uppercase;
+            display: flex; align-items: center; gap: 10px; margin-bottom: 2px;
+        }
+        .key-group-title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(235,163,8,0.25), transparent); }
+
+        .key-tag { font-family: Consolas, monospace; color: #ccc; background: rgba(255, 255, 255, 0.05); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.15); margin-right: 12px; min-width: 70px; text-align: center; font-weight: bold; font-size: 0.9rem; white-space: nowrap; }
+        .key-desc { color: #ddd; font-size: 0.9rem; letter-spacing: 0.5px; white-space: nowrap; }
+        .control-row.rebindable { cursor: pointer; transition: background 0.15s; }
+        .control-row.rebindable .key-tag { color: #EBA308; border-color: rgba(235,163,8,0.4); transition: all 0.15s; }
+        .control-row.rebindable:hover { background: rgba(235,163,8,0.05); }
+        .control-row.rebindable:hover .key-tag { background: rgba(235,163,8,0.15); border-color: #EBA308; }
+        .control-row.listening { background: rgba(235,163,8,0.12); }
+        .control-row.listening .key-tag { color: #fff; background: #EBA308; border-color: #EBA308; animation: keyPulse 0.9s ease-in-out infinite; }
+        @keyframes keyPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
+        .key-conflict { color: #ff6b6b; font-size: 0.9rem; text-align: center; padding: 2px 0; height: 24px; line-height: 20px; letter-spacing: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .key-actions { display: flex; justify-content: space-between; align-items: center; padding-top: 4px; }
+        .key-btn { font-family: Consolas, monospace; cursor: pointer; padding: 6px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: #ccc; font-size: 0.9rem; letter-spacing: 1px; transition: all 0.15s; border-radius: 2px; }
+        .key-btn:hover { background: rgba(235,163,8,0.15); border-color: #EBA308; color: #EBA308; }
+        .key-btn.cancel:hover { background: rgba(200,50,50,0.15); border-color: #ff4444; color: #ff6b6b; }
+        .controls-footer-note { text-align: center; color: #777; font-size: 0.85rem; margin-top: 5px; margin-bottom: 20px; font-style: normal; letter-spacing: 1px; }
+
+        .settings-footer { height: 30px; width: 100%; background: rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: flex-end; padding-right: 20px; box-sizing: border-box; }
+        .status-dot { width: 6px; height: 6px; background: #EBA308; border-radius: 50%; box-shadow: 0 0 5px #EBA308; animation: blink 2s infinite; }
+        @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+        html.quality-low .status-dot { animation: none; }
+        
+        /* ── 设置页签化（2026-09-23）：「常规 / 按键」两页 ──
+           窗口高度固定为最高那页（按键页）的高度，切页签时外框不跳；836 ≤ CSS 视口竖向 864 */
+        .settings-box.tabbed { height: 836px; }
+        /* 页签条已占掉一截高度，内容区顶部留白收一点，按键页 31 行正好一屏装下不出滚动条 */
+        .settings-box.tabbed .settings-body { padding-top: 12px; }
+        .set-tabs { display: flex; flex: 0 0 auto; padding: 0 50px; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.015); }
+        .set-tab { position: relative; padding: 12px 22px 10px; font-size: 1.05rem; font-weight: 700; color: #888; letter-spacing: 2px; cursor: pointer; }
+        .set-tab:hover { color: #ddd; }
+        .set-tab.on { color: #fff; }
+        .set-tab.on::after { content: ""; position: absolute; left: 14px; right: 14px; bottom: -1px; height: 2px; background: #EBA308; }
+        .set-page { display: flex; flex-direction: column; gap: 8px; }
+        .setting-hint.warn { color: #EBA308; opacity: 0.85; }
+
+        /* 下拉框：外观取自 MainUI.html 主菜单设置，两处一致（hover 不挂 transition：只准动 transform/opacity） */
+        .select-wrapper { flex-grow: 1; display: flex; justify-content: flex-end; }
+        .dd { position: relative; width: 220px; }
+        .dd-trigger {
+            display: flex; align-items: center; justify-content: space-between;
+            background: #000; color: #EBA308; border: 1px solid #444; border-radius: 4px;
+            padding: 6px 12px 6px 15px; font-size: 1rem; font-weight: 700; cursor: pointer;
+        }
+        .dd-trigger:hover, .dd.open .dd-trigger { border-color: #EBA308; box-shadow: 0 0 10px rgba(235, 163, 8, 0.2); }
+        .dd-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .dd-arrow { display: block; flex: none; width: 0; height: 0; margin-left: 8px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 7px solid #EBA308; transition: transform 0.2s; }
+        .dd.open .dd-arrow { transform: rotate(180deg); }
+        .dd-list {
+            display: none; position: absolute; top: calc(100% + 4px); left: 0; right: 0; max-height: 240px; overflow-y: auto;
+            background: #121214; border: 1px solid #444; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); z-index: 30;
+        }
+        /* 靠近页面底部的下拉向上展开：.settings-body 是滚动容器，向下展开会被它裁掉 */
+        .dd.up .dd-list { top: auto; bottom: calc(100% + 4px); }
+        .dd.open .dd-list { display: block; }
+        .dd-item { padding: 7px 15px; color: #ccc; font-size: 0.95rem; font-weight: 700; white-space: nowrap; cursor: pointer; }
+        .dd-item:hover { background: rgba(235, 163, 8, 0.15); color: #fff; }
+        .dd-item.selected { color: #EBA308; }
+        .dd-list::-webkit-scrollbar { width: 6px; }
+        .dd-list::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); }
+        .dd-list::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+
+        /* 帧率性能警告（与主菜单高级设置同一套文案与判据） */
+        .warn-overlay { z-index: 120; background: rgba(0, 0, 0, 0.55); }
+        .confirm-box {
+            width: 500px; background: radial-gradient(circle, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 45%, rgba(0, 0, 0, 0) 100%);
+            display: flex; flex-direction: column; align-items: center; position: relative; padding: 50px 70px;
+        }
+        .confirm-title { font-size: 1.6rem; font-weight: 700; color: #ffffff; margin-bottom: 25px; letter-spacing: 1px; text-align: center; width: 100%; position: relative; }
+        .confirm-title::after { content: ""; position: absolute; bottom: -10px; left: 5%; width: 90%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent); }
+        .confirm-text { font-size: 1rem; color: #d0d0d0; margin-bottom: 40px; text-align: center; line-height: 1.6; padding: 0 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+        .warn-optout { display: flex; align-items: center; gap: 8px; margin: -22px 0 28px; color: #999; font-size: 0.9rem; cursor: pointer; }
+        .warn-optout:hover { color: #ccc; }
+        .warn-optout input { width: 15px; height: 15px; accent-color: #EBA308; cursor: pointer; margin: 0; }
+        .confirm-buttons { display: flex; gap: 20px; width: 100%; justify-content: center; }
+        .c-btn { width: 120px; height: 40px; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: center; align-items: center; border-radius: 4px; }
+        .c-btn-cancel { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #bbb; }
+        .c-btn-cancel:hover { background: rgba(255,255,255,0.05); color: #fff; border-color: rgba(255,255,255,0.5); }
+        .c-btn-confirm { background: #EBA308; color: #1a1a1a; }
+        .c-btn-confirm:hover { background: #ffc107; }
+
+        .corner { position: absolute; width: 15px; height: 15px; border-color: #777; border-style: solid; pointer-events: none; }
+        .tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; } .tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+        .bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; } .br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        
+        <div class="left-panel">
+            <div class="menu-header" data-i18n="menuTitle">PAUSE</div>
+
+            <div class="menu-list">
+                <div class="main-btn" data-i18n="back" @click="UnitySendEvent('BACK')">
+                    返回游戏
+                </div>
+
+                <div class="main-btn" data-i18n="settings" @click="openSettings()">
+                    设置
+                </div>
+
+                <div class="main-btn" data-i18n="codex" @click="UnitySendEvent('CODEX')">
+                    图鉴
+                </div>
+                <div class="main-btn" data-i18n="achievement" @click="UnitySendEvent('ACHIEVEMENT')">成就</div>
+
+                <div class="wishlist-container" style="display: none;">
+                    <div class="main-btn btn-wishlist" data-i18n="wishlist" @click="UnitySendEvent('CART')">
+                        <img src="../../Res/WebRequest/icon01.png" alt="Star">
+                        <span data-i18n="wishlistText">加入愿望单</span>
+                    </div>
+                </div>
+
+                <!-- [本轮重开] 与「保存并退出」一起沉在列表底部（设计拍板：向下靠、贴在退出上方）。用 v-if 不用 v-show：
+                     隐藏时要从 DOM 移除，`.btn-restart + .btn-exit` 的 margin 归零规则才不会误伤退出按钮的 margin-top:auto -->
+                <div v-if="state.restartRoundVisible" class="main-btn btn-restart" data-i18n="restartRound" @click="UnitySendEvent('RESTART_ROUND')">
+                    作废这一轮重来
+                </div>
+
+                <div class="main-btn btn-exit" data-i18n="saveExit" @click="UnitySendEvent('SAVE_EXIT')">
+                    保存并退出
+                </div>
+            </div>
+
+            <div class="icon-bar">
+                <div class="icon-btn" @click="UnitySendEvent('CART')" data-i18n="community" data-tooltip="steam社区">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="icon-btn" @click="UnitySendEvent('EDIT')" data-i18n="record" data-tooltip="反馈">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/><path d="M7 11h10"/><path d="M7 15h6"/><path d="M7 7h8"/></svg>
+                </div>
+                <div class="icon-btn" @click="UnitySendEvent('SENTRY_FEEDBACK')" data-i18n="sentryFeedback" data-tooltip="问题反馈">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                </div>
+                <div class="icon-btn" @click="UnitySendEvent('QQ')" data-i18n="qq" data-tooltip="QQ">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M6.048 3.323c.022.277-.13.523-.338.55-.21.026-.397-.176-.419-.453s.13-.523.338-.55c.21-.026.397.176.42.453Zm2.265-.24c-.603-.146-.894.256-.936.333-.027.048-.008.117.037.15.045.035.092.025.119-.003.361-.39.751-.172.829-.129l.011.007c.053.024.147.028.193-.098.023-.063.017-.11-.006-.142-.016-.023-.089-.08-.247-.118"/><path d="M11.727 6.719c0-.022.01-.375.01-.557 0-3.07-1.45-6.156-5.015-6.156S1.708 3.092 1.708 6.162c0 .182.01.535.01.557l-.72 1.795a26 26 0 0 0-.534 1.508c-.68 2.187-.46 3.093-.292 3.113.36.044 1.401-1.647 1.401-1.647 0 .979.504 2.256 1.594 3.179-.408.126-.907.319-1.228.556-.29.213-.253.43-.201.518.228.386 3.92.246 4.985.126 1.065.12 4.756.26 4.984-.126.052-.088.088-.305-.2-.518-.322-.237-.822-.43-1.23-.557 1.09-.922 1.594-2.2 1.594-3.178 0 0 1.041 1.69 1.401 1.647.168-.02.388-.926-.292-3.113a26 26 0 0 0-.534-1.508l-.72-1.795ZM9.773 5.53a.1.1 0 0 1-.009.096c-.109.159-1.554.943-3.033.943h-.017c-1.48 0-2.925-.784-3.034-.943a.1.1 0 0 1-.018-.055q0-.022.01-.04c.13-.287 1.43-.606 3.042-.606h.017c1.611 0 2.912.319 3.042.605m-4.32-.989c-.483.022-.896-.529-.922-1.229s.344-1.286.828-1.308c.483-.022.896.529.922 1.23.027.7-.344 1.286-.827 1.307Zm2.538 0c-.484-.022-.854-.607-.828-1.308.027-.7.44-1.25.923-1.23.483.023.853.608.827 1.309-.026.7-.439 1.251-.922 1.23ZM2.928 8.99q.32.063.639.117v2.336s1.104.222 2.21.068V9.363q.49.027.937.023h.017c1.117.013 2.474-.136 3.786-.396.097.622.151 1.386.097 2.284-.146 2.45-1.6 3.99-3.846 4.012h-.091c-2.245-.023-3.7-1.562-3.846-4.011-.054-.9 0-1.663.097-2.285"/></svg>
+                </div>
+                <div class="icon-btn" @click="UnitySendEvent('DISCORD')" data-i18n="discord" data-tooltip="Discord">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <div id="settingsModal" class="modal-overlay" @click="closeSettings($event)">
+            <div class="settings-box tabbed" @click.stop="closeDd()">
+                <div class="settings-header">
+                    <div class="settings-title-text">SETTINGS</div>
+                    <div class="settings-deco">SYS-CONFIG_V1.0</div>
+                    <span class="close-btn" @click="closeSettings">×</span>
+                </div>
+                <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+
+                <!-- 常规（声音 / 画面 / 界面）与按键分两页；窗口高度固定，切页签外框不跳 -->
+                <div class="set-tabs">
+                    <div class="set-tab" :class="{ on: state.settingsTab === 'general' }" @click="switchTab('general')">{{ state.loc.tabGeneral || '常规' }}</div>
+                    <div class="set-tab" :class="{ on: state.settingsTab === 'keys' }" @click="switchTab('keys')">{{ state.loc.tabKeys || '按键' }}</div>
+                </div>
+
+                <div class="settings-body">
+                    <div class="set-page" v-show="state.settingsTab === 'general'">
+                        <div class="settings-section">
+                            <div class="key-group-title">{{ state.loc.groupSound || '声音' }}</div>
+                            <div class="setting-row">
+                                <div class="setting-label" data-i18n="settingsMusic">音乐</div>
+                                <div class="slider-wrapper">
+                                    <input type="range" id="sliderBg" min="0" max="100" value="50" oninput="updateSlider(this); onBgVolumeChange(this.value)">
+                                </div>
+                            </div>
+                            <div class="setting-row">
+                                <div class="setting-label">{{ state.loc.settingsAmbient || '环境音' }}</div>
+                                <div class="slider-wrapper">
+                                    <input type="range" id="sliderAmbient" min="0" max="100" value="50" oninput="updateSlider(this); onAmbientVolumeChange(this.value)">
+                                </div>
+                            </div>
+                            <div class="setting-row">
+                                <div class="setting-label" data-i18n="settingsSound">音效</div>
+                                <div class="slider-wrapper">
+                                    <input type="range" id="sliderAction" min="0" max="100" value="50" oninput="updateSlider(this); onActionVolumeChange(this.value)">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <div class="key-group-title">{{ state.loc.groupDisplay || '画面' }}</div>
+                            <template v-for="dd in ddDefs" :key="dd.id">
+                                <div class="setting-row">
+                                    <div class="setting-label">{{ dd.label }}</div>
+                                    <div class="select-wrapper">
+                                        <div class="dd" :class="{ open: state.ddOpen === dd.id, up: dd.up }">
+                                            <div class="dd-trigger" @click.stop="toggleDd(dd.id)">
+                                                <span class="dd-text">{{ ddText(dd) }}</span><span class="dd-arrow"></span>
+                                            </div>
+                                            <div class="dd-list" @wheel.stop.prevent="onDdWheel($event)">
+                                                <div class="dd-item" v-for="o in dd.options" :key="o.v"
+                                                     :class="{ selected: String(o.v) === String(dd.value) }"
+                                                     @click.stop="pickDd(dd.id, o.v)">{{ o.t }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="setting-hint warn" v-if="dd.id === 'quality' && state.disp.graphicsNeedRestart">{{ state.loc.graphicsRestartHint || '画质已更新，界面帧率将在重启游戏后生效' }}</div>
+                                <div class="setting-hint" v-if="dd.id === 'fps'">{{ state.loc.frameRateClampHint || '主菜单与游戏暂停期间帧率上限为 60，游戏进行中按此设置生效。' }}</div>
+                            </template>
+                        </div>
+
+                        <div class="settings-section">
+                            <div class="key-group-title">{{ state.loc.groupInterface || '界面' }}</div>
+                            <div class="setting-row">
+                                <div class="setting-label" data-i18n="actionEcho">操作提示</div>
+                                <label class="setting-toggle">
+                                    <input type="checkbox" id="actionEchoCheck" checked onchange="onActionEchoToggle(this.checked)">
+                                    <span class="track"></span><span class="knob"></span>
+                                </label>
+                            </div>
+                            <div class="setting-hint" data-i18n="actionEchoHint">在画面下方显示你刚下达的操作，方便回看录像</div>
+                        </div>
+                    </div>
+
+                    <div class="set-page" v-show="state.settingsTab === 'keys'">
+                        <div class="settings-section">
+                            <div class="key-group-title">{{ state.loc.groupBasic || '基础操作' }}</div>
+                            <div class="key-grid">
+                                <div class="control-row"
+                                     v-for="(kb, i) in bindsOf('basic')"
+                                     :key="'b' + i"
+                                     :class="{ full: (kb.keyName || '').length >= 12 || ((kb.keyName || '').length + (kb.label || '').length) >= 30, rebindable: kb.rebindable && ENABLE_REBIND, listening: kb.rebindable && ENABLE_REBIND && state.listeningId === kb.id }"
+                                     @click="onKeyRowClick(kb)">
+                                    <span class="key-tag">[{{ (ENABLE_REBIND && kb.rebindable && state.listeningId === kb.id) ? (state.localText.pressKeyText || '请按键...') : kb.keyName }}]</span>
+                                    <span class="key-desc">{{ kb.label }}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <div class="key-group-title">{{ state.loc.groupPanels || '界面' }}</div>
+                            <div class="key-grid">
+                                <div class="control-row"
+                                     v-for="(kb, i) in bindsOf('panels')"
+                                     :key="'p' + i"
+                                     :class="{ rebindable: kb.rebindable && ENABLE_REBIND, listening: kb.rebindable && ENABLE_REBIND && state.listeningId === kb.id }"
+                                     @click="onKeyRowClick(kb)">
+                                    <span class="key-tag">[{{ (ENABLE_REBIND && kb.rebindable && state.listeningId === kb.id) ? (state.localText.pressKeyText || '请按键...') : kb.keyName }}]</span>
+                                    <span class="key-desc">{{ kb.label }}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <div class="key-group-title">{{ state.loc.groupTime || '时间控制' }}</div>
+                            <div class="key-grid">
+                                <template v-if="ENABLE_REBIND">
+                                    <div class="control-row"
+                                         v-for="(kb, i) in bindsOf('time')"
+                                         :key="'t' + i"
+                                         :class="{ rebindable: kb.rebindable, listening: kb.rebindable && state.listeningId === kb.id }"
+                                         @click="onKeyRowClick(kb)">
+                                        <span class="key-tag">[{{ (kb.rebindable && state.listeningId === kb.id) ? (state.localText.pressKeyText || '请按键...') : kb.keyName }}]</span>
+                                        <span class="key-desc">{{ kb.label }}</span>
+                                    </div>
+                                </template>
+                                <div class="control-row full" v-else>
+                                    <span class="key-tag">{{ speedKeysTag }}</span>
+                                    <span class="key-desc">{{ state.loc.speedRow || '游戏速度：正常 / 2倍 / 3倍 / 暂停' }}</span>
+                                </div>
+                            </div>
+                            <div class="key-conflict" v-show="ENABLE_REBIND">{{ state.conflictText }}</div>
+                            <div class="key-actions" v-show="ENABLE_REBIND">
+                                <span class="key-btn cancel"
+                                      v-show="state.listeningId"
+                                      @click="cancelRebind()">{{ state.localText.cancelRebindText || '取消监听' }}</span>
+                                <span style="flex:1"></span>
+                                <span class="key-btn" @click="resetKeys()">{{ state.localText.resetKeysText || '恢复默认' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls-footer-note" data-i18n="controlsFooter" v-show="SHOW_REBIND_NOTE">完整版将支持自定义按键</div>
+                <div class="settings-footer"><div class="status-dot"></div></div>
+            </div>
+        </div>
+
+        <!-- 帧率性能警告：选 60 以上或无限制时先确认；「不再提示」与主菜单高级设置共用同一个存档值 -->
+        <div class="modal-overlay warn-overlay" :class="{ active: state.perfWarn.show }" @click="closePerfWarn()">
+            <div class="confirm-box" @click.stop>
+                <div class="confirm-title">{{ state.loc.perfWarnTitle || '性能警告' }}</div>
+                <div class="confirm-text" v-if="state.perfWarn.fps === -1">{{ state.loc.perfWarnBodyUnlimited || '「无限制」将完全解除帧率限制，显卡与处理器会持续满负荷运行，极易导致画面高延迟、设备过热、掉帧甚至游戏卡死。仅建议确认硬件性能充足的玩家使用。若调整后游戏出现异常，请将帧率上限改回 60 FPS。是否确认应用？' }}</div>
+                <div class="confirm-text" v-else>{{ state.loc.perfWarnBodyHigh || '较高的帧率上限会显著增加显卡与处理器负载。若硬件性能不足，可能导致画面延迟、掉帧甚至卡死。若调整后游戏出现异常，请将帧率上限改回 60 FPS。是否确认应用？' }}</div>
+                <label class="warn-optout">
+                    <input type="checkbox" v-model="state.perfWarn.optOut">
+                    <span>{{ state.loc.perfWarnDontShow || '不再提示' }}</span>
+                </label>
+                <div class="confirm-buttons">
+                    <div class="c-btn c-btn-cancel" @click="closePerfWarn()">{{ state.loc.perfWarnCancel || '取消' }}</div>
+                    <div class="c-btn c-btn-confirm" @click="confirmPerfWarn()">{{ state.loc.perfWarnOk || '确认应用' }}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const { createApp, reactive, onMounted } = Vue;
+
+        window.updateSlider = function(input) {
+            const value = (input.value - input.min) / (input.max - input.min) * 100;
+            input.style.background = `linear-gradient(to right, #EBA308 0%, #EBA308 ${value}%, #444 ${value}%, #444 100%)`;
+        };
+
+        const ENABLE_REBIND = true;
+        const SHOW_REBIND_NOTE = false;
+
+        createApp({
+            setup() {
+                const core = createWebUICore('OutSetting');
+                const state = reactive({
+                    showSettings: false,
+                    keyBinds: [],
+                    listeningId: '',
+                    conflictText: '',
+                    restartRoundVisible: false,   // [本轮重开] 由 WebUI_OutSetting_MenuMsg 推送
+                    localText: {},
+                    loc: {
+                        groupBasic: '', groupPanels: '', groupTime: '', speedRow: '',
+                        tabGeneral: '', tabKeys: '', groupSound: '', groupDisplay: '', groupInterface: '', settingsAmbient: '',
+                        settingsWindowMode: '', settingsResolution: '', wmBorderless: '', wmExclusive: '', wmWindowed: '',
+                        settingsGraphics: '', qualityLow: '', qualityMedium: '', qualityHigh: '', graphicsRestartHint: '',
+                        settingsFrameRate: '', frameRateUnlimited: '', frameRateClampHint: '',
+                        perfWarnTitle: '', perfWarnBodyHigh: '', perfWarnBodyUnlimited: '', perfWarnDontShow: '', perfWarnOk: '', perfWarnCancel: ''
+                    },
+                    // 设置页签：每次打开设置回到「常规」
+                    settingsTab: 'general',
+                    // 画面四项（WebUI_OutSetting_SettingsMsg 推送）
+                    disp: { windowMode: 'FullScreenWindow', resolution: '', resolutions: [], graphicsQuality: 2, graphicsNeedRestart: false, frameRate: 60, frameRateWarnOptOut: false },
+                    ddOpen: '',
+                    perfWarn: { show: false, fps: null, optOut: false }
+                });
+
+                const RES_LABELS = {
+                    '3840x2160': '3840 x 2160 (4K)',
+                    '2560x1440': '2560 x 1440 (2K)',
+                    '1920x1080': '1920 x 1080 (1080p)',
+                    '1280x720': '1280 x 720 (720p)'
+                };
+                const L = state.loc;
+                // 下拉定义随 loc / disp 变化重算；帧率在最底下，向上展开免得被滚动容器裁掉
+                const ddDefs = Vue.computed(() => [
+                    { id: 'windowMode', label: L.settingsWindowMode || '窗口模式', value: state.disp.windowMode, options: [
+                        { v: 'FullScreenWindow', t: L.wmBorderless || '无边框窗口全屏' },
+                        { v: 'ExclusiveFullScreen', t: L.wmExclusive || '独占全屏' },
+                        { v: 'Windowed', t: L.wmWindowed || '标准窗口化' }
+                    ] },
+                    { id: 'resolution', label: L.settingsResolution || '分辨率', value: state.disp.resolution,
+                      options: state.disp.resolutions.map(r => ({ v: r, t: RES_LABELS[r] || r.replace('x', ' x ') })) },
+                    { id: 'quality', label: L.settingsGraphics || '画质', value: state.disp.graphicsQuality, options: [
+                        { v: 2, t: L.qualityHigh || '高' },
+                        { v: 0, t: L.qualityMedium || '中' },
+                        { v: 1, t: L.qualityLow || '低' }
+                    ] },
+                    { id: 'fps', label: L.settingsFrameRate || '帧率上限', value: state.disp.frameRate, up: true, options: [
+                        { v: 30, t: '30 FPS' }, { v: 60, t: '60 FPS' }, { v: 120, t: '120 FPS' }, { v: 144, t: '144 FPS' },
+                        { v: -1, t: L.frameRateUnlimited || '无限制' }
+                    ] }
+                ]);
+                const ddText = (dd) => {
+                    const hit = dd.options.find(o => String(o.v) === String(dd.value));
+                    if (hit) return hit.t;
+                    if (dd.id === 'resolution' && dd.value) return RES_LABELS[dd.value] || String(dd.value).replace('x', ' x ');
+                    return '—';
+                };
+                const closeDd = () => { state.ddOpen = ''; };
+                const toggleDd = (id) => { state.ddOpen = state.ddOpen === id ? '' : id; };
+                const onDdWheel = (e) => { e.currentTarget.scrollTop += e.deltaY; };
+                const applyFrameRate = (fps) => {
+                    state.disp.frameRate = fps;
+                    core.UnitySendEvent('SETTINGS_SET_FRAME_RATE', { fps: fps });
+                };
+                const pickDd = (id, v) => {
+                    closeDd();
+                    const d = state.disp;
+                    if (id === 'windowMode') {
+                        if (d.windowMode === v) return;
+                        d.windowMode = v;
+                        core.UnitySendEvent('SETTINGS_SET_WINDOW_MODE', { mode: v });
+                    } else if (id === 'resolution') {
+                        if (d.resolution === v) return;
+                        d.resolution = v;
+                        core.UnitySendEvent('SETTINGS_SET_RESOLUTION', { resolution: v });
+                    } else if (id === 'quality') {
+                        if (d.graphicsQuality === v) return;
+                        d.graphicsQuality = v;
+                        core.UnitySendEvent('SETTINGS_SET_GRAPHICS_QUALITY', { level: v });
+                    } else if (id === 'fps') {
+                        if (d.frameRate === v) return;
+                        const risky = v === -1 || v > 60;
+                        if (risky && !d.frameRateWarnOptOut) {
+                            state.perfWarn.fps = v;
+                            state.perfWarn.optOut = false;
+                            state.perfWarn.show = true;
+                            return;
+                        }
+                        applyFrameRate(v);
+                    }
+                };
+                const closePerfWarn = () => { state.perfWarn.show = false; state.perfWarn.fps = null; };
+                const confirmPerfWarn = () => {
+                    const fps = state.perfWarn.fps;
+                    const optOut = !!state.perfWarn.optOut;
+                    closePerfWarn();
+                    if (optOut) {
+                        state.disp.frameRateWarnOptOut = true;
+                        core.UnitySendEvent('SETTINGS_SET_FRAME_RATE_WARN_OPTOUT', { optOut: true });
+                    }
+                    if (fps !== null) applyFrameRate(fps);
+                };
+                const switchTab = (tab) => {
+                    if (state.settingsTab === tab) return;
+                    // 离开按键页时结束正在进行的改键监听，免得监听态挂在看不见的页上
+                    if (state.listeningId) core.UnitySendEvent('CANCEL_REBIND');
+                    closeDd();
+                    state.settingsTab = tab;
+                };
+
+                const bindsOf = (group) => (state.keyBinds || []).filter(kb => kb && kb.group === group);
+
+                const speedKeysTag = Vue.computed(() =>
+                    bindsOf('time').map(kb => '[' + kb.keyName + ']').join(' ') || '[1] [2] [3] [4]');
+
+                core.registerHandlers({
+                    'WebUI_OutSetting_MenuMsg': (data) => {
+                        if (typeof data.restartRoundVisible === 'boolean') state.restartRoundVisible = data.restartRoundVisible;
+                        if (data.escBackSeq !== undefined) {
+                            if (data.escBackSeq > escBackSeqSeen) onEscBack();
+                            escBackSeqSeen = data.escBackSeq;
+                        }
+                    },
+                    'WebUI_OutSetting_LocalizationMsg': (data) => {
+                        if (data.backText) core.i18n.updateText('[data-i18n="back"]', data.backText);
+                        if (data.saveExitText) core.i18n.updateText('[data-i18n="saveExit"]', data.saveExitText);
+                        if (data.restartRoundText) core.i18n.updateText('[data-i18n="restartRound"]', data.restartRoundText);
+                        
+                        if (data.wishlistText) core.i18n.updateText('[data-i18n="wishlistText"]', data.wishlistText);
+                        if (data.settingsText) core.i18n.updateText('[data-i18n="settings"]', data.settingsText);
+                        if (data.codexText) core.i18n.updateText('[data-i18n="codex"]', data.codexText);
+                        if (data.achievementText) core.i18n.updateText('[data-i18n="achievement"]', data.achievementText);
+                        if (data.menuTitleText) core.i18n.updateText('[data-i18n="menuTitle"]', data.menuTitleText);
+                        
+                        if (data.communityText) core.i18n.updateTooltip('[data-i18n="community"]', data.communityText);
+                        if (data.recordText) core.i18n.updateTooltip('[data-i18n="record"]', data.recordText);
+                        if (data.sentryFeedbackText) core.i18n.updateTooltip('[data-i18n="sentryFeedback"]', data.sentryFeedbackText);
+                        if (data.qqText) core.i18n.updateTooltip('[data-i18n="qq"]', data.qqText);
+                        if (data.discordText) core.i18n.updateTooltip('[data-i18n="discord"]', data.discordText);
+                        
+                        if (data.settingsMusic) core.i18n.updateText('[data-i18n="settingsMusic"]', data.settingsMusic);
+                        if (data.settingsSound) core.i18n.updateText('[data-i18n="settingsSound"]', data.settingsSound);
+                        if (data.actionEchoText) core.i18n.updateText('[data-i18n="actionEcho"]', data.actionEchoText);
+                        if (data.actionEchoHintText) core.i18n.updateText('[data-i18n="actionEchoHint"]', data.actionEchoHintText);
+
+                        if (data.keyMouseText) core.i18n.updateText('[data-i18n="keyMouse"]', data.keyMouseText);
+                        if (data.descMoveText) core.i18n.updateText('[data-i18n="descMove"]', data.descMoveText);
+                        if (data.descCameraText) core.i18n.updateText('[data-i18n="descCamera"]', data.descCameraText);
+                        if (data.keySpaceText) core.i18n.updateText('[data-i18n="keySpace"]', data.keySpaceText);
+                        if (data.descFollowText) core.i18n.updateText('[data-i18n="descFollow"]', data.descFollowText);
+                        if (data.descHighlightText) core.i18n.updateText('[data-i18n="descHighlight"]', data.descHighlightText);
+                        if (data.descEscText) core.i18n.updateText('[data-i18n="descEsc"]', data.descEscText);
+                        if (data.controlsFooterText) core.i18n.updateText('[data-i18n="controlsFooter"]', data.controlsFooterText);
+
+                        if (data.groupBasicText) state.loc.groupBasic = data.groupBasicText;
+                        if (data.groupPanelsText) state.loc.groupPanels = data.groupPanelsText;
+                        if (data.groupTimeText) state.loc.groupTime = data.groupTimeText;
+                        if (data.speedRowText) state.loc.speedRow = data.speedRowText;
+                        // 页签 / 分组 / 环境音 / 画面四项 / 性能警告
+                        const LOC_KEYS = {
+                            tabGeneralText: 'tabGeneral', tabKeysText: 'tabKeys', groupSoundText: 'groupSound',
+                            groupDisplayText: 'groupDisplay', groupInterfaceText: 'groupInterface', settingsAmbient: 'settingsAmbient',
+                            settingsWindowMode: 'settingsWindowMode', settingsResolution: 'settingsResolution',
+                            wmBorderless: 'wmBorderless', wmExclusive: 'wmExclusive', wmWindowed: 'wmWindowed',
+                            settingsGraphics: 'settingsGraphics', qualityLow: 'qualityLow', qualityMedium: 'qualityMedium', qualityHigh: 'qualityHigh',
+                            graphicsRestartHint: 'graphicsRestartHint', settingsFrameRate: 'settingsFrameRate',
+                            frameRateUnlimited: 'frameRateUnlimited', frameRateClampHint: 'frameRateClampHint',
+                            perfWarnTitle: 'perfWarnTitle', perfWarnBodyHigh: 'perfWarnBodyHigh', perfWarnBodyUnlimited: 'perfWarnBodyUnlimited',
+                            perfWarnDontShow: 'perfWarnDontShow', perfWarnOk: 'perfWarnOk', perfWarnCancel: 'perfWarnCancel'
+                        };
+                        for (const k in LOC_KEYS) {
+                            if (data[k]) state.loc[LOC_KEYS[k]] = data[k];
+                        }
+
+                        if (data.cancelRebindText) state.localText.cancelRebindText = data.cancelRebindText;
+                        if (data.resetKeysText) state.localText.resetKeysText = data.resetKeysText;
+                        if (data.pressKeyText) state.localText.pressKeyText = data.pressKeyText;
+                    },
+                    'WebUI_OutSetting_SettingsMsg': (data) => {
+                        if (data.isShow !== undefined) {
+                            toggleSettingsModal(data.isShow);
+                        }
+                        // 滑条按 id 取：三条滑条的 DOM 顺序与消息字段不再一一对应
+                        const setSlider = (id, v) => {
+                            const el = document.getElementById(id);
+                            if (el) { el.value = v * 100; updateSlider(el); }
+                        };
+                        if (data.bgVolume !== undefined) setSlider('sliderBg', data.bgVolume);
+                        if (data.ambientVolume !== undefined) setSlider('sliderAmbient', data.ambientVolume);
+                        if (data.actionVolume !== undefined) setSlider('sliderAction', data.actionVolume);
+                        const d = state.disp;
+                        if (data.windowMode !== undefined) d.windowMode = data.windowMode;
+                        if (data.resolutions !== undefined) d.resolutions = data.resolutions ? String(data.resolutions).split(',') : [];
+                        if (data.resolution !== undefined) d.resolution = data.resolution;
+                        if (data.graphicsQuality !== undefined) d.graphicsQuality = data.graphicsQuality;
+                        if (data.graphicsNeedRestart !== undefined) d.graphicsNeedRestart = !!data.graphicsNeedRestart;
+                        if (data.frameRate !== undefined) d.frameRate = data.frameRate;
+                        if (data.frameRateWarnOptOut !== undefined) d.frameRateWarnOptOut = !!data.frameRateWarnOptOut;
+                        if (data.actionEcho !== undefined) {
+                            const echoCheck = document.getElementById('actionEchoCheck');
+                            if (echoCheck) echoCheck.checked = !!data.actionEcho;
+                        }
+                    },
+                    'WebUI_OutSetting_KeyBindMsg': (data) => {
+                        if (data.binds !== undefined) state.keyBinds = data.binds || [];
+                        if (data.listeningId !== undefined) state.listeningId = data.listeningId || '';
+                        if (data.conflictText !== undefined) state.conflictText = data.conflictText || '';
+                    }
+                });
+
+                const onKeyRowClick = (kb) => {
+                    if (!ENABLE_REBIND) return;
+                    if (!kb.rebindable) return;
+                    if (state.listeningId) return;
+                    core.UnitySendEvent('START_REBIND', { actionId: kb.id });
+                };
+
+                const cancelRebind = () => {
+                    core.UnitySendEvent('CANCEL_REBIND');
+                };
+
+                const resetKeys = () => {
+                    core.UnitySendEvent('RESET_KEYS');
+                };
+
+                const openSettings = () => {
+                    state.settingsTab = 'general';
+                    core.UnitySendEvent('OPEN_SETTINGS');
+                    toggleSettingsModal(true);
+                };
+
+                const closeSettings = (e) => {
+                    if (e) e.stopPropagation();
+                    core.UnitySendEvent('CLOSE_SETTINGS');
+                    toggleSettingsModal(false);
+                };
+
+                const toggleSettingsModal = (isActive) => {
+                    state.showSettings = isActive;
+                    const modal = document.getElementById('settingsModal');
+                    if (!modal) return;
+                    if(isActive) {
+                        modal.classList.add('active');
+                        setTimeout(() => document.querySelectorAll('input[type=range]').forEach(input => updateSlider(input)), 10);
+                    } else {
+                        modal.classList.remove('active');
+                        closeDd();
+                        closePerfWarn();
+                    }
+                };
+                
+                window.onBgVolumeChange = (value) => {
+                    core.UnitySendEvent('SETTINGS_SET_BG_VOLUME', { volume: value / 100 });
+                };
+                window.onActionVolumeChange = (value) => {
+                    core.UnitySendEvent('SETTINGS_SET_ACTION_VOLUME', { volume: value / 100 });
+                };
+                window.onAmbientVolumeChange = (value) => {
+                    core.UnitySendEvent('SETTINGS_SET_AMBIENT_VOLUME', { volume: value / 100 });
+                };
+                // 字段名 enabled 必须与 C# 侧 JsonMsg_PauseRenderFreezeData 完全一致（大小写敏感），
+                // 对不上会静默反序列化成默认值
+                window.onActionEchoToggle = (checked) => {
+                    core.UnitySendEvent('SETTINGS_SET_ACTION_ECHO', { enabled: !!checked });
+                };
+
+                // ESC 由 Unity 侧处理（页面收不到按键）：设置窗口开着时 Unity 推 escBackSeq，这里由内向外收一层：
+                // 下拉 → 性能警告 → 设置窗口。设置窗口没开时 Unity 直接关暂停菜单，不经过这里
+                let escBackSeqSeen = 0;
+                const onEscBack = () => {
+                    if (state.ddOpen) { closeDd(); return; }
+                    if (state.perfWarn.show) { closePerfWarn(); return; }
+                    if (state.listeningId) return;
+                    if (state.showSettings) closeSettings();
+                };
+
+                onMounted(() => {
+                    core.notifyReady();
+                    core.UnitySendEvent('SFX_PANEL_ENTER', {});
+                });
+
+                return {
+                    state,
+                    ENABLE_REBIND,
+                    SHOW_REBIND_NOTE,
+                    UnitySendEvent: core.UnitySendEvent,
+                    openSettings,
+                    closeSettings,
+                    onKeyRowClick,
+                    cancelRebind,
+                    resetKeys,
+                    bindsOf,
+                    speedKeysTag,
+                    ddDefs,
+                    ddText,
+                    toggleDd,
+                    closeDd,
+                    pickDd,
+                    onDdWheel,
+                    closePerfWarn,
+                    confirmPerfWarn,
+                    switchTab
+                };
+            }
+        }).mount('#app');
+    </script>
+
+</body>
+</html>

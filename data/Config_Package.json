@@ -1,0 +1,1204 @@
+[
+  {
+    "ID": 104,
+    "PackageName": "Package_PackageName_104",
+    "PackageName_Local": "纸巾",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      20001,
+      20001
+    ],
+    "ItemCountList": [
+      1,
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 105,
+    "PackageName": "",
+    "PackageName_Local": "",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      2906
+    ],
+    "ItemCountList": [
+      1
+    ],
+    "LifeMin": 0.0,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 109,
+    "PackageName": "Package_PackageName_109",
+    "PackageName_Local": "探索包裹",
+    "RandomID": [
+      209
+    ],
+    "RandomAmount": [
+      3
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 110,
+    "PackageName": "",
+    "PackageName_Local": "",
+    "RandomID": [
+      210
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 111,
+    "PackageName": "Package_PackageName_111",
+    "PackageName_Local": "找书堆产出",
+    "RandomID": [
+      211
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 112,
+    "PackageName": "Package_PackageName_112",
+    "PackageName_Local": "门缝观察随机包（小型食物）",
+    "RandomID": [
+      212
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 113,
+    "PackageName": "Package_PackageName_113",
+    "PackageName_Local": "努力清扫事件包（小型食物）",
+    "RandomID": [
+      213
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 114,
+    "PackageName": "Package_PackageName_114",
+    "PackageName_Local": "蟑螂抢救食物包（小型食物）",
+    "RandomID": [
+      214
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [
+      2907
+    ],
+    "ItemCountList": [
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 115,
+    "PackageName": "Package_PackageName_115",
+    "PackageName_Local": "蟑螂火烧清除事件包（2材料）",
+    "RandomID": [
+      215
+    ],
+    "RandomAmount": [
+      2
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 116,
+    "PackageName": "Package_PackageName_116",
+    "PackageName_Local": "物资珍藏事件包（珍藏物资）",
+    "RandomID": [
+      216
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 117,
+    "PackageName": "Package_PackageName_117",
+    "PackageName_Local": "开局整理事件包（珍藏物资）",
+    "RandomID": [
+      217
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 118,
+    "PackageName": "Package_PackageName_118",
+    "PackageName_Local": "危机棍子捅事件包（丧尸遗物包）",
+    "RandomID": [
+      218
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 119,
+    "PackageName": "Package_PackageName_119",
+    "PackageName_Local": "遗留信封包",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      9011,
+      9012,
+      9013
+    ],
+    "ItemCountList": [
+      1,
+      1,
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 120,
+    "PackageName": "Package_PackageName_120",
+    "PackageName_Local": "钛合金大门搜寻所得",
+    "RandomID": [
+      219
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 121,
+    "PackageName": "Package_PackageName_121",
+    "PackageName_Local": "开局物资",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      2164
+    ],
+    "ItemCountList": [
+      1
+    ],
+    "LifeMin": 1.0,
+    "LifeMax": 1.0
+  },
+  {
+    "ID": 122,
+    "PackageName": "Package_PackageName_122",
+    "PackageName_Local": "安全区空投补给箱",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      20300,
+      20310,
+      41000,
+      2115
+    ],
+    "ItemCountList": [
+      1,
+      1,
+      2,
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 1001,
+    "PackageName": "Package_PackageName_1001",
+    "PackageName_Local": "包裹1",
+    "RandomID": [
+      110
+    ],
+    "RandomAmount": [
+      2
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 1002,
+    "PackageName": "Package_PackageName_1002",
+    "PackageName_Local": "包裹2",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 1003,
+    "PackageName": "Package_PackageName_1003",
+    "PackageName_Local": "包裹3",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      3001,
+      3002,
+      3003,
+      3004,
+      3005
+    ],
+    "ItemCountList": [
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 1004,
+    "PackageName": "Package_PackageName_1004",
+    "PackageName_Local": "零食大礼包",
+    "RandomID": [
+      201,
+      7001
+    ],
+    "RandomAmount": [
+      6,
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 1005,
+    "PackageName": "Package_PackageName_1005",
+    "PackageName_Local": "水果运输箱",
+    "RandomID": [
+      202
+    ],
+    "RandomAmount": [
+      5
+    ],
+    "ItemIdList": [
+      2127,
+      2125
+    ],
+    "ItemCountList": [
+      1,
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 1006,
+    "PackageName": "Package_PackageName_1006",
+    "PackageName_Local": "生存应急物资包",
+    "RandomID": [
+      203
+    ],
+    "RandomAmount": [
+      5
+    ],
+    "ItemIdList": [
+      2101
+    ],
+    "ItemCountList": [
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 1007,
+    "PackageName": "Package_PackageName_1007",
+    "PackageName_Local": "冷冻囤货食材包",
+    "RandomID": [
+      204
+    ],
+    "RandomAmount": [
+      6
+    ],
+    "ItemIdList": [
+      2104,
+      2109,
+      2110,
+      2111,
+      2112,
+      2113,
+      2118,
+      2122,
+      2148,
+      2151
+    ],
+    "ItemCountList": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 2107,
+    "PackageName": "Package_PackageName_2107",
+    "PackageName_Local": "过度包装礼盒  材料",
+    "RandomID": [
+      107,
+      216
+    ],
+    "RandomAmount": [
+      10,
+      1
+    ],
+    "ItemIdList": [
+      2132
+    ],
+    "ItemCountList": [
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 10120,
+    "PackageName": "Package_PackageName_10120",
+    "PackageName_Local": "随机材料包",
+    "RandomID": [
+      120,
+      120,
+      120,
+      120
+    ],
+    "RandomAmount": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 20001,
+    "PackageName": "Package_PackageName_20001",
+    "PackageName_Local": "纸片包",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      20001
+    ],
+    "ItemCountList": [
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 20002,
+    "PackageName": "Package_PackageName_20002",
+    "PackageName_Local": "玻璃包",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      20002
+    ],
+    "ItemCountList": [
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 20003,
+    "PackageName": "Package_PackageName_20003",
+    "PackageName_Local": "塑料包",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      20003
+    ],
+    "ItemCountList": [
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 20004,
+    "PackageName": "Package_PackageName_20004",
+    "PackageName_Local": "铁皮包",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      20004
+    ],
+    "ItemCountList": [
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 20005,
+    "PackageName": "Package_PackageName_20004",
+    "PackageName_Local": "铁皮包",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      20004,
+      20004,
+      20004,
+      20003,
+      20002
+    ],
+    "ItemCountList": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 24118,
+    "PackageName": "Package_PackageName_24118",
+    "PackageName_Local": "风铃铁皮",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      20004
+    ],
+    "ItemCountList": [
+      4
+    ],
+    "LifeMin": 0.0,
+    "LifeMax": 0.0
+  },
+  {
+    "ID": 24120,
+    "PackageName": "Package_PackageName_24120",
+    "PackageName_Local": "星星罐废塑料",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      20003
+    ],
+    "ItemCountList": [
+      4
+    ],
+    "LifeMin": 0.0,
+    "LifeMax": 0.0
+  },
+  {
+    "ID": 24121,
+    "PackageName": "Package_PackageName_24121",
+    "PackageName_Local": "摆件碎玻璃",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      20002
+    ],
+    "ItemCountList": [
+      4
+    ],
+    "LifeMin": 0.0,
+    "LifeMax": 0.0
+  },
+  {
+    "ID": 30001,
+    "PackageName": "Package_PackageName_30001",
+    "PackageName_Local": "肥料包",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      15501
+    ],
+    "ItemCountList": [
+      2
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 30002,
+    "PackageName": "Package_PackageName_30002",
+    "PackageName_Local": "启程种植礼盒",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      14001,
+      15024,
+      15018,
+      15007,
+      15021,
+      15027,
+      15031,
+      15501
+    ],
+    "ItemCountList": [
+      1,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 30003,
+    "PackageName": "Package_PackageName_30003",
+    "PackageName_Local": "启程料理礼盒",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      2527,
+      2536,
+      2513,
+      2154,
+      8001
+    ],
+    "ItemCountList": [
+      3,
+      3,
+      3,
+      1,
+      3
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 30004,
+    "PackageName": "Package_PackageName_30004",
+    "PackageName_Local": "燃油发电机购买赠品-小型",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      40000
+    ],
+    "ItemCountList": [
+      3
+    ],
+    "LifeMin": 0.0,
+    "LifeMax": 0.0
+  },
+  {
+    "ID": 30005,
+    "PackageName": "Package_PackageName_30005",
+    "PackageName_Local": "燃油发电机购买赠品-中型",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      40000
+    ],
+    "ItemCountList": [
+      6
+    ],
+    "LifeMin": 0.0,
+    "LifeMax": 0.0
+  },
+  {
+    "ID": 9001,
+    "PackageName": "Package_PackageName_9001",
+    "PackageName_Local": "演示通用包9001",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.699999988079071,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30006,
+    "PackageName": "Package_PackageName_30006",
+    "PackageName_Local": "便利店随机点缀包",
+    "RandomID": [
+      7001
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30007,
+    "PackageName": "Package_PackageName_30007",
+    "PackageName_Local": "超市随机点缀包",
+    "RandomID": [
+      7002
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30008,
+    "PackageName": "Package_PackageName_30008",
+    "PackageName_Local": "农贸随机点缀包",
+    "RandomID": [
+      7003
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30009,
+    "PackageName": "Package_PackageName_30009",
+    "PackageName_Local": "装修随机点缀包",
+    "RandomID": [
+      7004
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30010,
+    "PackageName": "Package_PackageName_30010",
+    "PackageName_Local": "废弃食品点缀包",
+    "RandomID": [
+      7005
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.0,
+    "LifeMax": 0.0
+  },
+  {
+    "ID": 30011,
+    "PackageName": "Package_PackageName_30011",
+    "PackageName_Local": "未消化的金针菇",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      2908
+    ],
+    "ItemCountList": [
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 30012,
+    "PackageName": "Package_PackageName_30012",
+    "PackageName_Local": "烹饪研究失败产物包",
+    "RandomID": [
+      229
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 1.0,
+    "LifeMax": 1.0
+  },
+  {
+    "ID": 106,
+    "PackageName": "",
+    "PackageName_Local": "",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      2913
+    ],
+    "ItemCountList": [
+      1
+    ],
+    "LifeMin": 1.0,
+    "LifeMax": 1.0
+  },
+  {
+    "ID": 30013,
+    "PackageName": "Package_PackageName_30013",
+    "PackageName_Local": "收银台遗落物包",
+    "RandomID": [
+      7006
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.800000011920929
+  },
+  {
+    "ID": 30014,
+    "PackageName": "Package_PackageName_30014",
+    "PackageName_Local": "超市后场存货包",
+    "RandomID": [
+      7007
+    ],
+    "RandomAmount": [
+      2
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30015,
+    "PackageName": "Package_PackageName_30015",
+    "PackageName_Local": "医护储物柜遗留包",
+    "RandomID": [
+      7008
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.800000011920929
+  },
+  {
+    "ID": 30016,
+    "PackageName": "Package_PackageName_30016",
+    "PackageName_Local": "避难帐篷遗留包",
+    "RandomID": [
+      7009
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.800000011920929
+  },
+  {
+    "ID": 30017,
+    "PackageName": "Package_PackageName_30017",
+    "PackageName_Local": "遗落随身包",
+    "RandomID": [
+      7010
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.800000011920929
+  },
+  {
+    "ID": 30018,
+    "PackageName": "Package_PackageName_30018",
+    "PackageName_Local": "封存急救物资包",
+    "RandomID": [
+      7011
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.800000011920929
+  },
+  {
+    "ID": 30019,
+    "PackageName": "Package_PackageName_30019",
+    "PackageName_Local": "学生储物柜遗留包",
+    "RandomID": [
+      7012
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.800000011920929
+  },
+  {
+    "ID": 30020,
+    "PackageName": "Package_PackageName_30020",
+    "PackageName_Local": "课桌与书包遗落物包",
+    "RandomID": [
+      7013
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.800000011920929
+  },
+  {
+    "ID": 30021,
+    "PackageName": "Package_PackageName_30021",
+    "PackageName_Local": "教职工区遗留包",
+    "RandomID": [
+      7014
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.5,
+    "LifeMax": 0.800000011920929
+  },
+  {
+    "ID": 30022,
+    "PackageName": "",
+    "PackageName_Local": "",
+    "RandomID": [],
+    "RandomAmount": [],
+    "ItemIdList": [
+      2502
+    ],
+    "ItemCountList": [
+      1
+    ],
+    "LifeMin": 0.5,
+    "LifeMax": 0.6000000238418579
+  },
+  {
+    "ID": 30023,
+    "PackageName": "Package_PackageName_30023",
+    "PackageName_Local": "特价超市冷冻柜专用池·抽3件",
+    "RandomID": [
+      7016
+    ],
+    "RandomAmount": [
+      3
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30024,
+    "PackageName": "Package_PackageName_30024",
+    "PackageName_Local": "特价超市啤酒箱专用池·抽1件",
+    "RandomID": [
+      7017
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30025,
+    "PackageName": "Package_PackageName_30025",
+    "PackageName_Local": "特价超市图级池·抽1件",
+    "RandomID": [
+      7015
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30026,
+    "PackageName": "Package_PackageName_30026",
+    "PackageName_Local": "特价超市图级池·抽3件",
+    "RandomID": [
+      7015
+    ],
+    "RandomAmount": [
+      3
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30027,
+    "PackageName": "Package_PackageName_30027",
+    "PackageName_Local": "装修公司图级池·抽1件",
+    "RandomID": [
+      7018
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30028,
+    "PackageName": "Package_PackageName_30028",
+    "PackageName_Local": "马桶专用池（公司 / 车行共用）·抽1件",
+    "RandomID": [
+      7022
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30029,
+    "PackageName": "Package_PackageName_30029",
+    "PackageName_Local": "装修公司绿植专用池·抽1件",
+    "RandomID": [
+      7020
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30030,
+    "PackageName": "Package_PackageName_30030",
+    "PackageName_Local": "装修公司门/窗专用池·抽1件",
+    "RandomID": [
+      7021
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30031,
+    "PackageName": "Package_PackageName_30031",
+    "PackageName_Local": "装修公司书架专用池·抽1件",
+    "RandomID": [
+      7019
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30032,
+    "PackageName": "Package_PackageName_30032",
+    "PackageName_Local": "农贸市场图级池·抽1件",
+    "RandomID": [
+      7023
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30033,
+    "PackageName": "Package_PackageName_30033",
+    "PackageName_Local": "农贸市场图级池·抽2件",
+    "RandomID": [
+      7023
+    ],
+    "RandomAmount": [
+      2
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30034,
+    "PackageName": "Package_PackageName_30034",
+    "PackageName_Local": "社区便利店图级池·抽1件",
+    "RandomID": [
+      7024
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30035,
+    "PackageName": "Package_PackageName_30035",
+    "PackageName_Local": "工具店图级池·抽1件",
+    "RandomID": [
+      7025
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30036,
+    "PackageName": "Package_PackageName_30036",
+    "PackageName_Local": "二手车行图级池·抽1件",
+    "RandomID": [
+      7026
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30037,
+    "PackageName": "Package_PackageName_30037",
+    "PackageName_Local": "二手车行洗手台专用池·抽1件",
+    "RandomID": [
+      7027
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30038,
+    "PackageName": "Package_PackageName_30038",
+    "PackageName_Local": "二手车行收银台专用池·抽1件",
+    "RandomID": [
+      7028
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  },
+  {
+    "ID": 30039,
+    "PackageName": "Package_PackageName_30039",
+    "PackageName_Local": "二手车行加油泵专用池·抽1件",
+    "RandomID": [
+      7029
+    ],
+    "RandomAmount": [
+      1
+    ],
+    "ItemIdList": [],
+    "ItemCountList": [],
+    "LifeMin": 0.6000000238418579,
+    "LifeMax": 0.8999999761581421
+  }
+]

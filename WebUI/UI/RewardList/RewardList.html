@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>RewardList</title>
+<link rel="stylesheet" href="../../webui-common.css">
+<style>
+:root{
+  --panel-bg: linear-gradient(168deg, rgba(30,30,34,0.88) 0%, rgba(16,16,20,0.94) 100%);
+  --panel-border: rgba(255,255,255,0.08);
+  --slot-bg: linear-gradient(180deg,#131316 0%,#1d1d20 100%);
+  --slot-border: rgba(255,255,255,0.13);
+  --text-main:#eee; --text-dim:#999;
+  --accent:#FFC107; --accent-glow:rgba(255,193,7,0.28); --danger:#FF5252;
+  --btn-bg: linear-gradient(180deg, rgba(58,58,60,0.9) 0%, rgba(38,38,40,0.92) 100%);
+  --btn-hover: linear-gradient(180deg, rgba(72,66,48,0.92) 0%, rgba(50,46,32,0.95) 100%);
+  --rarity-common-border: rgba(200,200,200,0.5);
+  --rarity-common-bg: rgba(170,170,170,0.1);
+  --font-main:"Microsoft YaHei","Noto Sans SC",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{ user-select:none;-webkit-user-select:none; background:transparent; font-family:var(--font-main); color:var(--text-main); height:100vh; overflow:hidden; }
+
+.modal-overlay{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+  background:rgba(0,0,0,0.28); cursor:pointer; animation:wc-fade-in .25s ease-out; }
+@keyframes wc-fade-in{from{opacity:0;}to{opacity:1;}}
+.modal-overlay.is-leaving{ animation:fadeOut .35s ease-in forwards; }
+@keyframes fadeOut{from{opacity:1;}to{opacity:0;}}
+
+.panel-wrap{ position:relative; display:flex; cursor:default; animation:panelIn .48s cubic-bezier(.19,1,.22,1); }
+.panel{ position:relative; width:max-content; min-width:620px; max-width:min(720px,86vw); max-height:86vh; overflow:hidden;
+  display:flex; flex-direction:column;
+  background:var(--panel-bg); border:none; border-radius:16px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.10), inset 0 40px 56px -36px rgba(255,255,255,0.06), inset 0 -60px 80px -50px rgba(0,0,0,0.42);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,0.12) 30px,rgba(0,0,0,0.42) 75px,rgba(0,0,0,0.75) 115px,rgba(0,0,0,0.94) 140px,#000 155px,#000 calc(100% - 155px),rgba(0,0,0,0.94) calc(100% - 140px),rgba(0,0,0,0.75) calc(100% - 115px),rgba(0,0,0,0.42) calc(100% - 75px),rgba(0,0,0,0.12) calc(100% - 30px),transparent 100%),linear-gradient(180deg,transparent 0,#000 26px,#000 calc(100% - 26px),transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,0.12) 30px,rgba(0,0,0,0.42) 75px,rgba(0,0,0,0.75) 115px,rgba(0,0,0,0.94) 140px,#000 155px,#000 calc(100% - 155px),rgba(0,0,0,0.94) calc(100% - 140px),rgba(0,0,0,0.75) calc(100% - 115px),rgba(0,0,0,0.42) calc(100% - 75px),rgba(0,0,0,0.12) calc(100% - 30px),transparent 100%),linear-gradient(180deg,transparent 0,#000 26px,#000 calc(100% - 26px),transparent 100%);
+  mask-composite:intersect; }
+@keyframes panelIn{from{opacity:0;transform:translateY(22px) scale(.94);}to{opacity:1;transform:translateY(0) scale(1);}}
+
+.close-x{ position:absolute; top:22px; right:60px; z-index:5; width:26px;height:26px;
+  background:none; border:none; color:rgba(255,255,255,0.45); cursor:pointer; font-size:16px; line-height:1;
+  display:flex;align-items:center;justify-content:center; transition:color .15s; }
+.close-x:hover{ color:#fff; }
+
+.result-head{ text-align:center; padding:16px 12px 4px; }
+.result-head .rtitle{ font-size:26px; font-weight:700; letter-spacing:3px; }
+.result-head.success .rtitle{ color:var(--accent); text-shadow:0 0 16px var(--accent-glow); }
+.result-head.fail .rtitle{ color:var(--danger); text-shadow:0 0 16px rgba(255,82,82,0.3); }
+.result-head .rdesc{ margin-top:9px; font-size:13px; color:var(--text-dim); line-height:1.7; text-wrap:pretty; }
+
+.body-area{ padding:34px 84px 40px; overflow-y:auto; }
+.list-label{ font-size:12px; color:var(--text-dim); letter-spacing:1px; margin:0 0 16px; text-align:center;
+  display:flex; align-items:center; gap:12px; justify-content:center; }
+.list-label::before,.list-label::after{ content:''; width:48px; height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.18)); }
+.list-label::before{ background:linear-gradient(90deg,rgba(255,255,255,0.18),transparent); }
+.reward-list{ display:flex; flex-wrap:wrap; gap:16px 18px; justify-content:center; }
+
+.cell{ width:80px; flex-shrink:0; opacity:0; transform:translateY(12px); animation:cellIn .5s cubic-bezier(.19,1,.22,1) forwards; }
+@keyframes cellIn{to{opacity:1;transform:translateY(0);}}
+.slot{ position:relative; width:80px; height:80px; border-radius:14px;
+  background:radial-gradient(120% 100% at 50% 30%, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 55%, rgba(255,255,255,0) 100%);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 6px 16px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.07); }
+.item{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+.item img{ max-width:78%; max-height:78%; object-fit:contain; z-index:1; filter:drop-shadow(0 4px 9px rgba(0,0,0,0.5)); }
+.icon-ph{ font-family:Consolas,monospace; font-size:10px; color:rgba(255,255,255,0.3); text-align:center; line-height:1.3; z-index:1; }
+.item-count{ position:absolute; bottom:3px; right:4px; font-size:11px; font-weight:700; color:#fff; background:rgba(0,0,0,0.62);
+  border:1px solid rgba(255,255,255,0.08); padding:0 6px; border-radius:9px; line-height:14px; text-shadow:0 1px 2px rgba(0,0,0,0.8); box-shadow:0 2px 4px rgba(0,0,0,0.45); z-index:2; }
+.cell-name{ margin-top:7px; font-size:12px; color:var(--text-main); text-align:center; line-height:1.3; word-break:break-word; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; text-shadow:0 2px 4px rgba(0,0,0,0.5); }
+
+.empty{ padding:6px 12px 24px; text-align:center; font-size:13px; color:rgba(255,255,255,0.32); font-family:Consolas,monospace; letter-spacing:1px; }
+
+.panel.is-explore{ min-width:920px; max-width:min(1100px,92vw); }
+.panel.is-explore .result-head{ padding:42px 28px 10px; }
+.panel.is-explore .result-head .rtitle{ font-size:32px; letter-spacing:4px; }
+.panel.is-explore .result-head .rdesc{ font-size:14.5px; margin-top:11px; }
+.result-head .rnote{ display:inline-block; margin-top:14px; padding:6px 16px; font-size:13.5px; line-height:1.6;
+  color:#FFD180; background:rgba(255,171,64,0.10); border:1px solid rgba(255,171,64,0.28); border-radius:10px; text-wrap:pretty; }
+.panel.is-explore .body-area{ padding:54px 156px 64px; }
+.panel.is-explore .list-label{ font-size:13px; margin:0 0 20px; }
+.panel.is-explore .list-label::before,.panel.is-explore .list-label::after{ width:60px; }
+.panel.is-explore .reward-list{ gap:20px 24px; }
+.panel.is-explore .cell{ width:100px; }
+.panel.is-explore .slot{ width:100px; height:100px; border-radius:16px; }
+.panel.is-explore .cell-name{ font-size:13px; margin-top:9px; }
+.panel.is-explore .item-count{ font-size:12px; line-height:16px; bottom:4px; right:5px; padding:0 7px; }
+.panel.is-explore .icon-ph{ font-size:11px; }
+
+.bumper-head{ text-align:center; padding:20px 12px 0; }
+.bumper-head .bh-title{ font-size:30px; font-weight:800; letter-spacing:6px; color:#FFD54F;
+  text-shadow:0 0 20px rgba(255,213,79,0.42);
+  animation:bhIn .5s cubic-bezier(.16,1,.3,1) .1s both; }
+.bumper-head .bh-sub{ margin-top:7px; font-size:15px; letter-spacing:3px; color:#FFA726;
+  animation:bhIn .5s cubic-bezier(.16,1,.3,1) .28s both; }
+@keyframes bhIn{ from{ opacity:0; transform:translateY(-10px);} to{ opacity:1; transform:translateY(0);} }
+
+/* 普通 addItem 档的来源说明头：物资没进随身背包时（如无人机自动卸货落中控台货舱）
+   才由发送方传 desc，说明这批东西去哪了；不传则整块不渲染，现网表现逐字不变。
+   动画复用丰收头的 bhIn。 */
+.src-head{ text-align:center; padding:22px 12px 0; }
+.src-head .sh-title{ font-size:20px; font-weight:700; letter-spacing:4px; color:var(--text-main);
+  animation:bhIn .5s cubic-bezier(.16,1,.3,1) .1s both; }
+.src-head .sh-sub{ margin-top:6px; font-size:13px; letter-spacing:1.5px; color:var(--accent);
+  animation:bhIn .5s cubic-bezier(.16,1,.3,1) .26s both; }
+
+.panel.is-bumper{ background:linear-gradient(168deg, rgba(38,33,22,0.90) 0%, rgba(20,17,11,0.95) 100%); }
+.panel.is-bumper .list-label{ color:#c9b27a; }
+.panel.is-bumper .list-label::before{ background:linear-gradient(90deg,rgba(255,213,79,0.4),transparent); }
+.panel.is-bumper .list-label::after{ background:linear-gradient(90deg,transparent,rgba(255,213,79,0.4)); }
+
+.cell.is-bumper .slot{ border-color:rgba(255,213,79,0.55);
+  box-shadow:0 6px 16px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.07), 0 0 16px rgba(255,213,79,0.22); }
+.cell.is-bumper .cell-name{ color:#FFD54F; }
+.cell.is-bumper .bmk{ position:absolute; top:-7px; left:50%; transform-origin:50% 50%;
+  min-width:42px; margin-left:-21px; padding:0 5px; z-index:3;
+  font-size:10px; letter-spacing:1px; text-align:center; line-height:15px; font-weight:700;
+  background:#FFD54F; color:#3a2f08; border-radius:8px;
+  animation:bmkIn .34s cubic-bezier(.2,1.5,.4,1) .34s both; }
+@keyframes bmkIn{ from{ opacity:0; transform:scale(0);} to{ opacity:1; transform:scale(1);} }
+.cell.is-bumper .rip{ position:absolute; inset:0; border-radius:14px; border:2px solid #FFD54F;
+  pointer-events:none; animation:ripOut .85s ease-out .3s both; }
+@keyframes ripOut{ 0%{ transform:scale(.85); opacity:.8; } 100%{ transform:scale(1.5); opacity:0; } }
+
+
+.modal-overlay.pres-slim,
+.modal-overlay.pres-slimPerfect{
+  background:transparent; align-items:flex-start; padding-top:150px; cursor:default;
+}
+.pres-slim .panel,
+.pres-slimPerfect .panel{
+  min-width:0; width:auto; max-width:min(560px,80vw);
+  border-radius:12px;
+  overflow:visible;
+  -webkit-mask-image:none; mask-image:none;
+  background:linear-gradient(168deg, rgba(26,26,30,.93) 0%, rgba(16,16,20,.95) 100%);
+  box-shadow:0 10px 28px rgba(0,0,0,.48), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.pres-slim .close-x,
+.pres-slimPerfect .close-x{ top:8px; right:10px; width:20px; height:20px; font-size:13px; }
+.pres-slim .body-area,
+.pres-slimPerfect .body-area{ padding:16px 34px 18px; }
+.pres-slim .list-label,
+.pres-slimPerfect .list-label{ font-size:10.5px; margin:0 0 11px; }
+.pres-slim .list-label::before,.pres-slim .list-label::after,
+.pres-slimPerfect .list-label::before,.pres-slimPerfect .list-label::after{ width:32px; }
+.pres-slim .reward-list,
+.pres-slimPerfect .reward-list{ gap:12px 14px; }
+.pres-slim .cell,
+.pres-slimPerfect .cell{ width:56px; }
+.pres-slim .slot,
+.pres-slimPerfect .slot{ width:56px; height:56px; border-radius:10px; }
+.pres-slim .cell-name,
+.pres-slimPerfect .cell-name{ font-size:10.5px; margin-top:5px; }
+.pres-slim .item-count,
+.pres-slimPerfect .item-count{ font-size:10px; line-height:13px; padding:0 5px; }
+
+.pres-slimPerfect .panel{
+  border:1px solid rgba(255,213,79,.42);
+  background:linear-gradient(168deg, rgba(42,35,18,.93) 0%, rgba(24,20,11,.95) 100%);
+  box-shadow:0 10px 28px rgba(0,0,0,.5), 0 0 26px rgba(255,193,7,.20), inset 0 1px 0 rgba(255,213,79,.16);
+  animation:rl-pf-in .5s cubic-bezier(.2,1.45,.35,1);
+}
+@keyframes rl-pf-in{ from{opacity:0;transform:translateY(14px) scale(.9)} to{opacity:1;transform:none} }
+.pres-slimPerfect .list-label{ color:#c9b27a; }
+.pres-slimPerfect .cell-name{ color:#FFD54F; }
+.pres-slimPerfect .slot{
+  border-color:rgba(255,213,79,.55);
+  box-shadow:0 0 18px rgba(255,213,79,.26), inset 0 1px 0 rgba(255,255,255,.07);
+}
+.pres-slimPerfect .slot::before{
+  content:''; position:absolute; inset:-12px; border-radius:18px; pointer-events:none;
+  background:conic-gradient(from 0deg, transparent 0deg, rgba(255,213,79,.30) 40deg, transparent 90deg,
+    transparent 180deg, rgba(255,213,79,.30) 220deg, transparent 270deg);
+  -webkit-mask-image:radial-gradient(closest-side, transparent 52%, #000 72%, transparent 100%);
+  mask-image:radial-gradient(closest-side, transparent 52%, #000 72%, transparent 100%);
+  animation:rl-spin 3.4s linear infinite;
+}
+@keyframes rl-spin{ to{ transform:rotate(360deg) } }
+.pres-slimPerfect .slot .rl-pfmark{
+  position:absolute; top:-8px; right:-8px; z-index:3;
+  font-size:10px; font-weight:800; letter-spacing:1px; line-height:15px;
+  padding:0 6px; border-radius:8px;
+  background:linear-gradient(180deg,#FFE082,#FFC107); color:#3a2f08;
+  box-shadow:0 2px 6px rgba(0,0,0,.45);
+}
+.pres-slimPerfect .panel-wrap::after{
+  content:''; position:absolute; inset:0; border-radius:12px; pointer-events:none;
+  border:2px solid rgba(255,213,79,.8);
+  animation:rl-ripple .9s ease-out .12s both;
+}
+@keyframes rl-ripple{ 0%{transform:scale(.92);opacity:.85} 100%{transform:scale(1.3);opacity:0} }
+
+.modal-overlay.pres-newDish{ background:rgba(0,0,0,.62); }
+.pres-newDish .panel{
+  background:transparent; box-shadow:none; border:none; min-width:0; max-width:min(680px,86vw);
+  -webkit-mask-image:none; mask-image:none; overflow:visible;
+}
+.pres-newDish .close-x{ display:none; }
+.rl-rays{
+  position:absolute; left:50%; top:50%; width:340px; height:340px; margin:-170px 0 0 -170px;
+  pointer-events:none; z-index:0;
+  background:conic-gradient(from 0deg, rgba(255,213,79,.22) 0deg, transparent 16deg, transparent 44deg,
+    rgba(255,213,79,.17) 60deg, transparent 76deg, transparent 104deg, rgba(255,213,79,.22) 120deg,
+    transparent 136deg, transparent 164deg, rgba(255,213,79,.17) 180deg, transparent 196deg, transparent 224deg,
+    rgba(255,213,79,.22) 240deg, transparent 256deg, transparent 284deg, rgba(255,213,79,.17) 300deg,
+    transparent 316deg, transparent 344deg, rgba(255,213,79,.22) 360deg);
+  -webkit-mask-image:radial-gradient(closest-side, transparent 24%, #000 50%, transparent 96%);
+  mask-image:radial-gradient(closest-side, transparent 24%, #000 50%, transparent 96%);
+  animation:rl-spin 14s linear infinite, wc-fade-in .7s ease-out both;
+}
+html.quality-low .rl-rays{ animation:wc-fade-in .7s ease-out both; }
+.pres-newDish .bumper-head,
+.pres-newDish .result-head{ display:none; }
+.rl-newhead{ text-align:center; padding:6px 8px 0; }
+.rl-newhead .rl-title{
+  font-size:27px; font-weight:800; letter-spacing:4px; color:#FFD54F;
+  text-shadow:0 0 22px rgba(255,213,79,.45);
+  animation:rl-head-in .45s cubic-bezier(.16,1,.3,1) .12s both;
+}
+@keyframes rl-head-in{ from{opacity:0;transform:translateY(-9px)} to{opacity:1;transform:none} }
+.rl-tag{
+  display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:2px; color:#3a2f08;
+  background:linear-gradient(180deg,#FFE082,#FFC107); padding:2px 10px; border-radius:9px;
+  animation:rl-head-in .42s cubic-bezier(.16,1,.3,1) both;
+}
+.pres-newDish .body-area{ padding:20px 40px 6px; overflow:visible; }
+.pres-newDish .list-label{ display:none; }
+.pres-newDish .cell{ width:auto; }
+.pres-newDish .slot{
+  width:150px; height:150px; border-radius:24px; margin:0 auto;
+  background:
+    radial-gradient(120% 100% at 50% 30%, rgba(255,213,79,.20) 0%, rgba(255,213,79,.05) 58%, transparent 100%),
+    linear-gradient(180deg, rgba(30,26,17,.95) 0%, rgba(17,15,10,.97) 100%);
+  border:1px solid rgba(255,213,79,.55);
+  box-shadow:0 8px 22px rgba(0,0,0,.5), 0 0 30px rgba(255,213,79,.24);
+  animation:rl-pop .6s cubic-bezier(.2,1.5,.35,1) both;
+}
+@keyframes rl-pop{ from{opacity:0;transform:scale(.55)} to{opacity:1;transform:scale(1)} }
+.pres-newDish .item .rl-silhouette{
+  position:absolute; max-width:78%; max-height:78%; object-fit:contain; z-index:1;
+  filter:brightness(0) blur(5px); opacity:.85; pointer-events:none;
+}
+.pres-newDish .item img:not(.rl-silhouette){
+  animation:rl-reveal .62s cubic-bezier(.19,1,.22,1) .18s both;
+}
+@keyframes rl-reveal{
+  0%{opacity:0; transform:scale(.82)}
+  100%{opacity:1; transform:scale(1)}
+}
+.pres-newDish .slot .halo{
+  position:absolute; inset:-9px; border-radius:30px; border:2px solid rgba(255,213,79,.75);
+  pointer-events:none; animation:rl-halo 1s ease-out .45s both;
+}
+@keyframes rl-halo{ 0%{transform:scale(.86);opacity:.85} 100%{transform:scale(1.38);opacity:0} }
+.pres-newDish .cell-name{ margin-top:16px; font-size:24px; font-weight:700; letter-spacing:1px; -webkit-line-clamp:none; }
+.pres-newDish .cell-name span{ display:inline-block; animation:rl-char .42s cubic-bezier(.2,1.3,.4,1) both; }
+@keyframes rl-char{ from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+.rl-foot{
+  margin-top:14px; font-size:12px; color:#c9b27a; letter-spacing:.5px; text-align:center;
+  animation:rl-head-in .4s ease-out .66s both;
+}
+.rl-confirm{
+  margin:18px auto 26px; display:block; font-size:13px; padding:9px 34px; border-radius:9px; cursor:pointer;
+  background:linear-gradient(180deg,#6a5a1c,#4a3f13); border:1px solid rgba(255,193,7,.42); color:#ffe08a;
+  font-family:var(--font-main);
+  animation:rl-head-in .4s ease-out .72s both;
+}
+.rl-confirm:hover{ background:linear-gradient(180deg,#7d6b22,#584b17); }
+
+
+.modal-overlay.pres-modal{
+  background:transparent; align-items:flex-start; padding-top:130px; cursor:default; }
+.pres-modal .close-x{ display:none; }
+.pres-modal .panel-wrap{ animation:rl-band-in .38s cubic-bezier(.22,1,.36,1) both; }
+@keyframes rl-band-in{ from{opacity:0; transform:translateY(-14px)} to{opacity:1; transform:none} }
+.pres-modal .panel{
+  min-width:440px; max-width:min(720px,86vw); border-radius:0; overflow:visible;
+  box-shadow:none;
+  background:linear-gradient(90deg,
+    rgba(13,13,17,0) 0px, rgba(13,13,17,.13) 26px, rgba(13,13,17,.44) 58px,
+    rgba(13,13,17,.68) 86px, rgba(13,13,17,.75) 110px,
+    rgba(13,13,17,.75) calc(100% - 110px), rgba(13,13,17,.68) calc(100% - 86px),
+    rgba(13,13,17,.44) calc(100% - 58px), rgba(13,13,17,.13) calc(100% - 26px),
+    rgba(13,13,17,0) 100%);
+  -webkit-mask-image:linear-gradient(180deg, transparent 0, #000 16px, #000 calc(100% - 18px), transparent 100%);
+  mask-image:linear-gradient(180deg, transparent 0, #000 16px, #000 calc(100% - 18px), transparent 100%);
+  -webkit-mask-composite:source-over; mask-composite:add; }
+.pres-modal .body-area{ padding:26px 76px 30px; }
+.pres-modal .list-label{ font-size:13px; margin:0 0 15px; }
+.pres-modal .list-label::before,.pres-modal .list-label::after{ width:42px; }
+.pres-modal .reward-list{ gap:14px 18px; }
+.pres-modal .cell{ width:68px; }
+.pres-modal .slot{ width:68px; height:68px; border-radius:13px; }
+.pres-modal .cell-name{ font-size:12px; margin-top:6px; }
+.pres-modal .item-count{ font-size:11.5px; line-height:15px; padding:0 6px; bottom:2px; right:3px; }
+
+.pres-modal .panel.is-bumper{
+  background:linear-gradient(90deg,
+    rgba(31,26,15,0) 0px, rgba(31,26,15,.13) 26px, rgba(32,26,15,.45) 58px,
+    rgba(33,27,15,.70) 86px, rgba(33,27,15,.77) 110px,
+    rgba(33,27,15,.77) calc(100% - 110px), rgba(33,27,15,.70) calc(100% - 86px),
+    rgba(32,26,15,.45) calc(100% - 58px), rgba(31,26,15,.13) calc(100% - 26px),
+    rgba(31,26,15,0) 100%); }
+.pres-modal .bumper-head{ padding:22px 12px 0; }
+.pres-modal .bumper-head .bh-title{ font-size:22px; letter-spacing:5px; }
+.pres-modal .bumper-head .bh-sub{ font-size:13.5px; margin-top:4px; }
+.pres-modal .panel.is-bumper .body-area{ padding-top:18px; }
+
+</style>
+<script src="../../vue.runtime.global.prod.js"></script>
+<script>
+/* === [precompiled v1] === */
+(function(){var __wgArmed__=false;var __wgGaveUp__=false;var __wgReload__=function(missing){if(__wgArmed__||__wgGaveUp__)return;var m=/(?:^|;)wgr=(\d+)/.exec(window.name||"");var n=m?parseInt(m[1],10):0;if(n>=2){__wgGaveUp__=true;console.error("[WebUIGuard] "+missing+" still missing after "+n+" reloads, giving up: "+location.pathname);return;}__wgArmed__=true;window.name=(window.name||"").replace(/(?:^|;)wgr=\d+/,"")+";wgr="+(n+1);console.warn("[WebUIGuard] "+missing+" missing, reloading page ("+(n+1)+"/2): "+location.pathname);setTimeout(function(){location.reload();},300);};window.addEventListener("error",function(e){var msg=(e&&e.message)||"";var isCore=msg.indexOf("createWebUICore is not defined")>=0;if(!isCore&&msg.indexOf("Vue is not defined")<0)return;__wgReload__(isCore?"webui-core.js":"vue.runtime.global.prod.js");if(!__wgGaveUp__)e.preventDefault();});if(typeof Vue==="undefined"){__wgReload__("vue.runtime.global.prod.js");return;}document.addEventListener("DOMContentLoaded",function(){if(document.querySelector("script[src*=webui-core]")&&typeof window.createWebUICore==="undefined"){__wgReload__("webui-core.js");return;}if(!__wgArmed__&&window.name)window.name=window.name.replace(/(?:^|;)wgr=\d+/,"");});var __renderFactory__=function(Vue){const { createElementVNode: _createElementVNode, toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock, createCommentVNode: _createCommentVNode, normalizeClass: _normalizeClass, renderList: _renderList, Fragment: _Fragment, normalizeStyle: _normalizeStyle, createTextVNode: _createTextVNode, withModifiers: _withModifiers } = Vue
+
+const _hoisted_1 = {
+  key: 0,
+  class: "rl-newhead"
+}
+const _hoisted_2 = {
+  key: 0,
+  class: "rl-tag"
+}
+const _hoisted_3 = {
+  key: 1,
+  class: "rl-title"
+}
+const _hoisted_4 = { class: "rtitle" }
+const _hoisted_5 = { class: "rdesc" }
+const _hoisted_6 = {
+  key: 0,
+  class: "rnote"
+}
+const _hoisted_7 = {
+  key: 2,
+  class: "bumper-head"
+}
+const _hoisted_8 = { class: "bh-title" }
+const _hoisted_9 = {
+  key: 0,
+  class: "bh-sub"
+}
+const _hoisted_10 = {
+  key: 3,
+  class: "src-head"
+}
+const _hoisted_11 = {
+  key: 0,
+  class: "sh-title"
+}
+const _hoisted_12 = { class: "sh-sub" }
+const _hoisted_13 = {
+  key: 4,
+  class: "body-area"
+}
+const _hoisted_14 = { class: "list-label" }
+const _hoisted_15 = { class: "slot" }
+const _hoisted_16 = {
+  key: 0,
+  class: "rl-rays"
+}
+const _hoisted_17 = {
+  key: 1,
+  class: "rip"
+}
+const _hoisted_18 = {
+  key: 2,
+  class: "bmk"
+}
+const _hoisted_19 = {
+  key: 3,
+  class: "rl-pfmark"
+}
+const _hoisted_20 = {
+  key: 4,
+  class: "halo"
+}
+const _hoisted_21 = { class: "item" }
+const _hoisted_22 = ["src"]
+const _hoisted_23 = ["src"]
+const _hoisted_24 = {
+  key: 2,
+  class: "icon-ph"
+}
+const _hoisted_25 = {
+  key: 3,
+  class: "item-count"
+}
+const _hoisted_26 = { class: "cell-name" }
+const _hoisted_27 = {
+  key: 5,
+  class: "empty"
+}
+const _hoisted_28 = {
+  key: 6,
+  class: "rl-foot"
+}
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createElementBlock("div", {
+    class: _normalizeClass(["modal-overlay", [{ 'is-leaving': _ctx.leaving }, _ctx.presClass]]),
+    onClick: _cache[4] || (_cache[4] = (...args) => (_ctx.handleOverlayClick && _ctx.handleOverlayClick(...args)))
+  }, [
+    _createElementVNode("div", {
+      class: "panel-wrap",
+      "data-interactive": "",
+      onAnimationend: _cache[3] || (_cache[3] = _withModifiers((...args) => (_ctx.onWrapAnimEnd && _ctx.onWrapAnimEnd(...args)), ["self"]))
+    }, [
+      _createElementVNode("button", {
+        class: "close-x",
+        onClick: _cache[0] || (_cache[0] = (...args) => (_ctx.guardedClose && _ctx.guardedClose(...args))),
+        "aria-label": "Close"
+      }, "✕"),
+      _createElementVNode("div", {
+        class: _normalizeClass(["panel", { 'is-explore': _ctx.s.variant === 'explore', 'is-bumper': _ctx.isBumper }])
+      }, [
+        (_ctx.isNewDish)
+          ? (_openBlock(), _createElementBlock("div", _hoisted_1, [
+              (_ctx.s.tag)
+                ? (_openBlock(), _createElementBlock("div", _hoisted_2, _toDisplayString(_ctx.s.tag), 1 /* TEXT */))
+                : _createCommentVNode("v-if", true),
+              (_ctx.s.title)
+                ? (_openBlock(), _createElementBlock("div", _hoisted_3, _toDisplayString(_ctx.s.title), 1 /* TEXT */))
+                : _createCommentVNode("v-if", true)
+            ]))
+          : _createCommentVNode("v-if", true),
+        (_ctx.s.variant === 'explore')
+          ? (_openBlock(), _createElementBlock("div", {
+              key: 1,
+              class: _normalizeClass(["result-head", _ctx.s.tone])
+            }, [
+              _createElementVNode("div", _hoisted_4, _toDisplayString(_ctx.s.title), 1 /* TEXT */),
+              _createElementVNode("div", _hoisted_5, _toDisplayString(_ctx.s.desc), 1 /* TEXT */),
+              (_ctx.s.note)
+                ? (_openBlock(), _createElementBlock("div", _hoisted_6, _toDisplayString(_ctx.s.note), 1 /* TEXT */))
+                : _createCommentVNode("v-if", true)
+            ], 2 /* CLASS */))
+          : (_ctx.isBumper)
+            ? (_openBlock(), _createElementBlock("div", _hoisted_7, [
+                _createElementVNode("div", _hoisted_8, _toDisplayString(_ctx.s.title), 1 /* TEXT */),
+                (_ctx.s.desc)
+                  ? (_openBlock(), _createElementBlock("div", _hoisted_9, _toDisplayString(_ctx.s.desc), 1 /* TEXT */))
+                  : _createCommentVNode("v-if", true)
+              ]))
+            : (!_ctx.isNewDish && _ctx.s.desc)
+              ? (_openBlock(), _createElementBlock("div", _hoisted_10, [
+                  (_ctx.s.title)
+                    ? (_openBlock(), _createElementBlock("div", _hoisted_11, _toDisplayString(_ctx.s.title), 1 /* TEXT */))
+                    : _createCommentVNode("v-if", true),
+                  _createElementVNode("div", _hoisted_12, _toDisplayString(_ctx.s.desc), 1 /* TEXT */)
+                ]))
+              : _createCommentVNode("v-if", true),
+        (_ctx.s.hasItems)
+          ? (_openBlock(), _createElementBlock("div", _hoisted_13, [
+              _createElementVNode("div", _hoisted_14, _toDisplayString(_ctx.s.listLabel || (_ctx.s.variant === 'explore' ? '带回的物资' : '本次获得')), 1 /* TEXT */),
+              _createElementVNode("div", {
+                class: "reward-list",
+                onClick: _cache[1] || (_cache[1] = _withModifiers(() => {}, ["stop"]))
+              }, [
+                (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.items, (it, i) => {
+                  return (_openBlock(), _createElementBlock("div", {
+                    class: _normalizeClass(["cell", { 'is-bumper': it.kind === 1 }]),
+                    key: i,
+                    style: _normalizeStyle({ animationDelay: (i*70) + 'ms' })
+                  }, [
+                    _createElementVNode("div", _hoisted_15, [
+                      (_ctx.isNewDish)
+                        ? (_openBlock(), _createElementBlock("span", _hoisted_16))
+                        : _createCommentVNode("v-if", true),
+                      (it.kind === 1)
+                        ? (_openBlock(), _createElementBlock("span", _hoisted_17))
+                        : _createCommentVNode("v-if", true),
+                      (it.kind === 1 && it.mark)
+                        ? (_openBlock(), _createElementBlock("span", _hoisted_18, _toDisplayString(it.mark), 1 /* TEXT */))
+                        : (_ctx.isPerfect && _ctx.s.tag)
+                          ? (_openBlock(), _createElementBlock("span", _hoisted_19, _toDisplayString(_ctx.s.tag), 1 /* TEXT */))
+                          : _createCommentVNode("v-if", true),
+                      (_ctx.isNewDish)
+                        ? (_openBlock(), _createElementBlock("span", _hoisted_20))
+                        : _createCommentVNode("v-if", true),
+                      _createElementVNode("div", _hoisted_21, [
+                        (_ctx.isNewDish && it.icon)
+                          ? (_openBlock(), _createElementBlock("img", {
+                              key: 0,
+                              class: "rl-silhouette",
+                              src: it.icon,
+                              alt: "",
+                              draggable: "false"
+                            }, null, 8 /* PROPS */, _hoisted_22))
+                          : _createCommentVNode("v-if", true),
+                        (it.icon)
+                          ? (_openBlock(), _createElementBlock("img", {
+                              key: 1,
+                              src: it.icon,
+                              alt: "",
+                              draggable: "false"
+                            }, null, 8 /* PROPS */, _hoisted_23))
+                          : (_openBlock(), _createElementBlock("span", _hoisted_24, _toDisplayString(it.name), 1 /* TEXT */)),
+                        (it.count > 1)
+                          ? (_openBlock(), _createElementBlock("span", _hoisted_25, "x" + _toDisplayString(it.count), 1 /* TEXT */))
+                          : _createCommentVNode("v-if", true)
+                      ])
+                    ]),
+                    _createElementVNode("div", _hoisted_26, [
+                      (_ctx.isNewDish)
+                        ? (_openBlock(true), _createElementBlock(_Fragment, { key: 0 }, _renderList([...it.name], (ch, ci) => {
+                            return (_openBlock(), _createElementBlock("span", {
+                              key: ci,
+                              style: _normalizeStyle({ animationDelay: (380 + ci*55) + 'ms' })
+                            }, _toDisplayString(ch), 5 /* TEXT, STYLE */))
+                          }), 128 /* KEYED_FRAGMENT */))
+                        : (_openBlock(), _createElementBlock(_Fragment, { key: 1 }, [
+                            _createTextVNode(_toDisplayString(it.name), 1 /* TEXT */)
+                          ], 64 /* STABLE_FRAGMENT */))
+                    ])
+                  ], 6 /* CLASS, STYLE */))
+                }), 128 /* KEYED_FRAGMENT */))
+              ])
+            ]))
+          : (_ctx.s.variant === 'explore')
+            ? (_openBlock(), _createElementBlock("div", _hoisted_27, "— " + _toDisplayString(_ctx.s.emptyLabel || '未带回任何物资') + " —", 1 /* TEXT */))
+            : _createCommentVNode("v-if", true),
+        (_ctx.isNewDish && _ctx.s.desc)
+          ? (_openBlock(), _createElementBlock("div", _hoisted_28, _toDisplayString(_ctx.s.desc), 1 /* TEXT */))
+          : _createCommentVNode("v-if", true),
+        (_ctx.s.confirmLabel)
+          ? (_openBlock(), _createElementBlock("button", {
+              key: 7,
+              class: "rl-confirm",
+              onClick: _cache[2] || (_cache[2] = (...args) => (_ctx.guardedClose && _ctx.guardedClose(...args)))
+            }, _toDisplayString(_ctx.s.confirmLabel), 1 /* TEXT */))
+          : _createCommentVNode("v-if", true)
+      ], 2 /* CLASS */)
+    ], 32 /* NEED_HYDRATION */)
+  ], 2 /* CLASS */))
+}};var __renderCache__=null;var __origCreateApp__=Vue.createApp;Vue.createApp=function(opts){if(!__renderCache__)__renderCache__=__renderFactory__(Vue);if(opts&&typeof opts==="object"&&!opts.render&&!opts.template){opts=Object.assign({},opts,{render:__renderCache__});}var app=__origCreateApp__.call(this,opts);if(!app.config.errorHandler){app.config.errorHandler=function(err){var msg=(err&&err.message)||String(err||"");if(msg.indexOf("createWebUICore is not defined")>=0){__wgReload__("webui-core.js");if(__wgGaveUp__)console.error(err);return;}console.error(err);};}return app;};})();
+/* === [/precompiled v1] === */
+</script>
+<script src="../../webui-core.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <div class="modal-overlay" :class="[{ 'is-leaving': leaving }, presClass]" @click="handleOverlayClick">
+    <div class="panel-wrap" data-interactive @animationend.self="onWrapAnimEnd">
+      <button class="close-x" @click="guardedClose" aria-label="Close">✕</button>
+      <div class="panel" :class="{ 'is-explore': s.variant === 'explore', 'is-bumper': isBumper }">
+        <div v-if="isNewDish" class="rl-newhead">
+          <div class="rl-tag" v-if="s.tag">{{ s.tag }}</div>
+          <div class="rl-title" v-if="s.title">{{ s.title }}</div>
+        </div>
+        <div v-if="s.variant === 'explore'" class="result-head" :class="s.tone">
+          <div class="rtitle">{{ s.title }}</div>
+          <div class="rdesc">{{ s.desc }}</div>
+          <div v-if="s.note" class="rnote">{{ s.note }}</div>
+        </div>
+        <div v-else-if="isBumper" class="bumper-head">
+          <div class="bh-title">{{ s.title }}</div>
+          <div class="bh-sub" v-if="s.desc">{{ s.desc }}</div>
+        </div>
+        <div v-else-if="!isNewDish && s.desc" class="src-head">
+          <div class="sh-title" v-if="s.title">{{ s.title }}</div>
+          <div class="sh-sub">{{ s.desc }}</div>
+        </div>
+
+        <div v-if="s.hasItems" class="body-area">
+          <div class="list-label">{{ s.listLabel || (s.variant === 'explore' ? '带回的物资' : '本次获得') }}</div>
+          <div class="reward-list" @click.stop>
+            <div class="cell" :class="{ 'is-bumper': it.kind === 1 }"
+                 v-for="(it, i) in items" :key="i" :style="{ animationDelay: (i*70) + 'ms' }">
+              <div class="slot">
+                <span v-if="isNewDish" class="rl-rays"></span>
+                <span v-if="it.kind === 1" class="rip"></span>
+                <span v-if="it.kind === 1 && it.mark" class="bmk">{{ it.mark }}</span>
+                <span v-else-if="isPerfect && s.tag" class="rl-pfmark">{{ s.tag }}</span>
+                <span v-if="isNewDish" class="halo"></span>
+                <div class="item">
+                <img v-if="isNewDish && it.icon" class="rl-silhouette" :src="it.icon" alt="" draggable="false">
+                <img v-if="it.icon" :src="it.icon" alt="" draggable="false">
+                <span v-else class="icon-ph">{{ it.name }}</span>
+                <span v-if="it.count > 1" class="item-count">x{{ it.count }}</span>
+              </div></div>
+              <div class="cell-name">
+                <template v-if="isNewDish"><span v-for="(ch, ci) in [...it.name]" :key="ci"
+                  :style="{ animationDelay: (380 + ci*55) + 'ms' }">{{ ch }}</span></template>
+                <template v-else>{{ it.name }}</template>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-else-if="s.variant === 'explore'" class="empty">— {{ s.emptyLabel || '未带回任何物资' }} —</div>
+        <div v-if="isNewDish && s.desc" class="rl-foot">{{ s.desc }}</div>
+        <button v-if="s.confirmLabel" class="rl-confirm" @click="guardedClose">{{ s.confirmLabel }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const core = createWebUICore('RewardList');
+  const { createApp, reactive, computed, ref, onMounted, onUnmounted } = Vue;
+
+  const s = reactive({ variant:'addItem', title:'', desc:'', tone:'', itemsJson:'[]', hasItems:false, listLabel:'', emptyLabel:'', note:'',
+                       presentation:'modal', tag:'', confirmLabel:'' });
+  const leaving = ref(false);
+  const canClose = ref(false);
+  let closed = false;
+  let closeSent = false;
+
+  const items = computed(() => {
+    try { return JSON.parse(s.itemsJson || '[]'); } catch (e) { return []; }
+  });
+
+  const isBumper = computed(() => s.variant === 'addItem' && s.tone === 'bumper');
+
+  const pres = computed(() => s.variant === 'addItem' ? (s.presentation || 'modal') : 'explore');
+  const presClass = computed(() => 'pres-' + pres.value);
+  const isNewDish = computed(() => pres.value === 'newDish');
+  const isPerfect = computed(() => pres.value === 'slimPerfect');
+
+  const frameClipOn = computed(() => pres.value !== 'explore' && pres.value !== 'newDish');
+  const frameClipPad = computed(() => pres.value === 'modal' ? 24 : 40);
+  function applyFrameClip() {
+    if (core.clickThrough && core.clickThrough.setFrameClip) {
+      core.clickThrough.setFrameClip(frameClipOn.value, frameClipPad.value);
+    }
+  }
+
+  core.registerHandlers({
+    'WebUI_RewardList_UpdateMsg': (data) => {
+      if (typeof data.variant === 'string') s.variant = data.variant;
+      if (typeof data.title === 'string') s.title = data.title;
+      if (typeof data.desc === 'string') s.desc = data.desc;
+      if (typeof data.tone === 'string') s.tone = data.tone;
+      if (typeof data.itemsJson === 'string') s.itemsJson = data.itemsJson;
+      if (typeof data.hasItems === 'boolean') s.hasItems = data.hasItems;
+      if (typeof data.listLabel === 'string') s.listLabel = data.listLabel;
+      if (typeof data.emptyLabel === 'string') s.emptyLabel = data.emptyLabel;
+      if (typeof data.note === 'string') s.note = data.note;
+      if (typeof data.presentation === 'string') s.presentation = data.presentation;
+      if (typeof data.tag === 'string') s.tag = data.tag;
+      if (typeof data.confirmLabel === 'string') s.confirmLabel = data.confirmLabel;
+      if (data.autoClosing === true && !closed) {
+        closed = true; leaving.value = true;
+        if (core.clickThrough) core.clickThrough.stop();
+      } else if (data.autoClosing === false && closed && !closeSent) {
+        closed = false; leaving.value = false;
+        if (core.clickThrough) core.clickThrough.start();
+      }
+      applyFrameClip();
+      if (!closed && core.clickThrough && core.clickThrough.syncNowAfterReflow) {
+        core.clickThrough.syncNowAfterReflow();
+      }
+    }
+  });
+
+  function onClose() {
+    if (closed) return;
+    closed = true; leaving.value = true; closeSent = true;
+    if (core.clickThrough) core.clickThrough.stop();
+    setTimeout(() => core.UnitySendEvent('CLOSE'), 340);
+  }
+  function guardedClose() {
+    if (!canClose.value) return;
+    onClose();
+  }
+  function handleOverlayClick(e) {
+    if (s.variant === 'explore' && e.target !== e.currentTarget) return;
+    if ((pres.value === 'slim' || pres.value === 'slimPerfect') && e.target === e.currentTarget) return;
+    guardedClose();
+  }
+  function onKeydown(e) { if (e.key === 'Escape') guardedClose(); }
+  function onWrapAnimEnd() {
+    if (!closed && core.clickThrough) core.clickThrough.syncNowAfterReflow();
+  }
+
+  createApp({
+    setup() {
+      onMounted(() => {
+        window.addEventListener('keydown', onKeydown);
+        setTimeout(() => { canClose.value = true; }, 120);
+        if (core.clickThrough) core.clickThrough.start();
+      });
+      onUnmounted(() => {
+        window.removeEventListener('keydown', onKeydown);
+        if (core.clickThrough) core.clickThrough.stop();
+      });
+      return { s, items, isBumper, leaving, handleOverlayClick, guardedClose,
+               presClass, isNewDish, isPerfect, onWrapAnimEnd };
+    }
+  }).mount('#app');
+
+  core.notifyReady();
+</script>
+
+</body>
+</html>

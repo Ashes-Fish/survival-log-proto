@@ -1,0 +1,58 @@
+[
+  {
+    "ID": 1,
+    "Name": "MapRoom_Name_1",
+    "Name_Local": "一楼",
+    "Light": 0.5,
+    "Heat": 1
+  },
+  {
+    "ID": 2,
+    "Name": "MapRoom_Name_2",
+    "Name_Local": "地下室",
+    "Light": 0.0,
+    "Heat": 2
+  },
+  {
+    "ID": 3,
+    "Name": "MapRoom_Name_3",
+    "Name_Local": "二楼",
+    "Light": 1.0,
+    "Heat": 1
+  },
+  {
+    "ID": 4,
+    "Name": "MapRoom_Name_4",
+    "Name_Local": "二楼露台",
+    "Light": 1.0,
+    "Heat": 0
+  },
+  {
+    "ID": 5,
+    "Name": "MapRoom_Name_5",
+    "Name_Local": "阳光房",
+    "Light": 1.0,
+    "Heat": 1
+  },
+  {
+    "ID": 6,
+    "Name": "MapRoom_Name_6",
+    "Name_Local": "冷库",
+    "Light": 0.0,
+    "Heat": 2
+  },
+  {
+    "ID": 7,
+    "Name": "MapRoom_Name_7",
+    "Name_Local": "仓库室内",
+    "Light": 0.5,
+    "Heat": 1
+  },
+  {
+    "ID": 8,
+    "Name": "MapRoom_Name_8",
+    "Name_Local": "室外",
+    "Light": 1.0,
+    "Heat": 0
+  }
+]

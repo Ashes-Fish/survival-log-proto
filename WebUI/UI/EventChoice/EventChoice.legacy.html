@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>EventChoice</title>
+<script src="../../vue.runtime.global.prod.js"></script>
+<script>
+/* === [precompiled v1] === */
+(function(){var __wgArmed__=false;var __wgGaveUp__=false;var __wgReload__=function(missing){if(__wgArmed__||__wgGaveUp__)return;var m=/(?:^|;)wgr=(\d+)/.exec(window.name||"");var n=m?parseInt(m[1],10):0;if(n>=2){__wgGaveUp__=true;console.error("[WebUIGuard] "+missing+" still missing after "+n+" reloads, giving up: "+location.pathname);return;}__wgArmed__=true;window.name=(window.name||"").replace(/(?:^|;)wgr=\d+/,"")+";wgr="+(n+1);console.warn("[WebUIGuard] "+missing+" missing, reloading page ("+(n+1)+"/2): "+location.pathname);setTimeout(function(){location.reload();},300);};window.addEventListener("error",function(e){var msg=(e&&e.message)||"";var isCore=msg.indexOf("createWebUICore is not defined")>=0;if(!isCore&&msg.indexOf("Vue is not defined")<0)return;__wgReload__(isCore?"webui-core.js":"vue.runtime.global.prod.js");if(!__wgGaveUp__)e.preventDefault();});if(typeof Vue==="undefined"){__wgReload__("vue.runtime.global.prod.js");return;}document.addEventListener("DOMContentLoaded",function(){if(document.querySelector("script[src*=webui-core]")&&typeof window.createWebUICore==="undefined"){__wgReload__("webui-core.js");return;}if(!__wgArmed__&&window.name)window.name=window.name.replace(/(?:^|;)wgr=\d+/,"");});var __renderFactory__=function(Vue){const { openBlock: _openBlock, createElementBlock: _createElementBlock, createCommentVNode: _createCommentVNode, createElementVNode: _createElementVNode, toDisplayString: _toDisplayString, normalizeClass: _normalizeClass, renderList: _renderList, Fragment: _Fragment, createTextVNode: _createTextVNode, normalizeStyle: _normalizeStyle } = Vue
+
+const _hoisted_1 = { class: "modal-overlay" }
+const _hoisted_2 = { class: "modal unity-interactive" }
+const _hoisted_3 = { class: "side" }
+const _hoisted_4 = { class: "illus" }
+const _hoisted_5 = ["src"]
+const _hoisted_6 = {
+  key: 1,
+  class: "hero-ph"
+}
+const _hoisted_7 = {
+  key: 0,
+  class: "tag"
+}
+const _hoisted_8 = { class: "desc" }
+const _hoisted_9 = { class: "main" }
+const _hoisted_10 = { class: "m-head" }
+const _hoisted_11 = { class: "options" }
+const _hoisted_12 = ["onClick"]
+const _hoisted_13 = { class: "idx" }
+const _hoisted_14 = { class: "label" }
+const _hoisted_15 = {
+  key: 0,
+  class: "sub"
+}
+const _hoisted_16 = {
+  key: 0,
+  class: "deftag"
+}
+const _hoisted_17 = {
+  key: 1,
+  class: "gate"
+}
+const _hoisted_18 = {
+  key: 2,
+  class: "arrow"
+}
+const _hoisted_19 = {
+  key: 4,
+  class: "tip"
+}
+const _hoisted_20 = { class: "t-head" }
+const _hoisted_21 = { class: "t-line" }
+const _hoisted_22 = { class: "t-foot" }
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createElementBlock("div", _hoisted_1, [
+    _createElementVNode("div", _hoisted_2, [
+      _createElementVNode("div", _hoisted_3, [
+        _createElementVNode("div", _hoisted_4, [
+          (_ctx.state.hasIcon && _ctx.state.iconUrl)
+            ? (_openBlock(), _createElementBlock("img", {
+                key: 0,
+                class: "hero-img",
+                src: _ctx.state.iconUrl
+              }, null, 8 /* PROPS */, _hoisted_5))
+            : (_openBlock(), _createElementBlock("div", _hoisted_6, "🖼"))
+        ]),
+        (_ctx.state.tagText)
+          ? (_openBlock(), _createElementBlock("div", _hoisted_7, _toDisplayString(_ctx.state.tagText), 1 /* TEXT */))
+          : _createCommentVNode("v-if", true),
+        _createElementVNode("div", {
+          class: _normalizeClass(["title", { 'no-tag': !_ctx.state.tagText }])
+        }, _toDisplayString(_ctx.state.title), 3 /* TEXT, CLASS */),
+        _createElementVNode("div", _hoisted_8, _toDisplayString(_ctx.state.desc), 1 /* TEXT */)
+      ]),
+      _createElementVNode("div", _hoisted_9, [
+        _createElementVNode("div", _hoisted_10, _toDisplayString(_ctx.localText.pickHint || '选择你的路线 · 未达标路线可查看门槛'), 1 /* TEXT */),
+        _createElementVNode("div", _hoisted_11, [
+          (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.state.options, (opt) => {
+            return (_openBlock(), _createElementBlock("div", {
+              key: opt.Index,
+              class: _normalizeClass(["opt unity-interactive", { default: opt.IsDefault, disabled: !opt.Enabled }]),
+              onClick: $event => (_ctx.onChoose(opt))
+            }, [
+              _createElementVNode("div", _hoisted_13, _toDisplayString(opt.Index + 1), 1 /* TEXT */),
+              _createElementVNode("div", _hoisted_14, [
+                _createTextVNode(_toDisplayString(opt.Label), 1 /* TEXT */),
+                (opt.SubLabel)
+                  ? (_openBlock(), _createElementBlock("span", _hoisted_15, _toDisplayString(opt.SubLabel), 1 /* TEXT */))
+                  : _createCommentVNode("v-if", true)
+              ]),
+              (opt.IsDefault && opt.Enabled)
+                ? (_openBlock(), _createElementBlock("div", _hoisted_16, _toDisplayString(_ctx.localText.defaultTag || '默认'), 1 /* TEXT */))
+                : _createCommentVNode("v-if", true),
+              (!opt.Enabled)
+                ? (_openBlock(), _createElementBlock("div", _hoisted_17, _toDisplayString(_ctx.localText.gateTag || '未达标'), 1 /* TEXT */))
+                : _createCommentVNode("v-if", true),
+              (opt.Enabled)
+                ? (_openBlock(), _createElementBlock("div", _hoisted_18, "➜"))
+                : _createCommentVNode("v-if", true),
+              (opt.HasProgress)
+                ? (_openBlock(), _createElementBlock("div", {
+                    key: 3,
+                    class: "progress",
+                    style: _normalizeStyle({ width: (opt.FillAmount*100) + '%' })
+                  }, null, 4 /* STYLE */))
+                : _createCommentVNode("v-if", true),
+              (!opt.Enabled)
+                ? (_openBlock(), _createElementBlock("div", _hoisted_19, [
+                    _createElementVNode("div", _hoisted_20, _toDisplayString(opt.Label), 1 /* TEXT */),
+                    _createElementVNode("div", _hoisted_21, _toDisplayString(opt.Reason || _ctx.localText.gateFallback || '尚未达成该路线，无法选择'), 1 /* TEXT */),
+                    _createElementVNode("div", _hoisted_22, _toDisplayString(_ctx.localText.gateFoot || '达成后即可在此选择该路线'), 1 /* TEXT */)
+                  ]))
+                : _createCommentVNode("v-if", true)
+            ], 10 /* CLASS, PROPS */, _hoisted_12))
+          }), 128 /* KEYED_FRAGMENT */))
+        ])
+      ])
+    ])
+  ]))
+}};var __renderCache__=null;var __origCreateApp__=Vue.createApp;Vue.createApp=function(opts){if(!__renderCache__)__renderCache__=__renderFactory__(Vue);if(opts&&typeof opts==="object"&&!opts.render&&!opts.template){opts=Object.assign({},opts,{render:__renderCache__});}var app=__origCreateApp__.call(this,opts);if(!app.config.errorHandler){app.config.errorHandler=function(err){var msg=(err&&err.message)||String(err||"");if(msg.indexOf("createWebUICore is not defined")>=0){__wgReload__("webui-core.js");if(__wgGaveUp__)console.error(err);return;}console.error(err);};}return app;};})();
+/* === [/precompiled v1] === */
+</script>
+<script src="../../webui-core.js"></script>
+<link rel="stylesheet" href="../../webui-common.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family:"Source Han Sans SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+    height: 100vh; overflow: hidden; background: transparent; color: #e1e1e1;
+    user-select:none; -webkit-user-select:none;
+  }
+  :root{
+    --panel:#070707;
+    --quote:#c4b94f;
+    --body:#e1e1e1;
+    --btn-hi:#3e432c; --btn-lo:#363a24;
+    --btn-border:#171910; --btn-text:#d1d1d1;
+    --olive-accent:#6b7048;
+  }
+
+  .modal-overlay{
+    position:fixed; inset:0; display:flex; justify-content:center; align-items:center;
+    background:rgba(0,0,0,0.34); z-index:100;
+  }
+
+  .modal{
+    position:relative; width:980px; max-width:96vw; display:flex;
+    background:var(--panel); border:1px solid rgba(150,150,140,0.08); border-radius:2px;
+    box-shadow:0 30px 80px rgba(0,0,0,0.72); overflow:hidden;
+    animation:slideUp .40s cubic-bezier(.19,1,.22,1);
+  }
+  @keyframes slideUp{ from{opacity:0;transform:translateY(22px) scale(.985)} to{opacity:1;transform:translateY(0) scale(1)} }
+
+  .side{
+    width:452px; flex:0 0 452px; padding:44px 40px; display:flex; flex-direction:column;
+    background:linear-gradient(180deg,#080807,#040404); border-right:1px solid rgba(255,255,255,0.04);
+  }
+  .illus{
+    position:relative; width:100%; aspect-ratio:340/219; border-radius:2px; overflow:hidden;
+    border:1px solid rgba(255,255,255,0.05); box-shadow:0 6px 20px rgba(0,0,0,0.5);
+    background:linear-gradient(135deg,#26241f,#141210);
+  }
+  .illus::after{ content:''; position:absolute; inset:0; pointer-events:none; border-radius:2px;
+    box-shadow:inset 0 0 40px 8px rgba(0,0,0,0.5); }
+  .hero-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .hero-ph{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    color:#57514a; font-size:48px; opacity:.4; }
+  .tag{ align-self:flex-start; margin-top:20px; font-size:11px; font-weight:800; letter-spacing:2px;
+    color:#c9c4b6; text-transform:uppercase; opacity:.75; }
+  .title{ margin-top:8px; font-size:23px; font-weight:800; color:#f2f2ec; letter-spacing:1px;
+    text-shadow:0 2px 8px rgba(0,0,0,.8); }
+  .title.no-tag{ margin-top:30px; }
+  .desc{ margin-top:16px; font-size:14.5px; line-height:1.9; color:var(--quote); font-style:italic;
+    white-space:pre-wrap; text-shadow:0 1px 3px rgba(0,0,0,.6); }
+
+  .main{ flex:1; padding:44px 40px; display:flex; flex-direction:column; min-width:0; }
+  .m-head{ margin-bottom:26px; font-size:13px; color:#8a857b; letter-spacing:1px;
+    display:flex; align-items:center; gap:9px; flex:0 0 auto; }
+  .m-head::after{ content:""; flex:1; height:1px; background:rgba(255,255,255,.07); }
+  .options{ display:flex; flex-direction:column; gap:16px; overflow-y:auto; min-height:0; padding:2px; }
+  .options::-webkit-scrollbar{ width:6px; }
+  .options::-webkit-scrollbar-thumb{ background:rgba(107,112,72,.5); }
+
+  .opt{
+    position:relative; display:flex; align-items:center; gap:16px; flex:0 0 auto; cursor:pointer;
+    min-height:66px; padding:18px 22px; border-radius:0; text-align:left; color:var(--btn-text);
+    background:linear-gradient(180deg,var(--btn-hi),var(--btn-lo)); border:1px solid var(--btn-border);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.06), 0 2px 8px rgba(0,0,0,0.4);
+    transition:filter .14s, transform .12s;
+  }
+  .opt:not(.disabled):hover{ filter:brightness(1.22); transform:translateX(2px); }
+  .opt:not(.disabled):active{ filter:brightness(0.95); transform:translateY(1px); }
+  .opt .idx{ width:22px;height:22px;flex:0 0 22px; border-radius:0;
+    display:flex;align-items:center;justify-content:center; font-size:12px; font-weight:800;
+    background:rgba(255,255,255,0.06); color:#cfcabc; border:1px solid rgba(255,255,255,0.10); }
+  .opt .label{ flex:1; font-size:15.5px; font-weight:600; letter-spacing:.4px; min-width:0; line-height:1.25; color:#dcdccf; }
+  .opt .label .sub{ display:block; font-size:12px; font-weight:400; color:#9a968a; margin-top:3px; }
+  .opt .arrow{ flex:0 0 auto; color:#b9c08c; font-size:15px; opacity:0; transition:opacity .14s; }
+  .opt:not(.disabled):hover .arrow{ opacity:1; }
+
+  .opt.default{ border-color:#565c3a;
+    box-shadow:inset 3px 0 0 var(--olive-accent), inset 0 1px 0 rgba(255,255,255,0.07), 0 2px 8px rgba(0,0,0,0.4); }
+  .opt .deftag{ flex:0 0 auto; font-size:11px; font-weight:800; letter-spacing:.5px; color:#dfe3c4;
+    background:rgba(107,112,72,0.55); border:1px solid #565c3a; border-radius:0; padding:2px 8px; }
+  .opt .progress{ position:absolute; left:0; bottom:0; height:3px; background:var(--olive-accent);
+    box-shadow:0 0 6px rgba(107,112,72,.7); transition:width .1s linear; }
+
+  .opt.disabled{ cursor:not-allowed; background:linear-gradient(180deg,#1a1a17,#141412);
+    border-color:rgba(255,255,255,0.05); box-shadow:none; }
+  .opt.disabled .idx{ background:rgba(255,255,255,0.04); color:#6a655b; border-color:rgba(255,255,255,0.07); }
+  .opt.disabled .label{ color:#6f6a5e; }
+  .opt.disabled .label .sub{ color:#57534a; }
+  .opt .gate{ flex:0 0 auto; display:inline-flex; align-items:center; gap:5px; font-size:11px; color:#8a857b;
+    border:1px solid rgba(255,255,255,.14); border-radius:0; padding:2px 8px; }
+
+  .tip{
+    position:absolute; right:14px; top:calc(100% + 8px); z-index:20; width:300px;
+    background:#0c0c0a; border:1px solid rgba(107,112,72,0.7); border-radius:0;
+    box-shadow:0 12px 32px rgba(0,0,0,.75); padding:12px 14px; pointer-events:none;
+    opacity:0; transform:translateY(4px); transition:opacity .16s, transform .16s;
+  }
+  .tip::after{ content:""; position:absolute; right:26px; bottom:100%;
+    border:7px solid transparent; border-bottom-color:rgba(107,112,72,0.7); }
+  .opt:hover .tip{ opacity:1; transform:translateY(0); }
+  .opt:nth-last-child(-n+2) .tip{ top:auto; bottom:calc(100% + 8px); transform:translateY(-4px); }
+  .opt:nth-last-child(-n+2) .tip::after{ bottom:auto; top:100%;
+    border-bottom-color:transparent; border-top-color:rgba(107,112,72,0.7); }
+  .opt:nth-last-child(-n+2):hover .tip{ transform:translateY(0); }
+  .tip .t-head{ font-size:12px; font-weight:700; color:var(--quote); letter-spacing:.5px; margin-bottom:7px; }
+  .tip .t-line{ font-size:12px; line-height:1.6; color:#c7c1b4; }
+  .tip .t-foot{ margin-top:8px; padding-top:8px; border-top:1px dashed rgba(255,255,255,.12);
+    font-size:11px; color:#8a857b; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="modal-overlay">
+    <div class="modal unity-interactive">
+      <div class="side">
+        <div class="illus">
+          <img class="hero-img" v-if="state.hasIcon && state.iconUrl" :src="state.iconUrl">
+          <div class="hero-ph" v-else>🖼</div>
+        </div>
+        <div class="tag" v-if="state.tagText">{{ state.tagText }}</div>
+        <div class="title" :class="{ 'no-tag': !state.tagText }">{{ state.title }}</div>
+        <div class="desc">{{ state.desc }}</div>
+      </div>
+      <div class="main">
+        <div class="m-head">{{ localText.pickHint || '选择你的路线 · 未达标路线可查看门槛' }}</div>
+        <div class="options">
+          <div v-for="opt in state.options" :key="opt.Index"
+               class="opt unity-interactive"
+               :class="{ default: opt.IsDefault, disabled: !opt.Enabled }"
+               @click="onChoose(opt)">
+            <div class="idx">{{ opt.Index + 1 }}</div>
+            <div class="label">{{ opt.Label }}<span class="sub" v-if="opt.SubLabel">{{ opt.SubLabel }}</span></div>
+            <div class="deftag" v-if="opt.IsDefault && opt.Enabled">{{ localText.defaultTag || '默认' }}</div>
+            <div class="gate" v-if="!opt.Enabled">{{ localText.gateTag || '未达标' }}</div>
+            <div class="arrow" v-if="opt.Enabled">➜</div>
+            <div class="progress" v-if="opt.HasProgress" :style="{ width: (opt.FillAmount*100) + '%' }"></div>
+            <div class="tip" v-if="!opt.Enabled">
+              <div class="t-head">{{ opt.Label }}</div>
+              <div class="t-line">{{ opt.Reason || localText.gateFallback || '尚未达成该路线，无法选择' }}</div>
+              <div class="t-foot">{{ localText.gateFoot || '达成后即可在此选择该路线' }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const { createApp, reactive, onMounted } = Vue;
+createApp({
+  setup() {
+    const core = createWebUICore('EventChoice');
+    const state = reactive({
+      tagText: '',
+      title: '',
+      desc: '',
+      hasIcon: false,
+      iconUrl: '',
+      options: []
+    });
+    const localText = reactive({
+      pickHint: '', defaultTag: '', gateTag: '', gateFallback: '', gateFoot: ''
+    });
+
+    core.registerHandlers({
+      'WebUI_EventChoice_Msg': (data) => {
+        if (data.title !== undefined) state.title = data.title;
+        if (data.desc !== undefined) state.desc = data.desc;
+        if (data.tagText !== undefined) state.tagText = data.tagText;
+        if (data.hasIcon !== undefined) state.hasIcon = data.hasIcon;
+        if (data.iconUrl !== undefined) state.iconUrl = data.iconUrl;
+      },
+      'WebUI_EventChoice_OptionMsg': (data) => {
+        if (data.optionList && Array.isArray(data.optionList)) {
+          state.options = data.optionList;
+        }
+      },
+      'WebUI_EventChoice_LocalizationMsg': (data) => {
+        Object.keys(localText).forEach(k => { if (data[k]) localText[k] = data[k]; });
+      }
+    });
+
+    const onChoose = (opt) => {
+      if (!opt.Enabled) return;
+      core.UnitySendEvent('CHOOSE', { index: opt.Index });
+    };
+
+    onMounted(() => { core.clickThrough.start(); });
+    core.notifyReady();
+    return { state, localText, onChoose };
+  }
+}).mount('#app');
+</script>
+</body>
+</html>

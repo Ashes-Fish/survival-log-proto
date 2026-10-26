@@ -1,0 +1,378 @@
+[
+  {
+    "name": "Achievement",
+    "path": "Achievement/Achievement.html"
+  },
+  {
+    "name": "ActionEcho",
+    "path": "ActionEcho/ActionEcho.html"
+  },
+  {
+    "name": "AddFertilizer",
+    "path": "AddFertilizer/AddFertilizer.html"
+  },
+  {
+    "name": "AidDepot",
+    "path": "AidDepot/AidDepot.html"
+  },
+  {
+    "name": "Announcement",
+    "path": "Announcement/Announcement.html"
+  },
+  {
+    "name": "BackpackUI",
+    "path": "BackpackUI/BackpackUI.html"
+  },
+  {
+    "name": "BrewPanel",
+    "path": "BrewPanel/BrewPanel.html"
+  },
+  {
+    "name": "BuildShop",
+    "path": "BuildShop/BuildShop.html"
+  },
+  {
+    "name": "BuildTips",
+    "path": "BuildTips/BuildTips.html"
+  },
+  {
+    "name": "CampPanel",
+    "path": "CampPanel/CampPanel.html"
+  },
+  {
+    "name": "CancelPlanBtn",
+    "path": "CancelPlanBtn/CancelPlanBtn.html"
+  },
+  {
+    "name": "CasualHome",
+    "path": "CasualHome/CasualHome.html"
+  },
+  {
+    "name": "ChallengeSetup",
+    "path": "ChallengeSetup/ChallengeSetup.html"
+  },
+  {
+    "name": "Codex",
+    "path": "Codex/Codex.html"
+  },
+  {
+    "name": "Compressor",
+    "path": "Compressor/Compressor.html"
+  },
+  {
+    "name": "ConfirmDialog",
+    "path": "ConfirmDialog/ConfirmDialog.html"
+  },
+  {
+    "name": "Cooking",
+    "path": "Cooking/Cooking.html"
+  },
+  {
+    "name": "CoreUI0",
+    "path": "CoreUI0/CoreUI0.html"
+  },
+  {
+    "name": "CoreUI1",
+    "path": "CoreUI1/CoreUI1.html"
+  },
+  {
+    "name": "DailyFert",
+    "path": "DailyFert/DailyFert.html"
+  },
+  {
+    "name": "DailySettlement",
+    "path": "DailySettlement/DailySettlement.html"
+  },
+  {
+    "name": "DataStatistics",
+    "path": "DataStatistics/DataStatistics.html"
+  },
+  {
+    "name": "DifficultySelect",
+    "path": "DifficultySelect/DifficultySelect.html"
+  },
+  {
+    "name": "DossierUI",
+    "path": "DossierUI/DossierUI.html"
+  },
+  {
+    "name": "DroneHub",
+    "path": "DroneHub/DroneHub.html"
+  },
+  {
+    "name": "DyePanel",
+    "path": "DyePanel/DyePanel.html"
+  },
+  {
+    "name": "EndingChoice",
+    "path": "EndingChoice/EndingChoice.html"
+  },
+  {
+    "name": "EndingShow",
+    "path": "EndingShow/EndingShow.html"
+  },
+  {
+    "name": "EndlessSettlement",
+    "path": "EndlessSettlement/EndlessSettlement.html"
+  },
+  {
+    "name": "EventChoice",
+    "path": "EventChoice/EventChoice.html"
+  },
+  {
+    "name": "EventChoice.legacy",
+    "path": "EventChoice/EventChoice.legacy.html"
+  },
+  {
+    "name": "ExploreMap",
+    "path": "ExploreMap/ExploreMap.html"
+  },
+  {
+    "name": "FeedingUI",
+    "path": "FeedingUI/FeedingUI.html"
+  },
+  {
+    "name": "FreeBuildMenu",
+    "path": "FreeBuildMenu/FreeBuildMenu.html"
+  },
+  {
+    "name": "FuelGenerator",
+    "path": "FuelGenerator/FuelGenerator.html"
+  },
+  {
+    "name": "FurnitureDetail",
+    "path": "FurnitureDetail/FurnitureDetail.html"
+  },
+  {
+    "name": "GameCountTips",
+    "path": "GameCountTips/GameCountTips.html"
+  },
+  {
+    "name": "GameResult",
+    "path": "GameResult/GameResult.html"
+  },
+  {
+    "name": "GreenhouseBuild",
+    "path": "GreenhouseBuild/GreenhouseBuild.html"
+  },
+  {
+    "name": "Heater",
+    "path": "Heater/Heater.html"
+  },
+  {
+    "name": "ItemDetailPopup",
+    "path": "ItemDetailPopup/ItemDetailPopup.html"
+  },
+  {
+    "name": "ItemPickup",
+    "path": "ItemPickup/ItemPickup.html"
+  },
+  {
+    "name": "MainUI",
+    "path": "MainUI/MainUI.html"
+  },
+  {
+    "name": "MapPointDetailPopup",
+    "path": "MapPointDetailPopup/MapPointDetailPopup.html"
+  },
+  {
+    "name": "MapPointRiotDialog",
+    "path": "MapPointRiotDialog/MapPointRiotDialog.html"
+  },
+  {
+    "name": "MaterialRack",
+    "path": "MaterialRack/MaterialRack.html"
+  },
+  {
+    "name": "Minimap",
+    "path": "Minimap/Minimap.html"
+  },
+  {
+    "name": "MinimapFull",
+    "path": "MinimapFull/MinimapFull.html"
+  },
+  {
+    "name": "MusicPanel",
+    "path": "MusicPanel/MusicPanel.html"
+  },
+  {
+    "name": "NeighborMonologue",
+    "path": "NeighborMonologue/NeighborMonologue.html"
+  },
+  {
+    "name": "OutSetting",
+    "path": "OutSetting/OutSetting.html"
+  },
+  {
+    "name": "PawnShop",
+    "path": "PawnShop/PawnShop.html"
+  },
+  {
+    "name": "PhoneSMS",
+    "path": "PhoneSMS/PhoneSMS.html"
+  },
+  {
+    "name": "PlanModeBtn",
+    "path": "PlanModeBtn/PlanModeBtn.html"
+  },
+  {
+    "name": "PlanTalent",
+    "path": "PlanTalent/PlanTalent.html"
+  },
+  {
+    "name": "PlantingDetails",
+    "path": "PlantingDetails/PlantingDetails.html"
+  },
+  {
+    "name": "PlantPanel",
+    "path": "PlantPanel/PlantPanel.html"
+  },
+  {
+    "name": "FuelGeneratorFloatPopup",
+    "path": "PowerUI/FuelGeneratorFloatPopup.html"
+  },
+  {
+    "name": "GeneratorFloatPopup",
+    "path": "PowerUI/GeneratorFloatPopup.html"
+  },
+  {
+    "name": "PreDisasterMap",
+    "path": "PreDisasterMap/PreDisasterMap.html"
+  },
+  {
+    "name": "RatCage",
+    "path": "RatCage/RatCage.html"
+  },
+  {
+    "name": "RebirthChoice",
+    "path": "RebirthChoice/RebirthChoice.html"
+  },
+  {
+    "name": "RebirthUpgrade",
+    "path": "RebirthUpgrade/RebirthUpgrade.html"
+  },
+  {
+    "name": "RenovationPanel",
+    "path": "Renovation/RenovationPanel.html"
+  },
+  {
+    "name": "RewardList",
+    "path": "RewardList/RewardList.html"
+  },
+  {
+    "name": "RiotGrabResult",
+    "path": "RiotGrabResult/RiotGrabResult.html"
+  },
+  {
+    "name": "RobotPanel",
+    "path": "RobotPanel/RobotPanel.html"
+  },
+  {
+    "name": "RogueSelect",
+    "path": "RogueSelect/RogueSelect.html"
+  },
+  {
+    "name": "SelectMenu",
+    "path": "SelectMenu/SelectMenu.html"
+  },
+  {
+    "name": "SelectPeople",
+    "path": "SelectPeople/SelectPeople.html"
+  },
+  {
+    "name": "SettleBeliefPoints",
+    "path": "SettleBeliefPoints/SettleBeliefPoints.html"
+  },
+  {
+    "name": "Settlement",
+    "path": "Settlement/Settlement.html"
+  },
+  {
+    "name": "ShopUI",
+    "path": "ShopUI/ShopUI.html"
+  },
+  {
+    "name": "Shredder",
+    "path": "Shredder/Shredder.html"
+  },
+  {
+    "name": "SignalStation",
+    "path": "SignalStation/SignalStation.html"
+  },
+  {
+    "name": "SkillLevelUpPopup",
+    "path": "SkillLevelUpPopup/SkillLevelUpPopup.html"
+  },
+  {
+    "name": "SmartRecommend",
+    "path": "SmartRecommend/SmartRecommend.html"
+  },
+  {
+    "name": "SpeedUp",
+    "path": "SpeedUp/SpeedUp.html"
+  },
+  {
+    "name": "SurvivalLogs",
+    "path": "SurvivalLogs/SurvivalLogs.html"
+  },
+  {
+    "name": "TalentPop",
+    "path": "TalentPop/TalentPop.html"
+  },
+  {
+    "name": "TipsPopup",
+    "path": "TipsPopup/TipsPopup.html"
+  },
+  {
+    "name": "ToolTable",
+    "path": "ToolTable/ToolTable.html"
+  },
+  {
+    "name": "TowerWaveReport",
+    "path": "TowerWaveReport/TowerWaveReport.html"
+  },
+  {
+    "name": "TradeUI",
+    "path": "TradeUI/TradeUI.html"
+  },
+  {
+    "name": "TrapFloatPopup",
+    "path": "TrapUI/TrapFloatPopup.html"
+  },
+  {
+    "name": "TrapPanel",
+    "path": "TrapUI/TrapPanel.html"
+  },
+  {
+    "name": "TrapSelectPanel",
+    "path": "TrapUI/TrapSelectPanel.html"
+  },
+  {
+    "name": "TriggerUI",
+    "path": "TriggerUI/TriggerUI.html"
+  },
+  {
+    "name": "TruthRecorder",
+    "path": "TruthRecorder/TruthRecorder.html"
+  },
+  {
+    "name": "TVGame",
+    "path": "TVGame/TVGame.html"
+  },
+  {
+    "name": "VasePanel",
+    "path": "VaseUI/VasePanel.html"
+  },
+  {
+    "name": "VehicleShop",
+    "path": "VehicleShop/VehicleShop.html"
+  },
+  {
+    "name": "WishFinished",
+    "path": "WishFinished/WishFinished.html"
+  },
+  {
+    "name": "WishTipsUI",
+    "path": "WishTipsUI/WishTipsUI.html"
+  }
+]

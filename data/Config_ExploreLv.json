@@ -1,0 +1,47 @@
+[
+  {
+    "Lv": 1,
+    "EXP": 400,
+    "Info": "ExploreLv_Info_1",
+    "Info_Local": "见习探险家\\n新增：最大暴露上限 +100",
+    "required_condition": [],
+    "max_exposure_bonus": 100,
+    "stamina_reduction": 0.0
+  },
+  {
+    "Lv": 2,
+    "EXP": 800,
+    "Info": "ExploreLv_Info_2",
+    "Info_Local": "城市游荡者\\n搬运能力提升，能搬走途中的轻型杂物",
+    "required_condition": [],
+    "max_exposure_bonus": 100,
+    "stamina_reduction": 0.10000000149011612
+  },
+  {
+    "Lv": 3,
+    "EXP": 1500,
+    "Info": "ExploreLv_Info_3",
+    "Info_Local": "熟练探险家\\n强化：最大暴露上限 +100 → +250\\n搬运能力增强，可清理更大的障碍",
+    "required_condition": [],
+    "max_exposure_bonus": 250,
+    "stamina_reduction": 0.10000000149011612
+  },
+  {
+    "Lv": 4,
+    "EXP": 2200,
+    "Info": "ExploreLv_Info_4",
+    "Info_Local": "资深探险家\\n搬运能力精进，笨重的障碍也能挪开",
+    "required_condition": [],
+    "max_exposure_bonus": 250,
+    "stamina_reduction": 0.20000000298023224
+  },
+  {
+    "Lv": 5,
+    "EXP": 0,
+    "Info": "ExploreLv_Info_5",
+    "Info_Local": "废土王者\\n强化：最大暴露上限 +250 → +500\\n解锁：每日规划中【废弃医院】【废弃学校】的深入搜索卡，可找到以前忽略的物资\\n搬运能力登峰，再庞大的障碍也阻挡不了你",
+    "required_condition": [],
+    "max_exposure_bonus": 500,
+    "stamina_reduction": 0.20000000298023224
+  }
+]

@@ -1,0 +1,64 @@
+[
+  {
+    "Lv": 1,
+    "EXP": 280,
+    "Info": "TrapLv_Info_1",
+    "Info_Local": "见习猎手\\n新增：空手而归概率 -10%",
+    "required_condition": [],
+    "empty_weight_reduction": 0.10000000149011612,
+    "rare_prey_bonus": 0.0,
+    "capture_cost_reduction": 0,
+    "interval_reduction": 0.0,
+    "unlock_recipes": []
+  },
+  {
+    "Lv": 2,
+    "EXP": 1380,
+    "Info": "TrapLv_Info_2",
+    "Info_Local": "陷阱学徒\\n解锁：主界面家中陷阱卡片\\n新增：稀有猎物权重 +2",
+    "required_condition": [],
+    "empty_weight_reduction": 0.10000000149011612,
+    "rare_prey_bonus": 2.0,
+    "capture_cost_reduction": 0,
+    "interval_reduction": 0.0,
+    "unlock_recipes": []
+  },
+  {
+    "Lv": 3,
+    "EXP": 5380,
+    "Info": "TrapLv_Info_3",
+    "Info_Local": "熟练猎手\\n新增：捕获耐久消耗 -50",
+    "required_condition": [],
+    "empty_weight_reduction": 0.10000000149011612,
+    "rare_prey_bonus": 2.0,
+    "capture_cost_reduction": 50,
+    "interval_reduction": 0.0,
+    "unlock_recipes": []
+  },
+  {
+    "Lv": 4,
+    "EXP": 18130,
+    "Info": "TrapLv_Info_4",
+    "Info_Local": "资深猎手\\n强化：空手而归概率 -10% → -20%\\n强化：稀有猎物权重 +2 → +4",
+    "required_condition": [],
+    "empty_weight_reduction": 0.20000000298023224,
+    "rare_prey_bonus": 4.0,
+    "capture_cost_reduction": 50,
+    "interval_reduction": 0.0,
+    "unlock_recipes": []
+  },
+  {
+    "Lv": 5,
+    "EXP": 0,
+    "Info": "TrapLv_Info_5",
+    "Info_Local": "陷阱大师\\n强化：空手而归概率 -20% → -50%\\n强化：捕获耐久消耗 -50 → -150\\n解锁：自动诱捕笼配方",
+    "required_condition": [],
+    "empty_weight_reduction": 0.5,
+    "rare_prey_bonus": 4.0,
+    "capture_cost_reduction": 150,
+    "interval_reduction": 0.0,
+    "unlock_recipes": [
+      205
+    ]
+  }
+]

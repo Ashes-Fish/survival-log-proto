@@ -1,0 +1,214 @@
+[
+  {
+    "ID": 1,
+    "ElectricalType": 2,
+    "BasePower": 6.0,
+    "FuelCost": 0.0,
+    "FuelSlotCount": 0,
+    "FuelRate": 0.0,
+    "InjectPower": 0.0,
+    "Capacity": 0.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 2,
+    "ElectricalType": 3,
+    "BasePower": 40.0,
+    "FuelCost": 1.0,
+    "FuelSlotCount": 3,
+    "FuelRate": 336.0,
+    "InjectPower": 0.0,
+    "Capacity": 0.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 3,
+    "ElectricalType": 4,
+    "BasePower": 0.0,
+    "FuelCost": 0.0,
+    "FuelSlotCount": 0,
+    "FuelRate": 0.0,
+    "InjectPower": 40.0,
+    "Capacity": 0.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 4,
+    "ElectricalType": 5,
+    "BasePower": 0.0,
+    "FuelCost": 0.0,
+    "FuelSlotCount": 0,
+    "FuelRate": 0.0,
+    "InjectPower": 0.0,
+    "Capacity": 1000.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 5,
+    "ElectricalType": 2,
+    "BasePower": 12.0,
+    "FuelCost": 0.0,
+    "FuelSlotCount": 0,
+    "FuelRate": 0.0,
+    "InjectPower": 0.0,
+    "Capacity": 0.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 6,
+    "ElectricalType": 2,
+    "BasePower": 24.0,
+    "FuelCost": 0.0,
+    "FuelSlotCount": 0,
+    "FuelRate": 0.0,
+    "InjectPower": 0.0,
+    "Capacity": 0.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 7,
+    "ElectricalType": 3,
+    "BasePower": 80.0,
+    "FuelCost": 2.0,
+    "FuelSlotCount": 5,
+    "FuelRate": 600.0,
+    "InjectPower": 0.0,
+    "Capacity": 0.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 8,
+    "ElectricalType": 3,
+    "BasePower": 640.0,
+    "FuelCost": 4.0,
+    "FuelSlotCount": 8,
+    "FuelRate": 16.0,
+    "InjectPower": 0.0,
+    "Capacity": 0.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 9,
+    "ElectricalType": 5,
+    "BasePower": 0.0,
+    "FuelCost": 0.0,
+    "FuelSlotCount": 0,
+    "FuelRate": 0.0,
+    "InjectPower": 0.0,
+    "Capacity": 2000.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 10,
+    "ElectricalType": 5,
+    "BasePower": 0.0,
+    "FuelCost": 0.0,
+    "FuelSlotCount": 0,
+    "FuelRate": 0.0,
+    "InjectPower": 0.0,
+    "Capacity": 4000.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 11,
+    "ElectricalType": 4,
+    "BasePower": 0.0,
+    "FuelCost": 0.0,
+    "FuelSlotCount": 0,
+    "FuelRate": 0.0,
+    "InjectPower": 100.0,
+    "Capacity": 0.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 12,
+    "ElectricalType": 6,
+    "BasePower": 6.0,
+    "FuelCost": 0.0,
+    "FuelSlotCount": 0,
+    "FuelRate": 0.0868000015616417,
+    "InjectPower": 0.0,
+    "Capacity": 2.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 13,
+    "ElectricalType": 6,
+    "BasePower": 6.0,
+    "FuelCost": 0.0,
+    "FuelSlotCount": 0,
+    "FuelRate": 0.0868000015616417,
+    "InjectPower": 0.0,
+    "Capacity": 4.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 14,
+    "ElectricalType": 6,
+    "BasePower": 6.0,
+    "FuelCost": 0.0,
+    "FuelSlotCount": 0,
+    "FuelRate": 0.0868000015616417,
+    "InjectPower": 0.0,
+    "Capacity": 8.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 15,
+    "ElectricalType": 5,
+    "BasePower": 0.0,
+    "FuelCost": 0.0,
+    "FuelSlotCount": 0,
+    "FuelRate": 0.0,
+    "InjectPower": 0.0,
+    "Capacity": 8000.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 16,
+    "ElectricalType": 3,
+    "BasePower": 160.0,
+    "FuelCost": 4.0,
+    "FuelSlotCount": 8,
+    "FuelRate": 1100.0,
+    "InjectPower": 0.0,
+    "Capacity": 0.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 17,
+    "ElectricalType": 6,
+    "BasePower": 6.0,
+    "FuelCost": 0.0,
+    "FuelSlotCount": 0,
+    "FuelRate": 0.0868000015616417,
+    "InjectPower": 0.0,
+    "Capacity": 16.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 18,
+    "ElectricalType": 7,
+    "BasePower": 0.0,
+    "FuelCost": 0.0,
+    "FuelSlotCount": 8,
+    "FuelRate": 50.0,
+    "InjectPower": 0.0,
+    "Capacity": 0.0,
+    "AllowedRooms": []
+  },
+  {
+    "ID": 19,
+    "ElectricalType": 1,
+    "BasePower": 0.0,
+    "FuelCost": 0.0,
+    "FuelSlotCount": 0,
+    "FuelRate": 0.0,
+    "InjectPower": 0.0,
+    "Capacity": 0.0,
+    "AllowedRooms": [
+      4,
+      8
+    ]
+  }
+]

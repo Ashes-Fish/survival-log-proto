@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>GameCountTips</title>
+    <style>
+        :root {
+            --bg-overlay: rgba(20, 22, 24, 0.55);
+            --panel-bg: rgba(18, 18, 20, 0.92);
+            --border-light: rgba(255, 255, 255, 0.15);
+            --border-highlight: rgba(255, 193, 7, 0.5);
+            --text-main: #eee;
+            --text-dim: #aaa;
+            --highlight: #FFC107;
+            --highlight-glow: rgba(255, 193, 7, 0.25);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            user-select: none;
+            -webkit-user-select: none;
+            background-color: transparent;
+            font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+            color: var(--text-main);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: var(--bg-overlay);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            animation: fadeIn 0.25s ease-out;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .modal-container {
+            position: relative;
+            width: 560px;
+            max-width: 92vw;
+            background-color: var(--panel-bg);
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px var(--highlight-glow);
+            cursor: default;
+            animation: slideUp 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(24px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .corner { position: absolute; width: 10px; height: 10px; border-color: var(--border-highlight); border-style: solid; pointer-events: none; }
+        .tl { top: -1px; left: -1px;  border-width: 2px 0 0 2px; }
+        .tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+        .bl { bottom: -1px; left: -1px;  border-width: 0 0 2px 2px; }
+        .br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+        .modal-header {
+            position: relative;
+            height: 56px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            background: linear-gradient(90deg, rgba(255,193,7,0.06) 0%, transparent 100%);
+        }
+        h1.main-title {
+            font-family: Impact, 'Arial Black', 'Microsoft YaHei', sans-serif;
+            font-size: 20px;
+            color: var(--highlight);
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 12px var(--highlight-glow);
+        }
+        .close-x {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--text-dim);
+            width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.15s ease;
+        }
+        .close-x:hover {
+            border-color: var(--highlight);
+            color: var(--highlight);
+            background: rgba(255,193,7,0.08);
+        }
+
+        .body-area {
+            padding: 28px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .line {
+            font-size: 16px;
+            line-height: 1.7;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            white-space: pre-wrap;
+        }
+        .line-dim { color: var(--text-dim); font-size: 14px; }
+
+        .footer-deco {
+            font-family: Consolas, monospace;
+            font-size: 11px;
+            color: rgba(255,255,255,0.25);
+            letter-spacing: 1px;
+            text-align: center;
+            padding: 10px 0 14px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+    <script src="../../vue.runtime.global.prod.js"></script>
+<script>
+/* === [precompiled v1] === */
+(function(){var __wgArmed__=false;var __wgGaveUp__=false;var __wgReload__=function(missing){if(__wgArmed__||__wgGaveUp__)return;var m=/(?:^|;)wgr=(\d+)/.exec(window.name||"");var n=m?parseInt(m[1],10):0;if(n>=2){__wgGaveUp__=true;console.error("[WebUIGuard] "+missing+" still missing after "+n+" reloads, giving up: "+location.pathname);return;}__wgArmed__=true;window.name=(window.name||"").replace(/(?:^|;)wgr=\d+/,"")+";wgr="+(n+1);console.warn("[WebUIGuard] "+missing+" missing, reloading page ("+(n+1)+"/2): "+location.pathname);setTimeout(function(){location.reload();},300);};window.addEventListener("error",function(e){var msg=(e&&e.message)||"";var isCore=msg.indexOf("createWebUICore is not defined")>=0;if(!isCore&&msg.indexOf("Vue is not defined")<0)return;__wgReload__(isCore?"webui-core.js":"vue.runtime.global.prod.js");if(!__wgGaveUp__)e.preventDefault();});if(typeof Vue==="undefined"){__wgReload__("vue.runtime.global.prod.js");return;}document.addEventListener("DOMContentLoaded",function(){if(document.querySelector("script[src*=webui-core]")&&typeof window.createWebUICore==="undefined"){__wgReload__("webui-core.js");return;}if(!__wgArmed__&&window.name)window.name=window.name.replace(/(?:^|;)wgr=\d+/,"");});var __renderFactory__=function(Vue){const { createElementVNode: _createElementVNode, toDisplayString: _toDisplayString, withModifiers: _withModifiers, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
+
+const _hoisted_1 = { class: "modal-container" }
+const _hoisted_2 = { class: "modal-header" }
+const _hoisted_3 = { class: "main-title" }
+const _hoisted_4 = { class: "body-area" }
+const _hoisted_5 = { class: "line" }
+const _hoisted_6 = { class: "line line-dim" }
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createElementBlock("div", {
+    class: "modal-overlay",
+    onClick: _cache[1] || (_cache[1] = _withModifiers((...args) => (_ctx.onClose && _ctx.onClose(...args)), ["self"]))
+  }, [
+    _createElementVNode("div", _hoisted_1, [
+      _cache[2] || (_cache[2] = _createElementVNode("div", { class: "corner tl" }, null, -1 /* CACHED */)),
+      _cache[3] || (_cache[3] = _createElementVNode("div", { class: "corner tr" }, null, -1 /* CACHED */)),
+      _cache[4] || (_cache[4] = _createElementVNode("div", { class: "corner bl" }, null, -1 /* CACHED */)),
+      _cache[5] || (_cache[5] = _createElementVNode("div", { class: "corner br" }, null, -1 /* CACHED */)),
+      _createElementVNode("div", _hoisted_2, [
+        _createElementVNode("h1", _hoisted_3, _toDisplayString(_ctx.s.title), 1 /* TEXT */),
+        _createElementVNode("button", {
+          class: "close-x",
+          onClick: _cache[0] || (_cache[0] = (...args) => (_ctx.onClose && _ctx.onClose(...args))),
+          "aria-label": "Close"
+        }, "✕")
+      ]),
+      _createElementVNode("div", _hoisted_4, [
+        _createElementVNode("p", _hoisted_5, _toDisplayString(_ctx.s.line0), 1 /* TEXT */),
+        _createElementVNode("p", _hoisted_6, _toDisplayString(_ctx.s.line1), 1 /* TEXT */)
+      ]),
+      _cache[6] || (_cache[6] = _createElementVNode("div", { class: "footer-deco" }, "LOOP LIMIT", -1 /* CACHED */))
+    ])
+  ]))
+}};var __renderCache__=null;var __origCreateApp__=Vue.createApp;Vue.createApp=function(opts){if(!__renderCache__)__renderCache__=__renderFactory__(Vue);if(opts&&typeof opts==="object"&&!opts.render&&!opts.template){opts=Object.assign({},opts,{render:__renderCache__});}var app=__origCreateApp__.call(this,opts);if(!app.config.errorHandler){app.config.errorHandler=function(err){var msg=(err&&err.message)||String(err||"");if(msg.indexOf("createWebUICore is not defined")>=0){__wgReload__("webui-core.js");if(__wgGaveUp__)console.error(err);return;}console.error(err);};}return app;};})();
+/* === [/precompiled v1] === */
+</script>
+    <script src="../../webui-core.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <div class="modal-overlay" @click.self="onClose">
+        <div class="modal-container">
+            <div class="corner tl"></div><div class="corner tr"></div>
+            <div class="corner bl"></div><div class="corner br"></div>
+
+            <div class="modal-header">
+                <h1 class="main-title">{{ s.title }}</h1>
+                <button class="close-x" @click="onClose" aria-label="Close">✕</button>
+            </div>
+
+            <div class="body-area">
+                <p class="line">{{ s.line0 }}</p>
+                <p class="line line-dim">{{ s.line1 }}</p>
+            </div>
+
+            <div class="footer-deco">LOOP LIMIT</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const core = createWebUICore('GameCountTips');
+    const { createApp, reactive, onMounted, onUnmounted } = Vue;
+
+    const s = reactive({
+        title: '',
+        line0: '',
+        line1: ''
+    });
+
+    core.registerHandlers({
+        'WebUI_GameCountTips_UpdateMsg': (data) => {
+            if (typeof data.title === 'string') s.title = data.title;
+            if (typeof data.line0 === 'string') s.line0 = data.line0;
+            if (typeof data.line1 === 'string') s.line1 = data.line1;
+        }
+    });
+
+    function onClose() {
+        core.UnitySendEvent('CLOSE');
+    }
+
+    function onKeydown(e) {
+        if (e.key === 'Escape') onClose();
+    }
+
+    createApp({
+        setup() {
+            onMounted(() => {
+                window.addEventListener('keydown', onKeydown);
+            });
+            onUnmounted(() => {
+                window.removeEventListener('keydown', onKeydown);
+            });
+            return { s, onClose };
+        }
+    }).mount('#app');
+
+    core.notifyReady();
+</script>
+
+</body>
+</html>

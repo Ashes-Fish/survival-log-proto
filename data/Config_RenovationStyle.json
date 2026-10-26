@@ -1,0 +1,137 @@
+[
+  {
+    "ID": 1,
+    "Remark": "M_CMN_Wood_01201_T01A",
+    "Category": 1,
+    "ItemId": 20901,
+    "MaterialPath": "Assets/RuntimeAssets/Renovation/Wall/Mat/M_CMN_Wood_01201_T01A",
+    "SourceText": "RenovationStyle_SourceText_1",
+    "SourceText_Local": "可在工作台制造"
+  },
+  {
+    "ID": 2,
+    "Remark": "M_CMN_Wood_01301_T01A",
+    "Category": 1,
+    "ItemId": 20902,
+    "MaterialPath": "Assets/RuntimeAssets/Renovation/Wall/Mat/M_CMN_Wood_01301_T01A",
+    "SourceText": "RenovationStyle_SourceText_2",
+    "SourceText_Local": "可在工作台制造"
+  },
+  {
+    "ID": 3,
+    "Remark": "M_CMN_Brick_01401_T01A",
+    "Category": 1,
+    "ItemId": 20903,
+    "MaterialPath": "Assets/RuntimeAssets/Renovation/Wall/Mat/M_CMN_Brick_01401_T01A",
+    "SourceText": "RenovationStyle_SourceText_3",
+    "SourceText_Local": "可在工作台制造"
+  },
+  {
+    "ID": 4,
+    "Remark": "M_CMN_Tile_01101_T01A",
+    "Category": 1,
+    "ItemId": 20904,
+    "MaterialPath": "Assets/RuntimeAssets/Renovation/Wall/Mat/M_CMN_Tile_01101_T01A",
+    "SourceText": "RenovationStyle_SourceText_4",
+    "SourceText_Local": "可在工作台制造"
+  },
+  {
+    "ID": 5,
+    "Remark": "M_CMN_Plaster_00201_T01A",
+    "Category": 1,
+    "ItemId": 20905,
+    "MaterialPath": "Assets/RuntimeAssets/Renovation/Wall/Mat/M_CMN_Plaster_00201_T01A",
+    "SourceText": "RenovationStyle_SourceText_5",
+    "SourceText_Local": "可在工作台制造"
+  },
+  {
+    "ID": 6,
+    "Remark": "M_CMN_Metal_00501_T01A",
+    "Category": 1,
+    "ItemId": 20906,
+    "MaterialPath": "Assets/RuntimeAssets/Renovation/Wall/Mat/M_CMN_Metal_00501_T01A",
+    "SourceText": "RenovationStyle_SourceText_6",
+    "SourceText_Local": "可在工作台制造"
+  },
+  {
+    "ID": 7,
+    "Remark": "M_CMN_Paper_00101_T01A",
+    "Category": 1,
+    "ItemId": 20907,
+    "MaterialPath": "Assets/RuntimeAssets/Renovation/Wall/Mat/M_CMN_Paper_00101_T01A",
+    "SourceText": "RenovationStyle_SourceText_7",
+    "SourceText_Local": "可在工作台制造"
+  },
+  {
+    "ID": 8,
+    "Remark": "M_CMN_Plastic_00101_T01A",
+    "Category": 1,
+    "ItemId": 20908,
+    "MaterialPath": "Assets/RuntimeAssets/Renovation/Wall/Mat/M_CMN_Plastic_00101_T01A",
+    "SourceText": "RenovationStyle_SourceText_8",
+    "SourceText_Local": "可在工作台制造"
+  },
+  {
+    "ID": 9,
+    "Remark": "M_CMN_Tile_01301_T01A",
+    "Category": 2,
+    "ItemId": 20909,
+    "MaterialPath": "Assets/RuntimeAssets/Renovation/Floor/Mat/M_CMN_Tile_01301_T01A",
+    "SourceText": "RenovationStyle_SourceText_9",
+    "SourceText_Local": "可在工作台制造"
+  },
+  {
+    "ID": 10,
+    "Remark": "M_CMN_Concrete_00501_T01A",
+    "Category": 2,
+    "ItemId": 20910,
+    "MaterialPath": "Assets/RuntimeAssets/Renovation/Floor/Mat/M_CMN_Concrete_00501_T01A",
+    "SourceText": "RenovationStyle_SourceText_10",
+    "SourceText_Local": "可在工作台制造"
+  },
+  {
+    "ID": 11,
+    "Remark": "M_CMN_Concrete_00701_T01A",
+    "Category": 2,
+    "ItemId": 20911,
+    "MaterialPath": "Assets/RuntimeAssets/Renovation/Floor/Mat/M_CMN_Concrete_00701_T01A",
+    "SourceText": "RenovationStyle_SourceText_11",
+    "SourceText_Local": "可在工作台制造"
+  },
+  {
+    "ID": 12,
+    "Remark": "M_CMN_Fabric_00201_T01A",
+    "Category": 2,
+    "ItemId": 20912,
+    "MaterialPath": "Assets/RuntimeAssets/Renovation/Floor/Mat/M_CMN_Fabric_00201_T01A",
+    "SourceText": "RenovationStyle_SourceText_12",
+    "SourceText_Local": "可在工作台制造"
+  },
+  {
+    "ID": 13,
+    "Remark": "M_CMN_Brick_00101_T01B",
+    "Category": 1,
+    "ItemId": 20913,
+    "MaterialPath": "Assets/RuntimeAssets/Renovation/Wall/Mat/M_CMN_Brick_00101_T01B",
+    "SourceText": "RenovationStyle_SourceText_13",
+    "SourceText_Local": "可在工作台制造"
+  },
+  {
+    "ID": 14,
+    "Remark": "M_CMN_Plaster_00301_T01A",
+    "Category": 1,
+    "ItemId": 20914,
+    "MaterialPath": "Assets/RuntimeAssets/Renovation/Wall/Mat/M_CMN_Plaster_00301_T01A",
+    "SourceText": "RenovationStyle_SourceText_14",
+    "SourceText_Local": "可在工作台制造"
+  },
+  {
+    "ID": 15,
+    "Remark": "M_CMN_Wood_00301_T01A",
+    "Category": 2,
+    "ItemId": 20915,
+    "MaterialPath": "Assets/RuntimeAssets/Renovation/Floor/Mat/M_CMN_Wood_00301_T01A",
+    "SourceText": "RenovationStyle_SourceText_15",
+    "SourceText_Local": "可在工作台制造"
+  }
+]

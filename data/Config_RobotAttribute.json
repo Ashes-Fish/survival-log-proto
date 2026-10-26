@@ -1,0 +1,29 @@
+[
+  {
+    "ID": 2003,
+    "Comment": "HK-1 整理",
+    "BatteryTrips": 6,
+    "TripCost": 1,
+    "ChargeTripsPerHour": 2,
+    "WorkSpeedRatio": 2.0,
+    "MoveSpeed": 2.4000000953674316
+  },
+  {
+    "ID": 2004,
+    "Comment": "TB-3 种植",
+    "BatteryTrips": 6,
+    "TripCost": 1,
+    "ChargeTripsPerHour": 2,
+    "WorkSpeedRatio": 3.0,
+    "MoveSpeed": 2.4000000953674316
+  },
+  {
+    "ID": 2005,
+    "Comment": "WX-5 维修",
+    "BatteryTrips": 6,
+    "TripCost": 1,
+    "ChargeTripsPerHour": 2,
+    "WorkSpeedRatio": 0.0,
+    "MoveSpeed": 2.4000000953674316
+  }
+]

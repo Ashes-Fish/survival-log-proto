@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConfirmDialog</title>
+<link rel="stylesheet" href="../../webui-common.css">
+<style>
+  :root{
+    --font:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;
+    --panel-w:430px; --radius:14px;
+    --hdr-h:54px; --title-fs:18px;
+    --body-pad:24px; --body-fs:15px; --body-lh:1.7;
+    --btn-gap:60px; --btn-h:44px; --btn-minw:124px; --btn-padx:28px; --btn-fs:15px; --btn-radius:8px;
+    --btnbar-pad:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{ font-family:var(--font); color:#fff; height:100vh; overflow:hidden; user-select:none;
+    background-color:transparent; }
+
+  .modal-overlay{ position:fixed; inset:0;
+    background-color: rgba(0,0,0,0.4); display:flex; justify-content:center; align-items:center; z-index:100; }
+
+  .modal-container{ position:relative; width:var(--panel-w); max-width:90vw;
+    background:linear-gradient(168deg, rgba(34,34,36,0.94) 0%, rgba(20,20,22,0.96) 100%);
+    border:1px solid rgba(255,255,255,0.15); border-radius:var(--radius);
+    box-shadow:0 12px 40px rgba(0,0,0,0.5), 0 0 1px rgba(255,255,255,0.05) inset;
+    display:flex; flex-direction:column; overflow:hidden; animation: wc-slide-up .3s ease-out both; }
+  @keyframes wc-slide-up{ from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:translateY(0)} }
+
+  .modal-header{ position:relative; width:100%; min-height:var(--hdr-h); border-bottom:1px solid rgba(255,255,255,0.08);
+    display:flex; align-items:center; justify-content:center; padding:0 26px; }
+  h1.main-title{ font-family:var(--font); font-size:var(--title-fs); font-weight:600; color:#eee;
+    letter-spacing:.5px; margin:0; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+  #bodyArea{ min-height:78px; max-height:50vh; padding:var(--body-pad) 26px; flex:1; overflow-y:auto;
+    font-size:var(--body-fs); color:#ddd; line-height:var(--body-lh); white-space:pre-wrap; text-align:center; }
+  #bodyArea::-webkit-scrollbar{width:5px}
+  #bodyArea::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:3px}
+
+  .button-container{ padding:var(--btnbar-pad) 26px; display:flex; justify-content:center; gap:var(--btn-gap);
+    border-top:1px solid rgba(255,255,255,0.05); }
+  .btn{ font-family:var(--font); font-size:var(--btn-fs); font-weight:700; height:var(--btn-h); padding:0 var(--btn-padx);
+    cursor:pointer; border-radius:var(--btn-radius); min-width:var(--btn-minw);
+    display:flex; align-items:center; justify-content:center; transition:all .16s ease; }
+  .cancel-btn{ background:linear-gradient(180deg, rgba(58,58,60,0.9) 0%, rgba(38,38,40,0.92) 100%);
+    border:1px solid rgba(255,255,255,0.18); color:#dde2f0; }
+  .cancel-btn:hover{ filter:brightness(1.12); }
+  .cancel-btn:active{ transform:translateY(1px) }
+  .confirm-btn{ background:linear-gradient(180deg, #FFD54F 0%, #FFC107 100%); color:#1a1a1a;
+    border:1px solid rgba(255,213,79,0.55); box-shadow:0 0 16px rgba(255,193,7,0.28), inset 0 1px 0 rgba(255,255,255,0.3); }
+  .confirm-btn:hover{ filter:brightness(1.06); transform:translateY(-1px); }
+  .confirm-btn:active{ transform:translateY(1px) }
+
+  .modal-overlay.peril{
+    background: radial-gradient(ellipse at center, rgba(60,5,5,0.35) 0%, rgba(0,0,0,0.65) 80%);
+  }
+  .modal-container.peril{
+    width:480px;
+    background:linear-gradient(168deg, rgba(38,18,18,0.96) 0%, rgba(18,8,8,0.98) 100%);
+    border:1px solid rgba(180,40,40,0.55);
+    box-shadow:0 12px 50px rgba(120,0,0,0.45), 0 0 32px rgba(180,40,40,0.25), 0 0 1px rgba(255,80,80,0.1) inset;
+    animation: peril-slide-in .5s ease-out both;
+  }
+  @keyframes peril-slide-in{
+    from{ opacity:0; transform:translateY(20px) scale(0.96); }
+    to  { opacity:1; transform:translateY(0)    scale(1);    }
+  }
+  .peril-warning-bar{
+    height:3px; width:100%;
+    background:linear-gradient(90deg,
+      rgba(180,40,40,0) 0%,
+      rgba(220,60,60,0.85) 20%,
+      rgba(255,90,90,1) 50%,
+      rgba(220,60,60,0.85) 80%,
+      rgba(180,40,40,0) 100%);
+    box-shadow:0 0 15px rgba(255,80,80,0.8);
+    animation: peril-bar-pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes peril-bar-pulse{
+    0%,100%{ opacity:0.7; }
+    50%   { opacity:1; }
+  }
+  .modal-container.peril .modal-header{
+    border-bottom:1px solid rgba(180,40,40,0.35);
+    min-height:62px;
+    background:linear-gradient(180deg, rgba(80,10,10,0.4) 0%, rgba(40,5,5,0.2) 100%);
+  }
+  .modal-container.peril .main-title{
+    font-size:21px; color:#ffe8c2; letter-spacing:1.5px; font-weight:700;
+    text-shadow:0 0 12px rgba(255,90,60,0.55), 0 1px 2px rgba(0,0,0,0.8);
+    white-space:normal;
+  }
+  .peril-title-cursor{
+    display:inline-block; width:2px; margin-left:3px; height:1em;
+    background:#ffb46b; vertical-align:middle;
+    animation: peril-cursor-blink 0.9s steps(1) infinite;
+  }
+  @keyframes peril-cursor-blink{ 0%,49%{opacity:1} 50%,100%{opacity:0} }
+  html.quality-low .peril-title-cursor{ animation:none; }
+
+  .modal-container.peril #bodyArea{
+    color:#e8d8c8; font-size:15.5px; line-height:1.85;
+    padding:28px 30px 22px;
+    text-shadow:0 1px 2px rgba(0,0,0,0.6);
+  }
+  .modal-container.peril .body-broadcast{
+    color:#bcd8e8; font-style:italic; letter-spacing:0.5px;
+    display:block; margin-bottom:14px;
+    text-shadow:0 0 6px rgba(120,180,220,0.3);
+  }
+  .modal-container.peril .body-narration{
+    color:#e8d8c8; display:block; padding-top:6px;
+    border-top:1px dashed rgba(180,40,40,0.25);
+  }
+
+  .modal-container.peril .button-container{
+    padding:22px 30px 26px; gap:48px;
+    border-top:1px solid rgba(180,40,40,0.25);
+    background:linear-gradient(0deg, rgba(40,5,5,0.3) 0%, rgba(20,5,5,0) 100%);
+  }
+  .modal-container.peril .confirm-btn{
+    background:linear-gradient(180deg, rgba(70,70,72,0.85) 0%, rgba(45,45,48,0.9) 100%);
+    color:#c8ccd2; border:1px solid rgba(255,255,255,0.18); box-shadow:none;
+    font-weight:600; letter-spacing:1px;
+  }
+  .modal-container.peril .confirm-btn:hover{ filter:brightness(1.15); transform:none; }
+  .modal-container.peril .cancel-btn{
+    position:relative;
+    background:linear-gradient(180deg, #a82424 0%, #6e1414 100%);
+    color:#fff5e6; border:1px solid rgba(255,120,90,0.7);
+    box-shadow:0 0 14px rgba(220,40,40,0.5), inset 0 1px 0 rgba(255,180,160,0.3);
+    font-weight:800; letter-spacing:2px;
+  }
+  .modal-container.peril .cancel-btn::before{
+    content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+    box-shadow:0 0 26px rgba(255,80,60,0.8), 0 0 40px rgba(220,40,40,0.4);
+    opacity:0;
+    animation: peril-stay-pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes peril-stay-pulse{
+    0%,100%{ opacity:0; }
+    50%   { opacity:1; }
+  }
+  .modal-container.peril .cancel-btn:hover{
+    filter:brightness(1.15);
+    transform:translateY(-1px);
+  }
+  .modal-container.peril .cancel-btn:active{ transform:translateY(1px) }
+
+  .modal-container.danger .confirm-btn{
+    background:linear-gradient(180deg, rgba(58,58,60,0.9) 0%, rgba(38,38,40,0.92) 100%);
+    border:1px solid rgba(255,255,255,0.18); color:#dde2f0;
+    box-shadow:none; font-weight:600;
+  }
+  .modal-container.danger .confirm-btn:hover{ filter:none; transform:translateY(-1px); }
+  .modal-container.danger .cancel-btn{
+    background:linear-gradient(180deg, #FFD54F 0%, #FFC107 100%); color:#1a1a1a;
+    border:1px solid rgba(255,213,79,0.55);
+    box-shadow:0 0 16px rgba(255,193,7,0.28), inset 0 1px 0 rgba(255,255,255,0.3);
+    font-weight:700;
+  }
+  .modal-container.danger .cancel-btn:hover{ filter:none; transform:translateY(-1px); }
+
+  .modal-container.finalreview{ width:560px; }
+
+  /* [本轮重开 2026-08-20] 长按确认（dialogType=7）：沿用 danger 的主次反转，Confirm 位改成"按住填满"——
+     进度条只动 transform（scaleX），符合 WebUI 性能规范 */
+  /* [本轮重开 2026-08-21 · B 方案] 长按确认（dialogType=7）整体归到「撕掉这一轮重写」那条线的冷青纸页色，
+     不再复用通用 danger 的金色主 CTA —— 撕页位（SurvivalLogs .tear-tab）与重生选项页第四档都是
+     冷青 #8fc7bf + rgba(24,30,31) 纸底，注释里写明「与金色主色区分」，此前只有本确认框是例外，
+     结果整屏最亮的是「返回」，视觉重心压在退回而不是这次操作本身。
+     ⚠ 全部选择器都限定在 .hold 下，其它 dialogType（0/1/2/5/6）一行不受影响；
+     顺序必须排在 .modal-container.danger 之后，靠同特异性后来者覆盖它的金色取消键。 */
+  .modal-container.hold{
+    background:linear-gradient(168deg, rgba(26,32,33,0.96) 0%, rgba(16,20,21,0.97) 100%);
+    border:1px solid rgba(120,170,165,0.26);
+  }
+  .modal-container.hold .modal-header{
+    min-height:56px;
+    border-bottom:1px solid rgba(143,199,191,0.16);
+    background:linear-gradient(180deg, rgba(143,199,191,0.06) 0%, transparent 100%);
+  }
+  .modal-container.hold .main-title{ color:#e6f0ee; letter-spacing:1.2px; font-weight:700; }
+  /* 正文改左对齐：词条内部按语义换行（回到哪天 / 失去什么 / 拿回什么 / 不消耗什么），
+     居中排版会让每行的起点参差、末行还容易剩孤字（旧版实拍「生机会。」单独一行）。 */
+  .modal-container.hold #bodyArea{
+    padding:20px 30px 16px; color:#cbd8d6; text-align:left;
+    line-height:1.75; font-size:14.5px; min-height:0;
+  }
+  .modal-container.hold .button-container{ border-top:1px solid rgba(143,199,191,0.12); }
+  /* 取消键从 danger 的金色主 CTA 降级为冷青描边：它是「安全退回」，不该是整屏最亮的东西 */
+  .modal-container.hold .cancel-btn{
+    background:transparent; border:1px solid rgba(160,190,186,0.42);
+    color:#cfe0dd; font-weight:600; box-shadow:none;
+  }
+  .modal-container.hold .cancel-btn:hover{ background:rgba(143,199,191,0.10); filter:none; transform:none; }
+  .modal-container.hold .confirm-btn{
+    background:linear-gradient(180deg, rgba(30,38,39,0.95) 0%, rgba(20,26,27,0.95) 100%);
+    border:1px solid rgba(143,199,191,0.42); color:#dff0ed;
+  }
+  /* 「按住」是操作提示不是动作名，压成小字弱色，让动作名单独承担分量 */
+  .modal-container.hold .confirm-btn .hold-pre{
+    font-size:12px; font-weight:600; letter-spacing:2px; color:#9fbdb8;
+  }
+
+  /* [本轮重开 2026-08-21] hold 面板加宽到 500 + 按钮等宽双栏：
+     430 宽时按钮区可用 376px 装不下 124+60+200，中英文都会把确认文案折成两行 */
+  .modal-container.hold{ width:500px; }
+  .modal-container.hold .button-container{ gap:16px; padding:18px 26px 16px; }
+  .modal-container.hold .btn{ min-width:0; padding:0 14px; white-space:nowrap; }
+  .modal-container.hold .cancel-btn{ flex:0 0 132px; }
+  .modal-container.hold .confirm-btn{ position:relative; overflow:hidden; flex:1 1 auto; user-select:none; }
+  /* 前缀与动作名之间靠 gap 分隔，不靠文案里的全角空格——英文词条不带空格 */
+  .modal-container.hold .confirm-btn .hold-label{ display:inline-flex; align-items:baseline; gap:.55em; }
+  .modal-container.hold .confirm-btn .hold-bar{
+    position:absolute; left:0; top:0; bottom:0; width:100%;
+    background:linear-gradient(90deg, rgba(143,199,191,0.55), rgba(143,199,191,0.85));
+    transform:scaleX(0); transform-origin:left center; pointer-events:none;
+  }
+  .modal-container.hold .confirm-btn.holding .hold-bar{ animation:hold-fill 2.2s linear forwards; }
+  @keyframes hold-fill{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+  .modal-container.hold .confirm-btn span{ position:relative; z-index:1; }
+  .modal-container.hold .confirm-btn:hover{ transform:none; }
+  .modal-container.hold .confirm-btn.holding{ color:#0f1716; }
+  /* [2026-08-21] 原样式 margin-top:10px 无下内边距，提示文字底边距面板底只有 1px（实测）；
+     min-height 提到 30 是给英文两行留位，避免提示出现时面板高度跳动 */
+  .hold-hint{ margin-top:0; padding:0 26px 18px; min-height:30px; font-size:12.5px; letter-spacing:.6px;
+    color:#d08466; text-align:center; line-height:1.5; }
+
+  /* ===== [2026-09-20] EndlessCommit（dialogType=8）专属皮肤 =====
+     这个框叠在重生加点页（RebirthUpgrade.html）上，而那一页整屏是暗褐底 + 琥珀金 #FFC83A、
+     直角细边、横向渐变分割线、Consolas 数字；沿用 dialogType=7 的冷青纸页色会让它像另一个
+     界面贴上来的。冷青那套有自己的理由（与撕页位 / 重生选项页第四档同一视觉语言），所以不动它，
+     这里另开一档。
+     ⚠ 全部选择器都带 .endless，7 一行不受影响；必须排在上面所有 .hold 规则之后，
+     靠 (0,3,0) 特异性覆盖同名属性。布局与交互（等宽双栏、scaleX 进度条、单向闩）全部继承 hold。 */
+  .modal-overlay.endless{
+    background:radial-gradient(ellipse at center, rgba(28,20,12,0.76) 0%, rgba(4,3,2,0.91) 85%);
+  }
+  /* 母界面同款细噪点：半透明遮罩会把底下那层噪点压平，补一层让遮罩不是一块死灰 */
+  .modal-overlay.endless::before{
+    content:''; position:fixed; inset:0; pointer-events:none; opacity:.45;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size:160px 160px;
+  }
+
+  .modal-container.hold.endless{
+    width:560px; border-radius:3px;
+    background:linear-gradient(168deg, rgba(44,35,25,0.99) 0%, rgba(24,19,14,0.995) 100%);
+    border:1px solid rgba(232,198,130,0.46);
+    box-shadow:0 22px 64px rgba(0,0,0,0.70), 0 0 62px rgba(255,190,70,0.16), inset 0 1px 0 rgba(255,245,200,0.12);
+    animation:endless-panel-in .5s cubic-bezier(.22,.9,.3,1) both;
+  }
+  @keyframes endless-panel-in{
+    from{ opacity:0; transform:translateY(10px) scale(.985); }
+    to  { opacity:1; transform:translateY(0)    scale(1);    }
+  }
+  /* 顶光带：复刻母界面 .panel::before 那道琥珀横光，把框接回同一个光源 */
+  .modal-container.hold.endless::before{
+    content:''; position:absolute; top:0; left:0; right:0; height:3px; z-index:3;
+    background:linear-gradient(90deg, transparent 6%, rgba(255,205,70,0.95) 50%, transparent 94%);
+    box-shadow:0 0 20px rgba(255,200,58,0.60);
+  }
+
+  .modal-container.hold.endless .modal-header{
+    min-height:70px; padding:0 32px; border-bottom:none;
+    background:linear-gradient(180deg, rgba(255,200,58,0.055) 0%, transparent 100%);
+  }
+  .modal-container.hold.endless .main-title{
+    color:#FFC83A; font-size:22px; font-weight:700; letter-spacing:5px; padding-left:5px;
+    text-shadow:0 0 14px rgba(255,200,58,0.40), 1px 1px 2px rgba(0,0,0,0.85);
+  }
+  /* 标题下用母界面 .col-header::after 那条两端收进的渐变线，而不是一整条 border */
+  .modal-container.hold.endless .modal-header::after{
+    content:''; position:absolute; left:14%; right:14%; bottom:0; height:1px;
+    background:linear-gradient(90deg, transparent, rgba(220,188,120,0.50) 25%, rgba(255,200,58,0.72) 50%, rgba(220,188,120,0.50) 75%, transparent);
+  }
+
+  .modal-container.hold.endless #bodyArea{
+    position:relative; padding:26px 38px 20px 44px;
+    color:#d6cab2; font-size:15px; line-height:2.0; letter-spacing:.3px;
+    text-shadow:0 1px 2px rgba(0,0,0,0.55);
+  }
+  /* 正文左侧一条淡竖线：这段是角色的独白，给它一个手记式的起始边（增强项，非需求） */
+  .modal-container.hold.endless #bodyArea::before{
+    content:''; position:absolute; left:28px; top:28px; bottom:20px; width:1px;
+    background:linear-gradient(180deg, transparent, rgba(220,188,120,0.46) 18%, rgba(220,188,120,0.46) 82%, transparent);
+  }
+
+  .modal-container.hold.endless .button-container{
+    position:relative; border-top:none; padding:18px 32px 16px; gap:20px;
+    background:linear-gradient(0deg, rgba(255,200,58,0.035) 0%, transparent 100%);
+  }
+  .modal-container.hold.endless .button-container::before{
+    content:''; position:absolute; top:0; left:12%; right:12%; height:1px;
+    background:linear-gradient(90deg, transparent, rgba(220,188,120,0.34) 30%, rgba(220,188,120,0.34) 70%, transparent);
+  }
+
+  .modal-container.hold.endless .btn{ height:48px; font-size:15px; }
+  .modal-container.hold.endless .cancel-btn{
+    flex:0 0 150px; border-radius:2px; background:transparent;
+    border:1px solid rgba(220,188,120,0.42);
+    color:#bfb096; font-weight:600; font-size:14px; letter-spacing:2px;
+    text-shadow:0 1px 0 rgba(0,0,0,0.5);
+  }
+  .modal-container.hold.endless .cancel-btn:hover{
+    background:rgba(255,200,58,0.05); border-color:rgba(220,188,120,0.45); color:#f0e8d8;
+  }
+
+  /* 确认键直接搬母界面 .cycle-btn 的做法：琥珀渐变 + 1px 边 + 2px 压底边 + 内高光 */
+  .modal-container.hold.endless .confirm-btn{
+    border-radius:2px;
+    background:linear-gradient(180deg, rgba(255,235,160,0.26) 0%, rgba(255,200,70,0.18) 45%, rgba(160,120,30,0.22) 100%);
+    border:1px solid rgba(255,222,140,0.58);
+    border-bottom-width:2px; border-bottom-color:rgba(170,128,34,0.85);
+    color:#fff5d8; font-weight:700; letter-spacing:2px;
+    text-shadow:0 1px 0 rgba(0,0,0,0.55), 0 0 8px rgba(255,200,80,0.30);
+    box-shadow:0 2px 0 rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,245,200,0.24), inset 0 -3px 6px rgba(60,40,10,0.22);
+  }
+  .modal-container.hold.endless .confirm-btn:hover{
+    filter:none;
+    background:linear-gradient(180deg, rgba(255,245,190,0.30) 0%, rgba(255,215,90,0.20) 45%, rgba(180,140,40,0.24) 100%);
+    border-color:rgba(255,230,150,0.70);
+  }
+  .modal-container.hold.endless .confirm-btn .hold-pre{
+    color:rgba(255,228,170,0.72); font-size:12px; letter-spacing:2px; font-weight:600; text-shadow:none;
+  }
+  /* 进度条＝整块背景向右填充（设计拍板）。琥珀填充是亮的，文字位置固定、填充边界在动，
+     单靠一个文字颜色必然在某个进度上被吃掉（实拍验过：压暗填充、给文字加投影都救不回来）。
+     解法是铺两份完全重合的文字：
+       · 底层 .hold-label      亮色，负责还没填到的暗区
+       · 上层 .hold-fill-wrap  深褐，clip-path 从左往右露出，负责已填充的亮区
+     两条动画同为 2.2s linear，与 hold-bar 的 scaleX 参考宽度相同（都是整个按钮），逐帧对齐。
+     clip-path 不是合成属性会触发 paint，但只是一个按钮、按一次 2.2s，量级可忽略。 */
+  .modal-container.hold.endless .confirm-btn .hold-bar{
+    /* 上层纵向高光让填充区读起来是「被点亮的金属」而不是一块平色；
+       下层横向渐变末端 4% 最亮，scaleX 压缩后仍按比例留住那条推进边 */
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0.02) 46%, rgba(120,80,10,0.20) 100%),
+      linear-gradient(90deg,
+        rgba(255,192,48,0.72) 0%, rgba(255,208,84,0.88) 60%,
+        rgba(255,226,140,0.96) 96%, rgba(255,243,200,1) 100%);
+  }
+  /* 特异性要压过通用的 .modal-container.hold .confirm-btn span{position:relative;z-index:1} */
+  .modal-container.hold.endless .confirm-btn .hold-fill-wrap{
+    position:absolute; inset:0; z-index:2; pointer-events:none;
+    display:flex; align-items:center; justify-content:center;
+    color:#3b2a06; text-shadow:none;
+    clip-path:inset(0 100% 0 0);
+  }
+  .modal-container.hold.endless .confirm-btn .hold-fill-wrap .hold-pre{
+    color:rgba(59,42,6,0.78); text-shadow:none;
+  }
+  .modal-container.hold.endless .confirm-btn.holding .hold-fill-wrap{
+    animation:endless-hold-clip 2.2s linear forwards;
+  }
+  @keyframes endless-hold-clip{
+    from{ clip-path:inset(0 100% 0 0); }
+    to  { clip-path:inset(0 0    0 0); }
+  }
+  /* 按住时整个按钮「热起来」：边框提亮 + 外发光，替掉旧版那种一次性把文字翻成深色的做法 */
+  .modal-container.hold.endless .confirm-btn.holding{
+    color:#fff8e2; border-color:rgba(255,235,170,0.80);
+    text-shadow:0 1px 2px rgba(38,24,4,0.70);
+    box-shadow:0 2px 0 rgba(0,0,0,0.30), 0 0 22px rgba(255,200,58,0.42), inset 0 1px 0 rgba(255,245,200,0.30);
+  }
+  .modal-container.hold.endless .confirm-btn.holding .hold-pre{
+    color:rgba(255,234,182,0.85); text-shadow:0 1px 2px rgba(38,24,4,0.70);
+  }
+
+  /* 提示语：旧版那支冷橙 #d08466 落在冷青框里像报错行；换暖琥珀 + 淡入，
+     它是"再按久一点"的引导不是错误 */
+  .modal-container.hold.endless .hold-hint{
+    padding:0 32px 13px; color:#d9a45f; font-size:12.5px; letter-spacing:.8px;
+    text-shadow:0 1px 2px rgba(0,0,0,0.6);
+    animation:endless-hint-in .26s ease-out both;
+  }
+  @keyframes endless-hint-in{
+    from{ opacity:0; transform:translateY(-3px); }
+    to  { opacity:1; transform:translateY(0);    }
+  }
+
+  html.quality-low .modal-container.hold.endless,
+  html.quality-low .modal-container.hold.endless .hold-hint{ animation:none; }
+
+  #bodyArea.fr{ padding:0; white-space:normal; text-align:left; max-height:none; overflow-y:visible; }
+  .fr-q{ padding:30px 34px 26px; text-align:center; font-size:18px; line-height:1.85;
+    color:#f2ede4; letter-spacing:.5px; font-weight:600; text-wrap:balance; }
+  .fr-q .fr-q-l{ display:block; }
+  .fr-q .fr-t{ color:#FFD54F; font-weight:700; }
+  .fr-more{ border-top:1px solid rgba(255,255,255,0.08); background:rgba(0,0,0,0.16); padding:14px 30px 16px;
+    max-height:240px; overflow-y:auto; }
+  .fr-more::-webkit-scrollbar{width:5px}
+  .fr-more::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:3px}
+  .fr-more-t{ font-size:12px; color:#7e7e86; letter-spacing:1.5px; margin-bottom:9px;
+    display:flex; align-items:center; gap:8px; }
+  .fr-more-t::after{ content:''; flex:1; height:1px; background:rgba(255,255,255,0.06); }
+  .fr-line{ display:flex; gap:8px; align-items:flex-start; font-size:13px; line-height:1.75; color:#a7a7af; margin-bottom:5px; }
+  .fr-line:last-child{ margin-bottom:0; }
+  .fr-line .fr-ic{ flex:none; color:#6f6f76; font-size:11px; line-height:1.9; }
+</style>
+<script src="../../vue.runtime.global.prod.js"></script>
+<script>
+/* === [precompiled v1] === */
+(function(){var __wgArmed__=false;var __wgGaveUp__=false;var __wgReload__=function(missing){if(__wgArmed__||__wgGaveUp__)return;var m=/(?:^|;)wgr=(\d+)/.exec(window.name||"");var n=m?parseInt(m[1],10):0;if(n>=2){__wgGaveUp__=true;console.error("[WebUIGuard] "+missing+" still missing after "+n+" reloads, giving up: "+location.pathname);return;}__wgArmed__=true;window.name=(window.name||"").replace(/(?:^|;)wgr=\d+/,"")+";wgr="+(n+1);console.warn("[WebUIGuard] "+missing+" missing, reloading page ("+(n+1)+"/2): "+location.pathname);setTimeout(function(){location.reload();},300);};window.addEventListener("error",function(e){var msg=(e&&e.message)||"";var isCore=msg.indexOf("createWebUICore is not defined")>=0;if(!isCore&&msg.indexOf("Vue is not defined")<0)return;__wgReload__(isCore?"webui-core.js":"vue.runtime.global.prod.js");if(!__wgGaveUp__)e.preventDefault();});if(typeof Vue==="undefined"){__wgReload__("vue.runtime.global.prod.js");return;}document.addEventListener("DOMContentLoaded",function(){if(document.querySelector("script[src*=webui-core]")&&typeof window.createWebUICore==="undefined"){__wgReload__("webui-core.js");return;}if(!__wgArmed__&&window.name)window.name=window.name.replace(/(?:^|;)wgr=\d+/,"");});var __renderFactory__=function(Vue){const { openBlock: _openBlock, createElementBlock: _createElementBlock, createCommentVNode: _createCommentVNode, toDisplayString: _toDisplayString, createElementVNode: _createElementVNode, Fragment: _Fragment, createTextVNode: _createTextVNode, renderList: _renderList, normalizeClass: _normalizeClass } = Vue
+
+const _hoisted_1 = {
+  key: 0,
+  class: "peril-warning-bar"
+}
+const _hoisted_2 = { class: "modal-header" }
+const _hoisted_3 = { class: "main-title" }
+const _hoisted_4 = {
+  key: 0,
+  class: "peril-title-cursor"
+}
+const _hoisted_5 = { class: "body-broadcast" }
+const _hoisted_6 = { class: "body-narration" }
+const _hoisted_7 = { class: "fr-q" }
+const _hoisted_8 = { class: "fr-q-l" }
+const _hoisted_9 = {
+  key: 0,
+  class: "fr-t"
+}
+const _hoisted_10 = {
+  key: 0,
+  class: "fr-q-l"
+}
+const _hoisted_11 = {
+  key: 0,
+  class: "fr-more"
+}
+const _hoisted_12 = {
+  key: 0,
+  class: "fr-more-t"
+}
+const _hoisted_13 = { class: "button-container" }
+const _hoisted_14 = { class: "hold-label" }
+const _hoisted_15 = { class: "hold-pre" }
+const _hoisted_16 = { class: "hold-label" }
+const _hoisted_17 = { class: "hold-pre" }
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createElementBlock("div", {
+    class: _normalizeClass(["modal-overlay", { peril: _ctx.isPeril, endless: _ctx.isEndless }])
+  }, [
+    _createElementVNode("div", {
+      class: _normalizeClass(["modal-container", { peril: _ctx.isPeril, danger: _ctx.isDanger || _ctx.isHold, hold: _ctx.isHold, endless: _ctx.isEndless, finalreview: _ctx.isFinalReview }])
+    }, [
+      (_ctx.isPeril)
+        ? (_openBlock(), _createElementBlock("div", _hoisted_1))
+        : _createCommentVNode("v-if", true),
+      _createElementVNode("div", _hoisted_2, [
+        _createElementVNode("h1", _hoisted_3, [
+          _createElementVNode("span", null, _toDisplayString(_ctx.isPeril ? _ctx.typedTitle : _ctx.s.title), 1 /* TEXT */),
+          (_ctx.isPeril && !_ctx.typingDone)
+            ? (_openBlock(), _createElementBlock("span", _hoisted_4))
+            : _createCommentVNode("v-if", true)
+        ])
+      ]),
+      _createElementVNode("div", {
+        id: "bodyArea",
+        class: _normalizeClass({ fr: _ctx.isFinalReview })
+      }, [
+        (_ctx.isPeril)
+          ? (_openBlock(), _createElementBlock(_Fragment, { key: 0 }, [
+              _createElementVNode("span", _hoisted_5, _toDisplayString(_ctx.bodyParts.broadcast), 1 /* TEXT */),
+              _createElementVNode("span", _hoisted_6, _toDisplayString(_ctx.bodyParts.narration), 1 /* TEXT */)
+            ], 64 /* STABLE_FRAGMENT */))
+          : (_ctx.isFinalReview)
+            ? (_openBlock(), _createElementBlock(_Fragment, { key: 1 }, [
+                _createElementVNode("div", _hoisted_7, [
+                  _createElementVNode("span", _hoisted_8, [
+                    _createTextVNode(_toDisplayString(_ctx.frParts.qPre), 1 /* TEXT */),
+                    (_ctx.frParts.qHl)
+                      ? (_openBlock(), _createElementBlock("span", _hoisted_9, _toDisplayString(_ctx.frParts.qHl), 1 /* TEXT */))
+                      : _createCommentVNode("v-if", true),
+                    _createTextVNode(_toDisplayString(_ctx.frParts.qPunc), 1 /* TEXT */)
+                  ]),
+                  (_ctx.frParts.qRest)
+                    ? (_openBlock(), _createElementBlock("span", _hoisted_10, _toDisplayString(_ctx.frParts.qRest), 1 /* TEXT */))
+                    : _createCommentVNode("v-if", true)
+                ]),
+                (_ctx.frParts.moreLines.length)
+                  ? (_openBlock(), _createElementBlock("div", _hoisted_11, [
+                      (_ctx.frParts.moreTitle)
+                        ? (_openBlock(), _createElementBlock("div", _hoisted_12, _toDisplayString(_ctx.frParts.moreTitle), 1 /* TEXT */))
+                        : _createCommentVNode("v-if", true),
+                      (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(_ctx.frParts.moreLines, (ln, i) => {
+                        return (_openBlock(), _createElementBlock("div", {
+                          key: i,
+                          class: "fr-line"
+                        }, [
+                          _cache[6] || (_cache[6] = _createElementVNode("span", { class: "fr-ic" }, "◆", -1 /* CACHED */)),
+                          _createElementVNode("span", null, _toDisplayString(ln), 1 /* TEXT */)
+                        ]))
+                      }), 128 /* KEYED_FRAGMENT */))
+                    ]))
+                  : _createCommentVNode("v-if", true)
+              ], 64 /* STABLE_FRAGMENT */))
+            : (_openBlock(), _createElementBlock(_Fragment, { key: 2 }, [
+                _createTextVNode(_toDisplayString(_ctx.s.body), 1 /* TEXT */)
+              ], 64 /* STABLE_FRAGMENT */))
+      ], 2 /* CLASS */),
+      _createElementVNode("div", _hoisted_13, [
+        (_ctx.s.cancelText)
+          ? (_openBlock(), _createElementBlock("button", {
+              key: 0,
+              class: "btn cancel-btn",
+              onClick: _cache[0] || (_cache[0] = (...args) => (_ctx.onCancel && _ctx.onCancel(...args)))
+            }, _toDisplayString(_ctx.s.cancelText), 1 /* TEXT */))
+          : _createCommentVNode("v-if", true),
+        (!_ctx.isHold)
+          ? (_openBlock(), _createElementBlock("button", {
+              key: 1,
+              class: "btn confirm-btn",
+              onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.onConfirm && _ctx.onConfirm(...args)))
+            }, _toDisplayString(_ctx.s.confirmText || '确认'), 1 /* TEXT */))
+          : (_openBlock(), _createElementBlock(_Fragment, { key: 2 }, [
+              _createCommentVNode(" [本轮重开] 长按确认：按住 2.2s 进度填满才发 CONFIRM；点一下 / 中途松开只弹提示（与重生选项页同一交互语言） "),
+              _createElementVNode("button", {
+                class: _normalizeClass(["btn confirm-btn", { holding: _ctx.holding }]),
+                onMousedown: _cache[3] || (_cache[3] = (...args) => (_ctx.onHoldStart && _ctx.onHoldStart(...args))),
+                onMouseup: _cache[4] || (_cache[4] = (...args) => (_ctx.onHoldStop && _ctx.onHoldStop(...args))),
+                onMouseleave: _cache[5] || (_cache[5] = (...args) => (_ctx.onHoldStop && _ctx.onHoldStop(...args)))
+              }, [
+                (_openBlock(), _createElementBlock("i", {
+                  class: "hold-bar",
+                  key: _ctx.holdNonce,
+                  onAnimationend: _cache[2] || (_cache[2] = (...args) => (_ctx.onHoldDone && _ctx.onHoldDone(...args)))
+                }, null, 32 /* NEED_HYDRATION */)),
+                _createElementVNode("span", _hoisted_14, [
+                  _createElementVNode("span", _hoisted_15, _toDisplayString(_ctx.holdPrefix), 1 /* TEXT */),
+                  _createElementVNode("span", null, _toDisplayString(_ctx.s.confirmText || '确认'), 1 /* TEXT */)
+                ]),
+                _createCommentVNode(" 填充区专用的深色文字副本：与上面那份逐字相同、位置完全重合，靠 clip-path 跟着进度露出 "),
+                (_ctx.isEndless)
+                  ? (_openBlock(), _createElementBlock("span", {
+                      class: "hold-fill-wrap",
+                      key: 'fill' + _ctx.holdNonce
+                    }, [
+                      _createElementVNode("span", _hoisted_16, [
+                        _createElementVNode("span", _hoisted_17, _toDisplayString(_ctx.holdPrefix), 1 /* TEXT */),
+                        _createElementVNode("span", null, _toDisplayString(_ctx.s.confirmText || '确认'), 1 /* TEXT */)
+                      ])
+                    ]))
+                  : _createCommentVNode("v-if", true)
+              ], 34 /* CLASS, NEED_HYDRATION */)
+            ], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */))
+      ]),
+      (_ctx.isHold)
+        ? (_openBlock(), _createElementBlock("div", {
+            class: "hold-hint",
+            key: _ctx.holdHint
+          }, _toDisplayString(_ctx.holdHint), 1 /* TEXT */))
+        : _createCommentVNode("v-if", true)
+    ], 2 /* CLASS */)
+  ], 2 /* CLASS */))
+}};var __renderCache__=null;var __origCreateApp__=Vue.createApp;Vue.createApp=function(opts){if(!__renderCache__)__renderCache__=__renderFactory__(Vue);if(opts&&typeof opts==="object"&&!opts.render&&!opts.template){opts=Object.assign({},opts,{render:__renderCache__});}var app=__origCreateApp__.call(this,opts);if(!app.config.errorHandler){app.config.errorHandler=function(err){var msg=(err&&err.message)||String(err||"");if(msg.indexOf("createWebUICore is not defined")>=0){__wgReload__("webui-core.js");if(__wgGaveUp__)console.error(err);return;}console.error(err);};}return app;};})();
+/* === [/precompiled v1] === */
+</script>
+<script src="../../webui-core.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <div class="modal-overlay" :class="{ peril: isPeril, endless: isEndless }">
+    <div class="modal-container" :class="{ peril: isPeril, danger: isDanger || isHold, hold: isHold, endless: isEndless, finalreview: isFinalReview }">
+      <div v-if="isPeril" class="peril-warning-bar"></div>
+      <div class="modal-header">
+        <h1 class="main-title">
+          <span>{{ isPeril ? typedTitle : s.title }}</span>
+          <span v-if="isPeril && !typingDone" class="peril-title-cursor"></span>
+        </h1>
+      </div>
+      <div id="bodyArea" :class="{ fr: isFinalReview }">
+        <template v-if="isPeril">
+          <span class="body-broadcast">{{ bodyParts.broadcast }}</span>
+          <span class="body-narration">{{ bodyParts.narration }}</span>
+        </template>
+        <template v-else-if="isFinalReview">
+          <div class="fr-q">
+            <span class="fr-q-l">{{ frParts.qPre }}<span v-if="frParts.qHl" class="fr-t">{{ frParts.qHl }}</span>{{ frParts.qPunc }}</span>
+            <span v-if="frParts.qRest" class="fr-q-l">{{ frParts.qRest }}</span>
+          </div>
+          <div v-if="frParts.moreLines.length" class="fr-more">
+            <div v-if="frParts.moreTitle" class="fr-more-t">{{ frParts.moreTitle }}</div>
+            <div v-for="(ln, i) in frParts.moreLines" :key="i" class="fr-line">
+              <span class="fr-ic">◆</span><span>{{ ln }}</span>
+            </div>
+          </div>
+        </template>
+        <template v-else>{{ s.body }}</template>
+      </div>
+      <div class="button-container">
+        <button v-if="s.cancelText" class="btn cancel-btn" @click="onCancel">{{ s.cancelText }}</button>
+        <button v-if="!isHold" class="btn confirm-btn" @click="onConfirm">{{ s.confirmText || '确认' }}</button>
+        <!-- [本轮重开] 长按确认：按住 2.2s 进度填满才发 CONFIRM；点一下 / 中途松开只弹提示（与重生选项页同一交互语言） -->
+        <button v-else class="btn confirm-btn" :class="{ holding: holding }"
+                @mousedown="onHoldStart" @mouseup="onHoldStop" @mouseleave="onHoldStop">
+          <i class="hold-bar" :key="holdNonce" @animationend="onHoldDone"></i>
+          <span class="hold-label"><span class="hold-pre">{{ holdPrefix }}</span><span>{{ s.confirmText || '确认' }}</span></span>
+          <!-- 填充区专用的深色文字副本：与上面那份逐字相同、位置完全重合，靠 clip-path 跟着进度露出 -->
+          <span v-if="isEndless" class="hold-fill-wrap" :key="'fill' + holdNonce">
+            <span class="hold-label"><span class="hold-pre">{{ holdPrefix }}</span><span>{{ s.confirmText || '确认' }}</span></span>
+          </span>
+        </button>
+      </div>
+      <div v-if="isHold" class="hold-hint" :key="holdHint">{{ holdHint }}</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const core = createWebUICore('ConfirmDialog');
+  const { createApp, reactive, computed, ref, watch } = Vue;
+
+  const DIALOG_TYPE_PERIL = 2;
+  const DIALOG_TYPE_DANGER = 5;
+  const DIALOG_TYPE_FINALREVIEW = 6;
+  const DIALOG_TYPE_HOLD = 7;   // Danger_Hold_Ok_Cancel：长按确认
+  const DIALOG_TYPE_ENDLESS_COMMIT = 8;  // EndlessCommit：无尽开局收口长按确认，皮肤与 HOLD 共用
+  const DIALOG_TYPE_DANGER_DISCARD = 9;  // Danger_Discard_Ok_Cancel：与 5 共用 danger 皮肤，只差 C# 侧给的 Confirm 文案
+  const HL_A = '\u0001', HL_B = '\u0002';
+
+  // localText 容器必须在 state 初始对象里预声明（i18n-rules ⓪：缺容器 → 读 .xxx 抛 TypeError → 整页空白）
+  const s = reactive({ title:'', body:'', confirmText:'', cancelText:'', dialogType:0, localText:{} });
+
+  const typedTitle = ref('');
+  const typingDone = ref(false);
+  let typingTimer = null;
+  function startTyping(text){
+    if (typingTimer) { clearInterval(typingTimer); typingTimer = null; }
+    typedTitle.value = '';
+    typingDone.value = false;
+    if (!text) { typingDone.value = true; return; }
+    let i = 0;
+    const step = Math.max(40, Math.min(90, Math.floor(900 / text.length)));
+    typingTimer = setInterval(() => {
+      i++;
+      typedTitle.value = text.slice(0, i);
+      if (i >= text.length) { clearInterval(typingTimer); typingTimer = null; typingDone.value = true; }
+    }, step);
+  }
+
+  core.registerHandlers({
+    // [2026-08-21] 长按确认那三条文案原先硬编码中文，英文版会显示「按住　Void and Restart」+ 整条中文提示
+    'WebUI_ConfirmationDialog_LocalizationMsg': (data) => {
+      for (const k in data) {
+        if (typeof data[k] === 'string') s.localText[k] = data[k];
+      }
+    },
+    'WebUI_ConfirmationDialog_UpdateMsg': (data) => {
+      if (typeof data.title === 'string') s.title = data.title;
+      if (typeof data.body === 'string') s.body = data.body;
+      if (typeof data.confirmText === 'string') s.confirmText = data.confirmText;
+      s.cancelText = (typeof data.cancelText === 'string') ? data.cancelText : '';
+      if (typeof data.dialogType === 'number') s.dialogType = data.dialogType;
+
+      if (s.dialogType === DIALOG_TYPE_PERIL && s.title) {
+        startTyping(s.title);
+      } else {
+        if (typingTimer) { clearInterval(typingTimer); typingTimer = null; }
+        typedTitle.value = s.title;
+        typingDone.value = true;
+      }
+    }
+  });
+
+  const isPeril = computed(() => s.dialogType === DIALOG_TYPE_PERIL);
+  const isDanger = computed(() => s.dialogType === DIALOG_TYPE_DANGER || s.dialogType === DIALOG_TYPE_DANGER_DISCARD);
+  const isFinalReview = computed(() => s.dialogType === DIALOG_TYPE_FINALREVIEW);
+
+  const frParts = computed(() => {
+    if (!s.body) return { qPre:'', qHl:'', qPunc:'', qRest:'', moreTitle:'', moreLines:[] };
+    const idx = s.body.indexOf('\n\n');
+    const q    = idx < 0 ? s.body : s.body.slice(0, idx);
+    const more = idx < 0 ? ''     : s.body.slice(idx + 2);
+    const a = q.indexOf(HL_A), b = q.indexOf(HL_B);
+    const hasHl = a >= 0 && b > a;
+    const lines = more ? more.split('\n') : [];
+    const tail = hasHl ? q.slice(b + 1) : '';
+    const m = tail.match(/^([，,。、；;：:]?)([\s\S]*)$/);
+    return {
+      qPre : hasHl ? q.slice(0, a)     : q,
+      qHl  : hasHl ? q.slice(a + 1, b) : '',
+      qPunc: m ? m[1] : '',
+      qRest: m ? m[2] : '',
+      moreTitle: lines.length ? lines[0] : '',
+      moreLines: lines.slice(1)
+    };
+  });
+
+  const bodyParts = computed(() => {
+    if (!s.body) return { broadcast:'', narration:'' };
+    const idx = s.body.indexOf('\n\n');
+    if (idx < 0) return { broadcast: s.body, narration: '' };
+    return {
+      broadcast: s.body.slice(0, idx),
+      narration: s.body.slice(idx + 2)
+    };
+  });
+
+  function stopTyping(){ if (typingTimer) { clearInterval(typingTimer); typingTimer = null; } }
+  function onConfirm(){ stopTyping(); core.UnitySendEvent('CONFIRM'); }
+  function onCancel(){ stopTyping(); core.UnitySendEvent('CANCEL'); }
+
+  // ===== [本轮重开 2026-08-20] 长按确认（dialogType=7）=====
+  // 文案：走本页 _LocalizationMsg（holdPrefix / hintHold / hintHoldEarly），中文兜底只在词条缺失时生效
+  const isHold = computed(() => s.dialogType === DIALOG_TYPE_HOLD || s.dialogType === DIALOG_TYPE_ENDLESS_COMMIT);
+  // 8 在 hold 的布局与交互之上再套一层琥珀皮肤（对齐 RebirthUpgrade 母界面），7 不受影响
+  const isEndless = computed(() => s.dialogType === DIALOG_TYPE_ENDLESS_COMMIT);
+  const holdPrefix = computed(() => s.localText.holdPrefix || '按住');
+  const holding = ref(false);
+  const holdNonce = ref(0);
+  const holdHint = ref('');
+  let holdStartTs = 0, holdHintTimer = null, holdDone = false;
+  const hintTap   = () => s.localText.hintHold      || '这个键需要按住不放——按到进度填满为止';
+  const hintEarly = () => s.localText.hintHoldEarly || '松开得太早了——按住别松，直到进度填满';
+  function showHoldHint(text){
+    holdHint.value = text;
+    clearTimeout(holdHintTimer);
+    holdHintTimer = setTimeout(() => { holdHint.value = ''; }, 3500);
+  }
+  function onHoldStart(){
+    if (holdDone) return;
+    holdStartTs = Date.now();
+    holdNonce.value++;
+    holding.value = true;
+  }
+  function onHoldStop(){
+    if (holdDone || !holding.value) return;
+    holding.value = false;
+    const held = Date.now() - holdStartTs;
+    showHoldHint(held < 350 ? hintTap() : hintEarly());
+  }
+  function onHoldDone(){
+    if (holdDone || !holding.value) return;
+    if (Date.now() - holdStartTs < 2100) { holding.value = false; showHoldHint(hintTap()); return; }
+    holdDone = true;          // 单向闩：只发一次 CONFIRM
+    onConfirm();
+  }
+  document.addEventListener('pointerup', () => { if (holding.value) onHoldStop(); }, true);
+
+  createApp({ setup(){ return { s, isPeril, isDanger, isFinalReview, isHold, isEndless, holdPrefix, holding, holdNonce, holdHint, typedTitle, typingDone, bodyParts, frParts, onConfirm, onCancel, onHoldStart, onHoldStop, onHoldDone }; } }).mount('#app');
+  core.notifyReady();
+</script>
+</body>
+</html>

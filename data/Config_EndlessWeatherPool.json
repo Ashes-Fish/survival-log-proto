@@ -1,0 +1,289 @@
+[
+  {
+    "ID": 1,
+    "PoolId": 1,
+    "WeatherID": 1,
+    "Weight": 60,
+    "EndlessState": 0
+  },
+  {
+    "ID": 2,
+    "PoolId": 1,
+    "WeatherID": 2,
+    "Weight": 30,
+    "EndlessState": 0
+  },
+  {
+    "ID": 3,
+    "PoolId": 1,
+    "WeatherID": 3,
+    "Weight": 10,
+    "EndlessState": 0
+  },
+  {
+    "ID": 4,
+    "PoolId": 2,
+    "WeatherID": 1,
+    "Weight": 45,
+    "EndlessState": 0
+  },
+  {
+    "ID": 5,
+    "PoolId": 2,
+    "WeatherID": 2,
+    "Weight": 35,
+    "EndlessState": 0
+  },
+  {
+    "ID": 6,
+    "PoolId": 2,
+    "WeatherID": 3,
+    "Weight": 20,
+    "EndlessState": 0
+  },
+  {
+    "ID": 7,
+    "PoolId": 3,
+    "WeatherID": 1,
+    "Weight": 30,
+    "EndlessState": 0
+  },
+  {
+    "ID": 8,
+    "PoolId": 3,
+    "WeatherID": 2,
+    "Weight": 40,
+    "EndlessState": 2
+  },
+  {
+    "ID": 9,
+    "PoolId": 3,
+    "WeatherID": 3,
+    "Weight": 30,
+    "EndlessState": 0
+  },
+  {
+    "ID": 10,
+    "PoolId": 4,
+    "WeatherID": 1,
+    "Weight": 20,
+    "EndlessState": 0
+  },
+  {
+    "ID": 11,
+    "PoolId": 4,
+    "WeatherID": 2,
+    "Weight": 40,
+    "EndlessState": 2
+  },
+  {
+    "ID": 12,
+    "PoolId": 4,
+    "WeatherID": 3,
+    "Weight": 40,
+    "EndlessState": 0
+  },
+  {
+    "ID": 13,
+    "PoolId": 5,
+    "WeatherID": 1,
+    "Weight": 10,
+    "EndlessState": 0
+  },
+  {
+    "ID": 14,
+    "PoolId": 5,
+    "WeatherID": 2,
+    "Weight": 35,
+    "EndlessState": 2
+  },
+  {
+    "ID": 15,
+    "PoolId": 5,
+    "WeatherID": 3,
+    "Weight": 55,
+    "EndlessState": 0
+  },
+  {
+    "ID": 16,
+    "PoolId": 2,
+    "WeatherID": 4,
+    "Weight": 10,
+    "EndlessState": 0
+  },
+  {
+    "ID": 17,
+    "PoolId": 2,
+    "WeatherID": 11,
+    "Weight": 10,
+    "EndlessState": 0
+  },
+  {
+    "ID": 18,
+    "PoolId": 3,
+    "WeatherID": 4,
+    "Weight": 15,
+    "EndlessState": 0
+  },
+  {
+    "ID": 19,
+    "PoolId": 3,
+    "WeatherID": 11,
+    "Weight": 15,
+    "EndlessState": 0
+  },
+  {
+    "ID": 20,
+    "PoolId": 4,
+    "WeatherID": 5,
+    "Weight": 15,
+    "EndlessState": 0
+  },
+  {
+    "ID": 21,
+    "PoolId": 4,
+    "WeatherID": 10,
+    "Weight": 15,
+    "EndlessState": 0
+  },
+  {
+    "ID": 22,
+    "PoolId": 4,
+    "WeatherID": 11,
+    "Weight": 15,
+    "EndlessState": 0
+  },
+  {
+    "ID": 23,
+    "PoolId": 5,
+    "WeatherID": 4,
+    "Weight": 15,
+    "EndlessState": 0
+  },
+  {
+    "ID": 24,
+    "PoolId": 5,
+    "WeatherID": 5,
+    "Weight": 15,
+    "EndlessState": 0
+  },
+  {
+    "ID": 25,
+    "PoolId": 5,
+    "WeatherID": 6,
+    "Weight": 15,
+    "EndlessState": 0
+  },
+  {
+    "ID": 26,
+    "PoolId": 5,
+    "WeatherID": 10,
+    "Weight": 15,
+    "EndlessState": 0
+  },
+  {
+    "ID": 27,
+    "PoolId": 5,
+    "WeatherID": 11,
+    "Weight": 10,
+    "EndlessState": 0
+  },
+  {
+    "ID": 28,
+    "PoolId": 101,
+    "WeatherID": 4,
+    "Weight": 20,
+    "EndlessState": 0
+  },
+  {
+    "ID": 29,
+    "PoolId": 101,
+    "WeatherID": 5,
+    "Weight": 40,
+    "EndlessState": 0
+  },
+  {
+    "ID": 30,
+    "PoolId": 101,
+    "WeatherID": 6,
+    "Weight": 40,
+    "EndlessState": 0
+  },
+  {
+    "ID": 31,
+    "PoolId": 102,
+    "WeatherID": 13,
+    "Weight": 35,
+    "EndlessState": 0
+  },
+  {
+    "ID": 32,
+    "PoolId": 102,
+    "WeatherID": 14,
+    "Weight": 65,
+    "EndlessState": 0
+  },
+  {
+    "ID": 33,
+    "PoolId": 103,
+    "WeatherID": 15,
+    "Weight": 20,
+    "EndlessState": 0
+  },
+  {
+    "ID": 34,
+    "PoolId": 103,
+    "WeatherID": 16,
+    "Weight": 40,
+    "EndlessState": 0
+  },
+  {
+    "ID": 35,
+    "PoolId": 103,
+    "WeatherID": 17,
+    "Weight": 40,
+    "EndlessState": 0
+  },
+  {
+    "ID": 36,
+    "PoolId": 3,
+    "WeatherID": 2,
+    "Weight": 27,
+    "EndlessState": 3
+  },
+  {
+    "ID": 37,
+    "PoolId": 3,
+    "WeatherID": 12,
+    "Weight": 13,
+    "EndlessState": 3
+  },
+  {
+    "ID": 38,
+    "PoolId": 4,
+    "WeatherID": 2,
+    "Weight": 26,
+    "EndlessState": 3
+  },
+  {
+    "ID": 39,
+    "PoolId": 4,
+    "WeatherID": 12,
+    "Weight": 14,
+    "EndlessState": 3
+  },
+  {
+    "ID": 40,
+    "PoolId": 5,
+    "WeatherID": 2,
+    "Weight": 18,
+    "EndlessState": 3
+  },
+  {
+    "ID": 41,
+    "PoolId": 5,
+    "WeatherID": 12,
+    "Weight": 17,
+    "EndlessState": 3
+  }
+]

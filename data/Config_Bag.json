@@ -1,0 +1,948 @@
+[
+  {
+    "ID": 1,
+    "Name": "Bag_Name_1",
+    "Name_Local": "普通背包",
+    "Size": [
+      8,
+      7
+    ],
+    "Burden": 9600,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 2,
+    "Name": "Bag_Name_2",
+    "Name_Local": "野外登山包",
+    "Size": [
+      10,
+      8
+    ],
+    "Burden": 12000,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 3,
+    "Name": "Bag_Name_3",
+    "Name_Local": "购物车",
+    "Size": [
+      12,
+      8
+    ],
+    "Burden": 18000,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 4,
+    "Name": "Bag_Name_4",
+    "Name_Local": "轿车",
+    "Size": [
+      14,
+      10
+    ],
+    "Burden": 48000,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5,
+    "Name": "Bag_Name_1",
+    "Name_Local": "普通背包",
+    "Size": [
+      8,
+      8
+    ],
+    "Burden": 9600,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 6,
+    "Name": "Bag_Name_1",
+    "Name_Local": "普通背包",
+    "Size": [
+      8,
+      9
+    ],
+    "Burden": 9600,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 7,
+    "Name": "Bag_Name_1",
+    "Name_Local": "普通背包",
+    "Size": [
+      8,
+      10
+    ],
+    "Burden": 9600,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 8,
+    "Name": "Bag_Name_8",
+    "Name_Local": "仓管背包",
+    "Size": [
+      9,
+      8
+    ],
+    "Burden": 12480,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 9,
+    "Name": "Bag_Name_9",
+    "Name_Local": "仓管背包",
+    "Size": [
+      9,
+      9
+    ],
+    "Burden": 12480,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 10,
+    "Name": "Bag_Name_10",
+    "Name_Local": "仓管背包",
+    "Size": [
+      9,
+      10
+    ],
+    "Burden": 12480,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 11,
+    "Name": "Bag_Name_11",
+    "Name_Local": "仓管背包",
+    "Size": [
+      9,
+      11
+    ],
+    "Burden": 12480,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 1001,
+    "Name": "Bag_Name_1001",
+    "Name_Local": "柜子1",
+    "Size": [
+      8,
+      6
+    ],
+    "Burden": 14400,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 1002,
+    "Name": "Bag_Name_1002",
+    "Name_Local": "柜子2",
+    "Size": [
+      8,
+      10
+    ],
+    "Burden": 24000,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 1003,
+    "Name": "Bag_Name_1003",
+    "Name_Local": "柜子3",
+    "Size": [
+      8,
+      10
+    ],
+    "Burden": 24000,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 1004,
+    "Name": "Bag_Name_1004",
+    "Name_Local": "双门冰箱",
+    "Size": [
+      8,
+      7
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 1005,
+    "Name": "Bag_Name_1005",
+    "Name_Local": "柜子5",
+    "Size": [
+      10,
+      14
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 1006,
+    "Name": "Bag_Name_1006",
+    "Name_Local": "矮柜",
+    "Size": [
+      6,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 1010,
+    "Name": "Bag_Name_1010",
+    "Name_Local": "纸箱",
+    "Size": [
+      6,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 1021,
+    "Name": "Bag_Name_1021",
+    "Name_Local": "自行车车筐",
+    "Size": [
+      5,
+      4
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 1022,
+    "Name": "Bag_Name_1022",
+    "Name_Local": "小汽车后备箱",
+    "Size": [
+      10,
+      8
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 1023,
+    "Name": "Bag_Name_1023",
+    "Name_Local": "SUV后备箱",
+    "Size": [
+      12,
+      10
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 1050,
+    "Name": "Bag_Name_1050",
+    "Name_Local": "篮子",
+    "Size": [
+      5,
+      3
+    ],
+    "Burden": 12000,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 1061,
+    "Name": "Bag_Name_1061",
+    "Name_Local": "HK 整理机器人背包",
+    "Size": [
+      4,
+      2
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 1063,
+    "Name": "Bag_Name_1063",
+    "Name_Local": "HK 整理机器人背包（扩展）",
+    "Size": [
+      4,
+      3
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 2001,
+    "Name": "Bag_Name_2001",
+    "Name_Local": "大型展示柜（非卖品）",
+    "Size": [
+      16,
+      12
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 2002,
+    "Name": "Bag_Name_2002",
+    "Name_Local": "啤酒箱",
+    "Size": [
+      5,
+      3
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 2003,
+    "Name": "Bag_Name_2003",
+    "Name_Local": "纸箱",
+    "Size": [
+      5,
+      3
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 2004,
+    "Name": "Bag_Name_2004",
+    "Name_Local": "工具箱",
+    "Size": [
+      5,
+      3
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 3001,
+    "Name": "Bag_Name_3001",
+    "Name_Local": "箱子",
+    "Size": [
+      5,
+      3
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 3002,
+    "Name": "Bag_Name_3002",
+    "Name_Local": "箱子",
+    "Size": [
+      6,
+      5
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 3003,
+    "Name": "Bag_Name_3003",
+    "Name_Local": "箱子",
+    "Size": [
+      8,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 5007,
+    "Name": "Bag_Name_5007",
+    "Name_Local": "老鼠笼饲料仓",
+    "Size": [
+      5,
+      2
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5008,
+    "Name": "Bag_Name_5008",
+    "Name_Local": "老鼠笼饲料仓",
+    "Size": [
+      7,
+      4
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5009,
+    "Name": "Bag_Name_5009",
+    "Name_Local": "老鼠笼饲料仓",
+    "Size": [
+      8,
+      5
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5012,
+    "Name": "Bag_Name_5010",
+    "Name_Local": "工作台抽屉",
+    "Size": [
+      8,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5013,
+    "Name": "Bag_Name_5010",
+    "Name_Local": "工作台抽屉",
+    "Size": [
+      8,
+      7
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5015,
+    "Name": "Bag_Name_5015",
+    "Name_Local": "粉碎机投料斗",
+    "Size": [
+      8,
+      3
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5016,
+    "Name": "Bag_Name_5016",
+    "Name_Local": "粉碎机接料仓",
+    "Size": [
+      8,
+      5
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5017,
+    "Name": "Bag_Name_5017",
+    "Name_Local": "口粮压制槽",
+    "Size": [
+      6,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5018,
+    "Name": "Bag_Name_5018",
+    "Name_Local": "口粮产出格",
+    "Size": [
+      6,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5019,
+    "Name": "Bag_Name_5019",
+    "Name_Local": "自动诱捕笼储物仓",
+    "Size": [
+      8,
+      5
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5021,
+    "Name": "Bag_Name_5019",
+    "Name_Local": "自动诱捕笼储物仓",
+    "Size": [
+      8,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5022,
+    "Name": "Bag_Name_5019",
+    "Name_Local": "自动诱捕笼储物仓",
+    "Size": [
+      9,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 10001,
+    "Name": "Bag_Name_10001",
+    "Name_Local": "单人床",
+    "Size": [
+      8,
+      1
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 10002,
+    "Name": "Bag_Name_10002",
+    "Name_Local": "金属柜",
+    "Size": [
+      4,
+      8
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 10003,
+    "Name": "Bag_Name_10003",
+    "Name_Local": "工具箱",
+    "Size": [
+      5,
+      3
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 10004,
+    "Name": "Bag_Name_10004",
+    "Name_Local": "垃圾桶",
+    "Size": [
+      4,
+      5
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 10005,
+    "Name": "Bag_Name_10005",
+    "Name_Local": "生锈的金属柜",
+    "Size": [
+      4,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 10006,
+    "Name": "Bag_Name_10006",
+    "Name_Local": "凹陷的铁皮柜",
+    "Size": [
+      4,
+      10
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 10007,
+    "Name": "Bag_Name_10007",
+    "Name_Local": "工具柜",
+    "Size": [
+      6,
+      7
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 10008,
+    "Name": "Bag_Name_10002",
+    "Name_Local": "金属柜-409专属",
+    "Size": [
+      7,
+      8
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 10009,
+    "Name": "Bag_Name_1003",
+    "Name_Local": "储物柜-80022专属",
+    "Size": [
+      10,
+      4
+    ],
+    "Burden": 24000,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 110000,
+    "Name": "Bag_Name_110000",
+    "Name_Local": "大型置物架",
+    "Size": [
+      12,
+      10
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 110001,
+    "Name": "Bag_Name_110001",
+    "Name_Local": "中型置物架",
+    "Size": [
+      8,
+      10
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 110002,
+    "Name": "Bag_Name_110002",
+    "Name_Local": "小型置物架",
+    "Size": [
+      6,
+      8
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 110003,
+    "Name": "Bag_Name_110003",
+    "Name_Local": "床头柜",
+    "Size": [
+      6,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 110004,
+    "Name": "Bag_Name_110004",
+    "Name_Local": "衣柜",
+    "Size": [
+      8,
+      10
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 110005,
+    "Name": "Bag_Name_110005",
+    "Name_Local": "玄关台",
+    "Size": [
+      6,
+      7
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 110006,
+    "Name": "Bag_Name_110006",
+    "Name_Local": "衣柜",
+    "Size": [
+      5,
+      3
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 110007,
+    "Name": "Bag_Name_110000",
+    "Name_Local": "大型置物架",
+    "Size": [
+      8,
+      7
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 110008,
+    "Name": "Bag_Name_110008",
+    "Name_Local": "超大型置物架",
+    "Size": [
+      15,
+      12
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 115000,
+    "Name": "Bag_Name_115000",
+    "Name_Local": "双开门冰箱",
+    "Size": [
+      8,
+      7
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 115001,
+    "Name": "Bag_Name_115001",
+    "Name_Local": "冰柜",
+    "Size": [
+      8,
+      10
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 5001,
+    "Name": "Bag_Name_5001",
+    "Name_Local": "卡式炉操作台",
+    "Size": [
+      6,
+      4
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5002,
+    "Name": "Bag_Name_5002",
+    "Name_Local": "电烤箱操作台",
+    "Size": [
+      8,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 115002,
+    "Name": "Bag_Name_115002",
+    "Name_Local": "堆肥箱",
+    "Size": [
+      6,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 5003,
+    "Name": "Bag_Name_5003",
+    "Name_Local": "微波炉操作台",
+    "Size": [
+      6,
+      4
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5004,
+    "Name": "Bag_Name_5004",
+    "Name_Local": "大型燃气灶操作台",
+    "Size": [
+      8,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5005,
+    "Name": "Bag_Name_5005",
+    "Name_Local": "榨汁机操作台",
+    "Size": [
+      4,
+      4
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 115003,
+    "Name": "Bag_Name_115003",
+    "Name_Local": "货车车厢",
+    "Size": [
+      14,
+      10
+    ],
+    "Burden": 60000,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 1008,
+    "Name": "Bag_Name_1008",
+    "Name_Local": "无人机货舱",
+    "Size": [
+      6,
+      7
+    ],
+    "Burden": 12000,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 1060,
+    "Name": "Bag_Name_1060",
+    "Name_Local": "门口暂存格",
+    "Size": [
+      6,
+      4
+    ],
+    "Burden": 60000,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 1014,
+    "Name": "Bag_Name_1014",
+    "Name_Local": "窗台收纳",
+    "Size": [
+      8,
+      5
+    ],
+    "Burden": 12000,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5006,
+    "Name": "Bag_Name_5006",
+    "Name_Local": "咖啡机操作台",
+    "Size": [
+      4,
+      4
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 115004,
+    "Name": "Bag_Name_115004",
+    "Name_Local": "酿酒桶",
+    "Size": [
+      6,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  },
+  {
+    "ID": 5010,
+    "Name": "Bag_Name_5010",
+    "Name_Local": "工作台抽屉",
+    "Size": [
+      8,
+      5
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5011,
+    "Name": "Bag_Name_5011",
+    "Name_Local": "电火锅操作台",
+    "Size": [
+      6,
+      4
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5014,
+    "Name": "Bag_Name_5014",
+    "Name_Local": "老鼠笼饲料仓",
+    "Size": [
+      10,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 1009,
+    "Name": "Bag_Name_1009",
+    "Name_Local": "中控台货舱",
+    "Size": [
+      10,
+      8
+    ],
+    "Burden": 24000,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 1062,
+    "Name": "Bag_Name_1062",
+    "Name_Local": "燃料仓",
+    "Size": [
+      8,
+      6
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 1011,
+    "Name": "Bag_Name_1011",
+    "Name_Local": "转运枢纽货仓",
+    "Size": [
+      10,
+      8
+    ],
+    "Burden": 24000,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 1012,
+    "Name": "Bag_Name_1012",
+    "Name_Local": "转运中心粮仓",
+    "Size": [
+      10,
+      8
+    ],
+    "Burden": 24000,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 110009,
+    "Name": "Bag_Name_110009",
+    "Name_Local": "材料架",
+    "Size": [
+      20,
+      12
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 5020,
+    "Name": "Bag_Name_5010",
+    "Name_Local": "暖房工程台待交",
+    "Size": [
+      8,
+      7
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 1064,
+    "Name": "Bag_Name_1064",
+    "Name_Local": "FX 维修机器人货舱",
+    "Size": [
+      2,
+      2
+    ],
+    "Burden": 0,
+    "UseOwnerName": 0
+  },
+  {
+    "ID": 115005,
+    "Name": "Bag_Name_115005",
+    "Name_Local": "大容量冰柜",
+    "Size": [
+      12,
+      10
+    ],
+    "Burden": 0,
+    "UseOwnerName": 1
+  }
+]

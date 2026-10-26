@@ -1,0 +1,68 @@
+[
+  {
+    "ID": 1,
+    "Name": "FoodType_Name_1",
+    "Name_Local": "主食",
+    "IT_Icon": "Assets/RuntimeAssets/Texture/Food/UI_Item_Icon_Food_S_1301400401"
+  },
+  {
+    "ID": 2,
+    "Name": "FoodType_Name_2",
+    "Name_Local": "肉",
+    "IT_Icon": "Assets/RuntimeAssets/Texture/Food/UI_Item_Icon_Food_S_1301200501"
+  },
+  {
+    "ID": 3,
+    "Name": "FoodType_Name_3",
+    "Name_Local": "蛋奶",
+    "IT_Icon": "Assets/RuntimeAssets/Texture/Food/UI_Item_Icon_Food_S_1301300101"
+  },
+  {
+    "ID": 4,
+    "Name": "FoodType_Name_4",
+    "Name_Local": "鱼类",
+    "IT_Icon": "Assets/RuntimeAssets/Texture/Food/UI_Item_Icon_Food_S_1300601801"
+  },
+  {
+    "ID": 5,
+    "Name": "FoodType_Name_5",
+    "Name_Local": "蔬菜",
+    "IT_Icon": "Assets/RuntimeAssets/Texture/Food/UI_Item_Icon_Food_S_1301500101"
+  },
+  {
+    "ID": 6,
+    "Name": "FoodType_Name_6",
+    "Name_Local": "水果",
+    "IT_Icon": "Assets/RuntimeAssets/Texture/Food/UI_Item_Icon_Food_S_1300901501"
+  },
+  {
+    "ID": 7,
+    "Name": "FoodType_Name_7",
+    "Name_Local": "零食",
+    "IT_Icon": "Assets/RuntimeAssets/Texture/Food/UI_Item_Icon_Food_S_1300200301"
+  },
+  {
+    "ID": 8,
+    "Name": "FoodType_Name_8",
+    "Name_Local": "调味",
+    "IT_Icon": "Assets/RuntimeAssets/Texture/Food/UI_Item_Icon_Food_S_1300700201"
+  },
+  {
+    "ID": 9,
+    "Name": "FoodType_Name_9",
+    "Name_Local": "软饮料",
+    "IT_Icon": "Assets/RuntimeAssets/Texture/Food/UI_Item_Icon_Food_S_1300300121"
+  },
+  {
+    "ID": 10,
+    "Name": "FoodType_Name_10",
+    "Name_Local": "酒类",
+    "IT_Icon": "Assets/RuntimeAssets/Texture/Food/UI_Item_Icon_Food_S_1300300501"
+  },
+  {
+    "ID": 11,
+    "Name": "FoodType_Name_11",
+    "Name_Local": "菌菇",
+    "IT_Icon": "Assets/RuntimeAssets/Texture/Food/UI_Item_Icon_Food_S_1301100101"
+  }
+]

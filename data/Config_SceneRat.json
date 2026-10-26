@@ -1,0 +1,62 @@
+[
+  {
+    "ID": 1,
+    "SceneRatName": "SceneRat_SceneRatName_1",
+    "SceneRatName_Local": "小家鼠",
+    "Model": "Assets/RuntimeAssets/Prefabs/Animals/P_Xiaojiashu",
+    "Weight": 40,
+    "WanderIntervalMinSec": 10.0,
+    "WanderIntervalMaxSec": 20.0,
+    "EscapeRadiusMeter": 2.0,
+    "EscapeProbability": 0.699999988079071,
+    "LifetimeMinGameHour": 12,
+    "LifetimeMaxGameHour": 24,
+    "PreyItemId": 30000,
+    "HeadBarAnchorY": 0.20000000298023224
+  },
+  {
+    "ID": 2,
+    "SceneRatName": "SceneRat_SceneRatName_2",
+    "SceneRatName_Local": "褐家鼠",
+    "Model": "Assets/RuntimeAssets/Prefabs/Animals/P_Hejiashu",
+    "Weight": 30,
+    "WanderIntervalMinSec": 10.0,
+    "WanderIntervalMaxSec": 20.0,
+    "EscapeRadiusMeter": 2.0,
+    "EscapeProbability": 0.699999988079071,
+    "LifetimeMinGameHour": 12,
+    "LifetimeMaxGameHour": 24,
+    "PreyItemId": 30003,
+    "HeadBarAnchorY": 0.2199999988079071
+  },
+  {
+    "ID": 3,
+    "SceneRatName": "SceneRat_SceneRatName_3",
+    "SceneRatName_Local": "黑家鼠",
+    "Model": "Assets/RuntimeAssets/Prefabs/Animals/P_heijiashu",
+    "Weight": 20,
+    "WanderIntervalMinSec": 10.0,
+    "WanderIntervalMaxSec": 20.0,
+    "EscapeRadiusMeter": 2.0,
+    "EscapeProbability": 0.699999988079071,
+    "LifetimeMinGameHour": 12,
+    "LifetimeMaxGameHour": 24,
+    "PreyItemId": 30007,
+    "HeadBarAnchorY": 0.20000000298023224
+  },
+  {
+    "ID": 4,
+    "SceneRatName": "SceneRat_SceneRatName_4",
+    "SceneRatName_Local": "大灰鼠",
+    "Model": "Assets/RuntimeAssets/Prefabs/Animals/P_goushu",
+    "Weight": 10,
+    "WanderIntervalMinSec": 10.0,
+    "WanderIntervalMaxSec": 20.0,
+    "EscapeRadiusMeter": 2.0,
+    "EscapeProbability": 0.699999988079071,
+    "LifetimeMinGameHour": 12,
+    "LifetimeMaxGameHour": 24,
+    "PreyItemId": 30008,
+    "HeadBarAnchorY": 0.25
+  }
+]

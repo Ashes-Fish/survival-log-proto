@@ -1,0 +1,65 @@
+[
+  {
+    "ID": 1,
+    "CategoryName_Local": "食物",
+    "Icon": "icon_checklist_food",
+    "DisplayOrder": 10,
+    "HelperText_Local": "灾后赖以生存的能量来源",
+    "CategoryName": "ChecklistCategory_CategoryName_1",
+    "HelperText": "ChecklistCategory_HelperText_1"
+  },
+  {
+    "ID": 2,
+    "CategoryName_Local": "安全",
+    "Icon": "icon_checklist_safety",
+    "DisplayOrder": 20,
+    "HelperText_Local": "门窗耐久决定能撑多久",
+    "CategoryName": "ChecklistCategory_CategoryName_2",
+    "HelperText": "ChecklistCategory_HelperText_2"
+  },
+  {
+    "ID": 3,
+    "CategoryName_Local": "种植",
+    "Icon": "icon_checklist_plant",
+    "DisplayOrder": 30,
+    "HelperText_Local": "灾后续命的可持续产出",
+    "CategoryName": "ChecklistCategory_CategoryName_3",
+    "HelperText": "ChecklistCategory_HelperText_3"
+  },
+  {
+    "ID": 4,
+    "CategoryName_Local": "烹饪",
+    "Icon": "icon_checklist_cook",
+    "DisplayOrder": 40,
+    "HelperText_Local": "把生食材变成高品质料理",
+    "CategoryName": "ChecklistCategory_CategoryName_4",
+    "HelperText": "ChecklistCategory_HelperText_4"
+  },
+  {
+    "ID": 5,
+    "CategoryName_Local": "电力",
+    "Icon": "icon_checklist_power",
+    "DisplayOrder": 50,
+    "HelperText_Local": "冰箱和电器都靠它",
+    "CategoryName": "ChecklistCategory_CategoryName_5",
+    "HelperText": "ChecklistCategory_HelperText_5"
+  },
+  {
+    "ID": 6,
+    "CategoryName_Local": "制造材料",
+    "Icon": "icon_checklist_craft",
+    "DisplayOrder": 60,
+    "HelperText_Local": "修门、加固、燃烧瓶都要",
+    "CategoryName": "ChecklistCategory_CategoryName_6",
+    "HelperText": "ChecklistCategory_HelperText_6"
+  },
+  {
+    "ID": 7,
+    "CategoryName_Local": "场所访问",
+    "Icon": "icon_checklist_shop",
+    "DisplayOrder": 5,
+    "HelperText_Local": "记得留点钱去家具商店哦。",
+    "CategoryName": "ChecklistCategory_CategoryName_7",
+    "HelperText": "ChecklistCategory_HelperText_7"
+  }
+]

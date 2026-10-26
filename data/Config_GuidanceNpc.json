@@ -1,0 +1,410 @@
+[
+  {
+    "ID": 1,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 11,
+    "MapPointID": 2,
+    "PosPoint": "Market_12",
+    "ShopID": 0,
+    "Msg": [
+      "XiaoMei_Bubble_1",
+      "XiaoMei_Bubble_2",
+      "XiaoMei_Bubble_3",
+      "XiaoMei_Bubble_4",
+      "XiaoMei_Bubble_5"
+    ],
+    "PlayerSelectId": 1,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 2,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 14,
+    "MapPointID": 2,
+    "PosPoint": "Market_13",
+    "ShopID": 2,
+    "Msg": [
+      "AZhen_Bubble_1",
+      "AZhen_Bubble_2",
+      "AZhen_Bubble_3",
+      "AZhen_Bubble_4",
+      "AZhen_Bubble_5"
+    ],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 3,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 29,
+    "MapPointID": 2,
+    "PosPoint": "Market_14",
+    "ShopID": 0,
+    "Msg": [
+      "DaZhuang_Bubble_1",
+      "DaZhuang_Bubble_2",
+      "DaZhuang_Bubble_3",
+      "DaZhuang_Bubble_4",
+      "DaZhuang_Bubble_5"
+    ],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 4,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 24,
+    "MapPointID": 3,
+    "PosPoint": "Building_materials_market_29",
+    "ShopID": 30,
+    "Msg": [
+      "BuildMat_1_Bubble_1",
+      "BuildMat_1_Bubble_2",
+      "BuildMat_1_Bubble_3",
+      "BuildMat_1_Bubble_4",
+      "BuildMat_1_Bubble_5"
+    ],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 5,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 16,
+    "MapPointID": 3,
+    "PosPoint": "Building_materials_market_30",
+    "ShopID": 32,
+    "Msg": [
+      "BuildMat_2_Bubble_1",
+      "BuildMat_2_Bubble_2",
+      "BuildMat_2_Bubble_3",
+      "BuildMat_2_Bubble_4",
+      "BuildMat_2_Bubble_5"
+    ],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 6,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 20,
+    "MapPointID": 3,
+    "PosPoint": "Building_materials_market_31",
+    "ShopID": 0,
+    "Msg": [
+      "BuildMat_3_Bubble_1",
+      "BuildMat_3_Bubble_2",
+      "BuildMat_3_Bubble_3",
+      "BuildMat_3_Bubble_4",
+      "BuildMat_3_Bubble_5"
+    ],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 7,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 25,
+    "MapPointID": 5,
+    "PosPoint": "Farmers_market_43",
+    "ShopID": 40,
+    "Msg": [
+      "FarmMkt_1_Bubble_1",
+      "FarmMkt_1_Bubble_2",
+      "FarmMkt_1_Bubble_3",
+      "FarmMkt_1_Bubble_4",
+      "FarmMkt_1_Bubble_5"
+    ],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 8,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 26,
+    "MapPointID": 5,
+    "PosPoint": "Farmers_market_44",
+    "ShopID": 0,
+    "Msg": [
+      "FarmMkt_2_Bubble_1",
+      "FarmMkt_2_Bubble_2",
+      "FarmMkt_2_Bubble_3",
+      "FarmMkt_2_Bubble_4",
+      "FarmMkt_2_Bubble_5"
+    ],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 9,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 30,
+    "MapPointID": 5,
+    "PosPoint": "Farmers_market_45",
+    "ShopID": 0,
+    "Msg": [
+      "FarmMkt_3_Bubble_1",
+      "FarmMkt_3_Bubble_2",
+      "FarmMkt_3_Bubble_3",
+      "FarmMkt_3_Bubble_4",
+      "FarmMkt_3_Bubble_5"
+    ],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 10,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 27,
+    "MapPointID": 2,
+    "PosPoint": "Market_12",
+    "ShopID": 0,
+    "Msg": [
+      "WorkingBoy_Bubble_1",
+      "WorkingBoy_Bubble_2",
+      "WorkingBoy_Bubble_3",
+      "WorkingBoy_Bubble_4",
+      "WorkingBoy_Bubble_5"
+    ],
+    "PlayerSelectId": 2,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 11,
+    "IsShow": false,
+    "ChapterID": 1,
+    "PlayerId": 11,
+    "MapPointID": 2,
+    "PosPoint": "NPC_Market_24",
+    "ShopID": 1,
+    "Msg": [],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 12,
+    "IsShow": false,
+    "ChapterID": 1,
+    "PlayerId": 11,
+    "MapPointID": 2,
+    "PosPoint": "NPC_Market_25",
+    "ShopID": 1,
+    "Msg": [],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 13,
+    "IsShow": false,
+    "ChapterID": 1,
+    "PlayerId": 11,
+    "MapPointID": 2,
+    "PosPoint": "NPC_Market_26",
+    "ShopID": 1,
+    "Msg": [],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 14,
+    "IsShow": false,
+    "ChapterID": 1,
+    "PlayerId": 11,
+    "MapPointID": 2,
+    "PosPoint": "NPC_Market_27",
+    "ShopID": 1,
+    "Msg": [],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 15,
+    "IsShow": false,
+    "ChapterID": 1,
+    "PlayerId": 11,
+    "MapPointID": 2,
+    "PosPoint": "NPC_Market_28",
+    "ShopID": 1,
+    "Msg": [],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 16,
+    "IsShow": false,
+    "ChapterID": 1,
+    "PlayerId": 11,
+    "MapPointID": 5,
+    "PosPoint": "NPC_Farmers_market_46",
+    "ShopID": 1,
+    "Msg": [],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 17,
+    "IsShow": false,
+    "ChapterID": 1,
+    "PlayerId": 11,
+    "MapPointID": 5,
+    "PosPoint": "NPC_Farmers_market_47",
+    "ShopID": 1,
+    "Msg": [],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 18,
+    "IsShow": false,
+    "ChapterID": 1,
+    "PlayerId": 11,
+    "MapPointID": 5,
+    "PosPoint": "NPC_Farmers_market_48",
+    "ShopID": 1,
+    "Msg": [],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 19,
+    "IsShow": false,
+    "ChapterID": 1,
+    "PlayerId": 11,
+    "MapPointID": 5,
+    "PosPoint": "NPC_Farmers_market_49",
+    "ShopID": 1,
+    "Msg": [],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 20,
+    "IsShow": false,
+    "ChapterID": 1,
+    "PlayerId": 11,
+    "MapPointID": 5,
+    "PosPoint": "NPC_Farmers_market_50",
+    "ShopID": 1,
+    "Msg": [],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 21,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 28,
+    "MapPointID": 2,
+    "PosPoint": "NPC_Market_24",
+    "ShopID": 0,
+    "Msg": [
+      "VillainNeighbor_Bubble_1",
+      "VillainNeighbor_Bubble_2",
+      "VillainNeighbor_Bubble_3",
+      "VillainNeighbor_Bubble_4",
+      "VillainNeighbor_Bubble_5"
+    ],
+    "PlayerSelectId": 1,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 22,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 31,
+    "MapPointID": 9,
+    "PosPoint": "Small_Market_01",
+    "ShopID": 3,
+    "Msg": [
+      "NightShiftClerk_Bubble_1",
+      "NightShiftClerk_Bubble_2",
+      "NightShiftClerk_Bubble_3",
+      "NightShiftClerk_Bubble_4",
+      "NightShiftClerk_Bubble_5"
+    ],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 23,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 32,
+    "MapPointID": 10,
+    "PosPoint": "Tool_Store_01",
+    "ShopID": 31,
+    "Msg": [
+      "HardwareOwner_Bubble_1",
+      "HardwareOwner_Bubble_2",
+      "HardwareOwner_Bubble_3",
+      "HardwareOwner_Bubble_4",
+      "HardwareOwner_Bubble_5"
+    ],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 24,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 33,
+    "MapPointID": 3,
+    "PosPoint": "Building_materials_market_33",
+    "ShopID": 0,
+    "Msg": [
+      "PawnClerk_Bubble_1",
+      "PawnClerk_Bubble_2",
+      "PawnClerk_Bubble_3",
+      "PawnClerk_Bubble_4",
+      "PawnClerk_Bubble_5"
+    ],
+    "PlayerSelectId": 0,
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 25,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 34,
+    "MapPointID": 2,
+    "PosPoint": "NPC_Market_24",
+    "ShopID": 0,
+    "Msg": [
+      "VillainNeighbor_Bubble_1",
+      "VillainNeighbor_Bubble_2",
+      "VillainNeighbor_Bubble_3",
+      "VillainNeighbor_Bubble_4",
+      "VillainNeighbor_Bubble_5"
+    ],
+    "PlayerSelectId": 2,
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 26,
+    "IsShow": true,
+    "ChapterID": 1,
+    "PlayerId": 35,
+    "MapPointID": 2,
+    "PosPoint": "NPC_Market_24",
+    "ShopID": 0,
+    "Msg": [
+      "VillainNeighbor_Bubble_1",
+      "VillainNeighbor_Bubble_2",
+      "VillainNeighbor_Bubble_3",
+      "VillainNeighbor_Bubble_4",
+      "VillainNeighbor_Bubble_5"
+    ],
+    "PlayerSelectId": 3,
+    "DemoTwoMode": 0
+  }
+]

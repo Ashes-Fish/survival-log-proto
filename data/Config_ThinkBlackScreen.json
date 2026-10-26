@@ -1,0 +1,46 @@
+[
+  {
+    "ID": 401,
+    "BlackScreenId": 7,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomThink": [
+      "PostBlack_7_1",
+      "PostBlack_7_2"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 402,
+    "BlackScreenId": 15,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomThink": [
+      "PostBlack_15_1",
+      "PostBlack_15_2"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 403,
+    "BlackScreenId": 9,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 300,
+    "RandomThink": [
+      "PostBlack_9_1",
+      "PostBlack_9_2"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 404,
+    "BlackScreenId": 10,
+    "Rate": 0.6000000238418579,
+    "TypeCD": 300,
+    "RandomThink": [
+      "PostBlack_10_1",
+      "PostBlack_10_2"
+    ],
+    "PlayerSelectId": []
+  }
+]

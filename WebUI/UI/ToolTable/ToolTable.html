@@ -1,0 +1,4169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>背包系统 - 完整版(含制造笔记)</title>
+<script src="../../vue.global.prod.js"></script>
+<script src="../../webui-core.js"></script>
+<script src="../../webui-bag.js"></script>
+<!-- 「脚边」横排：界面下方那一排身边地面物品（与其他物品界面共用） -->
+<script src="../../webui-grounddock.js"></script>
+<!-- A/D 切页签键的每日首次提示（背包 / 制造台 / 烹饪共用一份，见文件头说明） -->
+<script src="../../webui-tabhint.js"></script>
+<script src="../../webui-rackrows.js"></script>
+    <script src="../../webui-flyitems.js"></script>
+<!-- 拖到左侧另一颗页签上松手 = 直接放进那个容器（与其他多页签物品界面共用） -->
+<script src="../../webui-tabdrop.js"></script>
+<style>
+    :root {
+        --panel-bg: linear-gradient(168deg, rgba(34, 34, 36, 0.94) 0%, rgba(20, 20, 22, 0.96) 100%);
+        --panel-border: rgba(255, 255, 255, 0.15);
+        --slot-bg: linear-gradient(180deg, #131316 0%, #1d1d20 100%);
+        --slot-border: rgba(255, 255, 255, 0.13);
+        --grid-frame-bg: #08080a;
+        --text-color: #eee;
+        --text-dim: #999;
+        --title-size: 18px;
+        --accent: #FFC107;
+        --accent-glow: rgba(255, 193, 7, 0.28);
+        --btn-bg: linear-gradient(180deg, rgba(58, 58, 60, 0.9) 0%, rgba(38, 38, 40, 0.92) 100%);
+        --btn-hover: linear-gradient(180deg, rgba(72, 66, 48, 0.92) 0%, rgba(50, 46, 32, 0.95) 100%);
+        --btn-border: rgba(255, 255, 255, 0.18);
+        --weight-bar-bg: rgba(8, 8, 10, 0.92);
+        --weight-bar-fill: linear-gradient(90deg, #b8830a 0%, #FFC107 100%);
+        --item-plate-bg: linear-gradient(180deg, rgba(60, 60, 65, 0.88) 0%, rgba(40, 40, 45, 0.94) 100%);
+        --item-plate-border: rgba(255, 255, 255, 0.18);
+        --craft-btn-bg: linear-gradient(180deg, rgba(168, 118, 28, 0.94) 0%, rgba(110, 76, 16, 0.96) 100%);
+        --craft-btn-hover: linear-gradient(180deg, rgba(200, 145, 40, 0.96) 0%, rgba(140, 96, 22, 0.98) 100%);
+        --workbench-overlay: linear-gradient(180deg, rgba(50, 42, 26, 0.22) 0%, transparent 45%);
+        --workbench-brushed: repeating-linear-gradient(180deg, transparent 0px, transparent 3px, rgba(255, 255, 255, 0.012) 3px, rgba(255, 255, 255, 0.012) 4px);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        background-color: rgba(0, 0, 0, 0.4);
+        color: var(--text-color);
+        font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        user-select: none;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .ui-container {
+        position: relative;
+        display: flex;
+        gap: 24px;
+        align-items: stretch;
+    }
+
+    h2 {
+        margin: 0 0 12px;
+        font-size: var(--title-size);
+        font-weight: 600;
+        color: var(--text-color);
+        letter-spacing: 1px;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+        text-align: center;
+        width: 100%;
+    }
+
+    /* 材料架页签：左侧不画格子，改画分行视图；尺寸钉成其它页签锁定后的格子区大小，放不下时竖向滚动 */
+    .rack-rows {
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 2px 4px 2px 0;
+        box-sizing: border-box;
+    }
+    .rack-rows::-webkit-scrollbar { width: 4px; }
+    .rack-rows::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.18); border-radius: 2px; }
+    .rack-rows::-webkit-scrollbar-track { background: transparent; }
+
+    .backpack-panel {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 14px 16px 14px;
+        background: var(--panel-bg);
+        border: 1px solid var(--panel-border);
+        border-radius: 14px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    }
+
+    .combined-panel {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        background: var(--panel-bg);
+        border: 1px solid var(--panel-border);
+        border-radius: 14px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.05) inset;
+        overflow: visible;
+        min-height: 320px;
+    }
+
+    .workbench-section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 14px 18px 16px;
+        width: 372px;
+        border-right: 1px solid rgba(255, 193, 7, 0.10);
+        background:
+            var(--workbench-overlay),
+            var(--workbench-brushed);
+        transition: border-color 0.3s;
+    }
+
+    .workbench-section::before {
+        content: '';
+        position: absolute;
+        top: 1px;
+        left: 18px;
+        right: 18px;
+        height: 1px;
+        background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 193, 7, 0.32) 18%,
+            rgba(255, 193, 7, 0.55) 50%,
+            rgba(255, 193, 7, 0.32) 82%,
+            transparent 100%);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .combined-panel.no-notes .workbench-section { border-right: none; }
+
+    .workbench-section h2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        color: #ffe6a8;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6), 0 0 12px rgba(255, 193, 7, 0.12);
+    }
+    .workbench-section h2::before,
+    .workbench-section h2::after {
+        content: '';
+        flex: 0 1 36px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.45), transparent);
+    }
+
+    .workbench-section .hint-text {
+        color: rgba(255, 193, 7, 0.48);
+        font-weight: 500;
+        letter-spacing: 1.6px;
+        text-shadow: 0 0 8px rgba(255, 193, 7, 0.10);
+        animation: hint-breath 2.6s ease-in-out infinite;
+    }
+
+    #workbench-grid {
+        box-shadow:
+            inset 0 0 0 1px rgba(0, 0, 0, 0.65),
+            inset 0 2px 8px rgba(0, 0, 0, 0.55),
+            0 0 0 1px rgba(255, 193, 7, 0.12),
+            0 0 18px rgba(255, 193, 7, 0.06);
+    }
+
+    .notes-section {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 240px;
+        padding: 14px 16px;
+        background: rgba(0, 0, 0, 0.18);
+        border-top-right-radius: 14px;
+        border-bottom-right-radius: 14px;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .left-tabs {
+        position: relative;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        width: 100%;
+        min-width: 0;
+        gap: 4px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+    }
+    .left-tab {
+        flex-shrink: 0;
+        min-width: 0;
+        padding: 7px 14px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-family: inherit;
+        color: var(--text-dim);
+        background: rgba(8, 8, 10, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, border-color 0.2s, padding-right 0.2s;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .left-tab:hover {
+        color: var(--text-color);
+        border-color: rgba(255, 255, 255, 0.22);
+        background: rgba(20, 20, 22, 0.7);
+    }
+    .left-tab.active {
+        color: #ffe6a8;
+        background: linear-gradient(180deg, rgba(72, 62, 34, 0.55) 0%, rgba(40, 36, 22, 0.6) 100%);
+        border-color: rgba(255, 193, 7, 0.45);
+        box-shadow: 0 0 10px rgba(255, 193, 7, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        cursor: default;
+    }
+
+    .left-tab-pinned {
+        flex-shrink: 0;
+        display: flex;
+        gap: 4px;
+        position: relative;
+        margin-right: 12px;
+    }
+    .left-tab-pinned::after {
+        content: '';
+        position: absolute;
+        right: -8px; top: 22%; bottom: 22%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.18);
+        pointer-events: none;
+    }
+    .left-tab-pinned.solo { margin-right: 0; }
+    .left-tab-pinned.solo::after { display: none; }
+    .left-tabs-scroll {
+        position: relative;
+        flex: 1 1 0;
+        min-width: 0;
+        overflow-x: hidden;
+        overflow-y: visible;
+        display: flex;
+        gap: 4px;
+    }
+    .left-tabs-scroll::-webkit-scrollbar { display: none; }
+    .tab-scroll-btn {
+        flex-shrink: 0;
+        width: 26px;
+        padding: 0;
+        line-height: 1;
+        color: var(--text-dim);
+        background: rgba(8, 8, 10, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: inherit;
+        transition: background 0.2s, color 0.2s, opacity 0.2s;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+    }
+    .tab-scroll-btn.is-visible { display: flex; }
+    .tab-scroll-btn:hover:not(:disabled) {
+        color: var(--text-color);
+        border-color: rgba(255, 193, 7, 0.45);
+        background: rgba(20, 20, 22, 0.7);
+    }
+    .tab-scroll-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    .left-tab.guide-hint {
+        position: relative;
+        color: var(--text-color);
+        border-color: rgba(255, 193, 7, 0.55);
+    }
+    .left-tab.guide-hint::before {
+        content: '';
+        position: absolute; top: 3px; right: 5px;
+        width: 6px; height: 6px; border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 6px rgba(255, 193, 7, 0.9);
+        pointer-events: none;
+    }
+    .left-tab.guide-hint::after {
+        content: '';
+        position: absolute; inset: 0;
+        border-radius: inherit;
+        box-shadow: 0 0 12px rgba(255, 193, 7, 0.7), inset 0 0 10px rgba(255, 193, 7, 0.25);
+        opacity: 0.45;
+        animation: cabinetTabPulse 1.6s ease-in-out infinite;
+        pointer-events: none;
+    }
+    @keyframes cabinetTabPulse {
+        0%, 100% { opacity: 0.32; }
+        50% { opacity: 0.75; }
+    }
+
+    /* 点配方后的一次性缺口提示：材料在这个页签的容器里，玩家还没切过去看。
+       只用右上角数字角标，不加红边框/红光晕——整条页签栏描红读起来像报错，过于警告
+       （2026-08-26 跑测反馈）。need-hint 只剩"有角标"的定位锚点作用。 */
+    .left-tab.need-hint {
+        position: relative;
+        /* 角标在按钮内右上角，不加这段 padding 会压住页签名最后一个字（实测压 2px）。
+           只在挂角标时加，按钮宽度的这点变化跟着下面 transition 的 padding 一起过渡 */
+        padding-right: 26px;
+    }
+    /* ⚠ 角标必须完全落在按钮内部：.left-tab 为了长页签名的 text-overflow:ellipsis 带着
+       overflow:hidden，任何外溢（原来的 top/right:-6px）都会被按钮自己裁成残缺的一角。
+       按钮 padding-right 14px，角标从右边缘往里 2px 起算，与页签文字右边界还差 3px 不重叠 */
+    .left-tab .need-badge {
+        position: absolute; top: 4px; right: 2px;
+        min-width: 15px; height: 15px; padding: 0 3px;
+        border-radius: 8px;
+        background: #e5382b;
+        color: #fff;
+        font-size: 10px; font-weight: 800;
+        line-height: 15px;
+        text-align: center;
+        pointer-events: none;
+    }
+
+    .cabinet-guide {
+        display: none;
+        position: absolute;
+        top: calc(100% + 5px); left: 0; right: 0;
+        z-index: 60;
+        background: linear-gradient(168deg, rgb(48, 44, 32) 0%, rgb(26, 24, 18) 100%);
+        border: 1px solid rgba(255, 193, 7, 0.55);
+        border-radius: 10px;
+        padding: 12px 14px;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
+        animation: cabinetGuideIn 0.32s cubic-bezier(0.19, 1, 0.22, 1);
+        text-align: left;
+    }
+    .cabinet-guide.show { display: block; }
+    @keyframes cabinetGuideIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .cabinet-guide::before, .cabinet-guide::after {
+        content: '';
+        position: absolute;
+        left: var(--arrow-x, 50%); margin-left: -8px;
+        border: 8px solid transparent;
+        border-top: none;
+    }
+    .cabinet-guide::before { top: -8px; border-bottom-color: rgba(255, 193, 7, 0.55); }
+    .cabinet-guide::after { top: -7px; border-bottom-color: rgb(47, 43, 32); }
+    .cabinet-guide-title {
+        font-size: 14px; font-weight: 700;
+        color: var(--accent); letter-spacing: 0.5px;
+        margin-bottom: 6px;
+    }
+    .cabinet-guide-body { font-size: 13px; line-height: 1.6; color: #ddd; font-weight: 400; }
+    .cabinet-guide-footer { display: flex; justify-content: flex-end; margin-top: 10px; }
+    .cabinet-guide-btn {
+        font-size: 13px; font-weight: 600; color: #1a1a1a;
+        background: var(--accent);
+        border: none; border-radius: 6px;
+        padding: 5px 16px; cursor: pointer;
+        font-family: inherit;
+        transition: transform 0.15s;
+    }
+    .cabinet-guide-btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
+    .cabinet-guide-btn:active { filter: brightness(0.92); transform: translateY(0); }
+
+    .weight-section { width: 100%; margin-bottom: 10px; }
+    .weight-label {
+        display: flex; justify-content: space-between; align-items: center;
+        margin-bottom: 6px;
+    }
+    .weight-label-left {
+        font-size: 12px; color: var(--text-dim); letter-spacing: 0.5px;
+    }
+    .weight-text {
+        font-size: 12px; font-weight: 600; color: var(--text-color);
+    }
+
+    .weight-bar {
+        width: 100%; height: 7px;
+        background-color: var(--weight-bar-bg);
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+    .weight-fill {
+        width: 0%; height: 100%;
+        background: var(--weight-bar-fill);
+        border-radius: 4px;
+        transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* 背包一键整理：位置/样式对齐 BackpackUI.html 的 .toolbar/.action-btn（同一操作在两处保持一致手感） */
+    .toolbar { display: flex; justify-content: flex-end; align-items: center; margin-top: 12px; gap: 10px; width: 100%; }
+    .action-btn {
+        background: var(--btn-bg); color: #dde2f0;
+        border: 1px solid var(--btn-border); padding: 7px 11px; border-radius: 7px;
+        font-size: 13px; font-weight: 500; letter-spacing: 0;
+        cursor: pointer; transition: all 0.2s; font-family: inherit;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        display: flex; align-items: center; gap: 5px;
+    }
+    .action-btn svg { width: 14px; height: 14px; fill: currentColor; opacity: 0.8; }
+    .action-btn:hover {
+        background: var(--btn-hover); border-color: rgba(255, 193, 7, 0.45);
+        color: #fff; transform: translateY(-1px); box-shadow: 0 5px 14px rgba(0, 0, 0, 0.35);
+    }
+    .action-btn:active { transform: translateY(1px); box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); }
+
+    .grid-container {
+        background-color: var(--grid-frame-bg);
+        padding: 0;
+        border-radius: 6px;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(6, 56px);
+        grid-template-rows: repeat(5, 56px);
+        gap: 0;
+        box-shadow:
+            inset 0 0 0 1px rgba(0, 0, 0, 0.65),
+            inset 0 2px 8px rgba(0, 0, 0, 0.55);
+    }
+
+    .slot {
+        background: var(--slot-bg);
+        border: 1px solid var(--slot-border);
+        border-radius: 3px;
+        box-sizing: border-box;
+        pointer-events: none;
+        box-shadow:
+            inset 0 1px 2px rgba(0, 0, 0, 0.5),
+            inset 0 -1px 0 rgba(170, 200, 240, 0.06);
+        transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .slot.valid-hover {
+        background: linear-gradient(180deg, rgba(76, 175, 80, 0.18) 0%, rgba(76, 175, 80, 0.08) 100%);
+        border-color: rgba(76, 175, 80, 0.7);
+        box-shadow: inset 0 0 10px rgba(76, 175, 80, 0.35);
+    }
+    .slot.invalid-hover {
+        background: linear-gradient(180deg, rgba(244, 67, 54, 0.18) 0%, rgba(244, 67, 54, 0.08) 100%);
+        border-color: rgba(244, 67, 54, 0.7);
+        box-shadow: inset 0 0 10px rgba(244, 67, 54, 0.35);
+    }
+
+    .item {
+        position: absolute;
+        z-index: 10;
+        cursor: grab;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3px;
+        box-sizing: border-box;
+        background: transparent;
+        border: none;
+        transition: transform 0.1s, filter 0.1s;
+    }
+    .item::before {
+        content: '';
+        position: absolute;
+        inset: 3px;
+        background:
+            linear-gradient(160deg, rgba(255, 255, 255, 0.10) 0%, transparent 60%),
+            var(--item-plate-bg);
+        border: 1.5px solid var(--item-plate-border);
+        border-radius: 5px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        pointer-events: none;
+        z-index: 0;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .item::after {
+        content: '';
+        position: absolute;
+        left: 3px; right: 3px; bottom: 3px;
+        height: calc(40% - 3px);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.35) 0%, transparent 100%);
+        border-radius: 0 0 4px 4px;
+        pointer-events: none;
+        z-index: 1;
+    }
+    .item:hover { filter: brightness(1.15); transform: translateY(-1px); z-index: 20; }
+    .item:hover::before {
+        border-color: rgba(255, 193, 7, 0.55);
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.06),
+            0 0 14px rgba(255, 193, 7, 0.18);
+    }
+    .item:active { cursor: grabbing; transform: scale(0.97); }
+
+    .item-count {
+        position: absolute;
+        bottom: 3px; right: 4px;
+        font-size: 11px; font-weight: 700; color: #fff;
+        background: rgba(0, 0, 0, 0.62);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 0 6px; border-radius: 9px;
+        line-height: 14px;
+        letter-spacing: 0.3px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
+        pointer-events: none;
+        z-index: 3;
+    }
+
+    .item img {
+        max-width: 88%;
+        max-height: 88%;
+        object-fit: contain;
+        pointer-events: none;
+        position: relative;
+        z-index: 2;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
+    }
+
+    /* 物品格标记：与背包界面同一套（品质边框 / 已过期 / 快过期 / 污染），底板在 ::before，边框色改在它身上 */
+    .item.q-perfect::before, .item.q-perfect:hover::before {
+        border-color: #FFC107;
+        box-shadow: inset 0 0 8px rgba(255, 193, 7, 0.12), 0 0 12px rgba(255, 193, 7, 0.4);
+    }
+    .item.q-good::before, .item.q-good:hover::before {
+        border-color: #B988E6;
+        box-shadow: inset 0 0 6px rgba(185, 136, 230, 0.10), 0 0 9px rgba(185, 136, 230, 0.35);
+    }
+    .item.q-normal::before, .item.q-normal:hover::before { border-color: rgba(255, 255, 255, 0.55); }
+    .item.q-fail::before, .item.q-fail:hover::before {
+        border-color: #707070;
+        box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.55);
+    }
+    .item.q-fail img { filter: grayscale(0.55) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45)); }
+    .item.expired::before, .item.expired:hover::before { border-color: rgba(178, 72, 55, 0.75); }
+    .expired-mask {
+        position: absolute; inset: 3px; border-radius: 5px; pointer-events: none; z-index: 1;
+        background: linear-gradient(to top, rgba(146, 52, 38, 0.7) 0%, rgba(146, 52, 38, 0.45) 35%, rgba(146, 52, 38, 0.15) 75%, rgba(146, 52, 38, 0) 100%);
+    }
+    .near-expiry-mask {
+        position: absolute; inset: 3px; border-radius: 5px; pointer-events: none; z-index: 5;
+        background: linear-gradient(to top, rgba(255, 210, 60, 0.42) 0px, rgba(255, 210, 60, 0.18) 5px, rgba(255, 210, 60, 0) 12px);
+    }
+    .polluted-ring {
+        position: absolute; inset: 3px; border: 2px solid rgba(140, 220, 110, 0.9); border-radius: 6px;
+        box-shadow: inset 0 0 12px rgba(110, 190, 90, 0.55); pointer-events: none; z-index: 4;
+        animation: polluted-breathe 2s ease-in-out infinite;
+    }
+    @keyframes polluted-breathe { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+    html.quality-low .polluted-ring { animation: none; opacity: 0.8; }
+
+    #tooltip {
+        position: fixed;
+        background: rgba(20, 22, 28, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 6px;
+        padding: 10px 12px;
+        color: #fff;
+        pointer-events: none;
+        display: none;
+        z-index: 3000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+        min-width: 140px;
+    }
+    #tooltip h3 {
+        margin: 0 0 6px;
+        font-size: 14px; font-weight: 700;
+        color: var(--accent);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 4px;
+    }
+    #tooltip p {
+        margin: 0;
+        font-size: 12px; color: #aaa;
+        white-space: pre-wrap; line-height: 1.4;
+    }
+
+    .hint-text {
+        height: 18px; width: 100%;
+        text-align: center;
+        margin-bottom: 8px;
+        color: var(--text-dim);
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .craft-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 16px;
+        padding-top: 12px;
+        gap: 14px;
+        width: 100%;
+        position: relative;
+    }
+    .craft-controls::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 10%;
+        right: 10%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.10), transparent);
+        pointer-events: none;
+    }
+    .btn {
+        background: var(--btn-bg);
+        color: #dde2f0;
+        border: 1px solid var(--btn-border);
+        padding: 8px 26px;
+        border-radius: 7px;
+        font-size: 13px; font-weight: 500; letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        font-family: inherit;
+    }
+    .btn:hover {
+        background: var(--btn-hover);
+        color: #fff;
+        border-color: var(--accent);
+        transform: translateY(-1px);
+        box-shadow: 0 5px 14px rgba(0, 0, 0, 0.35), 0 0 12px var(--accent-glow);
+    }
+    .btn:active {
+        transform: translateY(1px);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    #btn-craft {
+        background: var(--craft-btn-bg);
+        border-color: rgba(255, 193, 7, 0.55);
+        color: #fff5d6;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        padding: 12px 44px;
+        border-radius: 8px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+        box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.16),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.28);
+    }
+    #btn-craft:hover {
+        background: var(--craft-btn-hover);
+        color: #fff;
+        border-color: var(--accent);
+        transform: translateY(-1px);
+        box-shadow:
+            0 6px 18px rgba(0, 0, 0, 0.45),
+            0 0 18px var(--accent-glow),
+            inset 0 1px 0 rgba(255, 255, 255, 0.22),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+    }
+    #btn-craft:active {
+        transform: translateY(1px);
+        box-shadow:
+            inset 0 2px 6px rgba(0, 0, 0, 0.55),
+            0 1px 3px rgba(0, 0, 0, 0.35);
+    }
+
+    #btn-craft.locked,
+    #btn-craft.locked:hover,
+    #btn-craft.locked:active {
+        background: linear-gradient(180deg, rgba(72, 72, 78, 0.9) 0%, rgba(48, 48, 52, 0.94) 100%);
+        border-color: rgba(255, 255, 255, 0.1);
+        color: #5f5f66;
+        cursor: not-allowed;
+        text-shadow: none;
+        transform: none;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .craft-lock-tip {
+        display: none;
+        font-size: 13px;
+        font-weight: 600;
+        color: #8a8a92;
+    }
+    .craft-lock-tip.show {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* 产出预览条：台面材料**精确凑齐**某条配方时才出现，没凑齐整条不显示
+       （判定见 SR_Web_ToolTable.UpdateWorkbenchPreview 的注释）。
+       低频显隐，不挂 transition —— 动 background / border-color / box-shadow 逐帧重绘
+       （CodeGuidelines: webui-effects-performance）。锁定原因不在这里重复，仍由 .craft-lock-tip 说。
+       槽位常驻：只翻 visibility 不翻 display —— 走 display 会让这条 54px 高的块进出文档流，
+       下面「清空 / 制造」整排按钮跟着上下抽（跑测反馈）。 */
+    .product-preview {
+        display: flex;
+        visibility: hidden;
+        width: 100%;
+        margin-top: 8px;
+        align-items: center;
+        gap: 9px;
+        padding: 5px 9px;
+        background: rgba(8, 8, 10, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 5px;
+    }
+    .product-preview.show { visibility: visible; }
+
+    /* 产出槽：与背包格同质感，缩到 36px */
+    .pp-slot {
+        flex: 0 0 36px;
+        width: 36px;
+        height: 36px;
+        background: var(--slot-bg);
+        border: 1px solid var(--slot-border);
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+    .pp-slot img {
+        max-width: 86%;
+        max-height: 86%;
+        object-fit: contain;
+        filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
+    }
+    .pp-glyph {
+        font-size: 17px;
+        font-weight: 700;
+        color: #4a4a50;
+    }
+    .pp-name {
+        flex: 1;
+        min-width: 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: #ddd;
+        letter-spacing: 0.3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* 凑齐且能开工：琥珀金，与「制造」按钮同一套语义 */
+    .product-preview.ready {
+        border-color: rgba(255, 193, 7, 0.3);
+        background: linear-gradient(90deg, rgba(255, 193, 7, 0.08) 0%, rgba(8, 8, 10, 0.55) 70%);
+    }
+    .product-preview.ready .pp-slot {
+        border-color: rgba(255, 193, 7, 0.5);
+        box-shadow: inset 0 0 9px rgba(255, 193, 7, 0.16);
+    }
+    .product-preview.ready .pp-name {
+        color: var(--accent);
+        text-shadow: 0 0 9px rgba(255, 193, 7, 0.22);
+    }
+
+    /* 凑齐的配方笔记里还看不到：只报"未知物品"，不给名字/图标 */
+    .product-preview.unknown .pp-slot {
+        border-style: dashed;
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+    .product-preview.unknown .pp-glyph { color: #74747c; }
+    .product-preview.unknown .pp-name {
+        color: #9a9aa2;
+        font-style: italic;
+    }
+
+    /* 凑齐但制作没解锁：产物灰掉，原因由 .craft-lock-tip 说 */
+    .product-preview.locked .pp-slot img {
+        filter: grayscale(1) brightness(0.45);
+        opacity: 0.6;
+    }
+    .product-preview.locked .pp-name { color: #9a9aa2; }
+
+    /* 预览条右侧一列：上名字、中颜色色块、下悬停提示。可染色家具时预览条比 36px 产出槽高出提示那一行，
+       颜色多到一行放不下才换行 */
+    .pp-main {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1px;
+    }
+    .pp-main .pp-name { flex: 0 0 auto; }
+    .pp-dyes {
+        display: none;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 4px 8px;
+    }
+    .pp-dyes.show { display: flex; }
+    .pp-dye {
+        position: relative;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        cursor: pointer;
+        flex: 0 0 auto;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+    }
+    /* 手里没有这色染料：保留颜色，只调淡 */
+    .pp-dye.unowned { opacity: 0.6; }
+    .pp-dye.orig { background: repeating-linear-gradient(45deg, #5a5a60 0 3px, #3a3a40 3px 6px); }
+    .pp-dye.sel { opacity: 1; }
+    .pp-dye.sel::after {
+        content: '';
+        position: absolute;
+        left: -3px; top: -3px; right: -3px; bottom: -3px;
+        border: 2px solid var(--accent);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1;
+    }
+    /* 持有数：压在金圈上面一层，偏到右下角外侧 */
+    .pp-dye-n {
+        position: absolute;
+        right: -7px;
+        bottom: -5px;
+        z-index: 2;
+        min-width: 11px;
+        height: 11px;
+        padding: 0 2px;
+        border-radius: 6px;
+        font-size: 8.5px;
+        font-weight: 700;
+        line-height: 11px;
+        text-align: center;
+        color: #fff;
+        background: rgba(16, 16, 20, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        pointer-events: none;
+    }
+    .pp-dye:hover { transform: scale(1.18); opacity: 1; }
+    /* 悬停提示「名字 ×N」：默认独占色块下面一行；行高常驻留位，悬停出字时预览条不跳 */
+    .pp-dye-hint {
+        flex: 0 0 100%;
+        height: 14px;
+        line-height: 14px;
+        font-size: 11.5px;
+        color: #b6b6bd;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0;
+    }
+    .pp-dye-hint.lack { color: #e08b6a; }
+
+    /* 制造笔记：有彩色版的原款，图标左上角挂一个小色轮（行尾留给展开按钮与 NEW，右下角留给「部分可凑」） */
+    .recipe-icon.has-dye { position: relative; }
+    .recipe-dye-mark {
+        position: absolute;
+        left: -4px;
+        top: -4px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: conic-gradient(#E8D48F, #C8703F, #A55C4D, #E8B4C0, #A399AD, #6B7A96, #9DB88A, #E6DEC8, #E8D48F);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.5);
+        pointer-events: none;
+    }
+    .recipe-item.craft-locked .recipe-dye-mark { filter: grayscale(1) brightness(0.6); }
+
+    /* 点「部分可凑」配方后的浮动提示：浮在工作台格子上方，2.2s 自动淡出。
+       页签角标是"去哪找"，这条是"刚刚发生了什么"，两者一起玩家才不用猜。
+       只过渡 opacity/transform（CodeGuidelines: webui-effects-performance） */
+    /* 贴在标题 / 提示行上方浮出：放在格子上会盖住刚补上来的那一排材料和它们的来源标记 */
+    .fill-toast {
+        position: absolute;
+        left: 50%;
+        top: 10px;
+        width: max-content;
+        max-width: 320px;
+        padding: 7px 14px;
+        border-radius: 8px;
+        background: rgba(16, 16, 18, 0.94);
+        border: 1px solid rgba(255, 193, 7, 0.32);
+        color: #ffe6a8;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-align: center;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+        opacity: 0;
+        transform: translate(-50%, -6px);
+        transition: opacity 0.22s ease, transform 0.22s ease;
+        pointer-events: none;
+        z-index: 6;
+    }
+    .fill-toast.show {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+    /* 数量行：台面凑齐一条能连做 2 件以上的配方才出现；不出现时只隐藏不收起，下面的按钮不上下跳 */
+    .qty-row {
+        display: flex; align-items: center; justify-content: center; gap: 8px;
+        width: 100%; height: 30px; margin-top: 10px;
+        visibility: hidden;
+    }
+    .qty-row.show { visibility: visible; }
+    /* 多件时按钮行一律不折行：「制造 ×11」收窄左右内边距，精力标签只留 ⚡ + 总数（前缀在单件时照常显示） */
+    .craft-controls > * { white-space: nowrap; }
+    #btn-craft.is-multi { padding-left: 22px; padding-right: 22px; }
+    .qty-step {
+        display: inline-flex; align-items: center;
+        border: 1px solid rgba(255, 193, 7, 0.35); border-radius: 6px; overflow: hidden;
+        background: rgba(0, 0, 0, 0.35);
+    }
+    .qty-step button {
+        width: 28px; height: 28px; background: transparent; border: 0;
+        color: #ffe6a8; font-size: 16px; cursor: pointer; font-family: inherit;
+    }
+    .qty-step button:hover { background: rgba(255, 193, 7, 0.16); }
+    .qty-step button:disabled { color: #5f5f66; cursor: default; background: transparent; }
+    .qty-step input {
+        width: 40px; height: 28px; text-align: center; background: transparent; border: 0;
+        border-left: 1px solid rgba(255, 193, 7, 0.2); border-right: 1px solid rgba(255, 193, 7, 0.2);
+        color: #fff; font-size: 14px; font-weight: 700; font-family: inherit; outline: none;
+    }
+    .qty-max {
+        font-size: 12px; padding: 5px 10px; border-radius: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.2); background: var(--btn-bg);
+        color: #dde2f0; cursor: pointer; font-family: inherit; white-space: nowrap;
+    }
+    .qty-max:hover { border-color: var(--accent); color: #fff; }
+    .qty-max .qty-lim { color: #ffd56a; margin-left: 2px; }
+
+    /* 台面外来材料标记：统一一个储物小图标（来源不是背包就挂），具体来自哪个柜子写在物品 tips 里 */
+    .bench-origin-mark {
+        position: absolute; left: 2px; top: 2px;
+        width: 14px; height: 14px; border-radius: 4px;
+        background: #b8830a url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M2 5.5 8 2.5l6 3v6L8 14.5l-6-3z' fill='none' stroke='%23fff5d6' stroke-width='1.6' stroke-linejoin='round'/><path d='M2 5.5 8 8.5l6-3M8 8.5v6' fill='none' stroke='%23fff5d6' stroke-width='1.4'/></svg>") center / 10px no-repeat;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+        pointer-events: none;
+        z-index: 3;
+    }
+
+    /* 页签「本次从这里拿了 N 件」角标：琥珀色，2 秒后撤，区别于缺料的红色 need-badge */
+    .left-tab.took-hint { position: relative; padding-right: 30px; }
+    .left-tab .took-badge {
+        position: absolute; top: 4px; right: 2px;
+        min-width: 15px; height: 15px; padding: 0 3px;
+        border-radius: 8px;
+        background: #b8830a; color: #fff5d6;
+        font-size: 10px; font-weight: 800; line-height: 15px; text-align: center;
+        pointer-events: none;
+    }
+
+    /* 文字色继承 .btn（全项目没有红色按钮文字的先例），只留 hover 的红边红光提示这是清空操作 */
+    .btn-clear:hover {
+        border-color: rgba(244, 67, 54, 0.55);
+        box-shadow: 0 5px 14px rgba(0, 0, 0, 0.35), 0 0 12px rgba(244, 67, 54, 0.22);
+    }
+
+    /* 最近制造快捷方式：标题在上一排，配方图标 2 列网格在下一排，最多 4 个占满两行两列 */
+    .recent-block {
+        width: 100%; margin-top: 14px; padding: 9px 10px;
+        background: rgba(0, 0, 0, 0.22);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 9px;
+    }
+    .recent-title {
+        font-size: 11px; color: var(--text-dim); letter-spacing: 1px;
+        margin-bottom: 7px;
+    }
+    .recent-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+    .recent-item {
+        display: flex; align-items: center; gap: 7px;
+        padding: 6px 9px; background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 7px;
+        cursor: pointer; transition: all 0.15s;
+        min-width: 0;
+    }
+    .recent-item:hover { background: rgba(72, 62, 34, 0.4); border-color: rgba(255, 193, 7, 0.4); transform: translateY(-1px); }
+    .recent-icon {
+        width: 26px; height: 26px; flex-shrink: 0;
+        display: flex; align-items: center; justify-content: center;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.35) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.10); border-radius: 4px;
+    }
+    .recent-icon img { max-width: 90%; max-height: 90%; object-fit: contain; }
+    .recent-name {
+        font-size: 11px; color: #ccc; min-width: 0;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+
+    .cost-label {
+        font-size: 13px;
+        color: #ffd56a;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        letter-spacing: 0.3px;
+    }
+    .cost-label:not(:empty)::before {
+        content: '⚡';
+        font-size: 13px;
+        color: var(--accent);
+        text-shadow: 0 0 6px var(--accent-glow);
+    }
+
+    #crafting-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(8, 8, 10, 0.88);
+        z-index: 2000;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(3px);
+        border-radius: 14px 0 0 14px;
+    }
+    .combined-panel.no-notes #crafting-overlay { border-radius: 14px; }
+
+    .crafting-box { width: 80%; text-align: center; }
+
+    .hammer-wrapper {
+        position: relative;
+        width: 60px; height: 60px;
+        margin: 0 auto 10px;
+    }
+    .hammer-icon {
+        font-size: 50px;
+        display: block;
+        transform-origin: 90% 90%;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+        animation: hammering 0.8s infinite;
+    }
+    .hammer-spark {
+        position: absolute;
+        bottom: -5px; right: 10px;
+        font-size: 40px;
+        opacity: 0;
+        pointer-events: none;
+        animation: sparking 0.8s infinite;
+    }
+    .crafting-title {
+        font-size: 14px;
+        margin-bottom: 14px;
+        color: #ccc;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    .crafting-bar-container {
+        width: 100%;
+        height: 14px;
+        background-color: var(--weight-bar-bg);
+        border: 1px solid rgba(255, 193, 7, 0.20);
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.7);
+    }
+    .crafting-bar-fill {
+        width: 100%;
+        height: 100%;
+        transform: scaleX(0);
+        transform-origin: left;
+        background: var(--weight-bar-fill);
+        box-shadow: 0 0 8px var(--accent-glow);
+        position: relative;
+        overflow: hidden;
+    }
+    .crafting-bar-fill::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.22) 50%,
+            transparent 100%);
+        animation: bar-shine 1.6s linear infinite;
+    }
+
+    #crafting-result-box {
+        display: none;
+        width: 88%;
+        background: var(--panel-bg);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 34px rgba(0, 0, 0, 0.75);
+        animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .res-strip {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 5px 0;
+        font-size: 12px;
+        letter-spacing: 2px;
+        font-weight: 600;
+        background: linear-gradient(90deg, rgba(76, 175, 80, 0.06), rgba(76, 175, 80, 0.26), rgba(76, 175, 80, 0.06));
+        color: #9ee6a3;
+        border-bottom: 1px solid rgba(76, 175, 80, 0.28);
+    }
+
+    .res-body { padding: 14px 16px 12px; text-align: center; }
+
+    .res-product {
+        position: relative;
+        width: 88px;
+        height: 88px;
+        margin: 2px auto 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--item-plate-bg);
+        border: 1px solid rgba(255, 193, 7, 0.5);
+        border-radius: 10px;
+        box-shadow: 0 0 22px rgba(255, 193, 7, 0.18), inset 0 0 12px rgba(255, 193, 7, 0.06);
+        animation: res-product-in 0.45s cubic-bezier(0.2, 1.3, 0.4, 1) 0.05s both;
+    }
+    .res-product img {
+        max-width: 78%;
+        max-height: 78%;
+        object-fit: contain;
+        pointer-events: none;
+    }
+    .res-product .res-glyph { font-size: 40px; line-height: 1; }
+    .res-product .res-cnt {
+        position: absolute;
+        right: 5px;
+        bottom: 3px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    }
+
+    .res-name {
+        font-size: 19px;
+        font-weight: 700;
+        color: #ffe6a8;
+        letter-spacing: 0.5px;
+        margin-bottom: 2px;
+    }
+    .res-desc { font-size: 11px; color: var(--text-dim); margin-bottom: 12px; }
+
+    .res-extra {
+        display: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+        margin-bottom: 10px;
+    }
+    .res-extra.show { display: flex; }
+    .res-extra .res-extra-item {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 11px;
+        color: #ddd;
+        background: rgba(8, 8, 10, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 5px;
+        padding: 3px 6px;
+    }
+    .res-extra .res-extra-item img { width: 16px; height: 16px; object-fit: contain; }
+
+    .res-perfect {
+        display: none;
+        align-items: center;
+        gap: 7px;
+        font-size: 12px;
+        color: #ffe6a8;
+        text-align: left;
+        background: linear-gradient(90deg, rgba(255, 193, 7, 0.16), rgba(255, 193, 7, 0.04));
+        border: 1px solid rgba(255, 193, 7, 0.42);
+        border-radius: 7px;
+        padding: 7px 10px;
+        margin-bottom: 8px;
+    }
+    .res-perfect.show { display: flex; }
+    .res-perfect img { width: 20px; height: 20px; object-fit: contain; }
+
+    .res-prof {
+        display: none;
+        background: rgba(8, 8, 10, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 7px;
+        padding: 8px 10px;
+        margin-bottom: 8px;
+        text-align: left;
+    }
+    .res-prof.show { display: block; }
+    .res-prof-line {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: #bbb;
+        margin-bottom: 5px;
+    }
+    .res-prof-gain { color: #67b9ff; font-weight: 700; }
+    .res-bar {
+        height: 5px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    .res-bar i {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: var(--weight-bar-fill);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.3, 1);
+    }
+
+    .res-newrecipe {
+        display: none;
+        align-items: center;
+        gap: 7px;
+        font-size: 12px;
+        color: #ffd863;
+        text-align: left;
+        background: rgba(255, 193, 7, 0.09);
+        border: 1px solid rgba(255, 193, 7, 0.3);
+        border-radius: 7px;
+        padding: 7px 10px;
+        margin-bottom: 8px;
+    }
+    .res-newrecipe.show { display: flex; }
+    .res-newrecipe .res-new-badge {
+        font-size: 9px;
+        font-weight: 700;
+        background: var(--accent);
+        color: #1a1a1a;
+        padding: 1px 5px;
+        border-radius: 3px;
+        letter-spacing: 0.5px;
+        flex: 0 0 auto;
+    }
+
+    .res-fallback {
+        display: none;
+        font-size: 12px;
+        color: #ccc;
+        text-align: left;
+        background: rgba(8, 8, 10, 0.65);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 6px;
+        padding: 8px 10px;
+        margin-bottom: 8px;
+    }
+    .res-fallback.show { display: block; }
+    .res-fallback .reward-item {
+        color: var(--accent);
+        display: block;
+        margin-bottom: 4px;
+        white-space: pre-line;
+    }
+    .res-fallback .xp-text { color: #67b9ff; }
+
+    .res-btns { display: flex; gap: 8px; margin-top: 10px; }
+    .res-btns button {
+        padding: 9px 0;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        background: var(--btn-bg);
+        border: 1px solid var(--btn-border);
+        color: #bbb;
+        font-family: inherit;
+    }
+    .res-btns .res-btn-main {
+        flex: 1.35;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        background: var(--craft-btn-bg);
+        border-color: rgba(255, 193, 7, 0.5);
+        color: #fff5db;
+    }
+    .res-btns .res-btn-main:hover { filter: brightness(1.15); }
+    .res-btns .res-btn-sub { flex: 1; font-weight: 500; }
+    .res-btns .res-btn-sub:hover { border-color: rgba(255, 255, 255, 0.34); color: #ddd; }
+    .res-btns .res-btn-sub:disabled { opacity: 0.38; cursor: not-allowed; }
+    .res-btns .res-btn-sub:disabled:hover { border-color: var(--btn-border); color: #bbb; }
+
+    .res-kbd {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 17px;
+        height: 17px;
+        padding: 0 4px;
+        margin-right: 7px;
+        font-size: 10.5px;
+        font-weight: 700;
+        line-height: 1;
+        background: rgba(0, 0, 0, 0.42);
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        border-radius: 3px;
+        color: #fff5db;
+        transform: translateY(-1px);
+    }
+    .res-kbd:empty { display: none; }
+
+    #crafting-result-box.is-perfect {
+        border-color: rgba(255, 193, 7, 0.6);
+        box-shadow: 0 10px 34px rgba(0, 0, 0, 0.75), 0 0 26px rgba(255, 193, 7, 0.22);
+    }
+    #crafting-result-box.is-perfect .res-strip {
+        background: linear-gradient(90deg, rgba(255, 193, 7, 0.08), rgba(255, 193, 7, 0.34), rgba(255, 193, 7, 0.08));
+        color: #ffe6a8;
+        border-bottom-color: rgba(255, 193, 7, 0.4);
+    }
+    #crafting-result-box.is-perfect .res-product {
+        border-color: rgba(255, 193, 7, 0.9);
+        box-shadow: 0 0 34px rgba(255, 193, 7, 0.4), inset 0 0 16px rgba(255, 193, 7, 0.14);
+    }
+    #crafting-result-box.is-perfect .res-product::before {
+        display: none;
+        content: '';
+        position: absolute;
+        inset: -14px;
+        border-radius: 14px;
+        background: conic-gradient(from 0deg, transparent 0deg, rgba(255, 193, 7, 0.5) 60deg, transparent 130deg, transparent 360deg);
+        animation: res-perfect-spin 2.4s linear infinite;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    /* 批量没做满就停了：琥珀色条幅（不是失败，只是提前收工） */
+    /* 批量汇总条幅是整句（含停下原因），收窄字距、允许两行居中 */
+    #crafting-result-box.is-batch .res-strip {
+        letter-spacing: 0.5px;
+        padding: 5px 12px;
+        line-height: 1.4;
+        text-align: center;
+    }
+    #crafting-result-box.is-batch-warn .res-strip {
+        background: linear-gradient(90deg, rgba(255, 152, 0, 0.06), rgba(255, 152, 0, 0.24), rgba(255, 152, 0, 0.06));
+        color: #ffc680;
+        border-bottom-color: rgba(255, 152, 0, 0.3);
+    }
+    /* 批量进度：大号「3 / 11」+ 整批进度细条 + 叫停键 */
+    .batch-count { display: none; font-size: 22px; font-weight: 800; color: #ffe6a8; letter-spacing: 1px; margin-bottom: 2px; }
+    .batch-total-bar { display: none; width: 100%; height: 5px; margin-top: 10px; border-radius: 3px; overflow: hidden; background: rgba(255, 255, 255, 0.08); }
+    .batch-total-bar i { display: block; width: 100%; height: 100%; transform: scaleX(0); transform-origin: left; background: #7fb7ff; }
+    .batch-stop { display: none; margin: 14px auto 0; padding: 6px 20px; }
+    .crafting-box.is-batch .batch-count,
+    .crafting-box.is-batch .batch-total-bar { display: block; }
+    .crafting-box.is-batch .batch-stop { display: inline-block; }
+    /* 批量进度：放不下掉到脚边的累计件数，每次增加弹跳一下 */
+    .batch-feet { display: none; margin: 12px auto 0; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600;
+        color: #ffd699; background: rgba(255, 152, 0, 0.16); border: 1px solid rgba(255, 152, 0, 0.55); }
+    .crafting-box.is-batch .batch-feet.show { display: inline-block; }
+    .batch-feet.bump { animation: batch-feet-bump 0.45s ease-out; }
+    @keyframes batch-feet-bump { 0% { transform: scale(1); } 35% { transform: scale(1.18); } 100% { transform: scale(1); } }
+    .res-desc .res-drop-text { color: #ffb74d; font-weight: 700; }
+    .batch-stop:disabled { opacity: 0.5; cursor: default; }
+
+    #crafting-result-box.is-fail { border-color: rgba(244, 67, 54, 0.55); }
+    #crafting-result-box.is-fail .res-strip {
+        background: linear-gradient(90deg, rgba(244, 67, 54, 0.06), rgba(244, 67, 54, 0.24), rgba(244, 67, 54, 0.06));
+        color: #f0a0a0;
+        border-bottom-color: rgba(244, 67, 54, 0.3);
+    }
+    #crafting-result-box.is-fail .res-product {
+        border-color: rgba(244, 67, 54, 0.45);
+        box-shadow: none;
+    }
+    #crafting-result-box.is-fail .res-name { color: #e0b3b3; }
+
+    @keyframes res-product-in {
+        from { opacity: 0; transform: scale(0.5) translateY(10px); }
+        to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes res-perfect-spin { to { transform: rotate(360deg); } }
+
+    .btn-close { width: 100%; margin-top: 4px; }
+
+    .recipe-list {
+        width: 100%;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        overflow-y: auto;
+        padding-right: 4px;
+        min-height: 0;
+    }
+    .recipe-list::-webkit-scrollbar { width: 4px; }
+    .recipe-list::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.18);
+        border-radius: 2px;
+    }
+    .recipe-list::-webkit-scrollbar-track { background: transparent; }
+
+    .recipe-item {
+        position: relative;
+        font-size: 14px;
+        color: #bbb;
+        cursor: help;
+        padding: 7px 10px;
+        background: rgba(8, 8, 10, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-left: 2px solid rgba(255, 255, 255, 0.12);
+        border-radius: 4px;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .recipe-item:hover {
+        color: #fff;
+        background: rgba(20, 20, 22, 0.7);
+        border-left-color: var(--accent);
+        padding-left: 14px;
+    }
+    .recipe-item.can-craft {
+        color: var(--accent);
+        border-left-color: var(--accent);
+    }
+
+    .recipe-icon {
+        flex: 0 0 30px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.35) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        border-radius: 4px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+    .recipe-icon img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+    }
+    .recipe-item.can-craft .recipe-icon {
+        border-color: rgba(255, 193, 7, 0.45);
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            0 0 6px rgba(255, 193, 7, 0.18);
+    }
+
+    /* 配方三态之「部分可凑」(2026-08-26)：当前页签摆不满、要去别的联动柜子取。
+       不占 flex 流宽度、不跟 isNew/has-expand 的角标队列抢位——贴在图标格右下角的纯 CSS 圆点，
+       文字仍是默认灰(视觉基调与材料不足一致)，只在图标上多一个"去别处取"的提示 */
+    .recipe-item.partial-craft .recipe-icon { position: relative; }
+    .recipe-item.partial-craft .recipe-icon::after {
+        content: '↗';
+        position: absolute;
+        right: -3px; bottom: -3px;
+        width: 13px; height: 13px;
+        border-radius: 50%;
+        background: rgba(224, 164, 90, 0.92);
+        color: #241a08;
+        font-size: 9px; font-weight: 700; line-height: 13px;
+        text-align: center;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        pointer-events: none;
+    }
+
+    .recipe-item.craft-locked {
+        color: #5f5f66;
+        cursor: not-allowed;
+        border-left-color: rgba(255, 255, 255, 0.05);
+    }
+    .recipe-item.craft-locked:hover {
+        color: #8a8a92;
+        padding-left: 10px;
+        border-left-color: rgba(255, 255, 255, 0.12);
+    }
+    .recipe-item.craft-locked .recipe-icon img {
+        filter: grayscale(1) brightness(0.5) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+    }
+    .recipe-lock-badge {
+        flex: 0 0 auto;
+        width: 12px;
+        height: 12px;
+        position: relative;
+        opacity: 0.75;
+        pointer-events: none;
+    }
+    .recipe-lock-badge::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 2px;
+        width: 8px;
+        height: 7px;
+        border: 1.5px solid #8a8a92;
+        border-bottom: none;
+        border-radius: 4px 4px 0 0;
+    }
+    .recipe-lock-badge::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 12px;
+        height: 7px;
+        background: #8a8a92;
+        border-radius: 2px;
+    }
+
+    .recipe-new-badge {
+        position: absolute;
+        top: 3px;
+        right: 4px;
+        z-index: 5;
+        padding: 0 4px;
+        height: 13px;
+        line-height: 13px;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: #fff;
+        background: linear-gradient(180deg, #ff6a3d 0%, #e5382b 100%);
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-radius: 7px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        pointer-events: none;
+        transform-origin: center;
+        animation: recipeNewPulse 1.6s ease-in-out infinite;
+    }
+    @keyframes recipeNewPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.14); }
+    }
+    .recipe-item-name {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .recipe-group-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        width: 100%;
+        padding: 6px 8px 6px 9px;
+        margin-top: 12px;
+        cursor: pointer;
+        color: #ffe6a8;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        background: linear-gradient(180deg, #6b5726 0%, #48381a 100%);
+        border: 1px solid rgba(255, 193, 7, 0.42);
+        border-left: 3px solid var(--accent);
+        border-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.55);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+        flex-shrink: 0;
+        transition: color 0.2s, border-color 0.2s;
+        user-select: none;
+    }
+    .recipe-group-header:first-child { margin-top: 0; }
+    .recipe-group-header:hover { color: #fff3d0; border-color: rgba(255, 193, 7, 0.65); }
+    .recipe-group-header.query-locked { cursor: default; }
+    .recipe-group-header.query-locked:hover { color: #ffe6a8; border-color: rgba(255, 193, 7, 0.42); }
+    .recipe-group-arrow {
+        width: 0; height: 0; flex: 0 0 auto;
+        border-left: 5px solid rgba(255, 230, 168, 0.7);
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        transition: transform 0.2s;
+    }
+    .recipe-group-header.open .recipe-group-arrow { transform: rotate(90deg); }
+    .recipe-group-icon {
+        flex: 0 0 auto;
+        width: 14px; height: 14px;
+        display: flex; align-items: center; justify-content: center;
+        opacity: 1;
+    }
+    .recipe-group-icon svg { width: 14px; height: 14px; display: block; }
+    .recipe-group-name {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .recipe-group-count { font-size: 10.5px; color: #bdae8a; font-weight: 400; flex: 0 0 auto; }
+    .recipe-group-craftable {
+        flex: 0 0 auto;
+        margin-left: auto;
+        font-size: 10px; color: #1a1a1a; font-weight: 700;
+        background: linear-gradient(180deg, #ffd54f 0%, #e0a92e 100%);
+        border-radius: 7px; padding: 0 5px; height: 13px; line-height: 13px;
+    }
+    .recipe-group-header .recipe-group-count:last-child { margin-left: auto; }
+    .recipe-group-craftable + .recipe-group-count { margin-left: 0; }
+    .recipe-group-newdot {
+        flex: 0 0 auto;
+        width: 7px; height: 7px; border-radius: 50%;
+        background: #ff5a3d; border: 1px solid rgba(255, 255, 255, 0.5);
+        animation: recipeNewPulse 1.6s ease-in-out infinite;
+    }
+
+    .notes-head {
+        display: flex; align-items: center; gap: 6px;
+        width: 100%; margin-bottom: 12px;
+    }
+    .notes-head h2 { margin: 0; flex: 1; text-align: left; }
+    .notes-search-btn {
+        flex: 0 0 auto;
+        width: 24px; height: 24px;
+        display: flex; align-items: center; justify-content: center;
+        color: var(--text-dim);
+        background: rgba(8, 8, 10, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        border-radius: 6px;
+        cursor: pointer;
+        padding: 0;
+    }
+    .notes-search-btn:hover { color: #ffe6a8; border-color: rgba(255, 193, 7, 0.45); }
+    .notes-search-btn.on { color: #ffe6a8; border-color: rgba(255, 193, 7, 0.45); background: rgba(72, 62, 34, 0.5); }
+    .notes-search-btn svg { width: 14px; height: 14px; display: block; }
+
+    .notes-search-bar {
+        display: none;
+        align-items: center; gap: 6px;
+        width: 100%; margin-bottom: 8px;
+        padding: 5px 8px;
+        background: rgba(8, 8, 10, 0.65);
+        border: 1px solid rgba(255, 193, 7, 0.38);
+        border-radius: 6px;
+    }
+    .notes-search-bar.show { display: flex; }
+    .notes-search-input {
+        flex: 1; min-width: 0;
+        background: transparent; border: none; outline: none;
+        color: #eee; font-size: 13px; font-family: inherit;
+        letter-spacing: 0.5px;
+    }
+    .notes-search-input::placeholder { color: #6a6a72; }
+    .notes-search-clear {
+        flex: 0 0 auto;
+        width: 16px; height: 16px; line-height: 14px;
+        color: #8a8a92; font-size: 14px;
+        background: transparent; border: none; cursor: pointer; padding: 0;
+    }
+    .notes-search-clear:hover { color: #fff; }
+
+    .notes-result-line {
+        width: 100%; margin-bottom: 6px;
+        font-size: 11px; color: #8a8a92; letter-spacing: 0.3px;
+    }
+    .notes-empty {
+        color: #5d5d64; font-size: 12px; font-style: italic;
+        padding: 14px 6px; text-align: center; line-height: 1.6;
+    }
+    .hit { color: var(--accent); font-weight: 700; }
+    .recipe-hit-why {
+        font-size: 10.5px; color: #8a8a92;
+        padding: 0 10px 5px 48px; margin-top: -4px;
+        letter-spacing: 0.2px;
+    }
+    .recipe-hit-why .hit { color: #ffd56a; }
+
+    .recipe-expand {
+        flex: 0 0 auto;
+        width: 14px; height: 16px;
+        display: flex; align-items: center; justify-content: center;
+        color: rgba(255, 214, 120, 0.7);
+        background: none;
+        border: none;
+        padding: 0;
+        font-size: 9px; line-height: 1;
+        cursor: pointer;
+    }
+    .recipe-expand:hover { color: #fff3d0; }
+    .recipe-expand .caret { transition: transform 0.18s; display: block; }
+    .recipe-expand.open .caret { transform: rotate(90deg); }
+    .recipe-item.has-expand .recipe-new-badge { right: 28px; }
+
+    .recipe-sub {
+        display: flex; flex-direction: column; gap: 3px;
+        margin: 3px 0 6px;
+        padding: 5px 6px 5px 8px;
+        background: rgba(0, 0, 0, 0.28);
+        border-left: 2px solid rgba(255, 193, 7, 0.28);
+        border-radius: 0 4px 4px 0;
+    }
+    .sub-row {
+        display: flex; align-items: center; gap: 5px;
+        font-size: 12px; color: #b6b6bd;
+        /* 负外边距 + 等量内边距：悬浮底色铺满 .recipe-sub 的内容宽度，行内元素位置与旧版逐像素相同 */
+        margin: 0 -4px;
+        padding: 2px 4px;
+        border-radius: 3px;
+    }
+    .sub-row .mat-icon { flex: 0 0 18px; width: 18px; height: 18px; }
+    .sub-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .sub-name.owned { color: #7CE087; }
+    .sub-have {
+        flex: 0 0 auto; font-size: 11px; color: rgba(255, 255, 255, 0.55);
+        font-variant-numeric: tabular-nums;
+    }
+    .sub-have.lack { color: #e08b6a; }
+    .sub-craft {
+        flex: 0 0 auto;
+        width: 20px; height: 18px; padding: 0;
+        display: inline-flex; align-items: center; justify-content: center;
+        color: #ffd27a;
+        background: linear-gradient(180deg, rgba(168, 118, 28, 0.55) 0%, rgba(110, 76, 16, 0.6) 100%);
+        border: 1px solid rgba(255, 193, 7, 0.4);
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .sub-craft svg { width: 12px; height: 12px; display: block; }
+    .sub-craft:hover { color: #fff6de; background: linear-gradient(180deg, rgba(200, 145, 40, 0.7) 0%, rgba(140, 96, 22, 0.75) 100%); }
+    .sub-craft.locked {
+        color: #6f6f77;
+        background: rgba(40, 40, 44, 0.7);
+        border-color: rgba(255, 255, 255, 0.08);
+        cursor: not-allowed;
+    }
+    /* 子材料行悬浮反馈（2026-09-22）：只动底色与字色，**不挂 transition** ——
+       CodeGuidelines/webui-effects-performance 规定 hover transition 只准动 transform / opacity；
+       本文件 .recipe-item 的 transition:all 是存量违规，不照抄它。
+       两档强度：任何行都给一层淡底（回答"鼠标在哪一行"），
+       .can-fill 的行再抬一档并给手型（判据与右侧锤子键出现条件同一个：缺料 + 该材料自己有可见配方），
+       整行就是锤子键的热区，点行还是点锤子完全等价。 */
+    .sub-row:hover { background: rgba(255, 255, 255, 0.04); }
+    .sub-row.can-fill { cursor: pointer; }
+    .sub-row.can-fill:hover { background: rgba(255, 255, 255, 0.075); color: #f0f0f4; }
+    .sub-row.can-fill:hover .sub-name { color: #fff; }
+    .recipe-sub .recipe-sub {
+        margin: 2px 0 2px 14px;
+        border-left-color: rgba(255, 193, 7, 0.16);
+        background: rgba(0, 0, 0, 0.22);
+    }
+
+    #recipe-tooltip {
+        position: fixed;
+        background-color: rgba(20, 22, 28, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 6px;
+        padding: 10px 12px;
+        color: #fff;
+        display: none;
+        z-index: 3000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+        pointer-events: none;
+        min-width: 120px;
+        max-width: 320px;
+    }
+    .prod-head {
+        display: flex; align-items: center; gap: 7px;
+        margin-bottom: 3px;
+    }
+    .prod-head .mat-icon { flex: 0 0 26px; width: 26px; height: 26px; }
+    .prod-name {
+        font-size: 14.5px; color: #ffe6a8; font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+    .prod-desc {
+        font-size: 12.5px; color: #b6b6bd; line-height: 1.55;
+        margin: 2px 0 4px; white-space: normal;
+    }
+    .prod-attr { font-size: 13px; color: #7CE087; margin: 2px 0; }
+    /* 家具类产物区块（槽位 / 关键数值 / 主功能预览）。
+       家具包裹的重量与占格说的是"包裹这个箱子"，玩家真正要判断的是家里放不放得下、
+       这东西能干什么，所以这三行排在 .prod-spec 之上，spec 降级成末行灰字保留。 */
+    .prod-slot {
+        font-size: 12.5px; color: #e0c08a; margin: 4px 0 1px;
+        letter-spacing: 0.2px;
+    }
+    .prod-stats {
+        font-size: 12.5px; color: #a8c8e8; margin: 1px 0 2px;
+        line-height: 1.5; white-space: normal;
+        font-variant-numeric: tabular-nums;
+    }
+    .prod-func {
+        display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+        margin: 3px 0 2px;
+    }
+    .prod-func-name { font-size: 12.5px; color: #c9c9d2; }
+    /* chips 视觉对齐家具菜单按钮 tooltip（SelectMenu.html 的 .tip-attrs/.attr-chip）：
+       同一份 PreviewAttrDelta 在两处必须长得一样，玩家才认得出说的是同一件事 */
+    .tip-attrs { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .attr-chip {
+        display: inline-flex; align-items: center; gap: 3px;
+        font-size: 12px; font-weight: bold;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9); opacity: 0.85;
+    }
+    .attr-chip .ico { font-size: 13px; }
+    .attr-chip.gain { color: #7ED87E; }
+    .attr-chip.cost { color: #F08080; }
+    .attr-chip.cap  { color: #FFD54F; }
+    .attr-chip.cap .cap-prefix {
+        font-size: 10.5px; font-weight: bold; opacity: 0.9; letter-spacing: 0.4px;
+    }
+    .prod-spec {
+        font-size: 11.5px; color: #74747c; margin: 3px 0 2px;
+        font-variant-numeric: tabular-nums;
+    }
+    .tt-div { height: 1px; margin: 7px 0 5px; background: rgba(255, 255, 255, 0.12); }
+    .tt-sec {
+        font-size: 11px; color: #7a7a82; letter-spacing: 1px;
+        margin: 0 0 3px;
+    }
+    .recipe-cost-line {
+        margin: 3px 0;
+        font-size: 13px;
+        color: #ddd;
+        white-space: normal;
+        line-height: 1.5;
+        padding-left: 11px;
+        text-indent: -11px;
+        letter-spacing: 0.2px;
+    }
+    .recipe-cost-line::before {
+        content: '• ';
+        color: rgba(255, 255, 255, 0.4);
+    }
+    .mat-row {
+        margin: 3px 0;
+        font-size: 13px;
+        color: #ddd;
+        letter-spacing: 0.2px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .mat-icon {
+        flex: 0 0 22px;
+        width: 22px;
+        height: 22px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(0, 0, 0, 0.3) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 3px;
+    }
+    .mat-icon img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+    }
+    .mat-name {
+        color: #ddd;
+        font-size: 14px;
+        flex: 0 1 auto;
+        min-width: 0;
+        overflow-wrap: anywhere;
+        line-height: 1.35;
+    }
+    .mat-name.owned { color: #7CE087; }
+    .mat-need {
+        color: rgba(255, 255, 255, 0.62);
+        margin-left: 2px;
+        flex: 0 0 auto;
+    }
+
+    @keyframes hammering {
+        0% { transform: rotate(0deg); }
+        30% { transform: rotate(-50deg); }
+        45% { transform: rotate(-50deg); }
+        100% { transform: rotate(0deg); }
+    }
+    @keyframes sparking {
+        0%, 25% { opacity: 0; transform: scale(0.5); }
+        30% { opacity: 1; transform: scale(1.2); }
+        50% { opacity: 0; transform: scale(1.5); }
+        100% { opacity: 0; }
+    }
+    @keyframes success-glow {
+        0% { transform: translate(-50%, -50%) scale(0.8) rotate(0deg); opacity: 0.5; }
+        50% { transform: translate(-50%, -50%) scale(1.2) rotate(180deg); opacity: 0.8; }
+        100% { transform: translate(-50%, -50%) scale(0.8) rotate(360deg); opacity: 0.5; }
+    }
+    @keyframes popIn {
+        from { transform: scale(0.85); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        75% { transform: translateX(5px); }
+    }
+    @keyframes hint-breath {
+        0%, 100% { opacity: 0.78; }
+        50% { opacity: 1; }
+    }
+    @keyframes bar-shine {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(300%); }
+    }
+
+    html.quality-low .workbench-section .hint-text { animation: none; }
+    html.quality-low .hammer-icon { animation: none; }
+    html.quality-low .hammer-spark { animation: none; }
+    html.quality-low .crafting-bar-fill::after { animation: none; opacity: 0; }
+    html.quality-low #crafting-result-box.is-perfect .res-product::before { animation: none; opacity: 0.5; }
+    html.quality-low .recipe-new-badge,
+    html.quality-low .recipe-group-newdot { animation: none; }
+    html.quality-low .left-tab.guide-hint::after { animation: none; opacity: 0.72; }
+</style>
+</head>
+<body>
+
+<div id="tooltip">
+    <h3 id="tt-title" data-i18n="defaultName">物品名称</h3>
+    <p id="tt-desc" data-i18n="defaultDesc">描述信息...</p>
+</div>
+
+<div id="recipe-tooltip"></div>
+
+<div class="ui-container">
+    <div class="backpack-panel">
+        <div class="left-tabs">
+            <div class="left-tab-pinned">
+                <button class="left-tab active" id="tab-bag" data-i18n="bagTitle">背包</button>
+            </div>
+            <button class="tab-scroll-btn" id="tabScrollLeft" type="button" aria-label="向左">&lsaquo;</button>
+            <div class="left-tabs-scroll" id="leftTabsScroll">
+                <button class="left-tab" id="tab-drawer" data-i18n="drawerTitle" style="display:none;">工作台抽屉</button>
+            </div>
+            <button class="tab-scroll-btn" id="tabScrollRight" type="button" aria-label="向右">&rsaquo;</button>
+            <div class="cabinet-guide" id="cabinetGuide">
+                <div class="cabinet-guide-title" data-i18n="cabinetGuideTitle">工具柜可以直接取材了</div>
+                <div class="cabinet-guide-body" data-i18n="cabinetGuideBody">左侧多了工具柜页签 —— 制造时可以直接用柜子里的材料，不用先搬进背包</div>
+                <div class="cabinet-guide-footer">
+                    <button class="cabinet-guide-btn" id="cabinetGuideBtn" type="button" data-i18n="cabinetGuideBtn">知道了</button>
+                </div>
+            </div>
+        </div>
+        <div class="weight-section">
+            <div class="weight-label">
+                <span class="weight-label-left" data-i18n="weightLabel">负重</span>
+                <span class="weight-text">0.00 Kg / 5.00 Kg</span>
+            </div>
+            <div class="weight-bar">
+                <div class="weight-fill"></div>
+            </div>
+        </div>
+        <div class="grid-container" id="backpack-grid"></div>
+        <div class="rack-rows" id="rack-rows" style="display:none;"></div>
+        <div class="toolbar" id="bagToolbar">
+            <button class="action-btn unity-interactive" id="btn-sort-bag">
+                <svg viewBox="0 0 24 24"><path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"/></svg>
+                <span data-i18n="sortBagBtn">一键整理</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="combined-panel no-notes">
+        
+        <div class="workbench-section">
+            <h2 data-i18n="workbenchTitle">工作台</h2>
+            <div class="hint-text" data-i18n="hintText">>> 选取物品以制造</div>
+            
+            <div class="grid-container" id="workbench-grid"></div>
+
+            <div class="fill-toast" id="fillToast"></div>
+
+            <!-- 产出预览条：凑齐才由 StatusMsg 打开，默认不显示 -->
+            <div class="product-preview" id="product-preview">
+                <div class="pp-slot" id="pp-slot"></div>
+                <div class="pp-main">
+                    <div class="pp-name" id="pp-name"></div>
+                    <div class="pp-dyes" id="pp-dyes"></div>
+                </div>
+            </div>
+
+            <div class="qty-row" id="qty-row">
+                <span class="qty-step">
+                    <button type="button" id="qty-minus">−</button>
+                    <input id="qty-input" type="text" inputmode="numeric" value="1">
+                    <button type="button" id="qty-plus">+</button>
+                </span>
+                <button type="button" class="qty-max" id="qty-max"></button>
+            </div>
+
+            <div class="craft-controls">
+                <button class="btn btn-clear" id="btn-clear-workbench" data-i18n="clearWorkbenchBtn">清空</button>
+                <button class="btn" id="btn-craft" data-i18n="craftBtn">制造</button>
+                <div class="cost-label"></div>
+                <div class="craft-lock-tip" id="craft-lock-tip"></div>
+            </div>
+
+            <div class="recent-block" id="recentBlock" style="display:none;">
+                <div class="recent-title" data-i18n="recentTitle">最近</div>
+                <div class="recent-grid" id="recentGrid"></div>
+            </div>
+
+            <div id="crafting-overlay">
+                <div class="crafting-box" id="crafting-progress-box">
+                    <div class="hammer-wrapper">
+                        <div class="hammer-icon">🔨</div>
+                        <div class="hammer-spark">💥</div>
+                    </div>
+                    <div class="batch-count" id="batch-count"></div>
+                    <div class="crafting-title" data-i18n="craftingText">正在打造...</div>
+                    <div class="crafting-bar-container">
+                        <div class="crafting-bar-fill" id="craft-progress"></div>
+                    </div>
+                    <div class="batch-total-bar"><i id="batch-total-fill"></i></div>
+                    <div class="batch-feet" id="batch-feet"></div>
+                    <button type="button" class="btn batch-stop" id="batch-stop">做完这一件就停</button>
+                </div>
+                <div id="crafting-result-box">
+                    <div class="res-strip"><span id="res-strip-text">制作成功</span></div>
+                    <div class="res-body">
+                        <div class="res-product" id="res-product">
+                            <img id="res-product-img" alt="" style="display:none;">
+                            <span class="res-glyph" id="res-product-glyph"></span>
+                            <span class="res-cnt" id="res-cnt"></span>
+                        </div>
+                        <div class="res-name" id="res-name"></div>
+                        <div class="res-desc" id="res-desc"></div>
+                        <div class="res-extra" id="res-extra"></div>
+                        <div class="res-perfect" id="res-perfect"></div>
+                        <div class="res-prof" id="res-prof">
+                            <div class="res-prof-line">
+                                <span id="res-prof-label">制造熟练度</span>
+                                <span class="res-prof-gain" id="res-prof-gain"></span>
+                            </div>
+                            <div class="res-bar"><i id="res-prof-bar"></i></div>
+                        </div>
+                        <div class="res-newrecipe" id="res-newrecipe"></div>
+                        <div class="res-fallback" id="res-fallback"></div>
+                        <div class="res-btns">
+                            <button class="btn res-btn-main" id="res-btn-take">
+                                <span class="res-kbd" id="res-kbd"></span><span id="res-take-text">收下</span>
+                            </button>
+                            <button class="btn res-btn-sub" id="res-btn-again">再造一次</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes-section">
+            <div class="notes-head">
+                <h2 data-i18n="recipeTitle">制造笔记</h2>
+                <button class="notes-search-btn" id="notes-search-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                </button>
+            </div>
+            <div class="notes-search-bar" id="notes-search-bar">
+                <input class="notes-search-input" id="notes-search-input" type="text" spellcheck="false" placeholder="配方名 / 材料名">
+                <button class="notes-search-clear" id="notes-search-clear">×</button>
+            </div>
+            <div class="notes-result-line" id="notes-result-line" style="display:none;"></div>
+            <div id="recipe-list" class="recipe-list">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    let craftAnimationId = null;
+    let currentCraftSpeed = 0;
+    let currentProgress = 0;
+    let lastFrameTime = 0;
+
+    let craftLoopInterval = null;
+    let craftSoundTimer = null;
+    let lastCraftingState = false;
+    let craftBtnLocked = false;
+
+    // 批量制造 ×N：数量行与进度
+    let craftBtnText = '制造';
+    let batchMaxFmtText = '最多 {0}';
+    let batchStopText = '做完这一件就停';
+    let energyCostPerCraft = 0;
+    let maxCraftCount = 0;
+    let maxByStamina = false;
+    let craftQty = 1;
+    let batchIndexSeen = 0;
+    let batchTotalSeen = 0;
+    // 台面外来材料 id（字符串集合，与格子 itemData.id 同型）
+    let benchOriginIdSet = new Set();
+
+    /** 产出预览条的 ready/locked 皮肤：两处调用（craftBtnLocked 变、预览内容变），
+        因为这两个字段各自随 ReactiveProperty 独立推送，不保证同一条消息里都到齐 */
+    function refreshPreviewLockSkin() {
+        const pv = document.getElementById('product-preview');
+        if (!pv || !pv.classList.contains('show')) return;
+        const unknown = pv.classList.contains('unknown');
+        pv.classList.toggle('locked', !unknown && craftBtnLocked);
+        pv.classList.toggle('ready', !unknown && !craftBtnLocked);
+    }
+
+    /** 预览条里的颜色色块：台面是一件可染色家具时才有数据。点一色 = 按这件家具的原料 + 该色一份染料重新摆台面 */
+    function renderDyeSwatches(json) {
+        const box = document.getElementById('pp-dyes');
+        if (!box) return;
+        box.textContent = '';
+        let data = null;
+        if (json) {
+            try { data = JSON.parse(json); } catch (e) { data = null; }
+        }
+        const list = (data && Array.isArray(data.list)) ? data.list : [];
+        box.classList.toggle('show', list.length > 0);
+        if (list.length === 0) return;
+
+        const hint = document.createElement('span');
+        hint.className = 'pp-dye-hint';
+        const addSwatch = (dyeId, hex, name, owned) => {
+            const sw = document.createElement('span');
+            sw.className = 'pp-dye';
+            if (dyeId === 0) {
+                sw.classList.add('orig');
+            } else {
+                sw.style.background = hex;
+                if (owned > 0) {
+                    const n = document.createElement('span');
+                    n.className = 'pp-dye-n';
+                    n.textContent = owned > 99 ? '99+' : String(owned);
+                    sw.appendChild(n);
+                } else {
+                    sw.classList.add('unowned');
+                }
+            }
+            if ((data.sel || 0) === dyeId) sw.classList.add('sel');
+            sw.addEventListener('mouseenter', () => {
+                hint.textContent = dyeId === 0 ? name : name + ' ×' + (owned || 0);
+                hint.classList.toggle('lack', dyeId !== 0 && !(owned > 0));
+            });
+            sw.addEventListener('mouseleave', () => { hint.textContent = ''; });
+            sw.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (lastCraftingState || (data.sel || 0) === dyeId) return;
+                core.UnitySendEvent('DYE_PICK', { dyeId: dyeId });
+            });
+            box.appendChild(sw);
+        };
+        addSwatch(0, '', data.orig || '', 0);
+        list.forEach(c => addSwatch(c.dyeId || 0, c.hex || '#888888', c.name || '', c.owned || 0));
+        box.appendChild(hint);
+    }
+
+    const core = createWebUICore('ToolTable');
+
+    var _fit = createViewportFit({ measureSelector: '.ui-container', margin: 24, bodyHeightProp: 'height' });
+    // 「脚边」横排实例（页面脚本末尾创建）；缩放一变它的挂点就跟着变，所以随 applyViewportFit 一起重排
+    let groundDock = null;
+    let groundDockJson = '';
+    function applyViewportFit() { _fit.apply(); if (groundDock) groundDock.place(); }
+    function getUiZoom() { return _fit.getZoom(); }
+
+    /* 左栏是材料架时，点一行送上工作台：让这件东西飞过去，别瞬间消失再出现（webui-flyitems.js） */
+    const flyer = createItemFlyer({ host: document.querySelector('.ui-container'), getZoom: () => _fit.getZoom() || 1 });
+
+    // 飞行途中先藏住工作台那一格，落地才显形（左栏格子不在飞行名单里，问一句也不会中）
+    const BAG_CFG = { cols: 6, rows: 5, slotSize: 56, gap: 0, padding: 0,
+        onItemRendered: (el, item) => {
+            const r = item._raw || {};
+            paintItemMarks(el, r);
+            flyer.applyArriving(el, r.itemId);
+        } };
+
+    // 过期 / 快过期 / 污染标记（品质边框由 webui-bag.js 按 quality 挂 q-* 类，次数角标同样在那边画）
+    function paintItemMarks(el, r) {
+        if (r.isExpired) {
+            el.classList.add('expired');
+            const mask = document.createElement('div');
+            mask.className = 'expired-mask';
+            el.appendChild(mask);
+        } else if (r.nearExpiry) {
+            const nearMask = document.createElement('div');
+            nearMask.className = 'near-expiry-mask';
+            el.appendChild(nearMask);
+        }
+        if (r.polluted) {
+            const ring = document.createElement('div');
+            ring.className = 'polluted-ring';
+            el.appendChild(ring);
+        }
+    }
+    const backpack = createGridBag('backpack-grid', BAG_CFG);
+    const workbench = createGridBag('workbench-grid', Object.assign({}, BAG_CFG, {
+        onItemRendered: (el, item) => {
+            BAG_CFG.onItemRendered(el, item);
+            if (benchOriginIdSet.has(String(item.id))) {
+                const mark = document.createElement('span');
+                mark.className = 'bench-origin-mark';
+                el.appendChild(mark);
+            }
+        }
+    }));
+
+    // 拖到左侧另一颗页签上松手：key 为页签下标（0=背包 1=抽屉 2+i=第 i 个柜子），容器由 Unity 按下标解析
+    const tabDrop = createTabDrop({
+        getTabs: () => {
+            const out = [];
+            const push = (el, tab) => {
+                if (el && tab !== activeLeftTab && el.style.display !== 'none') out.push({ el: el, key: tab });
+            };
+            push(document.getElementById('tab-bag'), 0);
+            if (lastBagMsg && lastBagMsg.drawerOwnerId) push(document.getElementById('tab-drawer'), 1);
+            document.querySelectorAll('.left-tabs .cabinet-tab').forEach((el, i) => push(el, 2 + i));
+            return out;
+        },
+        onDrop: (tab, itemData) => {
+            core.UnitySendEvent('DROP_TO_TAB', { itemId: parseInt(itemData.id), tab: tab });
+        }
+    });
+
+    const dragCoord = createBagDragCoordinator([backpack, workbench], {
+        onItemMove: (data) => core.UnitySendEvent('ITEM_MOVE', data),
+        onItemPickup: (itemData) => {
+            core.UnitySendEvent('SFX_ITEM_PICKUP', { itemId: itemData ? itemData.id : 0 });
+            tabDrop.arm();
+            if (rackView.active && rackView.rows && itemData && itemData._raw) rackView.rows.setDropHint(itemData._raw.configId);
+        },
+        onItemPutback: (itemData) => core.UnitySendEvent('SFX_ITEM_PUTBACK', { itemId: itemData ? itemData.id : 0 }),
+        onItemClick: (itemId, rightClick) => core.UnitySendEvent('ITEM_CLICK', { itemId: itemId, rightClick: !!rightClick }),
+        onItemHover: (itemId, isEnter) => core.UnitySendEvent('ITEM_HOVER', { itemId: itemId, isEnter: isEnter }),
+        onDragFinished: () => {
+            tabDrop.disarm();
+            if (rackView.rows) rackView.rows.setDropHint(0);
+            if (!pendingBagMsg) return;
+            const d = pendingBagMsg;
+            pendingBagMsg = null;
+            applyBagMsg(d);
+        },
+        // 只管从「脚边」横排拖进来的东西：制造中 / 结果弹窗盖着工作台时，台面不接（成品领取链还没走完）。
+        // 其余拖拽一律放行，保持原有行为
+        canAcceptItem: (bag, itemData) => {
+            if (!itemData || !itemData._external) return true;
+            return !(bag === workbench && isCraftingOverlayShown());
+        },
+        // 横排起拖的松手：左侧单槽与工作台平时的放入都走 ITEM_MOVE → 通用挪位，所以两块格子都接；
+        // 没压中能放的格子 = 这次不接，东西留在地上
+        onExternalDrop: (payload, target) => {
+            if (payload && payload.groundBoxId) {
+                if (target) {
+                    core.UnitySendEvent('GROUND_PICK_TO', {
+                        id: payload.groundBoxId, ownerId: target.bag.getOwnerId(), x: target.x, y: target.y
+                    });
+                }
+                if (groundDock) groundDock.clearDragging();
+                // 横排在 body 下、面板在 .ui-container 下，按下与松开不在同一棵子树时 click 落到 body 上，
+                // 会被下方「点空白关闭」当成关面板。松手这一拍先挡住那一下
+                groundDragJustEnded = true;
+                setTimeout(() => { groundDragJustEnded = false; }, 0);
+            }
+        }
+    });
+    let groundDragJustEnded = false;
+
+    function isCraftingOverlayShown() {
+        const ov = document.getElementById('crafting-overlay');
+        return !!ov && getComputedStyle(ov).display !== 'none';
+    }
+
+    // 松手落点在工作台界面内（左右两块面板本体 + 中间 24px 缝隙）但没压中任何格子 → 退回原位，
+    // 不算丢弃。2026-08-26 设计拍板：此前 ToolTable 是唯一没设拦截器的 dragCoordinator 面板，
+    // 松手只要没命中格子就直接走 toOwnerId=0 丢到地上（SR_Web_ToolTable.RA_ItemMove），玩家想把
+    // 材料放回去、手一抖落在标题栏 / 配方列表 / 两块面板之间，东西就掉地上了。
+    // 面板矩形之外的透明区域仍保留原有的丢弃行为（拍板：面板外仍可丢）。
+    dragCoord.setDropInterceptor(function(itemData, mouseX, mouseY) {
+        // 落在左侧另一颗页签上 = 整叠放进那个页签的容器（DROP_TO_TAB）。一律先回原位：
+        // 放进去之后随背包刷新从原处消失，放不进时 Unity 飘字、格子本来就还在原位
+        if (tabDrop.drop(mouseX, mouseY, itemData)) return 'reject';
+        // 落在「脚边」横排上 = 放到地上（走原有的面板外丢弃）
+        if (groundDock && groundDock.isOver(mouseX, mouseY)) return false;
+        // 左侧是材料架分行视图时，台面物品落在分行区域 = 放回材料架（范围外物品回背包由 Unity 侧分流）
+        if (rackView.active && rackView.rows && rackView.rows.hit(mouseX, mouseY)) {
+            if (itemData && itemData.containerId === 'workbench-grid') {
+                core.UnitySendEvent('PUT_TO_RACK', { itemId: itemData.id });
+            }
+            return 'reject';
+        }
+        const container = document.querySelector('.ui-container');
+        if (!container) return false;
+        const rect = container.getBoundingClientRect();
+        const inside = mouseX >= rect.left && mouseX <= rect.right
+            && mouseY >= rect.top && mouseY <= rect.bottom;
+        return inside ? 'reject' : false;
+    });
+
+    let pendingBagMsg = null;
+
+    let emptyRecordText = '暂无记录';
+    let fillHintPartialText = '已填入能用的材料，其余在别的页签';
+    let fillHintElsewhereText = '这个配方的材料都在别的页签里';
+    let energyPrefixText = '精力：';
+    let noCostText = '无消耗';
+    let unknownItemText = '未知物品';
+
+    let activeLeftTab = 0;
+    let lastBagMsg = null;
+    let lastCabinetTabsKey = '';
+
+    function renderCabinetTabs(tabs) {
+        const scroll = document.getElementById('leftTabsScroll');
+        if (!scroll) return;
+        tabs = tabs || [];
+        // shortCount 纳入 key：点配方后只有这个字段变，ownerId/name/isNew 都不变，
+        // 漏掉它会导致下面整段直接 return，缺口高亮永远渲染不出来
+        const key = tabs.map(t => t.ownerId + ':' + (t.name || '') + ':' + (t.isNew ? 1 : 0) + ':' + (t.shortCount || 0)).join('|');
+        if (key === lastCabinetTabsKey) return;
+        lastCabinetTabsKey = key;
+
+        scroll.querySelectorAll('.cabinet-tab').forEach(el => el.remove());
+        tabs.forEach((t, i) => {
+            const btn = document.createElement('button');
+            btn.className = 'left-tab cabinet-tab';
+            btn.textContent = t.name || '';
+            btn.title = t.name || '';
+            if (t.isNew && !cabinetGuideDismissed) btn.classList.add('guide-hint');
+            if (t.shortCount > 0) {
+                btn.classList.add('need-hint');
+                const badge = document.createElement('span');
+                badge.className = 'need-badge';
+                badge.textContent = t.shortCount;
+                btn.appendChild(badge);
+            }
+            btn.addEventListener('click', () => {
+                cabinetGuideDismissed = true;
+                hideCabinetGuide();
+                switchLeftTab(2 + i);
+            });
+            scroll.appendChild(btn);
+        });
+    }
+
+    let cabinetGuideDismissed = false;
+    let lastCabinetGuideFlag = false;
+
+    function updateCabinetGuideArrow() {
+        const guide = document.getElementById('cabinetGuide');
+        const bar = document.querySelector('.left-tabs');
+        if (!guide || !bar) return;
+        const hinted = bar.querySelector('.left-tab.guide-hint');
+        if (!hinted) return;
+        const barRect = bar.getBoundingClientRect();
+        const tabRect = hinted.getBoundingClientRect();
+        if (!barRect.width || !tabRect.width) return;
+        const centerPx = (tabRect.left + tabRect.width / 2) - barRect.left;
+        const clamped = Math.max(12, Math.min(barRect.width - 12, centerPx));
+        guide.style.setProperty('--arrow-x', clamped + 'px');
+    }
+
+    function showCabinetGuide() {
+        const guide = document.getElementById('cabinetGuide');
+        if (!guide) return;
+        guide.classList.add('show');
+        requestAnimationFrame(updateCabinetGuideArrow);
+    }
+
+    function hideCabinetGuide() {
+        const guide = document.getElementById('cabinetGuide');
+        if (guide) guide.classList.remove('show');
+        document.querySelectorAll('.left-tabs .left-tab.guide-hint')
+            .forEach(el => el.classList.remove('guide-hint'));
+    }
+
+    const leftLock = createGridSizeLock('backpack-grid');
+
+    // 材料架页签的分行视图。宽度随左侧锁定宽度变化时重建（轨道宽度在建行时写死）
+    const RACK_NAME_W = 70, RACK_CARD = 40, RACK_ROW_H = 48;
+    const rackView = { active: false, rows: null, width: 0, ownerId: 0 };
+    function ensureRackRows(width) {
+        if (rackView.rows && rackView.width === width) return rackView.rows;
+        const host = document.getElementById('rack-rows');
+        rackView.width = width;
+        rackView.rows = createRackRows(host, {
+            trackWidth: Math.max(160, width - RACK_NAME_W - 10 - 10),
+            unit: RACK_CARD, rowHeight: RACK_ROW_H, gap: 4, plateWidth: RACK_NAME_W, compact: true,
+            // 点哪一行就从哪一行取：带上这一行最后一件的实例 id
+            onCardClick: (row) => {
+                const rows = rackView.rows;
+                const cards = rows ? rows.getCards(rows.keyOf(row)) : [];
+                flyer.pend({
+                    configId: row.configId,
+                    fromRects: cards.length ? [cards[cards.length - 1].getBoundingClientRect()] : [],
+                    before: flyer.snapshot((lastBagMsg || {}).workbenchItems)
+                });
+                core.UnitySendEvent('RACK_TO_BENCH', { configId: row.configId, itemId: row.lastId || 0 });
+            },
+            onCardHover: (row, isEnter) => {
+                if (!row.lastId) return;
+                core.UnitySendEvent('ITEM_HOVER', { itemId: String(row.lastId), isEnter: !!isEnter });
+            }
+        });
+        return rackView.rows;
+    }
+
+    function syncLeftTabsWidth() {
+        const bar = document.querySelector('.left-tabs');
+        if (!bar) return;
+        const grid = document.getElementById('backpack-grid');
+        if (grid && grid.offsetWidth > 0) bar.style.width = Math.max(leftLock.width(), grid.offsetWidth) + 'px';
+        updateTabScrollButtons();
+        scrollActiveTabIntoView();
+        updateTabScrollButtons();
+        updateCabinetGuideArrow();
+    }
+
+    function scrollActiveTabIntoView() {
+        const scroll = document.getElementById('leftTabsScroll');
+        if (!scroll) return;
+        const el = scroll.querySelector('.left-tab.active');
+        if (!el) return;
+        const left = el.offsetLeft;
+        const right = left + el.offsetWidth;
+        if (left < scroll.scrollLeft) scroll.scrollLeft = left;
+        else if (right > scroll.scrollLeft + scroll.clientWidth) scroll.scrollLeft = right - scroll.clientWidth;
+    }
+
+    function updateTabScrollButtons() {
+        const scroll = document.getElementById('leftTabsScroll');
+        const btnL = document.getElementById('tabScrollLeft');
+        const btnR = document.getElementById('tabScrollRight');
+        if (!scroll || !btnL || !btnR) return;
+        const needScroll = scroll.scrollWidth > scroll.clientWidth + 1;
+        btnL.classList.toggle('is-visible', needScroll);
+        btnR.classList.toggle('is-visible', needScroll);
+        if (needScroll) {
+            btnL.disabled = scroll.scrollLeft <= 0;
+            btnR.disabled = scroll.scrollLeft >= scroll.scrollWidth - scroll.clientWidth - 1;
+        }
+    }
+
+    function syncTabActiveClass() {
+        const d = lastBagMsg;
+        if (!d) return;
+        const isDrawer = activeLeftTab === 1 && d.drawerOwnerId;
+        const isCabinet = activeLeftTab >= 2;
+        document.getElementById('tab-bag').classList.toggle('active', !isDrawer && !isCabinet);
+        const drawerBtn = document.getElementById('tab-drawer');
+        drawerBtn.classList.toggle('active', !!isDrawer);
+        drawerBtn.style.display = d.drawerOwnerId ? '' : 'none';
+        document.querySelectorAll('.left-tabs .cabinet-tab').forEach((el, i) => {
+            el.classList.toggle('active', isCabinet && activeLeftTab - 2 === i);
+        });
+
+        const pinned = document.querySelector('.left-tab-pinned');
+        const scroll = document.getElementById('leftTabsScroll');
+        if (pinned && scroll) {
+            const hasOthers = Array.from(scroll.children).some(el => el.style.display !== 'none');
+            pinned.classList.toggle('solo', !hasOthers);
+        }
+
+        // 一键整理对左侧格子页签开放（背包 / 工作台抽屉 / 各工具柜）——C# 侧 RA_Sort 按 GetActiveLeftOwnerId
+        // 整理"当前页签这个容器"。材料架页签没有格子可整理，按钮的显隐在 applyLeftGrid 里按分行视图处理
+
+        // 缺口角标（背包 / 抽屉两个常驻页签）：与工具柜页签同一套 need-hint + need-badge。
+        // 工具柜的角标在 renderCabinetTabs 里随页签重建时挂，这两个是静态 DOM，只能每次同步刷。
+        applyPinnedShortage(document.getElementById('tab-bag'), d.bagShortCount || 0);
+        applyPinnedShortage(drawerBtn, d.drawerShortCount || 0);
+        applyFillHint(d);
+    }
+
+    /// 给静态页签按钮挂/摘缺口角标。每次都先摘干净再按当前值重挂——ShortCount 归零时
+    /// （切配方/清空工作台/切页签）必须连红框带角标一起消失，不能留在界面上误导玩家。
+    function applyPinnedShortage(btn, count) {
+        if (!btn) return;
+        const old = btn.querySelector('.need-badge');
+        if (old) old.remove();
+        btn.classList.remove('need-hint');
+        if (!(count > 0)) return;
+        btn.classList.add('need-hint');
+        const badge = document.createElement('span');
+        badge.className = 'need-badge';
+        badge.textContent = count;
+        btn.appendChild(badge);
+    }
+
+    let lastFillHintSeq = 0;
+    let fillToastTimer = null;
+
+    /// 浮一条填料提示。seq 驱动而不是 code 驱动——连点同一个配方 code 不变，
+    /// ReactiveProperty 不推送，只认 code 的话第二次点就没提示了。
+    function showFillToast(text) {
+        const el = document.getElementById('fillToast');
+        if (!el || !text) return;
+        el.textContent = text;
+        el.classList.add('show');
+        if (fillToastTimer) clearTimeout(fillToastTimer);
+        fillToastTimer = setTimeout(() => {
+            el.classList.remove('show');
+            fillToastTimer = null;
+        }, 2200);
+    }
+
+    function applyFillHint(d) {
+        if (!d || d.fillHintSeq === undefined) return;
+        if (d.fillHintSeq === lastFillHintSeq) return;
+        lastFillHintSeq = d.fillHintSeq;
+        if (d.fillHintCode === 1) showFillToast(fillHintPartialText);
+        else if (d.fillHintCode === 2) showFillToast(fillHintElsewhereText);
+        else if (d.fillHintCode === 3) { showFillToast(d.fillHintText); showTookBadges(d.fillTookJson, '−'); }
+        else if (d.fillHintCode === 4) { showFillToast(d.fillHintText); showTookBadges(d.fillTookJson, '+'); }
+    }
+
+    let tookBadgeTimer = null;
+    /// 在页签上挂 2 秒琥珀色角标：取料「−N」/ 清空放回「+N」。json = [[页签下标, 件数], ...]
+    function showTookBadges(json, sign) {
+        clearTookBadges();
+        let list = [];
+        try { list = json ? JSON.parse(json) : []; } catch (e) { list = []; }
+        const cabinetBtns = document.querySelectorAll('.left-tabs .cabinet-tab');
+        list.forEach(pair => {
+            const tab = pair[0], n = pair[1];
+            const btn = tab === 0 ? document.getElementById('tab-bag')
+                : tab === 1 ? document.getElementById('tab-drawer')
+                : cabinetBtns[tab - 2];
+            if (!btn || !(n > 0)) return;
+            btn.classList.add('took-hint');
+            const badge = document.createElement('span');
+            badge.className = 'took-badge';
+            badge.textContent = sign + n;
+            btn.appendChild(badge);
+        });
+        tookBadgeTimer = setTimeout(clearTookBadges, 2000);
+    }
+    function clearTookBadges() {
+        if (tookBadgeTimer) { clearTimeout(tookBadgeTimer); tookBadgeTimer = null; }
+        document.querySelectorAll('.left-tabs .took-badge').forEach(el => el.remove());
+        document.querySelectorAll('.left-tabs .took-hint').forEach(el => el.classList.remove('took-hint'));
+    }
+
+    // ===== 批量制造 ×N：数量行 =====
+    function clampQty(v) {
+        const max = Math.max(1, maxCraftCount);
+        v = parseInt(v, 10);
+        if (!(v >= 1)) v = 1;
+        return Math.min(v, max);
+    }
+    function renderQtyRow() {
+        const row = document.getElementById('qty-row');
+        const show = maxCraftCount >= 2 && !craftBtnLocked;
+        row.classList.toggle('show', show);
+        craftQty = show ? clampQty(craftQty) : 1;
+        document.getElementById('qty-input').value = craftQty;
+        document.getElementById('qty-minus').disabled = craftQty <= 1;
+        document.getElementById('qty-plus').disabled = craftQty >= maxCraftCount;
+        const maxBtn = document.getElementById('qty-max');
+        maxBtn.textContent = batchMaxFmtText.replace('{0}', maxCraftCount);
+        if (maxByStamina) {
+            const lim = document.createElement('span');
+            lim.className = 'qty-lim';
+            lim.textContent = '⚡';
+            maxBtn.appendChild(lim);
+        }
+        const craftBtn = document.getElementById('btn-craft');
+        craftBtn.textContent = craftQty > 1 ? craftBtnText + ' ×' + craftQty : craftBtnText;
+        craftBtn.classList.toggle('is-multi', craftQty > 1);
+        renderCostLabel();
+    }
+    function renderCostLabel() {
+        const el = document.querySelector('.cost-label');
+        if (!el || !(energyCostPerCraft > 0)) return;
+        el.textContent = craftQty > 1
+            ? String(energyCostPerCraft * craftQty)
+            : `${energyPrefixText}${energyCostPerCraft}`;
+    }
+
+    function applyLeftGrid() {
+        if (!lastBagMsg) return;
+        const d = lastBagMsg;
+        const cabinetCount = (d.cabinetTabs || []).length;
+        const isDrawer = activeLeftTab === 1 && d.drawerOwnerId;
+        const isCabinet = activeLeftTab >= 2;
+
+        const ownerId = d.bagOwnerId || 0, cols = d.bagCols, rows = d.bagRows, items = d.bagItems;
+        backpack.setOwnerId(ownerId);
+        if (cols !== undefined && cols > 0) backpack.resize(cols, rows);
+        backpack.refresh(items || []);
+
+        const weightSection = document.querySelector('.weight-section');
+        if (weightSection) weightSection.style.visibility = (isDrawer || isCabinet) ? 'hidden' : '';
+
+        const cabinetTab = isCabinet ? (d.cabinetTabs || [])[activeLeftTab - 2] : null;
+        const isRack = !!(cabinetTab && cabinetTab.isRack);
+        const gridEl = document.getElementById('backpack-grid');
+        const rackEl = document.getElementById('rack-rows');
+        const bagToolbar = document.getElementById('bagToolbar');
+        rackView.active = isRack;
+        if (isRack) {
+            // 不调 leftLock.apply：分行视图不参与锁尺寸，直接占用其它页签锁定出来的格子区
+            const w = leftLock.width() || (8 * BAG_CFG.slotSize);
+            const h = leftLock.height() || (7 * BAG_CFG.slotSize);
+            gridEl.style.display = 'none';
+            rackEl.style.display = '';
+            rackEl.style.width = w + 'px';
+            rackEl.style.height = h + 'px';
+            const rackRows = ensureRackRows(w);
+            if (rackView.ownerId !== ownerId) { rackRows.resetCounts(); rackView.ownerId = ownerId; }
+            let list = [];
+            try { list = d.leftRackRowsJson ? JSON.parse(d.leftRackRowsJson) : []; } catch (e) { list = []; }
+            rackRows.render(list);
+            // 隐藏而不收起：收起会让左面板变矮，右面板高度镜像左面板，切页签时整个界面跟着跳
+            if (bagToolbar) bagToolbar.style.visibility = 'hidden';
+            syncTabActiveClass();
+            applyViewportFit();
+            return;
+        }
+        gridEl.style.display = '';
+        rackEl.style.display = 'none';
+        rackView.ownerId = 0;
+        if (bagToolbar) bagToolbar.style.visibility = '';
+
+        syncTabActiveClass();
+        leftLock.apply({ cols: cols, rows: rows, maxCols: d.bagMaxCols, maxRows: d.bagMaxRows });
+        syncLeftTabsWidth();
+        applyViewportFit();
+    }
+
+    function switchLeftTab(tab) {
+        if (tab === activeLeftTab) return;
+        if (!lastBagMsg) return;
+        if (tab === 1 && !lastBagMsg.drawerOwnerId) return;
+        if (tab >= 2 && tab - 2 >= (lastBagMsg.cabinetTabs || []).length) return;
+        activeLeftTab = tab;
+        syncTabActiveClass();
+        core.UnitySendEvent('TAB_SWITCH', { tab: tab });
+    }
+    document.getElementById('tab-bag').addEventListener('click', () => switchLeftTab(0));
+    document.getElementById('tab-drawer').addEventListener('click', () => switchLeftTab(1));
+
+    (function bindTabScroll() {
+        const scroll = document.getElementById('leftTabsScroll');
+        const btnL = document.getElementById('tabScrollLeft');
+        const btnR = document.getElementById('tabScrollRight');
+        if (!scroll || !btnL || !btnR) return;
+        const STEP = 120;
+        btnL.addEventListener('click', () => scroll.scrollBy({ left: -STEP, behavior: 'smooth' }));
+        btnR.addEventListener('click', () => scroll.scrollBy({ left: STEP, behavior: 'smooth' }));
+        scroll.addEventListener('scroll', () => {
+            updateTabScrollButtons();
+            updateCabinetGuideArrow();
+        });
+        window.addEventListener('resize', syncLeftTabsWidth);
+    })();
+
+    (function bindCabinetGuideBtn() {
+        const btn = document.getElementById('cabinetGuideBtn');
+        if (!btn) return;
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            cabinetGuideDismissed = true;
+            hideCabinetGuide();
+            core.UnitySendEvent('DISMISS_CABINET_GUIDE', {});
+        });
+    })();
+
+    function playSound(soundType) {
+        core.UnitySendEvent(soundType, {});
+    }
+
+    function applyBagMsg(data) {
+        lastBagMsg = data;
+        renderCabinetTabs(data.cabinetTabs);
+        const cabinetCount = (data.cabinetTabs || []).length;
+        let tab = data.activeLeftTab || 0;
+        if (tab === 1 && !data.drawerOwnerId) tab = 0;
+        else if (tab >= 2 && tab - 2 >= cabinetCount) tab = 0;
+        activeLeftTab = tab;
+        applyLeftGrid();
+
+        if (data.showCabinetGuide !== undefined) {
+            if (data.showCabinetGuide && !lastCabinetGuideFlag) cabinetGuideDismissed = false;
+            lastCabinetGuideFlag = !!data.showCabinetGuide;
+            if (data.showCabinetGuide && !cabinetGuideDismissed) showCabinetGuide();
+            else hideCabinetGuide();
+        }
+
+        if (data.benchOriginIds !== undefined) {
+            benchOriginIdSet = new Set((data.benchOriginIds || '').split(',').filter(s => s));
+        }
+        workbench.setOwnerId(data.workbenchOwnerId || 0);
+        if (data.workbenchCols !== undefined) workbench.resize(data.workbenchCols, data.workbenchRows);
+        workbench.refresh(data.workbenchItems || []);
+        applyViewportFit();
+        flyer.settle(data.workbenchItems || []);
+    }
+
+    core.registerHandlers({
+        'WebUI_ToolTable_LocalizationMsg': (data) => {
+            if (data.bagTitle) core.i18n.updateText('[data-i18n="bagTitle"]', data.bagTitle);
+            if (data.drawerTitle) core.i18n.updateText('[data-i18n="drawerTitle"]', data.drawerTitle);
+            if (data.workbenchTitle) core.i18n.updateText('[data-i18n="workbenchTitle"]', data.workbenchTitle);
+            if (data.recipeTitle) core.i18n.updateText('[data-i18n="recipeTitle"]', data.recipeTitle);
+            if (data.hintText) core.i18n.updateText('[data-i18n="hintText"]', data.hintText);
+            if (data.craftBtn) { craftBtnText = data.craftBtn; core.i18n.updateText('[data-i18n="craftBtn"]', data.craftBtn); renderQtyRow(); }
+            if (data.batchMaxFmt) { batchMaxFmtText = data.batchMaxFmt; renderQtyRow(); }
+            if (data.batchStopBtn) { batchStopText = data.batchStopBtn; document.getElementById('batch-stop').textContent = batchStopText; }
+            if (data.confirmBtn) resultLoc.ok = data.confirmBtn;
+            if (data.confirmBtn) core.i18n.updateText('[data-i18n="confirmBtn"]', data.confirmBtn);
+            if (data.craftingText) core.i18n.updateText('[data-i18n="craftingText"]', data.craftingText);
+            if (data.defaultName) core.i18n.updateText('[data-i18n="defaultName"]', data.defaultName);
+            if (data.defaultDesc) core.i18n.updateText('[data-i18n="defaultDesc"]', data.defaultDesc);
+            if (data.weightLabel) core.i18n.updateText('[data-i18n="weightLabel"]', data.weightLabel);
+            if (data.cabinetGuideTitle) core.i18n.updateText('[data-i18n="cabinetGuideTitle"]', data.cabinetGuideTitle);
+            if (data.cabinetGuideBody) core.i18n.updateText('[data-i18n="cabinetGuideBody"]', data.cabinetGuideBody);
+            if (data.cabinetGuideBtn) core.i18n.updateText('[data-i18n="cabinetGuideBtn"]', data.cabinetGuideBtn);
+            if (data.emptyText) emptyRecordText = data.emptyText;
+            if (data.energyPrefix) {
+                energyPrefixText = data.energyPrefix;
+                const costLabel = document.querySelector('.cost-label');
+                if (costLabel) {
+                    const numMatch = costLabel.textContent.match(/\d+/);
+                    if (numMatch) costLabel.textContent = `${energyPrefixText}${numMatch[0]}`;
+                }
+                renderCostLabel();
+            }
+            if (data.noCostText) noCostText = data.noCostText;
+            if (data.unknownItemText) unknownItemText = data.unknownItemText;
+            if (data.noteCatNames !== undefined && data.noteCatNames !== null) {
+                noteCatNamesLoc = data.noteCatNames.split('|');
+            }
+            if (data.searchPlaceholder) {
+                searchPlaceholderText = data.searchPlaceholder;
+                const input = document.getElementById('notes-search-input');
+                if (input) input.placeholder = searchPlaceholderText;
+            }
+            if (data.searchHitUsedLabel) searchHitUsedLabel = data.searchHitUsedLabel;
+            if (data.searchEmptyText) searchEmptyTextLoc = data.searchEmptyText;
+            if (data.searchCountFmt) searchCountFmtLoc = data.searchCountFmt;
+            if (data.matSectionTitle) matSectionTitleLoc = data.matSectionTitle;
+            if (data.specWeightLabel) specWeightLabelLoc = data.specWeightLabel;
+            if (data.specSizeLabel) specSizeLabelLoc = data.specSizeLabel;
+            if (data.matHaveNeedFmt) matHaveNeedFmtLoc = data.matHaveNeedFmt;
+            if (data.takeBtn) resultLoc.take = data.takeBtn;
+            if (data.craftAgainBtn) resultLoc.again = data.craftAgainBtn;
+            if (data.noMaterialBtn) resultLoc.noMat = data.noMaterialBtn;
+            if (data.perfectLabel) resultLoc.perfect = data.perfectLabel;
+            if (data.newRecipeLabel) resultLoc.newRecipe = data.newRecipeLabel;
+            if (data.profLabel) resultLoc.prof = data.profLabel;
+            if (data.resultDescText) resultLoc.desc = data.resultDescText;
+            if (data.resultFailDescText) resultLoc.failDesc = data.resultFailDescText;
+            if (data.sortBagBtn) core.i18n.updateText('[data-i18n="sortBagBtn"]', data.sortBagBtn);
+            if (data.fillHintPartial) fillHintPartialText = data.fillHintPartial;
+            if (data.fillHintElsewhere) fillHintElsewhereText = data.fillHintElsewhere;
+            if (data.clearWorkbenchBtn) core.i18n.updateText('[data-i18n="clearWorkbenchBtn"]', data.clearWorkbenchBtn);
+            if (data.recentTitle) core.i18n.updateText('[data-i18n="recentTitle"]', data.recentTitle);
+            if (lastRecipeData) renderRecipes(lastRecipeData);
+        },
+        'WebUI_ToolTable_GroundDockMsg': (data) => {
+            if (data.groundDockJson === undefined) return;
+            groundDockJson = data.groundDockJson;
+            if (groundDock) groundDock.setData(groundDockJson);
+        },
+        'WebUI_ToolTable_BagMsg': (data) => {
+            if (dragCoord.isDragging()) {
+                pendingBagMsg = data;
+                // 整包（重绘 / 换页签）仍等松手再应用；容器与行列没变时，先把最新格子喂给落点判定
+                const bc = backpack.getConfig();
+                if (data.bagItems && (data.bagOwnerId || 0) === backpack.getOwnerId()
+                    && (data.bagCols === undefined || (data.bagCols === bc.cols && data.bagRows === bc.rows))) {
+                    backpack.setDragModel(data.bagItems);
+                }
+                const wc = workbench.getConfig();
+                if (data.workbenchItems && (data.workbenchOwnerId || 0) === workbench.getOwnerId()
+                    && (data.workbenchCols === undefined || (data.workbenchCols === wc.cols && data.workbenchRows === wc.rows))) {
+                    workbench.setDragModel(data.workbenchItems);
+                }
+                return;
+            }
+            applyBagMsg(data);
+        },
+        'WebUI_ToolTable_StatusMsg': (data) => {
+            if (data.weightCurrent !== undefined && data.weightMax !== undefined) {
+                const text = `${data.weightCurrent.toFixed(2)} Kg / ${data.weightMax.toFixed(2)} Kg`;
+                document.querySelector('.weight-text').textContent = text;
+                const percent = (data.weightCurrent / data.weightMax * 100);
+                document.querySelector('.weight-fill').style.width = percent + '%';
+            }
+            if (data.energyCost !== undefined) {
+                energyCostPerCraft = data.energyCost;
+                renderCostLabel();
+            }
+            if (data.maxCraftCount !== undefined || data.maxByStamina !== undefined) {
+                if (data.maxCraftCount !== undefined) maxCraftCount = data.maxCraftCount || 0;
+                if (data.maxByStamina !== undefined) maxByStamina = !!data.maxByStamina;
+                renderQtyRow();
+            }
+            if (data.craftSpeed !== undefined) {
+                currentCraftSpeed = data.craftSpeed;
+            }
+
+            if (data.craftBtnLocked !== undefined) {
+                craftBtnLocked = (data.craftBtnLocked === true);
+                document.getElementById('btn-craft').classList.toggle('locked', craftBtnLocked);
+                const lockTip = document.getElementById('craft-lock-tip');
+                lockTip.textContent = craftBtnLocked ? (data.craftBtnLockText || '') : '';
+                lockTip.classList.toggle('show', craftBtnLocked && !!data.craftBtnLockText);
+                // 锁定态先于预览块处理：预览条的 ready/locked 皮肤读的就是上面这个 craftBtnLocked
+                refreshPreviewLockSkin();
+                renderQtyRow();
+            }
+
+            // 产出预览条：凑齐才显示。锁定原因不在这里写，仍由 .craft-lock-tip 说，避免同一句话出现两遍
+            if (data.previewShow !== undefined) {
+                const pv = document.getElementById('product-preview');
+                const slot = document.getElementById('pp-slot');
+                const nameEl = document.getElementById('pp-name');
+                const show = (data.previewShow === true);
+                pv.classList.toggle('show', show);
+                if (show) {
+                    const unknown = (data.previewUnknown === true);
+                    pv.classList.toggle('unknown', unknown);
+                    slot.textContent = '';
+                    if (unknown) {
+                        // 笔记里还看不到的配方：只报"未知物品"，不给名字/图标
+                        const glyph = document.createElement('span');
+                        glyph.className = 'pp-glyph';
+                        glyph.textContent = '?';
+                        slot.appendChild(glyph);
+                        nameEl.textContent = unknownItemText;
+                    } else {
+                        if (data.previewIcon) {
+                            const img = document.createElement('img');
+                            img.src = data.previewIcon;
+                            img.alt = '';
+                            slot.appendChild(img);
+                        }
+                        nameEl.textContent = data.previewName || '';
+                    }
+                    refreshPreviewLockSkin();
+                }
+            }
+
+            if (data.dyeOptionsJson !== undefined) {
+                renderDyeSwatches(data.dyeOptionsJson);
+            }
+
+            if (data.batchTotal !== undefined || data.batchIndex !== undefined) {
+                applyBatchProgress(data.batchIndex, data.batchTotal);
+            }
+
+            if (data.batchFeetText !== undefined) {
+                applyBatchFeet(data.batchFeetText);
+            }
+
+            if (data.isCrafting !== undefined) {
+                const isCrafting = (data.isCrafting === true);
+                if (isCrafting !== lastCraftingState) {
+                    lastCraftingState = isCrafting;
+                    if (isCrafting) {
+                        document.getElementById('crafting-overlay').style.display = 'flex';
+                        currentProgress = 0;
+                        lastFrameTime = performance.now();
+                        startCraftAnimation();
+                    } else {
+                        stopCraftAnimation();
+                        document.getElementById('crafting-overlay').style.display = 'none'; 
+                    }
+                }
+            }
+        },
+        'WebUI_ToolTable_TipsMsg': (data) => {
+            const tooltip = document.getElementById('tooltip');
+            if (data.show) {
+                document.getElementById('tt-title').textContent = data.itemName || '';
+                const lines = [data.attrText, data.timeText, data.descText].filter(t => t);
+                document.getElementById('tt-desc').textContent = lines.join('\n');
+                tooltip.style.display = 'block';
+            } else {
+                tooltip.style.display = 'none';
+            }
+        },
+        'WebUI_ToolTable_TakeKeyMsg': (data) => {
+            // 「收下」键的鼠标侧键路径：页面 keydown 收不到鼠标键（Vuplex 只转发左/中/右），
+            // C# HotKeyManager 轮询后推 takeKeySeq 上升沿过来；键盘绑定仍走下方 document keydown，两条路按绑定值类型互斥
+            if (data.takeKeySeq === undefined) return;
+            if (isFirstTakeKeyMsg) {
+                isFirstTakeKeyMsg = false;
+                takeKeySeqSeen = data.takeKeySeq;
+                return;
+            }
+            if (data.takeKeySeq <= takeKeySeqSeen) return;
+            takeKeySeqSeen = data.takeKeySeq;
+            if (!resultVisible) return;
+            closeCrafting();
+        },
+        'WebUI_ToolTable_ResultMsg': (data) => {
+            const overlay = document.getElementById('crafting-overlay');
+            const progressBox = document.getElementById('crafting-progress-box');
+            const resultBox = document.getElementById('crafting-result-box');
+
+            if (data.show) {
+                overlay.style.display = 'flex';
+                progressBox.style.display = 'none';
+                resultBox.style.display = 'block';
+
+                stopCraftAnimation();
+                renderCraftResult(data);
+
+                playSound(data.isSuccess ? 'CRAFT_SUCCESS' : 'CRAFT_FAIL');
+                lastCraftingState = false;
+            } else {
+                resultBox.style.display = 'none';
+                progressBox.style.display = 'block';
+                resultVisible = false;
+                if (!lastCraftingState) {
+                    overlay.style.display = 'none';
+                }
+            }
+        },
+        'WebUI_ToolTable_RecipeMsg': (data) => {
+            const notesSection = document.querySelector('.notes-section');
+            const combinedPanel = document.querySelector('.combined-panel');
+
+            if (!collapsedCatsRestored) {
+                collapsedCatsRestored = true;
+                const collapsedMask = data.collapsedCats || 0;
+                NOTE_CAT_META.forEach(meta => {
+                    if (collapsedMask & (1 << meta.id)) collapsedCats.add(meta.id);
+                });
+            }
+            
+            if (data.show) {
+                notesSection.style.display = 'flex';
+                combinedPanel.classList.remove('no-notes');
+                renderRecipes(data.recipes);
+                renderRecentRecipes(data.recentRecipeKeys);
+            } else {
+                notesSection.style.display = 'none';
+                combinedPanel.classList.add('no-notes');
+            }
+        }
+    });
+
+    const NOTE_CAT_META = [
+        { id: 1, name: '基础材料', icon: '<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/>' },
+        { id: 2, name: '工具器件', icon: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>' },
+        { id: 3, name: '陷阱狩猎', icon: '<circle cx="12" cy="12" r="10"/><path d="M22 12h-4M6 12H2M12 6V2M12 22v-4"/>' },
+        { id: 4, name: '种植园艺', icon: '<path d="M7 20h10"/><path d="M12 20v-8"/><path d="M12 12C12 8 9 6 5 6c0 4 3 6 7 6z"/><path d="M12 10c0-3.5 2.5-5 6.5-5 0 3.5-2.5 5-6.5 5z"/>' },
+        { id: 5, name: '电力能源', icon: '<path d="M13 2 3 14h9l-1 8 10-12h-9z"/>' },
+        { id: 6, name: '防御设施', icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>' },
+        { id: 7, name: '生活家具', icon: '<path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/><path d="M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H7v-2a2 2 0 0 0-4 0Z"/><path d="M5 18v2M19 18v2"/>' },
+        { id: 0, name: '其他', icon: '<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 8z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>' },
+    ];
+    let noteCatNamesLoc = [];
+    let lastRecipeData = null;
+    const collapsedCats = new Set();
+    let collapsedCatsRestored = false;
+    /// 子材料树的展开路径（2026-09-22）。键 = 从配方行到这一层的 recipeKey 链（`a>b>c`），
+    /// 同一种材料出现在不同配方下互不影响。
+    ///
+    /// 为什么需要它：切左侧页签会让 C# 重算 canCraft → 整条 RecipeMsg 重推 → renderRecipes
+    /// 把 #recipe-list 整块重建，展开的子材料树跟着没了。玩家的典型动作恰恰是「展开看缺什么
+    /// → 切到别的柜子找料」，一切就塌，等于每次都要重新展一遍。
+    ///
+    /// **只活在面板打开期间**（设计拍板）：WebUI 面板关闭即销毁 iframe
+    /// （CodeGuidelines/webui-panel-lifecycle「不存在保活隐藏态」），本 Set 随之消失，
+    /// 不需要也不应该写存档 —— 与分组折叠态（collapsedCats，落 GameSaveData）刻意不同档。
+    const expandedSubPaths = new Set();
+
+    function noteCatDisplayName(meta) {
+        const idx = (meta.id >= 1 && meta.id <= 7) ? meta.id - 1 : (meta.id === 0 ? 7 : -1);
+        if (idx >= 0) {
+            const loc = noteCatNamesLoc[idx];
+            if (loc) return loc;
+        }
+        return meta.name;
+    }
+
+    let recipeQuery = '';
+    let recipeByKey = {};
+    const materialsCache = new Map();
+    let searchPlaceholderText = '';
+    let searchEmptyTextLoc = '';
+    let searchCountFmtLoc = '';
+    let searchHitUsedLabel = '用到';
+    let matSectionTitleLoc = '所需材料';
+    let specWeightLabelLoc = '重量';
+    let specSizeLabelLoc = '占格';
+    // 子材料行浮层的持有/需要行模板（ToolTable_46）。这里的中文只是首条 LocalizationMsg 到达前的占位，
+    // 真值走 OrExposeKey：缺译时非中文包露裸 key 而不是回落中文（i18n-rules 2.5）
+    let matHaveNeedFmtLoc = '已有 {0} ｜ 需要 {1}';
+
+    function getMaterials(r) {
+        if (!r) return [];
+        const key = r.recipeKey || '';
+        if (key && materialsCache.has(key)) return materialsCache.get(key);
+        let mats = [];
+        if (r.materialsJson) {
+            try { mats = JSON.parse(r.materialsJson); } catch (e) { mats = []; }
+        }
+        if (key) materialsCache.set(key, mats);
+        return mats;
+    }
+
+    function matchRecipe(r) {
+        if (!recipeQuery) return { ok: true };
+        if ((r.name || '').toLowerCase().indexOf(recipeQuery) >= 0) return { ok: true, by: 'name' };
+        // 可染色的原款：搜某个颜色款的名字也命中这一行
+        if (r.dyeSearchText && r.dyeSearchText.toLowerCase().indexOf(recipeQuery) >= 0) return { ok: true, by: 'name' };
+        const mats = getMaterials(r);
+        for (let i = 0; i < mats.length; i++) {
+            if ((mats[i].name || '').toLowerCase().indexOf(recipeQuery) >= 0) {
+                return { ok: true, by: 'mat', mat: mats[i] };
+            }
+        }
+        return { ok: false };
+    }
+
+    function hitText(text) {
+        const s = text || '';
+        const frag = document.createDocumentFragment();
+        const i = recipeQuery ? s.toLowerCase().indexOf(recipeQuery) : -1;
+        if (i < 0) {
+            frag.appendChild(document.createTextNode(s));
+            return frag;
+        }
+        frag.appendChild(document.createTextNode(s.slice(0, i)));
+        const em = document.createElement('span');
+        em.className = 'hit';
+        em.textContent = s.slice(i, i + recipeQuery.length);
+        frag.appendChild(em);
+        frag.appendChild(document.createTextNode(s.slice(i + recipeQuery.length)));
+        return frag;
+    }
+
+    function renderRecipes(recipes) {
+        // 整表重建会把鼠标底下那个元素直接删掉，mouseleave 永远不会来 → 浮层留在屏幕上不收。
+        // 旧版只有配方行出浮层、重建又多发生在鼠标不在列表里的时候，所以没显形；
+        // 子材料行也出浮层之后撞上的机会大了很多（2026-09-22 顺手修）
+        hideRecipeTooltip();
+        lastRecipeData = recipes;
+        materialsCache.clear();
+        recipeByKey = {};
+        (recipes || []).forEach(r => { if (r.recipeKey) recipeByKey[r.recipeKey] = r; });
+
+        const container = document.getElementById('recipe-list');
+        const resultLine = document.getElementById('notes-result-line');
+        container.innerHTML = '';
+        if (!recipes || recipes.length === 0) {
+            resultLine.style.display = 'none';
+            container.innerHTML = `<div style="color:#555;font-style:italic;padding:10px;">${core.escapeHtml(emptyRecordText)}</div>`;
+            return;
+        }
+
+        const shown = [];
+        recipes.forEach(r => {
+            const m = matchRecipe(r);
+            if (m.ok) { r._match = m; shown.push(r); }
+        });
+
+        if (recipeQuery) {
+            resultLine.style.display = '';
+            const fmt = searchCountFmtLoc || '匹配 {0} / {1} 条';
+            resultLine.textContent = fmt.replace('{0}', shown.length).replace('{1}', recipes.length);
+        } else {
+            resultLine.style.display = 'none';
+        }
+
+        if (shown.length === 0) {
+            const empty = document.createElement('div');
+            empty.className = 'notes-empty';
+            empty.textContent = searchEmptyTextLoc || '没有匹配的配方';
+            container.appendChild(empty);
+            return;
+        }
+
+        const buckets = new Map();
+        shown.forEach(r => {
+            const cat = (r.noteCategory >= 1 && r.noteCategory <= 7) ? r.noteCategory : 0;
+            if (!buckets.has(cat)) buckets.set(cat, []);
+            buckets.get(cat).push(r);
+        });
+        NOTE_CAT_META.forEach(meta => {
+            const group = buckets.get(meta.id);
+            if (!group || group.length === 0) return;
+            const craftableCount = group.filter(r => r.canCraft).length;
+            const hasNew = group.some(r => r.isNew);
+            const collapsed = recipeQuery ? false : collapsedCats.has(meta.id);
+
+            const header = document.createElement('div');
+            header.className = 'recipe-group-header' + (collapsed ? '' : ' open') + (recipeQuery ? ' query-locked' : '');
+            const arrow = document.createElement('span');
+            arrow.className = 'recipe-group-arrow';
+            header.appendChild(arrow);
+            const iconBox = document.createElement('span');
+            iconBox.className = 'recipe-group-icon';
+            iconBox.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${meta.icon}</svg>`;
+            header.appendChild(iconBox);
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'recipe-group-name';
+            nameSpan.textContent = noteCatDisplayName(meta);
+            header.appendChild(nameSpan);
+            if (hasNew) {
+                const dot = document.createElement('span');
+                dot.className = 'recipe-group-newdot';
+                header.appendChild(dot);
+            }
+            if (craftableCount > 0) {
+                const badge = document.createElement('span');
+                badge.className = 'recipe-group-craftable';
+                badge.textContent = craftableCount;
+                header.appendChild(badge);
+            }
+            const count = document.createElement('span');
+            count.className = 'recipe-group-count';
+            count.textContent = group.length;
+            header.appendChild(count);
+
+            const body = document.createElement('div');
+            body.className = 'recipe-group-body';
+            body.style.display = collapsed ? 'none' : '';
+            group.forEach(r => body.appendChild(buildRecipeItem(r)));
+
+            header.addEventListener('click', () => {
+                if (recipeQuery) return;
+                const nowCollapsed = !collapsedCats.has(meta.id);
+                if (nowCollapsed) collapsedCats.add(meta.id); else collapsedCats.delete(meta.id);
+                header.classList.toggle('open', !nowCollapsed);
+                body.style.display = nowCollapsed ? 'none' : '';
+                core.UnitySendEvent('NOTE_CAT_TOGGLE', { cat: meta.id, collapsed: nowCollapsed });
+            });
+            container.appendChild(header);
+            container.appendChild(body);
+        });
+    }
+
+    // 最近制造 3 个快捷方式：keysStr 是 '|' 分隔的 recipeKey 串，反查 renderRecipes 刚建好的
+    // recipeByKey 取图标/名字；点击直接复用 RECIPE_CLICK，走跟点笔记里那条配方完全一样的路
+    /// 「最近制造」快捷方式总开关（当前 false = 屏蔽，不是删除）。
+    ///
+    /// 2026-08-26 第一轮跑测：区块整体溢出工作台面板下边框 —— 根因是下方 syncPanelHeight 把
+    /// combined-panel 的高度硬钉成左侧 backpack-panel 的高度，「最近」区块的高度从来没被算进去。
+    /// 同日第二轮已把布局改好（面板高度改成取「左侧面板 / 工作台自身内容」两者较大值，
+    /// 区块上限 4 个 = 2 列 × 2 行），但没时间跑测调，按需求方要求先继续屏蔽。
+    ///
+    /// 2026-09-28 批量制造数量行常驻占位后制造按钮溢出底框，syncPanelHeight 已不分开关统一取较大值。
+    /// 开启只要把这里改成 true —— 布局、C# 记录/存档链路（ToolTableRecentRecipeKeys、
+    /// RecordRecentRecipe、RA_Result 写入、RoundRestart keep-list）全部就位，不需要再动别的。
+    /// 注意开启后务必跑一遍：制造 4 次不同配方看是否 2×2 排满且面板底部不溢出。
+    const RECENT_BLOCK_ENABLED = false;
+
+    function renderRecentRecipes(keysStr) {
+        const block = document.getElementById('recentBlock');
+        const grid = document.getElementById('recentGrid');
+        if (!block || !grid) return;
+        if (!RECENT_BLOCK_ENABLED) {
+            block.style.display = 'none';
+            grid.innerHTML = '';
+            return;
+        }
+
+        // 最多 4 个 = .recent-grid 的 2 列 × 2 行。C# 侧 RECENT_RECIPE_MAX 已同为 4，
+        // 这里再切一刀是防线：多出来的会排到第 3 行，直接把面板高度顶穿
+        const keys = (keysStr || '').split('|').filter(k => k && recipeByKey[k]).slice(0, 4);
+        grid.innerHTML = '';
+        if (keys.length === 0) {
+            block.style.display = 'none';
+            return;
+        }
+        block.style.display = '';
+        keys.forEach(key => {
+            const r = recipeByKey[key];
+            const item = document.createElement('div');
+            item.className = 'recent-item';
+
+            const iconBox = document.createElement('div');
+            iconBox.className = 'recent-icon';
+            if (r.icon) {
+                const img = document.createElement('img');
+                img.src = r.icon;
+                img.onerror = () => { img.style.display = 'none'; };
+                iconBox.appendChild(img);
+            }
+            item.appendChild(iconBox);
+
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'recent-name';
+            nameSpan.textContent = r.name || '';
+            item.appendChild(nameSpan);
+
+            item.addEventListener('click', () => {
+                if (r.craftLocked) return;
+                core.UnitySendEvent('RECIPE_CLICK', { recipeKey: key });
+            });
+            grid.appendChild(item);
+        });
+    }
+
+    function buildRecipeItem(r) {
+            const frag = document.createDocumentFragment();
+            const el = document.createElement('div');
+            el.className = 'recipe-item';
+            if (r.canCraft) el.classList.add('can-craft');
+            if (r.partial) el.classList.add('partial-craft');
+            if (r.craftLocked) el.classList.add('craft-locked');
+
+            const iconBox = document.createElement('div');
+            iconBox.className = 'recipe-icon';
+            if (r.icon) {
+                const img = document.createElement('img');
+                img.src = r.icon;
+                img.onerror = () => { img.style.display = 'none'; };
+                iconBox.appendChild(img);
+            }
+            el.appendChild(iconBox);
+
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'recipe-item-name';
+            nameSpan.appendChild(hitText(r.name));
+            el.appendChild(nameSpan);
+
+            if (r.dyeable) {
+                iconBox.classList.add('has-dye');
+                const dyeMark = document.createElement('span');
+                dyeMark.className = 'recipe-dye-mark';
+                iconBox.appendChild(dyeMark);
+            }
+
+            if (r.craftLocked) {
+                const lockBadge = document.createElement('span');
+                lockBadge.className = 'recipe-lock-badge';
+                el.appendChild(lockBadge);
+            }
+
+            const materialList = getMaterials(r);
+            const hasSub = materialList.some(m => m.sub);
+            let subTree = null;
+            let expandBtn = null;
+            if (hasSub) {
+                el.classList.add('has-expand');
+                expandBtn = document.createElement('button');
+                expandBtn.className = 'recipe-expand';
+                expandBtn.innerHTML = '<span class="caret">▶</span>';
+                expandBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const open = subTree.style.display === 'none';
+                    if (open) {
+                        fillSubTree(subTree, r, 1, r.recipeKey);
+                        expandedSubPaths.add(r.recipeKey);
+                    } else {
+                        expandedSubPaths.delete(r.recipeKey);
+                    }
+                    subTree.style.display = open ? '' : 'none';
+                    expandBtn.classList.toggle('open', open);
+                    hideRecipeTooltip();
+                });
+                el.appendChild(expandBtn);
+            }
+
+            if (r.isNew) {
+                const badge = document.createElement('span');
+                badge.className = 'recipe-new-badge';
+                badge.textContent = 'NEW';
+                el.appendChild(badge);
+            }
+
+            el._materials = materialList;
+            el._craftLockLine = (r.craftLocked && r.craftLockText) ? r.craftLockText : '';
+            el._product = buildRecipeProduct(r);
+            el.addEventListener('click', () => {
+                if (r.craftLocked) return;
+                if (r.recipeKey) core.UnitySendEvent('RECIPE_CLICK', { recipeKey: r.recipeKey });
+            });
+            el.addEventListener('mouseenter', (e) => showRecipeTooltip(e, el._materials, el._craftLockLine, el._product));
+            el.addEventListener('mouseleave', hideRecipeTooltip);
+            el.addEventListener('mousemove', scheduleMoveRecipeTooltip);
+            frag.appendChild(el);
+
+            if (r._match && r._match.by === 'mat' && r._match.mat) {
+                const why = document.createElement('div');
+                why.className = 'recipe-hit-why';
+                why.appendChild(document.createTextNode(searchHitUsedLabel + ' '));
+                why.appendChild(hitText(r._match.mat.name));
+                why.appendChild(document.createTextNode(' ×' + (r._match.mat.need || 0)));
+                frag.appendChild(why);
+            }
+
+            if (hasSub) {
+                subTree = document.createElement('div');
+                subTree.className = 'recipe-sub';
+                subTree.style.display = 'none';
+                frag.appendChild(subTree);
+                // 跨重建恢复展开态（切页签 / 搜索 / 拖料造完刷新都会走到这里）。
+                // 必须排在 subTree 建出来之后；更深层由 fillSubTree 自己递归恢复
+                if (expandedSubPaths.has(r.recipeKey)) {
+                    fillSubTree(subTree, r, 1, r.recipeKey);
+                    subTree.style.display = '';
+                    if (expandBtn) expandBtn.classList.add('open');
+                }
+            }
+            return frag;
+    }
+
+    /// path = 从配方行到 box 这一层的 recipeKey 链，用于 expandedSubPaths 记账（见该 Set 的注释）
+    function fillSubTree(box, recipe, depth, path) {
+        if (!box || box._filled) return;
+        box._filled = true;
+        getMaterials(recipe).forEach(m => {
+            const row = document.createElement('div');
+            row.className = 'sub-row';
+
+            const ic = document.createElement('div');
+            ic.className = 'mat-icon';
+            if (m.icon) {
+                const img = document.createElement('img');
+                img.src = m.icon;
+                img.onerror = () => { img.style.display = 'none'; };
+                ic.appendChild(img);
+            }
+            row.appendChild(ic);
+
+            const nm = document.createElement('span');
+            nm.className = 'sub-name' + (m.hasEnough ? ' owned' : '');
+            nm.appendChild(hitText(m.name));
+            row.appendChild(nm);
+
+            const cnt = document.createElement('span');
+            cnt.className = 'sub-have' + (m.hasEnough ? '' : ' lack');
+            cnt.textContent = (m.have || 0) + '/' + (m.need || 0);
+            row.appendChild(cnt);
+
+            const child = m.sub ? recipeByKey[m.sub] : null;
+            let childBox = null;
+            // canFill＝这一行点下去真会填料：缺料 + 该材料自己有可见配方。
+            // 判据与下面锤子键出现的条件是同一个，整行就是锤子键的热区（2026-09-22 拍板 B 档）。
+            // 材料已经够了的行不给点——点了会清空台面改摆那条子配方的料，误触代价比收益大
+            const canFill = !!child && !m.hasEnough;
+            if (canFill) {
+                row.classList.add('can-fill');
+                // 锁定态也照常发 RECIPE_CLICK（与下面锤子键同一口径）：
+                // 回来的是写着解锁条件的全局飘字，由 RA_RecipeClick 开头的制作锁判定发出
+                row.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (child.recipeKey) core.UnitySendEvent('RECIPE_CLICK', { recipeKey: child.recipeKey });
+                });
+            }
+            // 悬浮浮层：有下位配方的行出那条配方的完整浮层（锁定态带上锁定原因行），
+            // 与 hover 上一级配方行看到的是同一种东西；没有配方的材料只出名字 + 持有/需要。
+            // ⚠ 锤子键**刻意不单独挂 hover**：mouseenter/mouseleave 都不冒泡，
+            //   鼠标从行移到键上时行不会再触发 enter、离开键时却会触发键的 leave，
+            //   浮层会在行内闪掉且不再回来。让整行独占这三个监听即可（键是行的子元素，
+            //   进出键不产生行的 mouseleave）
+            row.addEventListener('mouseenter', (e) => {
+                if (child) {
+                    showRecipeTooltip(e, getMaterials(child),
+                        child.craftLocked ? (child.craftLockText || '') : '',
+                        buildRecipeProduct(child));
+                } else {
+                    showMaterialTooltip(e, m);
+                }
+            });
+            row.addEventListener('mouseleave', hideRecipeTooltip);
+            row.addEventListener('mousemove', scheduleMoveRecipeTooltip);
+
+            if (child) {
+                if (!m.hasEnough) {
+                    const craftBtn = document.createElement('button');
+                    craftBtn.className = 'sub-craft' + (child.craftLocked ? ' locked' : '');
+                    craftBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor">'
+                        + '<g transform="rotate(-38 12 12)">'
+                        + '<rect x="2.5" y="3" width="16" height="6.4" rx="1.5"/>'
+                        + '<rect x="8.4" y="9" width="4.2" height="12" rx="1.1"/>'
+                        + '</g></svg>';
+                    craftBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        if (child.recipeKey) core.UnitySendEvent('RECIPE_CLICK', { recipeKey: child.recipeKey });
+                    });
+                    row.appendChild(craftBtn);
+                }
+                if (depth < 4) {
+                    const childPath = path + '>' + child.recipeKey;
+                    const more = document.createElement('button');
+                    more.className = 'recipe-expand';
+                    more.innerHTML = '<span class="caret">▶</span>';
+                    more.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const open = childBox.style.display === 'none';
+                        if (open) {
+                            fillSubTree(childBox, child, depth + 1, childPath);
+                            expandedSubPaths.add(childPath);
+                        } else {
+                            expandedSubPaths.delete(childPath);
+                        }
+                        childBox.style.display = open ? '' : 'none';
+                        more.classList.toggle('open', open);
+                        hideRecipeTooltip();
+                    });
+                    row.appendChild(more);
+                    box.appendChild(row);
+                    childBox = document.createElement('div');
+                    childBox.className = 'recipe-sub';
+                    childBox.style.display = 'none';
+                    box.appendChild(childBox);
+                    if (expandedSubPaths.has(childPath)) {
+                        fillSubTree(childBox, child, depth + 1, childPath);
+                        childBox.style.display = '';
+                        more.classList.add('open');
+                    }
+                    return;
+                }
+            }
+            box.appendChild(row);
+        });
+    }
+
+    /// 把一条配方的产出物字段收成 showRecipeTooltip 要的那个 product 对象。
+    /// 与 buildRecipeItem 里给 el._product 赋值的那段同源——子材料行 hover 要复用同一套浮层
+    function buildRecipeProduct(r) {
+        return {
+            name: r.name || '',
+            icon: r.icon || '',
+            desc: r.productDesc || '',
+            attr: r.productAttrText || '',
+            weight: r.productWeightText || '',
+            sw: r.productSizeW || 0,
+            sh: r.productSizeH || 0,
+            // 家具包裹类产物才有值（后端 FillFurnitureBrief），普通产物全空串 → 对应行不渲染
+            slot: r.productSlotText || '',
+            stats: r.productStatsText || '',
+            funcName: r.productFuncName || '',
+            attrDelta: r.productAttrDelta || ''
+        };
+    }
+
+    // 属性预览 chips：解析与配色移植自 SelectMenu.html 的 buildAttrChips（家具菜单按钮 tooltip），
+    // 数据同为 Config_FurnitureFunc.PreviewAttrDelta，两处保持同一套读法
+    const ATTR_EMOJI = {
+        Satiety: '🍖',
+        Morale:  '🧠',
+        Stamina: '⚡',
+        Vitality:'❤️'
+    };
+    function buildAttrChips(raw) {
+        if (!raw) return null;
+        const wrap = document.createElement('div');
+        wrap.className = 'tip-attrs';
+        const parts = raw.split(';').map(s => s.trim()).filter(Boolean);
+        for (const p of parts) {
+            const m = p.match(/^(Max)?(Satiety|Morale|Stamina|Vitality):([-+]?\d+)$/);
+            if (!m) continue;
+            const isMax = !!m[1];
+            const attr = m[2];
+            const num = parseInt(m[3], 10);
+            if (num === 0) continue;
+            const chip = document.createElement('span');
+            chip.className = 'attr-chip ' + (isMax ? 'cap' : (num > 0 ? 'gain' : 'cost'));
+            const ico = document.createElement('span');
+            ico.className = 'ico';
+            ico.textContent = ATTR_EMOJI[attr] || '';
+            chip.appendChild(ico);
+            if (isMax) {
+                const pfx = document.createElement('span');
+                pfx.className = 'cap-prefix';
+                pfx.textContent = 'Max';
+                chip.appendChild(pfx);
+            }
+            const val = document.createElement('span');
+            const sign = num > 0 ? '+' : '−';
+            if (isMax) {
+                val.textContent = sign + Math.abs(num);
+            } else {
+                const absNum = Math.abs(num);
+                const tier = absNum <= 10 ? 1 : (absNum <= 30 ? 2 : 3);
+                val.textContent = sign.repeat(tier);
+            }
+            chip.appendChild(val);
+            wrap.appendChild(chip);
+        }
+        return wrap.children.length > 0 ? wrap : null;
+    }
+
+    let _recipeTooltipEl = null;
+    let _recipeTooltipW = 0;
+    let _recipeTooltipH = 0;
+    function _getRecipeTooltipEl() {
+        if (!_recipeTooltipEl) _recipeTooltipEl = document.getElementById('recipe-tooltip');
+        return _recipeTooltipEl;
+    }
+    function showRecipeTooltip(e, materials, craftLockLine, product) {
+        const tooltip = _getRecipeTooltipEl();
+        tooltip.innerHTML = '';
+
+        if (product) {
+            const head = document.createElement('div');
+            head.className = 'prod-head';
+            const iconBox = document.createElement('div');
+            iconBox.className = 'mat-icon';
+            if (product.icon) {
+                const img = document.createElement('img');
+                img.src = product.icon;
+                img.onerror = () => { img.style.display = 'none'; };
+                iconBox.appendChild(img);
+            }
+            head.appendChild(iconBox);
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'prod-name';
+            nameSpan.textContent = product.name || '';
+            head.appendChild(nameSpan);
+            tooltip.appendChild(head);
+
+            if (product.desc) {
+                const descLine = document.createElement('div');
+                descLine.className = 'prod-desc';
+                descLine.textContent = product.desc;
+                tooltip.appendChild(descLine);
+            }
+            if (product.attr) {
+                const attrLine = document.createElement('div');
+                attrLine.className = 'prod-attr';
+                attrLine.textContent = product.attr;
+                tooltip.appendChild(attrLine);
+            }
+            // 家具包裹：先给拆开之后的家具信息（放不放得下 / 能干什么 / 数值多少），
+            // 包裹自身的重量与占格降为下面那行灰字
+            if (product.slot) {
+                const slotLine = document.createElement('div');
+                slotLine.className = 'prod-slot';
+                slotLine.textContent = product.slot;
+                tooltip.appendChild(slotLine);
+            }
+            if (product.stats) {
+                const statsLine = document.createElement('div');
+                statsLine.className = 'prod-stats';
+                statsLine.textContent = product.stats;
+                tooltip.appendChild(statsLine);
+            }
+            if (product.funcName || product.attrDelta) {
+                const chips = buildAttrChips(product.attrDelta);
+                if (product.funcName || chips) {
+                    const funcLine = document.createElement('div');
+                    funcLine.className = 'prod-func';
+                    if (product.funcName) {
+                        const fname = document.createElement('span');
+                        fname.className = 'prod-func-name';
+                        fname.textContent = product.funcName;
+                        funcLine.appendChild(fname);
+                    }
+                    if (chips) funcLine.appendChild(chips);
+                    tooltip.appendChild(funcLine);
+                }
+            }
+
+            const specParts = [];
+            if (product.weight) specParts.push(specWeightLabelLoc + ' ' + product.weight + ' Kg');
+            if (product.sw && product.sh) specParts.push(specSizeLabelLoc + ' ' + product.sw + '×' + product.sh);
+            if (specParts.length > 0) {
+                const specLine = document.createElement('div');
+                specLine.className = 'prod-spec';
+                specLine.textContent = specParts.join(' ｜ ');
+                tooltip.appendChild(specLine);
+            }
+
+            const divider = document.createElement('div');
+            divider.className = 'tt-div';
+            tooltip.appendChild(divider);
+        }
+
+        if (craftLockLine) {
+            const lockLine = document.createElement('div');
+            lockLine.className = 'recipe-cost-line';
+            lockLine.style.color = '#e0a45a';
+            lockLine.textContent = craftLockLine;
+            tooltip.appendChild(lockLine);
+        }
+
+        if (!materials || materials.length === 0) {
+            const p = document.createElement('div');
+            p.className = 'recipe-cost-line';
+            p.textContent = noCostText;
+            tooltip.appendChild(p);
+        } else {
+            if (product) {
+                const sec = document.createElement('div');
+                sec.className = 'tt-sec';
+                sec.textContent = matSectionTitleLoc;
+                if (craftLockLine) sec.style.marginTop = '5px';
+                tooltip.appendChild(sec);
+            }
+            materials.forEach(m => {
+                const row = document.createElement('div');
+                row.className = 'mat-row';
+                const iconBox = document.createElement('div');
+                iconBox.className = 'mat-icon';
+                if (m.icon) {
+                    const img = document.createElement('img');
+                    img.src = m.icon;
+                    img.onerror = () => { img.style.display = 'none'; };
+                    iconBox.appendChild(img);
+                }
+                row.appendChild(iconBox);
+                const nameSpan = document.createElement('span');
+                nameSpan.className = 'mat-name' + (m.hasEnough ? ' owned' : '');
+                nameSpan.textContent = m.name || '';
+                row.appendChild(nameSpan);
+                const needSpan = document.createElement('span');
+                needSpan.className = 'mat-need';
+                needSpan.textContent = '×' + (m.need || 0);
+                row.appendChild(needSpan);
+                tooltip.appendChild(row);
+            });
+        }
+        tooltip.style.display = 'block';
+        const rect = tooltip.getBoundingClientRect();
+        _recipeTooltipW = rect.width;
+        _recipeTooltipH = rect.height;
+        moveRecipeTooltip(e);
+    }
+    /// 没有下位配方的子材料（只能捡 / 买 / 拆）hover 出的精简浮层：名字 + 持有/需要。
+    /// 材料本身没有可展开的信息（materialsJson 只有 icon/name/need/have/hasEnough/sub，
+    /// 没有描述），所以这里刻意只回答"我有几个、要几个"，不去后端加字段（2026-09-22 拍板）。
+    /// 复用同一个浮层节点与定位逻辑
+    function showMaterialTooltip(e, m) {
+        const tooltip = _getRecipeTooltipEl();
+        tooltip.innerHTML = '';
+        const head = document.createElement('div');
+        head.className = 'prod-head';
+        const iconBox = document.createElement('div');
+        iconBox.className = 'mat-icon';
+        if (m.icon) {
+            const img = document.createElement('img');
+            img.src = m.icon;
+            img.onerror = () => { img.style.display = 'none'; };
+            iconBox.appendChild(img);
+        }
+        head.appendChild(iconBox);
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'prod-name';
+        nameSpan.textContent = m.name || '';
+        head.appendChild(nameSpan);
+        tooltip.appendChild(head);
+
+        const spec = document.createElement('div');
+        spec.className = 'prod-spec';
+        spec.textContent = (matHaveNeedFmtLoc || '已有 {0} ｜ 需要 {1}')
+            .replace('{0}', m.have || 0).replace('{1}', m.need || 0);
+        tooltip.appendChild(spec);
+
+        tooltip.style.display = 'block';
+        const rect = tooltip.getBoundingClientRect();
+        _recipeTooltipW = rect.width;
+        _recipeTooltipH = rect.height;
+        moveRecipeTooltip(e);
+    }
+    function hideRecipeTooltip() {
+        const tooltip = _getRecipeTooltipEl();
+        if (tooltip) tooltip.style.display = 'none';
+        _recipeTooltipW = 0;
+        _recipeTooltipH = 0;
+    }
+    function moveRecipeTooltip(e) {
+        const tooltip = _getRecipeTooltipEl();
+        if (!tooltip) return;
+        const offsetX = -20;
+        const offsetY = 10;
+        const z = getUiZoom();
+        let top = e.clientY + offsetY;
+        if (_recipeTooltipH > 0 && top + _recipeTooltipH > window.innerHeight) {
+            top = Math.max(0, e.clientY - _recipeTooltipH - offsetY);
+        }
+        tooltip.style.left = ((e.clientX - _recipeTooltipW + offsetX) / z) + 'px';
+        tooltip.style.top = (top / z) + 'px';
+    }
+    let _recipeTipPos = { x: 0, y: 0 };
+    let _recipeTipRafId = 0;
+    function scheduleMoveRecipeTooltip(e) {
+        _recipeTipPos.x = e.clientX;
+        _recipeTipPos.y = e.clientY;
+        if (_recipeTipRafId) return;
+        _recipeTipRafId = requestAnimationFrame(() => {
+            _recipeTipRafId = 0;
+            moveRecipeTooltip({ clientX: _recipeTipPos.x, clientY: _recipeTipPos.y });
+        });
+    }
+
+    (function initRecipeSearch() {
+        const btn = document.getElementById('notes-search-btn');
+        const bar = document.getElementById('notes-search-bar');
+        const input = document.getElementById('notes-search-input');
+        const clearBtn = document.getElementById('notes-search-clear');
+        if (!btn || !bar || !input || !clearBtn) return;
+
+        function applyQuery(text) {
+            const q = (text || '').trim().toLowerCase();
+            if (q === recipeQuery) return;
+            recipeQuery = q;
+            if (lastRecipeData) renderRecipes(lastRecipeData);
+        }
+
+        btn.addEventListener('click', () => {
+            const open = !bar.classList.contains('show');
+            bar.classList.toggle('show', open);
+            btn.classList.toggle('on', open);
+            if (open) {
+                input.focus();
+            } else {
+                input.blur();
+                input.value = '';
+                applyQuery('');
+            }
+        });
+        input.addEventListener('focus', () => core.UnitySendEvent('SEARCH_FOCUS', { focused: true }));
+        input.addEventListener('blur', () => core.UnitySendEvent('SEARCH_FOCUS', { focused: false }));
+        input.addEventListener('input', () => applyQuery(input.value));
+        clearBtn.addEventListener('click', () => {
+            input.value = '';
+            applyQuery('');
+            input.focus();
+        });
+    })();
+
+
+    document.getElementById('btn-craft').addEventListener('click', () => {
+        if (craftBtnLocked) return;
+        core.UnitySendEvent('CRAFT', { qty: craftQty > 1 ? craftQty : 1 });
+    });
+
+    document.getElementById('qty-minus').addEventListener('click', () => { craftQty = clampQty(craftQty - 1); renderQtyRow(); });
+    document.getElementById('qty-plus').addEventListener('click', () => { craftQty = clampQty(craftQty + 1); renderQtyRow(); });
+    document.getElementById('qty-max').addEventListener('click', () => { craftQty = clampQty(maxCraftCount); renderQtyRow(); });
+    (function bindQtyInput() {
+        const input = document.getElementById('qty-input');
+        input.addEventListener('focus', () => { input.select(); core.UnitySendEvent('SEARCH_FOCUS', { focused: true }); });
+        input.addEventListener('blur', () => { core.UnitySendEvent('SEARCH_FOCUS', { focused: false }); craftQty = clampQty(input.value); renderQtyRow(); });
+        input.addEventListener('keydown', (e) => { if (e.key === 'Enter') input.blur(); });
+    })();
+
+    document.getElementById('batch-stop').addEventListener('click', () => {
+        const btn = document.getElementById('batch-stop');
+        if (btn.disabled) return;
+        btn.disabled = true;
+        core.UnitySendEvent('BATCH_STOP');
+    });
+
+    /// 批量进度：index 变了 = 新的一件开工，把单件进度条归零重跑（遮罩全程亮着，不会再走 isCrafting 的翻转）
+    function applyBatchProgress(index, total) {
+        if (total !== undefined) batchTotalSeen = total || 0;
+        const box = document.getElementById('crafting-progress-box');
+        const inBatch = batchTotalSeen > 1;
+        box.classList.toggle('is-batch', inBatch);
+        if (!inBatch) {
+            batchIndexSeen = 0;
+            const btn = document.getElementById('batch-stop');
+            btn.disabled = false;
+            return;
+        }
+        if (index === undefined || !(index > 0)) return;
+        document.getElementById('batch-count').textContent = index + ' / ' + batchTotalSeen;
+        document.getElementById('batch-total-fill').style.transform = 'scaleX(' + ((index - 1) / batchTotalSeen) + ')';
+        if (index !== batchIndexSeen) {
+            const first = batchIndexSeen === 0;
+            batchIndexSeen = index;
+            if (first) document.getElementById('batch-stop').disabled = false;
+            if (!first) restartCraftAnimation();
+        }
+    }
+
+    function applyBatchFeet(text) {
+        const el = document.getElementById('batch-feet');
+        const next = text || '';
+        if (el.textContent === next) return;
+        el.textContent = next;
+        el.classList.toggle('show', next !== '');
+        el.classList.remove('bump');
+        if (next === '') return;
+        void el.offsetWidth;
+        el.classList.add('bump');
+    }
+
+    function restartCraftAnimation() {
+        if (craftAnimationId) { cancelAnimationFrame(craftAnimationId); craftAnimationId = null; }
+        if (craftLoopInterval) { clearInterval(craftLoopInterval); craftLoopInterval = null; }
+        if (craftSoundTimer) { clearTimeout(craftSoundTimer); craftSoundTimer = null; }
+        currentProgress = 0;
+        lastFrameTime = performance.now();
+        document.getElementById('craft-progress').style.transform = 'scaleX(0)';
+        startCraftAnimation();
+    }
+
+    document.getElementById('btn-sort-bag').addEventListener('click', () => {
+        core.UnitySendEvent('SORT_BAG');
+    });
+
+    document.getElementById('btn-clear-workbench').addEventListener('click', () => {
+        core.UnitySendEvent('CLEAR_WORKBENCH');
+    });
+
+    const resultLoc = {
+        take: '收下', again: '再造一次', noMat: '材料不足', ok: '确定',
+        perfect: '完美制造', newRecipe: '新配方入笔记', prof: '制造熟练度',
+        desc: '已放入工作台，收下后进背包', failDesc: '材料没能拼成想要的东西',
+    };
+    let resultVisible = false;
+    let resultTakeKeyCode = '';
+    let takeKeySeqSeen = 0;   // TakeKeyMsg 上升沿记账（鼠标侧键绑定的「收下」路径）
+    // 首条 TakeKeyMsg 只对齐水位、不执行（写法同 CoreUI1 的 isFirstUnlockToastMsg）：绑定建立时 R3 会立即
+    // 回推当前值，正常打开首条是 seq=0；Chromium 崩溃恢复时 C# MarkAllMsgDirty 会把崩溃前的 seq 原样重放，
+    // 且 ResultMsg 先到已把成品弹窗画回来，不挡就会被判成一次侧键按下、替玩家「收下」。
+    let isFirstTakeKeyMsg = true;
+    let resultCanAgain = false;
+    let lastProfRatio = null;
+
+    function setResultRow(el, show) {
+        if (!el) return;
+        el.classList.toggle('show', !!show);
+    }
+
+    function renderCraftResult(data) {
+        const box = document.getElementById('crafting-result-box');
+        const isSuccess = !!data.isSuccess;
+        const isPerfect = !!data.isPerfect;
+        const hasDetail = !!(data.productName || data.productIcon);
+
+        const isBatch = !!data.batchMode;
+        box.className = isBatch
+            ? (data.batchWarn ? 'is-batch is-batch-warn' : 'is-batch')
+            : (isSuccess ? (isPerfect ? 'is-perfect' : '') : 'is-fail');
+        resultVisible = true;
+
+        document.getElementById('res-strip-text').textContent = isBatch
+            ? (data.batchStripText || '')
+            : ((isSuccess && isPerfect) ? resultLoc.perfect : (data.resultText || ''));
+
+        const img = document.getElementById('res-product-img');
+        const glyph = document.getElementById('res-product-glyph');
+        if (hasDetail && data.productIcon) {
+            img.src = data.productIcon;
+            img.style.display = '';
+            glyph.textContent = '';
+        } else {
+            img.style.display = 'none';
+            img.removeAttribute('src');
+            glyph.textContent = isSuccess ? '✔' : '⚠';
+        }
+        const cnt = document.getElementById('res-cnt');
+        cnt.textContent = (hasDetail && data.productCount > 1) ? ('×' + data.productCount) : '';
+
+        document.getElementById('res-name').textContent = hasDetail ? (data.productName || '') : '';
+        const descEl = document.getElementById('res-desc');
+        descEl.textContent = isBatch
+            ? (data.batchDescText || '')
+            : (hasDetail ? (isSuccess ? resultLoc.desc : resultLoc.failDesc) : '');
+        if (isBatch && data.batchDropText) {
+            if (descEl.textContent) descEl.appendChild(document.createTextNode(' · '));
+            const dropSpan = document.createElement('span');
+            dropSpan.className = 'res-drop-text';
+            dropSpan.textContent = data.batchDropText;
+            descEl.appendChild(dropSpan);
+        }
+
+        const extraBox = document.getElementById('res-extra');
+        extraBox.innerHTML = '';
+        let extras = [];
+        if (data.extraProductsJson) {
+            try { extras = JSON.parse(data.extraProductsJson) || []; } catch (e) { extras = []; }
+        }
+        extras.forEach(it => {
+            const row = document.createElement('div');
+            row.className = 'res-extra-item';
+            if (it.Icon) {
+                const im = document.createElement('img');
+                im.src = it.Icon;
+                row.appendChild(im);
+            }
+            const tx = document.createElement('span');
+            tx.textContent = (it.Name || '') + (it.Count > 1 ? ' ×' + it.Count : '');
+            row.appendChild(tx);
+            extraBox.appendChild(row);
+        });
+        setResultRow(extraBox, extras.length > 0);
+
+        const perfectRow = document.getElementById('res-perfect');
+        perfectRow.innerHTML = '';
+        if (isSuccess && isPerfect && data.perfectName) {
+            if (data.perfectIcon) {
+                const im = document.createElement('img');
+                im.src = data.perfectIcon;
+                perfectRow.appendChild(im);
+            }
+            const tx = document.createElement('span');
+            tx.textContent = resultLoc.perfect + ' · ' + data.perfectName;
+            perfectRow.appendChild(tx);
+        }
+        setResultRow(perfectRow, isSuccess && isPerfect && !!data.perfectName);
+        if (isBatch && data.batchPerfectCount > 0) {
+            perfectRow.innerHTML = '';
+            const tx = document.createElement('span');
+            tx.textContent = resultLoc.perfect + ' ×' + data.batchPerfectCount;
+            perfectRow.appendChild(tx);
+            setResultRow(perfectRow, true);
+        }
+
+        const profRow = document.getElementById('res-prof');
+        const showProf = hasDetail && isSuccess && data.expGained > 0;
+        if (showProf) {
+            document.getElementById('res-prof-label').textContent =
+                resultLoc.prof + ' Lv.' + (data.profLevel || 0);
+            document.getElementById('res-prof-gain').textContent = '+' + data.expGained;
+            const bar = document.getElementById('res-prof-bar');
+            const ratio = Math.max(0, Math.min(1, data.profRatio || 0));
+            const from = (lastProfRatio === null || lastProfRatio > ratio) ? ratio : lastProfRatio;
+            bar.style.transition = 'none';
+            bar.style.transform = 'scaleX(' + from + ')';
+            requestAnimationFrame(() => {
+                bar.style.transition = '';
+                bar.style.transform = 'scaleX(' + ratio + ')';
+            });
+            lastProfRatio = ratio;
+        }
+        setResultRow(profRow, showProf);
+
+        const newRow = document.getElementById('res-newrecipe');
+        newRow.innerHTML = '';
+        if (data.newRecipeName) {
+            const badge = document.createElement('span');
+            badge.className = 'res-new-badge';
+            badge.textContent = 'NEW';
+            const tx = document.createElement('span');
+            tx.textContent = resultLoc.newRecipe + ' · ' + data.newRecipeName;
+            newRow.appendChild(badge);
+            newRow.appendChild(tx);
+        }
+        setResultRow(newRow, !!data.newRecipeName);
+
+        const fb = document.getElementById('res-fallback');
+        if (!hasDetail) {
+            let html = '';
+            if (data.itemInfo) html += '<span class="reward-item">' + core.escapeHtml(data.itemInfo) + '</span>';
+            if (data.context) html += '<span class="xp-text">' + core.escapeHtml(data.context) + '</span>';
+            fb.innerHTML = html;
+        } else {
+            fb.innerHTML = '';
+        }
+        setResultRow(fb, !hasDetail);
+
+        document.getElementById('res-take-text').textContent = isBatch ? resultLoc.ok : resultLoc.take;
+        document.getElementById('res-kbd').textContent = data.takeKeyLabel || '';
+        resultTakeKeyCode = data.takeKeyCode || '';
+
+        // 批量汇总只留一个「确定」：成品已经放好了，再造走数量行
+        const againBtn = document.getElementById('res-btn-again');
+        againBtn.style.display = isBatch ? 'none' : '';
+        resultCanAgain = !isBatch && !!data.canCraftAgain;
+        againBtn.disabled = !resultCanAgain;
+        againBtn.textContent = resultCanAgain ? resultLoc.again : resultLoc.noMat;
+    }
+
+    // 「收下」键的键盘路径。绑到鼠标侧键时 takeKeyCode 是 "Mouse3"/"Mouse4"，这里必然不命中，由 TakeKeyMsg handler 接管
+    document.addEventListener('keydown', (e) => {
+        if (!resultVisible || !resultTakeKeyCode) return;
+        const el = document.activeElement;
+        if (el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable)) return;
+
+        let hit = false;
+        if (resultTakeKeyCode.length === 1) {
+            hit = (e.key || '').toUpperCase() === resultTakeKeyCode.toUpperCase();
+        } else if (resultTakeKeyCode === 'Space') {
+            hit = e.code === 'Space';
+        } else {
+            hit = e.key === resultTakeKeyCode
+                || ((resultTakeKeyCode === 'Return' || resultTakeKeyCode === 'KeypadEnter') && e.key === 'Enter');
+        }
+        if (!hit) return;
+
+        e.preventDefault();
+        closeCrafting();
+    });
+
+    document.getElementById('res-btn-take').addEventListener('click', () => closeCrafting());
+    document.getElementById('res-btn-again').addEventListener('click', () => {
+        if (!resultCanAgain) return;
+        resultVisible = false;
+        document.getElementById('crafting-result-box').style.display = 'none';
+        document.getElementById('crafting-progress-box').style.display = 'block';
+        document.getElementById('craft-progress').style.transform = 'scaleX(0)';
+        stopCraftAnimation();
+        core.UnitySendEvent('CRAFT_AGAIN');
+    });
+
+    // 点成品弹窗外面任何地方都算「收下」，且不吞掉这一下：捕获阶段先收下，
+    // 点击照常落到配方列表 / 背包格上，玩家能直接接着选配方、拖材料
+    document.addEventListener('mousedown', (e) => {
+        if (!resultVisible) return;
+        const box = document.getElementById('crafting-result-box');
+        if (box && box.contains(e.target)) return;
+        closeCrafting();
+    }, true);
+
+    function closeCrafting() {
+        resultVisible = false;
+        document.getElementById('crafting-overlay').style.display = 'none';
+        document.getElementById('crafting-progress-box').style.display = 'block';
+        document.getElementById('crafting-result-box').style.display = 'none';
+        document.getElementById('craft-progress').style.transform = 'scaleX(0)';
+        stopCraftAnimation();
+        core.UnitySendEvent('RESULT_CONFIRM');
+    }
+
+    function startCraftAnimation() {
+        if (craftAnimationId) return; 
+        
+        const animationDuration = 800; 
+        const hitOffset = 240;
+
+        const scheduleHit = () => {
+            craftSoundTimer = setTimeout(() => {
+                playSound('CRAFT_HIT');
+            }, hitOffset);
+        };
+
+        scheduleHit();
+        craftLoopInterval = setInterval(scheduleHit, animationDuration);
+
+        const progressEl = document.getElementById('craft-progress');
+        let lastPaintedProgress = -1;
+        function animate(currentTime) {
+            const deltaTime = (currentTime - lastFrameTime) / 1000;
+            lastFrameTime = currentTime;
+            currentProgress += currentCraftSpeed * deltaTime;
+            if (currentProgress > 1) currentProgress = 1;
+            const q = Math.round(currentProgress * 200) / 200;
+            if (q !== lastPaintedProgress) {
+                lastPaintedProgress = q;
+                progressEl.style.transform = 'scaleX(' + q + ')';
+            }
+            if (currentProgress < 1) {
+                craftAnimationId = requestAnimationFrame(animate);
+            }
+        }
+        craftAnimationId = requestAnimationFrame(animate);
+    }
+
+    function stopCraftAnimation() {
+        if (craftAnimationId) {
+            cancelAnimationFrame(craftAnimationId);
+            craftAnimationId = null;
+        }
+        if (craftLoopInterval) {
+            clearInterval(craftLoopInterval);
+            craftLoopInterval = null;
+        }
+        if (craftSoundTimer) {
+            clearTimeout(craftSoundTimer);
+            craftSoundTimer = null;
+        }
+        playSound('CRAFT_HIT_STOP');
+    }
+
+
+    const _bagTooltipEl = document.getElementById('tooltip');
+    let _bagTipPos = { x: 0, y: 0 };
+    let _bagTipRafId = 0;
+    window.addEventListener('mousemove', (e) => {
+        _bagTipPos.x = e.clientX;
+        _bagTipPos.y = e.clientY;
+        if (!_bagTooltipEl || _bagTooltipEl.style.display !== 'block') return;
+        if (_bagTipRafId) return;
+        _bagTipRafId = requestAnimationFrame(() => {
+            _bagTipRafId = 0;
+            if (_bagTooltipEl && _bagTooltipEl.style.display === 'block') {
+                const z = getUiZoom();
+                _bagTooltipEl.style.left = ((_bagTipPos.x + 15) / z) + 'px';
+                _bagTooltipEl.style.top = ((_bagTipPos.y + 15) / z) + 'px';
+            }
+        });
+    });
+
+    stopCraftAnimation();
+
+    (function syncPanelHeight() {
+        const bp = document.querySelector('.backpack-panel');
+        const cp = document.querySelector('.combined-panel');
+        if (!bp || !cp) return;
+        let rafId = 0;
+        const ws = cp.querySelector('.workbench-section');
+        const controls = cp.querySelector('.craft-controls');
+        const rb = document.getElementById('recentBlock');
+        // 工作台自身内容要的高度：量到最后一个常驻块（「最近」区块显示时是它，否则是清空/制造按钮行）的底边，
+        // 再补上 workbench-section 下内边距与面板上下边框。
+        // 不能像旧写法那样放开 cp 高度量 offsetHeight —— 制造笔记列表不吃约束时会按全部配方撑开，面板被拉成一长条
+        const workbenchNeed = () => {
+            if (!ws || !controls) return 0;
+            const last = (rb && rb.offsetHeight > 0) ? rb : controls;
+            const padBottom = parseFloat(getComputedStyle(ws).paddingBottom) || 0;
+            const borders = cp.offsetHeight - cp.clientHeight;
+            return Math.ceil(ws.offsetTop + last.offsetTop + last.offsetHeight + padBottom + borders);
+        };
+        const apply = () => {
+            rafId = 0;
+            // 面板高度取「左侧面板 / 工作台自身内容」两者较大值。只钉成左侧高度时，左侧矮（背包 7 行、没装 10 行的工具柜）
+            // 就会让右侧底部的按钮行溢出边框——批量制造数量行常驻占位（只隐藏不收起）后必现
+            const h = Math.max(bp.offsetHeight, workbenchNeed());
+            if (h > 0 && cp.style.height !== h + 'px') cp.style.height = h + 'px';
+            if (groundDock) groundDock.place();
+        };
+        apply();
+        if (typeof ResizeObserver !== 'undefined') {
+            const schedule = () => {
+                if (rafId) return;
+                rafId = requestAnimationFrame(apply);
+            };
+            const ro = new ResizeObserver(schedule);
+            ro.observe(bp);
+            // 「最近」区块、按钮行显隐/增行会改自己的高度，但它们不吃 combined-panel 的高度（是
+            // workbench-section 里的静态块），观察它们不会和上面的 cp.style.height 形成回环。
+            // 不能改成观察 workbench-section —— 那个是 flex stretch 项，高度跟着 cp 走，会死循环
+            if (rb) ro.observe(rb);
+            if (controls) ro.observe(controls);
+        }
+    })();
+
+    document.body.addEventListener('click', function(e) {
+        if (e.target !== document.body) return;
+        if (groundDragJustEnded) return;
+        stopCraftAnimation();
+        core.UnitySendEvent('CLOSE');
+    });
+
+    // 「脚边」横排：挂在左栏（背包 / 抽屉 / 工具柜共用的那块面板）下方，避让左右两块面板本体。
+    // 从横排按住一格拖出来时交给 dragCoord 的外部拖拽，落点判定 / 高亮 / 幽灵都复用格子背包那一套
+    groundDock = createGroundDock({
+        send: (ev, payload) => core.UnitySendEvent(ev, payload),
+        getAnchorRect: () => {
+            const bp = document.querySelector('.backpack-panel');
+            return bp ? bp.getBoundingClientRect() : null;
+        },
+        getObstacleRects: () => {
+            const out = [];
+            document.querySelectorAll('.ui-container .backpack-panel, .ui-container .combined-panel')
+                .forEach(el => { const r = el.getBoundingClientRect(); if (r.width && r.height) out.push(r); });
+            return out;
+        },
+        getZoom: () => _fit.getZoom() || 1,
+        onDragStart: (e, g) => dragCoord.beginExternalDrag(e, {
+            id: -g.ids[0], icon: g.icon, w: g.w, h: g.h, payload: { groundBoxId: g.ids[0] }
+        }) === true
+    });
+    if (groundDockJson) groundDock.setData(groundDockJson);
+
+    core.notifyReady();
+
+</script>
+</body>
+</html>

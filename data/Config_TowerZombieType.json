@@ -1,0 +1,280 @@
+[
+  {
+    "ID": 9001,
+    "HP": 120,
+    "Attack": 1,
+    "MoveSpeed": 1.5,
+    "AttackSlots": 1,
+    "AttackInterval": 3.0,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS01",
+      "Zombie_Player/PF_ZmobieSS02",
+      "Zombie_Player/PF_ZmobieSS06"
+    ],
+    "Des": ""
+  },
+  {
+    "ID": 9002,
+    "HP": 500,
+    "Attack": 8,
+    "MoveSpeed": 1.0,
+    "AttackSlots": 1,
+    "AttackInterval": 4.0,
+    "AttackRange": 2.5,
+    "SkinPool": [
+      "Zombie_Player/PF_BigZombie"
+    ],
+    "Des": ""
+  },
+  {
+    "ID": 9003,
+    "HP": 80,
+    "Attack": 1,
+    "MoveSpeed": 1.5,
+    "AttackSlots": 1,
+    "AttackInterval": 2.5,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS03"
+    ],
+    "Des": ""
+  },
+  {
+    "ID": 9004,
+    "HP": 120,
+    "Attack": 2,
+    "MoveSpeed": 1.5,
+    "AttackSlots": 1,
+    "AttackInterval": 3.5,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS04"
+    ],
+    "Des": ""
+  },
+  {
+    "ID": 9005,
+    "HP": 80,
+    "Attack": 1,
+    "MoveSpeed": 1.5,
+    "AttackSlots": 1,
+    "AttackInterval": 2.0,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS05",
+      "Zombie_Player/PF_ZmobieSS09"
+    ],
+    "Des": ""
+  },
+  {
+    "ID": 9006,
+    "HP": 120,
+    "Attack": 1,
+    "MoveSpeed": 1.5,
+    "AttackSlots": 1,
+    "AttackInterval": 4.0,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS07"
+    ],
+    "Des": ""
+  },
+  {
+    "ID": 9007,
+    "HP": 200,
+    "Attack": 3,
+    "MoveSpeed": 1.5,
+    "AttackSlots": 1,
+    "AttackInterval": 3.5,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS08"
+    ],
+    "Des": ""
+  },
+  {
+    "ID": 9008,
+    "HP": 180,
+    "Attack": 1,
+    "MoveSpeed": 0.4000000059604645,
+    "AttackSlots": 1,
+    "AttackInterval": 3.0,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS10"
+    ],
+    "Des": ""
+  },
+  {
+    "ID": 9101,
+    "HP": 90,
+    "Attack": 1,
+    "MoveSpeed": 1.0,
+    "AttackSlots": 1,
+    "AttackInterval": 3.5,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS01"
+    ],
+    "Des": "街坊·SS01老太太·体型1.27全场最矮小·数量担当 弱且慢·移速1.0（SS10 已转爬行专用故移出）"
+  },
+  {
+    "ID": 9102,
+    "HP": 200,
+    "Attack": 2,
+    "MoveSpeed": 0.8999999761581421,
+    "AttackSlots": 1,
+    "AttackInterval": 4.0,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS02"
+    ],
+    "Des": "工人·SS02胖老头·身高1.38但横向最宽·肉盾靠体宽·全场最慢·移速0.9"
+  },
+  {
+    "ID": 9103,
+    "HP": 130,
+    "Attack": 1,
+    "MoveSpeed": 1.5,
+    "AttackSlots": 1,
+    "AttackInterval": 3.0,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS03",
+      "Zombie_Player/PF_ZmobieSS06",
+      "Zombie_Player/PF_ZmobieSS07"
+    ],
+    "Des": "上班族·SS03女白领+SS06衬衫男+SS07西装男·体型1.36~1.43·基准档·移速1.5"
+  },
+  {
+    "ID": 9104,
+    "HP": 220,
+    "Attack": 4,
+    "MoveSpeed": 1.2999999523162842,
+    "AttackSlots": 1,
+    "AttackInterval": 3.0,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS04"
+    ],
+    "Des": "军人·SS04迷彩战术·体型1.62人形最高 唯一带护具·高攻·移速1.3"
+  },
+  {
+    "ID": 9105,
+    "HP": 260,
+    "Attack": 3,
+    "MoveSpeed": 1.5,
+    "AttackSlots": 1,
+    "AttackInterval": 2.5,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS08"
+    ],
+    "Des": "壮汉·SS08橙运动服·体型1.60除巨躯外最大·次级精英 大而硬而醒目·移速1.5"
+  },
+  {
+    "ID": 9106,
+    "HP": 110,
+    "Attack": 1,
+    "MoveSpeed": 1.7000000476837158,
+    "AttackSlots": 1,
+    "AttackInterval": 2.5,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS09"
+    ],
+    "Des": "护士·SS09蓝护士服·中速·移速1.7"
+  },
+  {
+    "ID": 9107,
+    "HP": 80,
+    "Attack": 1,
+    "MoveSpeed": 1.7999999523162842,
+    "AttackSlots": 1,
+    "AttackInterval": 2.5,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS05"
+    ],
+    "Des": "赤足者·SS05赤脚女性·快而脆·移速1.8"
+  },
+  {
+    "ID": 9108,
+    "HP": 500,
+    "Attack": 8,
+    "MoveSpeed": 1.0,
+    "AttackSlots": 1,
+    "AttackInterval": 4.0,
+    "AttackRange": 2.5,
+    "SkinPool": [
+      "Zombie_Player/PF_BigZombie"
+    ],
+    "Des": "巨躯·BigZombie·破门单位 攻击距离2.0·移速1.0"
+  },
+  {
+    "ID": 9109,
+    "HP": 100,
+    "Attack": 1,
+    "MoveSpeed": 0.4000000059604645,
+    "AttackSlots": 1,
+    "AttackInterval": 3.0,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS12"
+    ],
+    "Des": "爬行者·缓慢爬行·电锯36004免疫(闪避1.0)·皮肤 SS12 女性低模 + AC_ZombieCrawl 爬行动画组"
+  },
+  {
+    "ID": 9110,
+    "HP": 190,
+    "Attack": 2,
+    "MoveSpeed": 0.30000001192092896,
+    "AttackSlots": 1,
+    "AttackInterval": 3.5,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS10"
+    ],
+    "Des": "重甲爬行者·更硬更慢·电锯36004免疫(闪避1.0)·皮肤 SS10 爬行本尊 + AC_ZombieCrawl 爬行动画组"
+  },
+  {
+    "ID": 9111,
+    "HP": 400,
+    "Attack": 6,
+    "MoveSpeed": 1.2999999523162842,
+    "AttackSlots": 1,
+    "AttackInterval": 3.0,
+    "AttackRange": 1.5,
+    "SkinPool": [
+      "Zombie_Player/PF_BigZombie02"
+    ],
+    "Des": "猛冲者·巨躯同级但更敏捷更小·皮肤 BigZombie02 53骨voodoo同SS系rig·走基线动画组与基线基准速度2.41"
+  },
+  {
+    "ID": 9112,
+    "HP": 260,
+    "Attack": 3,
+    "MoveSpeed": 1.5,
+    "AttackSlots": 1,
+    "AttackInterval": 2.5,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS11"
+    ],
+    "Des": "机修工·精英档·皮肤 SS11 蓝色破损工装男·数值暂按 9105 壮汉逐字复制待定·未进任何波次"
+  },
+  {
+    "ID": 9113,
+    "HP": 220,
+    "Attack": 4,
+    "MoveSpeed": 1.2999999523162842,
+    "AttackSlots": 1,
+    "AttackInterval": 3.0,
+    "AttackRange": 0.5,
+    "SkinPool": [
+      "Zombie_Player/PF_ZmobieSS13"
+    ],
+    "Des": "猎人·精英档·皮肤 SS13 军绿夹克牛仔裤·数值暂按 9104 军人逐字复制待定·未进任何波次"
+  }
+]

@@ -1,0 +1,63 @@
+[
+  {
+    "ID": 101,
+    "MapPoint": 102,
+    "IsFirstEnter": 1,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomThink": [
+      "PostFloor_2F_First1",
+      "PostFloor_2F_First2"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 102,
+    "MapPoint": 102,
+    "IsFirstEnter": 0,
+    "Rate": 0.5,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PostFloor_2F_Normal1",
+      "PostFloor_2F_Normal2",
+      "PostFloor_2F_Normal3"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 103,
+    "MapPoint": 1,
+    "IsFirstEnter": 0,
+    "Rate": 0.30000001192092896,
+    "TypeCD": 3600,
+    "RandomThink": [
+      "PostFloor_1F_Normal1",
+      "PostFloor_1F_Normal2"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 201,
+    "MapPoint": 101,
+    "IsFirstEnter": 1,
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomThink": [
+      "PostFloor_B1_First1",
+      "PostFloor_B1_First2"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 202,
+    "MapPoint": 101,
+    "IsFirstEnter": 0,
+    "Rate": 0.5,
+    "TypeCD": 1800,
+    "RandomThink": [
+      "PostFloor_B1_Normal1",
+      "PostFloor_B1_Normal2"
+    ],
+    "PlayerSelectId": []
+  }
+]

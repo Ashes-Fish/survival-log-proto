@@ -1,0 +1,200 @@
+[
+  {
+    "ID": 1,
+    "Source": "Institute_Material_Bulk",
+    "FacilityId": 1,
+    "Kind": 1,
+    "ItemId": 0,
+    "Category": 9,
+    "CountMin": 300,
+    "CountMax": 500,
+    "Weight": 10
+  },
+  {
+    "ID": 2,
+    "Source": "Institute_ElecPart_Item",
+    "FacilityId": 1,
+    "Kind": 0,
+    "ItemId": 20210,
+    "Category": 0,
+    "CountMin": 2,
+    "CountMax": 4,
+    "Weight": 6
+  },
+  {
+    "ID": 3,
+    "Source": "Institute_Fuel_Bulk",
+    "FacilityId": 1,
+    "Kind": 1,
+    "ItemId": 0,
+    "Category": 13,
+    "CountMin": 100,
+    "CountMax": 170,
+    "Weight": 4
+  },
+  {
+    "ID": 4,
+    "Source": "Sanatorium_Drug_Bulk",
+    "FacilityId": 2,
+    "Kind": 1,
+    "ItemId": 0,
+    "Category": 2,
+    "CountMin": 200,
+    "CountMax": 350,
+    "Weight": 10
+  },
+  {
+    "ID": 5,
+    "Source": "Sanatorium_Food_Bulk",
+    "FacilityId": 2,
+    "Kind": 1,
+    "ItemId": 0,
+    "Category": 1,
+    "CountMin": 300,
+    "CountMax": 500,
+    "Weight": 8
+  },
+  {
+    "ID": 6,
+    "Source": "Sanatorium_Heal_Item",
+    "FacilityId": 2,
+    "Kind": 0,
+    "ItemId": 8,
+    "Category": 0,
+    "CountMin": 2,
+    "CountMax": 4,
+    "Weight": 6
+  },
+  {
+    "ID": 7,
+    "Source": "BigCamp_Food_Bulk",
+    "FacilityId": 3,
+    "Kind": 1,
+    "ItemId": 0,
+    "Category": 1,
+    "CountMin": 500,
+    "CountMax": 800,
+    "Weight": 10
+  },
+  {
+    "ID": 8,
+    "Source": "BigCamp_Fuel_Bulk",
+    "FacilityId": 3,
+    "Kind": 1,
+    "ItemId": 0,
+    "Category": 13,
+    "CountMin": 130,
+    "CountMax": 200,
+    "Weight": 8
+  },
+  {
+    "ID": 9,
+    "Source": "BigCamp_GasCan_Item",
+    "FacilityId": 3,
+    "Kind": 0,
+    "ItemId": 8001,
+    "Category": 0,
+    "CountMin": 2,
+    "CountMax": 3,
+    "Weight": 5
+  },
+  {
+    "ID": 10,
+    "Source": "School_Daily_Bulk",
+    "FacilityId": 4,
+    "Kind": 1,
+    "ItemId": 0,
+    "Category": 5,
+    "CountMin": 70,
+    "CountMax": 120,
+    "Weight": 10
+  },
+  {
+    "ID": 11,
+    "Source": "School_Food_Bulk",
+    "FacilityId": 4,
+    "Kind": 1,
+    "ItemId": 0,
+    "Category": 1,
+    "CountMin": 300,
+    "CountMax": 500,
+    "Weight": 8
+  },
+  {
+    "ID": 12,
+    "Source": "School_Drug_Bulk",
+    "FacilityId": 4,
+    "Kind": 1,
+    "ItemId": 0,
+    "Category": 2,
+    "CountMin": 150,
+    "CountMax": 250,
+    "Weight": 4
+  },
+  {
+    "ID": 13,
+    "Source": "Weather_Fuel_Bulk",
+    "FacilityId": 5,
+    "Kind": 1,
+    "ItemId": 0,
+    "Category": 13,
+    "CountMin": 130,
+    "CountMax": 200,
+    "Weight": 10
+  },
+  {
+    "ID": 14,
+    "Source": "Weather_Material_Bulk",
+    "FacilityId": 5,
+    "Kind": 1,
+    "ItemId": 0,
+    "Category": 9,
+    "CountMin": 250,
+    "CountMax": 400,
+    "Weight": 8
+  },
+  {
+    "ID": 15,
+    "Source": "Weather_Daily_Bulk",
+    "FacilityId": 5,
+    "Kind": 1,
+    "ItemId": 0,
+    "Category": 5,
+    "CountMin": 50,
+    "CountMax": 90,
+    "Weight": 3
+  },
+  {
+    "ID": 16,
+    "Source": "Orphanage_Food_Bulk",
+    "FacilityId": 6,
+    "Kind": 1,
+    "ItemId": 0,
+    "Category": 1,
+    "CountMin": 400,
+    "CountMax": 600,
+    "Weight": 10
+  },
+  {
+    "ID": 17,
+    "Source": "Orphanage_Daily_Bulk",
+    "FacilityId": 6,
+    "Kind": 1,
+    "ItemId": 0,
+    "Category": 5,
+    "CountMin": 60,
+    "CountMax": 110,
+    "Weight": 8
+  },
+  {
+    "ID": 18,
+    "Source": "Orphanage_Drug_Bulk",
+    "FacilityId": 6,
+    "Kind": 1,
+    "ItemId": 0,
+    "Category": 2,
+    "CountMin": 150,
+    "CountMax": 250,
+    "Weight": 4
+  }
+]

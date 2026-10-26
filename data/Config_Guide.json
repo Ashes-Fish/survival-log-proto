@@ -1,0 +1,182 @@
+[
+  {
+    "ID": 101,
+    "GroupID": 1,
+    "Number": 1,
+    "GuideText": "Guide_GuideText_101",
+    "GuideText_Local": "查看障碍物",
+    "MissionType": 6,
+    "MissionValue": [
+      1501
+    ],
+    "AddTagOnMissionStart": [
+      "MissionFinish_101"
+    ],
+    "MissionStartThink": "Guide_MissionStartThink_101",
+    "MissionStartThink_Local": "我得检查下入口",
+    "MissionRandomThink": [
+      "Guide101_1",
+      "Guide101_2",
+      "Guide101_3"
+    ],
+    "MissionEndThink": "Guide_MissionEndThink_101",
+    "MissionEndThink_Local": "障碍物依然坚固，不过这也让我很难出去了……"
+  },
+  {
+    "ID": 201,
+    "GroupID": 2,
+    "Number": 1,
+    "GuideText": "Guide_GuideText_201",
+    "GuideText_Local": "查看衣柜",
+    "MissionType": 1,
+    "MissionValue": [
+      9111
+    ],
+    "AddTagOnMissionStart": [],
+    "MissionStartThink": "Guide_MissionStartThink_201",
+    "MissionStartThink_Local": "太饿了，找找还有什么遗留的食物",
+    "MissionRandomThink": [
+      "Guide201_1",
+      "Guide201_2",
+      "Guide201_3"
+    ],
+    "MissionEndThink": "Guide_MissionEndThink_201",
+    "MissionEndThink_Local": "还好，还剩余一些食物……"
+  },
+  {
+    "ID": 202,
+    "GroupID": 2,
+    "Number": 2,
+    "GuideText": "Guide_GuideText_202",
+    "GuideText_Local": "寻找食物并进食",
+    "MissionType": 2,
+    "MissionValue": [
+      9030,
+      9031,
+      9032
+    ],
+    "AddTagOnMissionStart": [],
+    "MissionStartThink": "",
+    "MissionStartThink_Local": "",
+    "MissionRandomThink": [
+      "Guide202_1",
+      "Guide202_2",
+      "Guide202_3"
+    ],
+    "MissionEndThink": "Guide_MissionEndThink_202",
+    "MissionEndThink_Local": "味道…… 还行吧"
+  },
+  {
+    "ID": 203,
+    "GroupID": 2,
+    "Number": 3,
+    "GuideText": "Guide_GuideText_203",
+    "GuideText_Local": "将饱腹提升到40以上",
+    "MissionType": 3,
+    "MissionValue": [
+      1,
+      40
+    ],
+    "AddTagOnMissionStart": [
+      "MissionFinish_203"
+    ],
+    "MissionStartThink": "Guide_MissionStartThink_203",
+    "MissionStartThink_Local": "先吃些东西再做打算",
+    "MissionRandomThink": [
+      "Guide203_1",
+      "Guide203_2",
+      "Guide203_3"
+    ],
+    "MissionEndThink": "Guide_MissionEndThink_203",
+    "MissionEndThink_Local": "勉强填饱肚子……"
+  },
+  {
+    "ID": 301,
+    "GroupID": 3,
+    "Number": 1,
+    "GuideText": "Guide_GuideText_301",
+    "GuideText_Local": "在床上睡上一觉",
+    "MissionType": 5,
+    "MissionValue": [
+      200
+    ],
+    "AddTagOnMissionStart": [],
+    "MissionStartThink": "Guide_MissionStartThink_301",
+    "MissionStartThink_Local": "我必须保持足够的精力，先睡一觉吧",
+    "MissionRandomThink": [
+      "Guide301_1",
+      "Guide301_2",
+      "Guide301_3"
+    ],
+    "MissionEndThink": "Guide_MissionEndThink_301",
+    "MissionEndThink_Local": "奇怪的是，我居然能睡得着，可能太累了吧……"
+  },
+  {
+    "ID": 302,
+    "GroupID": 3,
+    "Number": 2,
+    "GuideText": "Guide_GuideText_302",
+    "GuideText_Local": "将精力提升到40以上",
+    "MissionType": 3,
+    "MissionValue": [
+      3,
+      40
+    ],
+    "AddTagOnMissionStart": [
+      "MissionFinish_302"
+    ],
+    "MissionStartThink": "Guide_MissionStartThink_302",
+    "MissionStartThink_Local": "再提高一些精力",
+    "MissionRandomThink": [
+      "Guide302_1",
+      "Guide302_2",
+      "Guide302_3"
+    ],
+    "MissionEndThink": "Guide_MissionEndThink_302",
+    "MissionEndThink_Local": "现在感觉好一些了"
+  },
+  {
+    "ID": 401,
+    "GroupID": 4,
+    "Number": 1,
+    "GuideText": "Guide_GuideText_401",
+    "GuideText_Local": "移除门口障碍物",
+    "MissionType": 5,
+    "MissionValue": [
+      202
+    ],
+    "AddTagOnMissionStart": [
+      "MissionFinish_401"
+    ],
+    "MissionStartThink": "Guide_MissionStartThink_401",
+    "MissionStartThink_Local": "门口这些杂物帮我抵抗了前两天的丧尸，现在应该可以移除了",
+    "MissionRandomThink": [
+      "Guide401_1",
+      "Guide401_2",
+      "Guide401_3"
+    ],
+    "MissionEndThink": "Guide_MissionEndThink_401",
+    "MissionEndThink_Local": "现在可以出去了……"
+  },
+  {
+    "ID": 402,
+    "GroupID": 4,
+    "Number": 2,
+    "GuideText": "Guide_GuideText_402",
+    "GuideText_Local": "打开房门，出门探索",
+    "MissionType": 5,
+    "MissionValue": [
+      203
+    ],
+    "AddTagOnMissionStart": [],
+    "MissionStartThink": "Guide_MissionStartThink_402",
+    "MissionStartThink_Local": "门外没有动静了，或许我可以出去碰碰运气？",
+    "MissionRandomThink": [
+      "Guide402_1",
+      "Guide402_2",
+      "Guide402_3"
+    ],
+    "MissionEndThink": "Guide_MissionEndThink_402",
+    "MissionEndThink_Local": "上帝祝我好运……"
+  }
+]

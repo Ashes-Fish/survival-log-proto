@@ -1,0 +1,110 @@
+[
+  {
+    "ID": 1000,
+    "ExposureLimit": 750,
+    "TimeExposure": 2.0,
+    "MoveExposure": 10.0,
+    "ExposureAlarm": 0.699999988079071,
+    "MoveAction": 1,
+    "MoveSpeed": 0.699999988079071,
+    "InitialBuff": [
+      1120,
+      501,
+      502,
+      503,
+      504,
+      505,
+      506
+    ],
+    "FailedBuff": [
+      1111
+    ],
+    "WarningTL": "Guide_TimeLine01",
+    "NeedFlashlight": false
+  },
+  {
+    "ID": 1001,
+    "ExposureLimit": 1200,
+    "TimeExposure": 2.0,
+    "MoveExposure": 10.0,
+    "ExposureAlarm": 0.800000011920929,
+    "MoveAction": 1,
+    "MoveSpeed": 0.699999988079071,
+    "InitialBuff": [
+      1120
+    ],
+    "FailedBuff": [
+      1111
+    ],
+    "WarningTL": "Guide_TimeLine01",
+    "NeedFlashlight": false
+  },
+  {
+    "ID": 1002,
+    "ExposureLimit": 2000,
+    "TimeExposure": 2.0,
+    "MoveExposure": 10.0,
+    "ExposureAlarm": 0.800000011920929,
+    "MoveAction": 1,
+    "MoveSpeed": 0.699999988079071,
+    "InitialBuff": [
+      1120
+    ],
+    "FailedBuff": [
+      1111
+    ],
+    "WarningTL": "Guide_TimeLine01",
+    "NeedFlashlight": false
+  },
+  {
+    "ID": 1003,
+    "ExposureLimit": 2000,
+    "TimeExposure": 2.0,
+    "MoveExposure": 10.0,
+    "ExposureAlarm": 0.800000011920929,
+    "MoveAction": 1,
+    "MoveSpeed": 0.699999988079071,
+    "InitialBuff": [
+      1120
+    ],
+    "FailedBuff": [
+      1111
+    ],
+    "WarningTL": "Guide_TimeLine01",
+    "NeedFlashlight": true
+  },
+  {
+    "ID": 1004,
+    "ExposureLimit": 1800,
+    "TimeExposure": 2.0,
+    "MoveExposure": 10.0,
+    "ExposureAlarm": 0.800000011920929,
+    "MoveAction": 1,
+    "MoveSpeed": 0.699999988079071,
+    "InitialBuff": [
+      1120
+    ],
+    "FailedBuff": [
+      1111
+    ],
+    "WarningTL": "Guide_TimeLine01",
+    "NeedFlashlight": true
+  },
+  {
+    "ID": 1005,
+    "ExposureLimit": 2000,
+    "TimeExposure": 2.0,
+    "MoveExposure": 10.0,
+    "ExposureAlarm": 0.800000011920929,
+    "MoveAction": 1,
+    "MoveSpeed": 0.699999988079071,
+    "InitialBuff": [
+      1120
+    ],
+    "FailedBuff": [
+      1111
+    ],
+    "WarningTL": "Guide_TimeLine01",
+    "NeedFlashlight": true
+  }
+]

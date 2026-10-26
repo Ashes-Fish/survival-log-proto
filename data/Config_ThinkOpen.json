@@ -1,0 +1,482 @@
+[
+  {
+    "ID": 101,
+    "Time": 60,
+    "Order": 1,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_101",
+    "Text_Local": "是噩梦吗？太真实了……"
+  },
+  {
+    "ID": 102,
+    "Time": 60,
+    "Order": 2,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_102",
+    "Text_Local": "灾难爆发的时间点，我记得是……就在今天！"
+  },
+  {
+    "ID": 103,
+    "Time": 60,
+    "Order": 3,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_103",
+    "Text_Local": "梦里的细节和我的房间一模一样，找找看有什么线索……"
+  },
+  {
+    "ID": 104,
+    "Time": 600,
+    "Order": 1,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_104",
+    "Text_Local": "带上“钥匙”，去超市看看……\\n对了，还有“钱包”和“背包”！"
+  },
+  {
+    "ID": 105,
+    "Time": 600,
+    "Order": 2,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_105",
+    "Text_Local": "只有几个小时了，路上还会消耗时间，我得赶紧……"
+  },
+  {
+    "ID": 106,
+    "Time": 960,
+    "Order": 1,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_106",
+    "Text_Local": "时间不多了，赶紧拿上“钥匙”出门吧……"
+  },
+  {
+    "ID": 107,
+    "Time": 960,
+    "Order": 2,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_107",
+    "Text_Local": "钱包里还有些零钱，希望能买到多一点物资……"
+  },
+  {
+    "ID": 201,
+    "Time": 3600,
+    "Order": 1,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_201",
+    "Text_Local": "从日志看，梦里的一切都是真的……\\n冷静下来，还有时间"
+  },
+  {
+    "ID": 202,
+    "Time": 3600,
+    "Order": 2,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_202",
+    "Text_Local": "现金和时间都非常有限，也要考虑能携带多少食品和保存时间……"
+  },
+  {
+    "ID": 203,
+    "Time": 3600,
+    "Order": 3,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_203",
+    "Text_Local": "我得好好规划一下，这次一定要活下去……"
+  },
+  {
+    "ID": 301,
+    "Time": 7200,
+    "Order": 1,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_301",
+    "Text_Local": "保质期短的食品，必须放冰箱冷冻……"
+  },
+  {
+    "ID": 302,
+    "Time": 7200,
+    "Order": 1,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_302",
+    "Text_Local": "如果以前我能多存点钱就好了……"
+  },
+  {
+    "ID": 303,
+    "Time": 7200,
+    "Order": 1,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_303",
+    "Text_Local": "超市的东西似乎比以往的贵不少，难道有人知道灾难快来了？"
+  },
+  {
+    "ID": 304,
+    "Time": 10800,
+    "Order": 0,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_304",
+    "Text_Local": "我希望能多点时间，多些存款……并给以前的自己写一张字条：好好锻炼！"
+  },
+  {
+    "ID": 401,
+    "Time": 19800,
+    "Order": 1,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_401",
+    "Text_Local": "剩下的时间不多了，我最好待在家里，别在外面出事……"
+  },
+  {
+    "ID": 501,
+    "Time": 19800,
+    "Order": 1,
+    "PlayerSelectId": [
+      1
+    ],
+    "Text": "ThinkOpen_Text_501",
+    "Text_Local": "我……救不了其他人\\n我只能先救自己……"
+  },
+  {
+    "ID": 2101,
+    "Time": 60,
+    "Order": 1,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2101",
+    "Text_Local": "是噩梦吗？这太可怕了……"
+  },
+  {
+    "ID": 2102,
+    "Time": 60,
+    "Order": 2,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2102",
+    "Text_Local": "等一下……日期。是今天！"
+  },
+  {
+    "ID": 2103,
+    "Time": 60,
+    "Order": 3,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2103",
+    "Text_Local": "家里的东西一模一样，连枯萎的那盆花也是……"
+  },
+  {
+    "ID": 2104,
+    "Time": 600,
+    "Order": 1,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2104",
+    "Text_Local": "拿上钥匙，赶紧出门囤积一些物资"
+  },
+  {
+    "ID": 2105,
+    "Time": 600,
+    "Order": 2,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2105",
+    "Text_Local": "只有几个小时，走过去还要花掉一大截……"
+  },
+  {
+    "ID": 2106,
+    "Time": 960,
+    "Order": 1,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2106",
+    "Text_Local": "不能再翻了，拿上钥匙先出门。"
+  },
+  {
+    "ID": 2107,
+    "Time": 960,
+    "Order": 2,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2107",
+    "Text_Local": "还好刚拿到一笔生活费……"
+  },
+  {
+    "ID": 2201,
+    "Time": 3600,
+    "Order": 1,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2201",
+    "Text_Local": "日志上写得清清楚楚……那不是梦。手有点抖。"
+  },
+  {
+    "ID": 2202,
+    "Time": 3600,
+    "Order": 2,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2202",
+    "Text_Local": "拿得动多少、放得住多久，得一样一样算清楚。"
+  },
+  {
+    "ID": 2203,
+    "Time": 3600,
+    "Order": 3,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2203",
+    "Text_Local": "这次一定要活下去……不能等着别人来救我！"
+  },
+  {
+    "ID": 2301,
+    "Time": 7200,
+    "Order": 1,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2301",
+    "Text_Local": "不耐放的先进冷冻——这个我熟。"
+  },
+  {
+    "ID": 2302,
+    "Time": 7200,
+    "Order": 1,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2302",
+    "Text_Local": "早知道就少买两盆花了……不对，那些现在反而有用。"
+  },
+  {
+    "ID": 2303,
+    "Time": 7200,
+    "Order": 1,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2303",
+    "Text_Local": "价签是新换的。是不是已经有人知道了？"
+  },
+  {
+    "ID": 2304,
+    "Time": 10800,
+    "Order": 0,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2304",
+    "Text_Local": "要是时间能再多一点……这些东西，我一个人搬得回去吗。"
+  },
+  {
+    "ID": 2401,
+    "Time": 19800,
+    "Order": 1,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2401",
+    "Text_Local": "剩下的时间待在屋里吧，外面已经不对劲了……"
+  },
+  {
+    "ID": 2501,
+    "Time": 19800,
+    "Order": 1,
+    "PlayerSelectId": [
+      2
+    ],
+    "Text": "ThinkOpen_Text_2501",
+    "Text_Local": "我谁也救不了……先让自己活下来。剩下的，以后再说。"
+  },
+  {
+    "ID": 3101,
+    "Time": 60,
+    "Order": 1,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3101",
+    "Text_Local": "我还活着……  是噩梦吗？"
+  },
+  {
+    "ID": 3102,
+    "Time": 60,
+    "Order": 2,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3102",
+    "Text_Local": "日子对上了。就是今天。"
+  },
+  {
+    "ID": 3103,
+    "Time": 60,
+    "Order": 3,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3103",
+    "Text_Local": "仓库里的货物，跟梦里完全一样……"
+  },
+  {
+    "ID": 3104,
+    "Time": 600,
+    "Order": 1,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3104",
+    "Text_Local": "这仓库那么大，我得利用起来！"
+  },
+  {
+    "ID": 3105,
+    "Time": 600,
+    "Order": 2,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3105",
+    "Text_Local": "几个小时，路上要占掉一半。必须制订一个计划"
+  },
+  {
+    "ID": 3106,
+    "Time": 960,
+    "Order": 1,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3106",
+    "Text_Local": "不能再拖了。钥匙拿上，走。"
+  },
+  {
+    "ID": 3107,
+    "Time": 960,
+    "Order": 2,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3107",
+    "Text_Local": "兜里这点钱，换成能吃的最划算。"
+  },
+  {
+    "ID": 3201,
+    "Time": 3600,
+    "Order": 1,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3201",
+    "Text_Local": "白纸黑字。那就不是梦了。"
+  },
+  {
+    "ID": 3202,
+    "Time": 3600,
+    "Order": 2,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3202",
+    "Text_Local": "能拿多少、放得住多久、先吃哪一批——这些我熟。"
+  },
+  {
+    "ID": 3203,
+    "Time": 3600,
+    "Order": 3,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3203",
+    "Text_Local": "囤够了就死不了。这道理我干了半辈子。"
+  },
+  {
+    "ID": 3301,
+    "Time": 7200,
+    "Order": 1,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3301",
+    "Text_Local": "冷链一断就全废。不耐放的先进冷冻。"
+  },
+  {
+    "ID": 3302,
+    "Time": 7200,
+    "Order": 1,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3302",
+    "Text_Local": "这些年攒下的那点钱……早该换成货。"
+  },
+  {
+    "ID": 3303,
+    "Time": 7200,
+    "Order": 1,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3303",
+    "Text_Local": "价签一天换三回。一定有人知道了什么。"
+  },
+  {
+    "ID": 3304,
+    "Time": 10800,
+    "Order": 0,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3304",
+    "Text_Local": "再给我两个小时，我能把这条街搬空。"
+  },
+  {
+    "ID": 3401,
+    "Time": 19800,
+    "Order": 1,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3401",
+    "Text_Local": "东西到位了。剩下的时间待在屋里，别出岔子。"
+  },
+  {
+    "ID": 3501,
+    "Time": 19800,
+    "Order": 1,
+    "PlayerSelectId": [
+      3
+    ],
+    "Text": "ThinkOpen_Text_3501",
+    "Text_Local": "外面那些人……我顾不上。先把自己这一摊守住。"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "ID": 1,
+    "Name": "ChallengeAbility_Name_1",
+    "Name_Local": "储能大师",
+    "Desc": "ChallengeAbility_Desc_1",
+    "Desc_Local": "蓄电池总容量提高50%。白天多攒一点，夜里就多撑一会儿。",
+    "Cost": 0,
+    "BuffId": 330037,
+    "RewardSetId": 0,
+    "MutexTag": "",
+    "SortOrder": 10
+  },
+  {
+    "ID": 2,
+    "Name": "ChallengeAbility_Name_2",
+    "Name_Local": "酿造行家",
+    "Desc": "ChallengeAbility_Desc_2",
+    "Desc_Local": "酿造更容易出高品质酒精。烈性酒精的热值是劣质的两倍多。",
+    "Cost": 0,
+    "BuffId": 330038,
+    "RewardSetId": 0,
+    "MutexTag": "",
+    "SortOrder": 20
+  },
+  {
+    "ID": 3,
+    "Name": "ChallengeAbility_Name_3",
+    "Name_Local": "捕鼠能手",
+    "Desc": "ChallengeAbility_Desc_3",
+    "Desc_Local": "捕鼠成功率提高50%。鼠笼也是一台发电机。",
+    "Cost": 0,
+    "BuffId": 330039,
+    "RewardSetId": 0,
+    "MutexTag": "",
+    "SortOrder": 30
+  },
+  {
+    "ID": 4,
+    "Name": "ChallengeAbility_Name_4",
+    "Name_Local": "好眠",
+    "Desc": "ChallengeAbility_Desc_4",
+    "Desc_Local": "精力上限提高20点。没有电器的日子，精力就是唯一的产能。",
+    "Cost": 0,
+    "BuffId": 330040,
+    "RewardSetId": 0,
+    "MutexTag": "",
+    "SortOrder": 40
+  },
+  {
+    "ID": 5,
+    "Name": "ChallengeAbility_Name_5",
+    "Name_Local": "御寒有方",
+    "Desc": "ChallengeAbility_Desc_5",
+    "Desc_Local": "自身御寒能力提高50%。少开一台暖炉，电台就多撑一小时。",
+    "Cost": 0,
+    "BuffId": 330041,
+    "RewardSetId": 0,
+    "MutexTag": "",
+    "SortOrder": 50
+  }
+]

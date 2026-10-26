@@ -1,0 +1,50 @@
+[
+  {
+    "DeathID": 1,
+    "Type": 1,
+    "LinkedID": 10002,
+    "EventLogID": 100
+  },
+  {
+    "DeathID": 2,
+    "Type": 1,
+    "LinkedID": 10005,
+    "EventLogID": 114
+  },
+  {
+    "DeathID": 3,
+    "Type": 4,
+    "LinkedID": 211,
+    "EventLogID": 102
+  },
+  {
+    "DeathID": 4,
+    "Type": 1,
+    "LinkedID": 1110,
+    "EventLogID": 101
+  },
+  {
+    "DeathID": 5,
+    "Type": 1,
+    "LinkedID": 1114,
+    "EventLogID": 111
+  },
+  {
+    "DeathID": 6,
+    "Type": 1,
+    "LinkedID": 1105,
+    "EventLogID": 112
+  },
+  {
+    "DeathID": 7,
+    "Type": 1,
+    "LinkedID": 1007,
+    "EventLogID": 113
+  },
+  {
+    "DeathID": 8,
+    "Type": 1,
+    "LinkedID": 10007,
+    "EventLogID": 113
+  }
+]

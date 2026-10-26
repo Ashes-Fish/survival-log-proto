@@ -1,0 +1,62 @@
+[
+  {
+    "Lv": 0,
+    "EXP": 150,
+    "required_condition": [],
+    "QualityFloor": 0,
+    "Info": "CookingLv_Info_0",
+    "Info_Local": "未掌握\\n研究一次烹饪设施，开始积累烹饪经验",
+    "research_exp": 50,
+    "research_action_id": 1922
+  },
+  {
+    "Lv": 1,
+    "EXP": 600,
+    "required_condition": [],
+    "QualityFloor": 10,
+    "Info": "CookingLv_Info_1",
+    "Info_Local": "新手厨师\\n解锁：基础菜谱\\n新增：品质下限 10（偶有失手）",
+    "research_exp": 0,
+    "research_action_id": 0
+  },
+  {
+    "Lv": 2,
+    "EXP": 4600,
+    "required_condition": [],
+    "QualityFloor": 25,
+    "Info": "CookingLv_Info_2",
+    "Info_Local": "学徒厨师\\n解锁：烹饪时直接取用冰箱食材\\n解锁：更多家常菜谱\\n强化：品质下限 10 → 25（稳定普通）",
+    "research_exp": 0,
+    "research_action_id": 0
+  },
+  {
+    "Lv": 3,
+    "EXP": 15600,
+    "required_condition": [],
+    "QualityFloor": 40,
+    "Info": "CookingLv_Info_3",
+    "Info_Local": "熟练厨师\\n解锁：多锅烹饪（一次下厨，多道菜一起出锅）\\n解锁：更多进阶菜谱\\n强化：品质下限 25 → 40（常出优良）",
+    "research_exp": 0,
+    "research_action_id": 0
+  },
+  {
+    "Lv": 4,
+    "EXP": 36600,
+    "required_condition": [],
+    "QualityFloor": 55,
+    "Info": "CookingLv_Info_4",
+    "Info_Local": "资深厨师\\n解锁：高档菜谱\\n强化：品质下限 40 → 55（稳定优良）",
+    "research_exp": 0,
+    "research_action_id": 0
+  },
+  {
+    "Lv": 5,
+    "EXP": 0,
+    "required_condition": [],
+    "QualityFloor": 70,
+    "Info": "CookingLv_Info_5",
+    "Info_Local": "大师厨师\\n解锁：盛宴级菜谱\\n强化：品质下限 55 → 70（可出完美）",
+    "research_exp": 0,
+    "research_action_id": 0
+  }
+]

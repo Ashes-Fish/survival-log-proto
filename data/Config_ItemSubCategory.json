@@ -1,0 +1,62 @@
+[
+  {
+    "ID": 0,
+    "Name": "None",
+    "Name_Local": "不分类"
+  },
+  {
+    "ID": 1,
+    "Name": "StapleFood",
+    "Name_Local": "主食"
+  },
+  {
+    "ID": 2,
+    "Name": "Meat",
+    "Name_Local": "肉类"
+  },
+  {
+    "ID": 3,
+    "Name": "Custard",
+    "Name_Local": "蛋奶"
+  },
+  {
+    "ID": 4,
+    "Name": "Fish",
+    "Name_Local": "鱼"
+  },
+  {
+    "ID": 5,
+    "Name": "Vegetable",
+    "Name_Local": "蔬菜"
+  },
+  {
+    "ID": 6,
+    "Name": "Fruit",
+    "Name_Local": "水果"
+  },
+  {
+    "ID": 7,
+    "Name": "Snack",
+    "Name_Local": "零食"
+  },
+  {
+    "ID": 8,
+    "Name": "Seasoning",
+    "Name_Local": "调味品"
+  },
+  {
+    "ID": 9,
+    "Name": "SoftDrink",
+    "Name_Local": "软饮料"
+  },
+  {
+    "ID": 10,
+    "Name": "Liquor",
+    "Name_Local": "酒"
+  },
+  {
+    "ID": 11,
+    "Name": "Mushroom",
+    "Name_Local": "菌菇"
+  }
+]

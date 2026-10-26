@@ -1,0 +1,173 @@
+[
+  {
+    "ID": 0,
+    "SceneName": "Home_XUZhang",
+    "InstanceID": 0,
+    "TimeScale": 120,
+    "ActionInterval": 200,
+    "DirectorAI": "Director/Guide_1",
+    "WorldStateType": 2,
+    "FollowPos": [
+      3.0,
+      5.0,
+      -4.0
+    ],
+    "SleepSpeedStart": 600,
+    "SpeedUp1": 2,
+    "SpeedUp2": 4,
+    "BgFmod": "event:/BGM/SurvivalLog_AfterDisaster_B",
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 1,
+    "SceneName": "Scene_AfterTheDisaster02",
+    "InstanceID": 0,
+    "TimeScale": 5,
+    "ActionInterval": 10,
+    "DirectorAI": "Director/Chapter_1",
+    "WorldStateType": 1,
+    "FollowPos": [
+      4.960000038146973,
+      8.0,
+      -6.650000095367432
+    ],
+    "SleepSpeedStart": 25,
+    "SpeedUp1": 2,
+    "SpeedUp2": 32,
+    "BgFmod": "event:/BGM/SurvivalLog_PreDisaster",
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 2,
+    "SceneName": "Scene_AfterTheDisaster03",
+    "InstanceID": 0,
+    "TimeScale": 240,
+    "ActionInterval": 400,
+    "DirectorAI": "Director/Chapter_2",
+    "WorldStateType": 2,
+    "FollowPos": [
+      4.960000038146973,
+      8.0,
+      -6.650000095367432
+    ],
+    "SleepSpeedStart": 1200,
+    "SpeedUp1": 2,
+    "SpeedUp2": 4,
+    "BgFmod": "event:/BGM/SurvivalLog_AfterDisaster_B",
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 1000,
+    "SceneName": "TanSuo_Small01",
+    "InstanceID": 1000,
+    "TimeScale": 120,
+    "ActionInterval": 200,
+    "DirectorAI": "Director/Chapter_2",
+    "WorldStateType": 2,
+    "FollowPos": [
+      2.7100000381469727,
+      4.550000190734863,
+      -4.690000057220459
+    ],
+    "SleepSpeedStart": 600,
+    "SpeedUp1": 2,
+    "SpeedUp2": 4,
+    "BgFmod": "event:/BGM/SurvivalLog_AfterDisaster",
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 1001,
+    "SceneName": "TanSuo_Small01",
+    "InstanceID": 1001,
+    "TimeScale": 120,
+    "ActionInterval": 200,
+    "DirectorAI": "Director/Chapter_2",
+    "WorldStateType": 2,
+    "FollowPos": [
+      2.7100000381469727,
+      4.550000190734863,
+      -4.690000057220459
+    ],
+    "SleepSpeedStart": 600,
+    "SpeedUp1": 2,
+    "SpeedUp2": 4,
+    "BgFmod": "event:/BGM/SurvivalLog_AfterDisaster",
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 1002,
+    "SceneName": "TanSuo_School",
+    "InstanceID": 1002,
+    "TimeScale": 120,
+    "ActionInterval": 200,
+    "DirectorAI": "Director/Chapter_2",
+    "WorldStateType": 2,
+    "FollowPos": [
+      3.2899999618530273,
+      5.53000020980835,
+      -5.710000038146973
+    ],
+    "SleepSpeedStart": 600,
+    "SpeedUp1": 2,
+    "SpeedUp2": 4,
+    "BgFmod": "event:/BGM/SurvivalLog_AfterDisaster",
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 1003,
+    "SceneName": "TanSuo_Office",
+    "InstanceID": 1003,
+    "TimeScale": 120,
+    "ActionInterval": 200,
+    "DirectorAI": "Director/Chapter_2",
+    "WorldStateType": 2,
+    "FollowPos": [
+      3.2899999618530273,
+      5.53000020980835,
+      -5.710000038146973
+    ],
+    "SleepSpeedStart": 600,
+    "SpeedUp1": 2,
+    "SpeedUp2": 4,
+    "BgFmod": "event:/BGM/SurvivalLog_AfterDisaster",
+    "DemoTwoMode": 1
+  },
+  {
+    "ID": 1004,
+    "SceneName": "NEWMaket01_after",
+    "InstanceID": 1004,
+    "TimeScale": 120,
+    "ActionInterval": 200,
+    "DirectorAI": "Director/Chapter_2",
+    "WorldStateType": 2,
+    "FollowPos": [
+      2.7100000381469727,
+      4.550000190734863,
+      -4.690000057220459
+    ],
+    "SleepSpeedStart": 600,
+    "SpeedUp1": 2,
+    "SpeedUp2": 4,
+    "BgFmod": "event:/BGM/SurvivalLog_AfterDisaster",
+    "DemoTwoMode": 0
+  },
+  {
+    "ID": 1005,
+    "SceneName": "TanSuo_Hospital",
+    "InstanceID": 1005,
+    "TimeScale": 120,
+    "ActionInterval": 200,
+    "DirectorAI": "Director/Chapter_2",
+    "WorldStateType": 2,
+    "FollowPos": [
+      3.2899999618530273,
+      5.53000020980835,
+      -5.710000038146973
+    ],
+    "SleepSpeedStart": 600,
+    "SpeedUp1": 2,
+    "SpeedUp2": 4,
+    "BgFmod": "event:/BGM/SurvivalLog_AfterDisaster",
+    "DemoTwoMode": 1
+  }
+]

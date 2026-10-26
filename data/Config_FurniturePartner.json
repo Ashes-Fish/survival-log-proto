@@ -1,0 +1,41 @@
+[
+  {
+    "ID": 1,
+    "TriggerFurnitureId": 40000,
+    "PartnerType": 1,
+    "PartnerConfigIds": [
+      45000,
+      45001,
+      45002,
+      45003
+    ],
+    "MissingHintKey": "SR_Web_PurchaseSafety_Coupling_Solar_MissingBattery",
+    "PriorityWeight": 100
+  },
+  {
+    "ID": 2,
+    "TriggerFurnitureId": 40001,
+    "PartnerType": 1,
+    "PartnerConfigIds": [
+      45000,
+      45001,
+      45002,
+      45003
+    ],
+    "MissingHintKey": "SR_Web_PurchaseSafety_Coupling_Solar_MissingBattery",
+    "PriorityWeight": 100
+  },
+  {
+    "ID": 3,
+    "TriggerFurnitureId": 40002,
+    "PartnerType": 1,
+    "PartnerConfigIds": [
+      45000,
+      45001,
+      45002,
+      45003
+    ],
+    "MissingHintKey": "SR_Web_PurchaseSafety_Coupling_Solar_MissingBattery",
+    "PriorityWeight": 100
+  }
+]

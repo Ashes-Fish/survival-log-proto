@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>死亡结算</title>
+<script src="../../vue.runtime.global.prod.js"></script>
+<script>
+/* === [precompiled v1] === */
+(function(){var __wgArmed__=false;var __wgGaveUp__=false;var __wgReload__=function(missing){if(__wgArmed__||__wgGaveUp__)return;var m=/(?:^|;)wgr=(\d+)/.exec(window.name||"");var n=m?parseInt(m[1],10):0;if(n>=2){__wgGaveUp__=true;console.error("[WebUIGuard] "+missing+" still missing after "+n+" reloads, giving up: "+location.pathname);return;}__wgArmed__=true;window.name=(window.name||"").replace(/(?:^|;)wgr=\d+/,"")+";wgr="+(n+1);console.warn("[WebUIGuard] "+missing+" missing, reloading page ("+(n+1)+"/2): "+location.pathname);setTimeout(function(){location.reload();},300);};window.addEventListener("error",function(e){var msg=(e&&e.message)||"";var isCore=msg.indexOf("createWebUICore is not defined")>=0;if(!isCore&&msg.indexOf("Vue is not defined")<0)return;__wgReload__(isCore?"webui-core.js":"vue.runtime.global.prod.js");if(!__wgGaveUp__)e.preventDefault();});if(typeof Vue==="undefined"){__wgReload__("vue.runtime.global.prod.js");return;}document.addEventListener("DOMContentLoaded",function(){if(document.querySelector("script[src*=webui-core]")&&typeof window.createWebUICore==="undefined"){__wgReload__("webui-core.js");return;}if(!__wgArmed__&&window.name)window.name=window.name.replace(/(?:^|;)wgr=\d+/,"");});var __renderFactory__=function(Vue){const { createElementVNode: _createElementVNode, toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock, createCommentVNode: _createCommentVNode, normalizeClass: _normalizeClass, vShow: _vShow, withDirectives: _withDirectives, createStaticVNode: _createStaticVNode } = Vue
+
+const _hoisted_1 = { class: "canvas" }
+const _hoisted_2 = { class: "text-title" }
+const _hoisted_3 = { class: "obj-stats" }
+const _hoisted_4 = {
+  key: 0,
+  class: "row"
+}
+const _hoisted_5 = { class: "label" }
+const _hoisted_6 = { class: "colon" }
+const _hoisted_7 = { class: "value" }
+const _hoisted_8 = { class: "row" }
+const _hoisted_9 = { class: "label" }
+const _hoisted_10 = { class: "colon" }
+const _hoisted_11 = { class: "value" }
+const _hoisted_12 = { class: "label" }
+const _hoisted_13 = { class: "colon" }
+const _hoisted_14 = {
+  class: "value",
+  "data-no-sync": ""
+}
+const _hoisted_15 = { class: "text-tips" }
+const _hoisted_16 = { class: "quote" }
+const _hoisted_17 = { class: "vd-text" }
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createElementBlock("div", _hoisted_1, [
+    _cache[5] || (_cache[5] = _createStaticVNode("<div class=\"bg-1\"></div><div class=\"bg-2\"></div><div class=\"drift-topink\"><div class=\"bg-3-top-ink\"></div></div><div class=\"bg-4-bottom\"></div><div class=\"bg-top-edge-ink\"></div><div class=\"bg-bot-edge-ink\"></div><div class=\"bg-2b-mid-grid\"></div><div class=\"drift-splash\"><div class=\"bg-5-mid-splash\"></div></div><div class=\"glow-sweep\"></div><div class=\"dust\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>", 10)),
+    _createElementVNode("div", _hoisted_2, _toDisplayString(_ctx.state.deathTitle), 1 /* TEXT */),
+    _createElementVNode("div", _hoisted_3, [
+      (!_ctx.state.casualMode)
+        ? (_openBlock(), _createElementBlock("div", _hoisted_4, [
+            _createElementVNode("span", _hoisted_5, _toDisplayString(_ctx.rowTurn.label), 1 /* TEXT */),
+            _createElementVNode("span", _hoisted_6, _toDisplayString(_ctx.rowTurn.sep), 1 /* TEXT */),
+            _createElementVNode("span", _hoisted_7, _toDisplayString(_ctx.rowTurn.value), 1 /* TEXT */)
+          ]))
+        : _createCommentVNode("v-if", true),
+      _createElementVNode("div", _hoisted_8, [
+        _createElementVNode("span", _hoisted_9, _toDisplayString(_ctx.rowDay.label), 1 /* TEXT */),
+        _createElementVNode("span", _hoisted_10, _toDisplayString(_ctx.rowDay.sep), 1 /* TEXT */),
+        _createElementVNode("span", _hoisted_11, _toDisplayString(_ctx.rowDay.value), 1 /* TEXT */)
+      ]),
+      _createElementVNode("div", {
+        class: _normalizeClass(["row hero", { settled: _ctx.state.pointSettled }])
+      }, [
+        _createElementVNode("span", _hoisted_12, _toDisplayString(_ctx.rowPoint.label), 1 /* TEXT */),
+        _createElementVNode("span", _hoisted_13, _toDisplayString(_ctx.rowPoint.sep), 1 /* TEXT */),
+        _createElementVNode("span", _hoisted_14, _toDisplayString(_ctx.state.pointShown), 1 /* TEXT */)
+      ], 2 /* CLASS */)
+    ]),
+    _createElementVNode("div", _hoisted_15, [
+      _createElementVNode("div", _hoisted_16, _toDisplayString(_ctx.state.tipsText), 1 /* TEXT */)
+    ]),
+    _withDirectives(_createElementVNode("div", {
+      class: _normalizeClass(["btn-start", { paired: _ctx.isPaired, right: _ctx.startAtRight }]),
+      onClick: _cache[0] || (_cache[0] = (...args) => (_ctx.onStartGame && _ctx.onStartGame(...args)))
+    }, _toDisplayString(_ctx.startBtnText), 3 /* TEXT, CLASS */), [
+      [_vShow, _ctx.state.isBtnStartGameVisible]
+    ]),
+    _withDirectives(_createElementVNode("div", {
+      class: _normalizeClass(["btn-end", { paired: _ctx.isPaired }]),
+      onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.onEndGame && _ctx.onEndGame(...args)))
+    }, _toDisplayString(_ctx.endBtnText), 3 /* TEXT, CLASS */), [
+      [_vShow, _ctx.state.isBtnEndGameVisible]
+    ]),
+    _withDirectives(_createElementVNode("div", {
+      class: "btn-hold-out",
+      onClick: _cache[2] || (_cache[2] = (...args) => (_ctx.onHoldOut && _ctx.onHoldOut(...args)))
+    }, _toDisplayString(_ctx.state.localText.btnHoldOut || '继续坚守'), 513 /* TEXT, NEED_PATCH */), [
+      [_vShow, _ctx.state.isBtnHoldOutVisible && !_ctx.state.casualMode]
+    ]),
+    _withDirectives(_createElementVNode("div", {
+      class: "view-dossier-btn",
+      onClick: _cache[3] || (_cache[3] = (...args) => (_ctx.onViewDossier && _ctx.onViewDossier(...args)))
+    }, [
+      _cache[4] || (_cache[4] = _createStaticVNode("<svg class=\"vd-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z\"></path><path d=\"M14 3v5h5\"></path><path d=\"M9 13.5h6\"></path><path d=\"M9 17h4\"></path></svg>", 1)),
+      _createElementVNode("span", _hoisted_17, _toDisplayString(_ctx.state.localText.btnViewDossier || '查看档案'), 1 /* TEXT */)
+    ], 512 /* NEED_PATCH */), [
+      [_vShow, _ctx.state.isBtnViewDossierVisible && !_ctx.state.casualMode]
+    ])
+  ]))
+}};var __renderCache__=null;var __origCreateApp__=Vue.createApp;Vue.createApp=function(opts){if(!__renderCache__)__renderCache__=__renderFactory__(Vue);if(opts&&typeof opts==="object"&&!opts.render&&!opts.template){opts=Object.assign({},opts,{render:__renderCache__});}var app=__origCreateApp__.call(this,opts);if(!app.config.errorHandler){app.config.errorHandler=function(err){var msg=(err&&err.message)||String(err||"");if(msg.indexOf("createWebUICore is not defined")>=0){__wgReload__("webui-core.js");if(__wgGaveUp__)console.error(err);return;}console.error(err);};}return app;};})();
+/* === [/precompiled v1] === */
+</script>
+<script src="../../webui-core.js"></script>
+<style>
+  @font-face { font-family: 'SHSans';  src: url('../../Res/GameResult/SourceHanSansSC-Regular-2.otf') format('opentype'); font-weight: 400; }
+  @font-face { font-family: 'SHSansH'; src: url('../../Res/GameResult/SourceHanSansSC-Heavy-2.otf')  format('opentype'); font-weight: 900; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; -webkit-user-select: none; }
+  html, body { height: 100%; width: 100%; overflow: hidden; font-family: 'SHSans', 'Microsoft YaHei', sans-serif; background: #000; }
+
+  .canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; overflow: hidden; }
+
+  :root {
+    --bg-breathe: 1.024; --bg-breathe-dur: 15s; --bg-breathe-fade: .84;
+    --bg-topink-lo: .78; --bg-drift-dur: 19s;
+    --bg-glow-a: .85;    --bg-glow-dur: 34s;
+    --bg-dust-a: .85;
+  }
+
+  .bg-1 { position: absolute; inset: 0; background: url('../../Res/GameResult/UI_Common_Bg_XL_001.png') center/cover no-repeat;
+          animation: fade-in .9s ease-out both; }
+  .bg-2 { position: absolute; inset: 0; background: url('../../Res/GameResult/UI_VX_Hited_Dark.png') center/cover no-repeat;
+          mix-blend-mode: multiply; opacity: 0.65;
+          animation: veil-in 1.1s ease-out both; }
+  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes veil-in { from { opacity: 0; } to { opacity: .65; } }
+
+  .bg-3-top-ink {
+    position: absolute; left: 0; right: 0; height: 392px; top: 0;
+    background: url('../../Res/GameResult/UI_Death_TitleBG_001.png') center/100% 100% no-repeat;
+    mix-blend-mode: multiply; opacity: 0.75;
+    transform-origin: 50% 0%;
+    animation: ink-seep-top 1.15s cubic-bezier(.22,.9,.3,1) both;
+  }
+  @keyframes ink-seep-top {
+    from { opacity: 0; transform: scaleY(.82); }
+    to   { opacity: .75; transform: scaleY(1); }
+  }
+  .bg-4-bottom {
+    position: absolute; left: 0; right: 0; height: 189px; bottom: 0;
+    background: url('../../Res/GameResult/UI_Rebirth_Bg_001.png') center/100% 100% no-repeat;
+    mix-blend-mode: multiply; opacity: 0.7;
+    transform-origin: 50% 100%;
+    animation: ink-seep-bot 1.15s cubic-bezier(.22,.9,.3,1) .1s both;
+  }
+  @keyframes ink-seep-bot {
+    from { opacity: 0; transform: scaleY(.82); }
+    to   { opacity: .7; transform: scaleY(1); }
+  }
+  .bg-top-edge-ink, .bg-bot-edge-ink {
+    position: absolute; left: 0; right: 0; height: 256px;
+    background-color: rgb(55, 50, 45);
+    -webkit-mask: url('../../Res/GameResult/UI_Death_TitleBG_001.png') center/100% 100% no-repeat;
+            mask: url('../../Res/GameResult/UI_Death_TitleBG_001.png') center/100% 100% no-repeat;
+    opacity: 0.1; z-index: 2;
+    animation: edge-in 1.3s ease-out .2s both;
+  }
+  @keyframes edge-in { from { opacity: 0; } to { opacity: .1; } }
+  .bg-top-edge-ink { top: 0; }
+  .bg-bot-edge-ink { bottom: 0; transform: rotate(180deg); }
+
+  .bg-5-mid-splash {
+    position: absolute; width: 896px; height: 541px;
+    left: 50%; top: 50%;
+    background: url('../../Res/GameResult/UI_Death_TitleBGx_011.png') center/contain no-repeat;
+    filter: grayscale(1) brightness(0.35) contrast(1.4);
+    mix-blend-mode: multiply;
+    animation: splash-drop .85s cubic-bezier(.16,.9,.3,1) .5s both;
+  }
+  @keyframes splash-drop {
+    from { opacity: 0; transform: translate(-50%, calc(-50% - 201px)) scale(1.13); }
+    to   { opacity: .95; transform: translate(-50%, calc(-50% - 201px)) scale(1); }
+  }
+  .bg-2b-mid-grid {
+    position: absolute; width: 670px; height: 362px;
+    left: 50%; top: 50%;
+    transform: translate(-50%, calc(-50% - 19px));
+    background: url('../../Res/GameResult/UI_Renovation_Bg_004.png') center/100% 100% no-repeat;
+    opacity: 0.086;
+    animation: grid-in 1s ease-out .9s both;
+  }
+  @keyframes grid-in { from { opacity: 0; } to { opacity: .086; } }
+
+  .glow-sweep {
+    position: absolute; top: -12%; bottom: -12%; width: 60%; left: 0;
+    pointer-events: none; z-index: 4;
+    background: radial-gradient(ellipse at center,
+                rgba(196, 206, 226, .075) 0%, rgba(170, 180, 205, .04) 44%, transparent 72%);
+    animation: glow-cross var(--bg-glow-dur) ease-in-out 2.4s infinite;
+  }
+  @keyframes glow-cross {
+    0%   { transform: translateX(-48%); opacity: calc(var(--bg-glow-a) * .5); }
+    50%  { transform: translateX(110%); opacity: var(--bg-glow-a); }
+    100% { transform: translateX(-48%); opacity: calc(var(--bg-glow-a) * .5); }
+  }
+  .drift-splash {
+    position: absolute; inset: 0; pointer-events: none;
+    animation: breathe-splash var(--bg-breathe-dur) ease-in-out 3.4s infinite;
+  }
+  @keyframes breathe-splash {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%      { transform: scale(var(--bg-breathe)); opacity: var(--bg-breathe-fade); }
+  }
+  .drift-topink {
+    position: absolute; inset: 0; pointer-events: none;
+    animation: topink-breathe var(--bg-drift-dur) ease-in-out 2.8s infinite;
+  }
+  @keyframes topink-breathe {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: var(--bg-topink-lo); }
+  }
+  .dust { position: absolute; inset: 0; pointer-events: none; z-index: 3; overflow: hidden; }
+  .dust i {
+    position: absolute; width: 3px; height: 3px; border-radius: 50%;
+    background: rgba(238, 230, 208, .95);
+    opacity: 0;
+    animation: dust-fall linear infinite;
+  }
+  @keyframes dust-fall {
+    0%   { opacity: 0; transform: translate(0, -30px); }
+    14%  { opacity: var(--bg-dust-a); }
+    78%  { opacity: calc(var(--bg-dust-a) * .7); }
+    100% { opacity: 0; transform: translate(-22px, 300px); }
+  }
+  .dust i:nth-child(1)  { left: 17%; top: 14%; animation-duration: 17s; animation-delay: 1s; }
+  .dust i:nth-child(2)  { left: 34%; top: 6%;  animation-duration: 21s; animation-delay: 5s; }
+  .dust i:nth-child(3)  { left: 58%; top: 20%; animation-duration: 16s; animation-delay: 2s; }
+  .dust i:nth-child(4)  { left: 72%; top: 10%; animation-duration: 23s; animation-delay: 8s; }
+  .dust i:nth-child(5)  { left: 84%; top: 18%; animation-duration: 19s; animation-delay: 12s; }
+  .dust i:nth-child(6)  { left: 46%; top: 26%; animation-duration: 20s; animation-delay: 15s; }
+  .dust i:nth-child(7)  { left: 9%;  top: 24%; animation-duration: 22s; animation-delay: 4s; }
+  .dust i:nth-child(8)  { left: 91%; top: 8%;  animation-duration: 18s; animation-delay: 10s; }
+  .dust i:nth-child(9)  { left: 26%; top: 32%; animation-duration: 24s; animation-delay: 17s; }
+  .dust i:nth-child(10) { left: 65%; top: 4%;  animation-duration: 20s; animation-delay: 7s; }
+
+  .text-title {
+    position: absolute; width: 800px; height: 112px;
+    left: 50%; top: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; line-height: 1.08;
+    font-family: 'SHSansH', sans-serif; font-weight: 900;
+    font-size: 64px; letter-spacing: 5px; padding-left: 5px;
+    color: rgb(144, 58, 58);
+    text-shadow: 0 2px 5px rgba(0,0,0,0.75);
+    z-index: 10;
+    animation: title-land .8s cubic-bezier(.16,.86,.3,1) .62s both;
+  }
+  @keyframes title-land {
+    from { opacity: 0; transform: translate(-50%, calc(-50% - 232px)) scale(1.09); }
+    to   { opacity: 1; transform: translate(-50%, calc(-50% - 232px)) scale(1); }
+  }
+
+  .obj-stats {
+    position: absolute; width: 670px; height: 240px;
+    left: 50%; top: 50%;
+    transform: translate(-50%, calc(-50% - 19px));
+    display: flex; flex-direction: column;
+    justify-content: center; gap: 5px;
+    z-index: 10;
+  }
+  .obj-stats .row {
+    height: 55px;
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    font-family: 'SHSans', sans-serif;
+    font-size: 22px;
+    text-shadow: 0 2px 3px rgba(0,0,0,0.75);
+    letter-spacing: 1px;
+    animation: row-rise .5s ease-out both;
+  }
+  .obj-stats .row:nth-child(1) { animation-delay: 1.12s; }
+  .obj-stats .row:nth-child(2) { animation-delay: 1.27s; }
+  .obj-stats .row:nth-child(3) { animation-delay: 1.42s; }
+  @keyframes row-rise {
+    from { opacity: 0; transform: translateY(9px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .obj-stats .row .label { text-align: right; color: rgb(200, 200, 200); font-weight: 400; }
+  .obj-stats .row .colon { padding: 0 6px; color: rgb(200, 200, 200); font-weight: 400; }
+  .obj-stats .row .value { text-align: left; color: rgb(242, 240, 232); font-weight: 500; }
+
+  .obj-stats .row.hero { position: relative; }
+  .obj-stats .row.hero .label { color: rgb(214, 208, 190); }
+  .obj-stats .row.hero .value {
+    position: relative;
+    font-family: 'SHSansH', sans-serif; font-weight: 900;
+    font-size: 30px;
+    color: rgb(214, 190, 132);
+    text-shadow: 0 2px 6px rgba(0,0,0,.85);
+  }
+  .obj-stats .row.hero .value::after {
+    content: ''; position: absolute; inset: -6px -14px;
+    background: radial-gradient(ellipse at center, rgba(226,160,60,.30), transparent 72%);
+    opacity: 0; pointer-events: none;
+  }
+  .obj-stats .row.hero.settled .value::after { animation: hero-flash .55s ease-out both; }
+  @keyframes hero-flash { 0% { opacity: 0; } 35% { opacity: 1; } 100% { opacity: 0; } }
+
+  .text-tips {
+    position: absolute; width: 1216px; height: 144px;
+    left: 50%; top: 50%;
+    transform: translate(-50%, calc(-50% + 185px));
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 6px;
+    font-family: 'SHSans', sans-serif; font-weight: 500;
+    font-style: italic;
+    text-align: center;
+    z-index: 10;
+    animation: tips-in .75s ease-out 2.05s both;
+  }
+  @keyframes tips-in {
+    from { opacity: 0; transform: translate(-50%, calc(-50% + 193px)); }
+    to   { opacity: 1; transform: translate(-50%, calc(-50% + 185px)); }
+  }
+  .text-tips .quote {
+    font-size: 28px; line-height: 1.4; letter-spacing: 2px;
+    color: rgb(204, 201, 133);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+  }
+
+  .btn-start, .btn-hold-out, .btn-end {
+    position: absolute; width: 288px; height: 80px;
+    left: 50%; top: 50%;
+    background: url('../../Res/GameResult/UI_BonFire_Bg_001.png') center/100% 100% no-repeat;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'SHSansH', sans-serif; font-weight: 900;
+    font-size: 30px; letter-spacing: 3px; padding-left: 3px;
+    text-align: center; line-height: 1.1;
+    color: rgb(240, 240, 240);
+    text-shadow: 0 2px 3px rgba(0,0,0,0.95);
+    cursor: pointer; z-index: 10;
+  }
+  .btn-start { filter: sepia(1) saturate(3) hue-rotate(-15deg) brightness(1.1);
+               animation: btn-in .6s ease-out 2.55s both; }
+  @keyframes btn-in {
+    from { opacity: 0; transform: translate(-50%, calc(-50% + 313px)); }
+    to   { opacity: 1; transform: translate(-50%, calc(-50% + 305px)); }
+  }
+  .btn-start::before {
+    content: ''; position: absolute; inset: -3px;
+    box-shadow: 0 0 18px rgba(255, 176, 92, .55);
+    opacity: .35; pointer-events: none;
+    animation: btn-glow 2.4s ease-in-out 3.1s infinite;
+  }
+  @keyframes btn-glow { 0%,100% { opacity: .22; } 50% { opacity: .72; } }
+  .btn-start::after, .btn-hold-out::after, .btn-end::after {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(255, 255, 255, 0.14);
+    opacity: 0; transition: opacity 0.15s; pointer-events: none;
+  }
+  .btn-start:hover::after, .btn-hold-out:hover::after, .btn-end:hover::after { opacity: 1; }
+  .btn-start:active { transform: translate(-50%, calc(-50% + 306px)) scale(0.98); }
+
+  .btn-end {
+    filter: sepia(1) saturate(1.4) hue-rotate(170deg) brightness(0.58);
+    transform: translate(-50%, calc(-50% + 305px));
+    animation: btn-in-plain .6s ease-out 2.55s both;
+  }
+  @keyframes btn-in-plain { from { opacity: 0; } to { opacity: 1; } }
+
+  .btn-start.paired { animation: btn-in-l .6s ease-out 2.55s both; }
+  @keyframes btn-in-l {
+    from { opacity: 0; transform: translate(calc(-50% - 170px), calc(-50% + 313px)); }
+    to   { opacity: 1; transform: translate(calc(-50% - 170px), calc(-50% + 305px)); }
+  }
+  .btn-start.paired:active { transform: translate(calc(-50% - 170px), calc(-50% + 306px)) scale(0.98); }
+  .btn-end.paired { transform: translate(calc(-50% - 170px), calc(-50% + 305px)); }
+  .btn-end.paired:active { transform: translate(calc(-50% - 170px), calc(-50% + 306px)) scale(0.98); }
+  .btn-start.paired.right { animation: btn-in-r .6s ease-out 2.55s both; }
+  .btn-start.paired.right:active { transform: translate(calc(-50% + 170px), calc(-50% + 306px)) scale(0.98); }
+  .btn-hold-out {
+    filter: sepia(1) saturate(2.2) hue-rotate(215deg) brightness(0.98);
+    animation: btn-in-r .6s ease-out 2.7s both;
+  }
+  @keyframes btn-in-r {
+    from { opacity: 0; transform: translate(calc(-50% + 170px), calc(-50% + 313px)); }
+    to   { opacity: 1; transform: translate(calc(-50% + 170px), calc(-50% + 305px)); }
+  }
+  .btn-hold-out:active { transform: translate(calc(-50% + 170px), calc(-50% + 306px)) scale(0.98); }
+
+  .view-dossier-btn {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(198, 176, 136, 0.42);
+    border-radius: 2px;
+    padding: 13px 30px;
+    cursor: pointer;
+    transition: opacity 0.28s ease, transform 0.28s ease;
+    opacity: 0;
+    animation: vdEnter 0.6s ease 1.9s forwards;
+  }
+  @keyframes vdEnter { to { opacity: 0.92; } }
+  .view-dossier-btn::before,
+  .view-dossier-btn::after {
+    content: ''; position: absolute; width: 11px; height: 11px; pointer-events: none;
+    border-color: rgba(214, 194, 156, 0.6); border-style: solid;
+  }
+  .view-dossier-btn::before { top: 3px;    left: 3px;  border-width: 1px 0 0 1px; }
+  .view-dossier-btn::after  { bottom: 3px; right: 3px; border-width: 0 1px 1px 0; }
+  .view-dossier-btn:hover { opacity: 1; transform: translateY(-1px); }
+  .view-dossier-btn:active { transform: translateY(0); }
+  .view-dossier-btn .vd-icon {
+    width: 18px; height: 18px; flex: none; display: block;
+    color: rgba(224, 208, 176, 0.9); position: relative; z-index: 1;
+  }
+  .view-dossier-btn .vd-text {
+    font-size: 15px; font-weight: normal; letter-spacing: 3px;
+    color: rgb(236, 226, 205); position: relative; z-index: 1; white-space: nowrap;
+  }
+
+  html.quality-low .btn-start::before { animation: none; opacity: .35; }
+  html.quality-low .drift-splash,
+  html.quality-low .drift-topink,
+  html.quality-low .glow-sweep { animation: none; }
+  html.quality-low .dust { display: none; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="canvas">
+    <div class="bg-1"></div>
+    <div class="bg-2"></div>
+    <div class="drift-topink"><div class="bg-3-top-ink"></div></div>
+    <div class="bg-4-bottom"></div>
+    <div class="bg-top-edge-ink"></div>
+    <div class="bg-bot-edge-ink"></div>
+    <div class="bg-2b-mid-grid"></div>
+    <div class="drift-splash"><div class="bg-5-mid-splash"></div></div>
+    <div class="glow-sweep"></div>
+    <div class="dust"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+    <div class="text-title">{{ state.deathTitle }}</div>
+
+    <div class="obj-stats">
+      <div class="row" v-if="!state.casualMode"><span class="label">{{ rowTurn.label }}</span><span class="colon">{{ rowTurn.sep }}</span><span class="value">{{ rowTurn.value }}</span></div>
+      <div class="row"><span class="label">{{ rowDay.label }}</span><span class="colon">{{ rowDay.sep }}</span><span class="value">{{ rowDay.value }}</span></div>
+      <div class="row hero" :class="{ settled: state.pointSettled }">
+        <span class="label">{{ rowPoint.label }}</span><span class="colon">{{ rowPoint.sep }}</span>
+        <span class="value" data-no-sync>{{ state.pointShown }}</span>
+      </div>
+    </div>
+
+    <div class="text-tips">
+      <div class="quote">{{ state.tipsText }}</div>
+    </div>
+
+    <div v-show="state.isBtnStartGameVisible" class="btn-start" :class="{ paired: isPaired, right: startAtRight }" @click="onStartGame">{{ startBtnText }}</div>
+    <div v-show="state.isBtnEndGameVisible"   class="btn-end"   :class="{ paired: isPaired }" @click="onEndGame">{{ endBtnText }}</div>
+    <div v-show="state.isBtnHoldOutVisible && !state.casualMode" class="btn-hold-out" @click="onHoldOut">{{ state.localText.btnHoldOut || '继续坚守' }}</div>
+
+    <div v-show="state.isBtnViewDossierVisible && !state.casualMode" class="view-dossier-btn" @click="onViewDossier">
+      <svg class="vd-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+        <path d="M14 3v5h5"/>
+        <path d="M9 13.5h6"/>
+        <path d="M9 17h4"/>
+      </svg>
+      <span class="vd-text">{{ state.localText.btnViewDossier || '查看档案' }}</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  const core = createWebUICore('GameResult');
+  const { createApp, reactive, computed } = Vue;
+
+  const state = reactive({
+    deathTitle: '',
+    turnCountText: '',
+    dayTimeText: '',
+    totalPointsText: '',
+    tipsText: '',
+    pointShown: '0',
+    pointSettled: false,
+    isBtnStartGameVisible: true,
+    isBtnEndGameVisible: false,
+    isBtnHoldOutVisible: false,
+    isBtnViewDossierVisible: false,
+    casualMode: false,
+    casualSealed: false,
+    localText: {
+      btnStartGame: '',
+      btnEndGame: '',
+      btnHoldOut: '',
+      btnViewDossier: ''
+    }
+  });
+
+  function splitRow(text) {
+    const s = text || '';
+    const i = s.search(/[：:]/);
+    if (i < 0) return { label: '', sep: '', value: s };
+    return { label: s.slice(0, i), sep: s[i], value: s.slice(i + 1).replace(/^\s+/, '') };
+  }
+
+  /* 自适应算法在 core.fitText；本页不要省略号兜底（ellipsis: false），缩到下限即止 */
+  const FIT_TARGETS = [
+    ['.text-title', { maxLines: 2, minScale: 0.55, singleLineMin: 0.78, budgetH: 150, ellipsis: false }],
+    ['.btn-start', { maxLines: 1, minScale: 0.62, ellipsis: false }],
+    ['.btn-end', { maxLines: 1, minScale: 0.62, ellipsis: false }],
+    ['.btn-hold-out', { maxLines: 1, minScale: 0.62, ellipsis: false }]
+  ];
+  function fitAll() {
+    for (const [sel, opt] of FIT_TARGETS) {
+      const el = document.querySelector(sel);
+      if (el && el.clientWidth > 0) core.fitText(el, opt);
+    }
+  }
+  function scheduleFit() { Vue.nextTick(() => requestAnimationFrame(fitAll)); }
+
+  let rollRaf = null;
+  function rollPoint(valueText) {
+    if (rollRaf) { cancelAnimationFrame(rollRaf); rollRaf = null; }
+    state.pointSettled = false;
+    const target = parseInt(String(valueText).replace(/[^\d-]/g, ''), 10);
+    if (!isFinite(target)) { state.pointShown = valueText; return; }
+    if (target <= 0) { state.pointShown = String(valueText); state.pointSettled = true; return; }
+
+    state.pointShown = '0';
+    const startAt = performance.now() + 1520;
+    const dur = 900;
+    function step(now) {
+      if (now < startAt) { rollRaf = requestAnimationFrame(step); return; }
+      const p = Math.min(1, (now - startAt) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      state.pointShown = String(Math.round(target * eased));
+      if (p < 1) { rollRaf = requestAnimationFrame(step); }
+      else { state.pointShown = String(target); state.pointSettled = true; rollRaf = null; }
+    }
+    rollRaf = requestAnimationFrame(step);
+  }
+
+  core.registerHandlers({
+    'WebUI_GameResult_LocalizationMsg': (data) => {
+      for (const k in data) {
+        if (typeof data[k] === 'string') state.localText[k] = data[k];
+      }
+      scheduleFit();
+    },
+    'WebUI_GameResult_DataMsg': (data) => {
+      if (typeof data.deathTitle === 'string')       state.deathTitle = data.deathTitle;
+      if (typeof data.turnCountText === 'string')    state.turnCountText = data.turnCountText;
+      if (typeof data.dayTimeText === 'string')      state.dayTimeText = data.dayTimeText;
+      if (typeof data.totalPointsText === 'string') {
+        state.totalPointsText = data.totalPointsText;
+        rollPoint(splitRow(data.totalPointsText).value);
+      }
+      if (typeof data.tipsText === 'string')         state.tipsText = data.tipsText;
+      if (typeof data.isBtnStartGameVisible === 'boolean') state.isBtnStartGameVisible = data.isBtnStartGameVisible;
+      if (typeof data.isBtnEndGameVisible === 'boolean')   state.isBtnEndGameVisible   = data.isBtnEndGameVisible;
+      if (typeof data.isBtnHoldOutVisible === 'boolean')   state.isBtnHoldOutVisible   = data.isBtnHoldOutVisible;
+      if (typeof data.isBtnViewDossierVisible === 'boolean') state.isBtnViewDossierVisible = data.isBtnViewDossierVisible;
+      if (typeof data.casualMode === 'boolean') state.casualMode = data.casualMode;
+      if (typeof data.casualSealed === 'boolean') state.casualSealed = data.casualSealed;
+      scheduleFit();
+    }
+  });
+
+  function onStartGame() { core.UnitySendEvent('START_GAME'); }
+  function onEndGame()   { core.UnitySendEvent('END_GAME'); }
+  function onHoldOut()   { core.UnitySendEvent('HOLD_OUT'); }
+  function onViewDossier() { core.UnitySendEvent('VIEW_DOSSIER'); }
+
+  createApp({
+    setup() {
+      const rowTurn  = computed(() => splitRow(state.turnCountText));
+      const rowDay   = computed(() => splitRow(state.dayTimeText));
+      const rowPoint = computed(() => splitRow(state.totalPointsText));
+
+      const visibleBtnCount = computed(() =>
+        (state.isBtnStartGameVisible ? 1 : 0)
+        + (state.isBtnEndGameVisible ? 1 : 0)
+        + (state.isBtnHoldOutVisible ? 1 : 0));
+      const isPaired = computed(() => visibleBtnCount.value >= 2);
+      const startAtRight = computed(() => isPaired.value && state.isBtnEndGameVisible && !state.isBtnHoldOutVisible);
+
+      // 休闲档变体：两枚主按钮换文案（去向不同：一枚进「回到昨天」那一页，一枚封存后进结算页），
+      // 「轮回次数」一行不画，另外两枚次要按钮不出。其余存档这几处与原来一致
+      const startBtnText = computed(() => state.casualMode
+        ? (state.localText.btnCasualRollback || '回到昨天')
+        : (state.localText.btnStartGame || '我要坚持！'));
+      const endBtnText = computed(() => (state.casualMode || state.casualSealed)
+        ? (state.localText.btnCasualEnd || '封存这段生活')
+        : (state.localText.btnEndGame || '返回主菜单'));
+
+      return { state, rowTurn, rowDay, rowPoint, isPaired, startAtRight, startBtnText, endBtnText,
+               onStartGame, onEndGame, onHoldOut, onViewDossier };
+    }
+  }).mount('#app');
+
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(scheduleFit); }
+
+  core.notifyReady();
+</script>
+</body>
+</html>

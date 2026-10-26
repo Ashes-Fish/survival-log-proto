@@ -1,0 +1,52 @@
+[
+  {
+    "Lv": 1,
+    "EXP": 600,
+    "Info": "ProductionLv_Info_1",
+    "Info_Local": "学徒工匠\\n新增：制造精力消耗 -10%",
+    "required_condition": [],
+    "stamina_reduction": 0.10000000149011612,
+    "perfect_craft_rate": 0.0,
+    "craft_time_reduction": 0.0
+  },
+  {
+    "Lv": 2,
+    "EXP": 1800,
+    "Info": "ProductionLv_Info_2",
+    "Info_Local": "熟练工匠\\n新增：完美制造概率 +10%",
+    "required_condition": [],
+    "stamina_reduction": 0.10000000149011612,
+    "perfect_craft_rate": 0.10000000149011612,
+    "craft_time_reduction": 0.0
+  },
+  {
+    "Lv": 3,
+    "EXP": 4500,
+    "Info": "ProductionLv_Info_3",
+    "Info_Local": "资深工匠\\n强化：制造精力消耗 -10% → -20%\\n新增：制造速度 +25%",
+    "required_condition": [],
+    "stamina_reduction": 0.20000000298023224,
+    "perfect_craft_rate": 0.10000000149011612,
+    "craft_time_reduction": 0.20000000298023224
+  },
+  {
+    "Lv": 4,
+    "EXP": 11000,
+    "Info": "ProductionLv_Info_4",
+    "Info_Local": "工艺师\\n强化：完美制造概率 +10% → +15%",
+    "required_condition": [],
+    "stamina_reduction": 0.20000000298023224,
+    "perfect_craft_rate": 0.15000000596046448,
+    "craft_time_reduction": 0.20000000298023224
+  },
+  {
+    "Lv": 5,
+    "EXP": 0,
+    "Info": "ProductionLv_Info_5",
+    "Info_Local": "工匠大师\\n强化：制造精力消耗 -20% → -30%\\n强化：完美制造概率 +15% → +20%",
+    "required_condition": [],
+    "stamina_reduction": 0.30000001192092896,
+    "perfect_craft_rate": 0.20000000298023224,
+    "craft_time_reduction": 0.20000000298023224
+  }
+]

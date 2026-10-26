@@ -1,0 +1,442 @@
+[
+  {
+    "ID": 1091,
+    "Day": 1,
+    "LogPriority": 9,
+    "Order": 1,
+    "Text": "ThinkTime_Text_1091",
+    "Text_Local": "灾难还是爆发了，和梦里一模一样。",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 1092,
+    "Day": 1,
+    "LogPriority": 9,
+    "Order": 2,
+    "Text": "ThinkTime_Text_1092",
+    "Text_Local": "我需要冷静一下，深呼吸",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 1093,
+    "Day": 1,
+    "LogPriority": 9,
+    "Order": 3,
+    "Text": "ThinkTime_Text_1093",
+    "Text_Local": "还有时间，做一下计划，尽快准备应对灾难……",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 1204,
+    "Day": 1,
+    "LogPriority": 20,
+    "Order": 4,
+    "Text": "ThinkTime_Text_1204",
+    "Text_Local": "好像做梦一样，外面……就这样沦陷了……",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 1205,
+    "Day": 1,
+    "LogPriority": 20,
+    "Order": 5,
+    "Text": "ThinkTime_Text_1205",
+    "Text_Local": "好在基本的物资，都提前做了准备",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 1206,
+    "Day": 1,
+    "LogPriority": 20,
+    "Order": 6,
+    "Text": "ThinkTime_Text_1206",
+    "Text_Local": "为了保持体力，我还是需要按时睡觉，这是一场持久战……",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 1207,
+    "Day": 1,
+    "LogPriority": 20,
+    "Order": 7,
+    "Text": "ThinkTime_Text_1207",
+    "Text_Local": "心态 很重要，它可能是我长期生存的关键！",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 2011,
+    "Day": 2,
+    "LogPriority": 1,
+    "Order": 1,
+    "Text": "ThinkTime_Text_2011",
+    "Text_Local": "我获得了一些……“生存点”？\\n这个看起来能帮助我更好地生存下去……",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 2012,
+    "Day": 2,
+    "LogPriority": 1,
+    "Order": 2,
+    "Text": "ThinkTime_Text_2012",
+    "Text_Local": "我必须谨慎使用“生存点”，激活更有用的规划……",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 2013,
+    "Day": 2,
+    "LogPriority": 1,
+    "Order": 3,
+    "Text": "ThinkTime_Text_2013",
+    "Text_Local": "心态 很重要，可以帮我获得更多的“生存点”……",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 2081,
+    "Day": 2,
+    "LogPriority": 8,
+    "Order": 1,
+    "Text": "ThinkTime_Text_2081",
+    "Text_Local": "偶尔传来的嘶吼和惨叫，说明外面绝不平静。",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 2191,
+    "Day": 2,
+    "LogPriority": 19,
+    "Order": 1,
+    "Text": "ThinkTime_Text_2191",
+    "Text_Local": "潮湿的空气……可能有一场大雨要来了",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 2201,
+    "Day": 2,
+    "LogPriority": 20,
+    "Order": 1,
+    "Text": "ThinkTime_Text_2201",
+    "Text_Local": "好大的雷暴雨，幸好我的安全屋足够安全……",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 2202,
+    "Day": 2,
+    "LogPriority": 20,
+    "Order": 2,
+    "Text": "ThinkTime_Text_2202",
+    "Text_Local": "不知道外面的丧尸，怕不怕闪电？",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 3081,
+    "Day": 3,
+    "LogPriority": 8,
+    "Order": 1,
+    "Text": "ThinkTime_Text_3081",
+    "Text_Local": "牛奶是热的，饼干是脆的。外面是地狱，但在这里……这只是一顿早餐。",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 4081,
+    "Day": 4,
+    "LogPriority": 8,
+    "Order": 1,
+    "Text": "ThinkTime_Text_4081",
+    "Text_Local": "我得先把鲜肉和蔬菜吃掉。如果停电了，冰箱撑不了多久。",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 5081,
+    "Day": 5,
+    "LogPriority": 8,
+    "Order": 1,
+    "Text": "ThinkTime_Text_5081",
+    "Text_Local": "第五天了。好几个小时没听到警笛声了。这可不是什么好兆头。",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 6081,
+    "Day": 6,
+    "LogPriority": 8,
+    "Order": 1,
+    "Text": "ThinkTime_Text_6081",
+    "Text_Local": "刚才看到有人在街上狂奔。我……我没敢开门。我真的做不到。",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 7081,
+    "Day": 7,
+    "LogPriority": 8,
+    "Order": 1,
+    "Text": "ThinkTime_Text_7081",
+    "Text_Local": "一周了，救援频道只有沙沙声。",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 8081,
+    "Day": 8,
+    "LogPriority": 8,
+    "Order": 1,
+    "Text": "ThinkTime_Text_8081",
+    "Text_Local": "昨晚我是听到有人喊我名字吗？还是我的幻觉？",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 9081,
+    "Day": 9,
+    "LogPriority": 8,
+    "Order": 1,
+    "Text": "ThinkTime_Text_9081",
+    "Text_Local": "没什么比洗个澡更爽的了，哪怕得省着点用水。这是一天中最棒的时刻。",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 10081,
+    "Day": 10,
+    "LogPriority": 8,
+    "Order": 1,
+    "Text": "ThinkTime_Text_10081",
+    "Text_Local": "第十天，不知道这街区里还有没有活人？",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 11081,
+    "Day": 11,
+    "LogPriority": 8,
+    "Order": 1,
+    "Text": "ThinkTime_Text_11081",
+    "Text_Local": "做了个关于办公室的噩梦。真好笑，我以前最讨厌上班。现在我竟然怀念那种无聊。",
+    "RandomText": [],
+    "PlayerSelectId": [
+      1
+    ]
+  },
+  {
+    "ID": 11082,
+    "Day": 11,
+    "LogPriority": 8,
+    "Order": 2,
+    "Text": "ThinkTime_Text_11082",
+    "Text_Local": "梦见还在赶论文，醒来居然有点想那种烦。",
+    "RandomText": [],
+    "PlayerSelectId": [
+      2
+    ]
+  },
+  {
+    "ID": 11083,
+    "Day": 11,
+    "LogPriority": 8,
+    "Order": 3,
+    "Text": "ThinkTime_Text_11083",
+    "Text_Local": "梦见还在盘库存。醒了才想起，那些货早没了。",
+    "RandomText": [],
+    "PlayerSelectId": [
+      3
+    ]
+  },
+  {
+    "ID": 12081,
+    "Day": 12,
+    "LogPriority": 8,
+    "Order": 1,
+    "Text": "ThinkTime_Text_12081",
+    "Text_Local": "早餐又是罐头。我的胃在抗议，但至少这是食物。",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 13081,
+    "Day": 13,
+    "LogPriority": 8,
+    "Order": 1,
+    "Text": "ThinkTime_Text_13081",
+    "Text_Local": "网络断了。再也没有新闻了。我现在彻底被困在这个盒子里了。",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 14081,
+    "Day": 14,
+    "LogPriority": 8,
+    "Order": 1,
+    "Text": "ThinkTime_Text_14081",
+    "Text_Local": "两周了。我该把库存再整理一遍。纯粹是为了找点事做。",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 15081,
+    "Day": 15,
+    "LogPriority": 8,
+    "Order": 1,
+    "Text": "ThinkTime_Text_15081",
+    "Text_Local": "半个月了。如果不是囤了那些零食，我估计已经疯了。巧克力真的能救命。",
+    "RandomText": [],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 20101,
+    "Day": 20,
+    "LogPriority": 10,
+    "Order": 1,
+    "Text": "ThinkTime_Text_20101",
+    "Text_Local": "二十天，罐头墙矮了一截。",
+    "RandomText": [
+      "Day20T1",
+      "Day20T2",
+      "Day20T3",
+      "Day20T4",
+      "Day20T5"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 30101,
+    "Day": 30,
+    "LogPriority": 10,
+    "Order": 1,
+    "Text": "ThinkTime_Text_30101",
+    "Text_Local": "满月夜，在防盗门后给自己唱生日歌。",
+    "RandomText": [
+      "Day30T1",
+      "Day30T2",
+      "Day30T3",
+      "Day30T4",
+      "Day30T5"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 40101,
+    "Day": 40,
+    "LogPriority": 10,
+    "Order": 1,
+    "Text": "ThinkTime_Text_40101",
+    "Text_Local": "第四十天，开始和盆栽说话。",
+    "RandomText": [
+      "Day40T1",
+      "Day40T2",
+      "Day40T3",
+      "Day40T4",
+      "Day40T5"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 50101,
+    "Day": 50,
+    "LogPriority": 10,
+    "Order": 1,
+    "Text": "ThinkTime_Text_50101",
+    "Text_Local": "第五十天，学会了珍惜阳光。",
+    "RandomText": [
+      "Day50T1",
+      "Day50T2",
+      "Day50T3",
+      "Day50T4",
+      "Day50T5"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 60101,
+    "Day": 60,
+    "LogPriority": 10,
+    "Order": 1,
+    "Text": "ThinkTime_Text_60101",
+    "Text_Local": "两个月，身体还记得汉堡的味道。",
+    "RandomText": [
+      "Day60T1",
+      "Day60T2",
+      "Day60T3",
+      "Day60T4",
+      "Day60T5"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 70101,
+    "Day": 70,
+    "LogPriority": 10,
+    "Order": 1,
+    "Text": "ThinkTime_Text_70101",
+    "Text_Local": "七十天，分不清白昼黑夜。",
+    "RandomText": [
+      "Day70T1",
+      "Day70T2",
+      "Day70T3",
+      "Day70T4",
+      "Day70T5"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 80101,
+    "Day": 80,
+    "LogPriority": 10,
+    "Order": 1,
+    "Text": "ThinkTime_Text_80101",
+    "Text_Local": "第八十天，对镜子练习微笑。",
+    "RandomText": [
+      "Day80T1",
+      "Day80T2",
+      "Day80T3",
+      "Day80T4",
+      "Day80T5"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 90101,
+    "Day": 90,
+    "LogPriority": 10,
+    "Order": 1,
+    "Text": "ThinkTime_Text_90101",
+    "Text_Local": "三个月，救援仍是个传说。",
+    "RandomText": [
+      "Day90T1",
+      "Day90T2",
+      "Day90T3",
+      "Day90T4",
+      "Day90T5"
+    ],
+    "PlayerSelectId": []
+  },
+  {
+    "ID": 100101,
+    "Day": 100,
+    "LogPriority": 10,
+    "Order": 1,
+    "Text": "ThinkTime_Text_100101",
+    "Text_Local": "第一百天，我还活着。",
+    "RandomText": [
+      "Day100T1",
+      "Day100T2",
+      "Day100T3",
+      "Day100T4",
+      "Day100T5"
+    ],
+    "PlayerSelectId": []
+  }
+]

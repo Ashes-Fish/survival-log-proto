@@ -1,0 +1,29 @@
+[
+  {
+    "ID": 1,
+    "FurnitureId": 9080,
+    "SlotKey": "Pad1",
+    "SlotType": 6,
+    "AllowFurnitureIds": [
+      9054
+    ]
+  },
+  {
+    "ID": 2,
+    "FurnitureId": 9080,
+    "SlotKey": "Pad2",
+    "SlotType": 6,
+    "AllowFurnitureIds": [
+      9054
+    ]
+  },
+  {
+    "ID": 3,
+    "FurnitureId": 9080,
+    "SlotKey": "Pad3",
+    "SlotType": 6,
+    "AllowFurnitureIds": [
+      9054
+    ]
+  }
+]

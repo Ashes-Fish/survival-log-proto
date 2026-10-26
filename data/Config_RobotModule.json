@@ -1,0 +1,220 @@
+[
+  {
+    "ID": 27002,
+    "ModuleType": 2,
+    "Level": 1,
+    "Rarity": 1,
+    "Value": 0.33000001311302185,
+    "RobotKinds": [
+      1,
+      2,
+      3
+    ],
+    "PowerCost": 0.0
+  },
+  {
+    "ID": 27003,
+    "ModuleType": 2,
+    "Level": 2,
+    "Rarity": 2,
+    "Value": 0.6700000166893005,
+    "RobotKinds": [
+      1,
+      2,
+      3
+    ],
+    "PowerCost": 0.0
+  },
+  {
+    "ID": 27004,
+    "ModuleType": 2,
+    "Level": 3,
+    "Rarity": 3,
+    "Value": 1.3300000429153442,
+    "RobotKinds": [
+      1,
+      2,
+      3
+    ],
+    "PowerCost": 0.0
+  },
+  {
+    "ID": 27005,
+    "ModuleType": 3,
+    "Level": 1,
+    "Rarity": 1,
+    "Value": 0.20000000298023224,
+    "RobotKinds": [
+      1,
+      2,
+      3
+    ],
+    "PowerCost": 0.20000000298023224
+  },
+  {
+    "ID": 27006,
+    "ModuleType": 3,
+    "Level": 2,
+    "Rarity": 2,
+    "Value": 0.5,
+    "RobotKinds": [
+      1,
+      2,
+      3
+    ],
+    "PowerCost": 0.5
+  },
+  {
+    "ID": 27007,
+    "ModuleType": 3,
+    "Level": 3,
+    "Rarity": 3,
+    "Value": 0.800000011920929,
+    "RobotKinds": [
+      1,
+      2,
+      3
+    ],
+    "PowerCost": 0.800000011920929
+  },
+  {
+    "ID": 27008,
+    "ModuleType": 4,
+    "Level": 1,
+    "Rarity": 1,
+    "Value": 0.15000000596046448,
+    "RobotKinds": [
+      1,
+      2,
+      3
+    ],
+    "PowerCost": 0.0
+  },
+  {
+    "ID": 27009,
+    "ModuleType": 4,
+    "Level": 2,
+    "Rarity": 2,
+    "Value": 0.30000001192092896,
+    "RobotKinds": [
+      1,
+      2,
+      3
+    ],
+    "PowerCost": 0.0
+  },
+  {
+    "ID": 27010,
+    "ModuleType": 4,
+    "Level": 3,
+    "Rarity": 3,
+    "Value": 0.5,
+    "RobotKinds": [
+      1,
+      2,
+      3
+    ],
+    "PowerCost": 0.0
+  },
+  {
+    "ID": 27011,
+    "ModuleType": 5,
+    "Level": 0,
+    "Rarity": 1,
+    "Value": 0.0,
+    "RobotKinds": [
+      2
+    ],
+    "PowerCost": 0.0
+  },
+  {
+    "ID": 27012,
+    "ModuleType": 6,
+    "Level": 0,
+    "Rarity": 2,
+    "Value": 0.0,
+    "RobotKinds": [
+      2
+    ],
+    "PowerCost": 0.0
+  },
+  {
+    "ID": 27013,
+    "ModuleType": 7,
+    "Level": 0,
+    "Rarity": 1,
+    "Value": 0.5,
+    "RobotKinds": [
+      1
+    ],
+    "PowerCost": 0.0
+  },
+  {
+    "ID": 27014,
+    "ModuleType": 8,
+    "Level": 0,
+    "Rarity": 1,
+    "Value": 0.0,
+    "RobotKinds": [
+      1
+    ],
+    "PowerCost": 0.0
+  },
+  {
+    "ID": 27015,
+    "ModuleType": 9,
+    "Level": 0,
+    "Rarity": 2,
+    "Value": 0.0,
+    "RobotKinds": [
+      3
+    ],
+    "PowerCost": 0.0
+  },
+  {
+    "ID": 27016,
+    "ModuleType": 10,
+    "Level": 1,
+    "Rarity": 1,
+    "Value": 0.15000000596046448,
+    "RobotKinds": [
+      3
+    ],
+    "PowerCost": 0.0
+  },
+  {
+    "ID": 27017,
+    "ModuleType": 10,
+    "Level": 2,
+    "Rarity": 2,
+    "Value": 0.30000001192092896,
+    "RobotKinds": [
+      3
+    ],
+    "PowerCost": 0.0
+  },
+  {
+    "ID": 27018,
+    "ModuleType": 10,
+    "Level": 3,
+    "Rarity": 3,
+    "Value": 0.5,
+    "RobotKinds": [
+      3
+    ],
+    "PowerCost": 0.0
+  },
+  {
+    "ID": 27019,
+    "ModuleType": 11,
+    "Level": 0,
+    "Rarity": 3,
+    "Value": 0.0,
+    "RobotKinds": [
+      1,
+      2,
+      3
+    ],
+    "PowerCost": 0.0
+  }
+]

@@ -1,0 +1,464 @@
+[
+  {
+    "ID": 25411,
+    "Source": "雏菊·白（主）",
+    "ItemId": 2541,
+    "DyeItemId": 20367,
+    "Points": 18
+  },
+  {
+    "ID": 25421,
+    "Source": "三色堇·蓝（主）",
+    "ItemId": 2542,
+    "DyeItemId": 20366,
+    "Points": 18
+  },
+  {
+    "ID": 25431,
+    "Source": "金盏菊·黄（主）",
+    "ItemId": 2543,
+    "DyeItemId": 20365,
+    "Points": 18
+  },
+  {
+    "ID": 25441,
+    "Source": "波斯菊·粉（主）",
+    "ItemId": 2544,
+    "DyeItemId": 20368,
+    "Points": 18
+  },
+  {
+    "ID": 25451,
+    "Source": "矮牵牛·紫（主）",
+    "ItemId": 2545,
+    "DyeItemId": 20369,
+    "Points": 18
+  },
+  {
+    "ID": 25471,
+    "Source": "蔷薇·赭红（主）",
+    "ItemId": 2547,
+    "DyeItemId": 20370,
+    "Points": 18
+  },
+  {
+    "ID": 25481,
+    "Source": "木香·绿（主）",
+    "ItemId": 2548,
+    "DyeItemId": 20363,
+    "Points": 18
+  },
+  {
+    "ID": 25491,
+    "Source": "凌霄·橙（主）",
+    "ItemId": 2549,
+    "DyeItemId": 20364,
+    "Points": 18
+  },
+  {
+    "ID": 25041,
+    "Source": "番茄·赭红（主）",
+    "ItemId": 2504,
+    "DyeItemId": 20370,
+    "Points": 6
+  },
+  {
+    "ID": 25211,
+    "Source": "葵花籽·白（主）",
+    "ItemId": 2521,
+    "DyeItemId": 20367,
+    "Points": 5
+  },
+  {
+    "ID": 25212,
+    "Source": "葵花籽·蓝",
+    "ItemId": 2521,
+    "DyeItemId": 20366,
+    "Points": 4
+  },
+  {
+    "ID": 25221,
+    "Source": "胡萝卜·橙（主）",
+    "ItemId": 2522,
+    "DyeItemId": 20364,
+    "Points": 6
+  },
+  {
+    "ID": 25222,
+    "Source": "胡萝卜·绿",
+    "ItemId": 2522,
+    "DyeItemId": 20363,
+    "Points": 3
+  },
+  {
+    "ID": 25231,
+    "Source": "甜菜·赭红（主）",
+    "ItemId": 2523,
+    "DyeItemId": 20370,
+    "Points": 5
+  },
+  {
+    "ID": 25232,
+    "Source": "甜菜·紫",
+    "ItemId": 2523,
+    "DyeItemId": 20369,
+    "Points": 2
+  },
+  {
+    "ID": 25233,
+    "Source": "甜菜·绿",
+    "ItemId": 2523,
+    "DyeItemId": 20363,
+    "Points": 2
+  },
+  {
+    "ID": 25241,
+    "Source": "韭菜·绿（主）",
+    "ItemId": 2524,
+    "DyeItemId": 20363,
+    "Points": 3
+  },
+  {
+    "ID": 25242,
+    "Source": "韭菜·白",
+    "ItemId": 2524,
+    "DyeItemId": 20367,
+    "Points": 2
+  },
+  {
+    "ID": 25251,
+    "Source": "茄子·紫（主）",
+    "ItemId": 2525,
+    "DyeItemId": 20369,
+    "Points": 4
+  },
+  {
+    "ID": 25252,
+    "Source": "茄子·绿",
+    "ItemId": 2525,
+    "DyeItemId": 20363,
+    "Points": 1
+  },
+  {
+    "ID": 25253,
+    "Source": "茄子·蓝",
+    "ItemId": 2525,
+    "DyeItemId": 20366,
+    "Points": 4
+  },
+  {
+    "ID": 25261,
+    "Source": "咖啡·赭红（主）",
+    "ItemId": 2526,
+    "DyeItemId": 20370,
+    "Points": 5
+  },
+  {
+    "ID": 25271,
+    "Source": "土豆·白（主）",
+    "ItemId": 2527,
+    "DyeItemId": 20367,
+    "Points": 4
+  },
+  {
+    "ID": 25272,
+    "Source": "土豆·黄",
+    "ItemId": 2527,
+    "DyeItemId": 20365,
+    "Points": 3
+  },
+  {
+    "ID": 25281,
+    "Source": "卷心菜·绿（主）",
+    "ItemId": 2528,
+    "DyeItemId": 20363,
+    "Points": 4
+  },
+  {
+    "ID": 25282,
+    "Source": "卷心菜·白",
+    "ItemId": 2528,
+    "DyeItemId": 20367,
+    "Points": 1
+  },
+  {
+    "ID": 25283,
+    "Source": "卷心菜·蓝",
+    "ItemId": 2528,
+    "DyeItemId": 20366,
+    "Points": 4
+  },
+  {
+    "ID": 25291,
+    "Source": "花椰菜·绿（主）",
+    "ItemId": 2529,
+    "DyeItemId": 20363,
+    "Points": 6
+  },
+  {
+    "ID": 25292,
+    "Source": "花椰菜·白",
+    "ItemId": 2529,
+    "DyeItemId": 20367,
+    "Points": 3
+  },
+  {
+    "ID": 25301,
+    "Source": "菠菜·绿（主）",
+    "ItemId": 2530,
+    "DyeItemId": 20363,
+    "Points": 2
+  },
+  {
+    "ID": 25311,
+    "Source": "黄瓜·绿（主）",
+    "ItemId": 2531,
+    "DyeItemId": 20363,
+    "Points": 9
+  },
+  {
+    "ID": 25331,
+    "Source": "草莓·赭红（主）",
+    "ItemId": 2533,
+    "DyeItemId": 20370,
+    "Points": 3
+  },
+  {
+    "ID": 25332,
+    "Source": "草莓·粉",
+    "ItemId": 2533,
+    "DyeItemId": 20368,
+    "Points": 2
+  },
+  {
+    "ID": 25341,
+    "Source": "彩椒·赭红（主）",
+    "ItemId": 2534,
+    "DyeItemId": 20370,
+    "Points": 4
+  },
+  {
+    "ID": 25342,
+    "Source": "彩椒·黄",
+    "ItemId": 2534,
+    "DyeItemId": 20365,
+    "Points": 1
+  },
+  {
+    "ID": 25343,
+    "Source": "彩椒·橙",
+    "ItemId": 2534,
+    "DyeItemId": 20364,
+    "Points": 1
+  },
+  {
+    "ID": 25351,
+    "Source": "南瓜·橙（主）",
+    "ItemId": 2535,
+    "DyeItemId": 20364,
+    "Points": 9
+  },
+  {
+    "ID": 25352,
+    "Source": "南瓜·黄",
+    "ItemId": 2535,
+    "DyeItemId": 20365,
+    "Points": 4
+  },
+  {
+    "ID": 25361,
+    "Source": "玉米·黄（主）",
+    "ItemId": 2536,
+    "DyeItemId": 20365,
+    "Points": 6
+  },
+  {
+    "ID": 25362,
+    "Source": "玉米·绿",
+    "ItemId": 2536,
+    "DyeItemId": 20363,
+    "Points": 2
+  },
+  {
+    "ID": 25371,
+    "Source": "大蒜·白（主）",
+    "ItemId": 2537,
+    "DyeItemId": 20367,
+    "Points": 6
+  },
+  {
+    "ID": 25381,
+    "Source": "洋葱·紫（主）",
+    "ItemId": 2538,
+    "DyeItemId": 20369,
+    "Points": 4
+  },
+  {
+    "ID": 25382,
+    "Source": "洋葱·白",
+    "ItemId": 2538,
+    "DyeItemId": 20367,
+    "Points": 1
+  },
+  {
+    "ID": 25383,
+    "Source": "洋葱·蓝",
+    "ItemId": 2538,
+    "DyeItemId": 20366,
+    "Points": 4
+  },
+  {
+    "ID": 25391,
+    "Source": "西瓜·绿（主）",
+    "ItemId": 2539,
+    "DyeItemId": 20363,
+    "Points": 9
+  },
+  {
+    "ID": 25392,
+    "Source": "西瓜·粉",
+    "ItemId": 2539,
+    "DyeItemId": 20368,
+    "Points": 4
+  },
+  {
+    "ID": 25501,
+    "Source": "越冬果实·白（主）",
+    "ItemId": 2550,
+    "DyeItemId": 20367,
+    "Points": 9
+  },
+  {
+    "ID": 201071,
+    "Source": "藤蔓·绿（主）",
+    "ItemId": 20107,
+    "DyeItemId": 20363,
+    "Points": 6
+  },
+  {
+    "ID": 25131,
+    "Source": "白玉菇·白（主）",
+    "ItemId": 2513,
+    "DyeItemId": 20367,
+    "Points": 3
+  },
+  {
+    "ID": 25132,
+    "Source": "白玉菇·橙",
+    "ItemId": 2513,
+    "DyeItemId": 20364,
+    "Points": 2
+  },
+  {
+    "ID": 25141,
+    "Source": "草菇·橙（主）",
+    "ItemId": 2514,
+    "DyeItemId": 20364,
+    "Points": 3
+  },
+  {
+    "ID": 25142,
+    "Source": "草菇·白",
+    "ItemId": 2514,
+    "DyeItemId": 20367,
+    "Points": 2
+  },
+  {
+    "ID": 25151,
+    "Source": "平菇·白（主）",
+    "ItemId": 2515,
+    "DyeItemId": 20367,
+    "Points": 3
+  },
+  {
+    "ID": 25152,
+    "Source": "平菇·赭红",
+    "ItemId": 2515,
+    "DyeItemId": 20370,
+    "Points": 2
+  },
+  {
+    "ID": 25161,
+    "Source": "杏鲍菇·白（主）",
+    "ItemId": 2516,
+    "DyeItemId": 20367,
+    "Points": 4
+  },
+  {
+    "ID": 25162,
+    "Source": "杏鲍菇·赭红",
+    "ItemId": 2516,
+    "DyeItemId": 20370,
+    "Points": 2
+  },
+  {
+    "ID": 25171,
+    "Source": "茶树菇·赭红（主）",
+    "ItemId": 2517,
+    "DyeItemId": 20370,
+    "Points": 3
+  },
+  {
+    "ID": 25172,
+    "Source": "茶树菇·白",
+    "ItemId": 2517,
+    "DyeItemId": 20367,
+    "Points": 2
+  },
+  {
+    "ID": 25181,
+    "Source": "鸡腿菇·白（主）",
+    "ItemId": 2518,
+    "DyeItemId": 20367,
+    "Points": 4
+  },
+  {
+    "ID": 25182,
+    "Source": "鸡腿菇·赭红",
+    "ItemId": 2518,
+    "DyeItemId": 20370,
+    "Points": 2
+  },
+  {
+    "ID": 25191,
+    "Source": "松茸·橙（主）",
+    "ItemId": 2519,
+    "DyeItemId": 20364,
+    "Points": 4
+  },
+  {
+    "ID": 25192,
+    "Source": "松茸·白",
+    "ItemId": 2519,
+    "DyeItemId": 20367,
+    "Points": 2
+  },
+  {
+    "ID": 25201,
+    "Source": "灵芝·赭红（主）",
+    "ItemId": 2520,
+    "DyeItemId": 20370,
+    "Points": 5
+  },
+  {
+    "ID": 29051,
+    "Source": "无名蘑菇·赭红（主）",
+    "ItemId": 2905,
+    "DyeItemId": 20370,
+    "Points": 3
+  },
+  {
+    "ID": 29052,
+    "Source": "无名蘑菇·白",
+    "ItemId": 2905,
+    "DyeItemId": 20367,
+    "Points": 2
+  },
+  {
+    "ID": 29081,
+    "Source": "金针菇·白（主）",
+    "ItemId": 2908,
+    "DyeItemId": 20367,
+    "Points": 2
+  }
+]

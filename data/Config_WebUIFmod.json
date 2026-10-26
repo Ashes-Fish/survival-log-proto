@@ -1,0 +1,2338 @@
+[
+  {
+    "ID": 4,
+    "UIName": "MainUI",
+    "EventName": "CONTINUE",
+    "EventTips": "继续生存",
+    "FmodKey": "event:/UI/Event_zuichudejueze",
+    "Volume": 1.0
+  },
+  {
+    "ID": 5,
+    "UIName": "MainUI",
+    "EventName": "NEW_GAME",
+    "EventTips": "新生存",
+    "FmodKey": "event:/UI/Event_zuichudejueze",
+    "Volume": 1.0
+  },
+  {
+    "ID": 6,
+    "UIName": "MainUI",
+    "EventName": "LOAD_GAME",
+    "EventTips": "读取日志",
+    "FmodKey": "event:/UI/Event_zuichudejueze",
+    "Volume": 1.0
+  },
+  {
+    "ID": 7,
+    "UIName": "MainUI",
+    "EventName": "SETTINGS",
+    "EventTips": "设置",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 8,
+    "UIName": "MainUI",
+    "EventName": "EXIT",
+    "EventTips": "退出",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 9,
+    "UIName": "MainUI",
+    "EventName": "CART",
+    "EventTips": "心愿单",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 10,
+    "UIName": "MainUI",
+    "EventName": "EDIT",
+    "EventTips": "异常报告",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 11,
+    "UIName": "MainUI",
+    "EventName": "QQ",
+    "EventTips": "企鹅(QQ群)",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 12,
+    "UIName": "MainUI",
+    "EventName": "DISCORD",
+    "EventTips": "Discord",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 13,
+    "UIName": "MainUI",
+    "EventName": "LOAD_SAVE",
+    "EventTips": "选择存档",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 14,
+    "UIName": "MainUI",
+    "EventName": "CLOSE_SAVE",
+    "EventTips": "关闭存档面板",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 15,
+    "UIName": "MainUI",
+    "EventName": "NEW_GAME_CONFIRM",
+    "EventTips": "新游戏确认",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 16,
+    "UIName": "MainUI",
+    "EventName": "CLOSE_CONFIRM",
+    "EventTips": "关闭确认弹框",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 17,
+    "UIName": "MainUI",
+    "EventName": "CLOSE_SETTINGS",
+    "EventTips": "关闭设置弹框",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 18,
+    "UIName": "MainUI",
+    "EventName": "SETTINGS_SELECT_CHINESE",
+    "EventTips": "选择中文",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 19,
+    "UIName": "MainUI",
+    "EventName": "SETTINGS_SELECT_ENGLISH",
+    "EventTips": "选择英文",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 20,
+    "UIName": "MainUI",
+    "EventName": "SETTINGS_SET_BG_VOLUME",
+    "EventTips": "设置背景音量",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 21,
+    "UIName": "MainUI",
+    "EventName": "SETTINGS_SET_ACTION_VOLUME",
+    "EventTips": "设置音效音量",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 22,
+    "UIName": "ToolTable",
+    "EventName": "CLOSE",
+    "EventTips": "返回/关闭",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 23,
+    "UIName": "ToolTable",
+    "EventName": "CRAFT",
+    "EventTips": "制造",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 24,
+    "UIName": "ToolTable",
+    "EventName": "ITEM_CLICK",
+    "EventTips": "物品点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 25,
+    "UIName": "ToolTable",
+    "EventName": "ITEM_MOVE",
+    "EventTips": "物品拖拽移动",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 26,
+    "UIName": "ToolTable",
+    "EventName": "ITEM_HOVER",
+    "EventTips": "物品悬浮显示Tips",
+    "FmodKey": "event:/UI/furniture_PrimaryHover",
+    "Volume": 1.0
+  },
+  {
+    "ID": 27,
+    "UIName": "ToolTable",
+    "EventName": "RESULT_CONFIRM",
+    "EventTips": "结果确认",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 28,
+    "UIName": "ToolTable",
+    "EventName": "CRAFT_HIT",
+    "EventTips": "制造敲击音效",
+    "FmodKey": "event:/UI/Event_jiagufangmen02",
+    "Volume": 0.5
+  },
+  {
+    "ID": 29,
+    "UIName": "ToolTable",
+    "EventName": "CRAFT_SUCCESS",
+    "EventTips": "制造成功音效",
+    "FmodKey": "event:/UI/wishFinish1",
+    "Volume": 1.0
+  },
+  {
+    "ID": 30,
+    "UIName": "ToolTable",
+    "EventName": "CRAFT_FAIL",
+    "EventTips": "制造失败音效",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 31,
+    "UIName": "ToolTable",
+    "EventName": "SFX_ITEM_PICKUP",
+    "EventTips": "工具台-道具拿起",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 32,
+    "UIName": "ToolTable",
+    "EventName": "SFX_ITEM_PUTBACK",
+    "EventTips": "工具台-道具放回原位",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 33,
+    "UIName": "DailySettlement",
+    "EventName": "CONFIRM",
+    "EventTips": "每日记录-确认按钮",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 34,
+    "UIName": "DailySettlement",
+    "EventName": "SFX_PANEL_ENTER",
+    "EventTips": "每日记录-面板入场",
+    "FmodKey": "event:/UI/dakaixushi",
+    "Volume": 1.0
+  },
+  {
+    "ID": 35,
+    "UIName": "DailySettlement",
+    "EventName": "SFX_ROW_REVEAL",
+    "EventTips": "每日记录-奖励行起跳(首跳)",
+    "FmodKey": "event:/UI/jiangliyinxiao_01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 36,
+    "UIName": "DailySettlement",
+    "EventName": "SFX_MORALE_HIT",
+    "EventTips": "每日记录-心态转化每段命中",
+    "FmodKey": "event:/UI/Event_MoraleConvert",
+    "Volume": 1.0
+  },
+  {
+    "ID": 37,
+    "UIName": "DailySettlement",
+    "EventName": "SFX_TOTAL_FINAL",
+    "EventTips": "每日记录-总计末尾大放",
+    "FmodKey": "event:/UI/wishFinish1",
+    "Volume": 1.0
+  },
+  {
+    "ID": 38,
+    "UIName": "DailySettlement",
+    "EventName": "SFX_BTN_HOVER",
+    "EventTips": "每日记录-确认按钮悬浮",
+    "FmodKey": "event:/UI/furniture_PrimaryHover",
+    "Volume": 1.0
+  },
+  {
+    "ID": 39,
+    "UIName": "RogueSelect",
+    "EventName": "CLICK_BUY",
+    "EventTips": "生存规划-购买",
+    "FmodKey": "event:/Model/Human/wanmeizhunbei",
+    "Volume": 1.0
+  },
+  {
+    "ID": 40,
+    "UIName": "RogueSelect",
+    "EventName": "CLICK_REFRESH",
+    "EventTips": "生存规划-刷新",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 41,
+    "UIName": "RogueSelect",
+    "EventName": "CLICK_END",
+    "EventTips": "生存规划-结束",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 42,
+    "UIName": "RogueSelect",
+    "EventName": "CLICK_DISABLE",
+    "EventTips": "生存规划-点未解锁卡",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 43,
+    "UIName": "RogueSelect",
+    "EventName": "SFX_CARD_REVEAL",
+    "EventTips": "生存规划-卡片入场",
+    "FmodKey": "event:/UI/Event_souxunshouce",
+    "Volume": 1.0
+  },
+  {
+    "ID": 44,
+    "UIName": "RogueSelect",
+    "EventName": "SFX_STAMP",
+    "EventTips": "生存规划-已激活印章弹入",
+    "FmodKey": "event:/Model/Human/wanmeizhunbei",
+    "Volume": 1.0
+  },
+  {
+    "ID": 45,
+    "UIName": "RogueSelect",
+    "EventName": "SFX_CARD_HOVER",
+    "EventTips": "生存规划-卡片悬浮(仅可激活)",
+    "FmodKey": "event:/UI/furniture_PrimaryHover",
+    "Volume": 1.0
+  },
+  {
+    "ID": 46,
+    "UIName": "Backpack",
+    "EventName": "DRAG_ITEM",
+    "EventTips": "背包道具拖放放下",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 47,
+    "UIName": "Shop",
+    "EventName": "DRAG_ITEM",
+    "EventTips": "商店道具拖放放下",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 48,
+    "UIName": "Shop",
+    "EventName": "SFX_ITEM_PICKUP",
+    "EventTips": "商店-道具拿起",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 49,
+    "UIName": "Shop",
+    "EventName": "SFX_ITEM_PUTBACK",
+    "EventTips": "商店-道具放回原位",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 50,
+    "UIName": "Shop",
+    "EventName": "BUY_SHOP_ITEM",
+    "EventTips": "商店-点击购买入车",
+    "FmodKey": "event:/UI/naqu",
+    "Volume": 1.0
+  },
+  {
+    "ID": 51,
+    "UIName": "Shop",
+    "EventName": "CANCEL_BUY",
+    "EventTips": "商店-拖出退货",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 52,
+    "UIName": "Shop",
+    "EventName": "CLICK_SHOP_ITEM",
+    "EventTips": "商店-货架物品点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 53,
+    "UIName": "Shop",
+    "EventName": "CLICK_BAG_ITEM",
+    "EventTips": "商店-购物车物品点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 54,
+    "UIName": "Shop",
+    "EventName": "CHECKOUT",
+    "EventTips": "商店-结算",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 55,
+    "UIName": "Shop",
+    "EventName": "ACTION_CLOSE",
+    "EventTips": "商店-关闭",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 56,
+    "UIName": "MainUI",
+    "EventName": "OPEN_ACHIEVEMENT",
+    "EventTips": "打开成就列表",
+    "FmodKey": "event:/UI/dakaixushi",
+    "Volume": 1.0
+  },
+  {
+    "ID": 57,
+    "UIName": "MainUI",
+    "EventName": "CLOSE_ACHIEVEMENT",
+    "EventTips": "关闭成就列表",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 58,
+    "UIName": "OutSetting",
+    "EventName": "BACK",
+    "EventTips": "暂停菜单-返回游戏",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 59,
+    "UIName": "OutSetting",
+    "EventName": "SAVE_EXIT",
+    "EventTips": "暂停菜单-保存退出",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 60,
+    "UIName": "OutSetting",
+    "EventName": "CART",
+    "EventTips": "暂停菜单-心愿单",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 61,
+    "UIName": "OutSetting",
+    "EventName": "EDIT",
+    "EventTips": "暂停菜单-反馈",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 62,
+    "UIName": "OutSetting",
+    "EventName": "QQ",
+    "EventTips": "暂停菜单-QQ群",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 63,
+    "UIName": "OutSetting",
+    "EventName": "DISCORD",
+    "EventTips": "暂停菜单-Discord",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 64,
+    "UIName": "OutSetting",
+    "EventName": "CODEX",
+    "EventTips": "暂停菜单-图鉴",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 65,
+    "UIName": "OutSetting",
+    "EventName": "OPEN_SETTINGS",
+    "EventTips": "暂停菜单-打开设置",
+    "FmodKey": "event:/UI/dakaixushi",
+    "Volume": 1.0
+  },
+  {
+    "ID": 66,
+    "UIName": "OutSetting",
+    "EventName": "CLOSE_SETTINGS",
+    "EventTips": "暂停菜单-关闭设置",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 67,
+    "UIName": "CoreUI0",
+    "EventName": "MAP",
+    "EventTips": "灾前-地图",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 68,
+    "UIName": "CoreUI0",
+    "EventName": "BAG",
+    "EventTips": "灾前-背包",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 69,
+    "UIName": "CoreUI0",
+    "EventName": "FINISHED_PREPARING",
+    "EventTips": "灾前-完成准备",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 70,
+    "UIName": "CoreUI0",
+    "EventName": "GO_HOME",
+    "EventTips": "灾前-回家",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 71,
+    "UIName": "CoreUI0",
+    "EventName": "SURVIVAL_LOG",
+    "EventTips": "灾前-生存日志",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 72,
+    "UIName": "CoreUI0",
+    "EventName": "CAMERA_MODE",
+    "EventTips": "灾前-镜头模式",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 73,
+    "UIName": "CoreUI0",
+    "EventName": "GAME_COUNT_TIPS",
+    "EventTips": "灾前-倒计时提示",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 74,
+    "UIName": "CoreUI0",
+    "EventName": "PLAN_MODE",
+    "EventTips": "灾前-规划模式",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 75,
+    "UIName": "CoreUI0",
+    "EventName": "CHECKLIST_ENTRY",
+    "EventTips": "灾前-清单入口",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 76,
+    "UIName": "CoreUI0",
+    "EventName": "OPEN_PHONE",
+    "EventTips": "灾前-打开手机",
+    "FmodKey": "event:/UI/dakaixushi",
+    "Volume": 1.0
+  },
+  {
+    "ID": 77,
+    "UIName": "CoreUI1",
+    "EventName": "BAG",
+    "EventTips": "灾后-背包",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 78,
+    "UIName": "CoreUI1",
+    "EventName": "SURVIVAL_LOG",
+    "EventTips": "灾后-生存日志",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 79,
+    "UIName": "CoreUI1",
+    "EventName": "PLAN_TALENT",
+    "EventTips": "灾后-规划天赋",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 80,
+    "UIName": "CoreUI1",
+    "EventName": "CAMERA_MODE",
+    "EventTips": "灾后-镜头模式",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 81,
+    "UIName": "CoreUI1",
+    "EventName": "GAME_COUNT_TIPS",
+    "EventTips": "灾后-倒计时提示",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 82,
+    "UIName": "CoreUI1",
+    "EventName": "PLAN_MODE",
+    "EventTips": "灾后-规划模式",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 83,
+    "UIName": "CoreUI1",
+    "EventName": "SWITCH_FLOOR",
+    "EventTips": "灾后-切换楼层",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 84,
+    "UIName": "CoreUI1",
+    "EventName": "CANCEL_ACTION",
+    "EventTips": "灾后-取消行动",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 85,
+    "UIName": "CoreUI1",
+    "EventName": "EXPLORE_BACK",
+    "EventTips": "灾后-探索返回",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 86,
+    "UIName": "CoreUI1",
+    "EventName": "BUFF_TIPS",
+    "EventTips": "灾后-Buff提示",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 87,
+    "UIName": "CoreUI1",
+    "EventName": "EVENT_CLICK",
+    "EventTips": "灾后-事件点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 88,
+    "UIName": "CoreUI1",
+    "EventName": "EVENT_CHILD_CLICK",
+    "EventTips": "灾后-事件子项点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 89,
+    "UIName": "CoreUI1",
+    "EventName": "WISH_TIPS",
+    "EventTips": "灾后-心愿提示",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 90,
+    "UIName": "CoreUI1",
+    "EventName": "EVENT_STATE_CLICK",
+    "EventTips": "灾后-事件状态点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 91,
+    "UIName": "CoreUI1",
+    "EventName": "RELEASABLE_BUFF_CLICK",
+    "EventTips": "灾后-可解除Buff点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 92,
+    "UIName": "CoreUI1",
+    "EventName": "ZOMBIE_SIEGE_CLICK",
+    "EventTips": "灾后-丧尸围攻点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 93,
+    "UIName": "CoreUI1",
+    "EventName": "PLANT_MATURE_CLICK",
+    "EventTips": "灾后-植物成熟点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 94,
+    "UIName": "CoreUI1",
+    "EventName": "RECOMMEND_CHIP_CLICK",
+    "EventTips": "灾后-推荐chip点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 95,
+    "UIName": "CoreUI1",
+    "EventName": "POWER_ITEM_HOVER",
+    "EventTips": "灾后-电力项悬浮",
+    "FmodKey": "event:/UI/furniture_PrimaryHover",
+    "Volume": 1.0
+  },
+  {
+    "ID": 96,
+    "UIName": "CoreUI1",
+    "EventName": "OPEN_PHONE",
+    "EventTips": "灾后-打开手机",
+    "FmodKey": "event:/UI/dakaixushi",
+    "Volume": 1.0
+  },
+  {
+    "ID": 97,
+    "UIName": "Backpack",
+    "EventName": "CLICK_ITEM",
+    "EventTips": "背包-物品点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 98,
+    "UIName": "Backpack",
+    "EventName": "SORT_BACKPACK",
+    "EventTips": "背包-排序",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 99,
+    "UIName": "Backpack",
+    "EventName": "ACTION_CLOSE",
+    "EventTips": "背包-关闭",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 100,
+    "UIName": "Backpack",
+    "EventName": "TRANSFER_TO_SELF",
+    "EventTips": "背包-转移到自身",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 101,
+    "UIName": "Backpack",
+    "EventName": "TRANSFER_TO_OTHER",
+    "EventTips": "背包-转移到他处",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 102,
+    "UIName": "Backpack",
+    "EventName": "TRANSFER_CATEGORY_TO_SELF",
+    "EventTips": "背包-按类转移到自身",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 103,
+    "UIName": "Backpack",
+    "EventName": "TRANSFER_CATEGORY_TO_OTHER",
+    "EventTips": "背包-按类转移到他处",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 104,
+    "UIName": "Backpack",
+    "EventName": "BASKET_SEND",
+    "EventTips": "背包-购物篮发送",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 105,
+    "UIName": "Backpack",
+    "EventName": "SFX_ITEM_PICKUP",
+    "EventTips": "背包-道具拿起",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 106,
+    "UIName": "Backpack",
+    "EventName": "SFX_ITEM_PUTBACK",
+    "EventTips": "背包-道具放回原位",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 107,
+    "UIName": "Cooking",
+    "EventName": "CLOSE",
+    "EventTips": "烹饪-关闭",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 108,
+    "UIName": "Cooking",
+    "EventName": "ITEM_CLICK",
+    "EventTips": "烹饪-物品点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 109,
+    "UIName": "Cooking",
+    "EventName": "ITEM_MOVE",
+    "EventTips": "烹饪-物品拖移",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 110,
+    "UIName": "Cooking",
+    "EventName": "ITEM_HOVER",
+    "EventTips": "烹饪-物品悬浮",
+    "FmodKey": "event:/UI/furniture_PrimaryHover",
+    "Volume": 1.0
+  },
+  {
+    "ID": 111,
+    "UIName": "Cooking",
+    "EventName": "FUEL_ADD",
+    "EventTips": "烹饪-加燃料",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 112,
+    "UIName": "Cooking",
+    "EventName": "FUEL_RETURN",
+    "EventTips": "烹饪-退燃料",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 113,
+    "UIName": "Cooking",
+    "EventName": "RECIPE_CLICK",
+    "EventTips": "烹饪-配方点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 114,
+    "UIName": "Cooking",
+    "EventName": "START_COOK",
+    "EventTips": "烹饪-开始制作",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 115,
+    "UIName": "Cooking",
+    "EventName": "STOP_COOK",
+    "EventTips": "烹饪-停止制作",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 116,
+    "UIName": "Cooking",
+    "EventName": "SFX_ITEM_PICKUP",
+    "EventTips": "烹饪-道具拿起",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 117,
+    "UIName": "Cooking",
+    "EventName": "SFX_ITEM_PUTBACK",
+    "EventTips": "烹饪-道具放回原位",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 118,
+    "UIName": "SelectMenu",
+    "EventName": "BTN_CLICK",
+    "EventTips": "选择菜单-按钮点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 119,
+    "UIName": "SelectMenu",
+    "EventName": "CLOSE",
+    "EventTips": "选择菜单-关闭",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 120,
+    "UIName": "PreDisasterMap",
+    "EventName": "CLOSE",
+    "EventTips": "灾前地图-关闭",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 121,
+    "UIName": "PreDisasterMap",
+    "EventName": "SELECT_MAP",
+    "EventTips": "灾前地图-选择地点",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 122,
+    "UIName": "PreDisasterMap",
+    "EventName": "GO",
+    "EventTips": "灾前地图-出发",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 123,
+    "UIName": "PreDisasterMap",
+    "EventName": "RUSH",
+    "EventTips": "灾前地图-急行",
+    "FmodKey": "event:/UI/zombie_come1",
+    "Volume": 1.0
+  },
+  {
+    "ID": 124,
+    "UIName": "PreDisasterMap",
+    "EventName": "RIOT_CANCEL",
+    "EventTips": "灾前地图-暴动取消",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 125,
+    "UIName": "PreDisasterMap",
+    "EventName": "CLOSED_CONFIRM",
+    "EventTips": "灾前地图-关闭确认",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 126,
+    "UIName": "PreDisasterMap",
+    "EventName": "SFX_PANEL_ENTER",
+    "EventTips": "灾前地图-地图展开",
+    "FmodKey": "event:/UI/dakaixushi",
+    "Volume": 1.0
+  },
+  {
+    "ID": 127,
+    "UIName": "PreDisasterMap",
+    "EventName": "SFX_MARKER_HOVER",
+    "EventTips": "灾前地图-地点标记悬浮",
+    "FmodKey": "event:/UI/furniture_PrimaryHover",
+    "Volume": 1.0
+  },
+  {
+    "ID": 128,
+    "UIName": "PreDisasterMap",
+    "EventName": "SFX_BTN_HOVER",
+    "EventTips": "灾前地图-主按钮悬浮",
+    "FmodKey": "event:/UI/furniture_PrimaryHover",
+    "Volume": 1.0
+  },
+  {
+    "ID": 129,
+    "UIName": "PreDisasterMap",
+    "EventName": "SFX_LOCKED_CLICK",
+    "EventTips": "灾前地图-锁定地点点击拒绝",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.699999988079071
+  },
+  {
+    "ID": 130,
+    "UIName": "PreDisasterMap",
+    "EventName": "SFX_NODE_ALERT",
+    "EventTips": "灾前地图-节点恶化警报(拥挤/暴乱/关闭)",
+    "FmodKey": "event:/UI/zombie_come1",
+    "Volume": 0.800000011920929
+  },
+  {
+    "ID": 131,
+    "UIName": "PreDisasterMap",
+    "EventName": "GUIDE_GOT_IT",
+    "EventTips": "灾前地图-首开引导知道了",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 132,
+    "UIName": "OutSetting",
+    "EventName": "SFX_PANEL_ENTER",
+    "EventTips": "暂停菜单-面板入场",
+    "FmodKey": "event:/UI/dakaixushi",
+    "Volume": 1.0
+  },
+  {
+    "ID": 133,
+    "UIName": "Trade",
+    "EventName": "DRAG_ITEM",
+    "EventTips": "交易-道具拖放放下",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 134,
+    "UIName": "Trade",
+    "EventName": "SFX_ITEM_PICKUP",
+    "EventTips": "交易-道具拿起(HTML待CL后补)",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 135,
+    "UIName": "Trade",
+    "EventName": "SFX_ITEM_PUTBACK",
+    "EventTips": "交易-道具放回原位(HTML待CL后补)",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 136,
+    "UIName": "Trade",
+    "EventName": "PICK_QTY",
+    "EventTips": "交易-选数量",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 137,
+    "UIName": "Trade",
+    "EventName": "DEAL",
+    "EventTips": "交易-成交",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 138,
+    "UIName": "Trade",
+    "EventName": "RESET",
+    "EventTips": "交易-重置",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 139,
+    "UIName": "Trade",
+    "EventName": "ACTION_CLOSE",
+    "EventTips": "交易-关闭",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 140,
+    "UIName": "FuelGenerator",
+    "EventName": "SFX_ITEM_PICKUP",
+    "EventTips": "发电机-道具拿起",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 141,
+    "UIName": "FuelGenerator",
+    "EventName": "SFX_ITEM_PUTBACK",
+    "EventTips": "发电机-道具放回原位",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 142,
+    "UIName": "FuelGenerator",
+    "EventName": "ITEM_MOVE",
+    "EventTips": "发电机-物品拖放放下",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 143,
+    "UIName": "FuelGenerator",
+    "EventName": "ITEM_CLICK",
+    "EventTips": "发电机-物品点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 144,
+    "UIName": "FuelGenerator",
+    "EventName": "ITEM_HOVER",
+    "EventTips": "发电机-物品悬浮",
+    "FmodKey": "event:/UI/furniture_PrimaryHover",
+    "Volume": 1.0
+  },
+  {
+    "ID": 145,
+    "UIName": "FuelGenerator",
+    "EventName": "FUEL_ADD",
+    "EventTips": "发电机-加燃料",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 146,
+    "UIName": "FuelGenerator",
+    "EventName": "FUEL_RETURN",
+    "EventTips": "发电机-退燃料",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 147,
+    "UIName": "FuelGenerator",
+    "EventName": "TOGGLE_POWER",
+    "EventTips": "发电机-开关机",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 148,
+    "UIName": "FuelGenerator",
+    "EventName": "CLOSE",
+    "EventTips": "发电机-关闭",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 149,
+    "UIName": "ItemPickup",
+    "EventName": "PICK_ITEM",
+    "EventTips": "拾取-单个拾取",
+    "FmodKey": "event:/UI/naqu",
+    "Volume": 1.0
+  },
+  {
+    "ID": 150,
+    "UIName": "ItemPickup",
+    "EventName": "PICK_ALL",
+    "EventTips": "拾取-全部拾取",
+    "FmodKey": "event:/UI/naqu",
+    "Volume": 1.0
+  },
+  {
+    "ID": 151,
+    "UIName": "ItemPickup",
+    "EventName": "CLOSE",
+    "EventTips": "拾取-关闭",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 152,
+    "UIName": "PawnShop",
+    "EventName": "PAWN",
+    "EventTips": "典当-成交",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 153,
+    "UIName": "PawnShop",
+    "EventName": "CANCEL",
+    "EventTips": "典当-取消",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 154,
+    "UIName": "PawnShop",
+    "EventName": "PAWN_BATCH",
+    "EventTips": "典当-确认典当(弹二次确认)",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 155,
+    "UIName": "PawnShop",
+    "EventName": "SFX_PANEL_ENTER",
+    "EventTips": "典当-面板入场",
+    "FmodKey": "event:/UI/dakaixushi",
+    "Volume": 1.0
+  },
+  {
+    "ID": 156,
+    "UIName": "PawnShop",
+    "EventName": "SFX_PICK",
+    "EventTips": "典当-勾选家具入清单",
+    "FmodKey": "event:/UI/naqu",
+    "Volume": 1.0
+  },
+  {
+    "ID": 157,
+    "UIName": "PawnShop",
+    "EventName": "SFX_UNPICK",
+    "EventTips": "典当-取消勾选/清单移除",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 158,
+    "UIName": "PawnShop",
+    "EventName": "SFX_SELECT_ALL",
+    "EventTips": "典当-全选灾后用不上",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 159,
+    "UIName": "PawnShop",
+    "EventName": "SFX_CLEAR",
+    "EventTips": "典当-清空清单",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 160,
+    "UIName": "VehicleShop",
+    "EventName": "BUY",
+    "EventTips": "车辆商店-购买",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 161,
+    "UIName": "VehicleShop",
+    "EventName": "SELL",
+    "EventTips": "车辆商店-出售",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 162,
+    "UIName": "VehicleShop",
+    "EventName": "CANCEL",
+    "EventTips": "车辆商店-取消",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 163,
+    "UIName": "BuildShop",
+    "EventName": "BUY",
+    "EventTips": "建造商店-购买",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 164,
+    "UIName": "BuildShop",
+    "EventName": "RETURN_ITEM",
+    "EventTips": "建造商店-退还",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 165,
+    "UIName": "BuildShop",
+    "EventName": "TAB_CLICK",
+    "EventTips": "建造商店-页签",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 166,
+    "UIName": "BuildShop",
+    "EventName": "CARD_CLICK",
+    "EventTips": "建造商店-卡片点击",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 167,
+    "UIName": "BuildShop",
+    "EventName": "CLOSE",
+    "EventTips": "建造商店-关闭",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 168,
+    "UIName": "Global",
+    "EventName": "ITEM_PUT_DEFAULT",
+    "EventTips": "道具放置默认音(代码 Fmod_PlayItemPutAction 兜底；非任何页面 UIKey 不经通用 hook)",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 169,
+    "UIName": "CoreUI1",
+    "EventName": "SFX_DAYEND_WARN",
+    "EventTips": "日终预告(23点屏幕渐暗提示音)",
+    "FmodKey": "event:/UI/Event_duanzananning",
+    "Volume": 1.0
+  },
+  {
+    "ID": 170,
+    "UIName": "AddFertilizer",
+    "EventName": "CLOSE",
+    "EventTips": "迁移补音:CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 171,
+    "UIName": "AddFertilizer",
+    "EventName": "CONFIRM",
+    "EventTips": "迁移补音:CONFIRM",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 0.0
+  },
+  {
+    "ID": 172,
+    "UIName": "AddFertilizer",
+    "EventName": "SELECT_FERT",
+    "EventTips": "迁移补音:SELECT_FERT",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 173,
+    "UIName": "Announcement",
+    "EventName": "START",
+    "EventTips": "迁移补音:START",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 0.0
+  },
+  {
+    "ID": 174,
+    "UIName": "Announcement",
+    "EventName": "WISHLIST",
+    "EventTips": "迁移补音:WISHLIST",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 175,
+    "UIName": "BuildTips",
+    "EventName": "CANCEL_INSTALL",
+    "EventTips": "迁移补音:CANCEL_INSTALL",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 176,
+    "UIName": "BuildTips",
+    "EventName": "EXIT_PLAN_MODE",
+    "EventTips": "迁移补音:EXIT_PLAN_MODE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 177,
+    "UIName": "BuildTips",
+    "EventName": "SWITCH_TYPE",
+    "EventTips": "迁移补音:SWITCH_TYPE",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 178,
+    "UIName": "CancelPlanBtn",
+    "EventName": "CANCEL",
+    "EventTips": "迁移补音:CANCEL",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 179,
+    "UIName": "Codex",
+    "EventName": "CLOSE",
+    "EventTips": "迁移补音:CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 180,
+    "UIName": "Codex",
+    "EventName": "ITEM_CLICK",
+    "EventTips": "迁移补音:ITEM_CLICK",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 181,
+    "UIName": "Codex",
+    "EventName": "TAB_CLICK",
+    "EventTips": "迁移补音:TAB_CLICK",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 182,
+    "UIName": "Codex",
+    "EventName": "VIEW_DETAIL",
+    "EventTips": "迁移补音:VIEW_DETAIL",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 183,
+    "UIName": "CoreUI1",
+    "EventName": "SPEED_CHANGE",
+    "EventTips": "迁移补音:SPEED_CHANGE",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 184,
+    "UIName": "CoreUI1",
+    "EventName": "WEATHER_CLICK",
+    "EventTips": "迁移补音:WEATHER_CLICK",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 185,
+    "UIName": "CoreUI1",
+    "EventName": "SFX_GUIDE_TASK_DONE",
+    "EventTips": "序章引导-任务完成打勾",
+    "FmodKey": "event:/UI/wishFinish1",
+    "Volume": 1.0
+  },
+  {
+    "ID": 186,
+    "UIName": "DataStatistics",
+    "EventName": "CLOSE",
+    "EventTips": "迁移补音:CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 187,
+    "UIName": "ExploreMap",
+    "EventName": "CLOSE",
+    "EventTips": "迁移补音:CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 188,
+    "UIName": "ExploreMap",
+    "EventName": "GO",
+    "EventTips": "迁移补音:GO",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 189,
+    "UIName": "ExploreMap",
+    "EventName": "SELECT_MAP",
+    "EventTips": "迁移补音:SELECT_MAP",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 190,
+    "UIName": "FeedingUI",
+    "EventName": "CLOSE",
+    "EventTips": "迁移补音:CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 191,
+    "UIName": "FeedingUI",
+    "EventName": "CONFIRM",
+    "EventTips": "迁移补音:CONFIRM",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 0.0
+  },
+  {
+    "ID": 192,
+    "UIName": "FurnitureDetail",
+    "EventName": "ACTION_BUY",
+    "EventTips": "迁移补音:ACTION_BUY",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 0.0
+  },
+  {
+    "ID": 193,
+    "UIName": "FurnitureDetail",
+    "EventName": "ACTION_CLOSE",
+    "EventTips": "迁移补音:ACTION_CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 194,
+    "UIName": "GameCountTips",
+    "EventName": "CLOSE",
+    "EventTips": "迁移补音:CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 195,
+    "UIName": "ItemDetailPopup",
+    "EventName": "ACTION_BUY",
+    "EventTips": "迁移补音:ACTION_BUY",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 0.0
+  },
+  {
+    "ID": 196,
+    "UIName": "ItemDetailPopup",
+    "EventName": "ACTION_CLOSE",
+    "EventTips": "迁移补音:ACTION_CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 197,
+    "UIName": "ItemDetailPopup",
+    "EventName": "ACTION_SEE_DETAILS",
+    "EventTips": "迁移补音:ACTION_SEE_DETAILS",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 198,
+    "UIName": "ItemDetailPopup",
+    "EventName": "ACTION_USE",
+    "EventTips": "迁移补音:ACTION_USE",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 199,
+    "UIName": "NeighborMonologue",
+    "EventName": "MONOLOGUE_DISMISSED",
+    "EventTips": "迁移补音:MONOLOGUE_DISMISSED",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 200,
+    "UIName": "PhoneSMS",
+    "EventName": "BACK_TO_HOME",
+    "EventTips": "迁移补音:BACK_TO_HOME",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 201,
+    "UIName": "PhoneSMS",
+    "EventName": "BACK_TO_LIST",
+    "EventTips": "迁移补音:BACK_TO_LIST",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 202,
+    "UIName": "PhoneSMS",
+    "EventName": "CLICK_EVENT_CTA",
+    "EventTips": "迁移补音:CLICK_EVENT_CTA",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 203,
+    "UIName": "PhoneSMS",
+    "EventName": "CLICK_GOSSIP_REPLY",
+    "EventTips": "迁移补音:CLICK_GOSSIP_REPLY",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 204,
+    "UIName": "PhoneSMS",
+    "EventName": "CLICK_GROUP_REPLY",
+    "EventTips": "迁移补音:CLICK_GROUP_REPLY",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 205,
+    "UIName": "PhoneSMS",
+    "EventName": "CLICK_REPLY_OPTION",
+    "EventTips": "迁移补音:CLICK_REPLY_OPTION",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 206,
+    "UIName": "PhoneSMS",
+    "EventName": "CLICK_TRADE_CTA",
+    "EventTips": "迁移补音:CLICK_TRADE_CTA",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 207,
+    "UIName": "PhoneSMS",
+    "EventName": "CLOSE_LOANSHARK",
+    "EventTips": "迁移补音:CLOSE_LOANSHARK",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 208,
+    "UIName": "PhoneSMS",
+    "EventName": "CLOSE_UI",
+    "EventTips": "迁移补音:CLOSE_UI",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 209,
+    "UIName": "PhoneSMS",
+    "EventName": "OPEN_CONVERSATION",
+    "EventTips": "迁移补音:OPEN_CONVERSATION",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 210,
+    "UIName": "PhoneSMS",
+    "EventName": "OPEN_LOANSHARK_APP",
+    "EventTips": "迁移补音:OPEN_LOANSHARK_APP",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 211,
+    "UIName": "PhoneSMS",
+    "EventName": "OPEN_SMS",
+    "EventTips": "迁移补音:OPEN_SMS",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 212,
+    "UIName": "PhoneSMS",
+    "EventName": "REQUEST_HYDRATE",
+    "EventTips": "迁移补音:REQUEST_HYDRATE",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 213,
+    "UIName": "PhoneSMS",
+    "EventName": "SELECT_PURPOSE",
+    "EventTips": "迁移补音:SELECT_PURPOSE",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 214,
+    "UIName": "PhoneSMS",
+    "EventName": "SELECT_TIER",
+    "EventTips": "迁移补音:SELECT_TIER",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 215,
+    "UIName": "PhoneSMS",
+    "EventName": "SUBMIT_LOAN",
+    "EventTips": "迁移补音:SUBMIT_LOAN",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 0.0
+  },
+  {
+    "ID": 216,
+    "UIName": "PhoneSMS",
+    "EventName": "TOGGLE_AGREEMENT",
+    "EventTips": "迁移补音:TOGGLE_AGREEMENT",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 217,
+    "UIName": "PhoneSMS",
+    "EventName": "TOGGLE_MUTE",
+    "EventTips": "迁移补音:TOGGLE_MUTE",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 218,
+    "UIName": "PhoneSMS",
+    "EventName": "CONFIRM_LOAN",
+    "EventTips": "急速贷-借款到账",
+    "FmodKey": "event:/UI/pay02",
+    "Volume": 1.0
+  },
+  {
+    "ID": 219,
+    "UIName": "PlanModeBtn",
+    "EventName": "TOGGLE",
+    "EventTips": "迁移补音:TOGGLE",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 220,
+    "UIName": "PlanTalent",
+    "EventName": "CLICK_CLOSE",
+    "EventTips": "迁移补音:CLICK_CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 221,
+    "UIName": "PlantPanel",
+    "EventName": "CLOSE",
+    "EventTips": "迁移补音:CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 222,
+    "UIName": "PlantPanel",
+    "EventName": "SELECT_FERT",
+    "EventTips": "迁移补音:SELECT_FERT",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 223,
+    "UIName": "PlantPanel",
+    "EventName": "SELECT_SEED",
+    "EventTips": "迁移补音:SELECT_SEED",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 224,
+    "UIName": "PlantPanel",
+    "EventName": "START_PLANT",
+    "EventTips": "迁移补音:START_PLANT",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 0.0
+  },
+  {
+    "ID": 225,
+    "UIName": "PlantingDetails",
+    "EventName": "CLOSE",
+    "EventTips": "迁移补音:CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 226,
+    "UIName": "PlantingDetails",
+    "EventName": "ERADICATE",
+    "EventTips": "迁移补音:ERADICATE",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 0.0
+  },
+  {
+    "ID": 227,
+    "UIName": "RewardList",
+    "EventName": "CLOSE",
+    "EventTips": "迁移补音:CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 228,
+    "UIName": "RewardList",
+    "EventName": "SFX_BUMPER",
+    "EventTips": "奖励弹窗-种植丰收(命中Perfect_Gain)",
+    "FmodKey": "event:/UI/Finish_Event",
+    "Volume": 0.0
+  },
+  {
+    "ID": 229,
+    "UIName": "RewardList",
+    "EventName": "SFX_SUPER_BUMPER",
+    "EventTips": "奖励弹窗-种植大丰收(超完美,Perfect_Gain发两遍)",
+    "FmodKey": "event:/UI/wishFinish1",
+    "Volume": 0.0
+  },
+  {
+    "ID": 230,
+    "UIName": "RiotGrabResult",
+    "EventName": "ACTION_CONFIRM",
+    "EventTips": "迁移补音:ACTION_CONFIRM",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 0.0
+  },
+  {
+    "ID": 231,
+    "UIName": "SelectPeople",
+    "EventName": "BACK_TO_MAIN",
+    "EventTips": "迁移补音:BACK_TO_MAIN",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 232,
+    "UIName": "SelectPeople",
+    "EventName": "START_GAME",
+    "EventTips": "迁移补音:START_GAME",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 0.800000011920929
+  },
+  {
+    "ID": 233,
+    "UIName": "Settlement",
+    "EventName": "ADD_QQ",
+    "EventTips": "迁移补音:ADD_QQ",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 234,
+    "UIName": "Settlement",
+    "EventName": "ADD_WISH",
+    "EventTips": "迁移补音:ADD_WISH",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 235,
+    "UIName": "Settlement",
+    "EventName": "CONFIRM",
+    "EventTips": "迁移补音:CONFIRM",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 236,
+    "UIName": "Settlement",
+    "EventName": "DISCORD",
+    "EventTips": "迁移补音:DISCORD",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 237,
+    "UIName": "Settlement",
+    "EventName": "FEEDBACK",
+    "EventTips": "迁移补音:FEEDBACK",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 238,
+    "UIName": "Settlement",
+    "EventName": "REBIRTH_AGAIN",
+    "EventTips": "迁移补音:REBIRTH_AGAIN",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 239,
+    "UIName": "Settlement",
+    "EventName": "VIEW_DATA",
+    "EventTips": "迁移补音:VIEW_DATA",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 240,
+    "UIName": "SmartRecommend",
+    "EventName": "CHIP_CLICK",
+    "EventTips": "迁移补音:CHIP_CLICK",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 241,
+    "UIName": "SurvivalLogs",
+    "EventName": "ABILITY_CLICK",
+    "EventTips": "迁移补音:ABILITY_CLICK",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 242,
+    "UIName": "SurvivalLogs",
+    "EventName": "CLOSE",
+    "EventTips": "迁移补音:CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 243,
+    "UIName": "SurvivalLogs",
+    "EventName": "DAY_CLICK",
+    "EventTips": "迁移补音:DAY_CLICK",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 244,
+    "UIName": "SurvivalLogs",
+    "EventName": "DISMISS_MEMO_GUIDE",
+    "EventTips": "迁移补音:DISMISS_MEMO_GUIDE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 245,
+    "UIName": "SurvivalLogs",
+    "EventName": "SKILL_NODE_CLICK",
+    "EventTips": "迁移补音:SKILL_NODE_CLICK",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 246,
+    "UIName": "SurvivalLogs",
+    "EventName": "TAB_CLICK",
+    "EventTips": "迁移补音:TAB_CLICK",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 247,
+    "UIName": "TalentPop",
+    "EventName": "CLICKLOCK",
+    "EventTips": "迁移补音:CLICKLOCK",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 248,
+    "UIName": "TalentPop",
+    "EventName": "CLOSE",
+    "EventTips": "迁移补音:CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 249,
+    "UIName": "TalentPop",
+    "EventName": "LVUP",
+    "EventTips": "迁移补音:LVUP",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 250,
+    "UIName": "TipsPopup",
+    "EventName": "CLOSE",
+    "EventTips": "迁移补音:CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 251,
+    "UIName": "ToolTable",
+    "EventName": "RECIPE_CLICK",
+    "EventTips": "迁移补音:RECIPE_CLICK",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 252,
+    "UIName": "TrapPanel",
+    "EventName": "CLOSE_PANEL",
+    "EventTips": "迁移补音:CLOSE_PANEL",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 253,
+    "UIName": "TrapPanel",
+    "EventName": "CONFIRM",
+    "EventTips": "迁移补音:CONFIRM",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 0.0
+  },
+  {
+    "ID": 254,
+    "UIName": "TrapPanel",
+    "EventName": "OPEN_ITEM_LIST",
+    "EventTips": "迁移补音:OPEN_ITEM_LIST",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 255,
+    "UIName": "TrapPanel",
+    "EventName": "PICKUP_PREY",
+    "EventTips": "迁移补音:PICKUP_PREY",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 0.0
+  },
+  {
+    "ID": 256,
+    "UIName": "TrapPanel",
+    "EventName": "SELECT_BAIT",
+    "EventTips": "迁移补音:SELECT_BAIT",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 257,
+    "UIName": "WishTipsUI",
+    "EventName": "ACTION_CLICK_ITEM",
+    "EventTips": "迁移补音:ACTION_CLICK_ITEM",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 0.0
+  },
+  {
+    "ID": 258,
+    "UIName": "WishTipsUI",
+    "EventName": "ACTION_CLOSE",
+    "EventTips": "迁移补音:ACTION_CLOSE",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.0
+  },
+  {
+    "ID": 259,
+    "UIName": "ConfirmDialog",
+    "EventName": "CANCEL",
+    "EventTips": "迁移补音:确认弹窗取消",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 260,
+    "UIName": "TipsPopup",
+    "EventName": "SFX_PANEL_ENTER",
+    "EventTips": "提示弹窗入场",
+    "FmodKey": "event:/UI/dakaixushi",
+    "Volume": 1.0
+  },
+  {
+    "ID": 261,
+    "UIName": "ExploreMap",
+    "EventName": "SFX_PANEL_ENTER",
+    "EventTips": "灾后地图-地图展开",
+    "FmodKey": "event:/UI/dakaixushi",
+    "Volume": 1.0
+  },
+  {
+    "ID": 262,
+    "UIName": "ExploreMap",
+    "EventName": "SFX_MARKER_HOVER",
+    "EventTips": "灾后地图-地点标记悬浮",
+    "FmodKey": "event:/UI/furniture_PrimaryHover",
+    "Volume": 1.0
+  },
+  {
+    "ID": 263,
+    "UIName": "ExploreMap",
+    "EventName": "SFX_BTN_HOVER",
+    "EventTips": "灾后地图-主按钮悬浮",
+    "FmodKey": "event:/UI/furniture_PrimaryHover",
+    "Volume": 1.0
+  },
+  {
+    "ID": 264,
+    "UIName": "ExploreMap",
+    "EventName": "SFX_LOCKED_CLICK",
+    "EventTips": "灾后地图-锁定地点点击拒绝",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.699999988079071
+  },
+  {
+    "ID": 265,
+    "UIName": "ExploreMap",
+    "EventName": "SFX_NODE_ALERT",
+    "EventTips": "灾后地图-节点警报",
+    "FmodKey": "event:/UI/zombie_come1",
+    "Volume": 0.800000011920929
+  },
+  {
+    "ID": 266,
+    "UIName": "Settlement",
+    "EventName": "SFX_PANEL_ENTER",
+    "EventTips": "Demo小结算面板入场音 跟MainUI主题音回响",
+    "FmodKey": "event:/Model/Human/wanmeizhunbei",
+    "Volume": 1.0
+  },
+  {
+    "ID": 267,
+    "UIName": "SelectPeople",
+    "EventName": "SFX_START_GAME",
+    "EventTips": "选人界面-开始生存按钮点击仪式音",
+    "FmodKey": "event:/UI/UI_xushiClick02",
+    "Volume": 0.8999999761581421
+  },
+  {
+    "ID": 268,
+    "UIName": "SelectPeople",
+    "EventName": "SFX_SELECT_CHAR",
+    "EventTips": "选人界面-切换角色卡",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 0.699999988079071
+  },
+  {
+    "ID": 269,
+    "UIName": "SelectPeople",
+    "EventName": "SFX_CHAR_LOCKED",
+    "EventTips": "选人界面-点未解锁角色卡",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.5
+  },
+  {
+    "ID": 270,
+    "UIName": "SelectPeople",
+    "EventName": "SFX_TOGGLE_SKIP",
+    "EventTips": "选人界面-勾选跳过序章",
+    "FmodKey": "event:/UI/UI_Common_key_Click",
+    "Volume": 0.6000000238418579
+  },
+  {
+    "ID": 271,
+    "UIName": "SelectPeople",
+    "EventName": "SFX_CARD_HOVER",
+    "EventTips": "选人界面-角色卡悬浮",
+    "FmodKey": "event:/UI/furniture_PrimaryHover",
+    "Volume": 0.3499999940395355
+  },
+  {
+    "ID": 272,
+    "UIName": "RebirthChoice",
+    "EventName": "CONFIRM_OPEN",
+    "EventTips": "重生选项-确认框弹出",
+    "FmodKey": "event:/UI/dakaixushi",
+    "Volume": 1.0
+  },
+  {
+    "ID": 273,
+    "UIName": "RebirthChoice",
+    "EventName": "SELECT",
+    "EventTips": "重生选项-确认翻页(翻书)",
+    "FmodKey": "event:/Model/Human/fanshu",
+    "Volume": 1.0
+  },
+  {
+    "ID": 274,
+    "UIName": "EndingShow",
+    "EventName": "CONFIRM",
+    "EventTips": "结局展示-继续",
+    "FmodKey": "event:/UI/dakaixushi",
+    "Volume": 1.0
+  },
+  {
+    "ID": 275,
+    "UIName": "EndingChoice",
+    "EventName": "CONFIRM_OPEN",
+    "EventTips": "结局三出口-确认框弹出",
+    "FmodKey": "event:/UI/dakaixushi",
+    "Volume": 1.0
+  },
+  {
+    "ID": 276,
+    "UIName": "EndingChoice",
+    "EventName": "SELECT",
+    "EventTips": "结局三出口-确认(翻书)",
+    "FmodKey": "event:/Model/Human/fanshu",
+    "Volume": 1.0
+  },
+  {
+    "ID": 277,
+    "UIName": "GameResult",
+    "EventName": "START_GAME",
+    "EventTips": "死亡结算-我不甘心",
+    "FmodKey": "event:/UI/wobuganxin",
+    "Volume": 1.0
+  },
+  {
+    "ID": 278,
+    "UIName": "GameResult",
+    "EventName": "END_GAME",
+    "EventTips": "死亡结算-重新开始",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 279,
+    "UIName": "GameResult",
+    "EventName": "HOLD_OUT",
+    "EventTips": "死亡结算-继续坚守",
+    "FmodKey": "event:/UI/Event_zuichudejueze",
+    "Volume": 1.0
+  },
+  {
+    "ID": 280,
+    "UIName": "SettleBeliefPoints",
+    "EventName": "CONFIRM",
+    "EventTips": "信念统计-学习能力",
+    "FmodKey": "event:/UI/shengji",
+    "Volume": 1.0
+  },
+  {
+    "ID": 281,
+    "UIName": "RebirthChoice",
+    "EventName": "CARD_HOVER",
+    "EventTips": "重生选项-卡片悬浮翻页",
+    "FmodKey": "event:/Model/Human/fanshu",
+    "Volume": 0.3499999940395355
+  },
+  {
+    "ID": 282,
+    "UIName": "RebirthChoice",
+    "EventName": "HOLD_START",
+    "EventTips": "重生选项-按住蓄力",
+    "FmodKey": "event:/UI/UI_LongClick",
+    "Volume": 1.0
+  },
+  {
+    "ID": 283,
+    "UIName": "RebirthChoice",
+    "EventName": "CONFIRM_CANCEL",
+    "EventTips": "重生选项-再想想",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 284,
+    "UIName": "RebirthChoice",
+    "EventName": "GUIDE_CLOSED",
+    "EventTips": "重生选项-说明页知道了",
+    "FmodKey": "event:/UI/UI_Common_Click01",
+    "Volume": 1.0
+  },
+  {
+    "ID": 285,
+    "UIName": "DifficultySelect",
+    "EventName": "SELECT_PRESET",
+    "EventTips": "难度选择-切换预设(翻页/圆点/恢复默认)",
+    "FmodKey": "event:/UI/UI_Common_Click02",
+    "Volume": 0.550000011920929
+  },
+  {
+    "ID": 286,
+    "UIName": "DifficultySelect",
+    "EventName": "SET_PARAM",
+    "EventTips": "难度选择-参数调档",
+    "FmodKey": "event:/UI/UI_Common_key_Click",
+    "Volume": 0.5
+  },
+  {
+    "ID": 287,
+    "UIName": "DifficultySelect",
+    "EventName": "CONFIRM",
+    "EventTips": "难度选择-开始生存(开局仪式音)",
+    "FmodKey": "event:/TimeLine/heimu_xinglai",
+    "Volume": 1.0
+  },
+  {
+    "ID": 288,
+    "UIName": "DifficultySelect",
+    "EventName": "CLOSE",
+    "EventTips": "难度选择-返回选人页",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 0.800000011920929
+  },
+  {
+    "ID": 289,
+    "UIName": "DifficultySelect",
+    "EventName": "SFX_PAGE_CUSTOM",
+    "EventTips": "难度选择-翻到自定义页",
+    "FmodKey": "event:/UI/UI_xushiClick",
+    "Volume": 0.6000000238418579
+  },
+  {
+    "ID": 290,
+    "UIName": "DifficultySelect",
+    "EventName": "SFX_FOCUS_SPECIAL",
+    "EventTips": "难度选择-聚焦特色档(尸海围城)",
+    "FmodKey": "event:/UI/Event_shichaoxuannian",
+    "Volume": 0.6000000238418579
+  },
+  {
+    "ID": 291,
+    "UIName": "Shredder",
+    "EventName": "SFX_ITEM_PICKUP",
+    "EventTips": "粉碎机-道具拿起",
+    "FmodKey": "",
+    "Volume": 1.0
+  },
+  {
+    "ID": 292,
+    "UIName": "Shredder",
+    "EventName": "SFX_ITEM_PUTBACK",
+    "EventTips": "粉碎机-道具放回原位",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 293,
+    "UIName": "RobotPanel",
+    "EventName": "SFX_MODULE_OK",
+    "EventTips": "机器人面板-模块装卸成功",
+    "FmodKey": "event:/UI/put_common",
+    "Volume": 1.0
+  },
+  {
+    "ID": 294,
+    "UIName": "RobotPanel",
+    "EventName": "SFX_MODULE_FAIL",
+    "EventTips": "机器人面板-模块装卸失败",
+    "FmodKey": "event:/UI/Cancel",
+    "Volume": 1.0
+  },
+  {
+    "ID": 295,
+    "UIName": "RobotPanel",
+    "EventName": "SFX_SLOT_CLICK",
+    "EventTips": "机器人面板-点槽位弹浮层",
+    "FmodKey": "event:/UI/UI_Game_DefaultClick",
+    "Volume": 1.0
+  }
+]

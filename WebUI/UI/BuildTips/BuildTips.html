@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildTips</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: transparent;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #fff;
+            height: 100vh;
+            overflow: hidden;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .unity-interactive {
+            pointer-events: auto;
+        }
+
+        .corner {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-color: rgba(235, 163, 8, 0.6);
+            border-style: solid;
+            pointer-events: none;
+        }
+        .tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+        .tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+        .bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+        .br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+        .bottom-center-wrapper {
+            position: fixed;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: fadeInUpCenter 0.3s ease-out;
+        }
+
+        .install-hint {
+            position: relative;
+            background-color: rgba(12, 12, 14, 0.45);
+            border: none;
+            padding: 10px 20px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: default;
+        }
+
+        .hint-prefix {
+            font-size: 16px;
+            font-weight: 500;
+            color: rgba(220, 210, 190, 0.85);
+            letter-spacing: 1px;
+        }
+
+        .hint-icon {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            vertical-align: middle;
+            filter: brightness(1.1);
+        }
+
+        .hint-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: #EBA308;
+            letter-spacing: 1px;
+        }
+
+        .hint-content {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.15s ease-out;
+        }
+
+        .info-bar {
+            position: relative;
+            background-color: rgba(12, 12, 14, 0.75);
+            border: 1px solid rgba(235, 163, 8, 0.35);
+            padding: 12px 32px;
+            white-space: nowrap;
+        }
+
+        .info-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: #EBA308;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .cancel-btn {
+            background-color: rgba(12, 12, 14, 0.8);
+            border: 1px solid rgba(235, 163, 8, 0.4);
+            color: #EBA308;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 10px 22px;
+            cursor: pointer;
+            letter-spacing: 2px;
+            transition: background-color 0.15s, border-color 0.15s;
+            position: relative;
+        }
+
+        .cancel-btn:hover {
+            background-color: rgba(235, 163, 8, 0.15);
+            border-color: rgba(235, 163, 8, 0.7);
+        }
+
+        .cancel-btn:active {
+            background-color: rgba(235, 163, 8, 0.25);
+        }
+
+        .exit-btn {
+            background-color: rgba(12, 12, 14, 0.8);
+            border: 1px solid rgba(235, 163, 8, 0.4);
+            color: #EBA308;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 12px 28px;
+            cursor: pointer;
+            letter-spacing: 2px;
+            transition: background-color 0.15s, border-color 0.15s;
+            position: relative;
+        }
+
+        .exit-btn:hover {
+            background-color: rgba(235, 163, 8, 0.15);
+            border-color: rgba(235, 163, 8, 0.7);
+        }
+
+        .exit-btn:active {
+            background-color: rgba(235, 163, 8, 0.25);
+        }
+
+        .type-toggle-wrapper {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+            animation: fadeInLeftBottom 0.3s ease-out;
+        }
+
+        .type-toggle-label {
+            font-size: 11px;
+            line-height: 16px; /* 写死：装修页签开关行叠在它上方，竖向预算见 .hide-toggle-row */
+            font-weight: 700;
+            color: rgba(235, 163, 8, 0.7);
+            letter-spacing: 6px;
+            padding-left: 6px;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .type-toggle {
+            position: relative;
+            display: flex;
+            background-color: rgba(12, 12, 14, 0.85);
+            border: 1px solid rgba(235, 163, 8, 0.4);
+        }
+
+        .toggle-btn {
+            background-color: transparent;
+            border: none;
+            color: #ccc;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 16px;
+            line-height: 22px; /* 写死：同上，页签条高度不随字体的 normal 行高浮动 */
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: all 0.2s;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-icon {
+            width: 16px; height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        .toggle-btn:hover {
+            color: #fff;
+            background-color: rgba(235, 163, 8, 0.1);
+        }
+
+        .toggle-btn.active {
+            background-color: rgba(235, 163, 8, 0.18);
+            color: #EBA308;
+            box-shadow:
+                inset 0 -2px 0 0 #EBA308,
+                inset 0 0 0 1px rgba(235, 163, 8, 0.5);
+        }
+
+        /* 装修页签隐藏开关行：「放置类型」标签之上单独一行、左对齐，只在装修页签显示。
+           竖向预算（CSS 视口高恒 >= 864）：页签条 = 上下边框 2 + 按钮 12+22+12 = 48，占距底 40~88px；
+           间距 6 + 标签 16 → 94~110px；间距 6 + 本行 32 → 116~148px。装修面板撑满 560px 时底边距底 152px，余 4px 不重叠，
+           且行底仍高于底部居中「取消」按钮的上沿。余量很紧，所以这一叠的三处高度（本行 height、标签与页签按钮的 line-height）
+           全部写死，不随字体回退后的 normal 行高浮动；改其中任何一处都要重算这笔账。
+           横向：本行上方是装修面板、下方是页签条，本页在这一高度没有别的元素，文字不换行、按钮随文字撑宽即可。
+           三个开关互相独立（非单选），各自成块、之间留缝，不做成页签那样的连体条 */
+        .hide-toggle-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hide-toggle {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px; /* 文字前的 14px 眼睛图标，低于 20px 行高，本行高度不变 */
+            height: 32px;
+            padding: 0 12px;
+            background-color: rgba(12, 12, 14, 0.85);
+            border: 1px solid rgba(235, 163, 8, 0.4);
+            color: #ccc;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 20px;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        /* 不挂 transition：状态切换只改颜色 / 底色，这类 paint 属性不做过渡 */
+        .hide-toggle:hover {
+            color: #fff;
+            background-color: rgba(235, 163, 8, 0.1);
+        }
+
+        /* on = 该类对象已隐藏 */
+        .hide-toggle.on {
+            color: #EBA308;
+            background-color: rgba(235, 163, 8, 0.18);
+            border-color: rgba(235, 163, 8, 0.8);
+            box-shadow: inset 0 -2px 0 0 #EBA308;
+        }
+
+        /* 眼睛图标：线条画法与 .tab-icon 同源，只缩到 14px。未隐藏 = 睁眼，已隐藏 = 眼睛加斜杠；
+           点亮配色与页签选中态几乎一样，光看高亮分不清「选中」还是「隐藏」，靠这个图标和文案里的「隐藏」区分 */
+        .hide-icon {
+            width: 14px;
+            height: 14px;
+        }
+
+        @keyframes fadeInUpCenter {
+            from { opacity: 0; transform: translate(-50%, 10px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+        @keyframes fadeInLeftBottom {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+    <script src="../../vue.runtime.global.prod.js"></script>
+<script>
+/* === [precompiled v1] === */
+(function(){var __wgArmed__=false;var __wgGaveUp__=false;var __wgReload__=function(missing){if(__wgArmed__||__wgGaveUp__)return;var m=/(?:^|;)wgr=(\d+)/.exec(window.name||"");var n=m?parseInt(m[1],10):0;if(n>=2){__wgGaveUp__=true;console.error("[WebUIGuard] "+missing+" still missing after "+n+" reloads, giving up: "+location.pathname);return;}__wgArmed__=true;window.name=(window.name||"").replace(/(?:^|;)wgr=\d+/,"")+";wgr="+(n+1);console.warn("[WebUIGuard] "+missing+" missing, reloading page ("+(n+1)+"/2): "+location.pathname);setTimeout(function(){location.reload();},300);};window.addEventListener("error",function(e){var msg=(e&&e.message)||"";var isCore=msg.indexOf("createWebUICore is not defined")>=0;if(!isCore&&msg.indexOf("Vue is not defined")<0)return;__wgReload__(isCore?"webui-core.js":"vue.runtime.global.prod.js");if(!__wgGaveUp__)e.preventDefault();});if(typeof Vue==="undefined"){__wgReload__("vue.runtime.global.prod.js");return;}document.addEventListener("DOMContentLoaded",function(){if(document.querySelector("script[src*=webui-core]")&&typeof window.createWebUICore==="undefined"){__wgReload__("webui-core.js");return;}if(!__wgArmed__&&window.name)window.name=window.name.replace(/(?:^|;)wgr=\d+/,"");});var __renderFactory__=function(Vue){const { createElementVNode: _createElementVNode, toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock, createCommentVNode: _createCommentVNode, normalizeStyle: _normalizeStyle, createTextVNode: _createTextVNode, Fragment: _Fragment, vShow: _vShow, withDirectives: _withDirectives, normalizeClass: _normalizeClass } = Vue
+
+const _hoisted_1 = { class: "bottom-center-wrapper" }
+const _hoisted_2 = { class: "install-hint" }
+const _hoisted_3 = { class: "hint-prefix" }
+const _hoisted_4 = ["src"]
+const _hoisted_5 = {
+  key: 1,
+  class: "hint-name"
+}
+const _hoisted_6 = {
+  class: "unity-interactive",
+  style: {"position":"relative"}
+}
+const _hoisted_7 = { class: "info-bar" }
+const _hoisted_8 = { class: "info-text" }
+const _hoisted_9 = {
+  class: "unity-interactive",
+  style: {"position":"relative"}
+}
+const _hoisted_10 = {
+  key: 2,
+  class: "unity-interactive",
+  style: {"position":"relative"}
+}
+const _hoisted_11 = { class: "type-toggle-wrapper" }
+const _hoisted_12 = { class: "hide-toggle-row" }
+const _hoisted_13 = {
+  class: "tab-icon hide-icon",
+  viewBox: "0 0 24 24"
+}
+const _hoisted_14 = { d: "M4 4l16 16" }
+const _hoisted_15 = {
+  class: "tab-icon hide-icon",
+  viewBox: "0 0 24 24"
+}
+const _hoisted_16 = { d: "M4 4l16 16" }
+const _hoisted_17 = {
+  class: "tab-icon hide-icon",
+  viewBox: "0 0 24 24"
+}
+const _hoisted_18 = { d: "M4 4l16 16" }
+const _hoisted_19 = { class: "type-toggle-label" }
+const _hoisted_20 = { class: "type-toggle unity-interactive" }
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createElementBlock(_Fragment, null, [
+    _cache[56] || (_cache[56] = _createElementVNode("div", {
+      id: "click-catcher",
+      style: {"position":"fixed","top":"0","left":"0","width":"100%","height":"100%","pointer-events":"auto"}
+    }, null, -1 /* CACHED */)),
+    _createElementVNode("div", _hoisted_1, [
+      (_ctx.state.showInfoBar && _ctx.state.furnitureName)
+        ? (_openBlock(), _createElementBlock(_Fragment, { key: 0 }, [
+            _createElementVNode("div", _hoisted_2, [
+              _createElementVNode("div", {
+                class: "hint-content",
+                style: _normalizeStyle({ opacity: _ctx.contentOpacity })
+              }, [
+                _createElementVNode("span", _hoisted_3, _toDisplayString(_ctx.state.infoText), 1 /* TEXT */),
+                (_ctx.state.furnitureIcon)
+                  ? (_openBlock(), _createElementBlock("img", {
+                      key: 0,
+                      src: _ctx.state.furnitureIcon,
+                      class: "hint-icon"
+                    }, null, 8 /* PROPS */, _hoisted_4))
+                  : _createCommentVNode("v-if", true),
+                (_ctx.state.furnitureName)
+                  ? (_openBlock(), _createElementBlock("span", _hoisted_5, _toDisplayString(_ctx.state.furnitureName), 1 /* TEXT */))
+                  : _createCommentVNode("v-if", true)
+              ], 4 /* STYLE */)
+            ]),
+            _createElementVNode("div", _hoisted_6, [
+              _createElementVNode("button", {
+                class: "cancel-btn",
+                onClick: _cache[0] || (_cache[0] = $event => (_ctx.UnitySendEvent('CANCEL_INSTALL')))
+              }, [
+                _cache[10] || (_cache[10] = _createElementVNode("div", { class: "corner tl" }, null, -1 /* CACHED */)),
+                _cache[11] || (_cache[11] = _createElementVNode("div", { class: "corner tr" }, null, -1 /* CACHED */)),
+                _cache[12] || (_cache[12] = _createElementVNode("div", { class: "corner bl" }, null, -1 /* CACHED */)),
+                _cache[13] || (_cache[13] = _createElementVNode("div", { class: "corner br" }, null, -1 /* CACHED */)),
+                _createTextVNode(" " + _toDisplayString(_ctx.state.cancelBtnText || '取消'), 1 /* TEXT */)
+              ])
+            ])
+          ], 64 /* STABLE_FRAGMENT */))
+        : (_ctx.state.showInfoBar)
+          ? (_openBlock(), _createElementBlock(_Fragment, { key: 1 }, [
+              _createElementVNode("div", _hoisted_7, [
+                _cache[14] || (_cache[14] = _createElementVNode("div", { class: "corner tl" }, null, -1 /* CACHED */)),
+                _cache[15] || (_cache[15] = _createElementVNode("div", { class: "corner tr" }, null, -1 /* CACHED */)),
+                _cache[16] || (_cache[16] = _createElementVNode("div", { class: "corner bl" }, null, -1 /* CACHED */)),
+                _cache[17] || (_cache[17] = _createElementVNode("div", { class: "corner br" }, null, -1 /* CACHED */)),
+                _createElementVNode("span", _hoisted_8, _toDisplayString(_ctx.state.infoText), 1 /* TEXT */)
+              ]),
+              _createElementVNode("div", _hoisted_9, [
+                _createElementVNode("button", {
+                  class: "exit-btn",
+                  onClick: _cache[1] || (_cache[1] = $event => (_ctx.UnitySendEvent('EXIT_PLAN_MODE')))
+                }, [
+                  _cache[18] || (_cache[18] = _createElementVNode("div", { class: "corner tl" }, null, -1 /* CACHED */)),
+                  _cache[19] || (_cache[19] = _createElementVNode("div", { class: "corner tr" }, null, -1 /* CACHED */)),
+                  _cache[20] || (_cache[20] = _createElementVNode("div", { class: "corner bl" }, null, -1 /* CACHED */)),
+                  _cache[21] || (_cache[21] = _createElementVNode("div", { class: "corner br" }, null, -1 /* CACHED */)),
+                  _createTextVNode(" " + _toDisplayString(_ctx.state.cancelBtnText || '取消'), 1 /* TEXT */)
+                ])
+              ])
+            ], 64 /* STABLE_FRAGMENT */))
+          : (_openBlock(), _createElementBlock("div", _hoisted_10, [
+              _createElementVNode("button", {
+                class: "exit-btn",
+                onClick: _cache[2] || (_cache[2] = $event => (_ctx.UnitySendEvent('EXIT_PLAN_MODE')))
+              }, [
+                _cache[22] || (_cache[22] = _createElementVNode("div", { class: "corner tl" }, null, -1 /* CACHED */)),
+                _cache[23] || (_cache[23] = _createElementVNode("div", { class: "corner tr" }, null, -1 /* CACHED */)),
+                _cache[24] || (_cache[24] = _createElementVNode("div", { class: "corner bl" }, null, -1 /* CACHED */)),
+                _cache[25] || (_cache[25] = _createElementVNode("div", { class: "corner br" }, null, -1 /* CACHED */)),
+                _createTextVNode(" " + _toDisplayString(_ctx.state.cancelBtnText || '取消'), 1 /* TEXT */)
+              ])
+            ]))
+    ]),
+    _withDirectives(_createElementVNode("div", _hoisted_11, [
+      _createCommentVNode(" 隐藏开关：点击只上报要翻转的位，高亮与眼睛图标都以 Unity 回推的 hideMask 为准，本地不改值 "),
+      _withDirectives(_createElementVNode("div", _hoisted_12, [
+        _createElementVNode("button", {
+          class: _normalizeClass(["hide-toggle unity-interactive", { on: (_ctx.state.hideMask & 1) !== 0 }]),
+          onClick: _cache[3] || (_cache[3] = $event => (_ctx.UnitySendEvent('TOGGLE_HIDE', { bit: 1 })))
+        }, [
+          (_openBlock(), _createElementBlock("svg", _hoisted_13, [
+            _cache[26] || (_cache[26] = _createElementVNode("path", { d: "M2 12c2.5-4.5 6-7 10-7s7.5 2.5 10 7c-2.5 4.5-6 7-10 7s-7.5-2.5-10-7z" }, null, -1 /* CACHED */)),
+            _cache[27] || (_cache[27] = _createElementVNode("circle", {
+              cx: "12",
+              cy: "12",
+              r: "3"
+            }, null, -1 /* CACHED */)),
+            _withDirectives(_createElementVNode("path", _hoisted_14, null, 512 /* NEED_PATCH */), [
+              [_vShow, (_ctx.state.hideMask & 1) !== 0]
+            ])
+          ])),
+          _createElementVNode("span", null, _toDisplayString(_ctx.state.hideFurnitureLabel || '隐藏家具'), 1 /* TEXT */)
+        ], 2 /* CLASS */),
+        _createElementVNode("button", {
+          class: _normalizeClass(["hide-toggle unity-interactive", { on: (_ctx.state.hideMask & 2) !== 0 }]),
+          onClick: _cache[4] || (_cache[4] = $event => (_ctx.UnitySendEvent('TOGGLE_HIDE', { bit: 2 })))
+        }, [
+          (_openBlock(), _createElementBlock("svg", _hoisted_15, [
+            _cache[28] || (_cache[28] = _createElementVNode("path", { d: "M2 12c2.5-4.5 6-7 10-7s7.5 2.5 10 7c-2.5 4.5-6 7-10 7s-7.5-2.5-10-7z" }, null, -1 /* CACHED */)),
+            _cache[29] || (_cache[29] = _createElementVNode("circle", {
+              cx: "12",
+              cy: "12",
+              r: "3"
+            }, null, -1 /* CACHED */)),
+            _withDirectives(_createElementVNode("path", _hoisted_16, null, 512 /* NEED_PATCH */), [
+              [_vShow, (_ctx.state.hideMask & 2) !== 0]
+            ])
+          ])),
+          _createElementVNode("span", null, _toDisplayString(_ctx.state.hideDropTrapLabel || '隐藏掉落物和陷阱'), 1 /* TEXT */)
+        ], 2 /* CLASS */),
+        _createElementVNode("button", {
+          class: _normalizeClass(["hide-toggle unity-interactive", { on: (_ctx.state.hideMask & 4) !== 0 }]),
+          onClick: _cache[5] || (_cache[5] = $event => (_ctx.UnitySendEvent('TOGGLE_HIDE', { bit: 4 })))
+        }, [
+          (_openBlock(), _createElementBlock("svg", _hoisted_17, [
+            _cache[30] || (_cache[30] = _createElementVNode("path", { d: "M2 12c2.5-4.5 6-7 10-7s7.5 2.5 10 7c-2.5 4.5-6 7-10 7s-7.5-2.5-10-7z" }, null, -1 /* CACHED */)),
+            _cache[31] || (_cache[31] = _createElementVNode("circle", {
+              cx: "12",
+              cy: "12",
+              r: "3"
+            }, null, -1 /* CACHED */)),
+            _withDirectives(_createElementVNode("path", _hoisted_18, null, 512 /* NEED_PATCH */), [
+              [_vShow, (_ctx.state.hideMask & 4) !== 0]
+            ])
+          ])),
+          _createElementVNode("span", null, _toDisplayString(_ctx.state.hideCharacterLabel || '隐藏角色和NPC'), 1 /* TEXT */)
+        ], 2 /* CLASS */)
+      ], 512 /* NEED_PATCH */), [
+        [_vShow, _ctx.state.currentType === 4]
+      ]),
+      _createElementVNode("div", _hoisted_19, _toDisplayString(_ctx.state.typeToggleLabel || '▾ 放置类型 ▾'), 1 /* TEXT */),
+      _createElementVNode("div", _hoisted_20, [
+        _cache[52] || (_cache[52] = _createElementVNode("div", { class: "corner tl" }, null, -1 /* CACHED */)),
+        _cache[53] || (_cache[53] = _createElementVNode("div", { class: "corner tr" }, null, -1 /* CACHED */)),
+        _cache[54] || (_cache[54] = _createElementVNode("div", { class: "corner bl" }, null, -1 /* CACHED */)),
+        _cache[55] || (_cache[55] = _createElementVNode("div", { class: "corner br" }, null, -1 /* CACHED */)),
+        _createElementVNode("button", {
+          class: _normalizeClass(["toggle-btn", { active: _ctx.state.currentType === 0 }]),
+          onClick: _cache[6] || (_cache[6] = $event => {_ctx.state.currentType = 0; _ctx.UnitySendEvent('SWITCH_TYPE', { type: 0 })})
+        }, [
+          (_ctx.state.currentType === 0)
+            ? (_openBlock(), _createElementBlock(_Fragment, { key: 0 }, [
+                _cache[32] || (_cache[32] = _createElementVNode("div", { class: "corner tl" }, null, -1 /* CACHED */)),
+                _cache[33] || (_cache[33] = _createElementVNode("div", { class: "corner tr" }, null, -1 /* CACHED */)),
+                _cache[34] || (_cache[34] = _createElementVNode("div", { class: "corner bl" }, null, -1 /* CACHED */)),
+                _cache[35] || (_cache[35] = _createElementVNode("div", { class: "corner br" }, null, -1 /* CACHED */))
+              ], 64 /* STABLE_FRAGMENT */))
+            : _createCommentVNode("v-if", true),
+          _cache[36] || (_cache[36] = _createElementVNode("svg", {
+            class: "tab-icon",
+            viewBox: "0 0 24 24"
+          }, [
+            _createElementVNode("path", { d: "M3 11l9-7 9 7" }),
+            _createElementVNode("path", { d: "M5 10v10h4v-6h6v6h4V10" })
+          ], -1 /* CACHED */)),
+          _createElementVNode("span", null, _toDisplayString(_ctx.state.furnitureLabel || '家 具'), 1 /* TEXT */)
+        ], 2 /* CLASS */),
+        _createElementVNode("button", {
+          class: _normalizeClass(["toggle-btn", { active: _ctx.state.currentType === 1 }]),
+          onClick: _cache[7] || (_cache[7] = $event => {_ctx.state.currentType = 1; _ctx.UnitySendEvent('SWITCH_TYPE', { type: 1 })})
+        }, [
+          (_ctx.state.currentType === 1)
+            ? (_openBlock(), _createElementBlock(_Fragment, { key: 0 }, [
+                _cache[37] || (_cache[37] = _createElementVNode("div", { class: "corner tl" }, null, -1 /* CACHED */)),
+                _cache[38] || (_cache[38] = _createElementVNode("div", { class: "corner tr" }, null, -1 /* CACHED */)),
+                _cache[39] || (_cache[39] = _createElementVNode("div", { class: "corner bl" }, null, -1 /* CACHED */)),
+                _cache[40] || (_cache[40] = _createElementVNode("div", { class: "corner br" }, null, -1 /* CACHED */))
+              ], 64 /* STABLE_FRAGMENT */))
+            : _createCommentVNode("v-if", true),
+          _cache[41] || (_cache[41] = _createElementVNode("svg", {
+            class: "tab-icon",
+            viewBox: "0 0 24 24"
+          }, [
+            _createElementVNode("path", { d: "M4 12 Q4 4 12 4 Q20 4 20 12" }),
+            _createElementVNode("path", { d: "M7 12 L7 8 M12 12 L12 7 M17 12 L17 8" }),
+            _createElementVNode("path", { d: "M3 14 L21 14" })
+          ], -1 /* CACHED */)),
+          _createElementVNode("span", null, _toDisplayString(_ctx.state.trapLabel || '陷 阱'), 1 /* TEXT */)
+        ], 2 /* CLASS */),
+        _withDirectives(_createElementVNode("button", {
+          class: _normalizeClass(["toggle-btn", { active: _ctx.state.currentType === 2 }]),
+          onClick: _cache[8] || (_cache[8] = $event => {_ctx.state.currentType = 2; _ctx.UnitySendEvent('SWITCH_TYPE', { type: 2 })})
+        }, [
+          (_ctx.state.currentType === 2)
+            ? (_openBlock(), _createElementBlock(_Fragment, { key: 0 }, [
+                _cache[42] || (_cache[42] = _createElementVNode("div", { class: "corner tl" }, null, -1 /* CACHED */)),
+                _cache[43] || (_cache[43] = _createElementVNode("div", { class: "corner tr" }, null, -1 /* CACHED */)),
+                _cache[44] || (_cache[44] = _createElementVNode("div", { class: "corner bl" }, null, -1 /* CACHED */)),
+                _cache[45] || (_cache[45] = _createElementVNode("div", { class: "corner br" }, null, -1 /* CACHED */))
+              ], 64 /* STABLE_FRAGMENT */))
+            : _createCommentVNode("v-if", true),
+          _cache[46] || (_cache[46] = _createElementVNode("svg", {
+            class: "tab-icon",
+            viewBox: "0 0 24 24"
+          }, [
+            _createElementVNode("path", { d: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" })
+          ], -1 /* CACHED */)),
+          _createElementVNode("span", null, _toDisplayString(_ctx.state.defenseLabel || '防 御'), 1 /* TEXT */)
+        ], 2 /* CLASS */), [
+          [_vShow, _ctx.state.showDefenseTab]
+        ]),
+        _withDirectives(_createElementVNode("button", {
+          class: _normalizeClass(["toggle-btn", { active: _ctx.state.currentType === 4 }]),
+          onClick: _cache[9] || (_cache[9] = $event => {_ctx.state.currentType = 4; _ctx.UnitySendEvent('SWITCH_TYPE', { type: 4 })})
+        }, [
+          (_ctx.state.currentType === 4)
+            ? (_openBlock(), _createElementBlock(_Fragment, { key: 0 }, [
+                _cache[47] || (_cache[47] = _createElementVNode("div", { class: "corner tl" }, null, -1 /* CACHED */)),
+                _cache[48] || (_cache[48] = _createElementVNode("div", { class: "corner tr" }, null, -1 /* CACHED */)),
+                _cache[49] || (_cache[49] = _createElementVNode("div", { class: "corner bl" }, null, -1 /* CACHED */)),
+                _cache[50] || (_cache[50] = _createElementVNode("div", { class: "corner br" }, null, -1 /* CACHED */))
+              ], 64 /* STABLE_FRAGMENT */))
+            : _createCommentVNode("v-if", true),
+          _cache[51] || (_cache[51] = _createElementVNode("svg", {
+            class: "tab-icon",
+            viewBox: "0 0 24 24"
+          }, [
+            _createElementVNode("rect", {
+              x: "3",
+              y: "3",
+              width: "14",
+              height: "5",
+              rx: "1"
+            }),
+            _createElementVNode("path", { d: "M17 5.5h3v5.5h-8v3" }),
+            _createElementVNode("path", { d: "M12 14v7" })
+          ], -1 /* CACHED */)),
+          _createElementVNode("span", null, _toDisplayString(_ctx.state.renovationLabel || '装 修'), 1 /* TEXT */)
+        ], 2 /* CLASS */), [
+          [_vShow, _ctx.state.showRenovationTab]
+        ])
+      ])
+    ], 512 /* NEED_PATCH */), [
+      [_vShow, _ctx.state.showTypeToggle]
+    ])
+  ], 64 /* STABLE_FRAGMENT */))
+}};var __renderCache__=null;var __origCreateApp__=Vue.createApp;Vue.createApp=function(opts){if(!__renderCache__)__renderCache__=__renderFactory__(Vue);if(opts&&typeof opts==="object"&&!opts.render&&!opts.template){opts=Object.assign({},opts,{render:__renderCache__});}var app=__origCreateApp__.call(this,opts);if(!app.config.errorHandler){app.config.errorHandler=function(err){var msg=(err&&err.message)||String(err||"");if(msg.indexOf("createWebUICore is not defined")>=0){__wgReload__("webui-core.js");if(__wgGaveUp__)console.error(err);return;}console.error(err);};}return app;};})();
+/* === [/precompiled v1] === */
+</script>
+    <script src="../../webui-core.js?v=20250430"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="click-catcher" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:auto;"></div>
+
+        <div class="bottom-center-wrapper">
+            <template v-if="state.showInfoBar && state.furnitureName">
+                <div class="install-hint">
+                    <div class="hint-content" :style="{ opacity: contentOpacity }">
+                        <span class="hint-prefix">{{ state.infoText }}</span>
+                        <img v-if="state.furnitureIcon" :src="state.furnitureIcon" class="hint-icon">
+                        <span v-if="state.furnitureName" class="hint-name">{{ state.furnitureName }}</span>
+                    </div>
+                </div>
+                <div class="unity-interactive" style="position:relative;">
+                    <button class="cancel-btn" @click="UnitySendEvent('CANCEL_INSTALL')">
+                        <div class="corner tl"></div>
+                        <div class="corner tr"></div>
+                        <div class="corner bl"></div>
+                        <div class="corner br"></div>
+                        {{ state.cancelBtnText || '取消' }}
+                    </button>
+                </div>
+            </template>
+
+            <template v-else-if="state.showInfoBar">
+                <div class="info-bar">
+                    <div class="corner tl"></div>
+                    <div class="corner tr"></div>
+                    <div class="corner bl"></div>
+                    <div class="corner br"></div>
+                    <span class="info-text">{{ state.infoText }}</span>
+                </div>
+                <div class="unity-interactive" style="position:relative;">
+                    <button class="exit-btn" @click="UnitySendEvent('EXIT_PLAN_MODE')">
+                        <div class="corner tl"></div>
+                        <div class="corner tr"></div>
+                        <div class="corner bl"></div>
+                        <div class="corner br"></div>
+                        {{ state.cancelBtnText || '取消' }}
+                    </button>
+                </div>
+            </template>
+
+            <template v-else>
+                <div class="unity-interactive" style="position:relative;">
+                    <button class="exit-btn" @click="UnitySendEvent('EXIT_PLAN_MODE')">
+                        <div class="corner tl"></div>
+                        <div class="corner tr"></div>
+                        <div class="corner bl"></div>
+                        <div class="corner br"></div>
+                        {{ state.cancelBtnText || '取消' }}
+                    </button>
+                </div>
+            </template>
+        </div>
+
+        <div class="type-toggle-wrapper" v-show="state.showTypeToggle">
+            <!-- 隐藏开关：点击只上报要翻转的位，高亮与眼睛图标都以 Unity 回推的 hideMask 为准，本地不改值 -->
+            <div class="hide-toggle-row" v-show="state.currentType === 4">
+                <button class="hide-toggle unity-interactive"
+                        :class="{ on: (state.hideMask & 1) !== 0 }"
+                        @click="UnitySendEvent('TOGGLE_HIDE', { bit: 1 })">
+                    <svg class="tab-icon hide-icon" viewBox="0 0 24 24">
+                        <path d="M2 12c2.5-4.5 6-7 10-7s7.5 2.5 10 7c-2.5 4.5-6 7-10 7s-7.5-2.5-10-7z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                        <path v-show="(state.hideMask & 1) !== 0" d="M4 4l16 16"/>
+                    </svg>
+                    <span>{{ state.hideFurnitureLabel || '隐藏家具' }}</span>
+                </button>
+                <button class="hide-toggle unity-interactive"
+                        :class="{ on: (state.hideMask & 2) !== 0 }"
+                        @click="UnitySendEvent('TOGGLE_HIDE', { bit: 2 })">
+                    <svg class="tab-icon hide-icon" viewBox="0 0 24 24">
+                        <path d="M2 12c2.5-4.5 6-7 10-7s7.5 2.5 10 7c-2.5 4.5-6 7-10 7s-7.5-2.5-10-7z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                        <path v-show="(state.hideMask & 2) !== 0" d="M4 4l16 16"/>
+                    </svg>
+                    <span>{{ state.hideDropTrapLabel || '隐藏掉落物和陷阱' }}</span>
+                </button>
+                <button class="hide-toggle unity-interactive"
+                        :class="{ on: (state.hideMask & 4) !== 0 }"
+                        @click="UnitySendEvent('TOGGLE_HIDE', { bit: 4 })">
+                    <svg class="tab-icon hide-icon" viewBox="0 0 24 24">
+                        <path d="M2 12c2.5-4.5 6-7 10-7s7.5 2.5 10 7c-2.5 4.5-6 7-10 7s-7.5-2.5-10-7z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                        <path v-show="(state.hideMask & 4) !== 0" d="M4 4l16 16"/>
+                    </svg>
+                    <span>{{ state.hideCharacterLabel || '隐藏角色和NPC' }}</span>
+                </button>
+            </div>
+            <div class="type-toggle-label">{{ state.typeToggleLabel || '▾ 放置类型 ▾' }}</div>
+            <div class="type-toggle unity-interactive">
+                <div class="corner tl"></div>
+                <div class="corner tr"></div>
+                <div class="corner bl"></div>
+                <div class="corner br"></div>
+                <button class="toggle-btn"
+                        :class="{ active: state.currentType === 0 }"
+                        @click="state.currentType = 0; UnitySendEvent('SWITCH_TYPE', { type: 0 })">
+                    <template v-if="state.currentType === 0">
+                        <div class="corner tl"></div>
+                        <div class="corner tr"></div>
+                        <div class="corner bl"></div>
+                        <div class="corner br"></div>
+                    </template>
+                    <svg class="tab-icon" viewBox="0 0 24 24">
+                        <path d="M3 11l9-7 9 7"/>
+                        <path d="M5 10v10h4v-6h6v6h4V10"/>
+                    </svg>
+                    <span>{{ state.furnitureLabel || '家 具' }}</span>
+                </button>
+                <button class="toggle-btn"
+                        :class="{ active: state.currentType === 1 }"
+                        @click="state.currentType = 1; UnitySendEvent('SWITCH_TYPE', { type: 1 })">
+                    <template v-if="state.currentType === 1">
+                        <div class="corner tl"></div>
+                        <div class="corner tr"></div>
+                        <div class="corner bl"></div>
+                        <div class="corner br"></div>
+                    </template>
+                    <svg class="tab-icon" viewBox="0 0 24 24">
+                        <path d="M4 12 Q4 4 12 4 Q20 4 20 12"/>
+                        <path d="M7 12 L7 8 M12 12 L12 7 M17 12 L17 8"/>
+                        <path d="M3 14 L21 14"/>
+                    </svg>
+                    <span>{{ state.trapLabel || '陷 阱' }}</span>
+                </button>
+                <button class="toggle-btn" v-show="state.showDefenseTab"
+                        :class="{ active: state.currentType === 2 }"
+                        @click="state.currentType = 2; UnitySendEvent('SWITCH_TYPE', { type: 2 })">
+                    <template v-if="state.currentType === 2">
+                        <div class="corner tl"></div>
+                        <div class="corner tr"></div>
+                        <div class="corner bl"></div>
+                        <div class="corner br"></div>
+                    </template>
+                    <svg class="tab-icon" viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span>{{ state.defenseLabel || '防 御' }}</span>
+                </button>
+                <button class="toggle-btn" v-show="state.showRenovationTab"
+                        :class="{ active: state.currentType === 4 }"
+                        @click="state.currentType = 4; UnitySendEvent('SWITCH_TYPE', { type: 4 })">
+                    <template v-if="state.currentType === 4">
+                        <div class="corner tl"></div>
+                        <div class="corner tr"></div>
+                        <div class="corner bl"></div>
+                        <div class="corner br"></div>
+                    </template>
+                    <svg class="tab-icon" viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="14" height="5" rx="1"/>
+                        <path d="M17 5.5h3v5.5h-8v3"/>
+                        <path d="M12 14v7"/>
+                    </svg>
+                    <span>{{ state.renovationLabel || '装 修' }}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp, reactive, ref, onMounted, watch } = Vue;
+
+        createApp({
+            setup() {
+                const core = createWebUICore('BuildTips');
+                const contentOpacity = ref(1);
+
+                const state = reactive({
+                    infoText: '',
+                    currentType: 0,
+                    showInfoBar: false,
+                    showTypeToggle: true,
+                    showDefenseTab: false,
+                    showRenovationTab: false,
+                    furnitureIcon: '',
+                    furnitureName: '',
+                    typeToggleLabel: '',
+                    cancelBtnText: '',
+                    furnitureLabel: '',
+                    trapLabel: '',
+                    defenseLabel: '',
+                    renovationLabel: '',
+                    hideMask: 0,
+                    hideFurnitureLabel: '',
+                    hideDropTrapLabel: '',
+                    hideCharacterLabel: ''
+                });
+
+                let fadeTimer = null;
+                function fadeContentTransition() {
+                    contentOpacity.value = 0;
+                    if (fadeTimer) clearTimeout(fadeTimer);
+                    fadeTimer = setTimeout(() => {
+                        contentOpacity.value = 1;
+                    }, 30);
+                }
+
+                core.registerHandlers({
+                    'WebUI_BuildTips_UpdateMsg': (data) => {
+                        const nameChanged = data.furnitureName !== undefined && data.furnitureName !== state.furnitureName;
+                        if (data.infoText !== undefined) state.infoText = data.infoText;
+                        if (data.currentType !== undefined) state.currentType = data.currentType;
+                        if (data.showInfoBar !== undefined) state.showInfoBar = data.showInfoBar;
+                        if (data.showTypeToggle !== undefined) state.showTypeToggle = data.showTypeToggle;
+                        if (data.showDefenseTab !== undefined) state.showDefenseTab = data.showDefenseTab;
+                        if (data.showRenovationTab !== undefined) state.showRenovationTab = data.showRenovationTab;
+                        if (data.furnitureIcon !== undefined) state.furnitureIcon = data.furnitureIcon;
+                        if (data.furnitureName !== undefined) state.furnitureName = data.furnitureName;
+                        if (data.hideMask !== undefined) state.hideMask = data.hideMask;
+                        if (nameChanged && state.furnitureName) fadeContentTransition();
+                    },
+                    'WebUI_BuildTips_LocalizationMsg': (data) => {
+                        if (data.typeToggleLabel) state.typeToggleLabel = data.typeToggleLabel;
+                        if (data.cancelBtnText) state.cancelBtnText = data.cancelBtnText;
+                        if (data.furnitureLabel) state.furnitureLabel = data.furnitureLabel;
+                        if (data.trapLabel) state.trapLabel = data.trapLabel;
+                        if (data.defenseLabel) state.defenseLabel = data.defenseLabel;
+                        if (data.renovationLabel) state.renovationLabel = data.renovationLabel;
+                        if (data.hideFurnitureLabel) state.hideFurnitureLabel = data.hideFurnitureLabel;
+                        if (data.hideDropTrapLabel) state.hideDropTrapLabel = data.hideDropTrapLabel;
+                        if (data.hideCharacterLabel) state.hideCharacterLabel = data.hideCharacterLabel;
+                    }
+                });
+
+                // 开关行是 v-show：显隐一变就等重排后立即同步点击区域，不等 MutationObserver 的 100ms 节流，
+                // 否则刚切到装修页签时点开关会穿透到场景。本地点页签与 UpdateMsg 推送都会改 currentType，两条路径都经过这里
+                watch(() => state.showTypeToggle && state.currentType === 4, () => {
+                    core.clickThrough.syncNowAfterReflow();
+                }, { flush: 'post' });
+
+                onMounted(() => {
+                    document.getElementById('click-catcher').addEventListener('click', (e) => {
+                        window.parent.postMessage({
+                            type: '__CLICK_PASSTHROUGH__',
+                            sourcePageId: 'BuildTips',
+                            clientX: e.clientX,
+                            clientY: e.clientY
+                        }, '*');
+                    });
+
+                    core.clickThrough.start();
+                    core.notifyReady();
+                });
+
+                return { state, contentOpacity, UnitySendEvent: core.UnitySendEvent };
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

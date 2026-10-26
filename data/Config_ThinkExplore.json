@@ -1,0 +1,65 @@
+[
+  {
+    "ID": 501,
+    "ChapterId": -1,
+    "TriggerType": 0,
+    "PlayerSelectId": [],
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomThink": [
+      "PostExplore_Home_1",
+      "PostExplore_Home_2",
+      "PostExplore_Home_3"
+    ]
+  },
+  {
+    "ID": 502,
+    "ChapterId": 1004,
+    "TriggerType": 0,
+    "PlayerSelectId": [],
+    "Rate": 0.800000011920929,
+    "TypeCD": 0,
+    "RandomThink": [
+      "PostExplore_Market_1",
+      "PostExplore_Market_2"
+    ]
+  },
+  {
+    "ID": 503,
+    "ChapterId": 1002,
+    "TriggerType": 0,
+    "PlayerSelectId": [],
+    "Rate": 0.800000011920929,
+    "TypeCD": 0,
+    "RandomThink": [
+      "PostExplore_School_1",
+      "PostExplore_School_2"
+    ]
+  },
+  {
+    "ID": 601,
+    "ChapterId": 1004,
+    "TriggerType": 1,
+    "PlayerSelectId": [
+      3
+    ],
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomThink": [
+      "EnterExplore_Market_WH_1"
+    ]
+  },
+  {
+    "ID": 602,
+    "ChapterId": 1002,
+    "TriggerType": 1,
+    "PlayerSelectId": [
+      2
+    ],
+    "Rate": 1.0,
+    "TypeCD": 0,
+    "RandomThink": [
+      "EnterExplore_School_NG_1"
+    ]
+  }
+]

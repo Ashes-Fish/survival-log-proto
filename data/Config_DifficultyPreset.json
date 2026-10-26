@@ -1,0 +1,82 @@
+[
+  {
+    "ID": 1,
+    "PresetName": "DifficultyPreset_PresetName_1",
+    "PresetName_Local": "满仓无忧",
+    "PresetDesc": "DifficultyPreset_PresetDesc_1",
+    "PresetDesc_Local": "仓是满的，日子是稳的。适合想安心布置家、看完每个故事的人。",
+    "IsDefault": 0,
+    "Levels": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "ID": 2,
+    "PresetName": "DifficultyPreset_PresetName_2",
+    "PresetName_Local": "日志如初",
+    "PresetDesc": "DifficultyPreset_PresetDesc_2",
+    "PresetDesc_Local": "原汁原味的生存日志。囤得好，就能过得好。",
+    "IsDefault": 1,
+    "Levels": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  {
+    "ID": 3,
+    "PresetName": "DifficultyPreset_PresetName_3",
+    "PresetName_Local": "危机四伏",
+    "PresetDesc": "DifficultyPreset_PresetDesc_3",
+    "PresetDesc_Local": "墙更薄了，夜更冷了，门外的声音更近了。",
+    "IsDefault": 0,
+    "Levels": [
+      2,
+      3,
+      2,
+      3,
+      3,
+      2
+    ]
+  },
+  {
+    "ID": 4,
+    "PresetName": "DifficultyPreset_PresetName_4",
+    "PresetName_Local": "弹尽粮绝",
+    "PresetDesc": "DifficultyPreset_PresetDesc_4",
+    "PresetDesc_Local": "从第一天起就是苦仗。写给不服输的人。",
+    "IsDefault": 0,
+    "Levels": [
+      3,
+      4,
+      3,
+      4,
+      4,
+      3
+    ]
+  },
+  {
+    "ID": 5,
+    "PresetName": "DifficultyPreset_PresetName_5",
+    "PresetName_Local": "尸海围城",
+    "PresetDesc": "DifficultyPreset_PresetDesc_5",
+    "PresetDesc_Local": "囤得痛快，守得惨烈。超市管够，丧尸也管够。",
+    "IsDefault": 0,
+    "Levels": [
+      1,
+      1,
+      2,
+      4,
+      3,
+      2
+    ]
+  }
+]
