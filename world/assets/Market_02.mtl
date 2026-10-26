@@ -1,0 +1,288 @@
+newmtl Market_02_0
+Kd 0.871 0.960 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_004_S1_T1_M04_DA.png
+newmtl Market_02_1
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_004_S1_T1_M04_DA.png
+newmtl Market_02_2
+Kd 0.871 0.960 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_004_S1_T1_M04_DA.png
+newmtl Market_02_3
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_004_S1_T1_M04_DA.png
+newmtl Market_02_4
+Kd 0.871 0.960 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_004_S1_T1_M04_DA.png
+newmtl Market_02_5
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_004_S1_T1_M04_DA.png
+newmtl Market_02_6
+Kd 0.814 0.954 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_003_S1_T1_M02_DA.png
+newmtl Market_02_7
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_003_S1_T1_M02_DA.png
+newmtl Market_02_8
+Kd 0.814 0.954 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_003_S1_T1_M02_DA.png
+newmtl Market_02_9
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_003_S1_T1_M02_DA.png
+newmtl Market_02_10
+Kd 0.814 0.954 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_003_S1_T1_M02_DA.png
+newmtl Market_02_11
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_003_S1_T1_M02_DA.png
+newmtl Market_02_12
+Kd 0.871 0.960 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_004_S1_T1_M04_DA.png
+newmtl Market_02_13
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_004_S1_T1_M04_DA.png
+newmtl Market_02_14
+Kd 0.814 0.954 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_003_S1_T1_M02_DA.png
+newmtl Market_02_15
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_003_S1_T1_M02_DA.png
+newmtl Market_02_16
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_022_S1_T1_M01_DA.png
+newmtl Market_02_17
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_017_S1_T1_M01_D.png
+newmtl Market_02_18
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_017_S1_T1_M01_D.png
+newmtl Market_02_19
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_017_S1_T1_M01_D.png
+newmtl Market_02_20
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_017_S1_T1_M01_D.png
+newmtl Market_02_21
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_017_S1_T1_M01_D.png
+newmtl Market_02_22
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_017_S1_T1_M01_D.png
+newmtl Market_02_23
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl Market_02_24
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl Market_02_25
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl Market_02_26
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl Market_02_27
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl Market_02_28
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl Market_02_29
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl Market_02_30
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl Market_02_31
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl Market_02_32
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl Market_02_33
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl Market_02_34
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl Market_02_35
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl Market_02_36
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl Market_02_37
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl Market_02_38
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_004_S1_T1_M02_DA.png
+newmtl Market_02_39
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_004_S1_T1_M02_DA.png
+newmtl Market_02_40
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_004_S1_T1_M01_DA.png
+newmtl Market_02_41
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_004_S1_T1_M01_DA.png
+newmtl Market_02_42
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_006_S1_T1_M01_DA.png
+newmtl Market_02_43
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_006_S1_T1_M01_DA.png
+newmtl Market_02_44
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_006_S1_T1_M01_DA.png
+newmtl Market_02_45
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_006_S1_T1_M01_DA.png
+newmtl Market_02_46
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_006_S1_T1_M01_DA.png
+newmtl Market_02_47
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_006_S1_T1_M01_DA.png

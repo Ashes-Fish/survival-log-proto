@@ -1,0 +1,2094 @@
+newmtl Home_04_ID204_0
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Jar_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_1
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Jar_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_2
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_3
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_4
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bottle_004_S1_T1_M01_D.png
+newmtl Home_04_ID204_5
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bottle_005_S1_T1_M01_D.png
+newmtl Home_04_ID204_6
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bottle_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_7
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bottle_001_S1_T1_M02_D.png
+newmtl Home_04_ID204_8
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bottle_001_S1_T1_M02_D.png
+newmtl Home_04_ID204_9
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_10
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_11
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_009_S1_T1_M02_D.png
+newmtl Home_04_ID204_12
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_007_S1_T1_M03_D.png
+newmtl Home_04_ID204_13
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_007_S1_T1_M02_D.png
+newmtl Home_04_ID204_14
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_008_S1_T1_M02_D.png
+newmtl Home_04_ID204_15
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_006_S1_T1_M01_D.png
+newmtl Home_04_ID204_16
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_009_S1_T1_M01_D.png
+newmtl Home_04_ID204_17
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/Apple_k7nzrr_a.png
+newmtl Home_04_ID204_18
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/Apple_k7nzrr_a.png
+newmtl Home_04_ID204_19
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/Apple_k7nzrr_a.png
+newmtl Home_04_ID204_20
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/Apple_k7nzrr_a.png
+newmtl Home_04_ID204_21
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Book_004_S1_T1_M03_D.png
+newmtl Home_04_ID204_22
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_PlasticBox_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_23
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_005_S1_T1_M01_D.png
+newmtl Home_04_ID204_24
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00211_01_T01A_D.png
+newmtl Home_04_ID204_25
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00211_01_T01A_D.png
+newmtl Home_04_ID204_26
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MetalBarrel_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_27
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_OfficeSupplies_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_28
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_007_S1_T1_M02_D.png
+newmtl Home_04_ID204_29
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Tool_002_S1_T1_M01_D.png
+newmtl Home_04_ID204_30
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Tool_002_S1_T1_M01_D.png
+newmtl Home_04_ID204_31
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_32
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_007_S1_T1_M02_D.png
+newmtl Home_04_ID204_33
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_007_S1_T1_M02_D.png
+newmtl Home_04_ID204_34
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_007_S1_T1_M02_D.png
+newmtl Home_04_ID204_35
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_007_S1_T1_M02_D.png
+newmtl Home_04_ID204_36
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_007_S1_T1_M03_D.png
+newmtl Home_04_ID204_37
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_007_S1_T1_M03_D.png
+newmtl Home_04_ID204_38
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_007_S1_T1_M03_D.png
+newmtl Home_04_ID204_39
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_009_S1_T1_M03_D.png
+newmtl Home_04_ID204_40
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_009_S1_T1_M03_D.png
+newmtl Home_04_ID204_41
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_42
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_43
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_44
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_45
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_46
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_47
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_48
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_49
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_50
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_008_S1_T1_M02_D.png
+newmtl Home_04_ID204_51
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_008_S1_T1_M02_D.png
+newmtl Home_04_ID204_52
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_008_S1_T1_M02_D.png
+newmtl Home_04_ID204_53
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_008_S1_T1_M01_D.png
+newmtl Home_04_ID204_54
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_008_S1_T1_M01_D.png
+newmtl Home_04_ID204_55
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_008_S1_T1_M03_D.png
+newmtl Home_04_ID204_56
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_57
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Pillow_001_S1_T1_M02_D.png
+newmtl Home_04_ID204_58
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_PlasticBox_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_59
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SleepingBag_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_60
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SprayCan_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_61
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SprayCan_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_62
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SprayCan_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_63
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SprayCan_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_64
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SprayCan_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_65
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SprayCan_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_66
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Tool_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_67
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Tool_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_68
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Tool_002_S1_T1_M01_D.png
+newmtl Home_04_ID204_69
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Tool_004_S1_T1_M01_D.png
+newmtl Home_04_ID204_70
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WaterPipe_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_71
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bucket_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_72
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toiletry_002_S1_T1_M04_D.png
+newmtl Home_04_ID204_73
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toiletry_002_S1_T1_M04_D.png
+newmtl Home_04_ID204_74
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toiletry_004_S1_T1_M01_D.png
+newmtl Home_04_ID204_75
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toiletry_004_S1_T1_M01_D.png
+newmtl Home_04_ID204_76
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toiletry_004_S1_T1_M01_D.png
+newmtl Home_04_ID204_77
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_007_S1_T1_M02_D.png
+newmtl Home_04_ID204_78
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_002_S1_T1_M01_D.png
+newmtl Home_04_ID204_79
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_002_S1_T1_M03_D.png
+newmtl Home_04_ID204_80
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_002_S1_T1_M03_D.png
+newmtl Home_04_ID204_81
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_InsulationBox_001_S1_T1_M04_D.png
+newmtl Home_04_ID204_82
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_InsulationBox_001_S1_T1_M04_D.png
+newmtl Home_04_ID204_83
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_004_S1_T1_M02_D.png
+newmtl Home_04_ID204_84
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00215_P01_T01A_DA.png
+newmtl Home_04_ID204_85
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00215_P01_T01A_DA.png
+newmtl Home_04_ID204_86
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00215_P01_T01A_DA.png
+newmtl Home_04_ID204_87
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_88
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_89
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_90
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_91
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_92
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_93
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_94
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_95
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_96
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_97
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_98
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_99
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_100
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_101
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_102
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_103
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_104
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_105
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_106
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_107
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_108
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_109
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_110
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_111
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_112
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_113
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M03_DA.png
+newmtl Home_04_ID204_114
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_115
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M03_DA.png
+newmtl Home_04_ID204_116
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_117
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M03_DA.png
+newmtl Home_04_ID204_118
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_119
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M02_DA.png
+newmtl Home_04_ID204_120
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_121
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M02_DA.png
+newmtl Home_04_ID204_122
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_123
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M02_DA.png
+newmtl Home_04_ID204_124
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_125
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M02_DA.png
+newmtl Home_04_ID204_126
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_127
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M02_DA.png
+newmtl Home_04_ID204_128
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_129
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_130
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_131
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_132
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_133
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_134
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_135
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_136
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_137
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_138
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_139
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_140
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_141
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_142
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_143
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_144
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_145
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicineBottle_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_146
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_MedicalDevices_011_S1_T1_M01_D.png
+newmtl Home_04_ID204_147
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_148
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_149
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_150
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_151
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_152
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_153
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_154
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_155
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_156
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_157
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_158
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_159
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_160
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_161
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_162
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_163
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_164
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_165
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_166
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_167
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_168
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_169
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_170
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_171
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_172
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_173
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_174
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_175
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_176
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_177
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_178
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_179
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_180
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_181
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_182
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_183
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_184
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_185
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_186
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_187
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_188
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_189
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_190
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_191
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_192
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_193
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_194
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_195
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_196
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_197
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_198
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_199
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_200
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_201
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_002_S1_T1_M03_D.png
+newmtl Home_04_ID204_202
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_002_S1_T1_M03_D.png
+newmtl Home_04_ID204_203
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_009_S1_T1_M03_D.png
+newmtl Home_04_ID204_204
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_009_S1_T1_M01_D.png
+newmtl Home_04_ID204_205
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_004_S1_T1_M03_D.png
+newmtl Home_04_ID204_206
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_003_S1_T1_M01_DA.png
+newmtl Home_04_ID204_207
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_003_S1_T1_M01_DA.png
+newmtl Home_04_ID204_208
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_003_S1_T1_M01_DA.png
+newmtl Home_04_ID204_209
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_003_S1_T1_M01_DA.png
+newmtl Home_04_ID204_210
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_003_S1_T1_M01_DA.png
+newmtl Home_04_ID204_211
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_003_S1_T1_M01_DA.png
+newmtl Home_04_ID204_212
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_011_S1_T1_M01_DA.png
+newmtl Home_04_ID204_213
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_009_S1_T1_M01_D.png
+newmtl Home_04_ID204_214
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_215
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_002_S1_T1_M02_D.png
+newmtl Home_04_ID204_216
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_002_S1_T1_M02_D.png
+newmtl Home_04_ID204_217
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_218
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_OilBarrel_002_S1_T1_M03_D.png
+newmtl Home_04_ID204_219
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_OilBarrel_002_S1_T1_M03_D.png
+newmtl Home_04_ID204_220
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_OilBarrel_002_S1_T1_M03_D.png
+newmtl Home_04_ID204_221
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_OilBarrel_002_S1_T1_M02_D.png
+newmtl Home_04_ID204_222
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_223
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_OilBarrel_002_S1_T1_M03_D.png
+newmtl Home_04_ID204_224
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_OilBarrel_002_S1_T1_M03_D.png
+newmtl Home_04_ID204_225
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_OilBarrel_002_S1_T1_M05_D.png
+newmtl Home_04_ID204_226
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_OilBarrel_002_S1_T1_M05_D.png
+newmtl Home_04_ID204_227
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_OilBarrel_002_S1_T1_M05_D.png
+newmtl Home_04_ID204_228
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_006_S1_T1_M01_D.png
+newmtl Home_04_ID204_229
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_006_S1_T1_M01_D.png
+newmtl Home_04_ID204_230
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_006_S1_T1_M01_D.png
+newmtl Home_04_ID204_231
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_006_S1_T1_M01_D.png
+newmtl Home_04_ID204_232
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_002_S1_T1_M03_D.png
+newmtl Home_04_ID204_233
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_002_S1_T1_M03_D.png
+newmtl Home_04_ID204_234
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_001_S1_T1_M02_D.png
+newmtl Home_04_ID204_235
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_001_S1_T1_M02_D.png
+newmtl Home_04_ID204_236
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_237
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_238
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_005_S1_T1_M01_D.png
+newmtl Home_04_ID204_239
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SleepingBag_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_240
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WaterBucket_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_241
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toiletry_004_S1_T1_M01_D.png
+newmtl Home_04_ID204_242
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_InsulationBox_001_S1_T1_M04_D.png
+newmtl Home_04_ID204_243
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_InsulationBox_001_S1_T1_M04_D.png
+newmtl Home_04_ID204_244
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_245
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_246
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_247
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_009_S1_T1_M01_D.png
+newmtl Home_04_ID204_248
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_249
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_002_S1_T1_M02_D.png
+newmtl Home_04_ID204_250
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_002_S1_T1_M02_D.png
+newmtl Home_04_ID204_251
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_252
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_253
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_254
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_255
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_256
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_257
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_258
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_259
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_260
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_261
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_262
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_263
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_264
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_265
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_266
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_267
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_268
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M03_D.png
+newmtl Home_04_ID204_269
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_270
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_271
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_272
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_003_S1_T1_M01_DA.png
+newmtl Home_04_ID204_273
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_003_S1_T1_M01_DA.png
+newmtl Home_04_ID204_274
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_011_S1_T1_M01_DA.png
+newmtl Home_04_ID204_275
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_002_S1_T1_M02_D.png
+newmtl Home_04_ID204_276
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_002_S1_T1_M02_D.png
+newmtl Home_04_ID204_277
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_002_S1_T1_M02_D.png
+newmtl Home_04_ID204_278
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_009_S1_T1_M03_D.png
+newmtl Home_04_ID204_279
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WaterBucket_001_S1_T1_M01_DA.png
+newmtl Home_04_ID204_280
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_007_S1_T1_M02_D.png
+newmtl Home_04_ID204_281
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Tool_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_282
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Tool_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_283
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Tool_002_S1_T1_M01_D.png
+newmtl Home_04_ID204_284
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Tool_004_S1_T1_M01_D.png
+newmtl Home_04_ID204_285
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_286
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_287
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_288
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_289
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_290
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_291
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_292
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_293
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_009_S1_T1_M01_D.png
+newmtl Home_04_ID204_294
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_295
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_296
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_297
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_298
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_299
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_300
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_301
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_302
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_303
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_304
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_305
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_306
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_009_S1_T1_M03_D.png
+newmtl Home_04_ID204_307
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_009_S1_T1_M03_D.png
+newmtl Home_04_ID204_308
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_009_S1_T1_M03_D.png
+newmtl Home_04_ID204_309
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_009_S1_T1_M03_D.png
+newmtl Home_04_ID204_310
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Tool_003_S1_T1_M01_D.png
+newmtl Home_04_ID204_311
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Tool_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_312
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Tool_002_S1_T1_M01_D.png
+newmtl Home_04_ID204_313
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Toolbox_007_S1_T1_M02_D.png
+newmtl Home_04_ID204_314
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_315
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_316
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_317
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_318
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_319
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_320
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_321
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_014_S1_T1_M03_DA.png
+newmtl Home_04_ID204_322
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_323
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_324
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M01_D.png
+newmtl Home_04_ID204_325
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_003_S1_T1_M01_DA.png
+newmtl Home_04_ID204_326
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_003_S1_T1_M01_DA.png
+newmtl Home_04_ID204_327
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_009_S1_T1_M01_D.png
+newmtl Home_04_ID204_328
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_OilBarrel_002_S1_T1_M03_D.png
+newmtl Home_04_ID204_329
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_OfficeSupplies_005_S1_T1_M01_D.png
+newmtl Home_04_ID204_330
+Kd 0.750 0.750 0.750
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_331
+Kd 0.958 0.958 0.958
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Newspaper_005_S1_T1_M01_D.png
+newmtl Home_04_ID204_332
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_333
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_334
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_335
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Ingredient_00214_P01_T01A_DA.png
+newmtl Home_04_ID204_336
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_009_S1_T1_M01_D.png
+newmtl Home_04_ID204_337
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_OfficeSupplies_005_S1_T1_M01_D.png
+newmtl Home_04_ID204_338
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_003_S1_T1_M01_DA.png
+newmtl Home_04_ID204_339
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_340
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Snack_010_S1_T1_M02_D.png
+newmtl Home_04_ID204_341
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Newspaper_004_S1_T1_M01_D.png
+newmtl Home_04_ID204_342
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Paperbox_005_S1_T1_M01_D.png
+newmtl Home_04_ID204_343
+Kd 0.958 0.958 0.958
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Newspaper_005_S1_T1_M01_D.png
+newmtl Home_04_ID204_344
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Can_002_S1_T1_M01_D.png
+newmtl Home_04_ID204_345
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Newspaper_004_S1_T1_M01_D.png
+newmtl Home_04_ID204_346
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_OfficeSupplies_005_S1_T1_M01_D.png
+newmtl Home_04_ID204_347
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Can_001_S1_T1_M01_D.png
+newmtl Home_04_ID204_348
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Shelf_013_S1_T1_M01_D.png
