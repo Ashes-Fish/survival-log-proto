@@ -1,0 +1,203 @@
+newmtl P_FishTank_0
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/cgaxis_models_24_15_01_bump.png
+newmtl P_FishTank_1
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/cgaxis_models_24_15_01.png
+newmtl P_FishTank_2
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/boli.png
+newmtl P_FishTank_3
+Kd 0.119 0.119 0.119
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+newmtl P_FishTank_4
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/cgaxis_models_24_15_06_D.png
+newmtl P_FishTank_5
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/cgaxis_models_24_15_06_D.png
+newmtl P_FishTank_6
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/cgaxis_models_24_15_06_D.png
+newmtl P_FishTank_7
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/cgaxis_models_24_15_06_D.png
+newmtl P_FishTank_8
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Cabinet_017_S1_T1_M01_X512_D.png
+newmtl P_FishTank_9
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_10
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_11
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_12
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_13
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_14
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_15
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_16
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_17
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_18
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_19
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_20
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_21
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_22
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_23
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_24
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_SaFlower_001_S1_T1_M01_DA.png
+newmtl P_FishTank_25
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Plant_009_S1_T1_M01_DA.png
+newmtl P_FishTank_26
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Plant_009_S1_T1_M01_DA.png
+newmtl P_FishTank_27
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Plant_004_S1_T1_M01_DA.png
+newmtl P_FishTank_28
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Plant_004_S1_T1_M01_DA.png
+newmtl P_FishTank_29
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Plant_004_S1_T1_M01_DA.png
+newmtl P_FishTank_30
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Plant_008_S1_T1_M01_DA.png
+newmtl P_FishTank_31
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Plant_006_S1_T1_M01_DA.png
+newmtl P_FishTank_32
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Plant_006_S1_T1_M01_DA.png
+newmtl P_FishTank_33
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Plant_005_S1_T1_M01_DA.png

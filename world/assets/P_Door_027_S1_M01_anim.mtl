@@ -1,0 +1,108 @@
+newmtl P_Door_027_S1_M01_anim_0
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WoodDoorA_D.png
+newmtl P_Door_027_S1_M01_anim_1
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Door_027_S1_T1_M01_Dposun2.png
+newmtl P_Door_027_S1_M01_anim_2
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Door_027_S1_T1_M01_Dposun2.png
+newmtl P_Door_027_S1_M01_anim_3
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Door_027_S1_T1_M01_Dposun.png
+newmtl P_Door_027_S1_M01_anim_4
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Door_027_S1_T1_M01_Dposun.png
+newmtl P_Door_027_S1_M01_anim_5
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Door_027_S1_T1_M01_D.png
+newmtl P_Door_027_S1_M01_anim_6
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Door_027_S1_T1_M01_D.png
+newmtl P_Door_027_S1_M01_anim_7
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Door_027_S1_M01_anim_8
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Door_027_S1_M01_anim_9
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Door_027_S1_M01_anim_10
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Door_027_S1_M01_anim_11
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Door_027_S1_M01_anim_12
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Door_027_S1_M01_anim_13
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Door_027_S1_M01_anim_14
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Door_027_S1_M01_anim_15
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Door_027_S1_M01_anim_16
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png
+newmtl P_Door_027_S1_M01_anim_17
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Herb_00205_01_T01A_D.png

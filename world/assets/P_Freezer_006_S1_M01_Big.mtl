@@ -1,0 +1,1062 @@
+newmtl P_Freezer_006_S1_M01_Big_0
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_006_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_1
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Freezer_006_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_2
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/Carrot_i2roww_a.png
+newmtl P_Freezer_006_S1_M01_Big_3
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/Carrot_i2roww_a.png
+newmtl P_Freezer_006_S1_M01_Big_4
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/Carrot_i2roww_a.png
+newmtl P_Freezer_006_S1_M01_Big_5
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/Grapefruit_mrfrpw_a.png
+newmtl P_Freezer_006_S1_M01_Big_6
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/Pumpkin_hjtgsa_a.png
+newmtl P_Freezer_006_S1_M01_Big_7
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/Zucchini_z21819_a.png
+newmtl P_Freezer_006_S1_M01_Big_8
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_9
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_10
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_11
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_12
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_13
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_14
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_15
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_16
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_17
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_18
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_19
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_20
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_21
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_22
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_23
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_24
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_25
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_26
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_27
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_28
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_29
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_30
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_31
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_32
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_33
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_34
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_35
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_36
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_37
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_38
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_39
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_40
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_41
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_42
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_43
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_44
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_45
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_46
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_47
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_48
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_008_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_49
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_021_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_50
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_015_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_51
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_015_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_52
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_015_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_53
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_015_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_54
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_015_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_55
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_015_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_56
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_015_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_57
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_015_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_58
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_015_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_59
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_015_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_60
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_014_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_61
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_014_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_62
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_014_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_63
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_014_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_64
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_014_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_65
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_014_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_66
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_014_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_67
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_014_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_68
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_014_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_69
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_014_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_70
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_013_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_71
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_013_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_72
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M02_DA.png
+newmtl P_Freezer_006_S1_M01_Big_73
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M02_DA.png
+newmtl P_Freezer_006_S1_M01_Big_74
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M02_DA.png
+newmtl P_Freezer_006_S1_M01_Big_75
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_76
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_77
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_78
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M02_DA.png
+newmtl P_Freezer_006_S1_M01_Big_79
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M02_DA.png
+newmtl P_Freezer_006_S1_M01_Big_80
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M02_DA.png
+newmtl P_Freezer_006_S1_M01_Big_81
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_82
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_83
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_84
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_012_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_85
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_86
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_019_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_87
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M02_DA.png
+newmtl P_Freezer_006_S1_M01_Big_88
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_89
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M02_DA.png
+newmtl P_Freezer_006_S1_M01_Big_90
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_91
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M02_DA.png
+newmtl P_Freezer_006_S1_M01_Big_92
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_93
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M02_DA.png
+newmtl P_Freezer_006_S1_M01_Big_94
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_002_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_95
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_004_S1_T1_M03_DA.png
+newmtl P_Freezer_006_S1_M01_Big_96
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_004_S1_T1_M03_DA.png
+newmtl P_Freezer_006_S1_M01_Big_97
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_004_S1_T1_M03_DA.png
+newmtl P_Freezer_006_S1_M01_Big_98
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_004_S1_T1_M03_DA.png
+newmtl P_Freezer_006_S1_M01_Big_99
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_004_S1_T1_M03_DA.png
+newmtl P_Freezer_006_S1_M01_Big_100
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_004_S1_T1_M03_DA.png
+newmtl P_Freezer_006_S1_M01_Big_101
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_004_S1_T1_M03_DA.png
+newmtl P_Freezer_006_S1_M01_Big_102
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_004_S1_T1_M03_DA.png
+newmtl P_Freezer_006_S1_M01_Big_103
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_022_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_104
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_022_S1_T1_M01_DA.png
+newmtl P_Freezer_006_S1_M01_Big_105
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_106
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_107
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_108
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_109
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_110
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_111
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_112
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_113
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_114
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_115
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_116
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_117
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_118
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_119
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_120
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bottle_003_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_121
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bottle_003_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_122
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_123
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_124
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_125
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_126
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_127
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_128
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_129
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_130
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_003_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_131
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_013_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_132
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_018_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_133
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_134
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_135
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_136
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_137
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_138
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_139
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_140
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_141
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_142
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_143
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_144
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_145
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_146
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_147
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_148
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bottle_003_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_149
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bottle_003_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_150
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_151
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_152
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_153
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_154
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_155
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_156
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_157
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_158
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_003_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_159
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_013_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_160
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Food_018_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_161
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_162
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_163
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_009_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_164
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_165
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_166
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_167
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_168
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_002_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_169
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bottle_003_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_170
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bottle_003_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_171
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_172
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_173
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_003_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_174
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_175
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_010_S1_T1_M01_D.png
+newmtl P_Freezer_006_S1_M01_Big_176
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Drink_003_S1_T1_M01_D.png

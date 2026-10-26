@@ -1,0 +1,135 @@
+newmtl P_Furniture_00118_0
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Furniture_00118_01_T01A_D.png
+newmtl P_Furniture_00118_1
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bottle_002_S1_T1_M01_D.png
+newmtl P_Furniture_00118_2
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bottle_002_S1_T1_M01_D.png
+newmtl P_Furniture_00118_3
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bottle_002_S1_T1_M01_D.png
+newmtl P_Furniture_00118_4
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_Bottle_002_S1_T1_M01_D.png
+newmtl P_Furniture_00118_5
+Kd 0.582 0.654 0.656
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+newmtl P_Furniture_00118_6
+Kd 0.582 0.654 0.656
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+newmtl P_Furniture_00118_7
+Kd 0.582 0.654 0.656
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+newmtl P_Furniture_00118_8
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WineBottle_D.png
+newmtl P_Furniture_00118_9
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WineBottle_D.png
+newmtl P_Furniture_00118_10
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WineBottle_D.png
+newmtl P_Furniture_00118_11
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WineBottle_D.png
+newmtl P_Furniture_00118_12
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WineBottle_D.png
+newmtl P_Furniture_00118_13
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WineBottle_D.png
+newmtl P_Furniture_00118_14
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WineBottle_D.png
+newmtl P_Furniture_00118_15
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WineBottle_D.png
+newmtl P_Furniture_00118_16
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WineBottle_D.png
+newmtl P_Furniture_00118_17
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WineBottle_D.png
+newmtl P_Furniture_00118_18
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WineBottle_D.png
+newmtl P_Furniture_00118_19
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WineBottle_D.png
+newmtl P_Furniture_00118_20
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WineBottle_D.png
+newmtl P_Furniture_00118_21
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WineBottle_D.png
+newmtl P_Furniture_00118_22
+Kd 1.000 1.000 1.000
+Ka 0.2 0.2 0.2
+Ks 0.05 0.05 0.05
+Ns 20
+map_Kd ./tex/T_WineBottle_D.png
